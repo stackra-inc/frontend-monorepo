@@ -1,7 +1,7 @@
 {
   "name": "@pixielity/typescript-config",
   "version": "0.1.0",
-  "description": "Shared TypeScript configuration for the frontend-monorepo.",
+  "description": "Shared TypeScript configuration for the Pixielity frontend monorepo.",
   "private": true,
   "homepage": "https://github.com/pixielity-inc/frontend-monorepo/tree/main/packages/typescript-config",
   "repository": {
@@ -10,16 +10,30 @@
     "directory": "packages/typescript-config"
   },
   "license": "MIT",
-  "keywords": ["typescript", "tsconfig"],
+  "keywords": [
+    "typescript",
+    "tsconfig"
+  ],
   "exports": {
-    "./base":           "./base.json",
-    "./nextjs":         "./nextjs.json",
-    "./react-library":  "./react-library.json"
+    "./base": "./base.json",
+    "./nextjs": "./nextjs.json",
+    "./react-library": "./react-library.json"
   },
   "scripts": {
-    "clean": "rm -rf .turbo"
+    "build": "echo 'No build step for typescript-config'",
+    "clean": "rm -rf .turbo",
+    "upgrade": "pnpm update --latest"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=18",
+    "pnpm": ">=10"
+  },
+  "author": {
+    "name": "Pixielity Team",
+    "email": "dev@pixielity.com",
+    "url": "https://pixielity.com"
+  },
+  "bugs": {
+    "url": "https://github.com/pixielity-inc/frontend-monorepo/issues"
   }
 }

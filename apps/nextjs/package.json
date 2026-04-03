@@ -1,13 +1,20 @@
 {
   "name": "@pixielity/nextjs",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "type": "module",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint --fix"
+    "lint": "eslint --fix",
+    "lint:fix": "eslint . --fix",
+    "check-types": "tsc --noEmit",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "clean": "rm -rf .next out",
+    "clean:all": "rm -rf .next out node_modules",
+    "upgrade": "pnpm update --latest"
   },
   "dependencies": {
     "@heroui/react": "3.0.1",
@@ -46,5 +53,25 @@
     "tailwind-variants": "3.2.2",
     "tailwindcss": "4.1.11",
     "typescript": "5.6.3"
+  },
+  "description": "Pixielity Next.js application — HeroUI starter.",
+  "homepage": "https://github.com/pixielity-inc/frontend-monorepo/tree/main/apps/nextjs",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pixielity-inc/frontend-monorepo.git",
+    "directory": "apps/nextjs"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Pixielity Team",
+    "email": "dev@pixielity.com",
+    "url": "https://pixielity.com"
+  },
+  "bugs": {
+    "url": "https://github.com/pixielity-inc/frontend-monorepo/issues"
+  },
+  "engines": {
+    "node": ">=18",
+    "pnpm": ">=10"
   }
 }

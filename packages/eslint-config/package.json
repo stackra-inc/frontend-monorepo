@@ -1,7 +1,7 @@
 {
   "name": "@pixielity/eslint-config",
   "version": "0.1.0",
-  "description": "Shared ESLint configuration for the frontend-monorepo.",
+  "description": "Shared ESLint configuration for the Pixielity frontend monorepo.",
   "private": true,
   "type": "module",
   "homepage": "https://github.com/pixielity-inc/frontend-monorepo/tree/main/packages/eslint-config",
@@ -11,15 +11,21 @@
     "directory": "packages/eslint-config"
   },
   "license": "MIT",
-  "keywords": ["eslint", "eslint-config", "linting"],
+  "keywords": [
+    "eslint",
+    "eslint-config",
+    "linting"
+  ],
   "exports": {
-    "./base":            "./base.js",
-    "./next-js":         "./next.js",
-    "./react-internal":  "./react-internal.js"
+    "./base": "./base.js",
+    "./next-js": "./next.js",
+    "./react-internal": "./react-internal.js"
   },
   "scripts": {
-    "lint":  "eslint . --max-warnings 0",
-    "clean": "rm -rf .turbo"
+    "build": "echo 'No build step for eslint-config'",
+    "lint": "eslint . --max-warnings 0",
+    "clean": "rm -rf .turbo",
+    "upgrade": "pnpm update --latest"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
@@ -35,6 +41,15 @@
     "typescript-eslint": "^8.50.0"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=18",
+    "pnpm": ">=10"
+  },
+  "author": {
+    "name": "Pixielity Team",
+    "email": "dev@pixielity.com",
+    "url": "https://pixielity.com"
+  },
+  "bugs": {
+    "url": "https://github.com/pixielity-inc/frontend-monorepo/issues"
   }
 }

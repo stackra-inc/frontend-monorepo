@@ -1,13 +1,21 @@
 {
   "name": "@pixielity/vite",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "preview": "vite preview",
+    "start": "vite preview",
     "lint": "eslint --fix",
-    "preview": "vite preview"
+    "lint:fix": "eslint . --fix",
+    "check-types": "tsc --noEmit",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "clean": "rm -rf dist",
+    "clean:all": "rm -rf dist node_modules",
+    "upgrade": "pnpm update --latest"
   },
   "dependencies": {
     "@heroui/react": "3.0.1",
@@ -46,5 +54,25 @@
     "typescript": "5.6.3",
     "vite": "6.0.11",
     "vite-tsconfig-paths": "5.1.4"
+  },
+  "description": "Pixielity Vite application — HeroUI starter.",
+  "homepage": "https://github.com/pixielity-inc/frontend-monorepo/tree/main/apps/vite",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pixielity-inc/frontend-monorepo.git",
+    "directory": "apps/vite"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Pixielity Team",
+    "email": "dev@pixielity.com",
+    "url": "https://pixielity.com"
+  },
+  "bugs": {
+    "url": "https://github.com/pixielity-inc/frontend-monorepo/issues"
+  },
+  "engines": {
+    "node": ">=18",
+    "pnpm": ">=10"
   }
 }

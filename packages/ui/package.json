@@ -1,7 +1,7 @@
 {
   "name": "@pixielity/react-ui",
   "version": "0.1.0",
-  "description": "Shared React component library for the frontend-monorepo.",
+  "description": "Shared React component library for the Pixielity frontend monorepo.",
   "private": true,
   "type": "module",
   "homepage": "https://github.com/pixielity-inc/frontend-monorepo/tree/main/packages/ui",
@@ -11,19 +11,28 @@
     "directory": "packages/ui"
   },
   "license": "MIT",
-  "keywords": ["react", "ui", "components", "design-system"],
+  "keywords": [
+    "react",
+    "ui",
+    "components",
+    "design-system"
+  ],
   "sideEffects": false,
   "exports": {
     "./*": "./src/*.tsx"
   },
   "scripts": {
-    "build":            "tsc --build",
-    "dev":              "tsc --build --watch",
-    "lint":             "eslint . --max-warnings 0",
-    "lint:fix":         "eslint . --fix",
-    "check-types":      "tsc --noEmit",
-    "clean":            "rm -rf dist .turbo tsconfig.tsbuildinfo",
-    "generate:component":"turbo gen react-component"
+    "build": "tsc --build",
+    "dev": "tsc --build --watch",
+    "lint": "eslint . --max-warnings 0",
+    "lint:fix": "eslint . --fix",
+    "check-types": "tsc --noEmit",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "clean": "rm -rf dist .turbo tsconfig.tsbuildinfo",
+    "clean:all": "rm -rf dist .turbo tsconfig.tsbuildinfo node_modules",
+    "upgrade": "pnpm update --latest",
+    "generate:component": "turbo gen react-component"
   },
   "peerDependencies": {
     "react": "^19.0.0",
@@ -41,6 +50,15 @@
     "typescript": "5.9.2"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=18",
+    "pnpm": ">=10"
+  },
+  "author": {
+    "name": "Pixielity Team",
+    "email": "dev@pixielity.com",
+    "url": "https://pixielity.com"
+  },
+  "bugs": {
+    "url": "https://github.com/pixielity-inc/frontend-monorepo/issues"
   }
 }
