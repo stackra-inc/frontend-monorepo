@@ -1,5 +1,16 @@
 {
   "mcpServers": {
+    "tailwindcss-docs": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote",
+        "https://gitmcp.io/tailwindlabs/tailwindcss"
+      ],
+      "autoApprove": [
+        "search_tailwindcss_documentation"
+      ]
+    },
     "next-devtools": {
       "command": "npx",
       "args": ["-y", "next-devtools-mcp@latest"],
