@@ -1,0 +1,42 @@
+{
+  "name": "@repo/web",
+  "version": "0.1.0",
+  "description": "Main web application.",
+  "private": true,
+  "type": "module",
+  "homepage": "https://github.com/your-org/frontend-monorepo/tree/main/apps/web",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/your-org/frontend-monorepo.git",
+    "directory": "apps/web"
+  },
+  "license": "MIT",
+  "scripts": {
+    "dev":         "next dev --port 3000",
+    "build":       "next build",
+    "start":       "next start --port 3000",
+    "lint":        "eslint . --max-warnings 0",
+    "lint:fix":    "eslint . --fix",
+    "check-types": "next typegen && tsc --noEmit",
+    "clean":       "rm -rf .next out",
+    "analyze":     "ANALYZE=true next build"
+  },
+  "dependencies": {
+    "@repo/ui": "*",
+    "next": "16.2.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "*",
+    "@repo/typescript-config": "*",
+    "@types/node": "^22.15.3",
+    "@types/react": "19.2.2",
+    "@types/react-dom": "19.2.2",
+    "eslint": "^9.39.1",
+    "typescript": "5.9.2"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
