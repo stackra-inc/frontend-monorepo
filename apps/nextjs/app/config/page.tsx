@@ -105,7 +105,7 @@ export default function ConfigPage() {
 
   function handleLookup() {
     if (!customKey.trim()) return;
-    const val = config.getString(customKey.trim(), "(not set)");
+    const val = config.getString(customKey.trim(), "(not set)") ?? "(not set)";
     setCustomValue(val);
   }
 
