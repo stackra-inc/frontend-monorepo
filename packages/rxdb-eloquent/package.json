@@ -1,0 +1,119 @@
+{
+  "name": "@abdokouta/rxdb-eloquent",
+  "version": "1.2.1",
+  "description": "Laravel Eloquent-style TypeScript ORM built on RxDB — reactive, offline-first, with Supabase replication",
+  "license": "MIT",
+  "author": {
+    "name": "Abdelrhman Kouta",
+    "email": "abdelrhman@pixielity.com",
+    "url": "https://github.com/abdokouta"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pixielity-inc/rxdb-eloquent.git",
+    "directory": "packages/rxdb-eloquent"
+  },
+  "bugs": {
+    "url": "https://github.com/pixielity-inc/rxdb-eloquent/issues"
+  },
+  "homepage": "https://github.com/pixielity-inc/rxdb-eloquent#readme",
+  "keywords": [
+    "rxdb",
+    "eloquent",
+    "orm",
+    "typescript",
+    "reactive",
+    "offline-first",
+    "indexeddb",
+    "supabase",
+    "replication",
+    "laravel",
+    "model",
+    "query-builder",
+    "decorator",
+    "dependency-injection"
+  ],
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "config",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "clean": "rm -rf dist node_modules/.cache",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint . --max-warnings 0",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest run --passWithNoTests",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "prepublishOnly": "pnpm run build",
+    "release": "pnpm publish --access public --no-git-checks"
+  },
+  "dependencies": {
+    "rxdb": "^17.1.0",
+    "rxjs": "^7.8.2"
+  },
+  "peerDependencies": {
+    "@abdokouta/react-support": "^2.1.0",
+    "@abdokouta/ts-container": "^1.2.0",
+    "@supabase/supabase-js": "^2.0.0",
+    "@abdokouta/react-logger": "^1.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@abdokouta/ts-container": {
+      "optional": false
+    },
+    "@abdokouta/react-support": {
+      "optional": false
+    },
+    "@supabase/supabase-js": {
+      "optional": true
+    },
+    "@abdokouta/react-logger": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@nesvel/eslint-config": "^1.0.5",
+    "@nesvel/prettier-config": "^1.0.3",
+    "@nesvel/tsup-config": "^1.0.3",
+    "@nesvel/typescript-config": "^1.0.4",
+    "@supabase/supabase-js": "^2.102.0",
+    "@types/react": "^19.2.14",
+    "@vitest/ui": "^4.1.2",
+    "eslint": "10.2.0",
+    "fast-check": "^4.6.0",
+    "jsdom": "^29.0.1",
+    "prettier": "^3.8.1",
+    "tsup": "^8.5.1",
+    "typescript": "^6.0.2",
+    "typescript-eslint": "^8.58.0",
+    "vitest": "^4.1.2"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=9.0.0"
+  },
+  "sideEffects": false
+}
