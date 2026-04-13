@@ -10,7 +10,7 @@
  * The Console transporter outputs log entries to the browser console
  * or Node.js console, making it useful for development and debugging.
  *
- * @module @abdokouta/logger
+ * @module @abdokouta/react-logger
  * @category Tests
  */
 

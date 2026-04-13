@@ -12,13 +12,13 @@
  * application. It manages multiple named channels internally and provides
  * a unified API for logging throughout the application.
  *
- * @module @abdokouta/logger
+ * @module @abdokouta/react-logger
  * @category Tests
  */
 
 import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { LoggerService } from '@/services/logger.service';
-import type { LoggerModuleOptions } from '@/config/logger.config';
+import type { LoggerModuleOptions } from '@/interfaces/logger-module-options.interface';
 import type { LoggerInterface } from '@/interfaces/logger.interface';
 
 /**

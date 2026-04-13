@@ -22,43 +22,12 @@
 import { LogLevel } from '@/enums';
 import { JsonFormatter } from '@/formatters';
 import type { FormatterInterface, LogEntry, TransporterInterface } from '@/interfaces';
+import type { StorageTransporterOptions } from '@/interfaces/storage-transporter-options.interface';
 
 /**
- * Configuration options for the StorageTransporter.
+ * Default localStorage key for log storage.
+ * @private
  */
-export interface StorageTransporterOptions {
-  /**
-   * The localStorage key under which log entries are stored.
-   *
-   * @default "logger:entries"
-   */
-  key?: string;
-
-  /**
-   * Maximum number of entries to retain in storage.
-   * When the limit is exceeded, the oldest entries are discarded (FIFO).
-   *
-   * @default 100
-   */
-  maxEntries?: number;
-
-  /**
-   * The formatter to use for serializing log entries.
-   * Defaults to JsonFormatter if not provided.
-   */
-  formatter?: FormatterInterface;
-
-  /**
-   * The minimum log level to transport.
-   * Entries below this level are silently ignored.
-   *
-   * @default LogLevel.Debug
-   */
-  level?: LogLevel;
-}
-
-/**
-Default localStorage key for log storage. */
 const DEFAULT_STORAGE_KEY = 'logger:entries';
 
 /**

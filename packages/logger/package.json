@@ -1,6 +1,6 @@
 {
   "name": "@abdokouta/react-logger",
-  "version": "1.0.1",
+  "version": "1.1.2",
   "description": "Flexible logging system with multiple formatters and transporters for React",
   "license": "MIT",
   "author": {
@@ -10,13 +10,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/abdokouta/logger.git",
+    "url": "https://github.com/abdokouta/react-logger.git",
     "directory": "packages/logger"
   },
   "bugs": {
-    "url": "https://github.com/abdokouta/logger/issues"
+    "url": "https://github.com/abdokouta/react-logger/issues"
   },
-  "homepage": "https://github.com/abdokouta/logger#readme",
+  "homepage": "https://github.com/abdokouta/react-logger#readme",
   "keywords": [
     "react",
     "logger",
@@ -60,11 +60,15 @@
     "release": "pnpm publish --access public --no-git-checks"
   },
   "peerDependencies": {
-    "@abdokouta/react-di": "^2.0.0",
+    "@abdokouta/ts-container": "^1.2.0",
+    "@abdokouta/react-support": "^2.1.0",
     "react": "^18.0.0 || ^19.0.0"
   },
   "peerDependenciesMeta": {
-    "@abdokouta/react-di": {
+    "@abdokouta/ts-container": {
+      "optional": false
+    },
+    "@abdokouta/react-support": {
       "optional": false
     },
     "react": {
@@ -72,17 +76,19 @@
     }
   },
   "devDependencies": {
-    "@abdokouta/react-di": "^2.0.0",
+    "@abdokouta/react-support": "^2.1.0",
+    "@abdokouta/ts-container-react": "^1.2.1",
+    "@abdokouta/ts-container": "^1.2.1",
     "@eslint/js": "10.0.1",
     "@nesvel/eslint-config": "^1.0.5",
     "@nesvel/prettier-config": "^1.0.3",
     "@nesvel/tsup-config": "^1.0.3",
     "@nesvel/typescript-config": "^1.0.4",
-    "@types/node": "^25.5.0",
+    "@types/node": "^25.5.2",
     "@types/react": "^19.2.14",
     "@vitest/ui": "^4.1.2",
-    "eslint": "^10.1.0",
-    "eslint-plugin-turbo": "^2.9.1",
+    "eslint": "^10.2.0",
+    "eslint-plugin-turbo": "^2.9.4",
     "jsdom": "^29.0.1",
     "prettier": "^3.8.1",
     "react": "^19.2.4",

@@ -5,6 +5,6 @@
  *
  * @module formatters
  */
-export { PrettyFormatter, LEVEL_COLORS } from './pretty.formatter';
+export { PrettyFormatter } from './pretty.formatter';
 export { JsonFormatter } from './json.formatter';
 export { SimpleFormatter } from './simple.formatter';

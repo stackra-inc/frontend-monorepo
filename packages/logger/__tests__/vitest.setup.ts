@@ -1,5 +1,5 @@
 /**
- * @fileoverview Vitest setup file for @abdokouta/logger package
+ * @fileoverview Vitest setup file for @abdokouta/react-logger package
  *
  * This file configures the testing environment before running tests.
  *
@@ -9,19 +9,19 @@
  * - Test environment setup
  * - Container mocking for DI tests
  *
- * @module @abdokouta/logger
+ * @module @abdokouta/react-logger
  * @category Configuration
  */
 
 import { expect, beforeEach, afterEach, vi } from 'vitest';
 
 /**
- * Mock @abdokouta/react-di decorators
+ * Mock @abdokouta/ts-container decorators
  *
  * This ensures that Injectable and Inject decorators work in tests
  * without requiring the full DI container setup.
  */
-vi.mock('@abdokouta/react-di', () => ({
+vi.mock('@abdokouta/ts-container', () => ({
   Injectable: () => (target: any) => target,
   Inject: () => (target: any, propertyKey: string, parameterIndex: number) => {},
   Module: () => (target: any) => target,

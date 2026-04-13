@@ -1,7 +1,7 @@
 import { defineConfig } from 'tsup';
 
 /**
- * tsup Configuration for @abdokouta/logger Package
+ * tsup Configuration for @abdokouta/react-logger Package
  *
  * Builds the logger package with dual format output (ESM + CJS).
  * Provides a flexible logging system with multiple transporters
@@ -72,10 +72,10 @@ export default defineConfig({
   /**
    * External dependencies that should not be bundled.
    *
-   * - @abdokouta/react-di: DI system (peer dependency)
+   * - @abdokouta/ts-container: DI system (peer dependency)
    * - react: React library (optional peer dependency for hooks)
    */
-  external: ['@abdokouta/react-di', 'react'],
+  external: ['@abdokouta/ts-container', 'react'],
 
   /**
    * Disable code splitting for library builds.

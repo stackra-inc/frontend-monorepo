@@ -20,35 +20,29 @@
  * ```
  */
 import { LogLevel } from '@/enums';
-import { LEVEL_COLORS, PrettyFormatter } from '@/formatters';
+import { LEVEL_COLORS } from '@/constants/level-colors.constant';
+import { PrettyFormatter } from '@/formatters';
 import type { FormatterInterface, LogEntry, TransporterInterface } from '@/interfaces';
+import type { ConsoleTransporterOptions } from '@/interfaces/console-transporter-options.interface';
 
 /**
- * Configuration options for the ConsoleTransporter.
+ * ConsoleTransporter — delivers log entries to the browser console.
+ *
+ * Routes entries to the appropriate `console.*` method based on severity.
+ * When using `PrettyFormatter`, CSS styles are applied via `%c` placeholders.
+ * Context is passed as a separate expandable object in DevTools.
  */
-export interface ConsoleTransporterOptions {
-  /**
-   * The formatter to use for log entries.
-   * Defaults to PrettyFormatter if not provided.
-   */
-  formatter?: FormatterInterface;
-
-  /**
-   * The minimum log level to transport.
-   * Entries below this level are silently ignored.
-   *
-   * @default LogLevel.Debug
-   */
-  level?: LogLevel;
-}
-
 export class ConsoleTransporter implements TransporterInterface {
   /**
-The formatter used to convert log entries into output strings. */
+   * The formatter used to convert log entries into output strings.
+   * @private
+   */
   private _formatter: FormatterInterface;
 
   /**
-The minimum log level threshold for this transporter. */
+   * The minimum log level threshold for this transporter.
+   * @private
+   */
   private _level: LogLevel;
 
   /**
@@ -66,13 +60,14 @@ The minimum log level threshold for this transporter. */
    *
    * Routes the entry to the appropriate `console.*` method based on
    * the log level. When using the PrettyFormatter, CSS styles are
-   * applied via `%c` placeholders for colored output.
+   * applied via `%c` placeholders for colored output. Context is
+   * passed as a separate object argument so DevTools can expand it.
    *
    * Entries below the configured minimum level are silently skipped.
    *
    * @param entry - The log entry to output.
    */
-  transport(entry: LogEntry): void {
+  public transport(entry: LogEntry): void {
     // Skip entries below the minimum level threshold.
     if (entry.level < this._level) {
       return;
@@ -80,15 +75,24 @@ The minimum log level threshold for this transporter. */
 
     const formatted = this._formatter.format(entry);
     const method = this.resolveConsoleMethod(entry.level);
+    const hasContext = entry.context && Object.keys(entry.context).length > 0;
 
     // When using PrettyFormatter, apply CSS styles via %c placeholders.
     if (this._formatter instanceof PrettyFormatter) {
       const levelStyle = LEVEL_COLORS[entry.level];
       const resetStyle = 'color: inherit';
 
-      method(formatted, levelStyle, resetStyle);
+      if (hasContext) {
+        method(formatted, levelStyle, resetStyle, entry.context);
+      } else {
+        method(formatted, levelStyle, resetStyle);
+      }
     } else {
-      method(formatted);
+      if (hasContext) {
+        method(formatted, entry.context);
+      } else {
+        method(formatted);
+      }
     }
   }
 
@@ -97,7 +101,7 @@ The minimum log level threshold for this transporter. */
    *
    * @param formatter - The new formatter instance to use.
    */
-  setFormatter(formatter: FormatterInterface): void {
+  public setFormatter(formatter: FormatterInterface): void {
     this._formatter = formatter;
   }
 
@@ -106,7 +110,7 @@ The minimum log level threshold for this transporter. */
    *
    * @returns The active formatter instance.
    */
-  getFormatter(): FormatterInterface {
+  public getFormatter(): FormatterInterface {
     return this._formatter;
   }
 
@@ -115,7 +119,7 @@ The minimum log level threshold for this transporter. */
    *
    * @returns The current minimum LogLevel threshold.
    */
-  getLevel(): LogLevel {
+  public getLevel(): LogLevel {
     return this._level;
   }
 
@@ -124,7 +128,7 @@ The minimum log level threshold for this transporter. */
    *
    * @param level - The new minimum LogLevel threshold.
    */
-  setLevel(level: LogLevel): void {
+  public setLevel(level: LogLevel): void {
     this._level = level;
   }
 
@@ -136,6 +140,7 @@ The minimum log level threshold for this transporter. */
    *
    * @param level - The log level to resolve.
    * @returns The bound console method function.
+   * @private
    */
   private resolveConsoleMethod(level: LogLevel): (...args: unknown[]) => void {
     switch (level) {

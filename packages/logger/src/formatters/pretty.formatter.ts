@@ -23,6 +23,8 @@ import type { FormatterInterface, LogEntry } from '@/interfaces';
 /**
  * Mapping of log levels to their emoji prefix.
  * Provides instant visual identification of severity in console output.
+ *
+ * @private
  */
 const LEVEL_EMOJI: Record<LogLevel, string> = {
   [LogLevel.Debug]: '🐛',
@@ -35,6 +37,8 @@ const LEVEL_EMOJI: Record<LogLevel, string> = {
 /**
  * Mapping of log levels to their display label.
  * Used in the formatted output string between brackets.
+ *
+ * @private
  */
 const LEVEL_LABEL: Record<LogLevel, string> = {
   [LogLevel.Debug]: 'DEBUG',
@@ -42,19 +46,6 @@ const LEVEL_LABEL: Record<LogLevel, string> = {
   [LogLevel.Warn]: 'WARN',
   [LogLevel.Error]: 'ERROR',
   [LogLevel.Fatal]: 'FATAL',
-};
-
-/**
- * Mapping of log levels to CSS color strings for browser console styling.
- * These colors are applied via `%c` formatting in `console.log`.
- */
-export const LEVEL_COLORS: Record<LogLevel, string> = {
-  [LogLevel.Debug]: 'color: #8B8B8B',
-  [LogLevel.Info]: 'color: #2196F3',
-  [LogLevel.Warn]: 'color: #FF9800',
-  [LogLevel.Error]: 'color: #F44336',
-  [LogLevel.Fatal]:
-    'color: #FFFFFF; background: #F44336; font-weight: bold; padding: 1px 4px; border-radius: 2px',
 };
 
 export class PrettyFormatter implements FormatterInterface {
@@ -73,9 +64,8 @@ export class PrettyFormatter implements FormatterInterface {
     const emoji = LEVEL_EMOJI[entry.level];
     const label = LEVEL_LABEL[entry.level];
     const time = this.formatTimestamp(entry.timestamp);
-    const contextStr = this.formatContext(entry.context);
 
-    return `${emoji} %c[${label}]%c [${time}] ${entry.message}${contextStr}`;
+    return `${emoji} %c[${label}]%c [${time}] ${entry.message}`;
   }
 
   /**
@@ -98,24 +88,4 @@ export class PrettyFormatter implements FormatterInterface {
     }
   }
 
-  /**
-   * Serialize context data into a compact, readable string.
-   * Returns an empty string when context is empty to keep output clean.
-   *
-   * @param context - The context record to serialize.
-   * @returns A formatted context string or empty string.
-   */
-  private formatContext(context: Record<string, unknown>): string {
-    const keys = Object.keys(context);
-
-    if (keys.length === 0) {
-      return '';
-    }
-
-    try {
-      return ` ${JSON.stringify(context)}`;
-    } catch {
-      return ` [context serialization failed]`;
-    }
-  }
 }

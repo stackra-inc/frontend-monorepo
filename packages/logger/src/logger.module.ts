@@ -1,113 +1,52 @@
 /**
  * Logger Module
  *
- * Configures the logger system for dependency injection.
- * Provides LoggerService (NO manager) to the application.
+ * Registers:
+ * - `LOGGER_CONFIG` — raw config object
+ * - `LoggerManager` — created by DI so @Inject decorators fire
+ * - `LOGGER_MANAGER` — useExisting alias to LoggerManager
+ *
+ * Users inject LOGGER_MANAGER and call manager.channel() to get a LoggerService,
+ * or use the useLogger() hook which does this automatically.
  *
  * @module logger.module
  */
 
-import { Module, type DynamicModule } from '@abdokouta/react-di';
+import { Module, type DynamicModule, Global } from '@abdokouta/ts-container';
 
-import { LoggerService } from './services/logger.service';
-import { LOGGER_CONFIG } from './constants/tokens.constant';
-import type { LoggerModuleOptions } from './config/logger.config';
-import { SilentTransporter } from './transporters/silent.transporter';
+import type { LoggerModuleOptions } from './interfaces/logger-module-options.interface';
+import { LoggerManager } from './services/logger-manager.service';
+import { LOGGER_CONFIG, LOGGER_MANAGER } from './constants/tokens.constant';
 import { ConsoleTransporter } from './transporters/console.transporter';
+import { SilentTransporter } from './transporters/silent.transporter';
 import type { LoggerConfig } from './interfaces/logger-config.interface';
 
-/**
- * Logger module
- *
- * Provides LoggerService to the application via dependency injection.
- * The service handles channels internally (NO separate manager).
- *
- * @example
- * ```typescript
- * import { Module } from '@abdokouta/react-di';
- * import { LoggerModule, defineConfig } from '@abdokouta/logger';
- * import { ConsoleTransporter, StorageTransporter } from '@abdokouta/logger';
- * import { LogLevel } from '@abdokouta/logger';
- *
- * @Module({
- *   imports: [
- *     LoggerModule.forRoot(
- *       defineConfig({
- *         default: 'console',
- *         channels: {
- *           console: {
- *             transporters: [new ConsoleTransporter()],
- *             context: { app: 'my-app' },
- *           },
- *           storage: {
- *             transporters: [new StorageTransporter({ maxEntries: 500 })],
- *           },
- *           errors: {
- *             transporters: [
- *               new ConsoleTransporter({ level: LogLevel.Error }),
- *               new StorageTransporter({ key: 'error-logs' }),
- *             ],
- *           },
- *         },
- *       })
- *     ),
- *   ],
- * })
- * export class AppModule {}
- * ```
- *
- * @example
- * ```typescript
- * // Using logger in a service
- * import { Injectable, Inject } from '@abdokouta/react-di';
- * import { LoggerService } from '@abdokouta/logger';
- *
- * @Injectable()
- * export class UserService {
- *   constructor(
- *     @Inject(LoggerService) private logger: LoggerService
- *   ) {}
- *
- *   async createUser(data: UserData) {
- *     this.logger.info('Creating user', { email: data.email });
- *
- *     try {
- *       const user = await this.db.users.create(data);
- *       this.logger.info('User created', { userId: user.id });
- *       return user;
- *     } catch (error) {
- *       this.logger.error('Failed to create user', { error });
- *       throw error;
- *     }
- *   }
- *
- *   async auditAction(action: string) {
- *     // Use specific channel
- *     const auditLogger = this.logger.channel('audit');
- *     auditLogger.info('User action', { action });
- *   }
- * }
- * ```
- */
+@Global()
 @Module({})
 // biome-ignore lint/complexity/noStaticOnlyClass: Module pattern requires static methods
 export class LoggerModule {
   /**
-   * Configure the logger module
+   * Configure the logger module with runtime configuration.
    *
-   * @param config - Logger configuration (can be passed directly without defineConfig)
-   * @returns Dynamic module
+   * @param config - Logger configuration with named channels
+   * @returns DynamicModule with all logger providers
    *
    * @example
    * ```typescript
-   * LoggerModule.forRoot({
-   *   default: 'console',
-   *   channels: {
-   *     console: {
-   *       transporters: [new ConsoleTransporter()],
-   *     },
-   *   },
+   * @Module({
+   *   imports: [
+   *     LoggerModule.forRoot(
+   *       defineConfig({
+   *         default: 'console',
+   *         channels: {
+   *           console: { transporters: [new ConsoleTransporter()] },
+   *           silent: { transporters: [new SilentTransporter()] },
+   *         },
+   *       })
+   *     ),
+   *   ],
    * })
+   * class AppModule {}
    * ```
    */
   static forRoot(config: LoggerModuleOptions): DynamicModule {
@@ -115,41 +54,27 @@ export class LoggerModule {
 
     return {
       module: LoggerModule,
+      global: true,
       providers: [
-        {
-          provide: LOGGER_CONFIG,
-          useValue: processedConfig,
-          isGlobal: true,
-        },
-        {
-          provide: LoggerService,
-          useClass: LoggerService,
-          isGlobal: true,
-        },
+        { provide: LOGGER_CONFIG, useValue: processedConfig },
+        { provide: LoggerManager, useClass: LoggerManager },
+        { provide: LOGGER_MANAGER, useExisting: LoggerManager },
       ],
-      exports: [LoggerService, LOGGER_CONFIG],
+      exports: [LoggerManager, LOGGER_MANAGER, LOGGER_CONFIG],
     };
   }
 
   /**
-   * Process configuration to add default transporters if needed
-   *
-   * @param config - Raw configuration
-   * @returns Processed configuration with defaults
-   * @private
+   * Process configuration to add default transporters if needed.
    */
   private static processConfig(config: LoggerModuleOptions): LoggerModuleOptions {
     const processedChannels: Record<string, LoggerConfig> = {};
 
-    // Use for...in loop for better compatibility
     for (const name in config.channels) {
       if (Object.prototype.hasOwnProperty.call(config.channels, name)) {
         const channelConfig = config.channels[name];
-
-        // Skip if channelConfig is undefined
         if (!channelConfig) continue;
 
-        // If no transporters specified, add default based on channel name
         if (!channelConfig.transporters || channelConfig.transporters.length === 0) {
           if (name === 'silent') {
             processedChannels[name] = {

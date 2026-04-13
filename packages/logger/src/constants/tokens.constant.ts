@@ -2,7 +2,7 @@
  * Dependency Injection Tokens
  *
  * Defines DI tokens for the logger package.
- * Used with @abdokouta/react-di for dependency injection.
+ * Used with @abdokouta/ts-container for dependency injection.
  *
  * @module constants/tokens
  */
@@ -10,33 +10,14 @@
 /**
  * Logger configuration token
  *
- * Used to inject the logger configuration into the LoggerService.
- *
- * @example
- * ```typescript
- * @Injectable()
- * class LoggerService {
- *   constructor(
- *     @Inject(LOGGER_CONFIG) private config: LoggerModuleOptions
- *   ) {}
- * }
- * ```
+ * Used to inject the logger configuration into the LoggerManager.
  */
 export const LOGGER_CONFIG = Symbol.for('LOGGER_CONFIG');
 
 /**
- * Logger service token
+ * Logger manager token
  *
- * Used to inject the logger service into other services.
- *
- * @example
- * ```typescript
- * @Injectable()
- * class UserService {
- *   constructor(
- *     @Inject(LOGGER_SERVICE) private logger: LoggerService
- *   ) {}
- * }
- * ```
+ * Used to inject the LoggerManager via useExisting alias.
+ * Follows the same pattern as REDIS_MANAGER and CACHE_MANAGER.
  */
-export const LOGGER_SERVICE = Symbol.for('LOGGER_SERVICE');
+export const LOGGER_MANAGER = Symbol.for('LOGGER_MANAGER');

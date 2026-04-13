@@ -7,7 +7,7 @@
  * @module config/logger
  */
 
-import type { LoggerConfig } from '../interfaces/logger-config.interface';
+import type { LoggerConfig } from '@/interfaces/logger-config.interface';
 
 /**
  * Logger module options

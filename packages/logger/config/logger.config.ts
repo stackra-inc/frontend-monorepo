@@ -8,7 +8,7 @@
  *
  * @example
  * ```typescript
- * import loggerConfig from '@abdokouta/logger/config/logger.config';
+ * import loggerConfig from '@abdokouta/react-logger/config/logger.config';
  *
  * LoggerModule.forRoot(loggerConfig);
  * ```
@@ -20,7 +20,7 @@ import {
   SilentTransporter,
   ConsoleTransporter,
   StorageTransporter,
-} from '@abdokouta/logger';
+} from '@abdokouta/react-logger';
 
 /**
  * Logger configuration
@@ -46,7 +46,7 @@ const loggerConfig = defineConfig({
   | one of the channels defined in the "channels" configuration array.
   |
   */
-  default: process.env.LOG_CHANNEL || 'console',
+  default: import.meta.env.LOG_CHANNEL || 'console',
 
   /*
   |--------------------------------------------------------------------------
@@ -66,12 +66,12 @@ const loggerConfig = defineConfig({
     console: {
       transporters: [
         new ConsoleTransporter({
-          level: (process.env.LOG_LEVEL as unknown as LogLevel) || LogLevel.Debug,
+          level: (import.meta.env.LOG_LEVEL as unknown as LogLevel) || LogLevel.Debug,
         }),
       ],
       context: {
-        app: process.env.APP_NAME || 'refine-app',
-        env: process.env.NODE_ENV || 'development',
+        app: import.meta.env.APP_NAME || 'refine-app',
+        env: import.meta.env.NODE_ENV || 'development',
       },
     },
 
@@ -85,11 +85,11 @@ const loggerConfig = defineConfig({
       transporters: [
         new StorageTransporter({
           key: 'app-logs',
-          maxEntries: Number(process.env.LOG_STORAGE_MAX_ENTRIES) || 500,
+          maxEntries: Number(import.meta.env.LOG_STORAGE_MAX_ENTRIES) || 500,
         }),
       ],
       context: {
-        app: process.env.APP_NAME || 'refine-app',
+        app: import.meta.env.APP_NAME || 'refine-app',
       },
     },
 
@@ -110,8 +110,8 @@ const loggerConfig = defineConfig({
         }),
       ],
       context: {
-        app: process.env.APP_NAME || 'refine-app',
-        env: process.env.NODE_ENV || 'production',
+        app: import.meta.env.APP_NAME || 'refine-app',
+        env: import.meta.env.NODE_ENV || 'production',
       },
     },
 
@@ -132,7 +132,7 @@ const loggerConfig = defineConfig({
         }),
       ],
       context: {
-        app: process.env.APP_NAME || 'refine-app',
+        app: import.meta.env.APP_NAME || 'refine-app',
         channel: 'errors',
       },
     },
@@ -151,7 +151,7 @@ const loggerConfig = defineConfig({
         }),
       ],
       context: {
-        app: process.env.APP_NAME || 'refine-app',
+        app: import.meta.env.APP_NAME || 'refine-app',
         channel: 'audit',
       },
     },
