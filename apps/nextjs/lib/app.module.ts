@@ -2,9 +2,11 @@
  * @file app.module.ts
  * @description Root DI module for the Next.js application.
  *
- * Wires together the three core packages:
+ * Wires together the core packages:
  *   - @abdokouta/react-config  — environment-aware configuration
  *   - @abdokouta/react-logger  — structured logging with channels
+ *   - @abdokouta/react-redis   — Upstash Redis HTTP client
+ *   - @pixielity/events        — Laravel-style event dispatcher
  *   - @abdokouta/react-di      — NestJS-style dependency injection
  *
  * This module is bootstrapped once in the ContainerProvider and made
@@ -16,6 +18,8 @@ import "reflect-metadata";
 import { Module } from "@abdokouta/react-di";
 import { ConfigModule } from "@abdokouta/react-config";
 import { LoggerModule } from "@abdokouta/react-logger";
+import { EventsModule } from "@pixielity/events";
+import { RedisModule } from "@abdokouta/react-redis";
 
 /**
  * AppModule — root module of the application.
@@ -75,6 +79,65 @@ import { LoggerModule } from "@abdokouta/react-logger";
         silent: {
           level: "debug",
           transporters: [{ type: "silent" }],
+        },
+      },
+    }),
+
+    /**
+     * RedisModule — Upstash Redis HTTP client.
+     *
+     * Provides RedisService for browser-compatible Redis operations.
+     * Used by the events package for the Redis dispatcher (cross-tab/cross-process).
+     *
+     * Connections:
+     *   default — general-purpose Redis (cache, pub/sub, etc.)
+     *   events  — dedicated connection for the event dispatcher
+     *
+     * Reads Upstash credentials from NEXT_PUBLIC_ env vars so they're
+     * available in the browser bundle. These are safe to expose — Upstash
+     * REST tokens are scoped and rate-limited.
+     */
+    RedisModule.forRoot({
+      default: "default",
+      connections: {
+        default: {
+          url: process.env.NEXT_PUBLIC_UPSTASH_REDIS_REST_URL ?? "",
+          token: process.env.NEXT_PUBLIC_UPSTASH_REDIS_REST_TOKEN ?? "",
+        },
+        events: {
+          url: process.env.NEXT_PUBLIC_UPSTASH_REDIS_REST_URL ?? "",
+          token: process.env.NEXT_PUBLIC_UPSTASH_REDIS_REST_TOKEN ?? "",
+        },
+      },
+    }),
+
+    /**
+     * EventsModule — Laravel-style event dispatcher.
+     *
+     * Registers EventService globally with named dispatchers:
+     *   memory — in-memory (default, fast, local-only)
+     *   redis  — cross-process via Upstash Redis pub/sub
+     *   test   — null dispatcher (silences all dispatch)
+     *
+     * RedisService is injected automatically from RedisModule above.
+     */
+    EventsModule.forRoot({
+      default: "memory",
+      wildcards: true,
+      dispatchers: {
+        memory: {
+          driver: "memory",
+          wildcards: true,
+        },
+        redis: {
+          driver: "redis",
+          connection: "events",
+          prefix: "pixielity:events:",
+          wildcards: true,
+          pollingInterval: 2000,
+        },
+        test: {
+          driver: "null",
         },
       },
     }),

@@ -26,9 +26,12 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "@abdokouta/react-config": "workspace:*",
-    "@abdokouta/react-di": "workspace:*",
+    "@abdokouta/react-di": "*",
     "@abdokouta/react-logger": "workspace:*",
-    "reflect-metadata": "^0.2.2"
+    "@abdokouta/react-redis": "workspace:*",
+    "@pixielity/events": "workspace:*",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.1"
   },
   "devDependencies": {
     "@eslint/compat": "1.2.8",
