@@ -12,7 +12,7 @@ export default defineConfig({
   external: [
     '@abdokouta/ts-container',
     '@abdokouta/ts-container-react',
-    '@abdokouta/react-support',
+    '@abdokouta/ts-support',
     'react',
     '@upstash/redis',
   ],

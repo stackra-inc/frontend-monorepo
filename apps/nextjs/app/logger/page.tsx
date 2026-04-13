@@ -4,7 +4,7 @@
  * @file app/logger/page.tsx
  * @description Logger package showcase page.
  *
- * Demonstrates @abdokouta/react-logger:
+ * Demonstrates @abdokouta/ts-logger:
  *   - All log levels (debug, info, warn, error, fatal)
  *   - Contextual logging (withContext)
  *   - Multiple channels (app, json)
@@ -13,8 +13,8 @@
  */
 
 import React, { useState, useCallback } from "react";
-import { useLogger } from "@abdokouta/react-logger";
-import { LogLevel } from "@abdokouta/react-logger";
+import { useLogger } from "@abdokouta/ts-logger";
+import { LogLevel } from "@abdokouta/ts-logger";
 import { Card, Chip, Separator, Button } from "@heroui/react";
 
 import { title, subtitle } from "@/components/primitives";
@@ -148,7 +148,7 @@ export default function LoggerPage() {
       <div>
         <h1 className={title()}>Logger Package</h1>
         <p className={subtitle({ class: "mt-2" })}>
-          @abdokouta/react-logger — structured logging with channels and context
+          @abdokouta/ts-logger — structured logging with channels and context
         </p>
       </div>
 

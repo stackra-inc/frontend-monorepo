@@ -2,7 +2,7 @@
  * @file model.registry.ts
  * @description Central registry for all Model classes in the application.
  *
- * Extends `BaseRegistry` from `@abdokouta/react-support`. Implements
+ * Extends `BaseRegistry` from `@abdokouta/ts-support`. Implements
  * `OnModuleInit` so that when the DI container finishes bootstrapping,
  * all registered models are automatically booted:
  *
@@ -10,7 +10,7 @@
  * 2. Creates the corresponding RxDB collection on the Connection
  *
  * This follows the same pattern as `CacheManager.onModuleInit()` in
- * `@abdokouta/react-cache`.
+ * `@abdokouta/ts-cache`.
  *
  * @example
  * ```ts
@@ -20,7 +20,7 @@
  */
 
 import { Injectable, Inject, type OnModuleInit, type OnModuleDestroy } from '@abdokouta/ts-container';
-import { BaseRegistry } from '@abdokouta/react-support';
+import { BaseRegistry } from '@abdokouta/ts-support';
 import { ConnectionManager } from '../connection/connection.manager';
 import { SchemaResolver } from '../schema/schema.resolver';
 import { MetadataStorage } from '../metadata/metadata.storage';

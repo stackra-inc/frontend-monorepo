@@ -1,6 +1,6 @@
 /**
  * @fileoverview Services Index
- * @module @pixielity/events
+ * @module @abdokouta/ts-events
  */
 
 export { EventManager } from './event-manager.service';

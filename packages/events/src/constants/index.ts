@@ -1,6 +1,6 @@
 /**
  * @fileoverview Constants Index
- * @module @pixielity/events
+ * @module @abdokouta/ts-events
  */
 
 export {

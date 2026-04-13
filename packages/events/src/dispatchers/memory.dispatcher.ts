@@ -16,7 +16,7 @@
  * | - Development and testing
  * | - When cross-process event sharing is not needed
  * |
- * @module @pixielity/events
+ * @module @abdokouta/ts-events
  * @category Dispatchers
  *
  * @example

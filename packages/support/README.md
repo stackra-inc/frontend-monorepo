@@ -1,17 +1,17 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/pixielity-inc/react-support/main/assets/banner.svg" alt="@abdokouta/react-support" width="100%" />
+  <img src="https://raw.githubusercontent.com/pixielity-inc/react-support/main/assets/banner.svg" alt="@abdokouta/ts-support" width="100%" />
 </p>
 
-<h1 align="center">@abdokouta/react-support</h1>
+<h1 align="center">@abdokouta/ts-support</h1>
 
 <p align="center">
   <strong>Laravel-style utilities for JavaScript/TypeScript</strong>
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/@abdokouta/react-support"><img src="https://img.shields.io/npm/v/@abdokouta/react-support.svg?style=flat-square" alt="npm version" /></a>
-  <a href="https://www.npmjs.com/package/@abdokouta/react-support"><img src="https://img.shields.io/npm/dm/@abdokouta/react-support.svg?style=flat-square" alt="npm downloads" /></a>
-  <a href="https://github.com/pixielity-inc/react-support/blob/main/LICENSE"><img src="https://img.shields.io/npm/l/@abdokouta/react-support.svg?style=flat-square" alt="license" /></a>
+  <a href="https://www.npmjs.com/package/@abdokouta/ts-support"><img src="https://img.shields.io/npm/v/@abdokouta/ts-support.svg?style=flat-square" alt="npm version" /></a>
+  <a href="https://www.npmjs.com/package/@abdokouta/ts-support"><img src="https://img.shields.io/npm/dm/@abdokouta/ts-support.svg?style=flat-square" alt="npm downloads" /></a>
+  <a href="https://github.com/pixielity-inc/react-support/blob/main/LICENSE"><img src="https://img.shields.io/npm/l/@abdokouta/ts-support.svg?style=flat-square" alt="license" /></a>
   <a href="https://github.com/pixielity-inc/react-support"><img src="https://img.shields.io/github/stars/pixielity-inc/react-support?style=flat-square" alt="GitHub stars" /></a>
 </p>
 
@@ -37,11 +37,11 @@
 ## 📦 Installation
 
 ```bash
-npm install @abdokouta/react-support
+npm install @abdokouta/ts-support
 # or
-pnpm add @abdokouta/react-support
+pnpm add @abdokouta/ts-support
 # or
-yarn add @abdokouta/react-support
+yarn add @abdokouta/ts-support
 ```
 
 ## 🚀 Usage
@@ -49,7 +49,7 @@ yarn add @abdokouta/react-support
 ### Str Class
 
 ```typescript
-import { Str } from '@abdokouta/react-support';
+import { Str } from '@abdokouta/ts-support';
 
 // String manipulation
 Str.camel('foo_bar'); // 'fooBar'
@@ -81,7 +81,7 @@ Str.slug('Laravel 5 Framework', '-'); // 'laravel-5-framework'
 ### Collection (Array)
 
 ```typescript
-import { collect } from '@abdokouta/react-support';
+import { collect } from '@abdokouta/ts-support';
 
 // Create a collection
 const collection = collect([1, 2, 3, 4, 5]);
@@ -112,7 +112,7 @@ collect([1, 2, 3, 4, 5]).min(); // 1
 ### Facades
 
 ```typescript
-import { Facade, createFacade } from '@abdokouta/react-support';
+import { Facade, createFacade } from '@abdokouta/ts-support';
 import { Container } from '@abdokouta/ts-container';
 
 // Set the container for facades
@@ -129,7 +129,7 @@ Config.set('app.debug', true);
 ### MapCollection
 
 ```typescript
-import { collectMap } from '@abdokouta/react-support';
+import { collectMap } from '@abdokouta/ts-support';
 
 const map = collectMap({ name: 'John', age: 30 });
 
@@ -143,7 +143,7 @@ map.values(); // ['John', 30, 'New York']
 ### SetCollection
 
 ```typescript
-import { collectSet } from '@abdokouta/react-support';
+import { collectSet } from '@abdokouta/ts-support';
 
 const set1 = collectSet([1, 2, 3]);
 const set2 = collectSet([2, 3, 4]);
@@ -156,7 +156,7 @@ set1.diff(set2).all(); // [1]
 ### BaseRegistry
 
 ```typescript
-import { BaseRegistry } from '@abdokouta/react-support';
+import { BaseRegistry } from '@abdokouta/ts-support';
 
 // Create a typed registry
 interface Theme {
@@ -197,7 +197,7 @@ import {
   MapCollection,
   SetCollection,
   BaseRegistry,
-} from '@abdokouta/react-support';
+} from '@abdokouta/ts-support';
 
 // Type-safe collections
 const numbers: Collection<number> = collect([1, 2, 3]);

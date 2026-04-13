@@ -2,7 +2,7 @@
  * React Hooks Example
  *
  * |--------------------------------------------------------------------------
- * | @pixielity/events — React Hooks
+ * | @abdokouta/ts-events — React Hooks
  * |--------------------------------------------------------------------------
  * |
  * | This example demonstrates using events in React components:
@@ -11,7 +11,7 @@
  * | - Component-to-component communication via events
  * | - Wildcard listeners in components
  * |
- * | These hooks integrate with @abdokouta/react-di's DI container.
+ * | These hooks integrate with @abdokouta/ts-container's DI container.
  * | The EventService must be registered via EventsModule.forRoot().
  * |
  * | NOTE: This file shows the code patterns — it won't run standalone
@@ -20,7 +20,7 @@
  * | @example
  * | ```tsx
  * | // In your React app:
- * | import { useEvent, useEventDispatcher } from '@pixielity/events';
+ * | import { useEvent, useEventDispatcher } from '@abdokouta/ts-events';
  * | ```
  * |
  */
@@ -47,7 +47,7 @@
 */
 const NotificationBannerExample = `
 import { useState } from 'react';
-import { useEvent } from '@pixielity/events';
+import { useEvent } from '@abdokouta/ts-events';
 
 function NotificationBanner() {
   const [message, setMessage] = useState('');
@@ -87,7 +87,7 @@ function NotificationBanner() {
 |
 */
 const CreateOrderButtonExample = `
-import { useEventDispatcher } from '@pixielity/events';
+import { useEventDispatcher } from '@abdokouta/ts-events';
 
 function CreateOrderButton({ orderData }: { orderData: OrderData }) {
   const events = useEventDispatcher();
@@ -132,7 +132,7 @@ function CreateOrderButton({ orderData }: { orderData: OrderData }) {
 const CartCommunicationExample = `
 // ── Cart Component (Publisher) ──────────────────────────────────────────
 
-import { useEventDispatcher } from '@pixielity/events';
+import { useEventDispatcher } from '@abdokouta/ts-events';
 
 function Cart() {
   const events = useEventDispatcher();
@@ -160,7 +160,7 @@ function Cart() {
 // ── CartBadge Component (Subscriber) ────────────────────────────────────
 
 import { useState } from 'react';
-import { useEvent } from '@pixielity/events';
+import { useEvent } from '@abdokouta/ts-events';
 
 function CartBadge() {
   const [count, setCount] = useState(0);
@@ -197,7 +197,7 @@ function CartBadge() {
 |
 */
 const ActivityLoggerExample = `
-import { useEvent } from '@pixielity/events';
+import { useEvent } from '@abdokouta/ts-events';
 
 function ActivityLogger() {
   // Listen for all user events.
@@ -231,8 +231,8 @@ function ActivityLogger() {
 const FullAppSetupExample = `
 // ── app.module.ts ───────────────────────────────────────────────────────
 
-import { Module } from '@abdokouta/react-di';
-import { EventsModule } from '@pixielity/events';
+import { Module } from '@abdokouta/ts-container';
+import { EventsModule } from '@abdokouta/ts-events';
 import { UserSubscriber } from './subscribers/user.subscriber';
 
 @Module({
@@ -243,7 +243,7 @@ export class AppModule {}
 
 // ── App.tsx ─────────────────────────────────────────────────────────────
 
-import { ModuleProvider } from '@abdokouta/react-di';
+import { ModuleProvider } from '@abdokouta/ts-container-react';
 import { AppModule } from './app.module';
 
 function App() {
@@ -259,7 +259,7 @@ function App() {
 
 // ── MainContent.tsx ─────────────────────────────────────────────────────
 
-import { useEventDispatcher } from '@pixielity/events';
+import { useEventDispatcher } from '@abdokouta/ts-events';
 
 function MainContent() {
   const events = useEventDispatcher();

@@ -1,11 +1,11 @@
 /**
- * @abdokouta/react-settings
+ * @abdokouta/ts-settings
  *
  * Registry-based settings system with decorator-driven DTOs,
  * multi-driver persistence (localStorage, API, memory), and
  * the MultipleInstanceManager pattern from react-support.
  *
- * @module @abdokouta/react-settings
+ * @module @abdokouta/ts-settings
  */
 
 // Module

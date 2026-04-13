@@ -1,10 +1,10 @@
 /**
- * @abdokouta/react-redis
+ * @abdokouta/ts-redis
  *
  * Client-side Redis connection management using Upstash HTTP API.
  * Provides multiple named connections, DI integration, and React hooks.
  *
- * @module @abdokouta/react-redis
+ * @module @abdokouta/ts-redis
  */
 
 // ============================================================================

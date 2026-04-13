@@ -4,7 +4,7 @@
  * @file app/events/page.tsx
  * @description Events package demo page.
  *
- * Interactive showcase of @pixielity/events:
+ * Interactive showcase of @abdokouta/ts-events:
  *   - dispatch() — fire events with payloads
  *   - listen() — register listeners with unsubscribe
  *   - once() — one-time listeners
@@ -22,8 +22,8 @@
 
 import React, { useState, useCallback, useRef, useEffect } from "react";
 import { Card, Chip, Separator, Button } from "@heroui/react";
-import { EventManager, MemoryDispatcher, NullDispatcher, EventPriority } from "@pixielity/events";
-import type { EventDispatcherInterface } from "@pixielity/events";
+import { EventManager, MemoryDispatcher, NullDispatcher, EventPriority } from "@abdokouta/ts-events";
+import type { EventDispatcherInterface } from "@abdokouta/ts-events";
 import { useInject } from "@abdokouta/ts-container-react";
 import { filter } from "rxjs";
 
@@ -327,7 +327,7 @@ export default function EventsPage() {
       <div>
         <h1 className={title()}>Events Package</h1>
         <p className={subtitle({ class: "mt-2" })}>
-          @pixielity/events — Laravel-style event dispatcher with wildcards, priority, RxJS, and
+          @abdokouta/ts-events — Laravel-style event dispatcher with wildcards, priority, RxJS, and
           multiple drivers
         </p>
       </div>

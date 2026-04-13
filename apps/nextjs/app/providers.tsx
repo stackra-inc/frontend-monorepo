@@ -14,7 +14,7 @@
 import type { ThemeProviderProps } from "next-themes";
 import * as React from "react";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
-import { ContainerProvider } from "@abdokouta/react-di";
+import { ContainerProvider } from "@abdokouta/ts-container-react";
 
 import { AppModule } from "@/lib/app.module";
 

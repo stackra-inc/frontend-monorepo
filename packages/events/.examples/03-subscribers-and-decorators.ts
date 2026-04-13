@@ -2,7 +2,7 @@
  * Subscribers & Decorators Example
  *
  * |--------------------------------------------------------------------------
- * | @pixielity/events — Subscribers & Decorators
+ * | @abdokouta/ts-events — Subscribers & Decorators
  * |--------------------------------------------------------------------------
  * |
  * | This example demonstrates the decorator-based subscriber pattern:
@@ -25,7 +25,7 @@
  */
 
 import 'reflect-metadata';
-import { Module } from '@abdokouta/react-di';
+import { Module } from '@abdokouta/ts-container';
 import {
   EventsModule,
   MemoryDispatcher,
@@ -33,8 +33,8 @@ import {
   OnEvent,
   Channel,
   EventPriority,
-} from '@pixielity/events';
-import type { EventDispatcherInterface, EventSubscriber } from '@pixielity/events';
+} from '@abdokouta/ts-events';
+import type { EventDispatcherInterface, EventSubscriber } from '@abdokouta/ts-events';
 
 // ─── Example 1: Basic Subscriber with @OnEvent ─────────────────────────────
 //

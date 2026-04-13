@@ -1,7 +1,7 @@
 /**
  * Settings Store Manager
  *
- * Extends `MultipleInstanceManager<SettingsStore>` from `@abdokouta/react-support`.
+ * Extends `MultipleInstanceManager<SettingsStore>` from `@abdokouta/ts-support`.
  * Same pattern as CacheManager — manages named store instances with lazy
  * initialization, caching, and extensibility via `extend()`.
  *
@@ -9,7 +9,7 @@
  */
 
 import { Injectable, Inject } from '@abdokouta/ts-container';
-import { MultipleInstanceManager } from '@abdokouta/react-support';
+import { MultipleInstanceManager } from '@abdokouta/ts-support';
 
 import type { SettingsStore } from '@/interfaces/settings-store.interface';
 import type { SettingsModuleOptions } from '@/interfaces/settings-module-options.interface';

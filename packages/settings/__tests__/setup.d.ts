@@ -4,7 +4,7 @@
  * This file extends Vitest's type definitions to include custom matchers
  * and global test utilities.
  *
- * @module @abdokouta/react-cache
+ * @module @abdokouta/ts-cache
  * @category Configuration
  */
 

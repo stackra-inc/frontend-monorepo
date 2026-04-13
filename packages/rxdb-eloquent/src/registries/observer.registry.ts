@@ -14,7 +14,7 @@
  */
 
 import { Injectable } from '@abdokouta/ts-container';
-import { BaseRegistry } from '@abdokouta/react-support';
+import { BaseRegistry } from '@abdokouta/ts-support';
 import { MetadataStorage } from '../metadata/metadata.storage';
 import type { Observer } from '../model/observer';
 

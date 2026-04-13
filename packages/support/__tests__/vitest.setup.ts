@@ -3,7 +3,7 @@
  *
  * Configures the testing environment before running tests.
  *
- * @module @abdokouta/react-support
+ * @module @abdokouta/ts-support
  * @category Configuration
  */
 

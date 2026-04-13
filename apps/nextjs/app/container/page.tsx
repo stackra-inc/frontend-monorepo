@@ -4,7 +4,7 @@
  * @file app/container/page.tsx
  * @description DI Container package showcase page.
  *
- * Demonstrates @abdokouta/react-di:
+ * Demonstrates @abdokouta/ts-container:
  *   - @Injectable() decorator
  *   - @Module() with providers and imports
  *   - useInject() hook to resolve services
@@ -14,14 +14,8 @@
  */
 
 import React, { useState } from "react";
-import {
-  Injectable,
-  Module,
-  Inject,
-  useInject,
-  useModule,
-  ContainerProvider,
-} from "@abdokouta/react-di";
+import { Injectable, Module, Inject } from "@abdokouta/ts-container";
+import { useInject, useModule, ContainerProvider } from "@abdokouta/ts-container-react";
 import { Card, Chip, Separator, Button } from "@heroui/react";
 
 import { title, subtitle } from "@/components/primitives";
@@ -60,9 +54,7 @@ class CounterService {
  */
 @Injectable()
 class GreeterService {
-  constructor(
-    @Inject(CounterService) private readonly counter: CounterService,
-  ) {}
+  constructor(@Inject(CounterService) private readonly counter: CounterService) {}
 
   /**
    * Return a greeting that includes the current click count.
@@ -149,9 +141,7 @@ function GreeterWidget() {
           Greet
         </Button>
       </div>
-      <p className="rounded-lg bg-default-100 px-3 py-2 text-sm font-mono">
-        {greeting}
-      </p>
+      <p className="rounded-lg bg-default-100 px-3 py-2 text-sm font-mono">{greeting}</p>
     </div>
   );
 }
@@ -194,7 +184,7 @@ export default function ContainerPage() {
       <div>
         <h1 className={title()}>Container Package</h1>
         <p className={subtitle({ class: "mt-2" })}>
-          @abdokouta/react-di — NestJS-style dependency injection for React
+          @abdokouta/ts-container — NestJS-style dependency injection for React
         </p>
       </div>
 
@@ -220,9 +210,7 @@ export default function ContainerPage() {
           <Card key={item.label} className="border border-divider">
             <Card.Content className="flex flex-col gap-2">
               <span className="text-3xl">{item.icon}</span>
-              <p className="font-mono text-sm font-semibold text-primary">
-                {item.label}
-              </p>
+              <p className="font-mono text-sm font-semibold text-primary">{item.label}</p>
               <p className="text-xs text-default-500">{item.desc}</p>
             </Card.Content>
           </Card>
@@ -234,8 +222,8 @@ export default function ContainerPage() {
         <Card.Header className="flex flex-col items-start gap-1">
           <h2 className="text-lg font-semibold">Live Demo — DemoModule</h2>
           <p className="text-sm text-default-500">
-            CounterWidget and GreeterWidget share the same CounterService
-            singleton — incrementing in one updates the greeting in the other.
+            CounterWidget and GreeterWidget share the same CounterService singleton — incrementing
+            in one updates the greeting in the other.
           </p>
         </Card.Header>
         <Separator />
@@ -261,7 +249,7 @@ export default function ContainerPage() {
         <Separator />
         <Card.Content>
           <pre className="overflow-x-auto rounded-lg bg-default-100 p-4 text-xs font-mono text-foreground">
-{`@Injectable()
+            {`@Injectable()
 class CounterService {
   private count = 0;
   increment() { return ++this.count; }

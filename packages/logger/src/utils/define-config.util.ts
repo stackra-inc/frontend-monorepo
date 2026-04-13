@@ -3,7 +3,7 @@
  *
  * Helper function to define logger configuration with type safety.
  *
- * @module @abdokouta/react-logger
+ * @module @abdokouta/ts-logger
  */
 
 import type { LoggerModuleOptions } from '@/interfaces/logger-module-options.interface';
@@ -20,7 +20,7 @@ import type { LoggerModuleOptions } from '@/interfaces/logger-module-options.int
  * @example
  * ```typescript
  * // logger.config.ts
- * import { defineConfig, ConsoleTransporter, LogLevel } from '@abdokouta/react-logger';
+ * import { defineConfig, ConsoleTransporter, LogLevel } from '@abdokouta/ts-logger';
  *
  * export default defineConfig({
  *   default: 'console',

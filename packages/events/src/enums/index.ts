@@ -1,6 +1,6 @@
 /**
  * @fileoverview Enums Index
- * @module @pixielity/events
+ * @module @abdokouta/ts-events
  * @category Enums
  */
 

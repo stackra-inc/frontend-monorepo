@@ -2,12 +2,12 @@
  * Dispatchers & Redis Example
  *
  * |--------------------------------------------------------------------------
- * | @pixielity/events — Multiple Dispatchers & Redis
+ * | @abdokouta/ts-events — Multiple Dispatchers & Redis
  * |--------------------------------------------------------------------------
  * |
  * | This example demonstrates the dispatcher architecture:
  * | - MemoryDispatcher (default, in-memory)
- * | - RedisDispatcher (cross-process via @abdokouta/react-redis)
+ * | - RedisDispatcher (cross-process via @abdokouta/ts-redis)
  * | - NullDispatcher (testing, silences all dispatch)
  * | - EventService as the manager (resolves dispatchers by name)
  * | - Switching between dispatchers at runtime
@@ -32,8 +32,8 @@ import {
   Subscriber,
   OnEvent,
   Channel,
-} from '@pixielity/events';
-import type { EventDispatcherInterface, EventSubscriber } from '@pixielity/events';
+} from '@abdokouta/ts-events';
+import type { EventDispatcherInterface, EventSubscriber } from '@abdokouta/ts-events';
 
 // ─── Example 1: MemoryDispatcher (Default) ──────────────────────────────────
 //

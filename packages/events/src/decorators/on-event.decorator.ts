@@ -5,13 +5,13 @@
  * subscriber, the decorated method is automatically bound to the specified
  * event name.
  *
- * @module @pixielity/events
+ * @module @abdokouta/ts-events
  * @category Decorators
  *
  * @example
  * ```typescript
  * import { Injectable } from '@abdokouta/ts-container';
- * import { OnEvent, EventPriority } from '@pixielity/events';
+ * import { OnEvent, EventPriority } from '@abdokouta/ts-events';
  *
  * @Injectable()
  * export class UserListener {

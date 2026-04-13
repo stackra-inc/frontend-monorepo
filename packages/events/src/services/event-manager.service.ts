@@ -20,7 +20,7 @@
  *
  * Equivalent to `CacheManager` in the cache package.
  *
- * @module @pixielity/events
+ * @module @abdokouta/ts-events
  * @category Services
  */
 
@@ -31,8 +31,8 @@ import {
   type OnModuleInit,
   type OnModuleDestroy,
 } from '@abdokouta/ts-container';
-import { MultipleInstanceManager } from '@abdokouta/react-support';
-import { REDIS_MANAGER, type IRedisService } from '@abdokouta/react-redis';
+import { MultipleInstanceManager } from '@abdokouta/ts-support';
+import { REDIS_MANAGER, type IRedisService } from '@abdokouta/ts-redis';
 
 import type { Dispatcher, EventModuleOptions } from '@/interfaces';
 import type { DispatcherConfig } from '@/types';
@@ -204,7 +204,7 @@ export class EventManager
   private createRedisDispatcher(config: any): RedisDispatcher {
     if (!this.redisService) {
       throw new Error(
-        'Redis event dispatcher requires @abdokouta/react-redis.\n' +
+        'Redis event dispatcher requires @abdokouta/ts-redis.\n' +
           'Import RedisModule.forRoot() before EventsModule.forRoot().'
       );
     }

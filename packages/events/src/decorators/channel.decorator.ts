@@ -3,7 +3,7 @@
  *
  * Marks a subscriber class as belonging to a specific event channel.
  *
- * @module @pixielity/events
+ * @module @abdokouta/ts-events
  * @category Decorators
  */
 

@@ -12,7 +12,7 @@
  * application. It manages multiple named channels internally and provides
  * a unified API for logging throughout the application.
  *
- * @module @abdokouta/react-logger
+ * @module @abdokouta/ts-logger
  * @category Tests
  */
 

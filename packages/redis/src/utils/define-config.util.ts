@@ -3,7 +3,7 @@
  *
  * Helper function to define Redis configuration with type safety.
  *
- * @module @abdokouta/react-redis
+ * @module @abdokouta/ts-redis
  */
 
 import type { RedisConfig } from '../interfaces/redis-config.interface';
@@ -20,7 +20,7 @@ import type { RedisConfig } from '../interfaces/redis-config.interface';
  * @example
  * ```typescript
  * // redis.config.ts
- * import { defineConfig } from '@abdokouta/react-redis';
+ * import { defineConfig } from '@abdokouta/ts-redis';
  *
  * export default defineConfig({
  *   default: 'main',

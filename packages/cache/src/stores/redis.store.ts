@@ -1,13 +1,13 @@
 /**
  * Redis Cache Store
  *
- * Redis-backed cache using @abdokouta/react-redis for connections.
+ * Redis-backed cache using @abdokouta/ts-redis for connections.
  * Connection is resolved lazily from RedisService and cached.
  *
  * @module stores/redis
  */
 
-import type { RedisConnection, IRedisService } from '@abdokouta/react-redis';
+import type { RedisConnection, IRedisService } from '@abdokouta/ts-redis';
 import type { TaggableStore, TaggedCache } from '@/interfaces';
 import { RedisTagSet } from '@/tags/redis-tag-set';
 import { TaggedCache as TaggedCacheImpl } from '@/tags/tagged-cache';

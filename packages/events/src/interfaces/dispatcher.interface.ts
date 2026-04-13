@@ -6,7 +6,7 @@
  *
  * Drivers: memory, redis, null.
  *
- * @module @pixielity/events
+ * @module @abdokouta/ts-events
  * @category Interfaces
  */
 

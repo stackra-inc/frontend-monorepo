@@ -1,6 +1,6 @@
 /**
  * @fileoverview Hooks Index
- * @module @pixielity/events
+ * @module @abdokouta/ts-events
  */
 
 export { useEvents } from './use-events';

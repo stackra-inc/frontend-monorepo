@@ -1,6 +1,6 @@
 # Events Examples
 
-This folder contains examples demonstrating how to use `@pixielity/events` in
+This folder contains examples demonstrating how to use `@abdokouta/ts-events` in
 various scenarios.
 
 ## Examples Overview
@@ -99,17 +99,17 @@ npx ts-node .examples/05-dispatchers-and-redis.ts
 ### Installation
 
 ```bash
-pnpm add @pixielity/events rxjs reflect-metadata
+pnpm add @abdokouta/ts-events rxjs reflect-metadata
 
 # For Redis dispatcher (optional):
-pnpm add @abdokouta/react-redis
+pnpm add @abdokouta/ts-redis
 ```
 
 ### Module Setup
 
 ```typescript
-import { Module } from '@abdokouta/react-di';
-import { EventsModule } from '@pixielity/events';
+import { Module } from '@abdokouta/ts-container';
+import { EventsModule } from '@abdokouta/ts-events';
 import { UserSubscriber } from './subscribers/user.subscriber';
 
 @Module({
@@ -122,8 +122,8 @@ export class AppModule {}
 ### With Redis Dispatcher
 
 ```typescript
-import { RedisModule } from '@abdokouta/react-redis';
-import { EventsModule } from '@pixielity/events';
+import { RedisModule } from '@abdokouta/ts-redis';
+import { EventsModule } from '@abdokouta/ts-events';
 
 @Module({
   imports: [
@@ -148,8 +148,8 @@ export class AppModule {}
 ### Dispatch Events
 
 ```typescript
-import { Injectable, Inject } from '@abdokouta/react-di';
-import { EventService } from '@pixielity/events';
+import { Injectable, Inject } from '@abdokouta/ts-container';
+import { EventService } from '@abdokouta/ts-events';
 
 @Injectable()
 class OrderService {
@@ -166,8 +166,8 @@ class OrderService {
 ### Create a Subscriber
 
 ```typescript
-import { Injectable } from '@abdokouta/react-di';
-import { Subscriber, OnEvent, EventPriority } from '@pixielity/events';
+import { Injectable } from '@abdokouta/ts-container';
+import { Subscriber, OnEvent, EventPriority } from '@abdokouta/ts-events';
 
 @Subscriber()
 @Injectable()
@@ -187,7 +187,7 @@ class OrderSubscriber {
 ### React Components
 
 ```tsx
-import { useEvent, useEventDispatcher } from '@pixielity/events';
+import { useEvent, useEventDispatcher } from '@abdokouta/ts-events';
 
 function OrderNotification() {
   useEvent('order.created', (payload) => {

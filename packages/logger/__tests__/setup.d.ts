@@ -1,5 +1,5 @@
 /**
- * Type declarations for Vitest in @abdokouta/react-logger
+ * Type declarations for Vitest in @abdokouta/ts-logger
  */
 
 declare module 'vitest' {

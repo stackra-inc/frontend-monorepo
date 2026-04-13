@@ -11,3 +11,5 @@ packages:
   - "apps/*"
   # Shared packages / libraries
   - "packages/*"
+  # Container sub-packages (ts-container, ts-container-react, ts-application)
+  - "packages/container/*"

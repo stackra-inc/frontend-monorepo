@@ -3,7 +3,7 @@
  *
  * Type-safe helper for creating EventsModule configuration.
  *
- * @module @pixielity/events
+ * @module @abdokouta/ts-events
  * @category Utils
  */
 

@@ -33,11 +33,11 @@ import {
   type OnModuleInit,
   type OnModuleDestroy,
 } from '@abdokouta/ts-container';
-import { MultipleInstanceManager } from '@abdokouta/react-support';
+import { MultipleInstanceManager } from '@abdokouta/ts-support';
 
 import type { Store, CacheModuleOptions } from '@/interfaces';
 import type { StoreConfig } from '@/types';
-import { REDIS_MANAGER, type IRedisService } from '@abdokouta/react-redis';
+import { REDIS_MANAGER, type IRedisService } from '@abdokouta/ts-redis';
 import { MemoryStore } from '@/stores/memory.store';
 import { RedisStore } from '@/stores/redis.store';
 import { NullStore } from '@/stores/null.store';
@@ -248,7 +248,7 @@ export class CacheManager
   private createRedisStore(config: StoreConfig, prefix: string): RedisStore {
     if (!this.redisService) {
       throw new Error(
-        'Redis cache driver requires @abdokouta/react-redis.\n' +
+        'Redis cache driver requires @abdokouta/ts-redis.\n' +
         'Import RedisModule.forRoot() before CacheModule.forRoot().',
       );
     }

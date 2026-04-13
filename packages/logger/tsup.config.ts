@@ -1,7 +1,7 @@
 import { defineConfig } from 'tsup';
 
 /**
- * tsup Configuration for @abdokouta/react-logger Package
+ * tsup Configuration for @abdokouta/ts-logger Package
  *
  * Builds the logger package with dual format output (ESM + CJS).
  * Provides a flexible logging system with multiple transporters

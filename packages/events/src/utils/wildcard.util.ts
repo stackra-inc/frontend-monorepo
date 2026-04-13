@@ -14,7 +14,7 @@
  * | Compiled regexes are cached to avoid repeated compilation and
  * | protect against ReDoS on hot paths.
  * |
- * @module @pixielity/events
+ * @module @abdokouta/ts-events
  * @category Utils
  *
  * @example

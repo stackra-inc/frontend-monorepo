@@ -15,7 +15,7 @@
  * | - Disabling events in specific environments
  * | - Benchmarking without event overhead
  * |
- * @module @pixielity/events
+ * @module @abdokouta/ts-events
  * @category Dispatchers
  *
  * @example

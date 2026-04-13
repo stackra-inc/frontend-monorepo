@@ -1,5 +1,5 @@
 /**
- * @abdokouta/react-cache
+ * @abdokouta/ts-cache
  *
  * Laravel-inspired caching system for Refine with multiple drivers and stores.
  * Provides a clean, unified interface for caching with support for memory,
@@ -8,7 +8,7 @@
  * @example
  * Basic usage with memory store:
  * ```typescript
- * import { CacheModule, CacheService } from '@abdokouta/react-cache';
+ * import { CacheModule, CacheService } from '@abdokouta/ts-cache';
  * import { Module, Injectable, Inject } from '@abdokouta/ts-container';
  *
  * @Module({
@@ -51,7 +51,7 @@
  * @example
  * React hook usage:
  * ```typescript
- * import { useCache, useCachedQuery } from '@abdokouta/react-cache';
+ * import { useCache, useCachedQuery } from '@abdokouta/ts-cache';
  *
  * function UserProfile({ userId }: { userId: string }) {
  *   const cache = useCache();
@@ -66,7 +66,7 @@
  * }
  * ```
  *
- * @module @abdokouta/react-cache
+ * @module @abdokouta/ts-cache
  */
 
 // ============================================================================

@@ -77,7 +77,7 @@ export default defineConfig({
    */
   external: [
     '@abdokouta/ts-container',
-    '@abdokouta/react-support',
+    '@abdokouta/ts-support',
     'rxdb',
     'rxdb/plugins/storage-memory',
     'rxdb/plugins/storage-dexie',

@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to @abdokouta/react-redis will be documented in this file.
+All notable changes to @abdokouta/ts-redis will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to
@@ -23,7 +23,7 @@ and this project adheres to
 
 ### Added
 
-- Initial release of @abdokouta/react-redis
+- Initial release of @abdokouta/ts-redis
 - Browser-compatible Redis operations using Upstash HTTP API
 - `RedisService` for connection management
 - `RedisModule` for dependency injection configuration

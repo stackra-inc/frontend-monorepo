@@ -4,7 +4,7 @@
  * This test suite validates the LoggerModule functionality including
  * configuration, logging operations, and transporter management.
  *
- * @module @abdokouta/react-logger
+ * @module @abdokouta/ts-logger
  * @category Tests
  */
 

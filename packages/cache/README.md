@@ -1,11 +1,11 @@
 <p align="center">
-  <img src=".github/assets/banner.svg" alt="@abdokouta/react-cache" width="100%" />
+  <img src=".github/assets/banner.svg" alt="@abdokouta/ts-cache" width="100%" />
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/@abdokouta/react-cache"><img src="https://img.shields.io/npm/v/@abdokouta/react-cache.svg?style=flat-square" alt="npm version" /></a>
-  <a href="https://www.npmjs.com/package/@abdokouta/react-cache"><img src="https://img.shields.io/npm/dm/@abdokouta/react-cache.svg?style=flat-square" alt="npm downloads" /></a>
-  <a href="https://github.com/abdokouta/cache/blob/main/LICENSE"><img src="https://img.shields.io/npm/l/@abdokouta/react-cache.svg?style=flat-square" alt="license" /></a>
+  <a href="https://www.npmjs.com/package/@abdokouta/ts-cache"><img src="https://img.shields.io/npm/v/@abdokouta/ts-cache.svg?style=flat-square" alt="npm version" /></a>
+  <a href="https://www.npmjs.com/package/@abdokouta/ts-cache"><img src="https://img.shields.io/npm/dm/@abdokouta/ts-cache.svg?style=flat-square" alt="npm downloads" /></a>
+  <a href="https://github.com/abdokouta/cache/blob/main/LICENSE"><img src="https://img.shields.io/npm/l/@abdokouta/ts-cache.svg?style=flat-square" alt="license" /></a>
   <a href="https://github.com/abdokouta/cache"><img src="https://img.shields.io/github/stars/abdokouta/cache?style=flat-square" alt="stars" /></a>
 </p>
 
@@ -73,19 +73,19 @@
 
 ```bash
 # npm
-npm install @abdokouta/react-cache @abdokouta/ts-container
+npm install @abdokouta/ts-cache @abdokouta/ts-container
 
 # pnpm
-pnpm add @abdokouta/react-cache @abdokouta/ts-container
+pnpm add @abdokouta/ts-cache @abdokouta/ts-container
 
 # yarn
-yarn add @abdokouta/react-cache @abdokouta/ts-container
+yarn add @abdokouta/ts-cache @abdokouta/ts-container
 ```
 
 For Redis support, also install:
 
 ```bash
-pnpm add @abdokouta/react-redis
+pnpm add @abdokouta/ts-redis
 ```
 
 ---
@@ -94,7 +94,7 @@ pnpm add @abdokouta/react-redis
 
 ```typescript
 import { Module } from '@abdokouta/ts-container';
-import { CacheModule } from '@abdokouta/react-cache';
+import { CacheModule } from '@abdokouta/ts-cache';
 
 @Module({
   imports: [
@@ -116,7 +116,7 @@ export class AppModule {}
 Then use it anywhere via DI or hooks:
 
 ```typescript
-import { useCache } from '@abdokouta/react-cache';
+import { useCache } from '@abdokouta/ts-cache';
 
 function UserProfile({ userId }: { userId: string }) {
   const cache = useCache();
@@ -145,7 +145,7 @@ The configuration object follows the same structure as Laravel's
 `config/cache.php`:
 
 ```typescript
-import { CacheModule } from '@abdokouta/react-cache';
+import { CacheModule } from '@abdokouta/ts-cache';
 
 CacheModule.forRoot({
   // Default store used when none is specified
@@ -182,7 +182,7 @@ helper:
 
 ```typescript
 // cache.config.ts
-import { defineConfig } from '@abdokouta/react-cache';
+import { defineConfig } from '@abdokouta/ts-cache';
 
 export default defineConfig({
   default: 'memory',
@@ -416,7 +416,7 @@ How tagging works under the hood:
 Access the cache service from any React component:
 
 ```typescript
-import { useCache } from '@abdokouta/react-cache';
+import { useCache } from '@abdokouta/ts-cache';
 
 function Dashboard() {
   const cache = useCache();
@@ -443,7 +443,7 @@ function Widget() {
 A React Query-like hook that caches async query results:
 
 ```typescript
-import { useCachedQuery } from '@abdokouta/react-cache';
+import { useCachedQuery } from '@abdokouta/ts-cache';
 
 function UserProfile({ userId }: { userId: string }) {
   const { data, isLoading, error, refetch, invalidate } = useCachedQuery({
@@ -566,7 +566,7 @@ interface TaggedCache {
 Implement the `Store` interface to create your own cache driver:
 
 ```typescript
-import type { Store } from '@abdokouta/react-cache';
+import type { Store } from '@abdokouta/ts-cache';
 
 export class LocalStorageStore implements Store {
   async get(key: string): Promise<any> {
@@ -608,7 +608,7 @@ import type {
   StoreConfig,
   UseCachedQueryOptions,
   UseCachedQueryResult,
-} from '@abdokouta/react-cache';
+} from '@abdokouta/ts-cache';
 ```
 
 ---
@@ -642,7 +642,7 @@ If you're coming from Laravel, here's how the API maps:
 - Node.js >= 18.0.0
 - React 18 or 19
 - `@abdokouta/ts-container` (dependency injection)
-- `@abdokouta/react-redis` (optional, for Redis driver)
+- `@abdokouta/ts-redis` (optional, for Redis driver)
 
 ---
 

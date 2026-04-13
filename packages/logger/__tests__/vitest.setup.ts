@@ -1,5 +1,5 @@
 /**
- * @fileoverview Vitest setup file for @abdokouta/react-logger package
+ * @fileoverview Vitest setup file for @abdokouta/ts-logger package
  *
  * This file configures the testing environment before running tests.
  *
@@ -9,7 +9,7 @@
  * - Test environment setup
  * - Container mocking for DI tests
  *
- * @module @abdokouta/react-logger
+ * @module @abdokouta/ts-logger
  * @category Configuration
  */
 

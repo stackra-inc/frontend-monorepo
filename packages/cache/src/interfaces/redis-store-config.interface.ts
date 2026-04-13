@@ -25,7 +25,7 @@ export interface RedisStoreConfig {
    * Redis connection name
    *
    * A string identifier resolved at runtime by the Redis factory
-   * registered in the DI container (e.g., from @abdokouta/react-redis).
+   * registered in the DI container (e.g., from @abdokouta/ts-redis).
    *
    * @default 'default'
    * @example 'cache' | 'session' | 'default'

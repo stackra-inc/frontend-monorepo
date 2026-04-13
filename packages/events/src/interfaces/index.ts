@@ -1,6 +1,6 @@
 /**
  * @fileoverview Interfaces Index
- * @module @pixielity/events
+ * @module @abdokouta/ts-events
  */
 
 export type { Dispatcher, EventListener, EventSubscriber } from './dispatcher.interface';

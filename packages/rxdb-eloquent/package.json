@@ -1,5 +1,5 @@
 {
-  "name": "@abdokouta/rxdb-eloquent",
+  "name": "@abdokouta/ts-eloquent",
   "version": "1.2.1",
   "description": "Laravel Eloquent-style TypeScript ORM built on RxDB — reactive, offline-first, with Supabase replication",
   "license": "MIT",
@@ -65,28 +65,32 @@
     "prepublishOnly": "pnpm run build",
     "release": "pnpm publish --access public --no-git-checks"
   },
-  "dependencies": {
+  "peerDependencies": {
+    "@abdokouta/ts-support": "workspace:*",
+    "@abdokouta/ts-container": "workspace:*",
+    "@abdokouta/ts-logger": "workspace:*",
+    "@supabase/supabase-js": "^2.0.0",
     "rxdb": "^17.1.0",
     "rxjs": "^7.8.2"
-  },
-  "peerDependencies": {
-    "@abdokouta/react-support": "^2.1.0",
-    "@abdokouta/ts-container": "^1.2.0",
-    "@supabase/supabase-js": "^2.0.0",
-    "@abdokouta/react-logger": "^1.0.0"
   },
   "peerDependenciesMeta": {
     "@abdokouta/ts-container": {
       "optional": false
     },
-    "@abdokouta/react-support": {
+    "@abdokouta/ts-support": {
       "optional": false
     },
     "@supabase/supabase-js": {
       "optional": true
     },
-    "@abdokouta/react-logger": {
+    "@abdokouta/ts-logger": {
       "optional": true
+    },
+    "rxdb": {
+      "optional": false
+    },
+    "rxjs": {
+      "optional": false
     }
   },
   "devDependencies": {

@@ -1,6 +1,6 @@
 /**
  * @fileoverview Dispatchers Index
- * @module @pixielity/events
+ * @module @abdokouta/ts-events
  */
 
 export { MemoryDispatcher } from './memory.dispatcher';

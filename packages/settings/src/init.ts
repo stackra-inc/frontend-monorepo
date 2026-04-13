@@ -7,7 +7,7 @@
  *
  * @example
  * ```ts
- * import { initSettings } from '@abdokouta/react-settings';
+ * import { initSettings } from '@abdokouta/ts-settings';
  * import { DisplaySettings, TerminalSettings } from './settings';
  *
  * initSettings({

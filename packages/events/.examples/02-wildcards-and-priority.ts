@@ -2,7 +2,7 @@
  * Wildcards & Priority Example
  *
  * |--------------------------------------------------------------------------
- * | @pixielity/events — Wildcards & Priority
+ * | @abdokouta/ts-events — Wildcards & Priority
  * |--------------------------------------------------------------------------
  * |
  * | This example demonstrates advanced event matching:
@@ -22,8 +22,8 @@
  * |
  */
 
-import { MemoryDispatcher, EventPriority } from '@pixielity/events';
-import type { EventDispatcherInterface } from '@pixielity/events';
+import { MemoryDispatcher, EventPriority } from '@abdokouta/ts-events';
+import type { EventDispatcherInterface } from '@abdokouta/ts-events';
 
 // ─── Example 1: Single-Segment Wildcard (*) ────────────────────────────────
 //

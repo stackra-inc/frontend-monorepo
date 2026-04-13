@@ -4,7 +4,7 @@
  * React hook that resolves the EventManager from DI and returns
  * the default EventService. Equivalent to `useCache()` in the cache package.
  *
- * @module @pixielity/events
+ * @module @abdokouta/ts-events
  * @category Hooks
  *
  * @example

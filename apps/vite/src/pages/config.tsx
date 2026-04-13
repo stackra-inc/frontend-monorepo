@@ -2,15 +2,15 @@
  * @file pages/config.tsx
  * @description Config package showcase page.
  *
- * Demonstrates @abdokouta/react-config:
+ * Demonstrates @abdokouta/ts-config:
  *   - Reading typed values (string, number, boolean, array, JSON)
  *   - Default values when a key is missing
  *   - Feature flags pattern
  *   - Live env var display
  */
 
-import { useInject } from "@abdokouta/react-di";
-import { ConfigService } from "@abdokouta/react-config";
+import { useInject } from "@abdokouta/ts-container-react";
+import { ConfigService } from "@abdokouta/ts-config";
 import { Card, Chip, Separator } from "@heroui/react";
 
 import { title, subtitle } from "@/components/primitives";
@@ -80,7 +80,7 @@ export default function ConfigPage() {
         <div>
           <h1 className={title()}>Config Package</h1>
           <p className={subtitle({ class: "mt-2" })}>
-            @abdokouta/react-config — environment-aware configuration with typed access
+            @abdokouta/ts-config — environment-aware configuration with typed access
           </p>
         </div>
 

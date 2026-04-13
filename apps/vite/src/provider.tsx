@@ -12,7 +12,7 @@
 import * as React from "react";
 import { HeroUIProvider } from "@heroui/react";
 import { useNavigate } from "react-router-dom";
-import { ContainerProvider } from "@abdokouta/react-di";
+import { ContainerProvider } from "@abdokouta/ts-container-react";
 
 import { AppModule } from "@/lib/app.module";
 

@@ -8,7 +8,7 @@
  * @module config/cache
  */
 
-import { defineConfig } from '@abdokouta/react-cache';
+import { defineConfig } from '@abdokouta/ts-cache';
 
 const cacheConfig = defineConfig({
   /**

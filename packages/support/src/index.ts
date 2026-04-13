@@ -1,5 +1,5 @@
 /**
- * @fileoverview @abdokouta/react-support
+ * @fileoverview @abdokouta/ts-support
  *
  * Laravel-style utilities for JavaScript/TypeScript.
  *

@@ -32,7 +32,7 @@ import {
   type OnModuleInit,
   type OnModuleDestroy,
 } from '@abdokouta/ts-container';
-import { MultipleInstanceManager } from '@abdokouta/react-support';
+import { MultipleInstanceManager } from '@abdokouta/ts-support';
 
 import type { LoggerConfig } from '@/interfaces/logger-config.interface';
 import type { LoggerModuleOptions } from '@/interfaces/logger-module-options.interface';

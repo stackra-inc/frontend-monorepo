@@ -1,7 +1,7 @@
 /**
  * Utils
  *
- * @module @abdokouta/react-redis
+ * @module @abdokouta/ts-redis
  */
 
 export { defineConfig } from './define-config.util';

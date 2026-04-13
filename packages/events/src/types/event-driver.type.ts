@@ -3,6 +3,6 @@
  *
  * Equivalent to `CacheDriver` in the cache package.
  *
- * @module @pixielity/events
+ * @module @abdokouta/ts-events
  */
 export type EventDriver = 'memory' | 'redis' | 'null';

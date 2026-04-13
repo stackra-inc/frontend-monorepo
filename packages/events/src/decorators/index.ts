@@ -1,6 +1,6 @@
 /**
  * @fileoverview Decorators Index
- * @module @pixielity/events
+ * @module @abdokouta/ts-events
  */
 
 export { OnEvent } from './on-event.decorator';

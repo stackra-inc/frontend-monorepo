@@ -1,7 +1,7 @@
 import { defineConfig } from 'tsup';
 
 /**
- * tsup Configuration for @abdokouta/react-config Package
+ * tsup Configuration for @abdokouta/ts-config Package
  *
  * Builds the config package with dual format output (ESM + CJS).
  * Provides configuration management with multiple drivers (env, file).

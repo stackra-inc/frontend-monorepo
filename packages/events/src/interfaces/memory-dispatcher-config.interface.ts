@@ -1,7 +1,7 @@
 /**
  * Memory Dispatcher Configuration
  *
- * @module @pixielity/events
+ * @module @abdokouta/ts-events
  * @category Interfaces
  */
 

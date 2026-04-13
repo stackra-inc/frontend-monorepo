@@ -1,5 +1,5 @@
 /**
- * @abdokouta/react-config
+ * @abdokouta/ts-config
  *
  * NestJS-inspired configuration management with multiple drivers for loading
  * configuration from various sources (environment variables, files, etc.).
@@ -8,7 +8,7 @@
  *
  * @example
  * ```typescript
- * import { ConfigModule, ConfigService } from '@abdokouta/react-config';
+ * import { ConfigModule, ConfigService } from '@abdokouta/ts-config';
  * import { Module, Injectable, Inject } from '@abdokouta/ts-container';
  *
  * @Module({
@@ -32,7 +32,7 @@
  * }
  * ```
  *
- * @module @abdokouta/react-config
+ * @module @abdokouta/ts-config
  */
 
 // ============================================================================

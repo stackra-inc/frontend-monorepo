@@ -4,7 +4,7 @@
  * Main configuration object for the events module.
  * Equivalent to `CacheModuleOptions` in the cache package.
  *
- * @module @pixielity/events
+ * @module @abdokouta/ts-events
  * @category Interfaces
  */
 

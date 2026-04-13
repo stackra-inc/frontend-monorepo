@@ -1,4 +1,4 @@
-# @abdokouta/react-redis
+# @abdokouta/ts-redis
 
 Client-side Redis connection management using Upstash HTTP API for Refine
 applications.
@@ -17,11 +17,11 @@ applications.
 ## Installation
 
 ```bash
-npm install @abdokouta/react-redis @upstash/redis
+npm install @abdokouta/ts-redis @upstash/redis
 # or
-yarn add @abdokouta/react-redis @upstash/redis
+yarn add @abdokouta/ts-redis @upstash/redis
 # or
-pnpm add @abdokouta/react-redis @upstash/redis
+pnpm add @abdokouta/ts-redis @upstash/redis
 ```
 
 ## Quick Start
@@ -37,7 +37,7 @@ pnpm add @abdokouta/react-redis @upstash/redis
 ```typescript
 // app.module.ts
 import { Module } from '@abdokouta/container';
-import { RedisModule } from '@abdokouta/react-redis';
+import { RedisModule } from '@abdokouta/ts-redis';
 
 @Module({
   imports: [
@@ -61,7 +61,7 @@ export class AppModule {}
 
 ```typescript
 import { Injectable } from '@abdokouta/container';
-import { RedisService } from '@abdokouta/react-redis';
+import { RedisService } from '@abdokouta/ts-redis';
 
 @Injectable()
 export class UserService {
@@ -87,7 +87,7 @@ export class UserService {
 #### In React Components (with Hooks)
 
 ```typescript
-import { useRedis } from '@abdokouta/react-redis';
+import { useRedis } from '@abdokouta/ts-redis';
 import { useEffect, useState } from 'react';
 
 function UserProfile({ userId }: { userId: string }) {
@@ -468,7 +468,7 @@ import type {
   RedisConnectionConfig,
   SetOptions,
   RedisPipeline,
-} from '@abdokouta/react-redis';
+} from '@abdokouta/ts-redis';
 ```
 
 ## Browser Compatibility

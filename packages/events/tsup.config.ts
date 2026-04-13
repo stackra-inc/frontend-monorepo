@@ -72,14 +72,14 @@ export default defineConfig({
   /**
    * External dependencies that should not be bundled.
    *
-   * - @abdokouta/react-di: DI system (peer dependency)
+   * - @abdokouta/ts-container: DI system (peer dependency)
    * - react: React library (optional peer dependency for hooks)
    */
   external: [
     '@abdokouta/ts-container',
     '@abdokouta/ts-container-react',
-    '@abdokouta/react-support',
-    '@abdokouta/react-redis',
+    '@abdokouta/ts-support',
+    '@abdokouta/ts-redis',
     'react',
   ],
 

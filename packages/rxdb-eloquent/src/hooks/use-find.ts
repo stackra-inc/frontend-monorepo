@@ -7,7 +7,7 @@
  *
  * @example
  * ```tsx
- * import { useFind } from '@abdokouta/rxdb-eloquent';
+ * import { useFind } from '@abdokouta/ts-eloquent';
  * import { User } from './models/user.model';
  *
  * function UserProfile({ userId }: { userId: string }) {

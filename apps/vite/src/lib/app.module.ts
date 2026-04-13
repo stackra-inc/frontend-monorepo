@@ -3,16 +3,16 @@
  * @description Root DI module for the Vite application.
  *
  * Wires together the three core packages:
- *   - @abdokouta/react-config  — environment-aware configuration
- *   - @abdokouta/react-logger  — structured logging with channels
- *   - @abdokouta/react-di      — NestJS-style dependency injection
+ *   - @abdokouta/ts-config  — environment-aware configuration
+ *   - @abdokouta/ts-logger  — structured logging with channels
+ *   - @abdokouta/ts-container      — NestJS-style dependency injection
  */
 
 import "reflect-metadata";
 
-import { Module } from "@abdokouta/react-di";
-import { ConfigModule } from "@abdokouta/react-config";
-import { LoggerModule } from "@abdokouta/react-logger";
+import { Module } from "@abdokouta/ts-container";
+import { ConfigModule } from "@abdokouta/ts-config";
+import { LoggerModule } from "@abdokouta/ts-logger";
 
 /**
  * AppModule — root module of the Vite application.

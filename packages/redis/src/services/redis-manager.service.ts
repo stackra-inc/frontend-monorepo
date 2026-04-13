@@ -21,7 +21,7 @@ import {
   type OnModuleInit,
   type OnModuleDestroy,
 } from '@abdokouta/ts-container';
-import { MultipleInstanceManager } from '@abdokouta/react-support';
+import { MultipleInstanceManager } from '@abdokouta/ts-support';
 
 import type { RedisConnection, RedisConnector, RedisConfig, IRedisService } from '@/interfaces';
 import { REDIS_CONFIG, REDIS_CONNECTOR } from '@/constants/tokens.constant';

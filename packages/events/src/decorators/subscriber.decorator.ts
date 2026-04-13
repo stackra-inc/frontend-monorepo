@@ -3,7 +3,7 @@
  *
  * Marks a class as an event subscriber.
  *
- * @module @pixielity/events
+ * @module @abdokouta/ts-events
  * @category Decorators
  */
 

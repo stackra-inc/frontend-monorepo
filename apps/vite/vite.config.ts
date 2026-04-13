@@ -14,7 +14,7 @@ import react from "@vitejs/plugin-react";
 import tsconfigPaths from "vite-tsconfig-paths";
 import tailwindcss from "@tailwindcss/vite";
 import { resolve } from "path";
-import { viteConfigPlugin } from "@abdokouta/react-config/vite-plugin";
+import { viteConfigPlugin } from "@abdokouta/ts-config/vite-plugin";
 
 /**
  * Vite configuration factory.

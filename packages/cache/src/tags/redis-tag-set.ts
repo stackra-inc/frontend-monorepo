@@ -19,7 +19,7 @@
  */
 
 import type { TagSet as ITagSet } from '@/interfaces';
-import type { RedisConnection } from '@abdokouta/react-redis';
+import type { RedisConnection } from '@abdokouta/ts-redis';
 
 /**
  * Redis tag set implementation

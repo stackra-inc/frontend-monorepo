@@ -1,6 +1,6 @@
 /**
  * @fileoverview Utils Index
- * @module @pixielity/events
+ * @module @abdokouta/ts-events
  * @category Utils
  */
 

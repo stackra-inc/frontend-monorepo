@@ -20,27 +20,33 @@ importers:
 
   apps/nextjs:
     dependencies:
-      '@abdokouta/react-config':
+      '@abdokouta/ts-config':
         specifier: workspace:*
         version: link:../../packages/config
-      '@abdokouta/react-di':
-        specifier: '*'
-        version: 2.1.3(react@19.2.4)
-      '@abdokouta/react-logger':
+      '@abdokouta/ts-container':
+        specifier: workspace:*
+        version: link:../../packages/container/container
+      '@abdokouta/ts-container-react':
+        specifier: workspace:*
+        version: link:../../packages/container/react
+      '@abdokouta/ts-events':
+        specifier: workspace:*
+        version: link:../../packages/events
+      '@abdokouta/ts-logger':
         specifier: workspace:*
         version: link:../../packages/logger
-      '@abdokouta/react-redis':
+      '@abdokouta/ts-redis':
         specifier: workspace:*
         version: link:../../packages/redis
+      '@abdokouta/ts-support':
+        specifier: workspace:*
+        version: link:../../packages/support
       '@heroui/react':
         specifier: 3.0.1
         version: 3.0.1(@types/react-dom@19.2.2(@types/react@19.2.2))(@types/react@19.2.2)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(tailwindcss@4.1.11)
       '@heroui/styles':
         specifier: 3.0.1
         version: 3.0.1(tailwind-merge@3.4.0)(tailwindcss@4.1.11)
-      '@pixielity/events':
-        specifier: workspace:*
-        version: link:../../packages/events
       clsx:
         specifier: 2.1.1
         version: 2.1.1
@@ -49,7 +55,7 @@ importers:
         version: 10.7.16
       next:
         specifier: 15.5.9
-        version: 15.5.9(@babel/core@7.29.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+        version: 15.5.9(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       next-themes:
         specifier: 0.4.6
         version: 0.4.6(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
@@ -147,15 +153,21 @@ importers:
 
   apps/vite:
     dependencies:
-      '@abdokouta/react-config':
+      '@abdokouta/ts-config':
         specifier: workspace:*
         version: link:../../packages/config
-      '@abdokouta/react-di':
-        specifier: '*'
-        version: 2.1.3(react@19.2.4)
-      '@abdokouta/react-logger':
+      '@abdokouta/ts-container':
+        specifier: workspace:*
+        version: link:../../packages/container/container
+      '@abdokouta/ts-container-react':
+        specifier: workspace:*
+        version: link:../../packages/container/react
+      '@abdokouta/ts-logger':
         specifier: workspace:*
         version: link:../../packages/logger
+      '@abdokouta/ts-support':
+        specifier: workspace:*
+        version: link:../../packages/support
       '@heroui/react':
         specifier: 3.0.1
         version: 3.0.1(@types/react-dom@19.2.2(@types/react@19.2.2))(@types/react@19.2.2)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(tailwindcss@4.1.11)
@@ -265,18 +277,18 @@ importers:
 
   packages/cache:
     dependencies:
-      '@abdokouta/react-redis':
-        specifier: ^1.1.2
-        version: 1.1.3(@abdokouta/react-support@2.1.0(@abdokouta/ts-container@1.2.2))(@abdokouta/ts-container-react@1.2.2(react@19.2.4))(@abdokouta/ts-container@1.2.2)(react@19.2.4)
-      '@abdokouta/react-support':
-        specifier: ^2.1.0
-        version: 2.1.0(@abdokouta/ts-container@1.2.2)
       '@abdokouta/ts-container':
-        specifier: ^1.2.0
-        version: 1.2.2
+        specifier: workspace:*
+        version: link:../container/container
       '@abdokouta/ts-container-react':
-        specifier: ^1.2.0
-        version: 1.2.2(react@19.2.4)
+        specifier: workspace:*
+        version: link:../container/react
+      '@abdokouta/ts-redis':
+        specifier: workspace:*
+        version: link:../redis
+      '@abdokouta/ts-support':
+        specifier: workspace:*
+        version: link:../support
       '@upstash/redis':
         specifier: ^1.37.0
         version: 1.37.0
@@ -330,8 +342,8 @@ importers:
   packages/config:
     dependencies:
       '@abdokouta/ts-container':
-        specifier: ^1.2.0
-        version: 1.2.2
+        specifier: workspace:*
+        version: link:../container/container
     devDependencies:
       '@eslint/js':
         specifier: 10.0.1
@@ -379,20 +391,92 @@ importers:
         specifier: ^4.1.2
         version: 4.1.2(@types/node@25.5.2)(@vitest/ui@4.1.2)(jsdom@29.0.1)(vite@8.0.3(@emnapi/core@1.9.2)(@emnapi/runtime@1.9.2)(@types/node@25.5.2)(esbuild@0.27.7)(jiti@2.6.1))
 
+  packages/container/application:
+    dependencies:
+      '@abdokouta/ts-container':
+        specifier: workspace:*
+        version: link:../container
+    devDependencies:
+      '@nesvel/typescript-config':
+        specifier: ^1.0.4
+        version: 1.0.4(typescript@6.0.2)
+      '@types/node':
+        specifier: ^25.5.2
+        version: 25.5.2
+      tsup:
+        specifier: ^8.5.1
+        version: 8.5.1(jiti@2.6.1)(postcss@8.5.8)(typescript@6.0.2)
+      typescript:
+        specifier: ^6.0.2
+        version: 6.0.2
+      vitest:
+        specifier: ^4.1.2
+        version: 4.1.2(@types/node@25.5.2)(@vitest/ui@4.1.2)(jsdom@29.0.1)(vite@8.0.3(@emnapi/core@1.9.2)(@emnapi/runtime@1.9.2)(@types/node@25.5.2)(esbuild@0.27.7)(jiti@2.6.1))
+
+  packages/container/container:
+    dependencies:
+      reflect-metadata:
+        specifier: ^0.2.2
+        version: 0.2.2
+    devDependencies:
+      '@nesvel/typescript-config':
+        specifier: ^1.0.4
+        version: 1.0.4(typescript@6.0.2)
+      '@types/node':
+        specifier: ^25.5.2
+        version: 25.5.2
+      tsup:
+        specifier: ^8.5.1
+        version: 8.5.1(jiti@2.6.1)(postcss@8.5.8)(typescript@6.0.2)
+      typescript:
+        specifier: ^6.0.2
+        version: 6.0.2
+      vitest:
+        specifier: ^4.1.2
+        version: 4.1.2(@types/node@25.5.2)(@vitest/ui@4.1.2)(jsdom@29.0.1)(vite@8.0.3(@emnapi/core@1.9.2)(@emnapi/runtime@1.9.2)(@types/node@25.5.2)(esbuild@0.27.7)(jiti@2.6.1))
+
+  packages/container/react:
+    dependencies:
+      '@abdokouta/ts-container':
+        specifier: workspace:*
+        version: link:../container
+    devDependencies:
+      '@nesvel/typescript-config':
+        specifier: ^1.0.4
+        version: 1.0.4(typescript@6.0.2)
+      '@types/node':
+        specifier: ^25.5.2
+        version: 25.5.2
+      '@types/react':
+        specifier: ^19.2.14
+        version: 19.2.14
+      react:
+        specifier: ^19.2.4
+        version: 19.2.4
+      tsup:
+        specifier: ^8.5.1
+        version: 8.5.1(jiti@2.6.1)(postcss@8.5.8)(typescript@6.0.2)
+      typescript:
+        specifier: ^6.0.2
+        version: 6.0.2
+      vitest:
+        specifier: ^4.1.2
+        version: 4.1.2(@types/node@25.5.2)(@vitest/ui@4.1.2)(jsdom@29.0.1)(vite@8.0.3(@emnapi/core@1.9.2)(@emnapi/runtime@1.9.2)(@types/node@25.5.2)(esbuild@0.27.7)(jiti@2.6.1))
+
   packages/events:
     dependencies:
-      '@abdokouta/react-redis':
-        specifier: ^1.1.2
-        version: 1.1.3(@abdokouta/react-support@2.1.0(@abdokouta/ts-container@1.2.2))(@abdokouta/ts-container-react@1.2.2(react@19.2.4))(@abdokouta/ts-container@1.2.2)(react@19.2.4)
-      '@abdokouta/react-support':
-        specifier: ^2.1.0
-        version: 2.1.0(@abdokouta/ts-container@1.2.2)
       '@abdokouta/ts-container':
-        specifier: ^1.2.0
-        version: 1.2.2
+        specifier: workspace:*
+        version: link:../container/container
       '@abdokouta/ts-container-react':
-        specifier: ^1.2.0
-        version: 1.2.2(react@19.2.4)
+        specifier: workspace:*
+        version: link:../container/react
+      '@abdokouta/ts-redis':
+        specifier: workspace:*
+        version: link:../redis
+      '@abdokouta/ts-support':
+        specifier: workspace:*
+        version: link:../support
       react:
         specifier: ^18.0.0 || ^19.0.0
         version: 19.2.4
@@ -424,15 +508,15 @@ importers:
 
   packages/logger:
     devDependencies:
-      '@abdokouta/react-support':
-        specifier: ^2.1.0
-        version: 2.1.0(@abdokouta/ts-container@1.2.2)
       '@abdokouta/ts-container':
-        specifier: ^1.2.1
-        version: 1.2.2
+        specifier: workspace:*
+        version: link:../container/container
       '@abdokouta/ts-container-react':
-        specifier: ^1.2.1
-        version: 1.2.2(react@19.2.4)
+        specifier: workspace:*
+        version: link:../container/react
+      '@abdokouta/ts-support':
+        specifier: workspace:*
+        version: link:../support
       '@eslint/js':
         specifier: 10.0.1
         version: 10.0.1(eslint@10.2.0(jiti@2.6.1))
@@ -487,15 +571,15 @@ importers:
 
   packages/redis:
     dependencies:
-      '@abdokouta/react-support':
-        specifier: ^2.1.0
-        version: 2.1.0(@abdokouta/ts-container@1.2.2)
       '@abdokouta/ts-container':
-        specifier: ^1.2.0
-        version: 1.2.2
+        specifier: workspace:*
+        version: link:../container/container
       '@abdokouta/ts-container-react':
-        specifier: ^1.2.0
-        version: 1.2.2(react@19.2.4)
+        specifier: workspace:*
+        version: link:../container/react
+      '@abdokouta/ts-support':
+        specifier: workspace:*
+        version: link:../support
       '@upstash/redis':
         specifier: ^1.37.0
         version: 1.37.0
@@ -542,15 +626,15 @@ importers:
 
   packages/rxdb-eloquent:
     dependencies:
-      '@abdokouta/react-logger':
-        specifier: ^1.0.0
-        version: 1.1.2(@abdokouta/react-support@2.1.0(@abdokouta/ts-container@1.2.2))(@abdokouta/ts-container@1.2.2)(react@19.2.4)
-      '@abdokouta/react-support':
-        specifier: ^2.1.0
-        version: 2.1.0(@abdokouta/ts-container@1.2.2)
       '@abdokouta/ts-container':
-        specifier: ^1.2.0
-        version: 1.2.2
+        specifier: workspace:*
+        version: link:../container/container
+      '@abdokouta/ts-logger':
+        specifier: workspace:*
+        version: link:../logger
+      '@abdokouta/ts-support':
+        specifier: workspace:*
+        version: link:../support
       rxdb:
         specifier: ^17.1.0
         version: 17.1.0(react@19.2.4)(rxjs@7.8.2)
@@ -609,18 +693,18 @@ importers:
 
   packages/settings:
     dependencies:
-      '@abdokouta/react-cache':
-        specifier: ^1.2
-        version: 1.2.1(@abdokouta/react-redis@1.1.3(@abdokouta/react-support@2.1.0(@abdokouta/ts-container@1.2.2))(@abdokouta/ts-container-react@1.2.2(react@19.2.4))(@abdokouta/ts-container@1.2.2)(react@19.2.4))(@abdokouta/react-support@2.1.0(@abdokouta/ts-container@1.2.2))(@abdokouta/ts-container-react@1.2.2(react@19.2.4))(@abdokouta/ts-container@1.2.2)(react@19.2.4)
-      '@abdokouta/react-support':
-        specifier: ^2.1.0
-        version: 2.1.0(@abdokouta/ts-container@1.2.2)
+      '@abdokouta/ts-cache':
+        specifier: workspace:*
+        version: link:../cache
       '@abdokouta/ts-container':
-        specifier: ^1.2
-        version: 1.2.2
+        specifier: workspace:*
+        version: link:../container/container
       '@abdokouta/ts-container-react':
-        specifier: ^1.2.2
-        version: 1.2.2(react@19.2.4)
+        specifier: workspace:*
+        version: link:../container/react
+      '@abdokouta/ts-support':
+        specifier: workspace:*
+        version: link:../support
       react:
         specifier: ^18.0.0 || ^19.0.0
         version: 19.2.4
@@ -647,8 +731,8 @@ importers:
   packages/support:
     dependencies:
       '@abdokouta/ts-container':
-        specifier: ^1.2.0
-        version: 1.2.2
+        specifier: workspace:*
+        version: link:../container/container
       collect.js:
         specifier: ^4.36.1
         version: 4.36.1
@@ -697,74 +781,6 @@ importers:
         version: 4.1.2(@types/node@25.5.2)(@vitest/ui@4.1.2)(jsdom@29.0.1)(vite@8.0.3(@emnapi/core@1.9.2)(@emnapi/runtime@1.9.2)(@types/node@25.5.2)(esbuild@0.27.7)(jiti@2.6.1))
 
 packages:
-
-  '@abdokouta/react-cache@1.2.1':
-    resolution: {integrity: sha512-aQGtmGWRGdxapsXrqlSBdMC5+bOmWcRo8pzi4zXs8SaSR8IqUDr0PBp9q9As6sDzDWLTdwf4d/JQ3whhsaOO7g==}
-    engines: {node: '>=18.0.0', pnpm: '>=9.0.0'}
-    peerDependencies:
-      '@abdokouta/react-redis': ^1.1.2
-      '@abdokouta/react-support': ^2.1.0
-      '@abdokouta/ts-container': ^1.2.0
-      '@abdokouta/ts-container-react': ^1.2.0
-      react: ^18.0.0 || ^19.0.0
-    peerDependenciesMeta:
-      '@abdokouta/react-redis':
-        optional: true
-      '@abdokouta/ts-container-react':
-        optional: true
-      react:
-        optional: true
-
-  '@abdokouta/react-di@2.1.3':
-    resolution: {integrity: sha512-fYiKJrJvcB//itLjcQ6Wyv8HzEpuS4mmQFpKETQkXJZQ5UiZdnkL6+LPV+1ma1K2N7zLJxF1ZY1Vn6VZ0TRPKg==}
-    engines: {node: '>=18.0.0', pnpm: '>=9.0.0'}
-    deprecated: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
-    peerDependencies:
-      react: ^18.0.0 || ^19.0.0
-
-  '@abdokouta/react-logger@1.1.2':
-    resolution: {integrity: sha512-BXG2NVcYKV5PvqiiQOhvODye2ImbF0p5sxUMDtz2e5FqajxUYk9cFEE6GyBv3YRjpMUSQnHvf52+n7Muem94Dw==}
-    engines: {node: '>=18.0.0', pnpm: '>=9.0.0'}
-    peerDependencies:
-      '@abdokouta/react-support': ^2.1.0
-      '@abdokouta/ts-container': ^1.2.0
-      react: ^18.0.0 || ^19.0.0
-    peerDependenciesMeta:
-      react:
-        optional: true
-
-  '@abdokouta/react-redis@1.1.3':
-    resolution: {integrity: sha512-fxS8kJ3VPZNxEsPt9dD32NGXmVkRl7B5EGggEjfWcZ2eXprhwLb6dnHYYm7tyhZj2wlPQcrZJvDD8XcOyr48Mg==}
-    engines: {node: '>=18.0.0', pnpm: '>=9.0.0'}
-    peerDependencies:
-      '@abdokouta/react-support': ^2.1.0
-      '@abdokouta/ts-container': ^1.2.0
-      '@abdokouta/ts-container-react': ^1.2.0
-      react: ^18.0.0 || ^19.0.0
-    peerDependenciesMeta:
-      '@abdokouta/ts-container-react':
-        optional: true
-      react:
-        optional: true
-
-  '@abdokouta/react-support@2.1.0':
-    resolution: {integrity: sha512-DRu+d9UtQCAPBQvI1dir/kTVFmmnwY6LzE/iEnyEFe9q5VpPjlif3IA7PNDgrGURmW6b1+Lx4DZLKi7RFIbMdA==}
-    engines: {node: '>=20'}
-    peerDependencies:
-      '@abdokouta/ts-container': ^1.2.0
-    peerDependenciesMeta:
-      '@abdokouta/ts-container':
-        optional: true
-
-  '@abdokouta/ts-container-react@1.2.2':
-    resolution: {integrity: sha512-Tc0SBE7dstGAtZ8IZzCODpsMSm2xRIqOzdvs0AykPPLsAaac8Yjok2bsEeYVQB6FlM0eeKbUHipuhYQkn/e/5w==}
-    engines: {node: '>=18'}
-    peerDependencies:
-      react: ^18.0.0 || ^19.0.0
-
-  '@abdokouta/ts-container@1.2.2':
-    resolution: {integrity: sha512-4grUVOl3AxidkCyM4+M6vbBdBz2yGpGFxHDmwlajen0lalWwl4XxrUrzIoBcelsS+1PvmiUiH1wOoHGhzniNyA==}
-    engines: {node: '>=18'}
 
   '@alloc/quick-lru@5.2.0':
     resolution: {integrity: sha512-UrcABB+4bUrFABwbluTIBErXwvbsU/V7TZWfmbgJfbkwiBuziS9gxdODUyuiecfdGQ85jglMW6juS3+z5TsKLw==}
@@ -1605,24 +1621,6 @@ packages:
 
   '@internationalized/string@3.2.7':
     resolution: {integrity: sha512-D4OHBjrinH+PFZPvfCXvG28n2LSykWcJ7GIioQL+ok0LON15SdfoUssoHzzOUmVZLbRoREsQXVzA6r8JKsbP6A==}
-
-  '@inversiland/common@1.4.0':
-    resolution: {integrity: sha512-Fgx8rwSeNvV/yBGXiDwpRiNTv61eDf0stzTAFpHzezP5GJ4OcFKAZwBKdMCoTVLGLtmZ+Ywntn3OZtLQL2Isuw==}
-
-  '@inversiland/core@1.3.5':
-    resolution: {integrity: sha512-Zt3FRU4FZupWVvKOCCKSt4M3PdLK5ZwxtGIo8QEXjxTd6YpaPcM3Zj1OMXkT8p1uoUCoezIYMC4W+QaA8DDE9w==}
-    peerDependencies:
-      reflect-metadata: ^0.2.2
-
-  '@inversiland/inversify@6.1.5':
-    resolution: {integrity: sha512-QqUlhEkwRGiUKulrn/jw9l9tO3bbpWg1SfLacZQmc5XxDRhd8aOQy4oHmvPmRnO6z4SsBbXCzlNuOWgPaOB6mg==}
-    peerDependencies:
-      reflect-metadata: ^0.2.2
-
-  '@inversiland/metadata@0.2.5':
-    resolution: {integrity: sha512-W2gUFeF6Vuoef9RRaapJGdk+Ws7uGjEAAiEbERkkPHXZPMSs/qFUeSL2n2LokEZJ4oiQZOpDO+AkrwMnaHm+wQ==}
-    peerDependencies:
-      reflect-metadata: 0.2.2
 
   '@isaacs/fs-minipass@4.0.1':
     resolution: {integrity: sha512-wgm9Ehl2jpeqP3zw/7mo3kRHFp5MEDhqAdwy1fTGkHAwnkGOVsgpvQhL8B5n1qlb01jV3n/bI0ZfZp5lWA1k4w==}
@@ -4139,9 +4137,6 @@ packages:
   intl-messageformat@10.7.16:
     resolution: {integrity: sha512-UmdmHUmp5CIKKjSoE10la5yfU+AYJAaiYLsodbjL4lji83JNvgOQUjGaGhGrpFCb0Uh7sl7qfP1IyILa8Z40ug==}
 
-  inversiland@0.6.2:
-    resolution: {integrity: sha512-DJErdRjv5lC0bF0nE8J5Aw836w/JfkeKQYFq4VyCT7hnIcjB2vUhKCwWJR7a0+7lLO2GalvH0rz3eX2PF1OX0w==}
-
   is-arguments@1.2.0:
     resolution: {integrity: sha512-7bVbi0huj/wrIAOzb8U1aszg9kdi3KN/CyU19CTI7tAoZYEZoL9yCDXpbXN+uPsuWnP02cyug1gleqq+TU+YCA==}
     engines: {node: '>= 0.4'}
@@ -5561,54 +5556,6 @@ packages:
 
 snapshots:
 
-  '@abdokouta/react-cache@1.2.1(@abdokouta/react-redis@1.1.3(@abdokouta/react-support@2.1.0(@abdokouta/ts-container@1.2.2))(@abdokouta/ts-container-react@1.2.2(react@19.2.4))(@abdokouta/ts-container@1.2.2)(react@19.2.4))(@abdokouta/react-support@2.1.0(@abdokouta/ts-container@1.2.2))(@abdokouta/ts-container-react@1.2.2(react@19.2.4))(@abdokouta/ts-container@1.2.2)(react@19.2.4)':
-    dependencies:
-      '@abdokouta/react-support': 2.1.0(@abdokouta/ts-container@1.2.2)
-      '@abdokouta/ts-container': 1.2.2
-      '@upstash/redis': 1.37.0
-    optionalDependencies:
-      '@abdokouta/react-redis': 1.1.3(@abdokouta/react-support@2.1.0(@abdokouta/ts-container@1.2.2))(@abdokouta/ts-container-react@1.2.2(react@19.2.4))(@abdokouta/ts-container@1.2.2)(react@19.2.4)
-      '@abdokouta/ts-container-react': 1.2.2(react@19.2.4)
-      react: 19.2.4
-
-  '@abdokouta/react-di@2.1.3(react@19.2.4)':
-    dependencies:
-      '@inversiland/inversify': 6.1.5(reflect-metadata@0.2.2)
-      inversiland: 0.6.2
-      react: 19.2.4
-      reflect-metadata: 0.2.2
-
-  '@abdokouta/react-logger@1.1.2(@abdokouta/react-support@2.1.0(@abdokouta/ts-container@1.2.2))(@abdokouta/ts-container@1.2.2)(react@19.2.4)':
-    dependencies:
-      '@abdokouta/react-support': 2.1.0(@abdokouta/ts-container@1.2.2)
-      '@abdokouta/ts-container': 1.2.2
-    optionalDependencies:
-      react: 19.2.4
-
-  '@abdokouta/react-redis@1.1.3(@abdokouta/react-support@2.1.0(@abdokouta/ts-container@1.2.2))(@abdokouta/ts-container-react@1.2.2(react@19.2.4))(@abdokouta/ts-container@1.2.2)(react@19.2.4)':
-    dependencies:
-      '@abdokouta/react-support': 2.1.0(@abdokouta/ts-container@1.2.2)
-      '@abdokouta/ts-container': 1.2.2
-      '@upstash/redis': 1.37.0
-    optionalDependencies:
-      '@abdokouta/ts-container-react': 1.2.2(react@19.2.4)
-      react: 19.2.4
-
-  '@abdokouta/react-support@2.1.0(@abdokouta/ts-container@1.2.2)':
-    dependencies:
-      collect.js: 4.36.1
-    optionalDependencies:
-      '@abdokouta/ts-container': 1.2.2
-
-  '@abdokouta/ts-container-react@1.2.2(react@19.2.4)':
-    dependencies:
-      '@abdokouta/ts-container': 1.2.2
-      react: 19.2.4
-
-  '@abdokouta/ts-container@1.2.2':
-    dependencies:
-      reflect-metadata: 0.2.2
-
   '@alloc/quick-lru@5.2.0': {}
 
   '@ampproject/remapping@2.3.0':
@@ -6334,25 +6281,6 @@ snapshots:
   '@internationalized/string@3.2.7':
     dependencies:
       '@swc/helpers': 0.5.21
-
-  '@inversiland/common@1.4.0': {}
-
-  '@inversiland/core@1.3.5(reflect-metadata@0.2.2)':
-    dependencies:
-      '@inversiland/common': 1.4.0
-      '@inversiland/metadata': 0.2.5(reflect-metadata@0.2.2)
-      reflect-metadata: 0.2.2
-
-  '@inversiland/inversify@6.1.5(reflect-metadata@0.2.2)':
-    dependencies:
-      '@inversiland/common': 1.4.0
-      '@inversiland/core': 1.3.5(reflect-metadata@0.2.2)
-      '@inversiland/metadata': 0.2.5(reflect-metadata@0.2.2)
-      reflect-metadata: 0.2.2
-
-  '@inversiland/metadata@0.2.5(reflect-metadata@0.2.2)':
-    dependencies:
-      reflect-metadata: 0.2.2
 
   '@isaacs/fs-minipass@4.0.1':
     dependencies:
@@ -9650,13 +9578,6 @@ snapshots:
       '@formatjs/icu-messageformat-parser': 2.11.2
       tslib: 2.8.1
 
-  inversiland@0.6.2:
-    dependencies:
-      '@inversiland/common': 1.4.0
-      '@inversiland/inversify': 6.1.5(reflect-metadata@0.2.2)
-      '@inversiland/metadata': 0.2.5(reflect-metadata@0.2.2)
-      reflect-metadata: 0.2.2
-
   is-arguments@1.2.0:
     dependencies:
       call-bound: 1.0.4
@@ -10062,7 +9983,7 @@ snapshots:
       react: 19.2.4
       react-dom: 19.2.4(react@19.2.4)
 
-  next@15.5.9(@babel/core@7.29.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4):
+  next@15.5.9(react-dom@19.2.4(react@19.2.4))(react@19.2.4):
     dependencies:
       '@next/env': 15.5.9
       '@swc/helpers': 0.5.15
@@ -10070,7 +9991,7 @@ snapshots:
       postcss: 8.4.31
       react: 19.2.4
       react-dom: 19.2.4(react@19.2.4)
-      styled-jsx: 5.1.6(@babel/core@7.29.0)(react@19.2.4)
+      styled-jsx: 5.1.6(react@19.2.4)
     optionalDependencies:
       '@next/swc-darwin-arm64': 15.5.7
       '@next/swc-darwin-x64': 15.5.7
@@ -10769,12 +10690,10 @@ snapshots:
 
   strip-json-comments@3.1.1: {}
 
-  styled-jsx@5.1.6(@babel/core@7.29.0)(react@19.2.4):
+  styled-jsx@5.1.6(react@19.2.4):
     dependencies:
       client-only: 0.0.1
       react: 19.2.4
-    optionalDependencies:
-      '@babel/core': 7.29.0
 
   sucrase@3.35.1:
     dependencies:

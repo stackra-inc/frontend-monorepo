@@ -3,11 +3,11 @@
  * @description Root DI module for the Next.js application.
  *
  * Wires together the core packages:
- *   - @abdokouta/react-config  — environment-aware configuration
- *   - @abdokouta/react-logger  — structured logging with channels
- *   - @abdokouta/react-redis   — Upstash Redis HTTP client
- *   - @pixielity/events        — Laravel-style event dispatcher
- *   - @abdokouta/react-di      — NestJS-style dependency injection
+ *   - @abdokouta/ts-config  — environment-aware configuration
+ *   - @abdokouta/ts-logger  — structured logging with channels
+ *   - @abdokouta/ts-redis   — Upstash Redis HTTP client
+ *   - @abdokouta/ts-events        — Laravel-style event dispatcher
+ *   - @abdokouta/ts-container      — NestJS-style dependency injection
  *
  * This module is bootstrapped once in the ContainerProvider and made
  * available to all React components via the useInject() hook.
@@ -15,11 +15,11 @@
 
 import "reflect-metadata";
 
-import { Module } from "@abdokouta/react-di";
-import { ConfigModule } from "@abdokouta/react-config";
-import { LoggerModule } from "@abdokouta/react-logger";
-import { EventsModule } from "@pixielity/events";
-import { RedisModule } from "@abdokouta/react-redis";
+import { Module } from "@abdokouta/ts-container";
+import { ConfigModule } from "@abdokouta/ts-config";
+import { LoggerModule } from "@abdokouta/ts-logger";
+import { EventsModule } from "@abdokouta/ts-events";
+import { RedisModule } from "@abdokouta/ts-redis";
 
 /**
  * AppModule — root module of the application.

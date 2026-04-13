@@ -1,6 +1,6 @@
 /**
  * @fileoverview Types Index
- * @module @pixielity/events
+ * @module @abdokouta/ts-events
  */
 
 export type { EventDriver } from './event-driver.type';

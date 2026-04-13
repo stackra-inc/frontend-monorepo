@@ -3,7 +3,7 @@
  *
  * React hook that registers an event listener and auto-cleans up on unmount.
  *
- * @module @pixielity/events
+ * @module @abdokouta/ts-events
  * @category Hooks
  *
  * @example

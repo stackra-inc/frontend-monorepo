@@ -2,7 +2,7 @@
  * @file pages/container.tsx
  * @description DI Container package showcase page.
  *
- * Demonstrates @abdokouta/react-di:
+ * Demonstrates @abdokouta/ts-container:
  *   - @Injectable() decorator
  *   - @Module() with providers and imports
  *   - useInject() hook to resolve services
@@ -11,14 +11,8 @@
  */
 
 import { useState } from "react";
-import {
-  Injectable,
-  Module,
-  Inject,
-  useInject,
-  useModule,
-  ContainerProvider,
-} from "@abdokouta/react-di";
+import { Injectable, Module, Inject } from "@abdokouta/ts-container";
+import { useInject, useModule, ContainerProvider } from "@abdokouta/ts-container-react";
 import { Card, Chip, Separator, Button } from "@heroui/react";
 
 import { title, subtitle } from "@/components/primitives";
@@ -152,7 +146,7 @@ export default function ContainerPage() {
         <div>
           <h1 className={title()}>Container Package</h1>
           <p className={subtitle({ class: "mt-2" })}>
-            @abdokouta/react-di — NestJS-style dependency injection for React
+            @abdokouta/ts-container — NestJS-style dependency injection for React
           </p>
         </div>
 

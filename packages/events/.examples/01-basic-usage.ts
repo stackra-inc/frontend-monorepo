@@ -2,7 +2,7 @@
  * Basic Events Usage Example
  *
  * |--------------------------------------------------------------------------
- * | @pixielity/events — Basic Usage
+ * | @abdokouta/ts-events — Basic Usage
  * |--------------------------------------------------------------------------
  * |
  * | This example demonstrates the fundamental event dispatcher operations:
@@ -23,9 +23,9 @@
  * |
  */
 
-import { Module } from '@abdokouta/react-di';
-import { EventsModule, MemoryDispatcher } from '@pixielity/events';
-import type { EventDispatcherInterface } from '@pixielity/events';
+import { Module } from '@abdokouta/ts-container';
+import { EventsModule, MemoryDispatcher } from '@abdokouta/ts-events';
+import type { EventDispatcherInterface } from '@abdokouta/ts-events';
 
 // ─── Module Setup ───────────────────────────────────────────────────────────
 //

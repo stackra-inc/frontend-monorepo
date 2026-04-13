@@ -1,16 +1,16 @@
 /**
- * @pixielity/events
+ * @abdokouta/ts-events
  *
  * Laravel-style event dispatcher for TypeScript.
  * Multiple drivers (memory, redis, null), wildcard matching, priority,
  * decorators, subscribers, and RxJS streaming.
  *
- * Follows the same architecture as @abdokouta/react-cache:
+ * Follows the same architecture as @abdokouta/ts-cache:
  *   EventManager  → manages named dispatchers (like CacheManager → stores)
  *   EventService  → wraps a Dispatcher with high-level API (like CacheService)
  *   Dispatcher    → low-level contract (like Store)
  *
- * @module @pixielity/events
+ * @module @abdokouta/ts-events
  */
 
 import 'reflect-metadata';

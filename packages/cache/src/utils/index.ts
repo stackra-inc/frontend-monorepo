@@ -1,7 +1,7 @@
 /**
  * Utils
  *
- * @module @abdokouta/react-cache
+ * @module @abdokouta/ts-cache
  */
 
 export { defineConfig } from './define-config.util';

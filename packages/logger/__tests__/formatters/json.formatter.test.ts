@@ -12,7 +12,7 @@
  * useful for structured logging and integration with log aggregation
  * systems like ELK, Splunk, or CloudWatch.
  *
- * @module @abdokouta/react-logger
+ * @module @abdokouta/ts-logger
  * @category Tests
  */
 
