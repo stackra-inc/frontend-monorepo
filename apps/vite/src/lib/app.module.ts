@@ -37,6 +37,7 @@ import redisConfig from "@/config/redis.config";
 import cacheConfig from "@/config/cache.config";
 import { defaultEventsConfig } from "@/config/events.config";
 import { defaultSettingsConfig } from "@/config/settings.config";
+import { desktopConfig } from "@/config/desktop.config";
 import { FileMenu, EditMenu, ViewMenu } from "@/menus";
 
 /**
@@ -126,10 +127,7 @@ import { FileMenu, EditMenu, ViewMenu } from "@/menus";
     | Provides useDesktop() hook for platform-agnostic desktop features.
     |
     */
-    DesktopModule.forRoot({
-      appName: "Pixielity",
-      titleBarStyle: "native",
-    }),
+    DesktopModule.forRoot(desktopConfig.module),
 
     /*
     |--------------------------------------------------------------------------

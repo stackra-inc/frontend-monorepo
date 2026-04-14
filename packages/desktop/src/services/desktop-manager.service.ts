@@ -83,6 +83,18 @@ export class DesktopManager implements OnModuleInit {
       return;
     }
 
+    // Send the window config to the Electron main process.
+    this.bridge.send("window:config", {
+      title: this.config.appName,
+      titleBarStyle: this.config.titleBarStyle,
+      width: this.config.width,
+      height: this.config.height,
+      minWidth: this.config.minWidth,
+      minHeight: this.config.minHeight,
+      devUrl: this.config.devUrl,
+    });
+    console.log("[DesktopManager] ✅ Sent window:config IPC");
+
     // Send the menu template to the Electron main process.
     if (template.length > 0) {
       this.bridge.send("menu:set", template);

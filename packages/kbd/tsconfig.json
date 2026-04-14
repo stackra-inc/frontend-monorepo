@@ -1,0 +1,51 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": ".",
+
+    /* Language & Environment */
+    "target": "ES2020",
+    "lib": ["ES2020", "DOM"],
+
+    /* JSX — use the automatic runtime (no React import needed) */
+    "jsx": "react-jsx",
+
+    /* Module resolution — bundler mode for tsup compatibility */
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+
+    /* Strict type-checking */
+    "strict": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noFallthroughCasesInSwitch": true,
+    "forceConsistentCasingInFileNames": true,
+
+    /* Emit declarations for consumers */
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+
+    /* Interop */
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+
+     /* Decorators - Required for DI container */
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    
+     /* Path aliases */
+    "ignoreDeprecations": "6.0",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+
+    /* Testing — vitest globals available without imports */
+    "types": ["vitest/globals"]
+  },
+  "include": ["src/**/*", "__tests__/**/*"],
+  "exclude": ["node_modules", "dist"]
+}

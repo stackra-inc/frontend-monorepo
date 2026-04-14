@@ -1,0 +1,593 @@
+# Visual Guide - @abdokouta/kbd
+
+## Component Output Examples
+
+### Basic Usage
+
+**Code:**
+
+```tsx
+<RefineKbd keys={['command', 'K']} />
+```
+
+**Output:**
+
+```
+┌───┐   ┌───┐
+│ ⌘ │ + │ K │
+└───┘   └───┘
+```
+
+---
+
+### Multiple Modifier Keys
+
+**Code:**
+
+```tsx
+<RefineKbd keys={['ctrl', 'shift', 'P']} />
+```
+
+**Output:**
+
+```
+┌───┐   ┌───┐   ┌───┐
+│ ⌃ │ + │ ⇧ │ + │ P │
+└───┘   └───┘   └───┘
+```
+
+---
+
+### Navigation Keys
+
+**Code:**
+
+```tsx
+<RefineKbd keys={["up"]} />
+<RefineKbd keys={["down"]} />
+```
+
+**Output:**
+
+```
+┌───┐     ┌───┐
+│ ↑ │     │ ↓ │
+└───┘     └───┘
+```
+
+---
+
+### Light Variant
+
+**Code:**
+
+```tsx
+<RefineKbd keys={['command', 'S']} variant="light" />
+```
+
+**Output:**
+
+```
+┌───┐   ┌───┐
+│ ⌘ │ + │ S │  (with lighter background)
+└───┘   └───┘
+```
+
+---
+
+### Custom Separator
+
+**Code:**
+
+```tsx
+<RefineKbd keys={['command', 'K']} separator=" → " />
+```
+
+**Output:**
+
+```
+┌───┐    ┌───┐
+│ ⌘ │ → │ K │
+└───┘    └───┘
+```
+
+---
+
+## Key Symbol Reference
+
+### Modifier Keys
+
+```
+┌─────────┬────────┬─────────────┐
+│ Key     │ Symbol │ Title       │
+├─────────┼────────┼─────────────┤
+│ command │   ⌘    │ Command     │
+│ shift   │   ⇧    │ Shift       │
+│ ctrl    │   ⌃    │ Control     │
+│ option  │   ⌥    │ Option      │
+│ alt     │   ⌥    │ Alt         │
+│ win     │   ⊞    │ Windows     │
+└─────────┴────────┴─────────────┘
+```
+
+### Special Keys
+
+```
+┌──────────┬────────┬─────────────┐
+│ Key      │ Symbol │ Title       │
+├──────────┼────────┼─────────────┤
+│ enter    │   ↵    │ Enter       │
+│ delete   │   ⌫    │ Delete      │
+│ escape   │   ⎋    │ Escape      │
+│ tab      │   ⇥    │ Tab         │
+│ space    │   ␣    │ Space       │
+│ capslock │   ⇪    │ Caps Lock   │
+│ help     │   ?    │ Help        │
+│ fn       │   fn   │ Function    │
+└──────────┴────────┴─────────────┘
+```
+
+### Navigation Keys
+
+```
+┌──────────┬────────┬─────────────┐
+│ Key      │ Symbol │ Title       │
+├──────────┼────────┼─────────────┤
+│ up       │   ↑    │ Up Arrow    │
+│ down     │   ↓    │ Down Arrow  │
+│ left     │   ←    │ Left Arrow  │
+│ right    │   →    │ Right Arrow │
+│ pageup   │   ⇞    │ Page Up     │
+│ pagedown │   ⇟    │ Page Down   │
+│ home     │   ↖    │ Home        │
+│ end      │   ↘    │ End         │
+└──────────┴────────┴─────────────┘
+```
+
+---
+
+## Real-World UI Examples
+
+### Example 1: Search Bar Hint
+
+```
+┌─────────────────────────────────────────────┐
+│  Search...                    ⌘ + K         │
+└─────────────────────────────────────────────┘
+```
+
+**Code:**
+
+```tsx
+<div className="search-bar">
+  <input placeholder="Search..." />
+  <RefineKbd keys={['command', 'K']} />
+</div>
+```
+
+---
+
+### Example 2: Help Panel
+
+```
+┌─────────────────────────────────────────────┐
+│  Keyboard Shortcuts                         │
+├─────────────────────────────────────────────┤
+│  Open search          ⌘ + K                 │
+│  Create new           ⌘ + N                 │
+│  Save                 ⌘ + S                 │
+│  Close                esc                   │
+└─────────────────────────────────────────────┘
+```
+
+**Code:**
+
+```tsx
+<div className="shortcuts-panel">
+  <h3>Keyboard Shortcuts</h3>
+  <div>
+    <span>Open search</span>
+    <RefineKbd keys={['command', 'K']} />
+  </div>
+  <div>
+    <span>Create new</span>
+    <RefineKbd keys={['command', 'N']} />
+  </div>
+  {/* ... */}
+</div>
+```
+
+---
+
+### Example 3: Form Save Hint
+
+```
+┌─────────────────────────────────────────────┐
+│  Edit Product                               │
+├─────────────────────────────────────────────┤
+│  Name: [________________]                   │
+│  Price: [_______________]                   │
+│                                             │
+│  Press ⌘ + S to save                        │
+│                                             │
+│  [Cancel]  [Save]                           │
+└─────────────────────────────────────────────┘
+```
+
+**Code:**
+
+```tsx
+<form>
+  <h2>Edit Product</h2>
+  <input name="name" />
+  <input name="price" />
+
+  <p>
+    Press <RefineKbd keys={['command', 'S']} /> to save
+  </p>
+
+  <button>Cancel</button>
+  <button>Save</button>
+</form>
+```
+
+---
+
+### Example 4: Navigation Instructions
+
+```
+┌─────────────────────────────────────────────┐
+│  Product List                               │
+├─────────────────────────────────────────────┤
+│  Use ↑ ↓ to navigate                        │
+│  Press Enter to select                      │
+│                                             │
+│  > Product 1                                │
+│    Product 2                                │
+│    Product 3                                │
+└─────────────────────────────────────────────┘
+```
+
+**Code:**
+
+```tsx
+<div className="product-list">
+  <h2>Product List</h2>
+  <p>
+    Use <RefineKbd keys={['up']} /> <RefineKbd keys={['down']} /> to navigate
+  </p>
+  <p>
+    Press <RefineKbd keys={['enter']} /> to select
+  </p>
+  {/* Product items */}
+</div>
+```
+
+---
+
+### Example 5: Command Palette
+
+```
+┌─────────────────────────────────────────────┐
+│  Type a command...                          │
+├─────────────────────────────────────────────┤
+│  > Create new product                       │
+│    Edit settings                            │
+│    View reports                             │
+│                                             │
+│  ↑ ↓ to navigate  •  Enter to select       │
+└─────────────────────────────────────────────┘
+```
+
+**Code:**
+
+```tsx
+<div className="command-palette">
+  <input placeholder="Type a command..." />
+  <div className="results">{/* Command results */}</div>
+  <div className="hints">
+    <RefineKbd keys={['up']} /> <RefineKbd keys={['down']} /> to navigate •
+    <RefineKbd keys={['enter']} /> to select
+  </div>
+</div>
+```
+
+---
+
+## Component Variants Comparison
+
+### Default Variant
+
+```
+┌───────────────────────────────────┐
+│  Default (Solid Background)       │
+├───────────────────────────────────┤
+│                                   │
+│  ┌───┐   ┌───┐                    │
+│  │ ⌘ │ + │ K │  ← Solid bg        │
+│  └───┘   └───┘                    │
+│                                   │
+└───────────────────────────────────┘
+```
+
+### Light Variant
+
+```
+┌───────────────────────────────────┐
+│  Light (Transparent Background)   │
+├───────────────────────────────────┤
+│                                   │
+│  ┌───┐   ┌───┐                    │
+│  │ ⌘ │ + │ K │  ← Light bg        │
+│  └───┘   └───┘                    │
+│                                   │
+└───────────────────────────────────┘
+```
+
+---
+
+## Separator Styles
+
+### Default Separator (+)
+
+```
+⌘ + K
+```
+
+### Arrow Separator (→)
+
+```
+⌘ → K
+```
+
+### Dot Separator (•)
+
+```
+⌘ • K
+```
+
+### Space Separator
+
+```
+⌘   K
+```
+
+---
+
+## Integration with Other Components
+
+### With Tooltip
+
+```
+┌─────────────────────────────────┐
+│  [Button]                       │
+│     │                           │
+│     └─→ ┌─────────────────┐    │
+│         │ Save (⌘ + S)    │    │
+│         └─────────────────┘    │
+└─────────────────────────────────┘
+```
+
+**Code:**
+
+```tsx
+<Tooltip
+  content={
+    <>
+      Save (<RefineKbd keys={['command', 'S']} />)
+    </>
+  }
+>
+  <Button>Save</Button>
+</Tooltip>
+```
+
+---
+
+### With Modal
+
+```
+┌─────────────────────────────────────────────┐
+│  ┌───────────────────────────────────────┐  │
+│  │  Keyboard Shortcuts                   │  │
+│  ├───────────────────────────────────────┤  │
+│  │                                       │  │
+│  │  Search:  ⌘ + K                       │  │
+│  │  Save:    ⌘ + S                       │  │
+│  │  Close:   esc                         │  │
+│  │                                       │  │
+│  │  Press ? to show this help            │  │
+│  │                                       │  │
+│  │              [Close]                  │  │
+│  └───────────────────────────────────────┘  │
+└─────────────────────────────────────────────┘
+```
+
+---
+
+### With Popover
+
+```
+┌─────────────────────────────────┐
+│  [?]                            │
+│   │                             │
+│   └─→ ┌───────────────────┐    │
+│       │ Quick Actions     │    │
+│       ├───────────────────┤    │
+│       │ Search:  ⌘ + K    │    │
+│       │ Save:    ⌘ + S    │    │
+│       └───────────────────┘    │
+└─────────────────────────────────┘
+```
+
+---
+
+## Responsive Behavior
+
+### Desktop View
+
+```
+┌─────────────────────────────────────────────┐
+│  Press ⌘ + K to search                      │
+└─────────────────────────────────────────────┘
+```
+
+### Mobile View
+
+```
+┌─────────────────────┐
+│  Tap to search      │
+│  (⌘ + K on desktop) │
+└─────────────────────┘
+```
+
+---
+
+## Accessibility Features
+
+### Screen Reader Output
+
+```
+Visual:  ⌘ + K
+Screen Reader: "Command plus K"
+```
+
+### ARIA Attributes
+
+```html
+<kbd aria-label="Command">⌘</kbd>
+<span>+</span>
+<kbd>K</kbd>
+```
+
+---
+
+## Color Themes
+
+### Light Theme
+
+```
+┌───────────────────────────────────┐
+│  Light Background                 │
+│                                   │
+│  ┌───┐   ┌───┐                    │
+│  │ ⌘ │ + │ K │  ← Dark text       │
+│  └───┘   └───┘                    │
+└───────────────────────────────────┘
+```
+
+### Dark Theme
+
+```
+┌───────────────────────────────────┐
+│  Dark Background                  │
+│                                   │
+│  ┌───┐   ┌───┐                    │
+│  │ ⌘ │ + │ K │  ← Light text      │
+│  └───┘   └───┘                    │
+└───────────────────────────────────┘
+```
+
+---
+
+## Animation States (Future)
+
+### Normal State
+
+```
+┌───┐
+│ K │
+└───┘
+```
+
+### Pressed State (Future Enhancement)
+
+```
+┌───┐
+│ K │  ← Slightly darker/pressed
+└───┘
+```
+
+### Hover State (Future Enhancement)
+
+```
+┌───┐
+│ K │  ← Slightly lighter/highlighted
+└───┘
+```
+
+---
+
+## Size Variations (Using Tailwind)
+
+### Small
+
+```tsx
+<RefineKbd keys={['K']} className="text-xs" />
+```
+
+```
+┌─┐
+│K│  ← Smaller
+└─┘
+```
+
+### Medium (Default)
+
+```tsx
+<RefineKbd keys={['K']} />
+```
+
+```
+┌───┐
+│ K │  ← Default size
+└───┘
+```
+
+### Large
+
+```tsx
+<RefineKbd keys={['K']} className="text-lg" />
+```
+
+```
+┌─────┐
+│  K  │  ← Larger
+└─────┘
+```
+
+---
+
+## Common Patterns
+
+### Pattern 1: Inline Documentation
+
+```
+To save your work, press ⌘ + S
+```
+
+### Pattern 2: List of Shortcuts
+
+```
+⌘ + K  Open search
+⌘ + N  New item
+⌘ + S  Save
+esc    Close
+```
+
+### Pattern 3: Grouped Shortcuts
+
+```
+Navigation:
+  ↑ ↓ ← →  Move
+  ⇞ ⇟      Page up/down
+
+Actions:
+  ⌘ + S    Save
+  ⌘ + Z    Undo
+```
+
+---
+
+This visual guide helps you understand how the Kbd component renders and how to
+use it effectively in your UI designs.
