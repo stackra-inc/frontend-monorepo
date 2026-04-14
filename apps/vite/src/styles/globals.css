@@ -3,6 +3,17 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Ensure html/body background matches the theme */
+html {
+  background-color: white;
+  color: black;
+}
+
+html.dark {
+  background-color: #000000;
+  color: white;
+}
+
 /*
 |--------------------------------------------------------------------------
 | Electron Desktop — title bar integration

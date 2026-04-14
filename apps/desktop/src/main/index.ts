@@ -47,7 +47,7 @@ function createWindow(): void {
     | web navbar content.
     |
     */
-    backgroundColor: "#000000",
+    backgroundColor: "#18181b",
     titleBarStyle: "hiddenInset",
     trafficLightPosition: { x: 15, y: 15 },
 
