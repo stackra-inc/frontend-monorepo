@@ -2,82 +2,218 @@
  * Electron Main Process
  *
  * |--------------------------------------------------------------------------
- * | Thin shell that wraps the existing Vite app.
+ * | Production-ready Electron shell for the Pixielity app.
  * |--------------------------------------------------------------------------
  * |
- * | All configuration comes from desktop.config.ts in the app.
- * | The renderer sends config and menu templates via IPC.
+ * | Features:
+ * |   - Single instance lock (prevents duplicate app windows)
+ * |   - Security hardening (CSP, sandbox, permission handling)
+ * |   - Window state persistence (remembers size/position)
+ * |   - Graceful error handling with crash reporting
+ * |   - Dev/prod mode detection with proper file loading
+ * |   - Dynamic menu from renderer via IPC
+ * |   - Handler map pattern for all domain IPC handlers
  * |
- * | The main process is intentionally dumb — it just applies
- * | what the renderer tells it. All logic lives in the DI system.
- * |
+ * @module desktop/main
  */
 
-import { app, BrowserWindow, shell, ipcMain, Menu, Notification, dialog } from "electron";
+import { app, BrowserWindow, shell, ipcMain, Menu, Notification, dialog, session } from "electron";
 import { join } from "path";
-import { writeFileSync } from "fs";
+import { writeFileSync, readFileSync, existsSync, mkdirSync } from "fs";
+
+import { registerAllHandlers } from "./handlers";
 
 const isDev = !app.isPackaged;
 const isMac = process.platform === "darwin";
 
 /*
 |--------------------------------------------------------------------------
-| Default window config — used before renderer sends the real config.
-| These are overridden by desktop.config.ts via 'window:config' IPC.
+| Single Instance Lock
 |--------------------------------------------------------------------------
+|
+| Prevents multiple instances of the app from running simultaneously.
+| If a second instance is launched, focus the existing window instead.
+|
+*/
+const gotTheLock = app.requestSingleInstanceLock();
+
+if (!gotTheLock) {
+  app.quit();
+}
+
+/*
+|--------------------------------------------------------------------------
+| Window State Persistence
+|--------------------------------------------------------------------------
+|
+| Saves and restores window size/position across app restarts.
+| State is stored in the app's userData directory.
+|
+*/
+interface WindowState {
+  x?: number;
+  y?: number;
+  width: number;
+  height: number;
+  isMaximized: boolean;
+}
+
+const stateFilePath = join(app.getPath("userData"), "window-state.json");
+
+function loadWindowState(): WindowState {
+  try {
+    if (existsSync(stateFilePath)) {
+      return JSON.parse(readFileSync(stateFilePath, "utf-8"));
+    }
+  } catch {
+    /* Corrupted state file — use defaults. */
+  }
+  return { width: 1280, height: 800, isMaximized: false };
+}
+
+function saveWindowState(win: BrowserWindow): void {
+  try {
+    const bounds = win.getBounds();
+    const state: WindowState = {
+      x: bounds.x,
+      y: bounds.y,
+      width: bounds.width,
+      height: bounds.height,
+      isMaximized: win.isMaximized(),
+    };
+    const dir = app.getPath("userData");
+    if (!existsSync(dir)) mkdirSync(dir, { recursive: true });
+    writeFileSync(stateFilePath, JSON.stringify(state));
+  } catch {
+    /* Non-critical — silently ignore. */
+  }
+}
+
+/*
+|--------------------------------------------------------------------------
+| Default Window Config
+|--------------------------------------------------------------------------
+|
+| Used before the renderer sends the real config via 'window:config' IPC.
+| Overridden by desktop.config.ts at runtime.
+|
 */
 let windowConfig = {
-  width: 1280,
-  height: 800,
-  minWidth: 800,
-  minHeight: 600,
   title: "Pixielity",
-  backgroundColor: "#18181b",
+  backgroundColor: "#000000",
   titleBarStyle: "hiddenInset" as const,
   trafficLightPosition: { x: 15, y: 15 },
-  contextIsolation: true,
-  nodeIntegration: false,
-  openDevTools: true,
+  minWidth: 800,
+  minHeight: 600,
   devUrl: "http://localhost:5173",
 };
 
 /*
 |--------------------------------------------------------------------------
-| Window
+| Main Window
 |--------------------------------------------------------------------------
 */
 
 let mainWindow: BrowserWindow | null = null;
 
 function createWindow(): void {
+  const savedState = loadWindowState();
+
   mainWindow = new BrowserWindow({
-    width: windowConfig.width,
-    height: windowConfig.height,
+    x: savedState.x,
+    y: savedState.y,
+    width: savedState.width,
+    height: savedState.height,
     minWidth: windowConfig.minWidth,
     minHeight: windowConfig.minHeight,
     title: windowConfig.title,
     backgroundColor: windowConfig.backgroundColor,
     titleBarStyle: windowConfig.titleBarStyle,
     trafficLightPosition: windowConfig.trafficLightPosition,
+    show: false,
     webPreferences: {
       preload: join(__dirname, "../preload/index.js"),
-      contextIsolation: windowConfig.contextIsolation,
-      nodeIntegration: windowConfig.nodeIntegration,
+      contextIsolation: true,
+      nodeIntegration: false,
+      sandbox: true,
+      webSecurity: true,
+      allowRunningInsecureContent: false,
     },
   });
 
+  /*
+  |--------------------------------------------------------------------------
+  | Restore maximized state.
+  |--------------------------------------------------------------------------
+  */
+  if (savedState.isMaximized) {
+    mainWindow.maximize();
+  }
+
+  /*
+  |--------------------------------------------------------------------------
+  | Show window when ready to prevent visual flash.
+  |--------------------------------------------------------------------------
+  */
+  mainWindow.once("ready-to-show", () => {
+    mainWindow?.show();
+  });
+
+  /*
+  |--------------------------------------------------------------------------
+  | Load the app — dev server URL or production build.
+  |--------------------------------------------------------------------------
+  */
   if (isDev) {
     mainWindow.loadURL(windowConfig.devUrl);
-    if (windowConfig.openDevTools) {
-      mainWindow.webContents.openDevTools();
-    }
+    mainWindow.webContents.openDevTools();
   } else {
     mainWindow.loadFile(join(__dirname, "../../renderer/index.html"));
   }
 
+  /*
+  |--------------------------------------------------------------------------
+  | Security: open external links in the default browser.
+  |--------------------------------------------------------------------------
+  */
   mainWindow.webContents.setWindowOpenHandler(({ url }) => {
-    shell.openExternal(url);
+    if (url.startsWith("https:") || url.startsWith("http:")) {
+      shell.openExternal(url);
+    }
     return { action: "deny" };
+  });
+
+  /*
+  |--------------------------------------------------------------------------
+  | Security: block navigation to external URLs in the main window.
+  |--------------------------------------------------------------------------
+  */
+  mainWindow.webContents.on("will-navigate", (event, url) => {
+    const appUrl = isDev ? windowConfig.devUrl : "file://";
+    if (!url.startsWith(appUrl)) {
+      event.preventDefault();
+    }
+  });
+
+  /*
+  |--------------------------------------------------------------------------
+  | Save window state on resize/move/close.
+  |--------------------------------------------------------------------------
+  */
+  mainWindow.on("resize", () => {
+    if (mainWindow && !mainWindow.isMaximized()) {
+      saveWindowState(mainWindow);
+    }
+  });
+
+  mainWindow.on("move", () => {
+    if (mainWindow && !mainWindow.isMaximized()) {
+      saveWindowState(mainWindow);
+    }
+  });
+
+  mainWindow.on("close", () => {
+    if (mainWindow) saveWindowState(mainWindow);
   });
 
   mainWindow.on("closed", () => {
@@ -159,54 +295,50 @@ function buildMenuFromTemplate(menus: SerializedMenu[]): void {
     ],
   });
 
-  template.push({
-    label: "Help",
-    submenu: [
-      { label: "Documentation", click: () => shell.openExternal("https://pixielity.com/docs") },
-      {
-        label: `About v${app.getVersion()}`,
-        click: () =>
-          dialog.showMessageBox({
-            type: "info",
-            title: "About",
-            message: `${windowConfig.title} v${app.getVersion()}`,
-            detail: "Built with Electron + Vite + React",
-          }),
-      },
-    ],
-  });
+  if (!isMac) {
+    template.push({
+      label: "Help",
+      submenu: [
+        {
+          label: "Documentation",
+          click: () => shell.openExternal("https://pixielity.com/docs"),
+        },
+        {
+          label: `About v${app.getVersion()}`,
+          click: () =>
+            dialog.showMessageBox({
+              type: "info",
+              title: "About",
+              message: `${windowConfig.title} v${app.getVersion()}`,
+              detail: "Built with Electron + Vite + React",
+            }),
+        },
+      ],
+    });
+  }
 
   Menu.setApplicationMenu(Menu.buildFromTemplate(template));
 }
 
 /*
 |--------------------------------------------------------------------------
-| IPC Handlers
+| Core IPC Handlers
 |--------------------------------------------------------------------------
+|
+| These handle the core app lifecycle IPC channels.
+| Domain-specific handlers (POS, security, etc.) are in ./handlers/.
+|
 */
 
-function registerIpcHandlers(): void {
+function registerCoreHandlers(): void {
   ipcMain.handle("get-app-version", () => app.getVersion());
 
-  /*
-  |--------------------------------------------------------------------------
-  | window:config — receive window config from renderer
-  |--------------------------------------------------------------------------
-  */
-  ipcMain.on("window:config", (_event, config: typeof windowConfig) => {
-    console.log("[Main] Received window:config:", config.title);
-    windowConfig = { ...windowConfig, ...config };
+  ipcMain.on("window:config", (_event, config: Record<string, unknown>) => {
+    windowConfig = { ...windowConfig, ...config } as typeof windowConfig;
   });
 
-  /*
-  |--------------------------------------------------------------------------
-  | menu:set — receive menu template from renderer
-  |--------------------------------------------------------------------------
-  */
   ipcMain.on("menu:set", (_event, menus: SerializedMenu[]) => {
-    console.log("[Main] Received menu:set:", menus.map((m) => m.label).join(", "));
     buildMenuFromTemplate(menus);
-    console.log("[Main] ✅ Native menu rebuilt");
   });
 
   ipcMain.handle("menu:get", () => Menu.getApplicationMenu());
@@ -217,10 +349,6 @@ function registerIpcHandlers(): void {
     win.webContents.on("did-finish-load", () => {
       win.webContents.print({}, () => win.close());
     });
-  });
-
-  ipcMain.handle("open-cash-drawer", async () => {
-    console.log("[Main] Cash drawer open command");
   });
 
   ipcMain.handle("export-file", async (_event, data: string, filename: string) => {
@@ -246,19 +374,112 @@ function registerIpcHandlers(): void {
 
 /*
 |--------------------------------------------------------------------------
+| Security: Permission Request Handler
+|--------------------------------------------------------------------------
+|
+| Controls which permissions the renderer can request.
+| Only allow what's explicitly needed.
+|
+*/
+function setupPermissionHandlers(): void {
+  session.defaultSession.setPermissionRequestHandler((_webContents, permission, callback) => {
+    const allowedPermissions = [
+      "clipboard-read",
+      "clipboard-sanitized-write",
+      "notifications",
+      "fullscreen",
+      "media",
+    ];
+
+    callback(allowedPermissions.includes(permission));
+  });
+
+  /*
+  |--------------------------------------------------------------------------
+  | Security: Content Security Policy
+  |--------------------------------------------------------------------------
+  |
+  | In production, restrict what the renderer can load.
+  | In dev, allow localhost for HMR.
+  |
+  */
+  session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
+    const csp = isDev
+      ? "default-src 'self' 'unsafe-inline' 'unsafe-eval'; connect-src 'self' ws://localhost:* http://localhost:*; img-src 'self' data: https:; font-src 'self' data:;"
+      : "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https:;";
+
+    callback({
+      responseHeaders: {
+        ...details.responseHeaders,
+        "Content-Security-Policy": [csp],
+      },
+    });
+  });
+}
+
+/*
+|--------------------------------------------------------------------------
+| Uncaught Exception / Unhandled Rejection Handlers
+|--------------------------------------------------------------------------
+*/
+process.on("uncaughtException", (error) => {
+  console.error("[Main] Uncaught exception:", error);
+  dialog.showErrorBox(
+    "Unexpected Error",
+    `An unexpected error occurred:\n\n${error.message}\n\nThe application will continue running.`,
+  );
+});
+
+process.on("unhandledRejection", (reason) => {
+  console.error("[Main] Unhandled rejection:", reason);
+});
+
+/*
+|--------------------------------------------------------------------------
 | App Lifecycle
 |--------------------------------------------------------------------------
 */
 
 app.whenReady().then(() => {
-  registerIpcHandlers();
+  setupPermissionHandlers();
+  registerCoreHandlers();
   createWindow();
 
+  if (mainWindow) {
+    registerAllHandlers(mainWindow);
+  }
+
+  /*
+  |--------------------------------------------------------------------------
+  | macOS: re-create window when dock icon is clicked and no windows exist.
+  |--------------------------------------------------------------------------
+  */
   app.on("activate", () => {
-    if (BrowserWindow.getAllWindows().length === 0) createWindow();
+    if (BrowserWindow.getAllWindows().length === 0) {
+      createWindow();
+      if (mainWindow) registerAllHandlers(mainWindow);
+    }
   });
 });
 
+/*
+|--------------------------------------------------------------------------
+| Second instance handler (for single instance lock + protocol URLs).
+|--------------------------------------------------------------------------
+*/
+app.on("second-instance", (_event, commandLine) => {
+  if (mainWindow) {
+    if (mainWindow.isMinimized()) mainWindow.restore();
+    mainWindow.focus();
+
+    /* Forward protocol URL if present. */
+    const url = commandLine.find((arg) => arg.includes("://"));
+    if (url) {
+      mainWindow.webContents.send("protocol:url", url);
+    }
+  }
+});
+
 app.on("window-all-closed", () => {
-  if (process.platform !== "darwin") app.quit();
+  if (!isMac) app.quit();
 });

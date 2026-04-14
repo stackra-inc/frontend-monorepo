@@ -1,38 +1,109 @@
-# electron-builder Configuration
-#
-# Bundles the Electron main/preload + the built Vite app into
-# distributable packages for macOS, Windows, and Linux.
+# |--------------------------------------------------------------------------
+# | electron-builder Configuration
+# |--------------------------------------------------------------------------
+# |
+# | Bundles the Electron main/preload + the built Vite app into
+# | distributable packages for macOS, Windows, and Linux.
+# |
+# | Build commands:
+# |   pnpm package       — build for current platform
+# |   pnpm package:mac   — build macOS .dmg + .zip
+# |   pnpm package:win   — build Windows .exe installer
+# |   pnpm package:linux — build Linux .AppImage + .deb
+# |
 
 appId: com.pixielity.desktop
 productName: Pixielity
 copyright: Copyright © 2025 Abdelrhman Kouta
 
+# |--------------------------------------------------------------------------
+# | Directories
+# |--------------------------------------------------------------------------
 directories:
   output: release
   buildResources: resources
 
+# |--------------------------------------------------------------------------
+# | Files to include in the app bundle
+# |--------------------------------------------------------------------------
 files:
   - dist/**/*
-  - renderer/**/*
+  - "!dist/**/*.map"
 
+# |--------------------------------------------------------------------------
+# | Copy the built Vite app into the bundle as "renderer"
+# |--------------------------------------------------------------------------
 extraResources:
   - from: ../vite/dist
     to: renderer
 
+# |--------------------------------------------------------------------------
+# | macOS
+# |--------------------------------------------------------------------------
 mac:
-  target: [dmg, zip]
-  artifactName: ${productName}-${version}-${arch}.${ext}
+  target:
+    - target: dmg
+      arch: [universal]
+    - target: zip
+      arch: [universal]
+  artifactName: ${productName}-${version}-mac-${arch}.${ext}
   category: public.app-category.business
+  darkModeSupport: true
+  hardenedRuntime: true
+  gatekeeperAssess: false
+  entitlements: resources/entitlements.mac.plist
+  entitlementsInherit: resources/entitlements.mac.plist
+  # Uncomment when you have an Apple Developer certificate:
+  # identity: "Developer ID Application: Your Name (TEAM_ID)"
+  # notarize:
+  #   teamId: TEAM_ID
 
+dmg:
+  sign: false
+  contents:
+    - x: 130
+      y: 220
+    - x: 410
+      y: 220
+      type: link
+      path: /Applications
+
+# |--------------------------------------------------------------------------
+# | Windows
+# |--------------------------------------------------------------------------
 win:
-  target: [nsis]
-  artifactName: ${productName}-Setup-${version}.${ext}
+  target:
+    - target: nsis
+      arch: [x64, arm64]
+  artifactName: ${productName}-Setup-${version}-${arch}.${ext}
+  icon: resources/icon.ico
 
 nsis:
   oneClick: false
   allowToChangeInstallationDirectory: true
+  perMachine: false
+  deleteAppDataOnUninstall: false
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
 
+# |--------------------------------------------------------------------------
+# | Linux
+# |--------------------------------------------------------------------------
 linux:
-  target: [AppImage, deb]
-  artifactName: ${productName}-${version}.${ext}
+  target:
+    - target: AppImage
+      arch: [x64, arm64]
+    - target: deb
+      arch: [x64, arm64]
+  artifactName: ${productName}-${version}-linux-${arch}.${ext}
   category: Office
+  icon: resources/icons
+
+# |--------------------------------------------------------------------------
+# | Auto-Update (electron-updater)
+# |--------------------------------------------------------------------------
+# Uncomment and configure when you have an update server:
+# publish:
+#   provider: github
+#   owner: pixielity-inc
+#   repo: frontend-monorepo
