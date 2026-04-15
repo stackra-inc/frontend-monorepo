@@ -42,7 +42,7 @@ const MODE_LABELS: Record<ColorMode, string> = {
  */
 export const ModeSwitcher: React.FC<ModeSwitcherProps> = ({ showLabel = false, className }) => {
   const { mode, setMode } = useColorMode();
-  const currentMode = mode || 'system';
+  const currentMode: ColorMode = mode || 'system';
 
   const next = () => {
     const idx = MODE_CYCLE.indexOf(currentMode);
