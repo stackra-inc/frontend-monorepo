@@ -24,8 +24,8 @@ export interface ContainerProviderProps {
    */
   context: ContainerResolver;
 
-  /** 
- * Child components that will have access to the container. 
- */
+  /**
+   * Child components that will have access to the container.
+   */
   children: React.ReactNode;
 }

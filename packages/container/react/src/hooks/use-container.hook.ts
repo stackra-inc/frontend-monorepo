@@ -36,7 +36,7 @@ export function useContainer(): ContainerResolver {
   if (!context) {
     throw new Error(
       'useContainer() must be used within a <ContainerProvider>. ' +
-      'Wrap your component tree with <ContainerProvider context={app}>.',
+        'Wrap your component tree with <ContainerProvider context={app}>.'
     );
   }
 

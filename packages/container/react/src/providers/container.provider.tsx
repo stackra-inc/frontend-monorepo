@@ -29,9 +29,5 @@ import type { ContainerProviderProps } from '@/interfaces/container-provider-pro
  * ```
  */
 export function ContainerProvider({ context, children }: ContainerProviderProps) {
-  return (
-    <ContainerContext.Provider value={context}>
-      {children}
-    </ContainerContext.Provider>
-  );
+  return <ContainerContext.Provider value={context}>{children}</ContainerContext.Provider>;
 }
