@@ -33,6 +33,12 @@ files = []
 for pattern in patterns:
     files.extend(glob.glob(pattern))
 
+# Build the set of actual workspace package names
+workspace_names = set()
+for f in files:
+    with open(f) as fh:
+        workspace_names.add(json.load(fh).get("name", ""))
+
 total_fixed = 0
 
 for pkg_path in sorted(files):
@@ -46,7 +52,8 @@ for pkg_path in sorted(files):
     for section in ["dependencies", "peerDependencies", "devDependencies"]:
         deps = pkg.get(section, {})
         for dep_name, dep_version in list(deps.items()):
-            if dep_name.startswith("@abdokouta/") and dep_version != "workspace:*":
+            # Only convert if the dep is an actual workspace package
+            if dep_name.startswith("@abdokouta/") and dep_version != "workspace:*" and dep_name in workspace_names:
                 if DRY_RUN:
                     print(f"  [DRY] {pkg_name} → {section}.{dep_name}: {dep_version} → workspace:*")
                 else:

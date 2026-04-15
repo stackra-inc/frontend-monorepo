@@ -13,10 +13,11 @@
 
 packages:
   # ── Deployable Applications ────────────────────────────────────────────────
-  # Vite app (web), Electron desktop app
   - "apps/*"
 
   # ── Shared Packages / Libraries ────────────────────────────────────────────
-  # cache, config, desktop, events, kbd, logger, pwa, redis, rxdb-eloquent,
-  # settings, support, theming, ui, refine, multitenancy
   - "packages/*"
+
+  # ── Container Sub-Packages ─────────────────────────────────────────────────
+  # ts-container, ts-container-react, ts-application
+  - "packages/container/*"
