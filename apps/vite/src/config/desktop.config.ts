@@ -158,7 +158,7 @@ export const desktopConfig: DesktopConfig = {
     |--------------------------------------------------------------------------
     */
     title: "Pixielity",
-    backgroundColor: "#18181b",
+    backgroundColor: "#000000",
     titleBarStyle: "hiddenInset",
     trafficLightPosition: { x: 15, y: 15 },
 

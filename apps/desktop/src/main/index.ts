@@ -335,6 +335,17 @@ function registerCoreHandlers(): void {
 
   ipcMain.on("window:config", (_event, config: Record<string, unknown>) => {
     windowConfig = { ...windowConfig, ...config } as typeof windowConfig;
+
+    /*
+    |--------------------------------------------------------------------------
+    | Apply config to the existing window if it's already created.
+    | This handles the case where the renderer sends config after window creation.
+    |--------------------------------------------------------------------------
+    */
+    if (mainWindow && !mainWindow.isDestroyed()) {
+      if (config.title) mainWindow.setTitle(config.title as string);
+      if (config.backgroundColor) mainWindow.setBackgroundColor(config.backgroundColor as string);
+    }
   });
 
   ipcMain.on("menu:set", (_event, menus: SerializedMenu[]) => {
