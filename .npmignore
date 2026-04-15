@@ -1,0 +1,59 @@
+# Files to exclude from npm packages
+
+# Source files (only dist should be published)
+src/
+*.ts
+*.tsx
+!*.d.ts
+
+# Tests
+**/*.test.*
+**/*.spec.*
+__tests__/
+__mocks__/
+coverage/
+
+# Configuration files
+tsconfig.json
+tsup.config.ts
+.eslintrc*
+.prettierrc*
+.editorconfig
+
+# Documentation
+*.md
+!README.md
+!LICENSE
+!CHANGELOG.md
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# CI/CD
+.github/
+.gitlab-ci.yml
+.travis.yml
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+.turbo/
+.next/
+node_modules/
+
+# Environment
+.env*
+
+# Misc
+*.log
+.cache/

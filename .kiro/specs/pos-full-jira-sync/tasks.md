@@ -67,8 +67,6 @@ development, and all feature implementations across the platform.
         MultiTenancyProvider, and Refine
   - [ ] 46.2 Configure Refine with @refinedev/simple-rest data provider and
         syncWithLocation
-  - [ ] 46.3 Create multi-tenancy provider instance with
-        createMultiTenancyProvider
   - [ ] 46.4 Create tenant-aware data provider with createDataProvider wrapping
         base data provider
   - [ ] 46.5 Wrap auth provider with multitenancy support (withMultitenancy) for

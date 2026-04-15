@@ -1,8 +1,0 @@
-{
-    # Disable automatic HTTPS — we're on .test local domains
-    auto_https off
-}
-
-http://mngo.test, http://*.mngo.test {
-    reverse_proxy localhost:3000
-}
