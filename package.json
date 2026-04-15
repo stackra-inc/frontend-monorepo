@@ -61,6 +61,7 @@
     "prettier": "^3.8.1",
     "turbo": "^2.9.3",
     "typescript": "^6.0.2",
+    "@types/node": "^25",
     "@changesets/cli": "^2.27.1",
     "@commitlint/cli": "^20.5.0",
     "@commitlint/config-conventional": "^20.5.0",
