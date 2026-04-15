@@ -3,7 +3,15 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* Ensure html/body background matches the theme */
+/*
+|--------------------------------------------------------------------------
+| Theme Background
+|--------------------------------------------------------------------------
+|
+| Ensure html/body background matches the theme to prevent
+| white flash on load and title bar color mismatch in Electron.
+|
+*/
 html {
   background-color: white;
   color: black;
@@ -50,10 +58,29 @@ body.is-electron nav [role="button"] {
 |
 | With hiddenInset, the traffic lights sit at { x: 15, y: 15 }.
 | The navbar needs left padding to clear them.
-| Top padding accounts for the inset title bar height (~28px on macOS).
+| Top padding pushes the navbar content below the title bar inset area.
 |
 */
 body.is-electron nav {
   padding-left: 80px;
   padding-top: 6px;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Electron Desktop — prevent text selection on drag areas
+|--------------------------------------------------------------------------
+*/
+body.is-electron nav {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Electron Desktop — hide scrollbar in fullscreen/kiosk mode
+|--------------------------------------------------------------------------
+*/
+body.is-electron.is-kiosk {
+  overflow: hidden;
 }
