@@ -840,6 +840,9 @@ importers:
       '@abdokouta/ts-container':
         specifier: workspace:*
         version: link:../container/container
+      '@heroui/react':
+        specifier: ^3.0.0
+        version: 3.0.1(@react-spectrum/provider@3.11.0(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(tailwindcss@4.1.11)
       lucide-react:
         specifier: ^1.7.0
         version: 1.8.0(react@19.2.5)
