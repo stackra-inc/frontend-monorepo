@@ -9,8 +9,8 @@ import type {
 export type UseUpdateManyProps<
   TData extends BaseRecord = BaseRecord,
   TError extends HttpError = HttpError,
-  TVariables = {},
-> = UseUpdateManyPropsOriginal<TData, TError, TVariables>;
+  _TVariables = {},
+> = UseUpdateManyPropsOriginal<TData, TError, _TVariables>;
 
 export interface UseUpdateManyReturnType<
   TData extends BaseRecord = BaseRecord,

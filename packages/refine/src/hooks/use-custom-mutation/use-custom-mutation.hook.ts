@@ -8,11 +8,11 @@ import type {
 export const useCustomMutation = <
   TData extends BaseRecord = BaseRecord,
   TError extends HttpError = HttpError,
-  TVariables = {},
+  _TVariables = {},
 >(
-  props?: UseCustomMutationProps<TData, TError, TVariables>
-): UseCustomMutationReturnType<TData, TError, TVariables> => {
-  const result = useCustomMutationOriginal<TData, TError, TVariables>(props ?? {});
+  props?: UseCustomMutationProps<TData, TError, _TVariables>
+): UseCustomMutationReturnType<TData, TError, _TVariables> => {
+  const result = useCustomMutationOriginal<TData, TError, _TVariables>(props ?? {});
 
   return {
     mutate: result.mutate,

@@ -9,8 +9,8 @@ import type {
 export type UseCreateManyProps<
   TData extends BaseRecord = BaseRecord,
   TError extends HttpError = HttpError,
-  TVariables = {},
-> = UseCreateManyPropsOriginal<TData, TError, TVariables>;
+  _TVariables = {},
+> = UseCreateManyPropsOriginal<TData, TError, _TVariables>;
 
 export interface UseCreateManyReturnType<
   TData extends BaseRecord = BaseRecord,

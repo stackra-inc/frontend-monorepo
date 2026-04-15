@@ -9,8 +9,8 @@ import type {
 export type UseDeleteManyProps<
   TData extends BaseRecord = BaseRecord,
   TError extends HttpError = HttpError,
-  TVariables = {},
-> = UseDeleteManyPropsOriginal<TData, TError, TVariables>;
+  _TVariables = {},
+> = UseDeleteManyPropsOriginal<TData, TError, _TVariables>;
 
 export interface UseDeleteManyReturnType<
   TData extends BaseRecord = BaseRecord,
