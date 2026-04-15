@@ -1,1 +1,1 @@
-export * from "./use-tenant.hook";
+export * from './use-tenant.hook';

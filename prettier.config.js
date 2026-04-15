@@ -14,7 +14,7 @@ const config = {
   singleQuote: false,
 
   // Trailing commas in multi-line structures — helps with cleaner git diffs.
-  trailingComma: "all",
+  trailingComma: 'all',
 
   // Semicolons at end of statements.
   semi: true,
@@ -29,10 +29,10 @@ const config = {
   useTabs: false,
 
   // Always include parentheses around arrow function parameters.
-  arrowParens: "always",
+  arrowParens: 'always',
 
   // Preserve existing line endings in files.
-  endOfLine: "lf",
+  endOfLine: 'lf',
 
   // Bracket spacing in object literals: { foo: bar }
   bracketSpacing: true,
@@ -44,16 +44,16 @@ const config = {
   overrides: [
     {
       // JSON files — no trailing commas (invalid JSON).
-      files: ["*.json", "*.jsonc"],
+      files: ['*.json', '*.jsonc'],
       options: {
-        trailingComma: "none",
+        trailingComma: 'none',
       },
     },
     {
       // Markdown — prose wrap to preserve intentional line breaks.
-      files: ["*.md"],
+      files: ['*.md'],
       options: {
-        proseWrap: "always",
+        proseWrap: 'always',
         printWidth: 80,
       },
     },

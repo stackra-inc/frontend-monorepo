@@ -14,10 +14,10 @@
  * ```
  */
 
-import type { BaseKey } from "@refinedev/core";
-import type { TenantResolver } from "@/interfaces/tenant-resolver.interface";
-import type { TenantConfig } from "@/interfaces/tenant-config-extended.interface";
-import { ResolverPriority } from "@/enums/resolver-priority.enum";
+import type { BaseKey } from '@refinedev/core';
+import type { TenantResolver } from '@/interfaces/tenant-resolver.interface';
+import type { TenantConfig } from '@/interfaces/tenant-config-extended.interface';
+import { ResolverPriority } from '@/enums/resolver-priority.enum';
 
 /**
  * Router Resolver
@@ -26,7 +26,7 @@ import { ResolverPriority } from "@/enums/resolver-priority.enum";
  * Works outside React context (no hooks).
  */
 export class RouterResolver implements TenantResolver {
-  readonly name = "RouterResolver";
+  readonly name = 'RouterResolver';
   readonly priority = ResolverPriority.NORMAL;
 
   private config: TenantConfig;
@@ -46,13 +46,13 @@ export class RouterResolver implements TenantResolver {
    * @returns Tenant ID string or undefined
    */
   resolve(): BaseKey | undefined {
-    if (typeof window === "undefined") {
+    if (typeof window === 'undefined') {
       return undefined;
     }
 
     try {
       const pathname = window.location.pathname;
-      const segments = pathname.split("/").filter(Boolean);
+      const segments = pathname.split('/').filter(Boolean);
 
       if (segments.length === 0) {
         return undefined;
@@ -76,7 +76,7 @@ export class RouterResolver implements TenantResolver {
       // Fallback: return undefined — other resolvers in the chain will handle it
       return undefined;
     } catch (error) {
-      console.warn("[RouterResolver] Error parsing URL path:", error);
+      console.warn('[RouterResolver] Error parsing URL path:', error);
       return undefined;
     }
   }

@@ -24,9 +24,9 @@
  * ```
  */
 
-import { useGo } from "@refinedev/core";
-import { useState } from "react";
-import { useTenant } from "@/hooks/use-tenant";
+import { useGo } from '@refinedev/core';
+import { useState } from 'react';
+import { useTenant } from '@/hooks/use-tenant';
 
 /**
  * Options for useTenantSwitch hook
@@ -154,9 +154,7 @@ export interface UseTenantSwitchReturn {
  * };
  * ```
  */
-export const useTenantSwitch = (
-  options: UseTenantSwitchOptions = {}
-): UseTenantSwitchReturn => {
+export const useTenantSwitch = (options: UseTenantSwitchOptions = {}): UseTenantSwitchReturn => {
   const { to, onSuccess, onError } = options;
   const { tenants, setTenant } = useTenant();
   const go = useGo();
@@ -184,10 +182,10 @@ export const useTenantSwitch = (
 
       // Navigate if path provided
       if (to) {
-        const path = to.replace(":tenantId", String(tenantId));
+        const path = to.replace(':tenantId', String(tenantId));
         go({
           to: path,
-          type: "replace",
+          type: 'replace',
         });
       }
 
@@ -196,7 +194,7 @@ export const useTenantSwitch = (
     } catch (err) {
       const error = err instanceof Error ? err : new Error(String(err));
       setError(error);
-      console.error("[useTenantSwitch] Switch error:", error);
+      console.error('[useTenantSwitch] Switch error:', error);
 
       // Call error callback
       onError?.(error);

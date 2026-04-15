@@ -14,4 +14,4 @@
 // Extend the global scope with Vitest's test functions.
 // This enables TypeScript to recognize describe, it, expect, vi, etc.
 // as global variables without import statements.
-import "vitest/globals";
+import 'vitest/globals';

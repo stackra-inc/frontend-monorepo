@@ -12,16 +12,16 @@
 
 const DOCS_BASE =
   process.env.HEROUI_MIGRATION_DOCS_BASE ||
-  "https://heroui-git-docs-migration-heroui.vercel.app/docs/react/migration";
-const APP_PARAM = "app=migration-skills";
+  'https://heroui-git-docs-migration-heroui.vercel.app/docs/react/migration';
+const APP_PARAM = 'app=migration-skills';
 
 /**
  * Convert PascalCase or mixed case to kebab-case.
  */
 function toKebabCase(name) {
   return name
-    .replace(/([a-z])([A-Z])/g, "$1-$2")
-    .replace(/([A-Z])([A-Z][a-z])/g, "$1-$2")
+    .replace(/([a-z])([A-Z])/g, '$1-$2')
+    .replace(/([A-Z])([A-Z][a-z])/g, '$1-$2')
     .toLowerCase()
     .trim();
 }
@@ -31,7 +31,7 @@ async function fetchDoc(filename) {
 
   try {
     const response = await fetch(url, {
-      headers: {"User-Agent": "HeroUI-Migration-Skill/1.0"},
+      headers: { 'User-Agent': 'HeroUI-Migration-Skill/1.0' },
       signal: AbortSignal.timeout(30000),
     });
 
@@ -49,15 +49,15 @@ async function main() {
   const args = process.argv.slice(2);
 
   if (args.length === 0) {
-    console.error("Usage: node get_component_migration_guides.mjs <Component1> [Component2] ...");
-    console.error("Example: node get_component_migration_guides.mjs button card modal");
-    console.error("\nUse list_migration_guides.mjs to see all available components.");
+    console.error('Usage: node get_component_migration_guides.mjs <Component1> [Component2] ...');
+    console.error('Example: node get_component_migration_guides.mjs button card modal');
+    console.error('\nUse list_migration_guides.mjs to see all available components.');
     process.exit(1);
   }
 
   const components = args.map((c) => toKebabCase(c));
 
-  console.error(`# Fetching migration guides for: ${components.join(", ")}...`);
+  console.error(`# Fetching migration guides for: ${components.join(', ')}...`);
 
   const results = [];
 
@@ -66,7 +66,7 @@ async function main() {
 
     try {
       const content = await fetchDoc(filename);
-      const title = component.charAt(0).toUpperCase() + component.slice(1).replace(/-/g, " ");
+      const title = component.charAt(0).toUpperCase() + component.slice(1).replace(/-/g, ' ');
 
       results.push({
         component,
@@ -98,7 +98,7 @@ async function main() {
   } else {
     const output = results
       .map((r) => (r.content ? r.content : `# ${r.component} Migration Guide\n\nError: ${r.error}`))
-      .join("\n\n---\n\n");
+      .join('\n\n---\n\n');
 
     console.log(output);
     if (failed.length === results.length) {

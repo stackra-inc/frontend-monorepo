@@ -1,16 +1,16 @@
-import { siteConfig } from "@/config/site";
-import { title, subtitle } from "@/components/primitives";
-import { GithubIcon } from "@/components/icons";
+import { siteConfig } from '@/config/site';
+import { title, subtitle } from '@/components/primitives';
+import { GithubIcon } from '@/components/icons';
 
 export default function IndexPage() {
   return (
     <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-      <div className="inline-block max-w-lg text-center justify-center">
+      <div className="inline-block max-w-lg justify-center text-center">
         <span className={title()}>Make&nbsp;</span>
-        <span className={title({ color: "blue" })}>beautiful&nbsp;</span>
+        <span className={title({ color: 'blue' })}>beautiful&nbsp;</span>
         <br />
         <span className={title()}>websites regardless of your design experience.</span>
-        <div className={subtitle({ class: "mt-4" })}>
+        <div className={subtitle({ class: 'mt-4' })}>
           Beautiful, fast and modern React UI library.
         </div>
       </div>
@@ -36,10 +36,10 @@ export default function IndexPage() {
       </div>
 
       <div className="mt-8">
-        <div className="flex items-center gap-2 rounded-xl bg-surface shadow-surface px-4 py-2">
-          <pre className="text-sm font-medium font-mono">
-            Get started by editing{" "}
-            <code className="px-2 py-1 h-fit font-mono font-normal inline whitespace-nowrap rounded-sm bg-accent/20 text-accent text-sm">
+        <div className="bg-surface shadow-surface flex items-center gap-2 rounded-xl px-4 py-2">
+          <pre className="font-mono text-sm font-medium">
+            Get started by editing{' '}
+            <code className="bg-accent/20 text-accent inline h-fit rounded-sm px-2 py-1 font-mono text-sm font-normal whitespace-nowrap">
               pages/index.tsx
             </code>
           </pre>

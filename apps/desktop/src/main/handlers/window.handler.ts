@@ -15,8 +15,8 @@
  * @module desktop/main/handlers
  */
 
-import { ipcMain, BrowserWindow } from "electron";
-import { join } from "path";
+import { ipcMain, BrowserWindow } from 'electron';
+import { join } from 'path';
 
 /** Map of child window IDs to BrowserWindow instances. */
 const childWindows = new Map<string, BrowserWindow>();
@@ -30,17 +30,17 @@ export function registerWindowHandlers(mainWindow: BrowserWindow): void {
   | window:create
   |--------------------------------------------------------------------------
   */
-  ipcMain.handle("window:create", async (_event, options: any) => {
+  ipcMain.handle('window:create', async (_event, options: any) => {
     const id = `window-${++windowIdCounter}`;
 
     const win = new BrowserWindow({
       width: options.width ?? 800,
       height: options.height ?? 600,
-      title: options.title ?? "",
+      title: options.title ?? '',
       frame: options.frame ?? true,
       alwaysOnTop: options.alwaysOnTop ?? false,
       webPreferences: {
-        preload: join(__dirname, "../preload/index.js"),
+        preload: join(__dirname, '../preload/index.js'),
         contextIsolation: true,
         nodeIntegration: false,
       },
@@ -51,7 +51,7 @@ export function registerWindowHandlers(mainWindow: BrowserWindow): void {
     }
 
     childWindows.set(id, win);
-    win.on("closed", () => childWindows.delete(id));
+    win.on('closed', () => childWindows.delete(id));
 
     return id;
   });
@@ -61,7 +61,7 @@ export function registerWindowHandlers(mainWindow: BrowserWindow): void {
   | window:close
   |--------------------------------------------------------------------------
   */
-  ipcMain.handle("window:close", async (_event, id: string) => {
+  ipcMain.handle('window:close', async (_event, id: string) => {
     const win = childWindows.get(id);
     if (win && !win.isDestroyed()) {
       win.close();
@@ -73,7 +73,7 @@ export function registerWindowHandlers(mainWindow: BrowserWindow): void {
   | window:fullscreen
   |--------------------------------------------------------------------------
   */
-  ipcMain.handle("window:fullscreen", async (_event, enabled: boolean) => {
+  ipcMain.handle('window:fullscreen', async (_event, enabled: boolean) => {
     mainWindow.setFullScreen(enabled);
   });
 
@@ -82,7 +82,7 @@ export function registerWindowHandlers(mainWindow: BrowserWindow): void {
   | window:kiosk
   |--------------------------------------------------------------------------
   */
-  ipcMain.handle("window:kiosk", async (_event, enabled: boolean) => {
+  ipcMain.handle('window:kiosk', async (_event, enabled: boolean) => {
     mainWindow.setKiosk(enabled);
   });
 
@@ -91,7 +91,7 @@ export function registerWindowHandlers(mainWindow: BrowserWindow): void {
   | window:list
   |--------------------------------------------------------------------------
   */
-  ipcMain.handle("window:list", async () => {
+  ipcMain.handle('window:list', async () => {
     return BrowserWindow.getAllWindows().map((win) => ({
       id: `window-${win.id}`,
       title: win.getTitle(),

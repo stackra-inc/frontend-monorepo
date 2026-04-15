@@ -11,7 +11,7 @@
  * @module utils/render-slot
  */
 
-import React, { Fragment, createElement } from "react";
+import React, { Fragment, createElement } from 'react';
 
 /** Cached reference to the slotRegistry. */
 let _registry: any = null;
@@ -43,8 +43,6 @@ export function renderSlot(name: string): React.ReactNode {
   return createElement(
     Fragment,
     null,
-    ...entries.map((entry: any) =>
-      createElement(Fragment, { key: entry.id }, entry.render()),
-    ),
+    ...entries.map((entry: any) => createElement(Fragment, { key: entry.id }, entry.render()))
   );
 }

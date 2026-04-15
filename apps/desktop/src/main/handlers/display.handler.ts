@@ -15,7 +15,7 @@
  * @module desktop/main/handlers
  */
 
-import { ipcMain, BrowserWindow, screen } from "electron";
+import { ipcMain, BrowserWindow, screen } from 'electron';
 
 /** Map of secondary display window IDs. */
 const displayWindows = new Map<string, BrowserWindow>();
@@ -29,8 +29,8 @@ export function registerDisplayHandlers(): void {
   | display:pole — send content to a serial pole display
   |--------------------------------------------------------------------------
   */
-  ipcMain.handle("display:pole", async (_event, content: string, config: any) => {
-    console.log(`[DisplayHandler] Pole display: "${content}" on ${config?.path ?? "unknown"}`);
+  ipcMain.handle('display:pole', async (_event, content: string, config: any) => {
+    console.log(`[DisplayHandler] Pole display: "${content}" on ${config?.path ?? 'unknown'}`);
   });
 
   /*
@@ -39,7 +39,7 @@ export function registerDisplayHandlers(): void {
   |--------------------------------------------------------------------------
   */
   ipcMain.handle(
-    "display:screen",
+    'display:screen',
     async (_event, options: { content: string; screenIndex: number }) => {
       const displays = screen.getAllDisplays();
       const targetDisplay = displays[options.screenIndex] ?? displays[displays.length - 1];
@@ -62,10 +62,10 @@ export function registerDisplayHandlers(): void {
       win.loadURL(`data:text/html;charset=utf-8,${encodeURIComponent(html)}`);
 
       displayWindows.set(id, win);
-      win.on("closed", () => displayWindows.delete(id));
+      win.on('closed', () => displayWindows.delete(id));
 
       return id;
-    },
+    }
   );
 
   /*
@@ -73,7 +73,7 @@ export function registerDisplayHandlers(): void {
   | display:screen-update — update content in an existing display window
   |--------------------------------------------------------------------------
   */
-  ipcMain.handle("display:screen-update", async (_event, id: string, content: string) => {
+  ipcMain.handle('display:screen-update', async (_event, id: string, content: string) => {
     const win = displayWindows.get(id);
     if (!win || win.isDestroyed()) return;
 
@@ -86,8 +86,8 @@ export function registerDisplayHandlers(): void {
   | display:clear — clear the pole display
   |--------------------------------------------------------------------------
   */
-  ipcMain.handle("display:clear", async () => {
-    console.log("[DisplayHandler] Clearing pole display");
+  ipcMain.handle('display:clear', async () => {
+    console.log('[DisplayHandler] Clearing pole display');
   });
 
   /*
@@ -95,12 +95,12 @@ export function registerDisplayHandlers(): void {
   | display:list — enumerate available displays
   |--------------------------------------------------------------------------
   */
-  ipcMain.handle("display:list", async () => {
+  ipcMain.handle('display:list', async () => {
     const displays = screen.getAllDisplays();
     return displays.map((d, i) => ({
       id: `screen-${i}`,
       name: `Display ${i + 1} (${d.size.width}x${d.size.height})`,
-      type: "screen" as const,
+      type: 'screen' as const,
     }));
   });
 }

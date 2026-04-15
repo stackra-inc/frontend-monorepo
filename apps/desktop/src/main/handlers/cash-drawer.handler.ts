@@ -12,7 +12,7 @@
  * @module desktop/main/handlers
  */
 
-import { ipcMain } from "electron";
+import { ipcMain } from 'electron';
 
 export function registerCashDrawerHandlers(): void {
   /*
@@ -25,13 +25,13 @@ export function registerCashDrawerHandlers(): void {
   | For serial type: sends open command directly to the drawer's serial port.
   |
   */
-  ipcMain.handle("cash-drawer:open", async (_event, config: any) => {
-    console.log(`[CashDrawerHandler] Opening drawer via ${config?.type ?? "unknown"}`);
+  ipcMain.handle('cash-drawer:open', async (_event, config: any) => {
+    console.log(`[CashDrawerHandler] Opening drawer via ${config?.type ?? 'unknown'}`);
 
-    if (config?.type === "printer-kick") {
+    if (config?.type === 'printer-kick') {
       /* ESC/POS drawer kick command: ESC p 0 25 250 */
       const kickCommand = Buffer.from([0x1b, 0x70, 0x00, 0x19, 0xfa]);
-      console.log("[CashDrawerHandler] Sending kick command:", kickCommand);
+      console.log('[CashDrawerHandler] Sending kick command:', kickCommand);
     }
   });
 
@@ -44,8 +44,8 @@ export function registerCashDrawerHandlers(): void {
   | Not all drawers support status reporting.
   |
   */
-  ipcMain.handle("cash-drawer:status", async () => {
-    console.log("[CashDrawerHandler] Reading drawer status");
+  ipcMain.handle('cash-drawer:status', async () => {
+    console.log('[CashDrawerHandler] Reading drawer status');
     return false;
   });
 }

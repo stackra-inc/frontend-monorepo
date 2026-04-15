@@ -48,7 +48,14 @@
       "cache": false
     },
     "format:check": {
-      "inputs": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx", "**/*.json", "**/*.md"]
+      "inputs": [
+        "**/*.ts",
+        "**/*.tsx",
+        "**/*.js",
+        "**/*.jsx",
+        "**/*.json",
+        "**/*.md"
+      ]
     },
     "clean": {
       "cache": false

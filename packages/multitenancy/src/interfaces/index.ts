@@ -12,8 +12,8 @@
  * @public
  */
 
-export type { TenantResolver } from "./tenant-resolver.interface";
-export type { TenantConfig, TenantDomainConfig } from "./tenant-config-extended.interface";
-export type { IMultiTenancyProvider } from "./multi-tenancy-provider.interface";
-export type { IMultiTenancyContext } from "./multi-tenancy-context.interface";
-export type { MultiTenancyOptions } from "./multitenancy-options.interface";
+export type { TenantResolver } from './tenant-resolver.interface';
+export type { TenantConfig, TenantDomainConfig } from './tenant-config-extended.interface';
+export type { IMultiTenancyProvider } from './multi-tenancy-provider.interface';
+export type { IMultiTenancyContext } from './multi-tenancy-context.interface';
+export type { MultiTenancyOptions } from './multitenancy-options.interface';

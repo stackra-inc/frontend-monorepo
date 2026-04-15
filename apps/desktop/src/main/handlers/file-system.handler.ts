@@ -12,8 +12,8 @@
  * @module desktop/main/handlers
  */
 
-import { ipcMain, dialog, type BrowserWindow } from "electron";
-import { readFileSync, writeFileSync } from "fs";
+import { ipcMain, dialog, type BrowserWindow } from 'electron';
+import { readFileSync, writeFileSync } from 'fs';
 
 export function registerFileSystemHandlers(mainWindow: BrowserWindow): void {
   /*
@@ -21,14 +21,14 @@ export function registerFileSystemHandlers(mainWindow: BrowserWindow): void {
   | fs:open
   |--------------------------------------------------------------------------
   */
-  ipcMain.handle("fs:open", async (_event, options: any) => {
-    const filters = options?.filters ?? [{ name: "All Files", extensions: ["*"] }];
+  ipcMain.handle('fs:open', async (_event, options: any) => {
+    const filters = options?.filters ?? [{ name: 'All Files', extensions: ['*'] }];
 
     const result = await dialog.showOpenDialog(mainWindow, {
-      title: options?.title ?? "Open File",
+      title: options?.title ?? 'Open File',
       defaultPath: options?.defaultPath,
       filters,
-      properties: ["openFile"],
+      properties: ['openFile'],
     });
 
     if (result.canceled || result.filePaths.length === 0) {
@@ -36,7 +36,7 @@ export function registerFileSystemHandlers(mainWindow: BrowserWindow): void {
     }
 
     const filePath = result.filePaths[0];
-    const content = readFileSync(filePath, "utf-8");
+    const content = readFileSync(filePath, 'utf-8');
 
     return { path: filePath, content };
   });
@@ -46,11 +46,11 @@ export function registerFileSystemHandlers(mainWindow: BrowserWindow): void {
   | fs:save
   |--------------------------------------------------------------------------
   */
-  ipcMain.handle("fs:save", async (_event, data: string | Buffer, options: any) => {
-    const filters = options?.filters ?? [{ name: "All Files", extensions: ["*"] }];
+  ipcMain.handle('fs:save', async (_event, data: string | Buffer, options: any) => {
+    const filters = options?.filters ?? [{ name: 'All Files', extensions: ['*'] }];
 
     const result = await dialog.showSaveDialog(mainWindow, {
-      title: options?.title ?? "Save File",
+      title: options?.title ?? 'Save File',
       defaultPath: options?.defaultPath,
       filters,
     });
@@ -59,7 +59,7 @@ export function registerFileSystemHandlers(mainWindow: BrowserWindow): void {
       return null;
     }
 
-    writeFileSync(result.filePath, data, "utf-8");
+    writeFileSync(result.filePath, data, 'utf-8');
     return result.filePath;
   });
 }

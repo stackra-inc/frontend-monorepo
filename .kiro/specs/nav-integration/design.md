@@ -154,17 +154,17 @@ A new DI module following the `UIModule` pattern.
 
 ```typescript
 @Package({
-  name: "@nav/ui",
-  version: "1.0.0",
-  description: "Navigation UI components and slot registration",
-  dependencies: ["@abdokouta/react-ui"],
-  tags: ["nav", "slots"],
+  name: '@nav/ui',
+  version: '1.0.0',
+  description: 'Navigation UI components and slot registration',
+  dependencies: ['@abdokouta/react-ui'],
+  tags: ['nav', 'slots'],
 })
 @Module({})
 export class NavigationModule {
   static registerSlot(
     slotName: string,
-    entry: SlotEntryOptions,
+    entry: SlotEntryOptions
   ): DynamicModule {
     slotRegistry.registerEntry(slotName, entry);
     return { module: NavigationModule, providers: [], exports: [] };
@@ -227,11 +227,11 @@ interface EventCategory {
 
 // Output: NavTree built via @nav/core functions
 function buildPosNavTree(categories: EventCategory[]): NavTree {
-  const config = resolveNavConfig("pos");
-  let tree = createNavTree("pos", config);
-  tree = addSection(tree, { id: "categories", label: "Categories" });
+  const config = resolveNavConfig('pos');
+  let tree = createNavTree('pos', config);
+  tree = addSection(tree, { id: 'categories', label: 'Categories' });
   for (const cat of categories) {
-    tree = addNode(tree, "categories", {
+    tree = addNode(tree, 'categories', {
       id: cat.id,
       label: cat.label,
       path: `/pos/category/${cat.id}`,

@@ -13,17 +13,15 @@
  * ```
  */
 
-import React, { createContext, useContext, useEffect, useState, useMemo, useCallback } from "react";
-import type { IMultiTenancyContext } from "@/interfaces/multi-tenancy-context.interface";
-import type { IMultiTenancyProvider } from "@/interfaces/multi-tenancy-provider.interface";
-import type { Tenant } from "@/types/tenant.type";
+import React, { createContext, useContext, useEffect, useState, useMemo, useCallback } from 'react';
+import type { IMultiTenancyContext } from '@/interfaces/multi-tenancy-context.interface';
+import type { IMultiTenancyProvider } from '@/interfaces/multi-tenancy-provider.interface';
+import type { Tenant } from '@/types/tenant.type';
 
 /**
  * Multi-Tenancy Context
  */
-export const MultiTenancyContext = createContext<IMultiTenancyContext | undefined>(
-  undefined
-);
+export const MultiTenancyContext = createContext<IMultiTenancyContext | undefined>(undefined);
 
 /**
  * Props for MultiTenancyProvider
@@ -93,7 +91,7 @@ export const MultiTenancyProvider: React.FC<MultiTenancyProviderProps> = ({
       } catch (err) {
         const error = err instanceof Error ? err : new Error(String(err));
         setError(error);
-        console.error("[MultiTenancyProvider] Initialization error:", error);
+        console.error('[MultiTenancyProvider] Initialization error:', error);
 
         // Use default tenant on error if available
         if (defaultTenant) {
@@ -110,29 +108,32 @@ export const MultiTenancyProvider: React.FC<MultiTenancyProviderProps> = ({
   /**
    * Set current tenant
    */
-  const setTenant = useCallback(async (tenantId: string): Promise<void> => {
-    try {
-      setError(undefined);
+  const setTenant = useCallback(
+    async (tenantId: string): Promise<void> => {
+      try {
+        setError(undefined);
 
-      // Find tenant
-      const tenant = tenants.find((t) => t.id === tenantId);
+        // Find tenant
+        const tenant = tenants.find((t) => t.id === tenantId);
 
-      if (!tenant) {
-        throw new Error(`Tenant with ID "${tenantId}" not found`);
+        if (!tenant) {
+          throw new Error(`Tenant with ID "${tenantId}" not found`);
+        }
+
+        // Update provider
+        await provider.setTenant({ tenantId, tenant });
+
+        // Update state
+        setCurrentTenant(tenant);
+      } catch (err) {
+        const error = err instanceof Error ? err : new Error(String(err));
+        setError(error);
+        console.error('[MultiTenancyProvider] Set tenant error:', error);
+        throw error;
       }
-
-      // Update provider
-      await provider.setTenant({ tenantId, tenant });
-
-      // Update state
-      setCurrentTenant(tenant);
-    } catch (err) {
-      const error = err instanceof Error ? err : new Error(String(err));
-      setError(error);
-      console.error("[MultiTenancyProvider] Set tenant error:", error);
-      throw error;
-    }
-  }, [tenants, provider]);
+    },
+    [tenants, provider]
+  );
 
   /**
    * Memoize context value
@@ -149,11 +150,7 @@ export const MultiTenancyProvider: React.FC<MultiTenancyProviderProps> = ({
     [currentTenant, tenants, setTenant, isLoading, error]
   );
 
-  return (
-    <MultiTenancyContext.Provider value={value}>
-      {children}
-    </MultiTenancyContext.Provider>
-  );
+  return <MultiTenancyContext.Provider value={value}>{children}</MultiTenancyContext.Provider>;
 };
 
 /**
@@ -170,9 +167,7 @@ export const useMultiTenancyContext = (): IMultiTenancyContext => {
   const context = useContext(MultiTenancyContext);
 
   if (!context) {
-    throw new Error(
-      "useMultiTenancyContext must be used within MultiTenancyProvider"
-    );
+    throw new Error('useMultiTenancyContext must be used within MultiTenancyProvider');
   }
 
   return context;

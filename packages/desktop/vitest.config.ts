@@ -16,8 +16,8 @@
  * @category Configuration
  */
 
-import { defineConfig } from "vitest/config";
-import path from "path";
+import { defineConfig } from 'vitest/config';
+import path from 'path';
 
 export default defineConfig({
   test: {
@@ -28,16 +28,16 @@ export default defineConfig({
     // Use jsdom to simulate a browser DOM environment.
     // Required for testing React hooks and components.
     // Pure logic tests work fine with jsdom too.
-    environment: "jsdom",
+    environment: 'jsdom',
 
     // Runs before every test file. Used for:
     //   - Mocking DI decorators (@Injectable, @Inject, etc.)
     //   - Setting up global test utilities
-    setupFiles: ["./__tests__/vitest.setup.ts"],
+    setupFiles: ['./__tests__/vitest.setup.ts'],
 
     // Only include files in the __tests__/ directory.
     // Supports .test.ts, .spec.ts, .test.tsx, .spec.tsx extensions.
-    include: ["__tests__/**/*.{test,spec}.{ts,tsx}"],
+    include: ['__tests__/**/*.{test,spec}.{ts,tsx}'],
 
     // Don't fail the test run if no test files are found.
     // Useful during initial development before tests are written.
@@ -47,7 +47,7 @@ export default defineConfig({
     // module resolution. Required for inversiland (DI container internals).
     server: {
       deps: {
-        inline: ["inversiland", "@inversiland/inversify"],
+        inline: ['inversiland', '@inversiland/inversify'],
       },
     },
 
@@ -55,19 +55,13 @@ export default defineConfig({
     // code coverage. Generates text (terminal), JSON, and HTML reports.
     coverage: {
       // Use v8 coverage provider (faster than istanbul)
-      provider: "v8",
+      provider: 'v8',
 
       // Generate multiple report formats
-      reporter: ["text", "json", "html"],
+      reporter: ['text', 'json', 'html'],
 
       // Exclude files from coverage
-      exclude: [
-        "node_modules/",
-        "dist/",
-        "**/*.test.ts",
-        "**/*.test.tsx",
-        "**/*.config.ts",
-      ],
+      exclude: ['node_modules/', 'dist/', '**/*.test.ts', '**/*.test.tsx', '**/*.config.ts'],
     },
   },
 
@@ -76,7 +70,7 @@ export default defineConfig({
     alias: {
       // Map @ to ./src so imports like '@/services/cache.service' resolve
       // correctly in both source code and test files.
-      "@": path.resolve(__dirname, "./src"),
+      '@': path.resolve(__dirname, './src'),
     },
   },
 });

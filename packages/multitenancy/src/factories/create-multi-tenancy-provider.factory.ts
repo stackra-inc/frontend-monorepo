@@ -21,12 +21,12 @@
  * ```
  */
 
-import type { BaseKey } from "@refinedev/core";
-import type { TenantConfig } from "@/interfaces/tenant-config-extended.interface";
-import type { IMultiTenancyProvider } from "@/interfaces/multi-tenancy-provider.interface";
-import type { TenantResolver } from "@/interfaces/tenant-resolver.interface";
-import type { GetTenantParams, SetTenantParams, Tenant, TenantResponse } from "@/types";
-import { createResolverChain } from "@/utils";
+import type { BaseKey } from '@refinedev/core';
+import type { TenantConfig } from '@/interfaces/tenant-config-extended.interface';
+import type { IMultiTenancyProvider } from '@/interfaces/multi-tenancy-provider.interface';
+import type { TenantResolver } from '@/interfaces/tenant-resolver.interface';
+import type { GetTenantParams, SetTenantParams, Tenant, TenantResponse } from '@/types';
+import { createResolverChain } from '@/utils';
 import {
   DomainResolver,
   DynamicDomainResolver,
@@ -35,7 +35,7 @@ import {
   RouterResolver,
   ServerDomainResolver,
   SubdomainResolver,
-} from "@/resolvers";
+} from '@/resolvers';
 
 /**
  * Options for creating a multi-tenancy provider
@@ -166,17 +166,15 @@ export const createMultiTenancyProvider = (
 
   // Validate configuration
   if (!config) {
-    throw new Error("[createMultiTenancyProvider] Configuration is required");
+    throw new Error('[createMultiTenancyProvider] Configuration is required');
   }
 
   if (!config.resolvers || config.resolvers.length === 0) {
-    throw new Error(
-      "[createMultiTenancyProvider] At least one resolver must be configured"
-    );
+    throw new Error('[createMultiTenancyProvider] At least one resolver must be configured');
   }
 
   if (!fetchTenants) {
-    throw new Error("[createMultiTenancyProvider] fetchTenants function is required");
+    throw new Error('[createMultiTenancyProvider] fetchTenants function is required');
   }
 
   // Create resolver map with built-in resolvers
@@ -186,19 +184,19 @@ export const createMultiTenancyProvider = (
     router: new RouterResolver(config),
     header: new HeaderResolver(config),
     query: new QueryResolver(config),
-    "server-domain": new ServerDomainResolver(),
+    'server-domain': new ServerDomainResolver(),
     ...customResolvers,
   };
 
   // Add dynamic domain resolver if configured
-  if (config.resolvers.includes("dynamic-domain")) {
+  if (config.resolvers.includes('dynamic-domain')) {
     if (!dynamicDomainApiUrl) {
       throw new Error(
-        "[createMultiTenancyProvider] dynamicDomainApiUrl is required when using dynamic-domain resolver"
+        '[createMultiTenancyProvider] dynamicDomainApiUrl is required when using dynamic-domain resolver'
       );
     }
 
-    resolverMap["dynamic-domain"] = new DynamicDomainResolver({
+    resolverMap['dynamic-domain'] = new DynamicDomainResolver({
       apiUrl: dynamicDomainApiUrl,
       cacheTTL: dynamicDomainCacheTTL,
     });
@@ -211,9 +209,7 @@ export const createMultiTenancyProvider = (
     const resolver = resolverMap[resolverName];
 
     if (!resolver) {
-      console.warn(
-        `[createMultiTenancyProvider] Resolver "${resolverName}" not found, skipping`
-      );
+      console.warn(`[createMultiTenancyProvider] Resolver "${resolverName}" not found, skipping`);
       continue;
     }
 
@@ -221,9 +217,7 @@ export const createMultiTenancyProvider = (
   }
 
   if (resolvers.length === 0) {
-    throw new Error(
-      "[createMultiTenancyProvider] No valid resolvers found in configuration"
-    );
+    throw new Error('[createMultiTenancyProvider] No valid resolvers found in configuration');
   }
 
   // Create resolver chain
@@ -253,7 +247,7 @@ export const createMultiTenancyProvider = (
     const primaryResolver = config.resolvers[0];
 
     switch (primaryResolver) {
-      case "subdomain": {
+      case 'subdomain': {
         // Subdomain-based: Navigate to new subdomain
         const tenant = params.tenant;
         const subdomain = tenant?.subdomain || tenantId;
@@ -262,16 +256,14 @@ export const createMultiTenancyProvider = (
           const newUrl = `${window.location.protocol}//${subdomain}.${config.baseDomain}${window.location.pathname}`;
           window.location.href = newUrl;
         } else {
-          console.warn(
-            "[setTenant] baseDomain not configured, cannot switch subdomain"
-          );
+          console.warn('[setTenant] baseDomain not configured, cannot switch subdomain');
         }
         break;
       }
 
-      case "header": {
+      case 'header': {
         // Header-based: Update localStorage and reload
-        const headerName = config.headerName || "X-Tenant-ID";
+        const headerName = config.headerName || 'X-Tenant-ID';
         const storageKey = `tenant-header-${headerName}`;
 
         localStorage.setItem(storageKey, String(tenantId));
@@ -279,7 +271,7 @@ export const createMultiTenancyProvider = (
         break;
       }
 
-      case "domain": {
+      case 'domain': {
         // Domain-based: Redirect to custom domain if available
         const tenant = params.tenant;
         const customDomain = tenant?.customDomain;
@@ -288,15 +280,13 @@ export const createMultiTenancyProvider = (
           const newUrl = `${window.location.protocol}//${customDomain}${window.location.pathname}`;
           window.location.href = newUrl;
         } else {
-          console.warn(
-            "[setTenant] No custom domain configured for tenant, cannot switch"
-          );
+          console.warn('[setTenant] No custom domain configured for tenant, cannot switch');
         }
         break;
       }
 
-      case "router":
-      case "query":
+      case 'router':
+      case 'query':
       default: {
         // Router/Query-based: Handled by useTenantSwitch hook
         // Just update state, navigation is handled externally
@@ -313,7 +303,7 @@ export const createMultiTenancyProvider = (
     try {
       return await fetchTenants();
     } catch (error) {
-      console.error("[getTenants] Error fetching tenants:", error);
+      console.error('[getTenants] Error fetching tenants:', error);
       throw error;
     }
   };
@@ -326,7 +316,7 @@ export const createMultiTenancyProvider = (
         try {
           return await fetchTenant(params);
         } catch (error) {
-          console.error("[getTenant] Error fetching tenant:", error);
+          console.error('[getTenant] Error fetching tenant:', error);
           throw error;
         }
       }

@@ -1,7 +1,7 @@
 {
   "name": "@abdokouta/ts-desktop",
   "version": "0.1.0",
-  "description": "Electron desktop integration \u2014 menu decorators, window management, platform bridge, and DI module",
+  "description": "Electron desktop integration — menu decorators, window management, platform bridge, and DI module",
   "license": "MIT",
   "author": {
     "name": "Abdelrhman Kouta",

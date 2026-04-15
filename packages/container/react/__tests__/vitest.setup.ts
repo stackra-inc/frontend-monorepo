@@ -17,7 +17,7 @@
  * @category Configuration
  */
 
-import { vi } from "vitest";
+import { vi } from 'vitest';
 
 /**
  * Mock @abdokouta/ts-container decorators.
@@ -31,9 +31,9 @@ import { vi } from "vitest";
  * This ensures decorator metadata doesn't interfere with tests
  * and allows testing module behavior in isolation.
  */
-vi.mock("@abdokouta/ts-container", async () => {
+vi.mock('@abdokouta/ts-container', async () => {
   // Import the actual module to preserve non-decorator exports
-  const actual = await vi.importActual("@abdokouta/ts-container");
+  const actual = await vi.importActual('@abdokouta/ts-container');
 
   return {
     ...actual,
@@ -42,12 +42,10 @@ vi.mock("@abdokouta/ts-container", async () => {
     Injectable: () => (target: any) => target,
 
     // @Inject(TOKEN) — no-op (no actual parameter injection)
-    Inject:
-      () => (_target: any, _propertyKey: string, _parameterIndex: number) => {},
+    Inject: () => (_target: any, _propertyKey: string, _parameterIndex: number) => {},
 
     // @Optional() — no-op (no optional injection handling)
-    Optional:
-      () => (_target: any, _propertyKey: string, _parameterIndex: number) => {},
+    Optional: () => (_target: any, _propertyKey: string, _parameterIndex: number) => {},
 
     // @Module(metadata) — returns the class unchanged (no module registration)
     Module: (_metadata: any) => (target: any) => target,

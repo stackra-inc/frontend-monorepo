@@ -8,8 +8,8 @@
 
 ## Task 2: ModuleConstants Interface
 
-- [x] Create `src/ModuleConstants.php` — interface with DIR*\*, FILE*_, TAG\__,
-      PATH*PREFIX, CACHE_KEY*\* constants
+- [x] Create `src/ModuleConstants.php` — interface with DIR*\*, FILE*\_,
+      TAG\_\_, PATH*PREFIX, CACHE_KEY*\* constants
 
 ## Task 3: Attributes
 

@@ -238,12 +238,12 @@ The provider uses `useReducer` with the following action types:
 
 ```typescript
 type StackAction<TId extends string = string> =
-  | { type: "PUSH"; entry: DrawerEntry<TId> }
-  | { type: "POP" }
-  | { type: "REPLACE"; entry: DrawerEntry<TId> }
-  | { type: "CLEAR" }
-  | { type: "POP_TO"; id: TId }
-  | { type: "BRING_TO_TOP"; id: TId };
+  | { type: 'PUSH'; entry: DrawerEntry<TId> }
+  | { type: 'POP' }
+  | { type: 'REPLACE'; entry: DrawerEntry<TId> }
+  | { type: 'CLEAR' }
+  | { type: 'POP_TO'; id: TId }
+  | { type: 'BRING_TO_TOP'; id: TId };
 ```
 
 The reducer is a pure function:

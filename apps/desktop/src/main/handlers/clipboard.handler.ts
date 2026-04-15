@@ -12,7 +12,7 @@
  * @module desktop/main/handlers
  */
 
-import { ipcMain, clipboard } from "electron";
+import { ipcMain, clipboard } from 'electron';
 
 export function registerClipboardHandlers(): void {
   /*
@@ -20,7 +20,7 @@ export function registerClipboardHandlers(): void {
   | clipboard:write
   |--------------------------------------------------------------------------
   */
-  ipcMain.handle("clipboard:write", async (_event, text: string) => {
+  ipcMain.handle('clipboard:write', async (_event, text: string) => {
     clipboard.writeText(text);
   });
 
@@ -29,7 +29,7 @@ export function registerClipboardHandlers(): void {
   | clipboard:read
   |--------------------------------------------------------------------------
   */
-  ipcMain.handle("clipboard:read", async () => {
+  ipcMain.handle('clipboard:read', async () => {
     return clipboard.readText();
   });
 }

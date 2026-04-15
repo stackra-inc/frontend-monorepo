@@ -2,21 +2,26 @@
 
 ## Overview
 
-The multitenancy package now integrates with @abdokouta/react-cache for improved caching capabilities. The DynamicDomainResolver has been updated to support both the new cache service and a fallback in-memory cache.
+The multitenancy package now integrates with @abdokouta/react-cache for improved
+caching capabilities. The DynamicDomainResolver has been updated to support both
+the new cache service and a fallback in-memory cache.
 
 ## Changes Made
 
 ### 1. DynamicDomainResolver Updates
 
-The `DynamicDomainResolver` class now supports optional integration with @abdokouta/react-cache:
+The `DynamicDomainResolver` class now supports optional integration with
+@abdokouta/react-cache:
 
 **Before:**
+
 ```typescript
 // Used simple Map-based cache
 private cache: Map<string, CacheEntry> = new Map();
 ```
 
 **After:**
+
 ```typescript
 // Supports both cache service and fallback memory cache
 private cacheService?: any; // CacheService from @abdokouta/react-cache
@@ -28,13 +33,15 @@ private memoryCache: Map<string, { value: string; expiresAt: number }> = new Map
 #### Cache TTL Units Changed
 
 **Before:** Milliseconds
+
 ```typescript
-dynamicDomainCacheTTL: 300000 // 5 minutes in milliseconds
+dynamicDomainCacheTTL: 300000; // 5 minutes in milliseconds
 ```
 
 **After:** Seconds (to match @abdokouta/react-cache API)
+
 ```typescript
-dynamicDomainCacheTTL: 300 // 5 minutes in seconds
+dynamicDomainCacheTTL: 300; // 5 minutes in seconds
 ```
 
 #### New Optional Parameter
@@ -42,7 +49,7 @@ dynamicDomainCacheTTL: 300 // 5 minutes in seconds
 ```typescript
 interface DynamicDomainResolverConfig {
   // ... existing config
-  
+
   /**
    * Optional cache service instance from @abdokouta/react-cache
    * If not provided, uses in-memory Map cache
@@ -102,7 +109,7 @@ import { MultiTenancyModule } from '@abdokouta/multitenancy';
         },
       },
     }),
-    
+
     // Configure multitenancy with cache
     MultiTenancyModule.forRoot({
       // ... other config
@@ -156,6 +163,7 @@ multitenancy:domain:{hostname}
 ```
 
 Example:
+
 ```
 multitenancy:domain:tenant1.myapp.com
 multitenancy:domain:tenant2.myapp.com
@@ -184,21 +192,24 @@ No changes required! The package works exactly as before with in-memory caching.
 ### To Enable Cache Service Integration
 
 1. Install @abdokouta/react-cache:
+
 ```bash
 npm install @abdokouta/react-cache
 ```
 
 2. Configure CacheModule in your app:
+
 ```typescript
 CacheModule.forRoot({
   default: 'memory',
   stores: {
     memory: { driver: 'memory', ttl: 300 },
   },
-})
+});
 ```
 
 3. Pass cache service to resolver (if creating manually):
+
 ```typescript
 const resolver = new DynamicDomainResolver({
   apiUrl: '/api/tenants/resolve',
@@ -211,13 +222,15 @@ const resolver = new DynamicDomainResolver({
 If you were using custom cache TTL values, convert from milliseconds to seconds:
 
 **Before:**
+
 ```typescript
-dynamicDomainCacheTTL: 600000 // 10 minutes in milliseconds
+dynamicDomainCacheTTL: 600000; // 10 minutes in milliseconds
 ```
 
 **After:**
+
 ```typescript
-dynamicDomainCacheTTL: 600 // 10 minutes in seconds
+dynamicDomainCacheTTL: 600; // 10 minutes in seconds
 ```
 
 ## Error Handling
@@ -233,7 +246,7 @@ The integration includes graceful fallback:
 try {
   return await this.cacheService.get(key);
 } catch (error) {
-  console.warn("[DynamicDomainResolver] Cache service error:", error);
+  console.warn('[DynamicDomainResolver] Cache service error:', error);
   // Falls back to memory cache
 }
 ```
@@ -241,16 +254,19 @@ try {
 ## Performance Considerations
 
 ### Memory Cache (Default)
+
 - **Pros**: Fast, no external dependencies
 - **Cons**: Not shared across instances, lost on restart
 - **Best for**: Single-instance apps, development
 
 ### Cache Service with Memory Store
+
 - **Pros**: Unified API, better management
 - **Cons**: Still not shared across instances
 - **Best for**: Single-instance apps with complex caching needs
 
 ### Cache Service with Redis Store
+
 - **Pros**: Shared across instances, persistent
 - **Cons**: Requires Redis setup, network latency
 - **Best for**: Multi-instance production apps
@@ -282,10 +298,10 @@ expect(mockCacheService.get).toHaveBeenCalled();
 
 ## Summary
 
-✅ **Backward Compatible**: Works without any changes
-✅ **Opt-in Enhancement**: Use cache service when needed
-✅ **Graceful Fallback**: Falls back to memory cache on errors
-✅ **Consistent API**: Same cache API across the application
-✅ **Production Ready**: Tested and built successfully
+✅ **Backward Compatible**: Works without any changes ✅ **Opt-in Enhancement**:
+Use cache service when needed ✅ **Graceful Fallback**: Falls back to memory
+cache on errors ✅ **Consistent API**: Same cache API across the application ✅
+**Production Ready**: Tested and built successfully
 
-The multitenancy package now seamlessly integrates with @abdokouta/react-cache while maintaining full backward compatibility!
+The multitenancy package now seamlessly integrates with @abdokouta/react-cache
+while maintaining full backward compatibility!

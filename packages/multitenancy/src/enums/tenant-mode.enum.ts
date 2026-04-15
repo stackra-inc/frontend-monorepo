@@ -39,7 +39,7 @@ export enum TenantMode {
    * @remarks
    * Best for: REST APIs with filter support
    */
-  FILTER = "filter",
+  FILTER = 'filter',
 
   /**
    * Pass tenant ID as an HTTP header.
@@ -62,7 +62,7 @@ export enum TenantMode {
    * Best for: Clean API design, works with any endpoint
    * Most common in SaaS applications
    */
-  HEADER = "header",
+  HEADER = 'header',
 
   /**
    * Pass tenant ID in the URL path.
@@ -83,7 +83,7 @@ export enum TenantMode {
    * Best for: Explicit tenant scoping in URLs
    * Good for debugging and logging
    */
-  URL = "url",
+  URL = 'url',
 
   /**
    * Pass tenant ID as a query parameter.
@@ -104,5 +104,5 @@ export enum TenantMode {
    * Best for: Simple APIs, easy debugging
    * Visible in browser network tab
    */
-  QUERY = "query",
+  QUERY = 'query',
 }

@@ -151,59 +151,59 @@ sequenceDiagram
 // ─── Tree Construction ─────────────────────────────────────────
 function createNavTree(
   context: NavContext,
-  config?: Partial<NavConfig>,
+  config?: Partial<NavConfig>
 ): NavTree;
 function addSection(tree: NavTree, section: NavSectionDef): NavTree;
 function addNode(
   tree: NavTree,
   sectionId: string,
   node: NavNodeDef,
-  parentId?: string,
+  parentId?: string
 ): NavTree;
 function removeNode(tree: NavTree, nodeId: string): NavTree;
 function moveNode(
   tree: NavTree,
   nodeId: string,
   newParentId: string | null,
-  newSectionId?: string,
+  newSectionId?: string
 ): NavTree;
 
 // ─── Active State Resolution ───────────────────────────────────
 function resolve(
   tree: NavTree,
   path: string,
-  strategy?: MatchStrategy,
+  strategy?: MatchStrategy
 ): ResolveResult;
 
 // ─── Breadcrumb Generation ─────────────────────────────────────
 function generateBreadcrumbs(
   tree: NavTree,
-  nodeId: string | null,
+  nodeId: string | null
 ): BreadcrumbTrail;
 
 // ─── Visibility Filtering ──────────────────────────────────────
 function filterByRole(
   tree: NavTree,
   roles: ReadonlySet<string>,
-  userContext?: unknown,
+  userContext?: unknown
 ): NavTree;
 
 // ─── Collapse State ────────────────────────────────────────────
 function createCollapseState(
   tree: NavTree,
-  defaultCollapsed: boolean,
+  defaultCollapsed: boolean
 ): CollapseState;
 function toggleCollapse(state: CollapseState, nodeId: string): CollapseState;
 function setCollapsed(
   state: CollapseState,
   nodeId: string,
-  collapsed: boolean,
+  collapsed: boolean
 ): CollapseState;
 function collapseAll(state: CollapseState): CollapseState;
 function expandToNode(
   state: CollapseState,
   tree: NavTree,
-  nodeId: string,
+  nodeId: string
 ): CollapseState;
 
 // ─── Keyboard Navigation ──────────────────────────────────────
@@ -211,17 +211,17 @@ function createKeyboardBindings(config: NavConfig): KeyboardBindings;
 function registerShortcut(
   bindings: KeyboardBindings,
   shortcut: string,
-  target: string | NavAction,
+  target: string | NavAction
 ): KeyboardBindings;
 function resolveKeyEvent(
   bindings: KeyboardBindings,
-  event: KeyDescriptor,
+  event: KeyDescriptor
 ): string | NavAction | null;
 
 // ─── Configuration ─────────────────────────────────────────────
 function resolveNavConfig(
   context: NavContext,
-  overrides?: Partial<NavConfig>,
+  overrides?: Partial<NavConfig>
 ): NavConfig;
 const NAV_CONTEXT_PRESETS: Record<NavContext, NavConfig>;
 
@@ -233,7 +233,7 @@ function deserialize(json: string): NavTree;
 function createPluginRegistry(): NavPluginRegistry;
 function registerPlugin(
   registry: NavPluginRegistry,
-  plugin: NavPlugin,
+  plugin: NavPlugin
 ): NavPluginRegistry;
 function applyPluginNodes(registry: NavPluginRegistry, tree: NavTree): NavTree;
 function applyPluginBadges(registry: NavPluginRegistry, tree: NavTree): NavTree;
@@ -320,7 +320,7 @@ fully without this package — it's an optional drop-in for Refine-based apps.
 function buildNavTreeFromResources(
   resources: RefineResource[],
   context: NavContext,
-  config?: Partial<NavConfig>,
+  config?: Partial<NavConfig>
 ): NavTree;
 
 /**
@@ -331,7 +331,7 @@ function buildNavTreeFromResources(
 function syncWithRefineMenu(
   tree: NavTree,
   menuItems: RefineMenuItem[],
-  sectionId?: string,
+  sectionId?: string
 ): NavTree;
 
 /**
@@ -340,7 +340,7 @@ function syncWithRefineMenu(
  * compatible with @nav/core.
  */
 function refineBreadcrumbsToTrail(
-  breadcrumbs: RefineBreadcrumbItem[],
+  breadcrumbs: RefineBreadcrumbItem[]
 ): BreadcrumbTrail;
 
 // ─── Refine-Aware Provider ─────────────────────────────────────
@@ -437,28 +437,28 @@ interface RefineBreadcrumbItem {
 
 ```typescript
 /** Navigation context identifiers */
-type NavContext = "pos" | "dashboard" | "landing" | "ecommerce" | "admin";
+type NavContext = 'pos' | 'dashboard' | 'landing' | 'ecommerce' | 'admin';
 
 /** Matching strategies for active state resolution */
-type MatchStrategy = "exact" | "prefix" | "pattern";
+type MatchStrategy = 'exact' | 'prefix' | 'pattern';
 
 /** Badge display types */
-type BadgeType = "count" | "dot" | "text";
+type BadgeType = 'count' | 'dot' | 'text';
 
 /** Badge visual variants */
-type BadgeVariant = "default" | "success" | "warning" | "danger";
+type BadgeVariant = 'default' | 'success' | 'warning' | 'danger';
 
 /** Visibility rule types */
-type VisibilityRuleType = "roles" | "permissions" | "custom" | "public";
+type VisibilityRuleType = 'roles' | 'permissions' | 'custom' | 'public';
 
 /** Navigation actions for keyboard bindings */
 type NavAction =
-  | "navigate"
-  | "toggle"
-  | "expand"
-  | "collapse"
-  | "search"
-  | "spotlight";
+  | 'navigate'
+  | 'toggle'
+  | 'expand'
+  | 'collapse'
+  | 'search'
+  | 'spotlight';
 
 // ─── Badge Configuration ───────────────────────────────────────
 
@@ -476,22 +476,22 @@ interface BadgeConfig {
 // ─── Visibility Rules ──────────────────────────────────────────
 
 interface RolesVisibilityRule {
-  type: "roles";
+  type: 'roles';
   roles: readonly string[];
 }
 
 interface PermissionsVisibilityRule {
-  type: "permissions";
+  type: 'permissions';
   permissions: readonly string[];
 }
 
 interface CustomVisibilityRule {
-  type: "custom";
+  type: 'custom';
   predicate: (userContext: unknown) => boolean;
 }
 
 interface PublicVisibilityRule {
-  type: "public";
+  type: 'public';
 }
 
 type VisibilityRule =

@@ -1,4 +1,4 @@
-import type { BaseKey } from "@refinedev/core";
+import type { BaseKey } from '@refinedev/core';
 
 /**
  * Tenant entity representing a single tenant in the multi-tenancy system.

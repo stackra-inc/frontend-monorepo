@@ -12,7 +12,7 @@
  * @module config/redis
  */
 
-import { defineConfig } from "@abdokouta/ts-redis";
+import { defineConfig } from '@abdokouta/ts-redis';
 
 /*
 |--------------------------------------------------------------------------
@@ -49,7 +49,7 @@ if (sessionUrl && sessionToken) {
 
 const redisConfig = defineConfig({
   isGlobal: true,
-  default: import.meta.env.VITE_REDIS_DEFAULT_CONNECTION || "main",
+  default: import.meta.env.VITE_REDIS_DEFAULT_CONNECTION || 'main',
   connections,
 });
 

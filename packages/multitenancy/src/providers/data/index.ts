@@ -4,5 +4,5 @@
  * @module data-provider
  */
 
-export { createDataProvider } from "./create-data-provider";
-export type { CreateDataProviderOptions } from "./create-data-provider";
+export { createDataProvider } from './create-data-provider';
+export type { CreateDataProviderOptions } from './create-data-provider';

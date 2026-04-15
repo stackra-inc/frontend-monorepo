@@ -1,5 +1,5 @@
-import { TenantMode } from "@/enums";
-import type { MultiTenancyOptions } from "@/interfaces/multitenancy-options.interface";
+import { TenantMode } from '@/enums';
+import type { MultiTenancyOptions } from '@/interfaces/multitenancy-options.interface';
 
 /**
  * Header-based configuration preset
@@ -23,8 +23,8 @@ import type { MultiTenancyOptions } from "@/interfaces/multitenancy-options.inte
  */
 export const headerPreset: Partial<MultiTenancyOptions> = {
   mode: TenantMode.HEADER,
-  tenantField: "tenant_id",
-  headerName: "X-Tenant-ID",
-  queryParam: "tenant_id",
-  resolvers: ["header", "router"],
+  tenantField: 'tenant_id',
+  headerName: 'X-Tenant-ID',
+  queryParam: 'tenant_id',
+  resolvers: ['header', 'router'],
 };

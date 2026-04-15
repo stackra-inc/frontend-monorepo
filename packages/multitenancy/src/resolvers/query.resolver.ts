@@ -1,6 +1,6 @@
-import type { BaseKey } from "@refinedev/core";
-import { ResolverPriority } from "@/enums";
-import type { TenantConfig, TenantResolver } from "@/interfaces";
+import type { BaseKey } from '@refinedev/core';
+import { ResolverPriority } from '@/enums';
+import type { TenantConfig, TenantResolver } from '@/interfaces';
 
 /**
  * Resolver that extracts tenant ID from URL query parameters.
@@ -50,48 +50,48 @@ import type { TenantConfig, TenantResolver } from "@/interfaces";
  * @public
  */
 export class QueryResolver implements TenantResolver {
-	/**
-	 * Unique identifier for this resolver.
-	 */
-	public readonly name = "query";
+  /**
+   * Unique identifier for this resolver.
+   */
+  public readonly name = 'query';
 
-	/**
-	 * Priority level (NORMAL = 3).
-	 */
-	public readonly priority = ResolverPriority.NORMAL;
+  /**
+   * Priority level (NORMAL = 3).
+   */
+  public readonly priority = ResolverPriority.NORMAL;
 
-	/**
-	 * Query parameter name to extract tenant ID from.
-	 */
-	private readonly paramName: string;
+  /**
+   * Query parameter name to extract tenant ID from.
+   */
+  private readonly paramName: string;
 
-	/**
-	 * Creates a new QueryResolver instance.
-	 *
-	 * @param config - Tenant configuration containing optional queryParam
-	 */
-	constructor(config: TenantConfig) {
-		this.paramName = config.queryParam || "tenant_id";
-	}
+  /**
+   * Creates a new QueryResolver instance.
+   *
+   * @param config - Tenant configuration containing optional queryParam
+   */
+  constructor(config: TenantConfig) {
+    this.paramName = config.queryParam || 'tenant_id';
+  }
 
-	/**
-	 * Resolves tenant ID from URL query parameter.
-	 *
-	 * @returns Tenant ID from query parameter, or undefined if not found or running on server
-	 */
-	public resolve(): BaseKey | undefined {
-		// Check if running in browser
-		if (typeof window === "undefined") {
-			return undefined;
-		}
+  /**
+   * Resolves tenant ID from URL query parameter.
+   *
+   * @returns Tenant ID from query parameter, or undefined if not found or running on server
+   */
+  public resolve(): BaseKey | undefined {
+    // Check if running in browser
+    if (typeof window === 'undefined') {
+      return undefined;
+    }
 
-		// Parse query string
-		const params = new URLSearchParams(window.location.search);
+    // Parse query string
+    const params = new URLSearchParams(window.location.search);
 
-		// Extract configured parameter
-		const value = params.get(this.paramName);
+    // Extract configured parameter
+    const value = params.get(this.paramName);
 
-		// Return value or undefined
-		return value || undefined;
-	}
+    // Return value or undefined
+    return value || undefined;
+  }
 }

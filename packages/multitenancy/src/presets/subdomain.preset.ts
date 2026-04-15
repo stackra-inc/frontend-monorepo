@@ -1,5 +1,5 @@
-import { TenantMode } from "@/enums";
-import type { MultiTenancyOptions } from "@/interfaces/multitenancy-options.interface";
+import { TenantMode } from '@/enums';
+import type { MultiTenancyOptions } from '@/interfaces/multitenancy-options.interface';
 
 /**
  * Subdomain-based configuration preset
@@ -25,7 +25,7 @@ import type { MultiTenancyOptions } from "@/interfaces/multitenancy-options.inte
  */
 export const subdomainPreset: Partial<MultiTenancyOptions> = {
   mode: TenantMode.HEADER,
-  headerName: "X-Tenant-ID",
-  resolvers: ["subdomain", "router"],
-  baseDomain: "example.com",
+  headerName: 'X-Tenant-ID',
+  resolvers: ['subdomain', 'router'],
+  baseDomain: 'example.com',
 };

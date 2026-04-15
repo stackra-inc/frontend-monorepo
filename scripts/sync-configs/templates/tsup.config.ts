@@ -26,6 +26,6 @@
 // Import the base preset from @nesvel/tsup-config.
 // The preset auto-detects externals from package.json
 // (dependencies + peerDependencies + devDependencies).
-import { basePreset as preset } from "@nesvel/tsup-config";
+import { basePreset as preset } from '@nesvel/tsup-config';
 
 export default preset;

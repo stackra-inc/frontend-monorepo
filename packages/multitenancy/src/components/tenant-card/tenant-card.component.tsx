@@ -12,10 +12,10 @@
  * ```
  */
 
-import React from "react";
-import { Card } from "@heroui/react";
-import { useTenant } from "@/hooks";
-import type { Tenant } from "@/types";
+import React from 'react';
+import { Card } from '@heroui/react';
+import { useTenant } from '@/hooks';
+import type { Tenant } from '@/types';
 
 /**
  * Props for TenantCard component
@@ -127,9 +127,7 @@ export const TenantCard: React.FC<TenantCardProps> = ({
       <Card className={className}>
         <Card.Content>
           {loadingContent || (
-            <div className="text-center py-8 text-gray-500">
-              Loading tenant information...
-            </div>
+            <div className="text-center py-8 text-gray-500">Loading tenant information...</div>
           )}
         </Card.Content>
       </Card>
@@ -144,9 +142,7 @@ export const TenantCard: React.FC<TenantCardProps> = ({
       <Card className={className}>
         <Card.Content>
           {noTenantContent || (
-            <div className="text-center py-8 text-gray-500">
-              No tenant selected
-            </div>
+            <div className="text-center py-8 text-gray-500">No tenant selected</div>
           )}
         </Card.Content>
       </Card>
@@ -176,38 +172,36 @@ export const TenantCard: React.FC<TenantCardProps> = ({
       <Card.Content>
         {showId && (
           <div className="mb-2">
-            <span className="text-sm text-gray-500">ID:</span>{" "}
+            <span className="text-sm text-gray-500">ID:</span>{' '}
             <span className="text-sm font-mono">{tenant.id}</span>
           </div>
         )}
 
         {tenant.slug && (
           <div className="mb-2">
-            <span className="text-sm text-gray-500">Slug:</span>{" "}
+            <span className="text-sm text-gray-500">Slug:</span>{' '}
             <span className="text-sm">{tenant.slug}</span>
           </div>
         )}
 
         {tenant.subdomain && (
           <div className="mb-2">
-            <span className="text-sm text-gray-500">Subdomain:</span>{" "}
+            <span className="text-sm text-gray-500">Subdomain:</span>{' '}
             <span className="text-sm">{tenant.subdomain}</span>
           </div>
         )}
 
         {tenant.customDomain && (
           <div className="mb-2">
-            <span className="text-sm text-gray-500">Domain:</span>{" "}
+            <span className="text-sm text-gray-500">Domain:</span>{' '}
             <span className="text-sm">{tenant.customDomain}</span>
           </div>
         )}
 
         {showMetadata && tenant.createdAt && (
           <div className="mb-2">
-            <span className="text-sm text-gray-500">Created:</span>{" "}
-            <span className="text-sm">
-              {new Date(tenant.createdAt).toLocaleDateString()}
-            </span>
+            <span className="text-sm text-gray-500">Created:</span>{' '}
+            <span className="text-sm">{new Date(tenant.createdAt).toLocaleDateString()}</span>
           </div>
         )}
       </Card.Content>

@@ -12,10 +12,10 @@
  * ```
  */
 
-import React from "react";
-import { Label, ListBox, Select } from "@heroui/react";
-import { useTenant, useTenantSwitch } from "@/hooks";
-import type { Tenant } from "@/types";
+import React from 'react';
+import { Label, ListBox, Select } from '@heroui/react';
+import { useTenant, useTenantSwitch } from '@/hooks';
+import type { Tenant } from '@/types';
 
 /**
  * Props for TenantSelect component
@@ -159,16 +159,16 @@ export interface TenantSelectProps {
  * ```
  */
 export const TenantSelect: React.FC<TenantSelectProps> = ({
-  label = "Select Tenant",
-  placeholder = "Choose a tenant",
+  label = 'Select Tenant',
+  placeholder = 'Choose a tenant',
   navigateTo,
   onTenantChange,
   onError,
   disabled = false,
   className,
   showLoading = true,
-  loadingText = "Loading tenants...",
-  errorText = "Failed to load tenants",
+  loadingText = 'Loading tenants...',
+  errorText = 'Failed to load tenants',
   showCount = false,
   renderTenant,
 }) => {
@@ -194,7 +194,7 @@ export const TenantSelect: React.FC<TenantSelectProps> = ({
         await switchTenant(selectedKey);
       } catch (err) {
         // Error is handled by useTenantSwitch
-        console.error("[TenantSelect] Switch error:", err);
+        console.error('[TenantSelect] Switch error:', err);
       }
     }
   };
@@ -212,9 +212,7 @@ export const TenantSelect: React.FC<TenantSelectProps> = ({
   /**
    * Build label with count if enabled
    */
-  const selectLabel = showCount && tenants.length > 0
-    ? `${label} (${tenants.length})`
-    : label;
+  const selectLabel = showCount && tenants.length > 0 ? `${label} (${tenants.length})` : label;
 
   // Show loading state
   if (isLoading && showLoading) {

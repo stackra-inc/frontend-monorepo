@@ -22,44 +22,40 @@
  * @module components/theme-customizer
  */
 
-"use client";
+'use client';
 
-import React, { useState, createElement } from "react";
-import { Button, Drawer } from "@heroui/react";
-import { customizerRegistry } from "@/registries/customizer.registry";
-import { ThemeSwitcher } from "@/components/theme-switcher/theme-switcher";
-import { ModeSelector } from "@/components/mode-selector/mode-selector";
-import { THEME_SLOTS } from "@/constants";
-import { renderSlot } from "@/utils";
+import React, { useState, createElement } from 'react';
+import { Button, Drawer } from '@heroui/react';
+import { customizerRegistry } from '@/registries/customizer.registry';
+import { ThemeSwitcher } from '@/components/theme-switcher/theme-switcher';
+import { ModeSelector } from '@/components/mode-selector/mode-selector';
+import { THEME_SLOTS } from '@/constants';
+import { renderSlot } from '@/utils';
 
 export interface ThemeCustomizerProps {
   /** Position of the float trigger button. @default "bottom-right" */
-  position?: "bottom-right" | "bottom-left" | "top-right" | "top-left";
+  position?: 'bottom-right' | 'bottom-left' | 'top-right' | 'top-left';
   /** Custom trigger button content */
   triggerLabel?: React.ReactNode;
 }
 
-const POSITION_CLASSES: Record<
-  NonNullable<ThemeCustomizerProps["position"]>,
-  string
-> = {
-  "bottom-right": "fixed bottom-6 right-6 z-50",
-  "bottom-left": "fixed bottom-6 left-6 z-50",
-  "top-right": "fixed top-6 right-6 z-50",
-  "top-left": "fixed top-6 left-6 z-50",
+const POSITION_CLASSES: Record<NonNullable<ThemeCustomizerProps['position']>, string> = {
+  'bottom-right': 'fixed bottom-6 right-6 z-50',
+  'bottom-left': 'fixed bottom-6 left-6 z-50',
+  'top-right': 'fixed top-6 right-6 z-50',
+  'top-left': 'fixed top-6 left-6 z-50',
 };
 
 /**
  * ThemeCustomizer — floating button + drawer with theme controls and slot positions.
  */
 export const ThemeCustomizer: React.FC<ThemeCustomizerProps> = ({
-  position = "bottom-right",
+  position = 'bottom-right',
   triggerLabel,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const panels = customizerRegistry.getPanels();
-  const trigger =
-    triggerLabel ?? createElement("span", { "aria-hidden": true }, "🎨");
+  const trigger = triggerLabel ?? createElement('span', { 'aria-hidden': true }, '🎨');
 
   return createElement(
     React.Fragment,
@@ -67,40 +63,40 @@ export const ThemeCustomizer: React.FC<ThemeCustomizerProps> = ({
 
     /* Float button */
     createElement(
-      "div",
+      'div',
       { className: POSITION_CLASSES[position] },
       createElement(
         Button,
         {
-          "aria-label": "Open theme customizer",
+          'aria-label': 'Open theme customizer',
           onPress: () => setIsOpen(true),
-          size: "lg",
-          variant: "primary",
-          className: "rounded-full size-12 p-0",
+          size: 'lg',
+          variant: 'primary',
+          className: 'rounded-full size-12 p-0',
         },
-        trigger,
-      ),
+        trigger
+      )
     ),
 
     /* Drawer */
     createElement(
       Drawer.Backdrop,
-      { isOpen, onOpenChange: setIsOpen, variant: "blur" },
+      { isOpen, onOpenChange: setIsOpen, variant: 'blur' },
       createElement(
         Drawer.Content,
-        { placement: "right" },
+        { placement: 'right' },
         createElement(
           Drawer.Dialog,
-          { "aria-label": "Theme customizer" },
+          { 'aria-label': 'Theme customizer' },
           createElement(Drawer.CloseTrigger, null),
           createElement(
             Drawer.Header,
             null,
-            createElement(Drawer.Heading, null, "Theme Customizer"),
+            createElement(Drawer.Heading, null, 'Theme Customizer')
           ),
           createElement(
             Drawer.Body,
-            { className: "flex flex-col gap-8 py-6" },
+            { className: 'flex flex-col gap-8 py-6' },
 
             /* ── Slot: before all sections ── */
             renderSlot(THEME_SLOTS.CUSTOMIZER.BEFORE),
@@ -110,17 +106,16 @@ export const ThemeCustomizer: React.FC<ThemeCustomizerProps> = ({
 
             /* ── Built-in: Color mode ── */
             createElement(
-              "section",
+              'section',
               null,
               createElement(
-                "h3",
+                'h3',
                 {
-                  className:
-                    "text-sm font-semibold text-muted uppercase tracking-wider mb-4",
+                  className: 'text-sm font-semibold text-muted uppercase tracking-wider mb-4',
                 },
-                "Color Mode",
+                'Color Mode'
               ),
-              createElement(ModeSelector, { showLabel: false }),
+              createElement(ModeSelector, { showLabel: false })
             ),
 
             /* ── Slot: after color mode ── */
@@ -131,17 +126,16 @@ export const ThemeCustomizer: React.FC<ThemeCustomizerProps> = ({
 
             /* ── Built-in: Theme palette ── */
             createElement(
-              "section",
+              'section',
               null,
               createElement(
-                "h3",
+                'h3',
                 {
-                  className:
-                    "text-sm font-semibold text-muted uppercase tracking-wider mb-4",
+                  className: 'text-sm font-semibold text-muted uppercase tracking-wider mb-4',
                 },
-                "Color Palette",
+                'Color Palette'
               ),
-              createElement(ThemeSwitcher, null),
+              createElement(ThemeSwitcher, null)
             ),
 
             /* ── Slot: after palette ── */
@@ -150,30 +144,29 @@ export const ThemeCustomizer: React.FC<ThemeCustomizerProps> = ({
             /* ── Registered panels ── */
             ...panels.map((panel) =>
               createElement(
-                "section",
+                'section',
                 { key: panel.id },
                 createElement(
-                  "h3",
+                  'h3',
                   {
-                    className:
-                      "text-sm font-semibold text-muted uppercase tracking-wider mb-4",
+                    className: 'text-sm font-semibold text-muted uppercase tracking-wider mb-4',
                   },
-                  panel.title,
+                  panel.title
                 ),
-                createElement(panel.component, null),
-              ),
+                createElement(panel.component, null)
+              )
             ),
 
             /* ── Slot: after all panels ── */
             renderSlot(THEME_SLOTS.CUSTOMIZER.AFTER_PANELS),
 
             /* ── Slot: after everything ── */
-            renderSlot(THEME_SLOTS.CUSTOMIZER.AFTER),
-          ),
-        ),
-      ),
-    ),
+            renderSlot(THEME_SLOTS.CUSTOMIZER.AFTER)
+          )
+        )
+      )
+    )
   );
 };
 
-ThemeCustomizer.displayName = "ThemeCustomizer";
+ThemeCustomizer.displayName = 'ThemeCustomizer';

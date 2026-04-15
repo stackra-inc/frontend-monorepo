@@ -1,5 +1,5 @@
-import type { MultiTenancyOptions } from "@/interfaces/multitenancy-options.interface";
-import { defaultPreset } from "@/presets";
+import type { MultiTenancyOptions } from '@/interfaces/multitenancy-options.interface';
+import { defaultPreset } from '@/presets';
 
 /**
  * Define configuration factory
@@ -25,9 +25,7 @@ import { defaultPreset } from "@/presets";
  * });
  * ```
  */
-export function defineConfig(
-  options: Partial<MultiTenancyOptions>
-): Partial<MultiTenancyOptions> {
+export function defineConfig(options: Partial<MultiTenancyOptions>): Partial<MultiTenancyOptions> {
   return {
     ...defaultPreset,
     ...options,

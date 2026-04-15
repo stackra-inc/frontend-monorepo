@@ -1,6 +1,6 @@
-import type { BaseKey } from "@refinedev/core";
-import { ResolverPriority } from "@/enums";
-import type { TenantConfig, TenantResolver } from "@/interfaces";
+import type { BaseKey } from '@refinedev/core';
+import { ResolverPriority } from '@/enums';
+import type { TenantConfig, TenantResolver } from '@/interfaces';
 
 /**
  * Resolver that reads tenant ID from localStorage (for header-based APIs).
@@ -70,66 +70,59 @@ import type { TenantConfig, TenantResolver } from "@/interfaces";
  * @public
  */
 export class HeaderResolver implements TenantResolver {
-	/**
-	 * Unique identifier for this resolver.
-	 */
-	public readonly name = "header";
+  /**
+   * Unique identifier for this resolver.
+   */
+  public readonly name = 'header';
 
-	/**
-	 * Priority level (LOW = 4).
-	 */
-	public readonly priority = ResolverPriority.LOW;
+  /**
+   * Priority level (LOW = 4).
+   */
+  public readonly priority = ResolverPriority.LOW;
 
-	/**
-	 * Storage key for tenant ID.
-	 */
-	private readonly storageKey: string;
+  /**
+   * Storage key for tenant ID.
+   */
+  private readonly storageKey: string;
 
-	/**
-	 * Storage implementation (defaults to localStorage).
-	 */
-	private readonly storage: Storage | undefined;
+  /**
+   * Storage implementation (defaults to localStorage).
+   */
+  private readonly storage: Storage | undefined;
 
-	/**
-	 * Creates a new HeaderResolver instance.
-	 *
-	 * @param config - Tenant configuration containing optional headerName
-	 * @param storage - Optional custom Storage implementation (defaults to localStorage)
-	 */
-	constructor(
-		config: TenantConfig,
-		storage?: Storage,
-	) {
-		const headerName = config.headerName || "X-Tenant-ID";
-		this.storageKey = `refine-tenant-${headerName}`;
-		this.storage =
-			storage || (typeof window !== "undefined" ? window.localStorage : undefined);
-	}
+  /**
+   * Creates a new HeaderResolver instance.
+   *
+   * @param config - Tenant configuration containing optional headerName
+   * @param storage - Optional custom Storage implementation (defaults to localStorage)
+   */
+  constructor(config: TenantConfig, storage?: Storage) {
+    const headerName = config.headerName || 'X-Tenant-ID';
+    this.storageKey = `refine-tenant-${headerName}`;
+    this.storage = storage || (typeof window !== 'undefined' ? window.localStorage : undefined);
+  }
 
-	/**
-	 * Resolves tenant ID from localStorage.
-	 *
-	 * @returns Tenant ID from localStorage, or undefined if not found or storage not available
-	 */
-	public resolve(): BaseKey | undefined {
-		// Check if storage is available
-		if (!this.storage) {
-			return undefined;
-		}
+  /**
+   * Resolves tenant ID from localStorage.
+   *
+   * @returns Tenant ID from localStorage, or undefined if not found or storage not available
+   */
+  public resolve(): BaseKey | undefined {
+    // Check if storage is available
+    if (!this.storage) {
+      return undefined;
+    }
 
-		try {
-			// Read value from storage
-			const value = this.storage.getItem(this.storageKey);
+    try {
+      // Read value from storage
+      const value = this.storage.getItem(this.storageKey);
 
-			// Return value or undefined
-			return value || undefined;
-		} catch (error) {
-			// Storage access might fail (e.g., in private browsing mode)
-			console.warn(
-				`[MultiTenancy] Failed to read from storage:`,
-				error,
-			);
-			return undefined;
-		}
-	}
+      // Return value or undefined
+      return value || undefined;
+    } catch (error) {
+      // Storage access might fail (e.g., in private browsing mode)
+      console.warn(`[MultiTenancy] Failed to read from storage:`, error);
+      return undefined;
+    }
+  }
 }

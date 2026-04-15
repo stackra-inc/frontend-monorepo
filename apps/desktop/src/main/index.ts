@@ -17,14 +17,14 @@
  * @module desktop/main
  */
 
-import { app, BrowserWindow, shell, ipcMain, Menu, Notification, dialog, session } from "electron";
-import { join } from "path";
-import { writeFileSync, readFileSync, existsSync, mkdirSync } from "fs";
+import { app, BrowserWindow, shell, ipcMain, Menu, Notification, dialog, session } from 'electron';
+import { join } from 'path';
+import { writeFileSync, readFileSync, existsSync, mkdirSync } from 'fs';
 
-import { registerAllHandlers } from "./handlers";
+import { registerAllHandlers } from './handlers';
 
 const isDev = !app.isPackaged;
-const isMac = process.platform === "darwin";
+const isMac = process.platform === 'darwin';
 
 /*
 |--------------------------------------------------------------------------
@@ -58,12 +58,12 @@ interface WindowState {
   isMaximized: boolean;
 }
 
-const stateFilePath = join(app.getPath("userData"), "window-state.json");
+const stateFilePath = join(app.getPath('userData'), 'window-state.json');
 
 function loadWindowState(): WindowState {
   try {
     if (existsSync(stateFilePath)) {
-      return JSON.parse(readFileSync(stateFilePath, "utf-8"));
+      return JSON.parse(readFileSync(stateFilePath, 'utf-8'));
     }
   } catch {
     /* Corrupted state file — use defaults. */
@@ -81,7 +81,7 @@ function saveWindowState(win: BrowserWindow): void {
       height: bounds.height,
       isMaximized: win.isMaximized(),
     };
-    const dir = app.getPath("userData");
+    const dir = app.getPath('userData');
     if (!existsSync(dir)) mkdirSync(dir, { recursive: true });
     writeFileSync(stateFilePath, JSON.stringify(state));
   } catch {
@@ -99,13 +99,13 @@ function saveWindowState(win: BrowserWindow): void {
 |
 */
 let windowConfig = {
-  title: "Pixielity",
-  backgroundColor: "#000000",
-  titleBarStyle: "hiddenInset" as const,
+  title: 'Pixielity',
+  backgroundColor: '#000000',
+  titleBarStyle: 'hiddenInset' as const,
   trafficLightPosition: { x: 15, y: 15 },
   minWidth: 800,
   minHeight: 600,
-  devUrl: "http://localhost:5173",
+  devUrl: 'http://localhost:5173',
 };
 
 /*
@@ -132,7 +132,7 @@ function createWindow(): void {
     trafficLightPosition: windowConfig.trafficLightPosition,
     show: false,
     webPreferences: {
-      preload: join(__dirname, "../preload/index.js"),
+      preload: join(__dirname, '../preload/index.js'),
       contextIsolation: true,
       nodeIntegration: false,
       sandbox: true,
@@ -155,7 +155,7 @@ function createWindow(): void {
   | Show window when ready to prevent visual flash.
   |--------------------------------------------------------------------------
   */
-  mainWindow.once("ready-to-show", () => {
+  mainWindow.once('ready-to-show', () => {
     mainWindow?.show();
   });
 
@@ -168,7 +168,7 @@ function createWindow(): void {
     mainWindow.loadURL(windowConfig.devUrl);
     mainWindow.webContents.openDevTools();
   } else {
-    mainWindow.loadFile(join(__dirname, "../../renderer/index.html"));
+    mainWindow.loadFile(join(__dirname, '../../renderer/index.html'));
   }
 
   /*
@@ -177,10 +177,10 @@ function createWindow(): void {
   |--------------------------------------------------------------------------
   */
   mainWindow.webContents.setWindowOpenHandler(({ url }) => {
-    if (url.startsWith("https:") || url.startsWith("http:")) {
+    if (url.startsWith('https:') || url.startsWith('http:')) {
       shell.openExternal(url);
     }
-    return { action: "deny" };
+    return { action: 'deny' };
   });
 
   /*
@@ -188,8 +188,8 @@ function createWindow(): void {
   | Security: block navigation to external URLs in the main window.
   |--------------------------------------------------------------------------
   */
-  mainWindow.webContents.on("will-navigate", (event, url) => {
-    const appUrl = isDev ? windowConfig.devUrl : "file://";
+  mainWindow.webContents.on('will-navigate', (event, url) => {
+    const appUrl = isDev ? windowConfig.devUrl : 'file://';
     if (!url.startsWith(appUrl)) {
       event.preventDefault();
     }
@@ -200,23 +200,23 @@ function createWindow(): void {
   | Save window state on resize/move/close.
   |--------------------------------------------------------------------------
   */
-  mainWindow.on("resize", () => {
+  mainWindow.on('resize', () => {
     if (mainWindow && !mainWindow.isMaximized()) {
       saveWindowState(mainWindow);
     }
   });
 
-  mainWindow.on("move", () => {
+  mainWindow.on('move', () => {
     if (mainWindow && !mainWindow.isMaximized()) {
       saveWindowState(mainWindow);
     }
   });
 
-  mainWindow.on("close", () => {
+  mainWindow.on('close', () => {
     if (mainWindow) saveWindowState(mainWindow);
   });
 
-  mainWindow.on("closed", () => {
+  mainWindow.on('closed', () => {
     mainWindow = null;
   });
 }
@@ -251,15 +251,15 @@ function buildMenuFromTemplate(menus: SerializedMenu[]): void {
     template.push({
       label: app.name,
       submenu: [
-        { role: "about" },
-        { type: "separator" },
-        { role: "services" },
-        { type: "separator" },
-        { role: "hide" },
-        { role: "hideOthers" },
-        { role: "unhide" },
-        { type: "separator" },
-        { role: "quit" },
+        { role: 'about' },
+        { type: 'separator' },
+        { role: 'services' },
+        { type: 'separator' },
+        { role: 'hide' },
+        { role: 'hideOthers' },
+        { role: 'unhide' },
+        { type: 'separator' },
+        { role: 'quit' },
       ],
     });
   }
@@ -269,8 +269,8 @@ function buildMenuFromTemplate(menus: SerializedMenu[]): void {
     for (const item of menu.items) {
       if (item.role) {
         submenu.push({ role: item.role as any });
-      } else if (item.type === "separator") {
-        submenu.push({ type: "separator" });
+      } else if (item.type === 'separator') {
+        submenu.push({ type: 'separator' });
       } else {
         submenu.push({
           label: item.label,
@@ -285,32 +285,32 @@ function buildMenuFromTemplate(menus: SerializedMenu[]): void {
   }
 
   template.push({
-    label: "Window",
+    label: 'Window',
     submenu: [
-      { role: "minimize" },
-      { role: "zoom" },
+      { role: 'minimize' },
+      { role: 'zoom' },
       ...(isMac
-        ? [{ type: "separator" as const }, { role: "front" as const }]
-        : [{ role: "close" as const }]),
+        ? [{ type: 'separator' as const }, { role: 'front' as const }]
+        : [{ role: 'close' as const }]),
     ],
   });
 
   if (!isMac) {
     template.push({
-      label: "Help",
+      label: 'Help',
       submenu: [
         {
-          label: "Documentation",
-          click: () => shell.openExternal("https://pixielity.com/docs"),
+          label: 'Documentation',
+          click: () => shell.openExternal('https://pixielity.com/docs'),
         },
         {
           label: `About v${app.getVersion()}`,
           click: () =>
             dialog.showMessageBox({
-              type: "info",
-              title: "About",
+              type: 'info',
+              title: 'About',
               message: `${windowConfig.title} v${app.getVersion()}`,
-              detail: "Built with Electron + Vite + React",
+              detail: 'Built with Electron + Vite + React',
             }),
         },
       ],
@@ -331,9 +331,9 @@ function buildMenuFromTemplate(menus: SerializedMenu[]): void {
 */
 
 function registerCoreHandlers(): void {
-  ipcMain.handle("get-app-version", () => app.getVersion());
+  ipcMain.handle('get-app-version', () => app.getVersion());
 
-  ipcMain.on("window:config", (_event, config: Record<string, unknown>) => {
+  ipcMain.on('window:config', (_event, config: Record<string, unknown>) => {
     windowConfig = { ...windowConfig, ...config } as typeof windowConfig;
 
     /*
@@ -348,37 +348,37 @@ function registerCoreHandlers(): void {
     }
   });
 
-  ipcMain.on("menu:set", (_event, menus: SerializedMenu[]) => {
+  ipcMain.on('menu:set', (_event, menus: SerializedMenu[]) => {
     buildMenuFromTemplate(menus);
   });
 
-  ipcMain.handle("menu:get", () => Menu.getApplicationMenu());
+  ipcMain.handle('menu:get', () => Menu.getApplicationMenu());
 
-  ipcMain.handle("print-receipt", async (_event, html: string) => {
+  ipcMain.handle('print-receipt', async (_event, html: string) => {
     const win = new BrowserWindow({ show: false });
     win.loadURL(`data:text/html;charset=utf-8,${encodeURIComponent(html)}`);
-    win.webContents.on("did-finish-load", () => {
+    win.webContents.on('did-finish-load', () => {
       win.webContents.print({}, () => win.close());
     });
   });
 
-  ipcMain.handle("export-file", async (_event, data: string, filename: string) => {
+  ipcMain.handle('export-file', async (_event, data: string, filename: string) => {
     const result = await dialog.showSaveDialog(mainWindow!, {
       defaultPath: filename,
       filters: [
-        { name: "CSV", extensions: ["csv"] },
-        { name: "JSON", extensions: ["json"] },
-        { name: "All Files", extensions: ["*"] },
+        { name: 'CSV', extensions: ['csv'] },
+        { name: 'JSON', extensions: ['json'] },
+        { name: 'All Files', extensions: ['*'] },
       ],
     });
     if (!result.canceled && result.filePath) {
-      writeFileSync(result.filePath, data, "utf-8");
+      writeFileSync(result.filePath, data, 'utf-8');
       return result.filePath;
     }
     return null;
   });
 
-  ipcMain.handle("notify", async (_event, title: string, body: string) => {
+  ipcMain.handle('notify', async (_event, title: string, body: string) => {
     new Notification({ title, body }).show();
   });
 }
@@ -395,11 +395,11 @@ function registerCoreHandlers(): void {
 function setupPermissionHandlers(): void {
   session.defaultSession.setPermissionRequestHandler((_webContents, permission, callback) => {
     const allowedPermissions = [
-      "clipboard-read",
-      "clipboard-sanitized-write",
-      "notifications",
-      "fullscreen",
-      "media",
+      'clipboard-read',
+      'clipboard-sanitized-write',
+      'notifications',
+      'fullscreen',
+      'media',
     ];
 
     callback(allowedPermissions.includes(permission));
@@ -422,7 +422,7 @@ function setupPermissionHandlers(): void {
     callback({
       responseHeaders: {
         ...details.responseHeaders,
-        "Content-Security-Policy": [csp],
+        'Content-Security-Policy': [csp],
       },
     });
   });
@@ -433,16 +433,16 @@ function setupPermissionHandlers(): void {
 | Uncaught Exception / Unhandled Rejection Handlers
 |--------------------------------------------------------------------------
 */
-process.on("uncaughtException", (error) => {
-  console.error("[Main] Uncaught exception:", error);
+process.on('uncaughtException', (error) => {
+  console.error('[Main] Uncaught exception:', error);
   dialog.showErrorBox(
-    "Unexpected Error",
-    `An unexpected error occurred:\n\n${error.message}\n\nThe application will continue running.`,
+    'Unexpected Error',
+    `An unexpected error occurred:\n\n${error.message}\n\nThe application will continue running.`
   );
 });
 
-process.on("unhandledRejection", (reason) => {
-  console.error("[Main] Unhandled rejection:", reason);
+process.on('unhandledRejection', (reason) => {
+  console.error('[Main] Unhandled rejection:', reason);
 });
 
 /*
@@ -465,7 +465,7 @@ app.whenReady().then(() => {
   | macOS: re-create window when dock icon is clicked and no windows exist.
   |--------------------------------------------------------------------------
   */
-  app.on("activate", () => {
+  app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) {
       createWindow();
       if (mainWindow) registerAllHandlers(mainWindow);
@@ -478,19 +478,19 @@ app.whenReady().then(() => {
 | Second instance handler (for single instance lock + protocol URLs).
 |--------------------------------------------------------------------------
 */
-app.on("second-instance", (_event, commandLine) => {
+app.on('second-instance', (_event, commandLine) => {
   if (mainWindow) {
     if (mainWindow.isMinimized()) mainWindow.restore();
     mainWindow.focus();
 
     /* Forward protocol URL if present. */
-    const url = commandLine.find((arg) => arg.includes("://"));
+    const url = commandLine.find((arg) => arg.includes('://'));
     if (url) {
-      mainWindow.webContents.send("protocol:url", url);
+      mainWindow.webContents.send('protocol:url', url);
     }
   }
 });
 
-app.on("window-all-closed", () => {
+app.on('window-all-closed', () => {
   if (!isMac) app.quit();
 });

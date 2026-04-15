@@ -1,6 +1,6 @@
-import type { BaseKey } from "@refinedev/core";
-import { ResolverPriority } from "@/enums";
-import type { TenantConfig, TenantResolver } from "@/interfaces";
+import type { BaseKey } from '@refinedev/core';
+import { ResolverPriority } from '@/enums';
+import type { TenantConfig, TenantResolver } from '@/interfaces';
 
 /**
  * Resolver that extracts tenant ID from subdomain.
@@ -54,59 +54,59 @@ import type { TenantConfig, TenantResolver } from "@/interfaces";
  * @public
  */
 export class SubdomainResolver implements TenantResolver {
-	/**
-	 * Unique identifier for this resolver.
-	 */
-	public readonly name = "subdomain";
+  /**
+   * Unique identifier for this resolver.
+   */
+  public readonly name = 'subdomain';
 
-	/**
-	 * Priority level (HIGH = 2).
-	 */
-	public readonly priority = ResolverPriority.HIGH;
+  /**
+   * Priority level (HIGH = 2).
+   */
+  public readonly priority = ResolverPriority.HIGH;
 
-	/**
-	 * Creates a new SubdomainResolver instance.
-	 *
-	 * @param config - Tenant configuration containing optional subdomainMap
-	 */
-	constructor(private readonly config: TenantConfig) {}
+  /**
+   * Creates a new SubdomainResolver instance.
+   *
+   * @param config - Tenant configuration containing optional subdomainMap
+   */
+  constructor(private readonly config: TenantConfig) {}
 
-	/**
-	 * Resolves tenant ID from subdomain.
-	 *
-	 * @returns Tenant ID from subdomain, or undefined if not found or running on server
-	 */
-	public resolve(): BaseKey | undefined {
-		// Check if running in browser
-		if (typeof window === "undefined") {
-			return undefined;
-		}
+  /**
+   * Resolves tenant ID from subdomain.
+   *
+   * @returns Tenant ID from subdomain, or undefined if not found or running on server
+   */
+  public resolve(): BaseKey | undefined {
+    // Check if running in browser
+    if (typeof window === 'undefined') {
+      return undefined;
+    }
 
-		// Extract hostname
-		const hostname = window.location.hostname;
+    // Extract hostname
+    const hostname = window.location.hostname;
 
-		// Split hostname by dots
-		const parts = hostname.split(".");
+    // Split hostname by dots
+    const parts = hostname.split('.');
 
-		// Need at least 2 segments (subdomain.domain)
-		if (parts.length < 2) {
-			return undefined;
-		}
+    // Need at least 2 segments (subdomain.domain)
+    if (parts.length < 2) {
+      return undefined;
+    }
 
-		// Extract first segment as subdomain
-		const subdomain = parts[0];
+    // Extract first segment as subdomain
+    const subdomain = parts[0];
 
-		// Skip www subdomain
-		if (subdomain === "www") {
-			return undefined;
-		}
+    // Skip www subdomain
+    if (subdomain === 'www') {
+      return undefined;
+    }
 
-		// If subdomainMap exists, lookup subdomain
-		if (this.config.subdomainMap && subdomain) {
-			return this.config.subdomainMap[subdomain];
-		}
+    // If subdomainMap exists, lookup subdomain
+    if (this.config.subdomainMap && subdomain) {
+      return this.config.subdomainMap[subdomain];
+    }
 
-		// Otherwise, return subdomain as-is
-		return subdomain;
-	}
+    // Otherwise, return subdomain as-is
+    return subdomain;
+  }
 }

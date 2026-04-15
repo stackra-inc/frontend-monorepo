@@ -1,7 +1,7 @@
 {
   "name": "@abdokouta/ts-container",
   "version": "1.2.2",
-  "description": "NestJS-style dependency injection for React and client-side applications. Decorators, container, injector, scanner, module system \u2014 built from scratch, no Inversify.",
+  "description": "NestJS-style dependency injection for React and client-side applications. Decorators, container, injector, scanner, module system — built from scratch, no Inversify.",
   "keywords": [
     "dependency-injection",
     "di",

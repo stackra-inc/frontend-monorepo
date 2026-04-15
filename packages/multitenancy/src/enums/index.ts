@@ -12,5 +12,5 @@
  * @public
  */
 
-export { TenantMode } from "./tenant-mode.enum";
-export { ResolverPriority } from "./resolver-priority.enum";
+export { TenantMode } from './tenant-mode.enum';
+export { ResolverPriority } from './resolver-priority.enum';

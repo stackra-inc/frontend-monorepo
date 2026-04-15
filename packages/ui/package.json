@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": false,
   "type": "module",
-  "description": "Shared UI primitives \u2014 slot system, layout components, and composable patterns for @abdokouta packages",
+  "description": "Shared UI primitives — slot system, layout components, and composable patterns for @abdokouta packages",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",

@@ -1,4 +1,4 @@
-import type { Tenant } from "./tenant.type";
+import type { Tenant } from './tenant.type';
 
 /**
  * Parameters for setting/switching the current tenant.

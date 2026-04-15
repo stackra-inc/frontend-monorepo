@@ -23,18 +23,18 @@ export const THEME_SLOTS = {
   /** Slots within the ThemeCustomizer drawer. */
   CUSTOMIZER: {
     /** Before the entire drawer body content. */
-    BEFORE: "theme.customizer.before",
+    BEFORE: 'theme.customizer.before',
     /** After all sections (mode, palette, registered panels). */
-    AFTER: "theme.customizer.after",
+    AFTER: 'theme.customizer.after',
     /** Before the color mode section. */
-    BEFORE_MODE: "theme.customizer.before-mode",
+    BEFORE_MODE: 'theme.customizer.before-mode',
     /** After the color mode section, before the palette section. */
-    AFTER_MODE: "theme.customizer.after-mode",
+    AFTER_MODE: 'theme.customizer.after-mode',
     /** Before the color palette section. */
-    BEFORE_PALETTE: "theme.customizer.before-palette",
+    BEFORE_PALETTE: 'theme.customizer.before-palette',
     /** After the color palette section, before registered panels. */
-    AFTER_PALETTE: "theme.customizer.after-palette",
+    AFTER_PALETTE: 'theme.customizer.after-palette',
     /** After all registered panels, before the drawer footer. */
-    AFTER_PANELS: "theme.customizer.after-panels",
+    AFTER_PANELS: 'theme.customizer.after-panels',
   },
 } as const;

@@ -1,5 +1,5 @@
-import type { BaseKey } from "@refinedev/core";
-import type { TenantMode } from "@/enums/tenant-mode.enum";
+import type { BaseKey } from '@refinedev/core';
+import type { TenantMode } from '@/enums/tenant-mode.enum';
 
 /**
  * Extended tenant configuration interface with domain support

@@ -1,5 +1,5 @@
-import { TenantMode } from "@/enums";
-import type { TenantConfig } from "@/interfaces";
+import { TenantMode } from '@/enums';
+import type { TenantConfig } from '@/interfaces';
 
 /**
  * Default configuration for multi-tenancy.
@@ -33,9 +33,9 @@ import type { TenantConfig } from "@/interfaces";
  * @public
  */
 export const DEFAULT_TENANT_CONFIG: Partial<TenantConfig> = {
-	mode: TenantMode.FILTER,
-	tenantField: "tenant_id",
-	headerName: "X-Tenant-ID",
-	queryParam: "tenant_id",
-	resolvers: ["router"],
+  mode: TenantMode.FILTER,
+  tenantField: 'tenant_id',
+  headerName: 'X-Tenant-ID',
+  queryParam: 'tenant_id',
+  resolvers: ['router'],
 };

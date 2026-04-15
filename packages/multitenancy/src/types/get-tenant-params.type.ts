@@ -1,4 +1,4 @@
-import type { BaseKey } from "@refinedev/core";
+import type { BaseKey } from '@refinedev/core';
 
 /**
  * Parameters for fetching a specific tenant by ID.

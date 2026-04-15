@@ -12,15 +12,10 @@
  * ```
  */
 
-import React, { useState, useMemo } from "react";
-import {
-  Button,
-  Modal,
-  Input,
-  ListBox,
-} from "@heroui/react";
-import { useTenant, useTenantSwitch } from "@/hooks";
-import type { Tenant } from "@/types";
+import React, { useState, useMemo } from 'react';
+import { Button, Modal, Input, ListBox } from '@heroui/react';
+import { useTenant, useTenantSwitch } from '@/hooks';
+import type { Tenant } from '@/types';
 
 /**
  * Props for TenantSwitcher component
@@ -70,13 +65,13 @@ export interface TenantSwitcherProps {
    * Button variant
    * @default "primary"
    */
-  buttonVariant?: "primary" | "secondary" | "ghost" | "outline";
+  buttonVariant?: 'primary' | 'secondary' | 'ghost' | 'outline';
 
   /**
    * Button size
    * @default "md"
    */
-  buttonSize?: "sm" | "md" | "lg";
+  buttonSize?: 'sm' | 'md' | 'lg';
 
   /**
    * Custom class name for the button
@@ -157,14 +152,14 @@ export interface TenantSwitcherProps {
  * ```
  */
 export const TenantSwitcher: React.FC<TenantSwitcherProps> = ({
-  buttonText = "Switch Tenant",
-  modalTitle = "Select Tenant",
-  searchPlaceholder = "Search tenants...",
+  buttonText = 'Switch Tenant',
+  modalTitle = 'Select Tenant',
+  searchPlaceholder = 'Search tenants...',
   navigateTo,
   onTenantChange,
   onError,
-  buttonVariant = "primary",
-  buttonSize: _buttonSize = "md",
+  buttonVariant = 'primary',
+  buttonSize: _buttonSize = 'md',
   buttonClassName,
   showSearch = true,
   showCount = true,
@@ -185,7 +180,7 @@ export const TenantSwitcher: React.FC<TenantSwitcherProps> = ({
   });
 
   const [isOpen, setIsOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState('');
 
   /**
    * Filter tenants based on search query
@@ -200,9 +195,7 @@ export const TenantSwitcher: React.FC<TenantSwitcherProps> = ({
     }
 
     // Default filter: search by name
-    return tenants.filter((t) =>
-      t.name.toLowerCase().includes(searchQuery.toLowerCase())
-    );
+    return tenants.filter((t) => t.name.toLowerCase().includes(searchQuery.toLowerCase()));
   }, [tenants, searchQuery, filterTenant]);
 
   /**
@@ -213,7 +206,7 @@ export const TenantSwitcher: React.FC<TenantSwitcherProps> = ({
       try {
         await switchTenant(tenantId);
       } catch (err) {
-        console.error("[TenantSwitcher] Switch error:", err);
+        console.error('[TenantSwitcher] Switch error:', err);
       }
     } else {
       setIsOpen(false);
@@ -231,9 +224,7 @@ export const TenantSwitcher: React.FC<TenantSwitcherProps> = ({
     return (
       <div className="flex flex-col">
         <span className="font-medium">{tenant.name}</span>
-        {tenant.slug && (
-          <span className="text-sm text-gray-500">{tenant.slug}</span>
-        )}
+        {tenant.slug && <span className="text-sm text-gray-500">{tenant.slug}</span>}
       </div>
     );
   };
@@ -241,14 +232,18 @@ export const TenantSwitcher: React.FC<TenantSwitcherProps> = ({
   /**
    * Build modal title with count if enabled
    */
-  const title = showCount
-    ? `${modalTitle} (${filteredTenants.length})`
-    : modalTitle;
+  const title = showCount ? `${modalTitle} (${filteredTenants.length})` : modalTitle;
 
   return (
     <>
       <Button
-        variant={buttonVariant === "primary" ? "primary" : buttonVariant === "secondary" ? "secondary" : "tertiary"}
+        variant={
+          buttonVariant === 'primary'
+            ? 'primary'
+            : buttonVariant === 'secondary'
+              ? 'secondary'
+              : 'tertiary'
+        }
         onPress={() => setIsOpen(true)}
         className={buttonClassName}
       >
@@ -274,14 +269,14 @@ export const TenantSwitcher: React.FC<TenantSwitcherProps> = ({
 
               {filteredTenants.length === 0 ? (
                 <div className="text-center py-8 text-gray-500">
-                  {searchQuery ? "No tenants found" : "No tenants available"}
+                  {searchQuery ? 'No tenants found' : 'No tenants available'}
                 </div>
               ) : (
                 <ListBox
                   aria-label="Tenant list"
                   selectedKeys={tenant?.id ? [String(tenant.id)] : []}
                   selectionMode="single"
-                  disabledKeys={isSwitching ? filteredTenants.map(t => String(t.id)) : []}
+                  disabledKeys={isSwitching ? filteredTenants.map((t) => String(t.id)) : []}
                   onSelectionChange={(keys) => {
                     const selectedKey = Array.from(keys)[0] as string;
                     if (selectedKey) {
@@ -299,11 +294,7 @@ export const TenantSwitcher: React.FC<TenantSwitcherProps> = ({
               )}
             </Modal.Body>
             <Modal.Footer>
-              <Button
-                variant="ghost"
-                onPress={() => setIsOpen(false)}
-                isDisabled={isSwitching}
-              >
+              <Button variant="ghost" onPress={() => setIsOpen(false)} isDisabled={isSwitching}>
                 Cancel
               </Button>
             </Modal.Footer>

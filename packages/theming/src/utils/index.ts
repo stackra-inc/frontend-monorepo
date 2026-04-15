@@ -3,4 +3,4 @@
  * @module utils
  */
 
-export { renderSlot } from "./render-slot.util";
+export { renderSlot } from './render-slot.util';

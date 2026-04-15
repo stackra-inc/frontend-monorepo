@@ -130,9 +130,9 @@ class — it is a set of constants and guard functions used by the engine.
  * Key is the current status, value is the set of valid target statuses.
  */
 const TRANSITION_MAP: Record<CartStatus, Set<CartStatus>> = {
-  active: new Set(["held", "locked", "completed"]),
-  held: new Set(["active"]),
-  locked: new Set(["active", "completed"]),
+  active: new Set(['held', 'locked', 'completed']),
+  held: new Set(['active']),
+  locked: new Set(['active', 'completed']),
   completed: new Set(),
 };
 
@@ -278,7 +278,7 @@ function addItem(
   cart: Cart,
   item: NewCartItem,
   config: CartConfig,
-  context?: EngineContext,
+  context?: EngineContext
 ): Cart;
 
 /**
@@ -295,7 +295,7 @@ function addItem(
 function clearCart(
   cart: Cart,
   config: CartConfig,
-  context?: EngineContext,
+  context?: EngineContext
 ): Cart;
 
 /**
@@ -369,7 +369,7 @@ function splitCart(
   cartId: string,
   itemIds: string[],
   channel: Channel,
-  config?: Partial<CartConfig>,
+  config?: Partial<CartConfig>
 ): CartManagerState;
 
 /**
@@ -386,7 +386,7 @@ function duplicateCart(
   state: CartManagerState,
   cartId: string,
   channel: Channel,
-  config?: Partial<CartConfig>,
+  config?: Partial<CartConfig>
 ): CartManagerState;
 ```
 
@@ -408,7 +408,7 @@ interface PluginHooks {
   beforeAddItem?: (
     cart: Cart,
     item: NewCartItem,
-    context: CartEngineContext,
+    context: CartEngineContext
   ) => void;
 
   /**
@@ -421,7 +421,7 @@ interface PluginHooks {
   afterAddItem?: (
     cart: Cart,
     item: CartItem,
-    context: CartEngineContext,
+    context: CartEngineContext
   ) => void;
 
   /**
@@ -434,7 +434,7 @@ interface PluginHooks {
   beforeRemoveItem?: (
     cart: Cart,
     itemId: string,
-    context: CartEngineContext,
+    context: CartEngineContext
   ) => void;
 
   /**
@@ -447,7 +447,7 @@ interface PluginHooks {
   afterRemoveItem?: (
     cart: Cart,
     itemId: string,
-    context: CartEngineContext,
+    context: CartEngineContext
   ) => void;
 
   /**
@@ -476,7 +476,7 @@ interface PluginHooks {
   beforeStatusChange?: (
     cart: Cart,
     newStatus: CartStatus,
-    context: CartEngineContext,
+    context: CartEngineContext
   ) => void;
 
   /**
@@ -489,7 +489,7 @@ interface PluginHooks {
   afterStatusChange?: (
     cart: Cart,
     previousStatus: CartStatus,
-    context: CartEngineContext,
+    context: CartEngineContext
   ) => void;
 }
 ```
@@ -539,7 +539,7 @@ interface B2BAccount {
 function loadB2BAccount(
   cart: Cart,
   account: B2BAccount,
-  config: CartConfig,
+  config: CartConfig
 ): Cart;
 
 /**
@@ -745,13 +745,13 @@ function CartSlot(props: { name: string }): ReactElement | null;
  * Lifecycle status of a cart.
  * Governed by the Cart State Machine transition map.
  */
-type CartStatus = "active" | "held" | "locked" | "completed";
+type CartStatus = 'active' | 'held' | 'locked' | 'completed';
 
 /**
  * Sales channel identifier.
  * Determines default configuration presets.
  */
-type Channel = "pos" | "ecommerce" | "food" | "custom";
+type Channel = 'pos' | 'ecommerce' | 'food' | 'custom';
 
 /**
  * The top-level cart aggregate.
@@ -937,7 +937,7 @@ interface CartConfig {
   currency: string;
 
   /** Tax mode: "exclusive" (added on top) or "inclusive" (included in price). */
-  taxMode: "inclusive" | "exclusive";
+  taxMode: 'inclusive' | 'exclusive';
 
   /** Tax rate as decimal fraction (e.g. 0.05 for 5%). */
   taxRate: number;
@@ -946,7 +946,7 @@ interface CartConfig {
   allowNegativeQty: boolean;
 
   /** Rounding strategy: "floor", "ceil", or "round". */
-  rounding: "floor" | "ceil" | "round";
+  rounding: 'floor' | 'ceil' | 'round';
 
   /** Feature flags. */
   features: CartFeatures;

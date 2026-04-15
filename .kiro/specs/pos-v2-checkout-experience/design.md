@@ -313,8 +313,8 @@ interface PaymentSplit {
 
 ```typescript
 interface WalletPaymentMethod {
-  id: "wallet";
-  label: "Customer Wallet";
+  id: 'wallet';
+  label: 'Customer Wallet';
   enabled: boolean;
   balance: number; // available wallet balance in base currency
   credit: number; // available credit
@@ -430,7 +430,7 @@ interface PrintService {
 
 ```typescript
 interface RFIDLinkingState {
-  phase: "prompt" | "scanning" | "success" | "error" | "skipped";
+  phase: 'prompt' | 'scanning' | 'success' | 'error' | 'skipped';
   tickets: Array<{ ticketId: string; rfidTag: string | null }>;
   currentIndex: number;
   timeoutMs: 15000;
@@ -464,12 +464,12 @@ interface ExperienceBuilderDrawerProps {
       ticketType: TicketType;
       timeSlot: TimeSlot | null;
       quantity: number;
-    }>,
+    }>
   ) => void;
   onCheckout: () => void;
 }
 
-type BuilderStep = "categories" | "events" | "tickets";
+type BuilderStep = 'categories' | 'events' | 'tickets';
 
 interface BuilderState {
   step: BuilderStep;
@@ -506,7 +506,7 @@ preserves selections from other steps.
 ```typescript
 interface CartRule {
   id: string;
-  type: "buy_x_get_y" | "bundle_discount" | "threshold_discount";
+  type: 'buy_x_get_y' | 'bundle_discount' | 'threshold_discount';
   condition: CartRuleCondition;
   reward: CartRuleReward;
   description: string;
@@ -514,9 +514,9 @@ interface CartRule {
 
 interface PriceRule {
   id: string;
-  type: "quantity_discount" | "member_discount" | "time_discount";
+  type: 'quantity_discount' | 'member_discount' | 'time_discount';
   condition: PriceRuleCondition;
-  discount: { type: "percentage" | "fixed"; value: number };
+  discount: { type: 'percentage' | 'fixed'; value: number };
   description: string;
 }
 
@@ -543,7 +543,7 @@ interface PromotionEngine {
 ```typescript
 interface CartMessage {
   id: string;
-  type: "promotion" | "upsell" | "warning" | "info";
+  type: 'promotion' | 'upsell' | 'warning' | 'info';
   title: string;
   description: string;
   action?: {
@@ -572,7 +572,7 @@ interface B2BAccountDrawerProps {
 interface B2BAccount {
   id: string;
   name: string;
-  type: "school" | "tour_operator" | "corporate" | "reseller";
+  type: 'school' | 'tour_operator' | 'corporate' | 'reseller';
   creditBalance: number;
   pendingOrders: B2BPendingOrder[];
 }
@@ -638,7 +638,7 @@ interface PoolMeterProps {
 interface InventoryPool {
   id: string;
   name: string;
-  type: "b2b" | "b2c" | "membership" | "pos" | "reserved";
+  type: 'b2b' | 'b2c' | 'membership' | 'pos' | 'reserved';
   color: string;
   allocated: number;
   sold: number;
@@ -753,7 +753,7 @@ interface ExtendedCartItemMetadata {
 interface CartRule {
   id: string;
   name: string;
-  type: "buy_x_get_y" | "bundle_discount" | "threshold_discount";
+  type: 'buy_x_get_y' | 'bundle_discount' | 'threshold_discount';
   condition: {
     minItems?: number;
     minTotal?: number;
@@ -761,9 +761,9 @@ interface CartRule {
     requiredEventIds?: string[];
   };
   reward: {
-    type: "free_item" | "percentage_off" | "fixed_off";
+    type: 'free_item' | 'percentage_off' | 'fixed_off';
     value: number;
-    appliesTo: "cheapest" | "all" | "specific";
+    appliesTo: 'cheapest' | 'all' | 'specific';
   };
   description: string;
   priority: number;
@@ -774,18 +774,18 @@ interface PriceRule {
   id: string;
   name: string;
   type:
-    | "quantity_discount"
-    | "member_discount"
-    | "time_discount"
-    | "channel_discount";
+    | 'quantity_discount'
+    | 'member_discount'
+    | 'time_discount'
+    | 'channel_discount';
   condition: {
     minQuantity?: number;
     membershipTier?: string;
     timeWindow?: { start: string; end: string };
-    channel?: "pos" | "b2c" | "b2b";
+    channel?: 'pos' | 'b2c' | 'b2b';
   };
   discount: {
-    type: "percentage" | "fixed";
+    type: 'percentage' | 'fixed';
     value: number;
   };
   description: string;
@@ -793,13 +793,13 @@ interface PriceRule {
 
 interface CartMessage {
   id: string;
-  type: "promotion" | "upsell" | "warning" | "info";
+  type: 'promotion' | 'upsell' | 'warning' | 'info';
   title: string;
   description: string;
   icon?: string;
   action?: {
     label: string;
-    type: "add_item" | "apply_promo" | "upgrade" | "navigate";
+    type: 'add_item' | 'apply_promo' | 'upgrade' | 'navigate';
     payload: Record<string, unknown>;
   };
   dismissible: boolean;
@@ -813,7 +813,7 @@ interface CartMessage {
 interface InventoryPool {
   id: string;
   name: string;
-  type: "b2b" | "b2c" | "membership" | "pos" | "reserved";
+  type: 'b2b' | 'b2c' | 'membership' | 'pos' | 'reserved';
   color: string;
   eventId: string;
   timeSlotId: string;
@@ -841,7 +841,7 @@ interface PoolTransferRecord {
 interface RFIDLink {
   ticketId: string;
   rfidTag: string;
-  mediaType: "card" | "bracelet" | "hotel_card";
+  mediaType: 'card' | 'bracelet' | 'hotel_card';
   linkedAt: string;
   linkedBy: string; // cashier ID
 }

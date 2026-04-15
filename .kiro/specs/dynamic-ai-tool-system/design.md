@@ -234,14 +234,14 @@ class ToolResultController extends Controller
 
 interface ToolDescriptor {
   name: string;
-  executionContext: "server" | "frontend";
-  trustLevel: "low" | "medium" | "high";
+  executionContext: 'server' | 'frontend';
+  trustLevel: 'low' | 'medium' | 'high';
   schema: Record<string, unknown>;
   actionDescriptor?: ActionDescriptor;
 }
 
 interface ActionDescriptor {
-  type: "custom-event" | "react-callback" | "context-update";
+  type: 'custom-event' | 'react-callback' | 'context-update';
   target: string;
   argMapping?: Record<string, string>;
 }
@@ -288,7 +288,7 @@ function dispatchFrontendTool(
   args: Record<string, unknown>,
   actionDescriptor: ActionDescriptor,
   callbackRegistry: CallbackRegistry,
-  contextUpdater: (key: string, value: unknown) => void,
+  contextUpdater: (key: string, value: unknown) => void
 ): ToolExecutionResult;
 ```
 

@@ -12,9 +12,9 @@
  * @module desktop/main/handlers
  */
 
-import { ipcMain, app } from "electron";
+import { ipcMain, app } from 'electron';
 
-const isMac = process.platform === "darwin";
+const isMac = process.platform === 'darwin';
 
 export function registerDockHandlers(): void {
   /*
@@ -22,9 +22,9 @@ export function registerDockHandlers(): void {
   | dock:badge
   |--------------------------------------------------------------------------
   */
-  ipcMain.handle("dock:badge", async (_event, count: string) => {
+  ipcMain.handle('dock:badge', async (_event, count: string) => {
     if (isMac && app.dock) {
-      app.dock.setBadge(count === "0" ? "" : count);
+      app.dock.setBadge(count === '0' ? '' : count);
     }
   });
 
@@ -33,9 +33,9 @@ export function registerDockHandlers(): void {
   | dock:bounce
   |--------------------------------------------------------------------------
   */
-  ipcMain.handle("dock:bounce", async (_event, type: string) => {
+  ipcMain.handle('dock:bounce', async (_event, type: string) => {
     if (isMac && app.dock) {
-      return app.dock.bounce(type === "critical" ? "critical" : "informational");
+      return app.dock.bounce(type === 'critical' ? 'critical' : 'informational');
     }
     return -1;
   });

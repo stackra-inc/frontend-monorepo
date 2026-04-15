@@ -115,13 +115,13 @@ compatibility.
 export interface DrawerContentProps {
   children: React.ReactNode;
   className?: string;
-  padding?: "none" | "compact" | "default" | "spacious";
+  padding?: 'none' | 'compact' | 'default' | 'spacious';
 }
 
 export function DrawerContent({
   children,
   className,
-  padding = "default",
+  padding = 'default',
 }: DrawerContentProps): React.JSX.Element;
 ```
 
@@ -129,8 +129,8 @@ export function DrawerContent({
 
 ```tsx
 /** @deprecated Use DrawerContent instead. */
-export { DrawerContent as DrawerBody } from "../drawer-content";
-export type { DrawerContentProps as DrawerBodyProps } from "../drawer-content";
+export { DrawerContent as DrawerBody } from '../drawer-content';
+export type { DrawerContentProps as DrawerBodyProps } from '../drawer-content';
 ```
 
 ### 2. DrawerLoading
@@ -138,7 +138,7 @@ export type { DrawerContentProps as DrawerBodyProps } from "../drawer-content";
 **File**: `components/drawer-loading/drawer-loading.component.tsx`
 
 ```tsx
-export type DrawerLoadingVariant = "spinner" | "skeleton" | "overlay";
+export type DrawerLoadingVariant = 'spinner' | 'skeleton' | 'overlay';
 
 export interface DrawerLoadingProps {
   /** Whether the loading state is active. */
@@ -156,7 +156,7 @@ export interface DrawerLoadingProps {
 }
 
 export function DrawerLoading(
-  props: DrawerLoadingProps,
+  props: DrawerLoadingProps
 ): React.JSX.Element | null;
 ```
 
@@ -188,7 +188,7 @@ When `isLoading` is true:
 export interface DrawerFooterProps {
   children: React.ReactNode;
   className?: string;
-  variant?: "default" | "raised" | "transparent";
+  variant?: 'default' | 'raised' | 'transparent';
   /** When true, disables actions and shows a loading spinner. */
   isLoading?: boolean;
   /** Content rendered on the left side of the footer. */
@@ -211,7 +211,7 @@ Layout logic:
 **File**: `components/drawer-alert/drawer-alert.component.tsx`
 
 ```tsx
-export type DrawerAlertVariant = "info" | "success" | "warning" | "danger";
+export type DrawerAlertVariant = 'info' | 'success' | 'warning' | 'danger';
 
 export interface DrawerAlertProps {
   /** Color scheme and icon. */
@@ -306,13 +306,13 @@ export const DRAWER_SLOTS = {
     /* unchanged */
   },
   CONTENT: {
-    BEFORE: "drawer.content.before",
-    AFTER: "drawer.content.after",
+    BEFORE: 'drawer.content.before',
+    AFTER: 'drawer.content.after',
   },
   /** @deprecated Use CONTENT instead. */
   BODY: {
-    BEFORE: "drawer.content.before",
-    AFTER: "drawer.content.after",
+    BEFORE: 'drawer.content.before',
+    AFTER: 'drawer.content.after',
   },
   FOOTER: {
     /* unchanged */
@@ -324,18 +324,18 @@ export const DRAWER_SLOTS = {
     /* unchanged */
   },
   ALERT: {
-    BEFORE: "drawer.alert.before",
-    AFTER: "drawer.alert.after",
+    BEFORE: 'drawer.alert.before',
+    AFTER: 'drawer.alert.after',
   },
   SECTION: {
-    BEFORE: "drawer.section.before",
-    AFTER: "drawer.section.after",
-    BEFORE_TITLE: "drawer.section.before-title",
-    AFTER_TITLE: "drawer.section.after-title",
+    BEFORE: 'drawer.section.before',
+    AFTER: 'drawer.section.after',
+    BEFORE_TITLE: 'drawer.section.before-title',
+    AFTER_TITLE: 'drawer.section.after-title',
   },
   DIVIDER: {
-    BEFORE: "drawer.divider.before",
-    AFTER: "drawer.divider.after",
+    BEFORE: 'drawer.divider.before',
+    AFTER: 'drawer.divider.after',
   },
 } as const;
 ```

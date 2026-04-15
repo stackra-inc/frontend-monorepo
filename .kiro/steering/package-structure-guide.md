@@ -116,8 +116,8 @@ Example applications demonstrating package usage (not published):
 
 ```yaml
 packages:
-  - "packages/*"
-  - "examples/*"
+  - 'packages/*'
+  - 'examples/*'
 ```
 
 **Key Points:**
@@ -390,22 +390,22 @@ packages/{package-name}/
 ### 3. tsup.config.ts
 
 ```typescript
-import { defineConfig } from "tsup";
+import { defineConfig } from 'tsup';
 
 export default defineConfig({
-  entry: ["src/index.ts"],
-  format: ["esm", "cjs"],
+  entry: ['src/index.ts'],
+  format: ['esm', 'cjs'],
   dts: true,
   sourcemap: true,
   clean: true,
   minify: false,
-  target: "es2020",
-  platform: "neutral",
-  external: ["@abdokouta/react-di", "react"],
+  target: 'es2020',
+  platform: 'neutral',
+  external: ['@abdokouta/react-di', 'react'],
   splitting: false,
   skipNodeModulesBundle: true,
   outExtension({ format }) {
-    return { js: format === "esm" ? ".mjs" : ".js" };
+    return { js: format === 'esm' ? '.mjs' : '.js' };
   },
 });
 ```
@@ -426,29 +426,29 @@ export default defineConfig({
 ### 4. vitest.config.ts
 
 ```typescript
-import { defineConfig } from "vitest/config";
-import path from "path";
+import { defineConfig } from 'vitest/config';
+import path from 'path';
 
 export default defineConfig({
   test: {
     globals: true,
-    environment: "jsdom", // or 'node' for non-React packages
-    setupFiles: ["__tests__/setup.ts"],
+    environment: 'jsdom', // or 'node' for non-React packages
+    setupFiles: ['__tests__/setup.ts'],
     coverage: {
-      provider: "v8",
-      reporter: ["text", "json", "html"],
+      provider: 'v8',
+      reporter: ['text', 'json', 'html'],
       exclude: [
-        "node_modules/",
-        "__tests__/",
-        "dist/",
-        "**/*.test.ts",
-        "**/*.test.tsx",
+        'node_modules/',
+        '__tests__/',
+        'dist/',
+        '**/*.test.ts',
+        '**/*.test.tsx',
       ],
     },
   },
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./src"),
+      '@': path.resolve(__dirname, './src'),
     },
   },
 });
@@ -498,7 +498,7 @@ coverage/
  * @see https://prettier.io/docs/en/configuration.html
  */
 
-export default "@nesvel/prettier-config";
+export default '@nesvel/prettier-config';
 ```
 
 **Key Points:**
@@ -606,8 +606,8 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
-          cache: "pnpm"
+          node-version: '20'
+          cache: 'pnpm'
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
@@ -637,8 +637,8 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
-          cache: "pnpm"
+          node-version: '20'
+          cache: 'pnpm'
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
@@ -674,7 +674,7 @@ name: Publish to npm
 on:
   push:
     tags:
-      - "v*"
+      - 'v*'
   workflow_dispatch:
 
 jobs:
@@ -699,9 +699,9 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
-          registry-url: "https://registry.npmjs.org"
-          cache: "pnpm"
+          node-version: '20'
+          registry-url: 'https://registry.npmjs.org'
+          cache: 'pnpm'
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
@@ -764,9 +764,9 @@ src/
  * @category Registries
  */
 
-import { BaseRegistry } from "@abdokouta/support";
-import { Injectable } from "@abdokouta/react-di";
-import type { ComponentInterface } from "@/interfaces/component.interface";
+import { BaseRegistry } from '@abdokouta/support';
+import { Injectable } from '@abdokouta/react-di';
+import type { ComponentInterface } from '@/interfaces/component.interface';
 
 /**
  * {ComponentType} Registry Service (DI-injectable)
@@ -798,7 +798,7 @@ export class ComponentRegistryService extends BaseRegistry<ComponentInterface> {
         if (!component.requiredProperty) {
           return {
             valid: false,
-            error: "Component must have requiredProperty",
+            error: 'Component must have requiredProperty',
           };
         }
         return { valid: true };
@@ -811,19 +811,19 @@ export class ComponentRegistryService extends BaseRegistry<ComponentInterface> {
 
   private loadBuiltInComponents(): void {
     // Register built-in components here
-    this.registerComponent("builtin1", builtIn1Component, true);
-    this.registerComponent("builtin2", builtIn2Component, true);
+    this.registerComponent('builtin1', builtIn1Component, true);
+    this.registerComponent('builtin2', builtIn2Component, true);
   }
 
   registerComponent(
     name: string,
     component: ComponentInterface,
-    isBuiltIn = false,
+    isBuiltIn = false
   ): void {
     // Check for name conflicts with built-in components
     if (!isBuiltIn && this.builtInComponents.has(name)) {
       throw new Error(
-        `Cannot register component "${name}": This name is reserved for a built-in component.`,
+        `Cannot register component "${name}": This name is reserved for a built-in component.`
       );
     }
 
@@ -908,7 +908,7 @@ export class PackageModule {
    * ```
    */
   static registerComponent(
-    options: IComponentRegistrationOptions,
+    options: IComponentRegistrationOptions
   ): DynamicModule {
     PackageModule.registry.register(options);
 
@@ -926,7 +926,7 @@ export class PackageModule {
    * @returns Dynamic module
    */
   static registerComponents(
-    optionsArray: IComponentRegistrationOptions[],
+    optionsArray: IComponentRegistrationOptions[]
   ): DynamicModule {
     PackageModule.registry.registerMultiple(optionsArray);
 
@@ -994,61 +994,61 @@ There are two types of index files:
 // ============================================================================
 // Module (DI Configuration)
 // ============================================================================
-export { PackageModule } from "./{package-name}.module";
+export { PackageModule } from './{package-name}.module';
 
 // ============================================================================
 // Core Services
 // ============================================================================
-export { MainService } from "./services/main.service";
-export type { MainServiceInterface } from "./interfaces/main-service.interface";
+export { MainService } from './services/main.service';
+export type { MainServiceInterface } from './interfaces/main-service.interface';
 
 // ============================================================================
 // Registries (if applicable)
 // ============================================================================
-export { ComponentRegistryService, componentRegistry } from "./registries";
-export { Component } from "./registries";
+export { ComponentRegistryService, componentRegistry } from './registries';
+export { Component } from './registries';
 
 // ============================================================================
 // Components (if applicable)
 // ============================================================================
-export { MyComponent } from "./components";
-export type { MyComponentProps } from "./components";
+export { MyComponent } from './components';
+export type { MyComponentProps } from './components';
 
 // ============================================================================
 // Hooks (if applicable)
 // ============================================================================
-export { useMyHook } from "./hooks";
-export type { UseMyHookReturn } from "./hooks";
+export { useMyHook } from './hooks';
+export type { UseMyHookReturn } from './hooks';
 
 // ============================================================================
 // Interfaces
 // ============================================================================
-export type { MyInterface } from "./interfaces";
+export type { MyInterface } from './interfaces';
 
 // ============================================================================
 // Types
 // ============================================================================
-export type { MyType } from "./types";
+export type { MyType } from './types';
 
 // ============================================================================
 // Enums
 // ============================================================================
-export { MyEnum } from "./enums";
+export { MyEnum } from './enums';
 
 // ============================================================================
 // Configuration
 // ============================================================================
-export { DEFAULT_CONFIG } from "./config";
+export { DEFAULT_CONFIG } from './config';
 
 // ============================================================================
 // Constants
 // ============================================================================
-export { MY_CONSTANT } from "./constants";
+export { MY_CONSTANT } from './constants';
 
 // ============================================================================
 // Utilities
 // ============================================================================
-export { myUtil } from "./utils";
+export { myUtil } from './utils';
 ````
 
 ### Main Folder Index Pattern
@@ -1066,20 +1066,20 @@ export { myUtil } from "./utils";
 // ============================================================================
 // Module Configuration Interfaces
 // ============================================================================
-export type { IContainerConfig } from "./container-config.interface";
-export type { IModuleOptions } from "./module-options.interface";
-export type { IModuleAsyncOptions } from "./module-async-options.interface";
+export type { IContainerConfig } from './container-config.interface';
+export type { IModuleOptions } from './module-options.interface';
+export type { IModuleAsyncOptions } from './module-async-options.interface';
 
 // ============================================================================
 // Lifecycle Interfaces
 // ============================================================================
-export type { OnModuleInit, OnModuleDestroy } from "./lifecycle.interface";
-export { hasOnModuleInit, hasOnModuleDestroy } from "./lifecycle.interface";
+export type { OnModuleInit, OnModuleDestroy } from './lifecycle.interface';
+export { hasOnModuleInit, hasOnModuleDestroy } from './lifecycle.interface';
 
 // ============================================================================
 // Component Interfaces
 // ============================================================================
-export type { ContainerProviderProps } from "./container-provider-props.interface";
+export type { ContainerProviderProps } from './container-provider-props.interface';
 ```
 
 ### Sub-Folder Index Pattern
@@ -1094,7 +1094,7 @@ export type { ContainerProviderProps } from "./container-provider-props.interfac
  * @category Hooks
  */
 
-export { useInject } from "./use-inject.hook";
+export { useInject } from './use-inject.hook';
 ```
 
 **Key Points:**
@@ -1121,10 +1121,10 @@ export { useInject } from "./use-inject.hook";
 ### Test File Structure
 
 ```typescript
-import { describe, it, expect, beforeEach, afterEach } from "vitest";
-import { MyService } from "./my-service.service";
+import { describe, it, expect, beforeEach, afterEach } from 'vitest';
+import { MyService } from './my-service.service';
 
-describe("MyService", () => {
+describe('MyService', () => {
   let service: MyService;
 
   beforeEach(() => {
@@ -1135,24 +1135,24 @@ describe("MyService", () => {
     // Cleanup
   });
 
-  describe("methodName", () => {
-    it("should do something when condition is met", () => {
+  describe('methodName', () => {
+    it('should do something when condition is met', () => {
       // Arrange
-      const input = "test";
+      const input = 'test';
 
       // Act
       const result = service.methodName(input);
 
       // Assert
-      expect(result).toBe("expected");
+      expect(result).toBe('expected');
     });
 
-    it("should throw error when invalid input", () => {
+    it('should throw error when invalid input', () => {
       // Arrange
       const invalidInput = null;
 
       // Act & Assert
-      expect(() => service.methodName(invalidInput)).toThrow("Error message");
+      expect(() => service.methodName(invalidInput)).toThrow('Error message');
     });
   });
 });
@@ -1240,11 +1240,11 @@ export interface ComponentNameProps {
  * @category Hooks
  */
 
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 import type {
   UseHookNameReturn,
   UseHookNameOptions,
-} from "./use-hook-name.types";
+} from './use-hook-name.types';
 
 /**
  * use{HookName} Hook
@@ -1260,7 +1260,7 @@ import type {
  * ```
  */
 export const useHookName = (
-  options?: UseHookNameOptions,
+  options?: UseHookNameOptions
 ): UseHookNameReturn => {
   const [value, setValue] = useState(options?.initialValue);
 
@@ -1320,9 +1320,9 @@ export interface UseHookNameReturn {
  * @category Services
  */
 
-import { Injectable, Inject } from "@abdokouta/react-di";
-import type { ServiceNameInterface } from "@/interfaces/service-name.interface";
-import { DEPENDENCY_TOKEN } from "@/constants/tokens.constant";
+import { Injectable, Inject } from '@abdokouta/react-di';
+import type { ServiceNameInterface } from '@/interfaces/service-name.interface';
+import { DEPENDENCY_TOKEN } from '@/constants/tokens.constant';
 
 /**
  * {ServiceName} Service
@@ -1474,7 +1474,7 @@ export class PackageModule {
   static forRoot(config: IPackageModuleOptions = {}): DynamicModule {
     // Merge with defaults
     const mergedConfig: IPackageModuleOptions = {
-      basePath: config.basePath || "default",
+      basePath: config.basePath || 'default',
       enabled: config.enabled !== false,
       components: {
         component1: config.components?.component1 !== false,
@@ -1495,7 +1495,7 @@ export class PackageModule {
       providers.push(Component1);
       PackageModule.registry.register({
         component: Component1,
-        name: "component1",
+        name: 'component1',
       });
     }
 
@@ -1503,7 +1503,7 @@ export class PackageModule {
       providers.push(Component2);
       PackageModule.registry.register({
         component: Component2,
-        name: "component2",
+        name: 'component2',
       });
     }
 
@@ -1540,7 +1540,7 @@ export class PackageModule {
       controllers: [DynamicController],
       providers,
       exports: providers.filter(
-        (p) => typeof p !== "object" || p.provide !== PACKAGE_MODULE_CONFIG,
+        (p) => typeof p !== 'object' || p.provide !== PACKAGE_MODULE_CONFIG
       ),
     };
   }
@@ -1592,7 +1592,7 @@ export class PackageModule {
    * ```
    */
   static registerComponent(
-    options: IComponentRegistrationOptions,
+    options: IComponentRegistrationOptions
   ): DynamicModule {
     // Register the component in the global registry
     PackageModule.registry.register(options);
@@ -1652,7 +1652,7 @@ export class PackageModule {
    * ```
    */
   static registerComponents(
-    optionsArray: IComponentRegistrationOptions[],
+    optionsArray: IComponentRegistrationOptions[]
   ): DynamicModule {
     // Register all components in the global registry
     PackageModule.registry.registerMultiple(optionsArray);

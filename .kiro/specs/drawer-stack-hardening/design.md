@@ -65,7 +65,7 @@ switches from dots to counter mode.
 interface StackDotsProps {
   stackSize: number;
   index: number;
-  variant: "hero" | "surface";
+  variant: 'hero' | 'surface';
   /** Override the default threshold for switching to counter mode. */
   maxDots?: number;
 }
@@ -110,7 +110,7 @@ existing `get-scroll-parent` util:
  */
 function hasHorizontalScrollAncestor(
   target: HTMLElement,
-  root: HTMLElement | null,
+  root: HTMLElement | null
 ): boolean {
   let el: HTMLElement | null = target;
   while (el && el !== root) {
@@ -212,11 +212,11 @@ const z = computeZIndex(index);
 const push = useCallback((config: DrawerConfig, component: ReactNode) => {
   if (
     stackRef.current.length >= DRAWER_DEFAULTS.MAX_STACK_DEPTH &&
-    process.env.NODE_ENV !== "production"
+    process.env.NODE_ENV !== 'production'
   ) {
     console.warn(
       `[DrawerStack] Stack depth (${stackRef.current.length + 1}) exceeds MAX_STACK_DEPTH (${DRAWER_DEFAULTS.MAX_STACK_DEPTH}). ` +
-        `Z-index values will be clamped. Consider reducing stack depth.`,
+        `Z-index values will be clamped. Consider reducing stack depth.`
     );
   }
   const entry: DrawerEntry = {
@@ -225,7 +225,7 @@ const push = useCallback((config: DrawerConfig, component: ReactNode) => {
     component,
     triggerElement: document.activeElement,
   };
-  dispatch({ type: "PUSH", entry });
+  dispatch({ type: 'PUSH', entry });
 }, []);
 ```
 
@@ -257,7 +257,7 @@ Looking at the actual code more carefully:
 }
 {
   subtitle && !pills && (
-    <span className="hidden md:inline text-[10px] ...">{subtitle}</span>
+    <span className="hidden text-[10px] md:inline ...">{subtitle}</span>
   );
 }
 ```
@@ -267,7 +267,7 @@ Looking at the actual code more carefully:
   /* Mobile subtitle — always when subtitle exists */
 }
 {
-  subtitle && <span className="md:hidden text-[10px] ...">{subtitle}</span>;
+  subtitle && <span className="text-[10px] md:hidden ...">{subtitle}</span>;
 }
 ```
 
@@ -325,7 +325,7 @@ block is:
 ```tsx
 {
   subtitle && (
-    <span className="md:hidden text-[10px] text-muted font-bold whitespace-nowrap text-ellipsis overflow-hidden shrink min-w-0">
+    <span className="text-muted min-w-0 shrink overflow-hidden text-[10px] font-bold text-ellipsis whitespace-nowrap md:hidden">
       {subtitle}
     </span>
   );
@@ -388,7 +388,7 @@ container is:
 ```tsx
 {
   subtitle && !pills && (
-    <span className="hidden md:inline text-[10px] text-muted font-bold whitespace-nowrap shrink-0">
+    <span className="text-muted hidden shrink-0 text-[10px] font-bold whitespace-nowrap md:inline">
       {subtitle}
     </span>
   );
@@ -400,7 +400,7 @@ And the mobile subtitle OUTSIDE the flex container is:
 ```tsx
 {
   subtitle && (
-    <span className="md:hidden text-[10px] text-muted font-bold whitespace-nowrap text-ellipsis overflow-hidden shrink min-w-0">
+    <span className="text-muted min-w-0 shrink overflow-hidden text-[10px] font-bold text-ellipsis whitespace-nowrap md:hidden">
       {subtitle}
     </span>
   );
@@ -469,7 +469,7 @@ section documenting the limitation.
 export function useFocusTrap<T extends HTMLElement = HTMLDivElement>(
   isActive: boolean,
   enabled = true,
-  portalContainers?: React.RefObject<HTMLElement | null>[],
+  portalContainers?: React.RefObject<HTMLElement | null>[]
 ) {
   const containerRef = useRef<T>(null);
   const previouslyFocusedRef = useRef<HTMLElement | null>(null);
@@ -489,8 +489,8 @@ export function useFocusTrap<T extends HTMLElement = HTMLDivElement>(
       elements.push(
         ...Array.from(found).filter(
           (el) =>
-            !el.hasAttribute("disabled") && el.tabIndex !== -1 && isVisible(el),
-        ),
+            !el.hasAttribute('disabled') && el.tabIndex !== -1 && isVisible(el)
+        )
       );
     }
     return elements;
@@ -597,7 +597,7 @@ export const DRAWER_DEFAULTS = {
 interface StackDotsProps {
   stackSize: number;
   index: number;
-  variant: "hero" | "surface";
+  variant: 'hero' | 'surface';
   maxDots?: number; // NEW
 }
 
@@ -608,7 +608,7 @@ pop: () => Promise<void>; // was () => void
 function useFocusTrap<T extends HTMLElement>(
   isActive: boolean,
   enabled?: boolean,
-  portalContainers?: React.RefObject<HTMLElement | null>[], // NEW
+  portalContainers?: React.RefObject<HTMLElement | null>[] // NEW
 ): React.RefObject<T>;
 ```
 

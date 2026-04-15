@@ -21,10 +21,10 @@
  * ```
  */
 
-import type { DataProvider } from "@refinedev/core";
-import type { IMultiTenancyProvider } from "@/interfaces/multi-tenancy-provider.interface";
-import type { TenantConfig } from "@/interfaces/tenant-config-extended.interface";
-import { TenantMode } from "@/enums";
+import type { DataProvider } from '@refinedev/core';
+import type { IMultiTenancyProvider } from '@/interfaces/multi-tenancy-provider.interface';
+import type { TenantConfig } from '@/interfaces/tenant-config-extended.interface';
+import { TenantMode } from '@/enums';
 
 /**
  * Options for creating a tenant-aware data provider
@@ -94,9 +94,7 @@ export interface CreateDataProviderOptions {
  * });
  * ```
  */
-export const createDataProvider = (
-  options: CreateDataProviderOptions
-): DataProvider => {
+export const createDataProvider = (options: CreateDataProviderOptions): DataProvider => {
   const { baseDataProvider, multiTenancyProvider, config } = options;
 
   /**
@@ -115,7 +113,7 @@ export const createDataProvider = (
     switch (mode) {
       case TenantMode.HEADER: {
         // Add tenant ID to headers
-        const headerName = config.headerName || "X-Tenant-ID";
+        const headerName = config.headerName || 'X-Tenant-ID';
 
         return {
           ...params,
@@ -131,7 +129,7 @@ export const createDataProvider = (
 
       case TenantMode.FILTER: {
         // Add tenant ID to filters
-        const tenantField = config.tenantField || "tenant_id";
+        const tenantField = config.tenantField || 'tenant_id';
 
         return {
           ...params,
@@ -139,7 +137,7 @@ export const createDataProvider = (
             ...(params.filters || []),
             {
               field: tenantField,
-              operator: "eq",
+              operator: 'eq',
               value: tenantId,
             },
           ],
@@ -156,7 +154,7 @@ export const createDataProvider = (
 
       case TenantMode.QUERY: {
         // Add tenant ID to query params
-        const queryParam = config.queryParam || "tenant_id";
+        const queryParam = config.queryParam || 'tenant_id';
 
         return {
           ...params,
@@ -191,7 +189,7 @@ export const createDataProvider = (
       const enhancedParams = injectTenantContext(params);
       return baseDataProvider.getMany
         ? baseDataProvider.getMany(enhancedParams)
-        : Promise.reject(new Error("getMany not implemented"));
+        : Promise.reject(new Error('getMany not implemented'));
     },
 
     create: async (params) => {
@@ -208,7 +206,7 @@ export const createDataProvider = (
       const enhancedParams = injectTenantContext(params);
       return baseDataProvider.updateMany
         ? baseDataProvider.updateMany(enhancedParams)
-        : Promise.reject(new Error("updateMany not implemented"));
+        : Promise.reject(new Error('updateMany not implemented'));
     },
 
     deleteOne: async (params) => {
@@ -220,7 +218,7 @@ export const createDataProvider = (
       const enhancedParams = injectTenantContext(params);
       return baseDataProvider.deleteMany
         ? baseDataProvider.deleteMany(enhancedParams)
-        : Promise.reject(new Error("deleteMany not implemented"));
+        : Promise.reject(new Error('deleteMany not implemented'));
     },
 
     getApiUrl: () => {
@@ -231,7 +229,7 @@ export const createDataProvider = (
       const enhancedParams = injectTenantContext(params);
       return baseDataProvider.custom
         ? baseDataProvider.custom(enhancedParams)
-        : Promise.reject(new Error("custom not implemented"));
+        : Promise.reject(new Error('custom not implemented'));
     },
   };
 };

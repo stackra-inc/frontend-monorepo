@@ -14,7 +14,7 @@
  * @module @abdokouta/ts-desktop
  */
 
-import type { DesktopModuleOptions } from "@abdokouta/ts-desktop";
+import type { DesktopModuleOptions } from '@abdokouta/ts-desktop';
 
 /**
  * Window configuration — maps to Electron BrowserWindow options.
@@ -62,7 +62,7 @@ export interface WindowConfig {
    * - 'hiddenInset': macOS only — traffic lights inset into content
    * @default 'hiddenInset'
    */
-  titleBarStyle: "default" | "hidden" | "hiddenInset";
+  titleBarStyle: 'default' | 'hidden' | 'hiddenInset';
 
   /**
    * Position of the macOS traffic lights (close/min/max).
@@ -124,12 +124,12 @@ export const desktopConfig: DesktopConfig = {
   |
   */
   module: {
-    appName: "Pixielity",
-    titleBarStyle: "hiddenInset",
+    appName: 'Pixielity',
+    titleBarStyle: 'hiddenInset',
     autoUpdate: false,
     tray: false,
     devToolsInProduction: false,
-    devUrl: "http://localhost:5173",
+    devUrl: 'http://localhost:5173',
   },
 
   /*
@@ -157,9 +157,9 @@ export const desktopConfig: DesktopConfig = {
     | Appearance
     |--------------------------------------------------------------------------
     */
-    title: "Pixielity",
-    backgroundColor: "#000000",
-    titleBarStyle: "hiddenInset",
+    title: 'Pixielity',
+    backgroundColor: '#000000',
+    titleBarStyle: 'hiddenInset',
     trafficLightPosition: { x: 15, y: 15 },
 
     /*
@@ -176,7 +176,7 @@ export const desktopConfig: DesktopConfig = {
     |--------------------------------------------------------------------------
     */
     openDevTools: true,
-    devUrl: "http://localhost:5173",
+    devUrl: 'http://localhost:5173',
   },
 };
 

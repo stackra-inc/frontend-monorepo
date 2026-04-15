@@ -1,7 +1,7 @@
-import type { BaseKey } from "@refinedev/core";
-import type { TenantResolver } from "@/interfaces/tenant-resolver.interface";
-import type { TenantConfig } from "@/interfaces/tenant-config-extended.interface";
-import { ResolverPriority } from "@/enums/resolver-priority.enum";
+import type { BaseKey } from '@refinedev/core';
+import type { TenantResolver } from '@/interfaces/tenant-resolver.interface';
+import type { TenantConfig } from '@/interfaces/tenant-config-extended.interface';
+import { ResolverPriority } from '@/enums/resolver-priority.enum';
 
 /**
  * Domain resolver
@@ -22,13 +22,13 @@ import { ResolverPriority } from "@/enums/resolver-priority.enum";
  * ```
  */
 export class DomainResolver implements TenantResolver {
-  name = "domain";
+  name = 'domain';
   priority = ResolverPriority.HIGHEST; // Check custom domains first
 
   constructor(private config: TenantConfig) {}
 
   resolve(): BaseKey | undefined {
-    if (typeof window === "undefined") return undefined;
+    if (typeof window === 'undefined') return undefined;
 
     const hostname = window.location.hostname;
     const pathname = window.location.pathname;
@@ -45,7 +45,7 @@ export class DomainResolver implements TenantResolver {
     if (parts.length >= 2) {
       const subdomain = parts[0];
       if (!subdomain) return undefined;
-      
+
       const subdomainKey = `${subdomain}.${this.config.baseDomain || parts.slice(1).join('.')}`;
 
       if (this.config.domainMap && this.config.domainMap[subdomainKey]) {

@@ -13,7 +13,7 @@
  * @module desktop/main/handlers
  */
 
-import { ipcMain, powerSaveBlocker, powerMonitor } from "electron";
+import { ipcMain, powerSaveBlocker, powerMonitor } from 'electron';
 
 export function registerPowerHandlers(): void {
   /*
@@ -21,8 +21,8 @@ export function registerPowerHandlers(): void {
   | power:prevent-sleep
   |--------------------------------------------------------------------------
   */
-  ipcMain.handle("power:prevent-sleep", async () => {
-    return powerSaveBlocker.start("prevent-display-sleep");
+  ipcMain.handle('power:prevent-sleep', async () => {
+    return powerSaveBlocker.start('prevent-display-sleep');
   });
 
   /*
@@ -30,7 +30,7 @@ export function registerPowerHandlers(): void {
   | power:allow-sleep
   |--------------------------------------------------------------------------
   */
-  ipcMain.handle("power:allow-sleep", async (_event, blockerId: number) => {
+  ipcMain.handle('power:allow-sleep', async (_event, blockerId: number) => {
     if (powerSaveBlocker.isStarted(blockerId)) {
       powerSaveBlocker.stop(blockerId);
     }
@@ -41,8 +41,8 @@ export function registerPowerHandlers(): void {
   | power:state
   |--------------------------------------------------------------------------
   */
-  ipcMain.handle("power:state", async () => {
+  ipcMain.handle('power:state', async () => {
     const onBattery = powerMonitor.isOnBatteryPower();
-    return onBattery ? "on-battery" : "on-ac";
+    return onBattery ? 'on-battery' : 'on-ac';
   });
 }

@@ -16,11 +16,11 @@
  */
 
 // Import the Linter type for type-safe configuration
-import type { Linter } from "eslint";
+import type { Linter } from 'eslint';
 
 // Import the shared Vite-optimized ESLint configuration from @nesvel/eslint-config.
 // This includes TypeScript, import ordering, and style rules.
-import { viteConfig } from "@nesvel/eslint-config";
+import { viteConfig } from '@nesvel/eslint-config';
 
 const config: Linter.Config[] = [
   // Spread the shared Nesvel ESLint configuration.
@@ -33,7 +33,7 @@ const config: Linter.Config[] = [
   //   - *.config.js    — JavaScript config files
   //   - *.config.ts    — TypeScript config files (tsup, vitest, etc.)
   {
-    ignores: ["dist/**", "node_modules/**", "*.config.js", "*.config.ts"],
+    ignores: ['dist/**', 'node_modules/**', '*.config.js', '*.config.ts'],
   },
 
   // Add package-specific rule overrides here.

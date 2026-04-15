@@ -1,28 +1,31 @@
 /**
  * @fileoverview tsup build configuration for @abdokouta/kbd package
  *
- * This configuration extends the @nesvel/tsup-config base preset
- * with a custom entry point (index.tsx instead of index.ts).
+ * This configuration uses the @nesvel/tsup-config base preset which
+ * automatically handles build output, externals, and declarations.
+ *
+ * Configuration Features:
+ * - Dual Format: Outputs both ESM (.mjs) and CJS (.js) for maximum compatibility
+ * - TypeScript Declarations: Generates .d.ts files for type safety
+ * - Auto Externals: Reads package.json to externalize all dependencies
+ * - License Banner: Injects package name, version, author, and license
+ * - Tree Shaking: Enabled for optimal bundle size
+ * - Clean Build: Removes dist/ before each build
+ *
+ * Build Output:
+ *   dist/index.mjs     — ESM (tree-shakeable, modern bundlers)
+ *   dist/index.js      — CJS (Node.js, legacy bundlers)
+ *   dist/index.d.ts    — TypeScript declarations
+ *   dist/index.d.cts   — CTS declarations
  *
  * @module @abdokouta/kbd
  * @category Configuration
  * @see https://tsup.egoist.dev/
  */
 
-// Import the base preset and the package.json loader utility
-import {
-  basePreset,
-  computeExternals,
-  loadPackageJson,
-} from "@nesvel/tsup-config";
+// Import the base preset from @nesvel/tsup-config.
+// The preset auto-detects externals from package.json
+// (dependencies + peerDependencies + devDependencies).
+import { basePreset as preset } from '@nesvel/tsup-config';
 
-// Load package.json to compute externals
-const pkg = loadPackageJson();
-
-export default {
-  ...basePreset,
-  // Override entry point — kbd uses .tsx for JSX components
-  entry: ["src/index.tsx"],
-  // Recompute externals from package.json
-  external: computeExternals(pkg),
-};
+export default preset;

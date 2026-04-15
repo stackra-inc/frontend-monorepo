@@ -1,53 +1,31 @@
 /**
  * @fileoverview tsup build configuration for @abdokouta/ts-ui package
  *
- * Extends the @nesvel/tsup-config base preset with:
- * - Custom entry points (index.ts + styles.css)
- * - esbuild alias for @/ path resolution
- * - Additional externals for React, HeroUI, Framer Motion
+ * This configuration uses the @nesvel/tsup-config base preset which
+ * automatically handles build output, externals, and declarations.
+ *
+ * Configuration Features:
+ * - Dual Format: Outputs both ESM (.mjs) and CJS (.js) for maximum compatibility
+ * - TypeScript Declarations: Generates .d.ts files for type safety
+ * - Auto Externals: Reads package.json to externalize all dependencies
+ * - License Banner: Injects package name, version, author, and license
+ * - Tree Shaking: Enabled for optimal bundle size
+ * - Clean Build: Removes dist/ before each build
+ *
+ * Build Output:
+ *   dist/index.mjs     — ESM (tree-shakeable, modern bundlers)
+ *   dist/index.js      — CJS (Node.js, legacy bundlers)
+ *   dist/index.d.ts    — TypeScript declarations
+ *   dist/index.d.cts   — CTS declarations
  *
  * @module @abdokouta/ts-ui
  * @category Configuration
  * @see https://tsup.egoist.dev/
  */
 
-import path from "path";
-import {
-  basePreset,
-  computeExternals,
-  loadPackageJson,
-} from "@nesvel/tsup-config";
+// Import the base preset from @nesvel/tsup-config.
+// The preset auto-detects externals from package.json
+// (dependencies + peerDependencies + devDependencies).
+import { basePreset as preset } from '@nesvel/tsup-config';
 
-// Load package.json to compute externals
-const pkg = loadPackageJson();
-
-export default {
-  ...basePreset,
-
-  // Multiple entry points — main index + CSS styles
-  entry: ["src/index.ts", "src/styles.css"],
-
-  // Recompute externals + add UI-specific externals
-  external: [
-    ...computeExternals(pkg),
-    "react",
-    "react-dom",
-    "@heroui/react",
-    "@heroui/theme",
-    "framer-motion",
-    "tailwindcss",
-  ],
-
-  // CSS loader — copy CSS files to dist
-  loader: {
-    ".css": "copy" as const,
-  },
-
-  // esbuild options — resolve @/ path alias
-  esbuildOptions(options: any) {
-    options.jsx = "automatic";
-    options.alias = {
-      "@": path.resolve(process.cwd(), "src"),
-    };
-  },
-};
+export default preset;

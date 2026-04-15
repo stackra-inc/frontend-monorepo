@@ -20,28 +20,28 @@
  * |
  */
 
-import "reflect-metadata";
+import 'reflect-metadata';
 
-import { Module } from "@abdokouta/ts-container";
-import { ConfigModule } from "@abdokouta/ts-config";
-import { LoggerModule } from "@abdokouta/ts-logger";
-import { RedisModule } from "@abdokouta/ts-redis";
-import { CacheModule } from "@abdokouta/ts-cache";
-import { EventsModule } from "@abdokouta/ts-events";
-import { SettingsModule } from "@abdokouta/ts-settings";
-import { DesktopModule } from "@abdokouta/ts-desktop";
-import { KbdModule } from "@abdokouta/kbd";
-import { PwaModule } from "@abdokouta/ts-pwa";
+import { Module } from '@abdokouta/ts-container';
+import { ConfigModule } from '@abdokouta/ts-config';
+import { LoggerModule } from '@abdokouta/ts-logger';
+import { RedisModule } from '@abdokouta/ts-redis';
+import { CacheModule } from '@abdokouta/ts-cache';
+import { EventsModule } from '@abdokouta/ts-events';
+import { SettingsModule } from '@abdokouta/ts-settings';
+import { DesktopModule } from '@abdokouta/ts-desktop';
+import { KbdModule } from '@abdokouta/kbd';
+import { PwaModule } from '@abdokouta/ts-pwa';
 
-import { configConfig } from "@/config/config.config";
-import loggerConfig from "@/config/logger.config";
-import redisConfig from "@/config/redis.config";
-import cacheConfig from "@/config/cache.config";
-import { defaultEventsConfig } from "@/config/events.config";
-import { defaultSettingsConfig } from "@/config/settings.config";
-import { desktopConfig } from "@/config/desktop.config";
-import pwaConfig from "@/config/pwa.config";
-import { FileMenu, EditMenu, ViewMenu } from "@/menus";
+import { configConfig } from '@/config/config.config';
+import loggerConfig from '@/config/logger.config';
+import redisConfig from '@/config/redis.config';
+import cacheConfig from '@/config/cache.config';
+import { defaultEventsConfig } from '@/config/events.config';
+import { defaultSettingsConfig } from '@/config/settings.config';
+import { desktopConfig } from '@/config/desktop.config';
+import pwaConfig from '@/config/pwa.config';
+import { FileMenu, EditMenu, ViewMenu } from '@/menus';
 
 /**
  * AppModule — root module of the Vite application.

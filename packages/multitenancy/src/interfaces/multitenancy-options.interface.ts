@@ -1,6 +1,6 @@
-import type { BaseKey } from "@refinedev/core";
-import type { Tenant, TenantResponse } from "@/types";
-import type { TenantMode } from "@/enums";
+import type { BaseKey } from '@refinedev/core';
+import type { Tenant, TenantResponse } from '@/types';
+import type { TenantMode } from '@/enums';
 
 /**
  * Multi-Tenancy Configuration Options

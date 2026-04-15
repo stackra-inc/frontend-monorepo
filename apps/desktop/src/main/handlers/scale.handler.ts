@@ -13,7 +13,7 @@
  * @module desktop/main/handlers
  */
 
-import { ipcMain, type BrowserWindow } from "electron";
+import { ipcMain, type BrowserWindow } from 'electron';
 
 /** Active scale subscription interval. */
 let scaleInterval: ReturnType<typeof setInterval> | null = null;
@@ -28,8 +28,8 @@ export function registerScaleHandlers(mainWindow: BrowserWindow): void {
   | Returns a ScaleReading object.
   |
   */
-  ipcMain.handle("scale:read", async (_event, config: any) => {
-    console.log(`[ScaleHandler] Reading weight from ${config?.path ?? "unknown"}`);
+  ipcMain.handle('scale:read', async (_event, config: any) => {
+    console.log(`[ScaleHandler] Reading weight from ${config?.path ?? 'unknown'}`);
 
     /*
     |--------------------------------------------------------------------------
@@ -48,7 +48,7 @@ export function registerScaleHandlers(mainWindow: BrowserWindow): void {
     |--------------------------------------------------------------------------
     */
 
-    return { weight: 0, unit: "kg", stable: true };
+    return { weight: 0, unit: 'kg', stable: true };
   });
 
   /*
@@ -56,13 +56,13 @@ export function registerScaleHandlers(mainWindow: BrowserWindow): void {
   | scale:subscribe — start continuous weight updates
   |--------------------------------------------------------------------------
   */
-  ipcMain.handle("scale:subscribe", async (_event, config: any) => {
+  ipcMain.handle('scale:subscribe', async (_event, config: any) => {
     if (scaleInterval) clearInterval(scaleInterval);
 
-    console.log(`[ScaleHandler] Starting weight subscription on ${config?.path ?? "unknown"}`);
+    console.log(`[ScaleHandler] Starting weight subscription on ${config?.path ?? 'unknown'}`);
 
     scaleInterval = setInterval(() => {
-      mainWindow.webContents.send("scale:reading", { weight: 0, unit: "kg", stable: true });
+      mainWindow.webContents.send('scale:reading', { weight: 0, unit: 'kg', stable: true });
     }, 500);
   });
 
@@ -71,11 +71,11 @@ export function registerScaleHandlers(mainWindow: BrowserWindow): void {
   | scale:unsubscribe — stop continuous weight updates
   |--------------------------------------------------------------------------
   */
-  ipcMain.handle("scale:unsubscribe", async () => {
+  ipcMain.handle('scale:unsubscribe', async () => {
     if (scaleInterval) {
       clearInterval(scaleInterval);
       scaleInterval = null;
     }
-    console.log("[ScaleHandler] Stopped weight subscription");
+    console.log('[ScaleHandler] Stopped weight subscription');
   });
 }

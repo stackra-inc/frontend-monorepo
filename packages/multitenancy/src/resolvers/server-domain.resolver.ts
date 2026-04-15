@@ -1,7 +1,7 @@
-import type { BaseKey } from "@refinedev/core";
+import type { BaseKey } from '@refinedev/core';
 
-import { ResolverPriority } from "@/enums";
-import type { TenantResolver } from "@/interfaces";
+import { ResolverPriority } from '@/enums';
+import type { TenantResolver } from '@/interfaces';
 
 /**
  * Resolver that reads tenant ID from server-injected HTML meta tag.
@@ -59,33 +59,31 @@ import type { TenantResolver } from "@/interfaces";
  * @public
  */
 export class ServerDomainResolver implements TenantResolver {
-	/**
-	 * Unique identifier for this resolver.
-	 */
-	public readonly name = "server-domain";
+  /**
+   * Unique identifier for this resolver.
+   */
+  public readonly name = 'server-domain';
 
-	/**
-	 * Priority level (HIGHEST = 1).
-	 */
-	public readonly priority = ResolverPriority.HIGHEST;
+  /**
+   * Priority level (HIGHEST = 1).
+   */
+  public readonly priority = ResolverPriority.HIGHEST;
 
-	/**
-	 * Resolves tenant ID from server-injected meta tag.
-	 *
-	 * @returns Tenant ID from meta tag, or undefined if not found or running on server
-	 */
-	public resolve(): BaseKey | undefined {
-		// Check if running in browser
-		if (typeof window === "undefined") {
-			return undefined;
-		}
+  /**
+   * Resolves tenant ID from server-injected meta tag.
+   *
+   * @returns Tenant ID from meta tag, or undefined if not found or running on server
+   */
+  public resolve(): BaseKey | undefined {
+    // Check if running in browser
+    if (typeof window === 'undefined') {
+      return undefined;
+    }
 
-		// Query for meta tag with name="tenant-id"
-		const metaTag = document.querySelector<HTMLMetaElement>(
-			'meta[name="tenant-id"]',
-		);
+    // Query for meta tag with name="tenant-id"
+    const metaTag = document.querySelector<HTMLMetaElement>('meta[name="tenant-id"]');
 
-		// Return content attribute value if found
-		return metaTag?.content || undefined;
-	}
+    // Return content attribute value if found
+    return metaTag?.content || undefined;
+  }
 }

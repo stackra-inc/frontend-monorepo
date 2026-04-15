@@ -15,8 +15,8 @@
  * ```
  */
 
-import React from "react";
-import { useTenant } from "@/hooks";
+import React from 'react';
+import { useTenant } from '@/hooks';
 
 /**
  * Props for WithTenant component

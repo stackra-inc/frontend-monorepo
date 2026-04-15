@@ -27,8 +27,8 @@
  * ```
  */
 
-import { useMultiTenancyContext } from "@/contexts";
-import type { Tenant } from "@/types";
+import { useMultiTenancyContext } from '@/contexts';
+import type { Tenant } from '@/types';
 
 /**
  * Return type for useTenant hook
@@ -131,15 +131,13 @@ export const useTenant = (): UseTenantReturn => {
     };
   } catch (error) {
     // Return safe defaults when used outside MultiTenancyProvider
-    console.warn(
-      "[useTenant] Used outside MultiTenancyProvider, returning safe defaults"
-    );
+    console.warn('[useTenant] Used outside MultiTenancyProvider, returning safe defaults');
 
     return {
       tenant: undefined,
       tenants: [],
       setTenant: async () => {
-        throw new Error("useTenant must be used within MultiTenancyProvider");
+        throw new Error('useTenant must be used within MultiTenancyProvider');
       },
       isLoading: false,
       error: null,

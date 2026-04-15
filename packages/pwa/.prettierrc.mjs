@@ -21,6 +21,6 @@
 // All formatting rules are defined in the shared config —
 // no package-specific overrides needed.
 /** @type {string} */
-const config = "@nesvel/prettier-config";
+const config = '@nesvel/prettier-config';
 
 export default config;

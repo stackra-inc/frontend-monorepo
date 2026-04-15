@@ -1,5 +1,5 @@
-import type { BaseKey } from "@refinedev/core";
-import type { TenantResolver } from "@/interfaces";
+import type { BaseKey } from '@refinedev/core';
+import type { TenantResolver } from '@/interfaces';
 
 /**
  * Creates a resolver chain that executes resolvers in priority order.
@@ -58,33 +58,28 @@ import type { TenantResolver } from "@/interfaces";
  * @public
  */
 export function createResolverChain(
-	resolvers: TenantResolver[],
+  resolvers: TenantResolver[]
 ): () => Promise<BaseKey | undefined> {
-	// Sort resolvers by priority (ascending: 1, 2, 3, ...)
-	const sortedResolvers = [...resolvers].sort(
-		(a, b) => a.priority - b.priority,
-	);
+  // Sort resolvers by priority (ascending: 1, 2, 3, ...)
+  const sortedResolvers = [...resolvers].sort((a, b) => a.priority - b.priority);
 
-	return async (): Promise<BaseKey | undefined> => {
-		for (const resolver of sortedResolvers) {
-			try {
-				// Try to resolve tenant ID
-				const result = await resolver.resolve();
+  return async (): Promise<BaseKey | undefined> => {
+    for (const resolver of sortedResolvers) {
+      try {
+        // Try to resolve tenant ID
+        const result = await resolver.resolve();
 
-				// If resolver returns a value, stop and return it
-				if (result !== undefined) {
-					return result;
-				}
-			} catch (error) {
-				// Log error but continue to next resolver (fail-safe)
-				console.warn(
-					`[MultiTenancy] Resolver "${resolver.name}" failed:`,
-					error,
-				);
-			}
-		}
+        // If resolver returns a value, stop and return it
+        if (result !== undefined) {
+          return result;
+        }
+      } catch (error) {
+        // Log error but continue to next resolver (fail-safe)
+        console.warn(`[MultiTenancy] Resolver "${resolver.name}" failed:`, error);
+      }
+    }
 
-		// All resolvers failed or returned undefined
-		return undefined;
-	};
+    // All resolvers failed or returned undefined
+    return undefined;
+  };
 }

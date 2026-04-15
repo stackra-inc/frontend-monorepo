@@ -8,6 +8,6 @@ export {
   MultiTenancyContext,
   MultiTenancyProvider,
   useMultiTenancyContext,
-} from "./multi-tenancy.context";
+} from './multi-tenancy.context';
 
-export type { MultiTenancyProviderProps } from "./multi-tenancy.context";
+export type { MultiTenancyProviderProps } from './multi-tenancy.context';

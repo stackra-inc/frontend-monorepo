@@ -12,10 +12,10 @@
  * ```
  */
 
-import React from "react";
-import { Chip } from "@heroui/react";
-import { useTenant } from "@/hooks";
-import type { Tenant } from "@/types";
+import React from 'react';
+import { Chip } from '@heroui/react';
+import { useTenant } from '@/hooks';
+import type { Tenant } from '@/types';
 
 /**
  * Props for TenantBadge component
@@ -25,7 +25,7 @@ export interface TenantBadgeProps {
    * Color variant of the badge
    * @default "accent"
    */
-  color?: "default" | "accent" | "success" | "warning" | "danger";
+  color?: 'default' | 'accent' | 'success' | 'warning' | 'danger';
 
   /**
    * Custom class name for the badge
@@ -115,11 +115,11 @@ export interface TenantBadgeProps {
  * ```
  */
 export const TenantBadge: React.FC<TenantBadgeProps> = ({
-  color = "accent",
+  color = 'accent',
   className,
   showLoading = true,
-  loadingText = "Loading...",
-  noTenantText = "No tenant",
+  loadingText = 'Loading...',
+  noTenantText = 'No tenant',
   renderTenant,
   showId = false,
   prefix,
@@ -147,8 +147,8 @@ export const TenantBadge: React.FC<TenantBadgeProps> = ({
 
     // Default render
     const tenantName = tenant.name;
-    const tenantId = showId ? ` (${tenant.id})` : "";
-    const prefixText = prefix ? `${prefix} ` : "";
+    const tenantId = showId ? ` (${tenant.id})` : '';
+    const prefixText = prefix ? `${prefix} ` : '';
 
     return `${prefixText}${tenantName}${tenantId}`;
   };

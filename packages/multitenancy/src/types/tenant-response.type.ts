@@ -1,4 +1,4 @@
-import type { Tenant } from "./tenant.type";
+import type { Tenant } from './tenant.type';
 
 /**
  * Response type for fetching tenants from the backend.

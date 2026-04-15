@@ -105,7 +105,7 @@ npm run dev   -- --filter=@pixielity/docs
 Shared React component library consumed by all apps.
 
 ```tsx
-import { Button } from "@pixielity/react-ui/button";
+import { Button } from '@pixielity/react-ui/button';
 ```
 
 ### `@pixielity/eslint-config`
@@ -114,7 +114,7 @@ Three ESLint 9 flat configs:
 
 ```js
 // eslint.config.js in an app
-import { nextJs } from "@pixielity/eslint-config/next-js";
+import { nextJs } from '@pixielity/eslint-config/next-js';
 export default [...nextJs];
 ```
 

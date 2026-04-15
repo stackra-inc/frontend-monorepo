@@ -14,7 +14,7 @@
  * @module desktop/main/handlers
  */
 
-import { ipcMain, Tray, Menu, nativeImage, type BrowserWindow } from "electron";
+import { ipcMain, Tray, Menu, nativeImage, type BrowserWindow } from 'electron';
 
 /** The active tray instance. */
 let tray: Tray | null = null;
@@ -25,7 +25,7 @@ export function registerTrayHandlers(mainWindow: BrowserWindow): void {
   | tray:create
   |--------------------------------------------------------------------------
   */
-  ipcMain.handle("tray:create", async (_event, options: { icon: string; tooltip?: string }) => {
+  ipcMain.handle('tray:create', async (_event, options: { icon: string; tooltip?: string }) => {
     if (tray) tray.destroy();
 
     const icon = nativeImage.createFromPath(options.icon);
@@ -36,12 +36,12 @@ export function registerTrayHandlers(mainWindow: BrowserWindow): void {
     }
 
     /* Click on tray icon shows the main window. */
-    tray.on("click", () => {
+    tray.on('click', () => {
       if (mainWindow.isMinimized()) mainWindow.restore();
       mainWindow.focus();
     });
 
-    console.log("[TrayHandler] Tray created");
+    console.log('[TrayHandler] Tray created');
   });
 
   /*
@@ -49,11 +49,11 @@ export function registerTrayHandlers(mainWindow: BrowserWindow): void {
   | tray:menu
   |--------------------------------------------------------------------------
   */
-  ipcMain.handle("tray:menu", async (_event, template: any[]) => {
+  ipcMain.handle('tray:menu', async (_event, template: any[]) => {
     if (!tray) return;
 
     const menuTemplate = template.map((item) => {
-      if (item.type === "separator") return { type: "separator" as const };
+      if (item.type === 'separator') return { type: 'separator' as const };
       return {
         label: item.label,
         click: item.click ? () => mainWindow.webContents.send(item.click) : undefined,
@@ -68,7 +68,7 @@ export function registerTrayHandlers(mainWindow: BrowserWindow): void {
   | tray:badge
   |--------------------------------------------------------------------------
   */
-  ipcMain.handle("tray:badge", async (_event, text: string) => {
+  ipcMain.handle('tray:badge', async (_event, text: string) => {
     if (!tray) return;
     tray.setTitle(text);
   });
@@ -78,7 +78,7 @@ export function registerTrayHandlers(mainWindow: BrowserWindow): void {
   | tray:destroy
   |--------------------------------------------------------------------------
   */
-  ipcMain.handle("tray:destroy", async () => {
+  ipcMain.handle('tray:destroy', async () => {
     if (tray) {
       tray.destroy();
       tray = null;

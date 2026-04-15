@@ -9,15 +9,15 @@
  * @see https://vitejs.dev/guide/build.html
  */
 
-import { resolve } from "path";
+import { resolve } from 'path';
 
-import { defineConfig, loadEnv } from "vite";
-import react from "@vitejs/plugin-react-swc";
-import tsconfigPaths from "vite-tsconfig-paths";
-import tailwindcss from "@tailwindcss/vite";
-import { viteConfigPlugin } from "@abdokouta/ts-config/vite-plugin";
-import { vitePwaPlugin } from "@abdokouta/ts-pwa/vite-plugin";
-import pwaConfig from "./src/config/pwa.config";
+import { defineConfig, loadEnv } from 'vite';
+import react from '@vitejs/plugin-react-swc';
+import tsconfigPaths from 'vite-tsconfig-paths';
+import tailwindcss from '@tailwindcss/vite';
+import { viteConfigPlugin } from '@abdokouta/ts-config/vite-plugin';
+import { vitePwaPlugin } from '@abdokouta/ts-pwa/vite-plugin';
+import pwaConfig from './src/config/pwa.config';
 
 /**
  * Vite configuration factory.
@@ -37,10 +37,10 @@ export default defineConfig(({ mode }) => {
    *
    * @see https://vitejs.dev/guide/env-and-mode.html
    */
-  const env = loadEnv(mode, process.cwd(), "");
+  const env = loadEnv(mode, process.cwd(), '');
 
-  const isDev = mode === "development";
-  const isProd = mode === "production";
+  const isDev = mode === 'development';
+  const isProd = mode === 'production';
 
   return {
     // -------------------------------------------------------------------------
@@ -101,7 +101,7 @@ export default defineConfig(({ mode }) => {
          * @/ maps to the src/ directory.
          * Matches the paths config in tsconfig.json.
          */
-        "@": resolve(__dirname, "src"),
+        '@': resolve(__dirname, 'src'),
       },
     },
 
@@ -114,7 +114,7 @@ export default defineConfig(({ mode }) => {
        * Dev server port.
        * Override with VITE_PORT env var or the --port CLI flag.
        */
-      port: parseInt(env.VITE_PORT ?? "5173", 10),
+      port: parseInt(env.VITE_PORT ?? '5173', 10),
 
       /**
        * Automatically open the browser when the dev server starts.
@@ -158,7 +158,7 @@ export default defineConfig(({ mode }) => {
       /**
        * Port for `vite preview` (serves the production build locally).
        */
-      port: parseInt(env.VITE_PREVIEW_PORT ?? "4173", 10),
+      port: parseInt(env.VITE_PREVIEW_PORT ?? '4173', 10),
       open: false,
     },
 
@@ -171,7 +171,7 @@ export default defineConfig(({ mode }) => {
        * Output directory for the production build.
        * Relative to the project root.
        */
-      outDir: "dist",
+      outDir: 'dist',
 
       /**
        * Empty the output directory before each build.
@@ -184,7 +184,7 @@ export default defineConfig(({ mode }) => {
        *   the bundle (useful for error tracking tools like Sentry).
        * - true in development: full inline source maps for debugging.
        */
-      sourcemap: isProd ? "hidden" : true,
+      sourcemap: isProd ? 'hidden' : true,
 
       /**
        * Minimum file size (in bytes) for assets to be inlined as base64.
@@ -199,7 +199,7 @@ export default defineConfig(({ mode }) => {
        *
        * @see https://vitejs.dev/config/build-options.html#build-target
        */
-      target: isProd ? "es2020" : "esnext",
+      target: isProd ? 'es2020' : 'esnext',
 
       /**
        * Rollup output options — controls chunk splitting and file naming.
@@ -213,9 +213,9 @@ export default defineConfig(({ mode }) => {
            * Chunk file naming pattern.
            * Includes a content hash for long-term caching.
            */
-          chunkFileNames: "assets/js/[name]-[hash].js",
-          entryFileNames: "assets/js/[name]-[hash].js",
-          assetFileNames: "assets/[ext]/[name]-[hash].[ext]",
+          chunkFileNames: 'assets/js/[name]-[hash].js',
+          entryFileNames: 'assets/js/[name]-[hash].js',
+          assetFileNames: 'assets/[ext]/[name]-[hash].[ext]',
 
           /**
            * Manual chunk splitting strategy.
@@ -226,10 +226,10 @@ export default defineConfig(({ mode }) => {
            */
           manualChunks: {
             // React runtime — changes rarely.
-            "vendor-react": ["react", "react-dom"],
+            'vendor-react': ['react', 'react-dom'],
 
             // HeroUI component library — large, changes on library updates only.
-            "vendor-heroui": ["@heroui/react"],
+            'vendor-heroui': ['@heroui/react'],
 
             // Router — if you add react-router-dom.
             // "vendor-router": ["react-router-dom"],
@@ -263,7 +263,7 @@ export default defineConfig(({ mode }) => {
      * Only variables prefixed with VITE_ are exposed to the client.
      * This is the default prefix — change it here if needed.
      */
-    envPrefix: "VITE_",
+    envPrefix: 'VITE_',
 
     // -------------------------------------------------------------------------
     // esbuild
@@ -292,7 +292,7 @@ export default defineConfig(({ mode }) => {
        * Force-include dependencies that Vite might miss during pre-bundling.
        * Add packages that use CommonJS or have complex re-exports.
        */
-      include: ["react", "react-dom", "@heroui/react"],
+      include: ['react', 'react-dom', '@heroui/react'],
 
       /**
        * Exclude packages from pre-bundling.
@@ -308,6 +308,6 @@ export default defineConfig(({ mode }) => {
     /**
      * Log level — "info" in development, "warn" in production CI.
      */
-    logLevel: isDev ? "info" : "warn",
+    logLevel: isDev ? 'info' : 'warn',
   };
 });

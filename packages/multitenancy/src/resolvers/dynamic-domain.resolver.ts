@@ -7,7 +7,7 @@
  * @example
  * ```tsx
  * import { CacheService } from '@abdokouta/react-cache';
- * 
+ *
  * const resolver = new DynamicDomainResolver({
  *   apiUrl: "https://api.example.com/tenants/resolve",
  *   cacheTTL: 300000, // 5 minutes
@@ -16,8 +16,8 @@
  * ```
  */
 
-import type { TenantResolver } from "@/interfaces/tenant-resolver.interface";
-import { ResolverPriority } from "@/enums/resolver-priority.enum";
+import type { TenantResolver } from '@/interfaces/tenant-resolver.interface';
+import { ResolverPriority } from '@/enums/resolver-priority.enum';
 
 /**
  * Configuration for DynamicDomainResolver
@@ -62,11 +62,11 @@ export interface DynamicDomainResolverConfig {
   /**
    * Optional cache service instance from @abdokouta/react-cache
    * If not provided, uses in-memory Map cache
-   * 
+   *
    * @example
    * ```typescript
    * import { CacheService } from '@abdokouta/react-cache';
-   * 
+   *
    * const resolver = new DynamicDomainResolver({
    *   apiUrl: '/api/tenants/resolve',
    *   cacheService: cacheService,
@@ -84,7 +84,7 @@ export interface DynamicDomainResolverConfig {
  * Falls back to in-memory cache if cache service is not provided.
  */
 export class DynamicDomainResolver implements TenantResolver {
-  readonly name = "DynamicDomainResolver";
+  readonly name = 'DynamicDomainResolver';
   readonly priority = ResolverPriority.HIGHEST;
 
   private cacheService?: any;
@@ -95,11 +95,11 @@ export class DynamicDomainResolver implements TenantResolver {
     this.config = {
       apiUrl: config.apiUrl,
       cacheTTL: config.cacheTTL ?? 300, // 5 minutes in seconds
-      domainParam: config.domainParam ?? "domain",
+      domainParam: config.domainParam ?? 'domain',
       headers: config.headers ?? {},
-      responsePath: config.responsePath ?? "tenantId",
+      responsePath: config.responsePath ?? 'tenantId',
     };
-    
+
     this.cacheService = config.cacheService;
   }
 
@@ -108,7 +108,7 @@ export class DynamicDomainResolver implements TenantResolver {
    */
   async resolve(): Promise<string | undefined> {
     // Check if running in browser
-    if (typeof window === "undefined") {
+    if (typeof window === 'undefined') {
       return undefined;
     }
 
@@ -132,7 +132,7 @@ export class DynamicDomainResolver implements TenantResolver {
 
       return tenantId;
     } catch (error) {
-      console.error("[DynamicDomainResolver] Error resolving tenant:", error);
+      console.error('[DynamicDomainResolver] Error resolving tenant:', error);
       return undefined;
     }
   }
@@ -146,7 +146,7 @@ export class DynamicDomainResolver implements TenantResolver {
       try {
         return await this.cacheService.get(key);
       } catch (error) {
-        console.warn("[DynamicDomainResolver] Cache service error:", error);
+        console.warn('[DynamicDomainResolver] Cache service error:', error);
         // Fall through to memory cache
       }
     }
@@ -177,7 +177,7 @@ export class DynamicDomainResolver implements TenantResolver {
         await this.cacheService.put(key, value, this.config.cacheTTL);
         return;
       } catch (error) {
-        console.warn("[DynamicDomainResolver] Cache service error:", error);
+        console.warn('[DynamicDomainResolver] Cache service error:', error);
         // Fall through to memory cache
       }
     }
@@ -185,7 +185,7 @@ export class DynamicDomainResolver implements TenantResolver {
     // Fall back to memory cache
     this.memoryCache.set(key, {
       value,
-      expiresAt: Date.now() + (this.config.cacheTTL * 1000), // Convert seconds to milliseconds
+      expiresAt: Date.now() + this.config.cacheTTL * 1000, // Convert seconds to milliseconds
     });
   }
 
@@ -197,9 +197,9 @@ export class DynamicDomainResolver implements TenantResolver {
     url.searchParams.set(this.config.domainParam, domain);
 
     const response = await fetch(url.toString(), {
-      method: "GET",
+      method: 'GET',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
         ...this.config.headers,
       },
     });
@@ -218,18 +218,18 @@ export class DynamicDomainResolver implements TenantResolver {
    * Extract value from object using dot notation path
    */
   private extractValue(obj: any, path: string): string | undefined {
-    const keys = path.split(".");
+    const keys = path.split('.');
     let value = obj;
 
     for (const key of keys) {
-      if (value && typeof value === "object" && key in value) {
+      if (value && typeof value === 'object' && key in value) {
         value = value[key];
       } else {
         return undefined;
       }
     }
 
-    return typeof value === "string" ? value : undefined;
+    return typeof value === 'string' ? value : undefined;
   }
 
   /**
@@ -243,10 +243,10 @@ export class DynamicDomainResolver implements TenantResolver {
         // For now, we just clear the memory cache
         await this.cacheService.flush();
       } catch (error) {
-        console.warn("[DynamicDomainResolver] Cache service error:", error);
+        console.warn('[DynamicDomainResolver] Cache service error:', error);
       }
     }
-    
+
     this.memoryCache.clear();
   }
 
@@ -255,15 +255,15 @@ export class DynamicDomainResolver implements TenantResolver {
    */
   async clearCacheForDomain(domain: string): Promise<void> {
     const cacheKey = `multitenancy:domain:${domain}`;
-    
+
     if (this.cacheService) {
       try {
         await this.cacheService.forget(cacheKey);
       } catch (error) {
-        console.warn("[DynamicDomainResolver] Cache service error:", error);
+        console.warn('[DynamicDomainResolver] Cache service error:', error);
       }
     }
-    
+
     this.memoryCache.delete(cacheKey);
   }
 }

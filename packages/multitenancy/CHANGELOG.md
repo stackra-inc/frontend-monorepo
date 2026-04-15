@@ -4,11 +4,15 @@
 
 ### Major Features
 
-- **Multi-tenancy Core**: Complete multi-tenancy support with tenant context management
-- **Dynamic Domain Resolution**: Automatic tenant detection from subdomains and custom domains
+- **Multi-tenancy Core**: Complete multi-tenancy support with tenant context
+  management
+- **Dynamic Domain Resolution**: Automatic tenant detection from subdomains and
+  custom domains
 - **Tenant Switching**: Seamless tenant switching with navigation support
-- **React Hooks**: Comprehensive hooks for tenant management (`useTenant`, `useTenantSwitch`, `useTenantContext`)
-- **HeroUI v3 Components**: Pre-built UI components for tenant selection and management
+- **React Hooks**: Comprehensive hooks for tenant management (`useTenant`,
+  `useTenantSwitch`, `useTenantContext`)
+- **HeroUI v3 Components**: Pre-built UI components for tenant selection and
+  management
   - `TenantSelect`: Dropdown component for tenant selection
   - `TenantCard`: Card component for displaying tenant information
   - `TenantBadge`: Badge component for showing current tenant
@@ -20,6 +24,7 @@
 ### Components
 
 All components are built with HeroUI v3 and support:
+
 - Loading states
 - Error handling
 - Custom rendering
@@ -35,6 +40,7 @@ All components are built with HeroUI v3 and support:
 ### Configuration
 
 Supports multiple tenant resolution strategies:
+
 - Subdomain-based (e.g., `tenant1.app.com`)
 - Custom domain-based (e.g., `tenant1.com`)
 - Mixed strategies
@@ -42,6 +48,6 @@ Supports multiple tenant resolution strategies:
 ### Dependencies
 
 - `@abdokouta/core`: ^5.0.0
-- `@abdokouta/container`: workspace:*
+- `@abdokouta/container`: workspace:\*
 - `@abdokouta/react-cache`: ^1.0.0
 - `@heroui/react`: ^3.0.0 (optional peer dependency)

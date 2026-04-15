@@ -1,6 +1,7 @@
 # Multi-Tenancy Configuration
 
-This directory contains example configuration files for the `@abdokouta/multitenancy` package.
+This directory contains example configuration files for the
+`@abdokouta/multitenancy` package.
 
 ## Quick Start
 
@@ -14,13 +15,13 @@ cp node_modules/@abdokouta/multitenancy/config/multitenancy.config.example.ts sr
 
 ```typescript
 // src/config/multitenancy.config.ts
-import { defineConfig, subdomainPreset } from "@abdokouta/multitenancy";
+import { defineConfig, subdomainPreset } from '@abdokouta/multitenancy';
 
 export const multitenancyConfig = defineConfig({
   ...subdomainPreset,
-  baseDomain: "myapp.com",
+  baseDomain: 'myapp.com',
   fetchTenants: async () => {
-    const response = await fetch("/api/tenants");
+    const response = await fetch('/api/tenants');
     return await response.json();
   },
 });
@@ -30,14 +31,12 @@ export const multitenancyConfig = defineConfig({
 
 ```typescript
 // src/app.module.ts
-import { Module } from "@abdokouta/container";
-import { MultiTenancyModule } from "@abdokouta/multitenancy";
-import { multitenancyConfig } from "./config/multitenancy.config";
+import { Module } from '@abdokouta/container';
+import { MultiTenancyModule } from '@abdokouta/multitenancy';
+import { multitenancyConfig } from './config/multitenancy.config';
 
 @Module({
-  imports: [
-    MultiTenancyModule.forRoot(multitenancyConfig)
-  ]
+  imports: [MultiTenancyModule.forRoot(multitenancyConfig)],
 })
 export class AppModule {}
 ```
@@ -45,6 +44,7 @@ export class AppModule {}
 ## Configuration Options
 
 See the example file for all available options and presets:
+
 - `multitenancy.config.example.ts` - Complete example with all options
 
 ## Presets

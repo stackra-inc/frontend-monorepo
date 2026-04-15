@@ -10,12 +10,12 @@
  *   - Service-to-service dependencies
  */
 
-import { useState, useEffect } from "react";
-import { Injectable, Module, Inject } from "@abdokouta/ts-container";
-import { useInject, ContainerProvider } from "@abdokouta/ts-container-react";
-import { ApplicationContext } from "@abdokouta/ts-application";
+import { useState, useEffect } from 'react';
+import { Injectable, Module, Inject } from '@abdokouta/ts-container';
+import { useInject, ContainerProvider } from '@abdokouta/ts-container-react';
+import { ApplicationContext } from '@abdokouta/ts-application';
 
-import { title, subtitle } from "@/components/primitives";
+import { title, subtitle } from '@/components/primitives';
 
 // ---------------------------------------------------------------------------
 // Demo services
@@ -42,7 +42,7 @@ class GreeterService {
   greet(name: string): string {
     const count = this.counter.getCount();
 
-    return `Hello, ${name}! You have clicked ${count} time${count !== 1 ? "s" : ""}.`;
+    return `Hello, ${name}! You have clicked ${count} time${count !== 1 ? 's' : ''}.`;
   }
 }
 
@@ -61,12 +61,12 @@ function CounterWidget() {
   const [display, setDisplay] = useState(counter.getCount());
 
   return (
-    <div className="flex flex-col items-center gap-3 rounded-xl border border-divider p-6">
-      <p className="text-sm text-default-500">CounterService (Singleton)</p>
+    <div className="border-divider flex flex-col items-center gap-3 rounded-xl border p-6">
+      <p className="text-default-500 text-sm">CounterService (Singleton)</p>
       <span className="text-5xl font-bold tabular-nums">{display}</span>
       <div className="flex gap-2">
         <button
-          className="rounded-lg bg-primary px-4 py-2 text-sm text-white"
+          className="bg-primary rounded-lg px-4 py-2 text-sm text-white"
           onClick={() => {
             counter.increment();
             setDisplay(counter.getCount());
@@ -75,7 +75,7 @@ function CounterWidget() {
           +1
         </button>
         <button
-          className="rounded-lg border border-divider px-4 py-2 text-sm"
+          className="border-divider rounded-lg border px-4 py-2 text-sm"
           onClick={() => {
             counter.reset();
             setDisplay(0);
@@ -90,28 +90,28 @@ function CounterWidget() {
 
 function GreeterWidget() {
   const greeter = useInject(GreeterService);
-  const [name, setName] = useState("World");
-  const [greeting, setGreeting] = useState(greeter.greet("World"));
+  const [name, setName] = useState('World');
+  const [greeting, setGreeting] = useState(greeter.greet('World'));
 
   return (
-    <div className="flex flex-col gap-3 rounded-xl border border-divider p-6">
-      <p className="text-sm text-default-500">GreeterService (depends on CounterService)</p>
+    <div className="border-divider flex flex-col gap-3 rounded-xl border p-6">
+      <p className="text-default-500 text-sm">GreeterService (depends on CounterService)</p>
       <div className="flex gap-2">
         <input
-          className="flex-1 rounded-lg border border-divider bg-default-100 px-3 py-2 text-sm outline-none focus:border-primary"
+          className="border-divider bg-default-100 focus:border-primary flex-1 rounded-lg border px-3 py-2 text-sm outline-none"
           placeholder="Your name"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          onKeyDown={(e) => e.key === "Enter" && setGreeting(greeter.greet(name))}
+          onKeyDown={(e) => e.key === 'Enter' && setGreeting(greeter.greet(name))}
         />
         <button
-          className="rounded-lg bg-default-200 px-4 py-2 text-sm"
+          className="bg-default-200 rounded-lg px-4 py-2 text-sm"
           onClick={() => setGreeting(greeter.greet(name))}
         >
           Greet
         </button>
       </div>
-      <p className="rounded-lg bg-default-100 px-3 py-2 text-sm font-mono">{greeting}</p>
+      <p className="bg-default-100 rounded-lg px-3 py-2 font-mono text-sm">{greeting}</p>
     </div>
   );
 }
@@ -131,7 +131,7 @@ export default function ContainerPage() {
     <section className="flex flex-col gap-8 py-8 md:py-10">
       <div>
         <h1 className={title()}>Container Package</h1>
-        <p className={subtitle({ class: "mt-2" })}>
+        <p className={subtitle({ class: 'mt-2' })}>
           @abdokouta/ts-container — NestJS-style dependency injection
         </p>
       </div>
@@ -140,33 +140,33 @@ export default function ContainerPage() {
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
         {[
           {
-            icon: "💉",
-            label: "@Injectable()",
-            desc: "Mark a class as a DI-managed service.",
+            icon: '💉',
+            label: '@Injectable()',
+            desc: 'Mark a class as a DI-managed service.',
           },
           {
-            icon: "📦",
-            label: "@Module()",
-            desc: "Group providers and imports into modules.",
+            icon: '📦',
+            label: '@Module()',
+            desc: 'Group providers and imports into modules.',
           },
           {
-            icon: "🪝",
-            label: "useInject()",
-            desc: "React hook to resolve a service from DI.",
+            icon: '🪝',
+            label: 'useInject()',
+            desc: 'React hook to resolve a service from DI.',
           },
         ].map((item) => (
-          <div key={item.label} className="rounded-xl border border-divider p-4">
+          <div key={item.label} className="border-divider rounded-xl border p-4">
             <span className="text-3xl">{item.icon}</span>
-            <p className="mt-2 font-mono text-sm font-semibold text-primary">{item.label}</p>
-            <p className="mt-1 text-xs text-default-500">{item.desc}</p>
+            <p className="text-primary mt-2 font-mono text-sm font-semibold">{item.label}</p>
+            <p className="text-default-500 mt-1 text-xs">{item.desc}</p>
           </div>
         ))}
       </div>
 
       {/* Live demo */}
-      <div className="rounded-xl border border-divider p-6">
+      <div className="border-divider rounded-xl border p-6">
         <h2 className="text-lg font-semibold">Live Demo — DemoModule</h2>
-        <p className="mb-4 text-sm text-default-500">
+        <p className="text-default-500 mb-4 text-sm">
           CounterWidget and GreeterWidget share the same CounterService singleton.
         </p>
 
@@ -178,14 +178,14 @@ export default function ContainerPage() {
             </div>
           </ContainerProvider>
         ) : (
-          <p className="text-sm text-default-400">Bootstrapping DemoModule...</p>
+          <p className="text-default-400 text-sm">Bootstrapping DemoModule...</p>
         )}
       </div>
 
       {/* Code snippet */}
-      <div className="rounded-xl border border-divider p-6">
+      <div className="border-divider rounded-xl border p-6">
         <h2 className="mb-4 text-lg font-semibold">How It Works</h2>
-        <pre className="overflow-x-auto rounded-lg bg-default-100 p-4 text-xs font-mono">
+        <pre className="bg-default-100 overflow-x-auto rounded-lg p-4 font-mono text-xs">
           {`@Injectable()
 class CounterService {
   private count = 0;

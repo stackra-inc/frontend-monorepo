@@ -1,7 +1,7 @@
 {
   "name": "@abdokouta/ts-events",
   "version": "0.2.0",
-  "description": "Laravel-style event dispatcher for TypeScript \u2014 pub/sub with wildcard listeners, subscribers, decorators, multiple drivers (memory, redis, null), and RxJS streaming.",
+  "description": "Laravel-style event dispatcher for TypeScript — pub/sub with wildcard listeners, subscribers, decorators, multiple drivers (memory, redis, null), and RxJS streaming.",
   "license": "MIT",
   "author": {
     "name": "Abdelrhman Kouta",

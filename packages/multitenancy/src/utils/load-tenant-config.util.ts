@@ -1,5 +1,5 @@
-import { TenantMode } from "@/enums";
-import type { TenantConfig } from "@/interfaces";
+import { TenantMode } from '@/enums';
+import type { TenantConfig } from '@/interfaces';
 
 /**
  * Loads tenant configuration from JSON string or object.
@@ -33,13 +33,11 @@ import type { TenantConfig } from "@/interfaces";
  *
  * @public
  */
-export function loadTenantConfig(
-	config: TenantConfig | string,
-): TenantConfig {
-	if (typeof config === "string") {
-		return JSON.parse(config) as TenantConfig;
-	}
-	return config;
+export function loadTenantConfig(config: TenantConfig | string): TenantConfig {
+  if (typeof config === 'string') {
+    return JSON.parse(config) as TenantConfig;
+  }
+  return config;
 }
 
 /**
@@ -81,27 +79,27 @@ export function loadTenantConfig(
  * @public
  */
 export function validateTenantConfig(config: TenantConfig): void {
-	// Check mode exists
-	if (!config.mode) {
-		throw new Error(
-			"Tenant config must have a mode. " +
-				`Valid modes are: ${Object.values(TenantMode).join(", ")}`,
-		);
-	}
+  // Check mode exists
+  if (!config.mode) {
+    throw new Error(
+      'Tenant config must have a mode. ' +
+        `Valid modes are: ${Object.values(TenantMode).join(', ')}`
+    );
+  }
 
-	// Check mode is valid
-	if (!Object.values(TenantMode).includes(config.mode)) {
-		throw new Error(
-			`Invalid tenant mode: "${config.mode}". ` +
-				`Valid modes are: ${Object.values(TenantMode).join(", ")}`,
-		);
-	}
+  // Check mode is valid
+  if (!Object.values(TenantMode).includes(config.mode)) {
+    throw new Error(
+      `Invalid tenant mode: "${config.mode}". ` +
+        `Valid modes are: ${Object.values(TenantMode).join(', ')}`
+    );
+  }
 
-	// Check resolvers array exists and is not empty
-	if (!config.resolvers || config.resolvers.length === 0) {
-		throw new Error(
-			"Tenant config must have at least one resolver. " +
-				"Available resolvers: server-domain, dynamic-domain, domain, subdomain, router, header, query",
-		);
-	}
+  // Check resolvers array exists and is not empty
+  if (!config.resolvers || config.resolvers.length === 0) {
+    throw new Error(
+      'Tenant config must have at least one resolver. ' +
+        'Available resolvers: server-domain, dynamic-domain, domain, subdomain, router, header, query'
+    );
+  }
 }
