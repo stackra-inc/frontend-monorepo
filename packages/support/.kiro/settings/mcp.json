@@ -92,18 +92,6 @@
       "disabled": true,
       "autoApprove": []
     },
-    "inversiland": {
-      "command": "npx",
-      "args": ["-y", "@abdokouta/inversiland-mcp@latest"],
-      "disabled": true,
-      "autoApprove": [
-        "explore_structure",
-        "read_file",
-        "search_files",
-        "get_packages",
-        "read_core_files"
-      ]
-    },
     "refine": {
       "command": "npx",
       "args": ["-y", "@abdokouta/refine-mcp@latest"],
