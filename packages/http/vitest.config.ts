@@ -43,14 +43,6 @@ export default defineConfig({
     // Useful during initial development before tests are written.
     passWithNoTests: true,
 
-    // Inline specific ESM-only packages that cause issues with Vitest's
-    // module resolution.
-    server: {
-      deps: {
-        inline: ['inversiland', '@inversiland/inversify'],
-      },
-    },
-
     // v8 coverage provider — faster than istanbul, uses V8's built-in
     // code coverage. Generates text (terminal), JSON, and HTML reports.
     coverage: {
