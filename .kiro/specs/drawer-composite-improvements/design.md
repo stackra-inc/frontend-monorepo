@@ -129,8 +129,8 @@ export function DrawerContent({
 
 ```tsx
 /** @deprecated Use DrawerContent instead. */
-export { DrawerContent as DrawerBody } from '../drawer-content';
-export type { DrawerContentProps as DrawerBodyProps } from '../drawer-content';
+export { DrawerContent as DrawerBody } from '@/drawer-content';
+export type { DrawerContentProps as DrawerBodyProps } from '@/drawer-content';
 ```
 
 ### 2. DrawerLoading
