@@ -60,7 +60,9 @@
     "registry": "https://registry.npmjs.org/"
   },
   "peerDependencies": {
-    "vite": "^7.2.4"
+    "vite": "^7.2.4",
+    "@abdokouta/ts-container": "workspace:*",
+    "@abdokouta/ts-http": "workspace:*"
   },
   "dependencies": {
     "fast-glob": "^3.3.3",
@@ -70,8 +72,6 @@
     "react-i18next": "^17.0.4"
   },
   "devDependencies": {
-    "@abdokouta/ts-container": "workspace:^",
-    "@abdokouta/ts-http": "workspace:^",
     "@nesvel/eslint-config": "^1.0.5",
     "@nesvel/jest-config": "^1.0.3",
     "@nesvel/tsup-config": "^1.0.3",
@@ -84,5 +84,16 @@
     "tsup": "^8.5.1",
     "typescript": "^6.0.3",
     "vite": "^8.0.8"
+  },
+  "peerDependenciesMeta": {
+    "@abdokouta/ts-container": {
+      "optional": false
+    },
+    "@abdokouta/ts-http": {
+      "optional": true
+    },
+    "vite": {
+      "optional": false
+    }
   }
 }
