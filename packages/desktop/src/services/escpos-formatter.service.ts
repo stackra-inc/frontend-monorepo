@@ -16,6 +16,7 @@
  * @module @stackra/ts-desktop
  */
 
+import { Str } from '@stackra/ts-support';
 import { Injectable } from '@stackra/ts-container';
 
 import type { ReceiptData, ReceiptItem } from '@/interfaces/hardware.interface';
@@ -80,7 +81,7 @@ export class EscPosFormatter {
     }
 
     /* Separator line. */
-    parts.push(this.textToBytes('-'.repeat(width)));
+    parts.push(this.textToBytes(Str.repeat('-', width)));
     parts.push(CMD_LF);
 
     /* Line items. */
@@ -91,7 +92,7 @@ export class EscPosFormatter {
     }
 
     /* Separator line. */
-    parts.push(this.textToBytes('-'.repeat(width)));
+    parts.push(this.textToBytes(Str.repeat('-', width)));
     parts.push(CMD_LF);
 
     /* Subtotal. */
@@ -145,8 +146,8 @@ export class EscPosFormatter {
     const total = (item.total ?? item.quantity * item.price).toFixed(2);
     const priceStr = `$${total}`;
     const nameWidth = width - qty.length - priceStr.length;
-    const name = item.name.length > nameWidth ? item.name.slice(0, nameWidth) : item.name;
-    const padding = ' '.repeat(Math.max(1, nameWidth - name.length));
+    const name = item.name.length > nameWidth ? Str.take(item.name, nameWidth) : item.name;
+    const padding = Str.repeat(' ', Math.max(1, nameWidth - name.length));
     return `${qty}${name}${padding}${priceStr}`;
   }
 
@@ -158,7 +159,7 @@ export class EscPosFormatter {
 
   /** Pad a label-value pair to fill the line width. */
   padLine(label: string, value: string, width: number): string {
-    const padding = ' '.repeat(Math.max(1, width - label.length - value.length));
+    const padding = Str.repeat(' ', Math.max(1, width - label.length - value.length));
     return `${label}${padding}${value}`;
   }
 

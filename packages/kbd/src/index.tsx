@@ -166,3 +166,8 @@ export type { KbdVisibilityContextValue } from './contexts/kbd-visibility.contex
 // Utilities
 // ============================================================================
 export { keyMappings, isKeyValue, getKeyMapping } from './utils/key-mappings.util';
+
+// ============================================================================
+// Facades
+// ============================================================================
+export { ShortcutFacade } from './facades';

@@ -9,6 +9,7 @@
  * @category Repositories
  */
 
+import { Str } from '@stackra/ts-support';
 import { Injectable, Inject } from '@stackra/ts-container';
 import { BaseRepository } from './base.repository';
 import type { GetListParams } from '@/interfaces/get-list-params.interface';
@@ -133,7 +134,7 @@ export class HttpRepository<TData, TId = string | number> extends BaseRepository
   /** @inheritdoc */
   async custom(params: CustomParams): Promise<any> {
     const url = params.url ?? this.baseUrl;
-    const method = (params.method ?? 'get').toUpperCase();
+    const method = Str.upper(params.method ?? 'get');
     const response = await this.request(url, {
       method,
       body: params.payload ? JSON.stringify(params.payload) : undefined,

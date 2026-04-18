@@ -37,6 +37,7 @@
  */
 
 import { Observable, of } from 'rxjs';
+import { Str } from '@stackra/ts-support';
 import { MangoQueryGrammar } from './grammars/mango-query.grammar';
 import { MetadataStorage } from '@/metadata/metadata.storage';
 
@@ -702,7 +703,7 @@ export class QueryBuilder<T = any> {
 
         // Attempt to resolve as a local scope on the model class
         if (typeof prop === 'string' && target.modelClass) {
-          const scopeMethodName = `scope${prop.charAt(0).toUpperCase()}${prop.slice(1)}`;
+          const scopeMethodName = `scope${Str.ucfirst(prop)}`;
 
           // Check if the model class prototype has the scope method
           if (typeof target.modelClass.prototype?.[scopeMethodName] === 'function') {

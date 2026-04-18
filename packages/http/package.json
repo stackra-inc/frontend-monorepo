@@ -1,22 +1,22 @@
 {
-  "name": "@stakra/ts-http",
+  "name": "@stackra/ts-http",
   "version": "0.1.0",
-  "description": "Middleware-driven HTTP client for TypeScript — axios underneath, decorator-based middleware registration, and DI integration via @stakra/ts-container.",
+  "description": "Middleware-driven HTTP client for TypeScript — axios underneath, decorator-based middleware registration, and DI integration via @stackra/ts-container.",
   "license": "MIT",
   "author": {
-    "name": "Stakra L.L.C",
-    "email": "dev@stakra.com",
-    "url": "https://github.com/stakra"
+    "name": "Stackra L.L.C",
+    "email": "dev@stackra.com",
+    "url": "https://github.com/stackra-co"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/stakra/frontend-monorepo.git",
+    "url": "https://github.com/stackra-co/frontend-monorepo.git",
     "directory": "packages/http"
   },
   "bugs": {
-    "url": "https://github.com/stakra/frontend-monorepo/issues"
+    "url": "https://github.com/stackra-co/frontend-monorepo/issues"
   },
-  "homepage": "https://github.com/stakra/frontend-monorepo#readme",
+  "homepage": "https://github.com/stackra-co/frontend-monorepo#readme",
   "keywords": [
     "http",
     "http-client",
@@ -72,16 +72,16 @@
     "tslib": "^2.8.1"
   },
   "peerDependencies": {
-    "@stakra/ts-container": "workspace:*",
-    "@stakra/ts-support": "workspace:*",
+    "@stackra/ts-container": "^2.0.4",
+    "@stackra/ts-support": "workspace:*",
     "reflect-metadata": "^0.2.2",
     "react": "^18.0.0 || ^19.0.0"
   },
   "peerDependenciesMeta": {
-    "@stakra/ts-container": {
+    "@stackra/ts-container": {
       "optional": false
     },
-    "@stakra/ts-support": {
+    "@stackra/ts-support": {
       "optional": false
     },
     "reflect-metadata": {

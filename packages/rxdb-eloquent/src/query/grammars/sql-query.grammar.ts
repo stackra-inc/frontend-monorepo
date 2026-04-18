@@ -22,6 +22,7 @@
  * Numeric and boolean values are rendered inline.
  */
 
+import { Str } from '@stackra/ts-support';
 import { QueryGrammar } from './query.grammar';
 import type { QueryBuilderState, WhereClause, OrderByClause } from '@/query/query.builder';
 
@@ -209,9 +210,7 @@ export class SqlQueryGrammar extends QueryGrammar {
       return '';
     }
 
-    const parts = orders.map(
-      (o) => `${this.quoteIdentifier(o.field)} ${o.direction.toUpperCase()}`
-    );
+    const parts = orders.map((o) => `${this.quoteIdentifier(o.field)} ${Str.upper(o.direction)}`);
 
     return `ORDER BY ${parts.join(', ')}`;
   }

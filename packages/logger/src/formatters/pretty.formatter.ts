@@ -17,6 +17,7 @@
  * // => "🐛 [DEBUG] [14:30:00.000] Hello world {userId: 42}"
  * ```
  */
+import { Str } from '@stackra/ts-support';
 import { LogLevel } from '@/enums';
 import type { FormatterInterface, LogEntry } from '@/interfaces';
 
@@ -77,10 +78,10 @@ export class PrettyFormatter implements FormatterInterface {
   private formatTimestamp(timestamp: string): string {
     try {
       const date = new Date(timestamp);
-      const hours = String(date.getHours()).padStart(2, '0');
-      const minutes = String(date.getMinutes()).padStart(2, '0');
-      const seconds = String(date.getSeconds()).padStart(2, '0');
-      const ms = String(date.getMilliseconds()).padStart(3, '0');
+      const hours = Str.padLeft(String(date.getHours()), 2, '0');
+      const minutes = Str.padLeft(String(date.getMinutes()), 2, '0');
+      const seconds = Str.padLeft(String(date.getSeconds()), 2, '0');
+      const ms = Str.padLeft(String(date.getMilliseconds()), 3, '0');
 
       return `${hours}:${minutes}:${seconds}.${ms}`;
     } catch {

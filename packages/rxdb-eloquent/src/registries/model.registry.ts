@@ -22,7 +22,7 @@
  */
 
 import { Injectable, Inject, type OnModuleInit, type OnModuleDestroy } from '@stackra/ts-container';
-import { BaseRegistry } from '@stackra/ts-support';
+import { BaseRegistry, Str } from '@stackra/ts-support';
 import { ConnectionManager } from '@/connection/connection.manager';
 import { SchemaResolver } from '@/schema/schema.resolver';
 import { MetadataStorage } from '@/metadata/metadata.storage';
@@ -285,7 +285,7 @@ export class ModelRegistry
     if (meta.collection) return meta.collection;
     if (typeof modelClass.getCollectionName === 'function') return modelClass.getCollectionName();
     if (modelClass.collection) return modelClass.collection;
-    return modelClass.name.toLowerCase();
+    return Str.lower(modelClass.name);
   }
 
   private resolveConnectionName(modelClass: ModelClass): string {

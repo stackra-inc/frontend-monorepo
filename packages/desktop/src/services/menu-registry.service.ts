@@ -19,6 +19,7 @@
  */
 
 import { Injectable } from '@stackra/ts-container';
+import { Str } from '@stackra/ts-support';
 
 import { getMetadata } from '@vivtel/metadata';
 import { MENU_METADATA, MENU_ITEM_METADATA } from '@/constants';
@@ -50,13 +51,13 @@ export interface SerializedMenu {
  */
 function acceleratorToKeys(accelerator: string): string[] {
   return accelerator.split('+').map((key) => {
-    const k = key.trim().toLowerCase();
+    const k = Str.lower(Str.trim(key));
     if (k === 'cmdorctrl' || k === 'commandorcontrol') return 'command';
     if (k === 'cmd' || k === 'command') return 'command';
     if (k === 'ctrl' || k === 'control') return 'ctrl';
     if (k === 'alt' || k === 'option') return 'alt';
     if (k === 'shift') return 'shift';
-    return key.trim().toUpperCase();
+    return Str.upper(Str.trim(key));
   });
 }
 

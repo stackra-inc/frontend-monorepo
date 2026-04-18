@@ -1,6 +1,0 @@
-# Generated files — skip formatting
-pnpm-lock.yaml
-dist/
-node_modules/
-coverage/
-*.tsbuildinfo

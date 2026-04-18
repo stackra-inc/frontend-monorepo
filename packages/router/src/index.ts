@@ -9,3 +9,8 @@ export * from './constants';
 export * from './interfaces';
 export * from './decorators';
 export * from './registries';
+
+// ============================================================================
+// Facades
+// ============================================================================
+export { RouteFacade } from './facades';

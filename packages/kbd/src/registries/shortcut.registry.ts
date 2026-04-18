@@ -9,7 +9,7 @@
  */
 
 import { Injectable } from '@stackra/ts-container';
-import { BaseRegistry } from '@stackra/ts-support';
+import { BaseRegistry, Str } from '@stackra/ts-support';
 import type {
   KeyboardShortcut,
   ShortcutGroup,
@@ -86,17 +86,17 @@ export class ShortcutRegistry extends BaseRegistry<KeyboardShortcut> {
       return 'all';
     }
 
-    const userAgent = window.navigator.userAgent.toLowerCase();
+    const userAgent = Str.lower(window.navigator.userAgent);
 
-    if (userAgent.includes('mac')) {
+    if (Str.contains(userAgent, 'mac')) {
       return 'mac';
     }
 
-    if (userAgent.includes('win')) {
+    if (Str.contains(userAgent, 'win')) {
       return 'windows';
     }
 
-    if (userAgent.includes('linux')) {
+    if (Str.contains(userAgent, 'linux')) {
       return 'linux';
     }
 
@@ -178,7 +178,7 @@ export class ShortcutRegistry extends BaseRegistry<KeyboardShortcut> {
    * @returns Normalized keys
    */
   private normalizeKeys(keys: (KeyValue | string)[]): string[] {
-    return keys.map((key) => key.toLowerCase()).sort();
+    return keys.map((key) => Str.lower(key)).sort();
   }
 
   /**
@@ -446,10 +446,11 @@ export class ShortcutRegistry extends BaseRegistry<KeyboardShortcut> {
 
     // Search by name/description
     if (options.search) {
-      const search = options.search.toLowerCase();
+      const search = Str.lower(options.search);
       results = results.filter(
         (s) =>
-          s.name.toLowerCase().includes(search) || s.description?.toLowerCase().includes(search)
+          Str.contains(Str.lower(s.name), search) ||
+          (s.description !== undefined && Str.contains(Str.lower(s.description), search))
       );
     }
 

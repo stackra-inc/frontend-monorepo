@@ -19,6 +19,7 @@
  * ```
  */
 
+import { Str } from '@stackra/ts-support';
 import { Injectable } from '@stackra/ts-container';
 import { HttpMiddleware } from '@/decorators/http-middleware.decorator';
 import type {
@@ -114,7 +115,7 @@ export class LoggingMiddleware implements HttpMiddlewareInterface {
   private buildFullUrl(baseURL?: string, url?: string): string {
     if (!baseURL) return url ?? '/';
     if (!url) return baseURL;
-    return `${baseURL.replace(/\/$/, '')}/${url.replace(/^\//, '')}`;
+    return `${Str.finish(baseURL.replace(/\/$/, ''), '/')}${Str.chopStart(url, '/')}`;
   }
 
   /*

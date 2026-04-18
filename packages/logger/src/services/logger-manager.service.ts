@@ -27,7 +27,7 @@
  */
 
 import { Injectable, Inject, type OnModuleInit, type OnModuleDestroy } from '@stackra/ts-container';
-import { MultipleInstanceManager } from '@stackra/ts-support';
+import { MultipleInstanceManager, Str } from '@stackra/ts-support';
 
 import type { LoggerConfig } from '@/interfaces/logger-config.interface';
 import type { LoggerModuleOptions } from '@/interfaces/logger-module-options.interface';
@@ -219,9 +219,9 @@ export class LoggerManager
     }
     // Use the first transporter's class name as a hint
     const first = config.transporters[0]!;
-    const name = first.constructor.name.toLowerCase();
-    if (name.includes('silent')) return 'silent';
-    if (name.includes('storage')) return 'storage';
+    const name = Str.lower(first.constructor.name);
+    if (Str.contains(name, 'silent')) return 'silent';
+    if (Str.contains(name, 'storage')) return 'storage';
     return 'console';
   }
 }

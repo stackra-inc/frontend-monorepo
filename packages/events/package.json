@@ -1,16 +1,16 @@
 {
-  "name": "@stakra/ts-events",
+  "name": "@stackra/ts-events",
   "version": "0.2.0",
   "description": "Laravel-style event dispatcher for TypeScript — pub/sub with wildcard listeners, subscribers, decorators, multiple drivers (memory, redis, null), and RxJS streaming.",
   "license": "MIT",
   "author": {
-    "name": "Stakra L.L.C",
-    "email": "dev@stakra.com",
-    "url": "https://github.com/stakra"
+    "name": "Stackra L.L.C",
+    "email": "dev@stackra.com",
+    "url": "https://github.com/stackra-co"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/stakra/frontend-monorepo.git",
+    "url": "https://github.com/stackra-co/frontend-monorepo.git",
     "directory": "packages/events"
   },
   "keywords": [
@@ -59,23 +59,23 @@
     "rxjs": "^7.8.1"
   },
   "peerDependencies": {
-    "@stakra/ts-container": "workspace:*",
-    "@stakra/ts-support": "workspace:*",
-    "@stakra/ts-redis": "workspace:*",
+    "@stackra/ts-container": "^2.0.4",
+    "@stackra/ts-support": "workspace:*",
+    "@stackra/ts-redis": "workspace:*",
     "reflect-metadata": "^0.2.2",
     "react": "^18.0.0 || ^19.0.0"
   },
   "peerDependenciesMeta": {
-    "@stakra/ts-container": {
+    "@stackra/ts-container": {
       "optional": false
     },
-    "@stakra/ts-support": {
+    "@stackra/ts-support": {
       "optional": false
     },
     "reflect-metadata": {
       "optional": false
     },
-    "@stakra/ts-redis": {
+    "@stackra/ts-redis": {
       "optional": true
     },
     "react": {

@@ -178,3 +178,8 @@ export {
   CRASH_REPORTER_SERVICE,
   DIAGNOSTICS_SERVICE,
 } from './constants';
+
+// ============================================================================
+// Facades
+// ============================================================================
+export { DesktopFacade } from './facades';

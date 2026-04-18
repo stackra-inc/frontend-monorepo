@@ -1,3 +1,21 @@
+<p align="center">
+  <img src=".github/assets/banner.svg" alt="@stackra/react-theming" width="100%" />
+</p>
+
+<p align="center">
+  <a href="https://www.npmjs.com/package/@stackra/react-theming">
+    <img src="https://img.shields.io/npm/v/@stackra/react-theming?style=flat-square&color=38bdf8&label=npm" alt="npm version" />
+  </a>
+  <a href="./LICENSE">
+    <img src="https://img.shields.io/badge/license-MIT-818cf8?style=flat-square" alt="MIT license" />
+  </a>
+  <a href="https://www.typescriptlang.org/">
+    <img src="https://img.shields.io/badge/TypeScript-5.x-3178c6?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript" />
+  </a>\n  <a href="https://react.dev/">\n    <img src="https://img.shields.io/badge/React-18%2B%20%7C%2019%2B-61dafb?style=flat-square&logo=react&logoColor=white" alt="React" />\n  </a>
+</p>
+
+---
+
 # @stackra/react-theming
 
 Theme management with registry pattern, dark/light mode, customizer panels, and

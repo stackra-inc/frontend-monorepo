@@ -1,16 +1,16 @@
 {
-  "name": "@stakra/react-sdui",
+  "name": "@stackra/react-sdui",
   "version": "1.0.0",
-  "description": "Server-Driven UI package for @stakra/react-refine — fetches page definitions from a backend Pages API and auto-registers routes and services.",
+  "description": "Server-Driven UI package for @stackra/react-refine — fetches page definitions from a backend Pages API and auto-registers routes and services.",
   "license": "MIT",
   "author": {
-    "name": "Stakra L.L.C",
-    "email": "dev@stakra.com",
-    "url": "https://github.com/stakra"
+    "name": "Stackra L.L.C",
+    "email": "dev@stackra.com",
+    "url": "https://github.com/stackra-co"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/stakra/frontend-monorepo.git",
+    "url": "https://github.com/stackra-co/frontend-monorepo.git",
     "directory": "packages/sdui"
   },
   "keywords": [
@@ -74,21 +74,21 @@
     "typescript-eslint": "^8.58.0"
   },
   "peerDependencies": {
-    "@stakra/react-refine": "workspace:*",
-    "@stakra/ts-container": "workspace:*",
-    "@stakra/ts-support": "workspace:*",
-    "@stakra/react-router": "workspace:*",
+    "@stackra/react-refine": "workspace:*",
+    "@stackra/ts-container": "^2.0.4",
+    "@stackra/ts-support": "workspace:*",
+    "@stackra/react-router": "workspace:*",
     "react": "^18.0.0 || ^19.0.0",
     "reflect-metadata": "^0.2.2"
   },
   "peerDependenciesMeta": {
-    "@stakra/react-refine": {
+    "@stackra/react-refine": {
       "optional": false
     },
-    "@stakra/ts-container": {
+    "@stackra/ts-container": {
       "optional": false
     },
-    "@stakra/react-router": {
+    "@stackra/react-router": {
       "optional": true
     },
     "reflect-metadata": {

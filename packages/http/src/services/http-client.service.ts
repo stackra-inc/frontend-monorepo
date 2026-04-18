@@ -44,6 +44,7 @@
 
 import axios from 'axios';
 import { Injectable, Inject } from '@stackra/ts-container';
+import { Str } from '@stackra/ts-support';
 import type { AxiosRequestConfig, AxiosResponse } from 'axios';
 
 import { HTTP_CONFIG, MIDDLEWARE_PIPELINE } from '@/constants';
@@ -331,7 +332,7 @@ export class HttpClient {
     // Build the axios config from our normalized request config.
     const axiosConfig: AxiosRequestConfig = {
       url: request.url,
-      method: request.method?.toLowerCase() ?? 'get',
+      method: Str.lower(request.method ?? 'get'),
       baseURL: request.baseURL,
       headers: request.headers,
       params: request.params,

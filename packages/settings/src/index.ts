@@ -94,3 +94,8 @@ export type { SettingsApiResponse } from './interfaces/settings-api-response.int
 
 // Types
 export type { DriverCreator } from './types/driver-creator.type';
+
+// ============================================================================
+// Facades
+// ============================================================================
+export { SettingsFacade } from './facades';

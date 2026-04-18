@@ -1,4 +1,5 @@
 import { useEffect, useCallback } from 'react';
+import { Str } from '@stackra/ts-support';
 import type { KeyValue } from '@/types';
 
 /**
@@ -99,7 +100,7 @@ export const useKeyboardShortcut = ({
       let allKeysPressed = true;
 
       for (const key of keys) {
-        const lowerKey = key.toLowerCase();
+        const lowerKey = Str.lower(key);
 
         // Check modifier keys
         if (lowerKey in modifierKeys) {
@@ -109,7 +110,7 @@ export const useKeyboardShortcut = ({
           }
         } else {
           // Check regular keys
-          if (event.key.toLowerCase() !== lowerKey) {
+          if (Str.lower(event.key) !== lowerKey) {
             allKeysPressed = false;
             break;
           }

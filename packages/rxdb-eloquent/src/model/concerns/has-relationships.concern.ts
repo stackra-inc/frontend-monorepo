@@ -26,6 +26,7 @@
  * ```
  */
 
+import { Str } from '@stackra/ts-support';
 import { MetadataStorage } from '@/metadata/metadata.storage';
 import type { RelationMetadata } from '@/metadata/metadata.storage';
 import { HasOneRelation } from '@/relations/has-one.relation';
@@ -316,7 +317,7 @@ export function HasRelationships<TBase extends new (...args: any[]) => any>(Base
      * @internal
      */
     _guessModelName(): string {
-      return this.constructor.name.toLowerCase();
+      return Str.lower(this.constructor.name);
     }
 
     /**
@@ -327,7 +328,7 @@ export function HasRelationships<TBase extends new (...args: any[]) => any>(Base
      * @internal
      */
     _guessRelatedModelName(related: any): string {
-      return (related?.name ?? 'related').toLowerCase();
+      return Str.lower(related?.name ?? 'related');
     }
 
     /**

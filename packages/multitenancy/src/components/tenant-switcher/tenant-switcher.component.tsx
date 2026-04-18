@@ -13,6 +13,7 @@
  */
 
 import React, { useState, useMemo } from 'react';
+import { Str } from '@stackra/ts-support';
 import { Button, Modal, Input, ListBox } from '@heroui/react';
 import { useTenant, useTenantSwitch } from '@/hooks';
 import type { Tenant } from '@/types';
@@ -195,7 +196,7 @@ export const TenantSwitcher: React.FC<TenantSwitcherProps> = ({
     }
 
     // Default filter: search by name
-    return tenants.filter((t) => t.name.toLowerCase().includes(searchQuery.toLowerCase()));
+    return tenants.filter((t) => Str.contains(Str.lower(t.name), Str.lower(searchQuery)));
   }, [tenants, searchQuery, filterTenant]);
 
   /**

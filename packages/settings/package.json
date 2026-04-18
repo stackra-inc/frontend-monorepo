@@ -1,12 +1,12 @@
 {
-  "name": "@stakra/ts-settings",
+  "name": "@stackra/ts-settings",
   "version": "1.0.1",
   "description": "Registry-based settings system with typed DTOs, JSON schema validation, and modular registration for React applications",
   "license": "MIT",
   "author": {
-    "name": "Stakra L.L.C",
-    "email": "dev@stakra.com",
-    "url": "https://github.com/stakra"
+    "name": "Stackra L.L.C",
+    "email": "dev@stackra.com",
+    "url": "https://github.com/stackra-co"
   },
   "keywords": [
     "react",
@@ -50,19 +50,19 @@
     "release": "pnpm publish --access public --no-git-checks"
   },
   "peerDependencies": {
-    "@stakra/ts-container": "workspace:*",
-    "@stakra/ts-support": "workspace:*",
-    "@stakra/ts-cache": "workspace:*",
+    "@stackra/ts-container": "^2.0.4",
+    "@stackra/ts-support": "workspace:*",
+    "@stackra/ts-cache": "workspace:*",
     "react": "^18.0.0 || ^19.0.0"
   },
   "peerDependenciesMeta": {
-    "@stakra/ts-container": {
+    "@stackra/ts-container": {
       "optional": false
     },
-    "@stakra/ts-support": {
+    "@stackra/ts-support": {
       "optional": false
     },
-    "@stakra/ts-cache": {
+    "@stackra/ts-cache": {
       "optional": true
     },
     "react": {

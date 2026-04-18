@@ -20,6 +20,7 @@
  * ```
  */
 
+import { Str } from '@stackra/ts-support';
 import { MetadataStorage } from '@/metadata/metadata.storage';
 
 // ---------------------------------------------------------------------------
@@ -196,10 +197,7 @@ function applyCastSet(castType: CastType, value: any): any {
  * @returns The PascalCase version (e.g. 'FirstName', 'Email').
  */
 function toPascalCase(key: string): string {
-  return key
-    .split('_')
-    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
-    .join('');
+  return Str.studly(key);
 }
 
 // ---------------------------------------------------------------------------

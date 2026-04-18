@@ -9,6 +9,7 @@
  */
 
 import React, { useState, useMemo } from 'react';
+import { Str } from '@stackra/ts-support';
 import { RefineKbd } from '@/components/refine-kbd';
 import { useShortcutRegistry } from '@/hooks/use-shortcut-registry';
 import { shortcutRegistry } from '@/registries/shortcut.registry';
@@ -142,13 +143,14 @@ export const ShortcutList: React.FC<ShortcutListProps> = ({
 
     // Apply search filter
     if (searchQuery) {
-      const query = searchQuery.toLowerCase();
+      const query = Str.lower(searchQuery);
       result = result.filter(
         (shortcut) =>
-          shortcut.name.toLowerCase().includes(query) ||
-          shortcut.description?.toLowerCase().includes(query) ||
-          shortcut.id.toLowerCase().includes(query) ||
-          shortcut.tags?.some((tag) => tag.toLowerCase().includes(query))
+          Str.contains(Str.lower(shortcut.name), query) ||
+          (shortcut.description !== undefined &&
+            Str.contains(Str.lower(shortcut.description), query)) ||
+          Str.contains(Str.lower(shortcut.id), query) ||
+          shortcut.tags?.some((tag) => Str.contains(Str.lower(tag), query))
       );
     }
 

@@ -1,12 +1,12 @@
 {
-  "name": "@stakra/react-auth",
+  "name": "@stackra/react-auth",
   "version": "1.0.0",
   "description": "Authentication, session management, and security for React applications",
   "license": "MIT",
   "author": {
-    "name": "Stakra L.L.C",
-    "email": "dev@stakra.com",
-    "url": "https://github.com/stakra"
+    "name": "Stackra L.L.C",
+    "email": "dev@stackra.com",
+    "url": "https://github.com/stackra-co"
   },
   "keywords": [
     "react",
@@ -52,11 +52,13 @@
     "test:watch": "vitest"
   },
   "dependencies": {
-    "tslib": "^2.8.1"
+    "tslib": "^2.8.1",
+    "@stackra/ts-support": "workspace:*",
+    "@stackra/ts-container": "^2.0.4"
   },
   "devDependencies": {
-    "@stakra/ts-events": "workspace:^",
-    "@stakra/ts-http": "workspace:^",
+    "@stackra/ts-events": "workspace:^",
+    "@stackra/ts-http": "workspace:^",
     "@nesvel/eslint-config": "^1.0.5",
     "@nesvel/prettier-config": "^1.0.3",
     "@nesvel/tsup-config": "^1.0.3",
@@ -72,25 +74,25 @@
     "vitest": "^4.1.2"
   },
   "peerDependencies": {
-    "@stakra/ts-container": "workspace:*",
-    "@stakra/ts-events": "workspace:*",
-    "@stakra/ts-http": "workspace:*",
-    "@stakra/ts-cache": "workspace:*",
+    "@stackra/ts-container": "^2.0.4",
+    "@stackra/ts-events": "workspace:*",
+    "@stackra/ts-http": "workspace:*",
+    "@stackra/ts-cache": "workspace:*",
     "@tanstack/react-query": "^5.0.0",
     "react": "^18.0.0 || ^19.0.0",
     "reflect-metadata": "^0.2.2"
   },
   "peerDependenciesMeta": {
-    "@stakra/ts-container": {
+    "@stackra/ts-container": {
       "optional": false
     },
-    "@stakra/ts-http": {
+    "@stackra/ts-http": {
       "optional": false
     },
-    "@stakra/ts-events": {
+    "@stackra/ts-events": {
       "optional": true
     },
-    "@stakra/ts-cache": {
+    "@stackra/ts-cache": {
       "optional": true
     },
     "@tanstack/react-query": {

@@ -82,3 +82,8 @@ export {
   ON_EVENT_METADATA,
   EVENT_SUBSCRIBER_METADATA,
 } from './constants';
+
+// ============================================================================
+// Facades
+// ============================================================================
+export { EventFacade } from './facades';

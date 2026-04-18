@@ -69,3 +69,8 @@ export { StorageTransporter } from './transporters';
 // ============================================================================
 export { useLogger } from './hooks/use-logger';
 export { useLoggerContext } from './hooks/use-logger-context';
+
+// ============================================================================
+// Facades
+// ============================================================================
+export { LogFacade } from './facades';

@@ -1,3 +1,4 @@
+import { Str } from '@stackra/ts-support';
 import type { KeyValue } from '@/types';
 
 /**
@@ -61,10 +62,10 @@ export const isKeyValue = (key: string): key is KeyValue => {
  * @public
  */
 export const getKeyMapping = (key: string): { symbol: string; title: string } => {
-  const lowerKey = key.toLowerCase();
+  const lowerKey = Str.lower(key);
   if (isKeyValue(lowerKey)) {
     return keyMappings[lowerKey];
   }
   // For regular keys (like letters), return the key itself
-  return { symbol: key.toUpperCase(), title: key.toUpperCase() };
+  return { symbol: Str.upper(key), title: Str.upper(key) };
 };

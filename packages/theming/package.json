@@ -1,5 +1,5 @@
 {
-  "name": "@stakra/react-theming",
+  "name": "@stackra/react-theming",
   "version": "1.0.0",
   "private": false,
   "type": "module",
@@ -43,20 +43,20 @@
   "peerDependencies": {
     "react": "^18.0.0 || ^19.0.0",
     "react-dom": "^18.0.0 || ^19.0.0",
-    "@stakra/ts-ui": "workspace:*",
-    "@stakra/ts-container": "workspace:*",
-    "@stakra/ts-support": "workspace:*",
+    "@stackra/ts-ui": "workspace:*",
+    "@stackra/ts-container": "^2.0.4",
+    "@stackra/ts-support": "workspace:*",
     "@heroui/react": "^3.0.0",
     "reflect-metadata": "^0.2.2"
   },
   "peerDependenciesMeta": {
-    "@stakra/ts-container": {
+    "@stackra/ts-container": {
       "optional": false
     },
-    "@stakra/ts-support": {
+    "@stackra/ts-support": {
       "optional": false
     },
-    "@stakra/ts-ui": {
+    "@stackra/ts-ui": {
       "optional": true
     },
     "@heroui/react": {

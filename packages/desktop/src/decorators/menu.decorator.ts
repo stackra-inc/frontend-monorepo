@@ -20,6 +20,7 @@
  */
 
 import { defineMetadata } from '@vivtel/metadata';
+import { Str } from '@stackra/ts-support';
 import { MENU_METADATA } from '@/constants';
 import type { MenuMetadata } from '@/interfaces';
 
@@ -28,7 +29,7 @@ export function Menu(id: string, options?: { label?: string; order?: number }): 
   return (target: Function) => {
     const metadata: MenuMetadata = {
       id,
-      label: options?.label ?? id.charAt(0).toUpperCase() + id.slice(1),
+      label: options?.label ?? Str.ucfirst(id),
       order: options?.order,
     };
     defineMetadata(MENU_METADATA, metadata, target as object);

@@ -1,9 +1,9 @@
 {
-  "name": "@stakra/ts-ui",
+  "name": "@stackra/ts-ui",
   "version": "1.0.0",
   "private": false,
   "type": "module",
-  "description": "Shared UI primitives — slot system, layout components, and composable patterns for @Stakra packages",
+  "description": "Shared UI primitives — slot system, layout components, and composable patterns for @Stackra packages",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -34,8 +34,8 @@
     "release": "pnpm publish --access public --no-git-checks"
   },
   "peerDependencies": {
-    "@stakra/ts-support": "workspace:*",
-    "@stakra/ts-container": "workspace:*",
+    "@stackra/ts-support": "workspace:*",
+    "@stackra/ts-container": "^2.0.4",
     "react": "^18.0.0 || ^19.0.0"
   },
   "peerDependenciesMeta": {

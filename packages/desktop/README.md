@@ -1,7 +1,28 @@
+<p align="center">
+  <img src=".github/assets/banner.svg" alt="@stackra/ts-desktop" width="100%" />
+</p>
+
+<p align="center">
+  <a href="https://www.npmjs.com/package/@stackra/ts-desktop">
+    <img src="https://img.shields.io/npm/v/@stackra/ts-desktop?style=flat-square&color=38bdf8&label=npm" alt="npm version" />
+  </a>
+  <a href="./LICENSE">
+    <img src="https://img.shields.io/badge/license-MIT-818cf8?style=flat-square" alt="MIT license" />
+  </a>
+  <a href="https://www.typescriptlang.org/">
+    <img src="https://img.shields.io/badge/TypeScript-5.x-3178c6?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript" />
+  </a>
+  <a href="https://www.electronjs.org/">
+    <img src="https://img.shields.io/badge/Electron-latest-47848f?style=flat-square&logo=electron&logoColor=white" alt="Electron" />
+  </a>
+</p>
+
+---
+
 # @stackra/ts-desktop
 
-Platform-agnostic Electron desktop integration with DI, decorators, and 23
-injectable services.
+Electron desktop integration — menu decorators, window management, platform
+bridge, and DI module. Brings NestJS-style DI to Electron main process code.
 
 ## Installation
 
@@ -11,50 +32,45 @@ pnpm add @stackra/ts-desktop
 
 ## Features
 
-- 23 injectable services across 7 domains (POS hardware, offline/sync, window
-  management, security, system integration, updates, diagnostics)
-- Platform abstraction — ElectronBridge (real IPC) or BrowserBridge (graceful
-  fallbacks)
-- @Menu() / @MenuItem() decorators for native Electron menus
-- Kbd integration — menu shortcuts auto-register with ShortcutRegistry
-- Generic IPC — services use `bridge.invoke('channel', ...args)`, no preload
-  changes needed
-- Handler map pattern — one file per domain in the main process
+- 🖥️ `@Menu()` / `@MenuItem()` decorators for declarative menu building
+- 🪟 `@Window()` decorator for window management
+- 🌉 Platform bridge for renderer ↔ main IPC
+- 💉 Full `@stackra/ts-container` DI support
+- 🏗️ `DesktopModule.forRoot()` pattern
+- 🔔 System tray integration
+- ⌨️ Global shortcut registration
 
-## Usage
+## Quick Start
 
 ```typescript
 import { Module } from '@stackra/ts-container';
 import { DesktopModule } from '@stackra/ts-desktop';
 
 @Module({
-  imports: [
-    DesktopModule.forRoot({
-      appName: 'My POS',
-      titleBarStyle: 'hiddenInset',
-      autoUpdate: true,
-      printer: { type: 'usb', vendorId: 0x04b8, productId: 0x0202 },
-      scanner: { keystrokeThreshold: 50, minLength: 8 },
-      offline: { pingUrl: '/api/health', pingInterval: 30000 },
-      lock: { idleTimeout: 300 },
-    }),
-    DesktopModule.forFeature([FileMenu, EditMenu]),
-  ],
+  imports: [DesktopModule.forRoot()],
+  providers: [FileMenu, EditMenu, MainWindow],
 })
 export class AppModule {}
 ```
 
-## Services
+```typescript
+import { Menu, MenuItem, Injectable } from '@stackra/ts-desktop';
 
-| Domain         | Services                                                                                                   |
-| -------------- | ---------------------------------------------------------------------------------------------------------- |
-| POS Hardware   | PrinterService, EscPosFormatter, CashDrawerService, ScannerService, ScaleService, DisplayService           |
-| Offline & Sync | OfflineService, SyncService                                                                                |
-| Window & Shell | WindowService, TrayService, DockService                                                                    |
-| Security       | AuthNativeService, KeychainService, LockService                                                            |
-| System         | ClipboardService, FileSystemService, ProtocolService, PowerService, NotificationService, PermissionService |
-| Updates        | AutoUpdateService, CrashReporterService, DiagnosticsService                                                |
+@Menu({ label: 'File' })
+@Injectable()
+class FileMenu {
+  @MenuItem({ label: 'Open', accelerator: 'CmdOrCtrl+O' })
+  open() {
+    // handle open
+  }
+
+  @MenuItem({ label: 'Save', accelerator: 'CmdOrCtrl+S' })
+  save() {
+    // handle save
+  }
+}
+```
 
 ## License
 
-MIT
+MIT © [Stackra](https://github.com/stackra-co)

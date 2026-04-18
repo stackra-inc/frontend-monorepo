@@ -1,5 +1,5 @@
 # =============================================================================
-# Publish — @stakra/ts-http
+# Publish — @stackra/ts-http
 #
 # Triggered by:
 #   - Pushing a semver tag  (v1.2.3 / v1.2.3-beta.0)
@@ -40,6 +40,9 @@ concurrency:
   group: publish-${{ github.ref }}
   cancel-in-progress: false
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   # ---------------------------------------------------------------------------
   # Validate — confirm tag matches package.json version
@@ -52,7 +55,7 @@ jobs:
       tag: ${{ steps.tag.outputs.tag }}
       is_prerelease: ${{ steps.tag.outputs.is_prerelease }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: 📋 Read package version
         id: pkg
@@ -90,7 +93,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: validate
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: ./.github/actions/setup
 
       - name: 🔷 Type check
@@ -103,7 +106,7 @@ jobs:
         run: pnpm test
 
       - name: 📤 Upload dist artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: dist-publish-${{ github.sha }}
           path: dist/
@@ -122,21 +125,21 @@ jobs:
       id-token: write # required for npm provenance
     environment:
       name: npm
-      url: https://www.npmjs.com/package/@stakra/ts-http
+      url: https://www.npmjs.com/package/@stackra/ts-http
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: ./.github/actions/setup
         with:
           node-version: "22"
 
       - name: 📥 Download dist artifact
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v6
         with:
           name: dist-publish-${{ github.sha }}
           path: dist/
 
       - name: 🔧 Configure npm registry
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: "22"
           registry-url: "https://registry.npmjs.org"
@@ -157,7 +160,7 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
@@ -172,7 +175,7 @@ jobs:
           if [ ! -s release_body.md ]; then
             echo "Release v${VERSION}" > release_body.md
           fi
-          echo "See [CHANGELOG](https://github.com/stakraco/http/blob/main/CHANGELOG.md) for full details." >> release_body.md
+          echo "See [CHANGELOG](https://github.com/stackra-co/ts-http/blob/main/CHANGELOG.md) for full details." >> release_body.md
 
       - name: 🎉 Create Release
         uses: softprops/action-gh-release@v2
@@ -197,6 +200,10 @@ jobs:
       github.event.inputs.dry_run != 'true' &&
       startsWith(github.ref, 'refs/tags/')
     steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
       - name: 🔍 Check if Slack webhook is configured
         id: check
         run: |
@@ -206,6 +213,77 @@ jobs:
             echo "configured=false" >> $GITHUB_OUTPUT
             echo "ℹ️ SLACK_WEBHOOK_URL not set — skipping Slack notification"
           fi
+
+      - name: 📝 Extract release notes & metadata
+        if: steps.check.outputs.configured == 'true'
+        id: notes
+        run: |
+          VERSION="${{ needs.validate.outputs.version }}"
+          TAG="${{ needs.validate.outputs.tag }}"
+
+          # --- Extract changelog section for this version ---
+          NOTES=$(awk "/^## ${VERSION}|^## \[${VERSION}\]/{found=1; next} found && /^## /{exit} found{print}" CHANGELOG.md \
+            | sed '/^[[:space:]]*$/d' \
+            | head -25)
+
+          if [ -z "$NOTES" ]; then
+            NOTES="No changelog entry found for ${VERSION}."
+          fi
+
+          # --- Convert GitHub-flavored markdown → Slack mrkdwn ---
+          # ### Headers → *Bold headers*
+          NOTES=$(echo "$NOTES" | sed -E 's/^###+ (.+)/*\1*/')
+          # **bold** → *bold*  (Slack uses single asterisks)
+          NOTES=$(echo "$NOTES" | sed -E 's/\*\*([^*]+)\*\*/\*\1\*/g')
+          # `code` stays as-is (Slack supports backtick code)
+          # - list items → • list items
+          NOTES=$(echo "$NOTES" | sed -E 's/^- /• /')
+          # Remove leading/trailing whitespace on lines
+          NOTES=$(echo "$NOTES" | sed -E 's/^[[:space:]]+//')
+          # Collapse continuation lines (lines starting with text after a bullet)
+          NOTES=$(echo "$NOTES" | awk '
+            /^• / { if (NR>1) printf "\n"; printf "%s", $0; next }
+            /^\*/ { if (NR>1) printf "\n"; printf "%s", $0; next }
+            /^---/ { next }
+            { printf " %s", $0 }
+            END { printf "\n" }
+          ')
+
+          # Escape for JSON (quotes → \", then join lines with \n)
+          NOTES_ESCAPED=$(echo "$NOTES" | sed 's/"/\\"/g' | awk '{printf "%s\\n", $0}' | sed 's/\\n$//')
+
+          # --- Previous tag for compare link ---
+          PREV_TAG=$(git tag --sort=-v:refname | grep -E '^v[0-9]' | sed -n '2p')
+          if [ -n "$PREV_TAG" ]; then
+            echo "prev_tag=${PREV_TAG}" >> $GITHUB_OUTPUT
+            echo "has_prev=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_prev=false" >> $GITHUB_OUTPUT
+          fi
+
+          # --- Commit count since previous tag ---
+          if [ -n "$PREV_TAG" ]; then
+            COMMIT_COUNT=$(git rev-list "${PREV_TAG}..${TAG}" --count 2>/dev/null || echo "?")
+          else
+            COMMIT_COUNT="?"
+          fi
+
+          # --- Short SHA ---
+          SHORT_SHA=$(echo "${{ github.sha }}" | cut -c1-7)
+
+          # --- Pre-release label ---
+          if [ "${{ needs.validate.outputs.is_prerelease }}" = "true" ]; then
+            RELEASE_TYPE="🧪 Pre-release"
+          else
+            RELEASE_TYPE="🟢 Stable"
+          fi
+
+          echo "notes<<NOTES_EOF" >> $GITHUB_OUTPUT
+          echo "$NOTES_ESCAPED" >> $GITHUB_OUTPUT
+          echo "NOTES_EOF" >> $GITHUB_OUTPUT
+          echo "commit_count=${COMMIT_COUNT}" >> $GITHUB_OUTPUT
+          echo "short_sha=${SHORT_SHA}" >> $GITHUB_OUTPUT
+          echo "release_type=${RELEASE_TYPE}" >> $GITHUB_OUTPUT
 
       - name: 💬 Notify Slack — success
         if: |
@@ -218,13 +296,19 @@ jobs:
           webhook-type: incoming-webhook
           payload: |
             {
-              "text": "✅ *@stakra/ts-http ${{ needs.validate.outputs.tag }}* published to npm",
+              "text": "✅ @stackra/ts-http ${{ needs.validate.outputs.tag }} published to npm",
               "blocks": [
+                {
+                  "type": "image",
+                  "image_url": "https://raw.githubusercontent.com/stackra-co/ts-http/main/.github/assets/banner.png",
+                  "alt_text": "@stackra/ts-http banner"
+                },
                 {
                   "type": "header",
                   "text": {
                     "type": "plain_text",
-                    "text": "🚀 New Release: @stakra/ts-http ${{ needs.validate.outputs.tag }}"
+                    "text": "📦 @stackra/ts-http ${{ needs.validate.outputs.tag }}",
+                    "emoji": true
                   }
                 },
                 {
@@ -236,15 +320,78 @@ jobs:
                     },
                     {
                       "type": "mrkdwn",
+                      "text": "*Release Type:*\n${{ steps.notes.outputs.release_type }}"
+                    },
+                    {
+                      "type": "mrkdwn",
                       "text": "*Version:*\n`${{ needs.validate.outputs.version }}`"
                     },
                     {
                       "type": "mrkdwn",
-                      "text": "*npm:*\n<https://www.npmjs.com/package/@stakra/ts-http/v/${{ needs.validate.outputs.version }}|View on npm>"
+                      "text": "*Commits:*\n${{ steps.notes.outputs.commit_count }} since last release"
+                    }
+                  ]
+                },
+                {
+                  "type": "divider"
+                },
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "*📋 Release Notes:*\n${{ steps.notes.outputs.notes }}"
+                  }
+                },
+                {
+                  "type": "divider"
+                },
+                {
+                  "type": "actions",
+                  "elements": [
+                    {
+                      "type": "button",
+                      "text": {
+                        "type": "plain_text",
+                        "text": "📦 npm",
+                        "emoji": true
+                      },
+                      "url": "https://www.npmjs.com/package/@stackra/ts-http/v/${{ needs.validate.outputs.version }}"
                     },
                     {
+                      "type": "button",
+                      "text": {
+                        "type": "plain_text",
+                        "text": "🏷️ GitHub Release",
+                        "emoji": true
+                      },
+                      "url": "https://github.com/stackra-co/ts-http/releases/tag/${{ needs.validate.outputs.tag }}"
+                    },
+                    {
+                      "type": "button",
+                      "text": {
+                        "type": "plain_text",
+                        "text": "📝 Full Changelog",
+                        "emoji": true
+                      },
+                      "url": "https://github.com/stackra-co/ts-http/blob/main/CHANGELOG.md"
+                    },
+                    {
+                      "type": "button",
+                      "text": {
+                        "type": "plain_text",
+                        "text": "⚙️ Workflow Run",
+                        "emoji": true
+                      },
+                      "url": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+                    }
+                  ]
+                },
+                {
+                  "type": "context",
+                  "elements": [
+                    {
                       "type": "mrkdwn",
-                      "text": "*Release:*\n<https://github.com/stakraco/http/releases/tag/${{ needs.validate.outputs.tag }}|View on GitHub>"
+                      "text": "Triggered by *${{ github.actor }}* · Commit `${{ steps.notes.outputs.short_sha }}` · <https://github.com/stackra-co/ts-http/compare/${{ steps.notes.outputs.prev_tag }}...${{ needs.validate.outputs.tag }}|Compare changes>"
                     }
                   ]
                 }
@@ -261,13 +408,14 @@ jobs:
           webhook-type: incoming-webhook
           payload: |
             {
-              "text": "❌ *@stakra/ts-http ${{ needs.validate.outputs.tag }}* publish FAILED",
+              "text": "❌ @stackra/ts-http ${{ needs.validate.outputs.tag }} publish FAILED",
               "blocks": [
                 {
                   "type": "header",
                   "text": {
                     "type": "plain_text",
-                    "text": "❌ Publish Failed: @stakra/ts-http ${{ needs.validate.outputs.tag }}"
+                    "text": "❌ Publish Failed: @stackra/ts-http ${{ needs.validate.outputs.tag }}",
+                    "emoji": true
                   }
                 },
                 {
@@ -283,7 +431,47 @@ jobs:
                     },
                     {
                       "type": "mrkdwn",
-                      "text": "*Run:*\n<${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|View logs>"
+                      "text": "*Version:*\n`${{ needs.validate.outputs.version }}`"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Tag:*\n`${{ needs.validate.outputs.tag }}`"
+                    }
+                  ]
+                },
+                {
+                  "type": "divider"
+                },
+                {
+                  "type": "actions",
+                  "elements": [
+                    {
+                      "type": "button",
+                      "text": {
+                        "type": "plain_text",
+                        "text": "🔍 View Logs",
+                        "emoji": true
+                      },
+                      "style": "danger",
+                      "url": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+                    },
+                    {
+                      "type": "button",
+                      "text": {
+                        "type": "plain_text",
+                        "text": "🔄 Re-run Workflow",
+                        "emoji": true
+                      },
+                      "url": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+                    }
+                  ]
+                },
+                {
+                  "type": "context",
+                  "elements": [
+                    {
+                      "type": "mrkdwn",
+                      "text": "Triggered by *${{ github.actor }}* · Commit `${{ steps.notes.outputs.short_sha }}`"
                     }
                   ]
                 }

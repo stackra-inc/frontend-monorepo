@@ -9,6 +9,7 @@
  */
 
 import { useEffect, useCallback } from 'react';
+import { Str } from '@stackra/ts-support';
 import { shortcutRegistry } from '@/registries/shortcut.registry';
 
 /**
@@ -142,7 +143,7 @@ export const useShortcut = ({
       let hasNonModifier = false;
 
       for (const key of keys) {
-        const lowerKey = key.toLowerCase();
+        const lowerKey = Str.lower(key);
 
         // Check modifier keys
         if (lowerKey in modifierKeys) {
@@ -153,10 +154,7 @@ export const useShortcut = ({
         } else {
           // Check regular keys
           hasNonModifier = true;
-          if (
-            event.key.toLowerCase() !== lowerKey &&
-            event.code.toLowerCase() !== lowerKey.toLowerCase()
-          ) {
+          if (Str.lower(event.key) !== lowerKey && Str.lower(event.code) !== Str.lower(lowerKey)) {
             allKeysPressed = false;
             break;
           }

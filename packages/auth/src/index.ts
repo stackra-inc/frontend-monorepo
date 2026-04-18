@@ -17,3 +17,8 @@ export * from './services';
 export * from './interfaces';
 export * from './enums';
 export * from './constants';
+
+// ============================================================================
+// Facades
+// ============================================================================
+export { AuthFacade } from './facades';

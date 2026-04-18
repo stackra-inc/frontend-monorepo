@@ -1,33 +1,11 @@
 /**
  * Wildcard Utility
  *
- * |--------------------------------------------------------------------------
- * | Wildcard Matching for Event Names
- * |--------------------------------------------------------------------------
- * |
- * | Matches event names against wildcard patterns using dot-separated
- * | segments. Supports two wildcard types:
- * |
- * |   `*`  — matches exactly ONE segment (between dots)
- * |   `**` — matches ONE OR MORE segments
- * |
- * | Compiled regexes are cached to avoid repeated compilation and
- * | protect against ReDoS on hot paths.
- * |
  * @module @stackra/ts-events
  * @category Utils
- *
- * @example
- * ```typescript
- * isWildcard('user.*');           // true
- * isWildcard('user.created');     // false
- *
- * matchesWildcard('user.*', 'user.created');          // true
- * matchesWildcard('user.*', 'user.profile.updated');  // false
- * matchesWildcard('user.**', 'user.profile.updated'); // true
- * matchesWildcard('*.created', 'user.created');       // true
- * ```
  */
+
+import { Str } from '@stackra/ts-support';
 
 /*
 |--------------------------------------------------------------------------
@@ -56,7 +34,7 @@ const regexCache = new Map<string, RegExp>();
  * @returns `true` if the pattern is a wildcard.
  */
 export function isWildcard(pattern: string): boolean {
-  return pattern.includes('*');
+  return Str.contains(pattern, '*');
 }
 
 /**
