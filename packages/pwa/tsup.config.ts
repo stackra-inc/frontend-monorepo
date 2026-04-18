@@ -1,5 +1,5 @@
 /**
- * @fileoverview tsup build configuration for @abdokouta/ts-pwa
+ * @fileoverview tsup build configuration for @stackra/ts-pwa
  *
  * Uses the @nesvel/tsup-config base preset which automatically handles:
  * - Dual format output (ESM + CJS)
@@ -13,7 +13,7 @@
  *   dist/index.js    — CJS (Node.js, legacy bundlers)
  *   dist/index.d.ts  — TypeScript declarations
  *
- * @module @abdokouta/ts-pwa
+ * @module @stackra/ts-pwa
  * @category Configuration
  * @see https://tsup.egoist.dev/
  */
@@ -23,6 +23,6 @@ import { basePreset as preset } from '@nesvel/tsup-config';
 export default {
   ...preset,
 
-  // Separate entry for the Vite plugin so consumers can import from '@abdokouta/ts-pwa/vite-plugin'
+  // Separate entry for the Vite plugin so consumers can import from '@stackra/ts-pwa/vite-plugin'
   entry: ['src/index.ts', 'src/plugins/vite.plugin.ts'],
 };

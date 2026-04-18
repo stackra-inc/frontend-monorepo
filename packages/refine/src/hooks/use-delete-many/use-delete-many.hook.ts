@@ -1,4 +1,4 @@
-/** @fileoverview useDeleteMany hook. @module @abdokouta/react-refine @category Hooks */
+/** @fileoverview useDeleteMany hook. @module @stackra/react-refine @category Hooks */
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { resolveService } from '@/hooks/use-service.util';
 import { QueryKeyFactory } from '@/utils/query-key-factory.util';

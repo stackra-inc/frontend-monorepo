@@ -1,6 +1,6 @@
-/** @fileoverview useInfiniteList hook — infinite scrolling list. @module @abdokouta/react-refine @category Hooks */
+/** @fileoverview useInfiniteList hook — infinite scrolling list. @module @stackra/react-refine @category Hooks */
 import { useInfiniteQuery } from '@tanstack/react-query';
-import { resolveService } from '../use-service.util';
+import { resolveService } from '@/use-service.util';
 import { QueryKeyFactory } from '@/utils/query-key-factory.util';
 import type { GetListParams } from '@/interfaces/get-list-params.interface';
 import type { UseInfiniteListProps } from '@/interfaces/use-infinite-list-props.interface';

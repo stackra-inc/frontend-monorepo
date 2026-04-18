@@ -3,7 +3,7 @@
  *
  * Defines all available shortcut contexts used throughout the application.
  *
- * @module @abdokouta/kbd
+ * @module @stackra/kbd
  * @category Constants
  */
 

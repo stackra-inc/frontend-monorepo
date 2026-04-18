@@ -1,5 +1,5 @@
 /**
- * @abdokouta/ts-desktop
+ * @stackra/ts-desktop
  *
  * |--------------------------------------------------------------------------
  * | Electron Desktop Integration
@@ -25,7 +25,7 @@
  * |   DesktopModule.forFeature(menus)  — register @Menu classes from modules
  * |   DesktopModule.registerMenu(cls)  — register a single @Menu class
  * |
- * @module @abdokouta/ts-desktop
+ * @module @stackra/ts-desktop
  */
 
 import 'reflect-metadata';

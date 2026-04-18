@@ -1,12 +1,12 @@
 {
-  "name": "@abdokouta/ts-settings",
+  "name": "@stakra/ts-settings",
   "version": "1.0.1",
   "description": "Registry-based settings system with typed DTOs, JSON schema validation, and modular registration for React applications",
   "license": "MIT",
   "author": {
-    "name": "Abdelrhman Kouta",
-    "email": "abdelrhman@pixielity.com",
-    "url": "https://github.com/abdokouta"
+    "name": "Stakra L.L.C",
+    "email": "dev@stakra.com",
+    "url": "https://github.com/stakra"
   },
   "keywords": [
     "react",
@@ -50,19 +50,19 @@
     "release": "pnpm publish --access public --no-git-checks"
   },
   "peerDependencies": {
-    "@abdokouta/ts-container": "workspace:*",
-    "@abdokouta/ts-support": "workspace:*",
-    "@abdokouta/ts-cache": "workspace:*",
+    "@stakra/ts-container": "workspace:*",
+    "@stakra/ts-support": "workspace:*",
+    "@stakra/ts-cache": "workspace:*",
     "react": "^18.0.0 || ^19.0.0"
   },
   "peerDependenciesMeta": {
-    "@abdokouta/ts-container": {
+    "@stakra/ts-container": {
       "optional": false
     },
-    "@abdokouta/ts-support": {
+    "@stakra/ts-support": {
       "optional": false
     },
-    "@abdokouta/ts-cache": {
+    "@stakra/ts-cache": {
       "optional": true
     },
     "react": {
@@ -92,5 +92,6 @@
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
-  }
+  },
+  "packageManager": "pnpm@10.33.0"
 }

@@ -1,15 +1,15 @@
-# @abdokouta/kbd Package Summary
+# @stackra/kbd Package Summary
 
 ## Overview
 
-The `@abdokouta/kbd` package is a production-ready keyboard shortcut display
+The `@stackra/kbd` package is a production-ready keyboard shortcut display
 component library for refine applications, built on top of HeroUI's Kbd
 component. It provides a simple, accessible, and visually appealing way to
 display keyboard shortcuts in your UI.
 
 ## Package Information
 
-- **Name**: `@abdokouta/kbd`
+- **Name**: `@stackra/kbd`
 - **Version**: 1.0.0
 - **License**: MIT
 - **Repository**: https://github.com/refinedev/refine
@@ -17,7 +17,7 @@ display keyboard shortcuts in your UI.
 
 ## Key Features
 
-✅ **100% Compatible with Refine**: Follows the same patterns as @abdokouta/kbar
+✅ **100% Compatible with Refine**: Follows the same patterns as @stackra/kbar
 and other refine packages ✅ **Full HeroUI Integration**: Built on HeroUI v3 Kbd
 component with complete theming support ✅ **TypeScript Support**: Comprehensive
 type definitions for all APIs ✅ **Production Ready**: Complete with tests,
@@ -133,7 +133,7 @@ packages/kbd/
 ### Basic Usage
 
 ```tsx
-import { RefineKbd } from '@abdokouta/kbd';
+import { RefineKbd } from '@stackra/kbd';
 
 <RefineKbd keys={['command', 'K']} />;
 ```
@@ -141,7 +141,7 @@ import { RefineKbd } from '@abdokouta/kbd';
 ### With Keyboard Hook
 
 ```tsx
-import { RefineKbd, useKeyboardShortcut } from '@abdokouta/kbd';
+import { RefineKbd, useKeyboardShortcut } from '@stackra/kbd';
 
 useKeyboardShortcut({
   keys: ['command', 'K'],
@@ -172,7 +172,7 @@ useKeyboardShortcut({
 ### Peer Dependencies
 
 - `@heroui/react`: ^3.0.0
-- `@abdokouta/core`: ^5.0.0
+- `@stackra/core`: ^5.0.0
 - `react`: ^18.0.0 || ^19.0.0
 - `react-dom`: ^18.0.0 || ^19.0.0
 
@@ -263,9 +263,9 @@ pnpm test:watch    # Watch mode
 - ✅ Screen reader support
 - ✅ Keyboard navigation
 
-## Comparison with @abdokouta/kbar
+## Comparison with @stackra/kbar
 
-| Feature             | @abdokouta/kbar          | @abdokouta/kbd                |
+| Feature             | @stackra/kbar            | @stackra/kbd                  |
 | ------------------- | ------------------------ | ----------------------------- |
 | Purpose             | Command palette          | Keyboard shortcut display     |
 | Main Component      | RefineKbar               | RefineKbd                     |
@@ -278,9 +278,9 @@ pnpm test:watch    # Watch mode
 
 ### Works Well With
 
-- ✅ @abdokouta/kbar (command palette)
-- ✅ @abdokouta/heroui (UI components)
-- ✅ @abdokouta/core (refine core)
+- ✅ @stackra/kbar (command palette)
+- ✅ @stackra/heroui (UI components)
+- ✅ @stackra/core (refine core)
 - ✅ All refine UI packages
 
 ### Use Cases
@@ -307,7 +307,7 @@ pnpm test:watch    # Watch mode
 
 - **Access**: Public
 - **Registry**: npm
-- **Package Name**: @abdokouta/kbd
+- **Package Name**: @stackra/kbd
 
 ## Future Enhancements
 

@@ -1,7 +1,7 @@
 /**
  * @fileoverview Barrel export for all constants in the refine package.
  *
- * @module @abdokouta/react-refine
+ * @module @stackra/react-refine
  * @category Constants
  */
 
@@ -12,13 +12,15 @@ export {
   REFINE_OPTIONS,
   // Decorator metadata keys
   RESOURCE_METADATA_KEY,
-  MODEL_METADATA_KEY,
   // Provider service tokens
   AUTH_SERVICE,
   ACCESS_CONTROL_SERVICE,
   REALTIME_SERVICE,
   NOTIFICATION_SERVICE,
   AUDIT_LOG_SERVICE,
+  // Session & Security tokens
+  SESSION_SERVICE,
+  SECURITY_SERVICE,
   // Repository tokens
   HTTP_CLIENT,
   HTTP_REPOSITORY_CONFIG,

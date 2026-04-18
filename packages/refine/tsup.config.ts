@@ -1,5 +1,5 @@
 /**
- * @fileoverview tsup build configuration for @abdokouta/react-refine
+ * @fileoverview tsup build configuration for @stackra/react-refine
  *
  * Uses the @nesvel/tsup-config base preset which automatically handles:
  * - Dual format output (ESM + CJS)
@@ -13,7 +13,7 @@
  *   dist/index.js    — CJS (Node.js, legacy bundlers)
  *   dist/index.d.ts  — TypeScript declarations
  *
- * @module @abdokouta/react-refine
+ * @module @stackra/react-refine
  * @category Configuration
  * @see https://tsup.egoist.dev/
  */

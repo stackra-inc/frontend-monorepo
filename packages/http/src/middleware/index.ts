@@ -1,6 +1,6 @@
 /**
  * @fileoverview Middleware Index
- * @module @abdokouta/ts-http
+ * @module @stackra/ts-http
  * @category Middleware
  */
 

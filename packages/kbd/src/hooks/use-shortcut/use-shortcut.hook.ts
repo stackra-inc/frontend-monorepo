@@ -4,7 +4,7 @@
  * This hook provides a declarative way to register shortcuts by ID with automatic cleanup.
  * It integrates with the ShortcutRegistry to enable/disable shortcuts and handle their lifecycle.
  *
- * @module @abdokouta/kbd
+ * @module @stackra/kbd
  * @category Hooks
  */
 

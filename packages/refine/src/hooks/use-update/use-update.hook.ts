@@ -1,6 +1,6 @@
-/** @fileoverview useUpdate hook. @module @abdokouta/react-refine @category Hooks */
+/** @fileoverview useUpdate hook. @module @stackra/react-refine @category Hooks */
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { resolveService } from '../use-service.util';
+import { resolveService } from '@/use-service.util';
 import { QueryKeyFactory } from '@/utils/query-key-factory.util';
 import type { UseUpdateProps } from '@/interfaces/use-update-props.interface';
 import type { UpdateMutationVariables } from '@/interfaces/update-mutation-variables.interface';

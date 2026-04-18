@@ -4,7 +4,7 @@
  * This hook provides a declarative way to register multiple shortcuts with automatic cleanup.
  * It's useful when a component needs to handle several keyboard shortcuts simultaneously.
  *
- * @module @abdokouta/kbd
+ * @module @stackra/kbd
  * @category Hooks
  */
 

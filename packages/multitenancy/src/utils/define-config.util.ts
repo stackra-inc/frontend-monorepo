@@ -13,7 +13,7 @@ import { defaultPreset } from '@/presets';
  *
  * @example
  * ```typescript
- * import { defineConfig, subdomainPreset } from "@abdokouta/react-multitenancy";
+ * import { defineConfig, subdomainPreset } from "@stackra/react-multitenancy";
  *
  * const config = defineConfig({
  *   ...subdomainPreset,

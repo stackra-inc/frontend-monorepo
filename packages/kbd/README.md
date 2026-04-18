@@ -1,4 +1,4 @@
-# @abdokouta/kbd
+# @stackra/kbd
 
 Keyboard shortcut management with DI integration, registry pattern,
 platform-specific keys, and React components.
@@ -6,7 +6,7 @@ platform-specific keys, and React components.
 ## Installation
 
 ```bash
-pnpm add @abdokouta/kbd
+pnpm add @stackra/kbd
 ```
 
 ## Features
@@ -34,8 +34,8 @@ pnpm add @abdokouta/kbd
  * | Register KbdModule in your root AppModule.
  * |-------------------------------------------------------------------
  */
-import { Module } from '@abdokouta/ts-container';
-import { KbdModule } from '@abdokouta/kbd';
+import { Module } from '@stackra/ts-container';
+import { KbdModule } from '@stackra/kbd';
 
 @Module({
   imports: [KbdModule.forRoot({ registerBuiltIn: true, debug: false })],
@@ -76,8 +76,8 @@ export class PosModule {}
  * | Inject ShortcutRegistry via DI to register/query shortcuts.
  * |-------------------------------------------------------------------
  */
-import { Injectable, Inject } from '@abdokouta/ts-container';
-import { ShortcutRegistry, SHORTCUT_REGISTRY } from '@abdokouta/kbd';
+import { Injectable, Inject } from '@stackra/ts-container';
+import { ShortcutRegistry, SHORTCUT_REGISTRY } from '@stackra/kbd';
 
 @Injectable()
 export class EditorService {
@@ -104,7 +104,7 @@ export class EditorService {
  * | useShortcut registers a shortcut with automatic cleanup.
  * |-------------------------------------------------------------------
  */
-import { useShortcut, useShortcutRegistry, RefineKbd } from '@abdokouta/kbd';
+import { useShortcut, useShortcutRegistry, RefineKbd } from '@stackra/kbd';
 
 function SaveButton() {
   useShortcut({ id: 'editor.save', callback: () => handleSave() });

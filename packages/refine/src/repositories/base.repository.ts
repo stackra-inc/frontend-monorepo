@@ -1,16 +1,16 @@
 /**
  * @fileoverview Abstract base repository defining the standard CRUD contract.
  *
- * All resource repositories (HttpRepository, EloquentRepository, custom)
+ * All resource repositories (HttpRepository, custom)
  * extend this class to ensure a consistent data-access interface.
  *
- * @module @abdokouta/react-refine
+ * @module @stackra/react-refine
  * @category Repositories
  *
  * @example
  * ```typescript
- * import { BaseRepository } from '@abdokouta/react-refine';
- * import type { GetListParams, GetListResult, CustomParams } from '@abdokouta/react-refine';
+ * import { BaseRepository } from '@stackra/react-refine';
+ * import type { GetListParams, GetListResult, CustomParams } from '@stackra/react-refine';
  *
  * class MyRepository extends BaseRepository<Post, string> {
  *   async getOne(id: string) { ... }
@@ -20,7 +20,7 @@
  * ```
  */
 
-import { Injectable } from '@abdokouta/ts-container';
+import { Injectable } from '@stackra/ts-container';
 import type { GetListParams } from '@/interfaces/get-list-params.interface';
 import type { GetListResult } from '@/interfaces/get-list-result.interface';
 import type { CustomParams } from '@/interfaces/custom-params.interface';

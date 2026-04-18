@@ -1,6 +1,6 @@
 /**
  * @fileoverview Services Index
- * @module @abdokouta/ts-events
+ * @module @stackra/ts-events
  */
 
 export { EventManager } from './event-manager.service';

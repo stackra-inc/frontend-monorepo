@@ -18,10 +18,10 @@
  * |   printer.configurePrinter({ type: 'usb', vendorId: 0x04b8, productId: 0x0202 });
  * |   await printer.printReceipt({ items: [...], total: 42.50 });
  * |
- * @module @abdokouta/ts-desktop
+ * @module @stackra/ts-desktop
  */
 
-import { Injectable, Inject } from '@abdokouta/ts-container';
+import { Injectable, Inject } from '@stackra/ts-container';
 
 import { DESKTOP_CONFIG } from '@/constants';
 import type { DesktopModuleOptions } from '@/interfaces/desktop-module-options.interface';

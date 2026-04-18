@@ -2,7 +2,7 @@
  * Desktop Module
  *
  * |--------------------------------------------------------------------------
- * | DI Module for @abdokouta/ts-desktop
+ * | DI Module for @stackra/ts-desktop
  * |--------------------------------------------------------------------------
  * |
  * | forRoot(config)         — registers all 23 desktop services
@@ -25,7 +25,7 @@
  * ```
  */
 
-import { Module, type DynamicModule } from '@abdokouta/ts-container';
+import { Module, type DynamicModule } from '@stackra/ts-container';
 
 import type { DesktopModuleOptions } from './interfaces';
 import { DESKTOP_CONFIG, DESKTOP_MANAGER } from './constants';

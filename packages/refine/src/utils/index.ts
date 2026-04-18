@@ -1,7 +1,7 @@
 /**
  * @fileoverview Barrel export for all utilities in the refine package.
  *
- * @module @abdokouta/react-refine
+ * @module @stackra/react-refine
  * @category Utils
  */
 

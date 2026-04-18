@@ -1,7 +1,9 @@
 /**
- * @fileoverview Barrel export for all interfaces in the refine package.
+ * @fileoverview Barrel export for refine interfaces.
  *
- * @module @abdokouta/react-refine
+ * Auth interfaces have been moved to @stackra/react-auth.
+ *
+ * @module @stackra/react-refine
  * @category Interfaces
  */
 
@@ -16,7 +18,6 @@ export type { HttpError } from './http-error.interface';
 
 // ─── Decorator Metadata Interfaces ─────────────────────────────────
 export type { ResourceMetadata } from './resource-metadata.interface';
-export type { ModelMetadata } from './model-metadata.interface';
 
 // ─── Hook Result Interfaces ────────────────────────────────────────
 export type { UseQueryHookResult } from './use-query-hook-result.interface';
@@ -44,28 +45,24 @@ export type { UpdateManyMutationVariables } from './update-many-mutation-variabl
 export type { UseDeleteManyProps } from './use-delete-many-props.interface';
 export type { DeleteManyMutationVariables } from './delete-many-mutation-variables.interface';
 export type { UseCustomMutationProps } from './use-custom-mutation-props.interface';
-export type { UseCanProps } from './use-can-props.interface';
 export type { UseSubscriptionProps } from './use-subscription-props.interface';
-
-// ─── Auth Interfaces ───────────────────────────────────────────────
-export type { AuthActionResponse } from './auth-action-response.interface';
-export type { CheckResponse } from './check-response.interface';
-export type { OnErrorResponse } from './on-error-response.interface';
-export type { IAuthService } from './i-auth-service.interface';
-
-// ─── Access Control ────────────────────────────────────────────────
-export type { CanResponse } from './can-response.interface';
-export type { IAccessControlService } from './i-access-control-service.interface';
 
 // ─── Realtime Interfaces ───────────────────────────────────────────
 export type { SubscribeParams } from './subscribe-params.interface';
 export type { PublishParams } from './publish-params.interface';
 export type { LiveEvent } from './live-event.interface';
-export type { IRealtimeService } from './i-realtime-service.interface';
+export type { IRealtimeService } from './realtime-service.interface';
 
 // ─── Notification ──────────────────────────────────────────────────
 export type { OpenNotificationParams } from './open-notification-params.interface';
-export type { INotificationService } from './i-notification-service.interface';
+export type { INotificationService } from './notification-service.interface';
+
+// ─── Undoable Queue ────────────────────────────────────────────────
+export {
+  UndoableActionType,
+  type IUndoableQueue,
+  type UndoableAction,
+} from './undoable-queue.interface';
 
 // ─── Audit Log ─────────────────────────────────────────────────────
 export type {

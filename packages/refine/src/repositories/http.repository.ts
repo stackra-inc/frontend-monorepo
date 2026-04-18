@@ -5,11 +5,11 @@
  * Uses an injected {@link QueryStringSerializer} to convert
  * `GetListParams` into URL query strings.
  *
- * @module @abdokouta/react-refine
+ * @module @stackra/react-refine
  * @category Repositories
  */
 
-import { Injectable, Inject } from '@abdokouta/ts-container';
+import { Injectable, Inject } from '@stackra/ts-container';
 import { BaseRepository } from './base.repository';
 import type { GetListParams } from '@/interfaces/get-list-params.interface';
 import type { GetListResult } from '@/interfaces/get-list-result.interface';

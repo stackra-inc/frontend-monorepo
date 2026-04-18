@@ -1,6 +1,6 @@
 /**
- * @fileoverview Prettier configuration for @abdokouta/react-sdui package.
- * @module @abdokouta/react-sdui
+ * @fileoverview Prettier configuration for @stackra/react-sdui package.
+ * @module @stackra/react-sdui
  * @category Configuration
  */
 const config = '@nesvel/prettier-config';

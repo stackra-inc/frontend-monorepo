@@ -8,7 +8,7 @@
  *
  * @example
  * ```typescript
- * import loggerConfig from '@abdokouta/ts-logger/config/logger.config';
+ * import loggerConfig from '@stackra/ts-logger/config/logger.config';
  *
  * LoggerModule.forRoot(loggerConfig);
  * ```
@@ -20,7 +20,7 @@ import {
   SilentTransporter,
   ConsoleTransporter,
   StorageTransporter,
-} from '@abdokouta/ts-logger';
+} from '@stackra/ts-logger';
 
 /**
  * Logger configuration

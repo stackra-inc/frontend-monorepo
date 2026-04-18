@@ -1,7 +1,7 @@
 /**
  * @fileoverview Options interface for creating a multi-tenancy provider.
  *
- * @module @abdokouta/react-multitenancy
+ * @module @stackra/react-multitenancy
  * @category Interfaces
  */
 

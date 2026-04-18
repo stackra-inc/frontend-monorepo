@@ -5,6 +5,9 @@
  * Methods decorated with @MenuItem() become menu items.
  * Auto-discovered by DesktopModule from the providers array.
  *
+ * All metadata writes go through `@vivtel/metadata` for a consistent,
+ * typed API instead of raw `Reflect.*` calls.
+ *
  * @example
  * ```typescript
  * @Menu('file', { label: 'File', order: 0 })
@@ -16,7 +19,7 @@
  * ```
  */
 
-import 'reflect-metadata';
+import { defineMetadata } from '@vivtel/metadata';
 import { MENU_METADATA } from '@/constants';
 import type { MenuMetadata } from '@/interfaces';
 
@@ -28,6 +31,6 @@ export function Menu(id: string, options?: { label?: string; order?: number }): 
       label: options?.label ?? id.charAt(0).toUpperCase() + id.slice(1),
       order: options?.order,
     };
-    Reflect.defineMetadata(MENU_METADATA, metadata, target);
+    defineMetadata(MENU_METADATA, metadata, target as object);
   };
 }

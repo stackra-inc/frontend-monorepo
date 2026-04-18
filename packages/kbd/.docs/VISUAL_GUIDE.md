@@ -1,4 +1,4 @@
-# Visual Guide - @abdokouta/kbd
+# Visual Guide - @stackra/kbd
 
 ## Component Output Examples
 

@@ -2,7 +2,7 @@
  * Built-in Themes
  *
  * |--------------------------------------------------------------------------
- * | Default theme palette shipped with @abdokouta/react-theming.
+ * | Default theme palette shipped with @stackra/react-theming.
  * |--------------------------------------------------------------------------
  * |
  * | These are registered automatically by ThemeModule.forRoot()
@@ -12,7 +12,7 @@
  * | CSS variable overrides are defined in globals.css using
  * | [data-theme="id"] selectors — not in these config objects.
  * |
- * @module @abdokouta/react-theming
+ * @module @stackra/react-theming
  */
 
 import type { ThemeConfig } from '@/interfaces/theme-config.interface';

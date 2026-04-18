@@ -4,12 +4,12 @@
  * Standard HTTP methods used by the HTTP client to specify
  * the type of request being made. Maps to the HTTP/1.1 spec.
  *
- * @module @abdokouta/ts-http
+ * @module @stackra/ts-http
  * @category Enums
  *
  * @example
  * ```typescript
- * import { HttpMethod } from '@abdokouta/ts-http';
+ * import { HttpMethod } from '@stackra/ts-http';
  *
  * const config: HttpRequestConfig = {
  *   url: '/api/users',

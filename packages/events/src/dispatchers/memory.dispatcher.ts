@@ -16,7 +16,7 @@
  * | - Development and testing
  * | - When cross-process event sharing is not needed
  * |
- * @module @abdokouta/ts-events
+ * @module @stackra/ts-events
  * @category Dispatchers
  *
  * @example
@@ -28,9 +28,9 @@
  * ```
  */
 
-import 'reflect-metadata';
 import { Subject } from 'rxjs';
 
+import { getMetadata } from '@vivtel/metadata';
 import { ON_EVENT_METADATA } from '@/constants';
 import { isWildcard, matchesWildcard } from '@/utils/wildcard.util';
 import type { Dispatcher, EventListener, EventSubscriber } from '@/interfaces';
@@ -213,9 +213,9 @@ export class MemoryDispatcher implements Dispatcher {
       }
     }
 
-    const metadata: OnEventMetadata[] | undefined = Reflect.getMetadata(
+    const metadata: OnEventMetadata[] | undefined = getMetadata<OnEventMetadata[]>(
       ON_EVENT_METADATA,
-      subscriber.constructor
+      subscriber.constructor as object
     );
 
     if (metadata) {

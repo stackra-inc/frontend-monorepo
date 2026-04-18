@@ -1,17 +1,17 @@
-# Quick Start Guide - @abdokouta/kbd
+# Quick Start Guide - @stackra/kbd
 
-Get up and running with @abdokouta/kbd in 5 minutes!
+Get up and running with @stackra/kbd in 5 minutes!
 
 ## Installation
 
 ```bash
-npm install @abdokouta/kbd
+npm install @stackra/kbd
 ```
 
 ## Step 1: Import the Component
 
 ```tsx
-import { RefineKbd } from '@abdokouta/kbd';
+import { RefineKbd } from '@stackra/kbd';
 ```
 
 ## Step 2: Display a Keyboard Shortcut
@@ -58,7 +58,7 @@ That's it! You now have a beautiful keyboard shortcut display.
 ## Bonus: Register Keyboard Shortcuts
 
 ```tsx
-import { useKeyboardShortcut } from '@abdokouta/kbd';
+import { useKeyboardShortcut } from '@stackra/kbd';
 
 function MyComponent() {
   useKeyboardShortcut({

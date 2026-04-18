@@ -1,13 +1,15 @@
 /**
  * @fileoverview Barrel export for all types in the refine package.
  *
- * @module @abdokouta/react-refine
+ * @module @stackra/react-refine
  * @category Types
  */
 
 export type { Type } from './type-constructor.type';
 export type { HttpRepositoryConfig } from './http-repository-config.type';
 export type { RefineRootOptions } from './refine-root-options.type';
+export type { MutationMode } from './mutation-mode.type';
+export type { SuccessErrorNotification } from './success-error-notification.type';
 
 // ─── Hook Return Types ─────────────────────────────────────────────
 export type { UseOneReturnType } from './use-one-return-type.type';

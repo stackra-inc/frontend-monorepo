@@ -1,6 +1,6 @@
 /**
- * @fileoverview ESLint configuration for @abdokouta/react-sdui package.
- * @module @abdokouta/react-sdui
+ * @fileoverview ESLint configuration for @stackra/react-sdui package.
+ * @module @stackra/react-sdui
  * @category Configuration
  */
 import type { Linter } from 'eslint';

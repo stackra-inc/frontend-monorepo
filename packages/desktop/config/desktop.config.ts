@@ -2,7 +2,7 @@
  * Desktop Configuration
  *
  * |--------------------------------------------------------------------------
- * | Default configuration for the @abdokouta/ts-desktop package.
+ * | Default configuration for the @stackra/ts-desktop package.
  * |--------------------------------------------------------------------------
  * |
  * | Copy this file to your app's config folder and customize:
@@ -11,10 +11,10 @@
  * | All Electron BrowserWindow options, title bar style, and app metadata
  * | are configured here. The main process reads this via IPC from the renderer.
  * |
- * @module @abdokouta/ts-desktop
+ * @module @stackra/ts-desktop
  */
 
-import type { DesktopModuleOptions } from '@abdokouta/ts-desktop';
+import type { DesktopModuleOptions } from '@stackra/ts-desktop';
 
 /**
  * Window configuration — maps to Electron BrowserWindow options.
@@ -124,7 +124,7 @@ export const desktopConfig: DesktopConfig = {
   |
   */
   module: {
-    appName: 'Pixielity',
+    appName: 'Stackra',
     titleBarStyle: 'hiddenInset',
     autoUpdate: false,
     tray: false,
@@ -157,7 +157,7 @@ export const desktopConfig: DesktopConfig = {
     | Appearance
     |--------------------------------------------------------------------------
     */
-    title: 'Pixielity',
+    title: 'Stackra',
     backgroundColor: '#18181b',
     titleBarStyle: 'hiddenInset',
     trafficLightPosition: { x: 15, y: 15 },

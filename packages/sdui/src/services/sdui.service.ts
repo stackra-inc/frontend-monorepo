@@ -1,11 +1,11 @@
 /**
  * @fileoverview SDUIService — fetches page definitions and auto-registers routes/services.
  *
- * @module @abdokouta/react-sdui
+ * @module @stackra/react-sdui
  * @category Services
  */
 
-import type { PageDefinition, ResourceConfig } from '@abdokouta/react-refine';
+import type { PageDefinition, ResourceConfig } from '@stackra/react-refine';
 import type { ISDUIService } from '@/interfaces/sdui-service.interface';
 
 /**
@@ -55,7 +55,7 @@ export class SDUIService implements ISDUIService {
   autoRegisterServices(resources: ResourceConfig[]): void {
     for (const resource of resources) {
       if (!this.serviceRegistry.has(resource.name)) {
-        // SDUI auto-registration creates HttpRepository + DefaultService
+        // SDUI auto-registration creates HttpRepository + HttpService
         // This is a simplified version — full implementation would use RefineModule.forFeature
         console.info(`SDUI: Auto-registered resource "${resource.name}" from Pages API`);
       }

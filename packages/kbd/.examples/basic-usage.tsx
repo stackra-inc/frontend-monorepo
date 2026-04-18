@@ -1,12 +1,12 @@
 /**
- * Basic usage examples for @abdokouta/kbd
+ * Basic usage examples for @stackra/kbd
  *
  * This file demonstrates various ways to use the Kbd component
  * in your refine application.
  */
 
 import React from 'react';
-import { RefineKbd, Kbd, useKeyboardShortcut } from '@abdokouta/kbd';
+import { RefineKbd, Kbd, useKeyboardShortcut } from '@stackra/kbd';
 
 /**
  * Example 1: Simple keyboard shortcut display

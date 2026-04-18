@@ -3,7 +3,7 @@
  *
  * React hook that registers an event listener and auto-cleans up on unmount.
  *
- * @module @abdokouta/ts-events
+ * @module @stackra/ts-events
  * @category Hooks
  *
  * @example
@@ -18,7 +18,7 @@
  */
 
 import { useEffect } from 'react';
-import { useInject } from '@abdokouta/ts-container';
+import { useInject } from '@stackra/ts-container';
 import { EventManager } from '@/services/event-manager.service';
 import type { EventListener } from '@/interfaces';
 

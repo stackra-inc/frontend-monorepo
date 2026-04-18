@@ -1,7 +1,7 @@
 /**
  * Redis Dispatcher Configuration
  *
- * @module @abdokouta/ts-events
+ * @module @stackra/ts-events
  * @category Interfaces
  */
 

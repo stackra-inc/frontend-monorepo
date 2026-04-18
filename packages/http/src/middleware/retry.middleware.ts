@@ -7,7 +7,7 @@
  * Only retries on server errors (status 500–599) and network errors
  * (status 0). Client errors (4xx) are never retried.
  *
- * @module @abdokouta/ts-http
+ * @module @stackra/ts-http
  * @category Middleware
  *
  * @example
@@ -27,7 +27,7 @@
  * ```
  */
 
-import { Injectable } from '@abdokouta/ts-container';
+import { Injectable } from '@stackra/ts-container';
 import { HttpMiddleware } from '@/decorators/http-middleware.decorator';
 import type {
   HttpMiddlewareInterface,

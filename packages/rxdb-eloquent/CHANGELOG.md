@@ -1,10 +1,10 @@
-# @abdokouta/ts-eloquent
+# @stackra/ts-eloquent
 
 ## 1.0.0
 
 ### Major Features
 
-- 🎉 Initial release of @abdokouta/ts-eloquent
+- 🎉 Initial release of @stackra/ts-eloquent
 - 🏗️ `EloquentModule.forRoot()` / `forFeature()` with DI integration
 - 📦 `Model` base class with Eloquent-style API (find, create, update, delete)
 - 🔍 `QueryBuilder` with where, orderBy, limit, fluent chaining

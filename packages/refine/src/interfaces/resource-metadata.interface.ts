@@ -1,7 +1,7 @@
 /**
  * @fileoverview Resource metadata interface stored by the @Resource decorator.
  *
- * @module @abdokouta/react-refine
+ * @module @stackra/react-refine
  * @category Interfaces
  */
 

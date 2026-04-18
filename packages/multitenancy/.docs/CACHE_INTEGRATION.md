@@ -1,8 +1,8 @@
-# Cache Integration in @abdokouta/multitenancy
+# Cache Integration in @stackra/multitenancy
 
 ## Overview
 
-The multitenancy package now integrates with @abdokouta/react-cache for improved
+The multitenancy package now integrates with @stackra/ts-cache for improved
 caching capabilities. The DynamicDomainResolver has been updated to support both
 the new cache service and a fallback in-memory cache.
 
@@ -11,7 +11,7 @@ the new cache service and a fallback in-memory cache.
 ### 1. DynamicDomainResolver Updates
 
 The `DynamicDomainResolver` class now supports optional integration with
-@abdokouta/react-cache:
+@stackra/ts-cache:
 
 **Before:**
 
@@ -24,7 +24,7 @@ private cache: Map<string, CacheEntry> = new Map();
 
 ```typescript
 // Supports both cache service and fallback memory cache
-private cacheService?: any; // CacheService from @abdokouta/react-cache
+private cacheService?: any; // CacheService from @stackra/ts-cache
 private memoryCache: Map<string, { value: string; expiresAt: number }> = new Map();
 ```
 
@@ -38,7 +38,7 @@ private memoryCache: Map<string, { value: string; expiresAt: number }> = new Map
 dynamicDomainCacheTTL: 300000; // 5 minutes in milliseconds
 ```
 
-**After:** Seconds (to match @abdokouta/react-cache API)
+**After:** Seconds (to match @stackra/ts-cache API)
 
 ```typescript
 dynamicDomainCacheTTL: 300; // 5 minutes in seconds
@@ -51,7 +51,7 @@ interface DynamicDomainResolverConfig {
   // ... existing config
 
   /**
-   * Optional cache service instance from @abdokouta/react-cache
+   * Optional cache service instance from @stackra/ts-cache
    * If not provided, uses in-memory Map cache
    */
   cacheService?: CacheService;
@@ -65,7 +65,7 @@ interface DynamicDomainResolverConfig {
 Works exactly as before with in-memory cache:
 
 ```typescript
-import { DynamicDomainResolver } from '@abdokouta/multitenancy';
+import { DynamicDomainResolver } from '@stackra/multitenancy';
 
 const resolver = new DynamicDomainResolver({
   apiUrl: '/api/tenants/resolve',
@@ -75,11 +75,11 @@ const resolver = new DynamicDomainResolver({
 
 ### Advanced Usage (With Cache Service)
 
-Integrate with @abdokouta/react-cache for persistent caching:
+Integrate with @stackra/ts-cache for persistent caching:
 
 ```typescript
-import { DynamicDomainResolver } from '@abdokouta/multitenancy';
-import { CacheService } from '@abdokouta/react-cache';
+import { DynamicDomainResolver } from '@stackra/multitenancy';
+import { CacheService } from '@stackra/ts-cache';
 
 // Inject cache service
 const resolver = new DynamicDomainResolver({
@@ -92,9 +92,9 @@ const resolver = new DynamicDomainResolver({
 ### Full Application Setup
 
 ```typescript
-import { Module } from '@abdokouta/container';
-import { CacheModule } from '@abdokouta/react-cache';
-import { MultiTenancyModule } from '@abdokouta/multitenancy';
+import { Module } from '@stackra/container';
+import { CacheModule } from '@stackra/ts-cache';
+import { MultiTenancyModule } from '@stackra/multitenancy';
 
 @Module({
   imports: [
@@ -139,7 +139,7 @@ Choose the best cache driver for your needs:
 
 ### 3. Advanced Features
 
-When using @abdokouta/react-cache, you get:
+When using @stackra/ts-cache, you get:
 
 - **Cache Tagging**: Group related cache entries
 - **Multiple Stores**: Different caches for different purposes
@@ -191,10 +191,10 @@ No changes required! The package works exactly as before with in-memory caching.
 
 ### To Enable Cache Service Integration
 
-1. Install @abdokouta/react-cache:
+1. Install @stackra/ts-cache:
 
 ```bash
-npm install @abdokouta/react-cache
+npm install @stackra/ts-cache
 ```
 
 2. Configure CacheModule in your app:
@@ -276,7 +276,7 @@ try {
 The cache integration is fully testable:
 
 ```typescript
-import { DynamicDomainResolver } from '@abdokouta/multitenancy';
+import { DynamicDomainResolver } from '@stackra/multitenancy';
 
 // Test with mock cache service
 const mockCacheService = {
@@ -303,5 +303,5 @@ Use cache service when needed ✅ **Graceful Fallback**: Falls back to memory
 cache on errors ✅ **Consistent API**: Same cache API across the application ✅
 **Production Ready**: Tested and built successfully
 
-The multitenancy package now seamlessly integrates with @abdokouta/react-cache
-while maintaining full backward compatibility!
+The multitenancy package now seamlessly integrates with @stackra/ts-cache while
+maintaining full backward compatibility!

@@ -1,7 +1,7 @@
 /**
  * @fileoverview Return type interface for the usePullToRefresh hook.
  *
- * @module @abdokouta/ts-pwa
+ * @module @stackra/ts-pwa
  * @category Interfaces
  */
 

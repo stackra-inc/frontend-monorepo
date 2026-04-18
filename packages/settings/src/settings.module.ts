@@ -36,7 +36,7 @@
  * ```
  */
 
-import { Module, type DynamicModule } from '@abdokouta/ts-container';
+import { Module, type DynamicModule } from '@stackra/ts-container';
 import {
   SETTINGS_CONFIG,
   SETTINGS_REGISTRY,

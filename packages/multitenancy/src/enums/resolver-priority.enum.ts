@@ -7,7 +7,7 @@
  *
  * @example
  * ```typescript
- * import { ResolverPriority } from "@abdokouta/react-multitenancy";
+ * import { ResolverPriority } from "@stackra/react-multitenancy";
  *
  * class CustomResolver implements TenantResolver {
  *   name = "custom";

@@ -4,7 +4,7 @@
  * React hook that resolves the EventManager from DI and returns
  * the default EventService. Equivalent to `useCache()` in the cache package.
  *
- * @module @abdokouta/ts-events
+ * @module @stackra/ts-events
  * @category Hooks
  *
  * @example
@@ -20,7 +20,7 @@
  * ```
  */
 
-import { useInject } from '@abdokouta/ts-container';
+import { useInject } from '@stackra/ts-container';
 import { EventManager } from '@/services/event-manager.service';
 import type { EventService } from '@/services/event.service';
 

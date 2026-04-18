@@ -5,13 +5,16 @@
  * subscriber, the decorated method is automatically bound to the specified
  * event name.
  *
- * @module @abdokouta/ts-events
+ * All metadata reads and writes go through `@vivtel/metadata` for a consistent,
+ * typed API instead of raw `Reflect.*` calls.
+ *
+ * @module @stackra/ts-events
  * @category Decorators
  *
  * @example
  * ```typescript
- * import { Injectable } from '@abdokouta/ts-container';
- * import { OnEvent, EventPriority } from '@abdokouta/ts-events';
+ * import { Injectable } from '@stackra/ts-container';
+ * import { OnEvent, EventPriority } from '@stackra/ts-events';
  *
  * @Injectable()
  * export class UserListener {
@@ -33,7 +36,7 @@
  * ```
  */
 
-import 'reflect-metadata';
+import { updateMetadata } from '@vivtel/metadata';
 import { ON_EVENT_METADATA } from '@/constants';
 import type { OnEventOptions, OnEventMetadata } from '@/types';
 
@@ -46,18 +49,11 @@ import type { OnEventOptions, OnEventMetadata } from '@/types';
  */
 export function OnEvent(event: string, options: OnEventOptions = {}): MethodDecorator {
   return (target: object, propertyKey: string | symbol, _descriptor: PropertyDescriptor) => {
-    // Get existing metadata or create a new array.
-    const existing: OnEventMetadata[] =
-      Reflect.getMetadata(ON_EVENT_METADATA, target.constructor) ?? [];
-
-    // Add this listener's metadata.
-    existing.push({
-      event,
-      method: String(propertyKey),
-      options,
-    });
-
-    // Store back on the class constructor.
-    Reflect.defineMetadata(ON_EVENT_METADATA, existing, target.constructor);
+    updateMetadata(
+      ON_EVENT_METADATA,
+      [] as OnEventMetadata[],
+      (existing) => [...existing, { event, method: String(propertyKey), options }],
+      target.constructor as object
+    );
   };
 }

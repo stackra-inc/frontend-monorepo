@@ -17,7 +17,7 @@ import type { TenantConfig } from '@/interfaces';
  *
  * @example
  * ```typescript
- * import { DEFAULT_TENANT_CONFIG } from "@abdokouta/react-multitenancy";
+ * import { DEFAULT_TENANT_CONFIG } from "@stackra/react-multitenancy";
  *
  * // Use defaults
  * const config = { ...DEFAULT_TENANT_CONFIG };

@@ -5,7 +5,7 @@
  *
  * @example
  * ```typescript
- * import { createMultiTenancyProvider } from "@abdokouta/react-multitenancy";
+ * import { createMultiTenancyProvider } from "@stackra/react-multitenancy";
  *
  * const provider = createMultiTenancyProvider({
  *   config: {

@@ -4,7 +4,7 @@
  * Symbols used as service identifiers for dependency injection.
  * Follows the same pattern as cache/redis packages.
  *
- * @module @abdokouta/ts-events
+ * @module @stackra/ts-events
  * @category Constants
  */
 

@@ -2,7 +2,7 @@
  * PWA Module
  *
  * |--------------------------------------------------------------------------
- * | DI Module for @abdokouta/ts-pwa
+ * | DI Module for @stackra/ts-pwa
  * |--------------------------------------------------------------------------
  * |
  * | Registers:
@@ -21,8 +21,8 @@
  * |
  * @example
  * ```typescript
- * import { Module } from "@abdokouta/ts-container";
- * import { PwaModule } from "@abdokouta/ts-pwa";
+ * import { Module } from "@stackra/ts-container";
+ * import { PwaModule } from "@stackra/ts-pwa";
  * import pwaConfig from "@/config/pwa.config";
  *
  * @Module({
@@ -33,10 +33,10 @@
  * export class AppModule {}
  * ```
  *
- * @module @abdokouta/ts-pwa
+ * @module @stackra/ts-pwa
  */
 
-import { Module, type DynamicModule } from '@abdokouta/ts-container';
+import { Module, type DynamicModule } from '@stackra/ts-container';
 
 import type { PwaModuleOptions } from '@/interfaces/pwa-module-options.interface';
 import { PWA_CONFIG } from '@/constants/tokens.constant';

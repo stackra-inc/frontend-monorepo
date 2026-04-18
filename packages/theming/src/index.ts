@@ -1,9 +1,9 @@
 /**
- * @abdokouta/react-theming
+ * @stackra/react-theming
  *
  * Theme customizer registry, provider, hooks, and UI components.
  *
- * @module @abdokouta/react-theming
+ * @module @stackra/react-theming
  */
 
 // ============================================================================

@@ -1,6 +1,6 @@
 /**
  * @fileoverview Constants Index
- * @module @abdokouta/ts-events
+ * @module @stackra/ts-events
  */
 
 export {

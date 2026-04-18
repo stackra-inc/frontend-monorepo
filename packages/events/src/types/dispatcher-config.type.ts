@@ -3,7 +3,7 @@
  *
  * Equivalent to `StoreConfig` in the cache package.
  *
- * @module @abdokouta/ts-events
+ * @module @stackra/ts-events
  */
 
 import type { MemoryDispatcherConfig } from '@/interfaces/memory-dispatcher-config.interface';

@@ -1,6 +1,6 @@
 /**
- * @fileoverview Prettier configuration for @abdokouta/react-router package.
- * @module @abdokouta/react-router
+ * @fileoverview Prettier configuration for @stackra/react-router package.
+ * @module @stackra/react-router
  * @category Configuration
  */
 const config = '@nesvel/prettier-config';

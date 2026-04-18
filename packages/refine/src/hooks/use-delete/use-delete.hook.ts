@@ -1,6 +1,6 @@
-/** @fileoverview useDelete hook. @module @abdokouta/react-refine @category Hooks */
+/** @fileoverview useDelete hook. @module @stackra/react-refine @category Hooks */
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { resolveService } from '../use-service.util';
+import { resolveService } from '@/use-service.util';
 import { QueryKeyFactory } from '@/utils/query-key-factory.util';
 import type { UseDeleteProps } from '@/interfaces/use-delete-props.interface';
 import type { DeleteMutationVariables } from '@/interfaces/delete-mutation-variables.interface';

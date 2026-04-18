@@ -14,7 +14,7 @@ import type { TenantConfig } from '@/interfaces';
  *
  * @example
  * ```typescript
- * import { loadTenantConfig } from "@abdokouta/react-multitenancy";
+ * import { loadTenantConfig } from "@stackra/react-multitenancy";
  *
  * // From object
  * const config = loadTenantConfig({
@@ -56,7 +56,7 @@ export function loadTenantConfig(config: TenantConfig | string): TenantConfig {
  *
  * @example
  * ```typescript
- * import { validateTenantConfig } from "@abdokouta/react-multitenancy";
+ * import { validateTenantConfig } from "@stackra/react-multitenancy";
  *
  * try {
  *   validateTenantConfig(config);

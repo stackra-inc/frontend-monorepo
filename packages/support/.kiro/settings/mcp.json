@@ -94,7 +94,7 @@
     },
     "refine": {
       "command": "npx",
-      "args": ["-y", "@abdokouta/refine-mcp@latest"],
+      "args": ["-y", "@stakra/refine-mcp@latest"],
       "disabled": true,
       "autoApprove": [
         "explore_structure",

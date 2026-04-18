@@ -6,7 +6,7 @@
  * | and permission services.
  * |--------------------------------------------------------------------------
  * |
- * @module @abdokouta/ts-desktop
+ * @module @stackra/ts-desktop
  */
 
 /*
@@ -43,7 +43,7 @@ export interface FileResult {
 export interface ParsedProtocolUrl {
   /** The full original URL string. */
   raw: string;
-  /** URL scheme (e.g. 'pixielity'). */
+  /** URL scheme (e.g. 'stackra'). */
   scheme: string;
   /** Path segments (e.g. ['open', 'order']). */
   pathSegments: string[];

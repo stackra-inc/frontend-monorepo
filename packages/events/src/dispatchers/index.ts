@@ -1,6 +1,6 @@
 /**
  * @fileoverview Dispatchers Index
- * @module @abdokouta/ts-events
+ * @module @stackra/ts-events
  */
 
 export { MemoryDispatcher } from './memory.dispatcher';

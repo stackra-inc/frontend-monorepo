@@ -8,12 +8,12 @@
  * | Modules register customizer panels via ThemeModule.registerCustomizer().
  * | The ThemeCustomizer component renders all registered panels.
  * |
- * @module @abdokouta/react-theming
+ * @module @stackra/react-theming
  * @category Registries
  */
 
-import { Injectable } from '@abdokouta/ts-container';
-import { BaseRegistry } from '@abdokouta/react-support';
+import { Injectable } from '@stackra/ts-container';
+import { BaseRegistry } from '@stackra/ts-support';
 import type { CustomizerPanel } from '@/interfaces/customizer-panel.interface';
 
 /*

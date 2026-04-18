@@ -5,12 +5,12 @@
  * These values are provided via `HttpModule.forRoot()` and injected
  * into the HttpClient service via the `HTTP_CONFIG` token.
  *
- * @module @abdokouta/ts-http
+ * @module @stackra/ts-http
  * @category Interfaces
  *
  * @example
  * ```typescript
- * import type { HttpClientConfig } from '@abdokouta/ts-http';
+ * import type { HttpClientConfig } from '@stackra/ts-http';
  *
  * const config: HttpClientConfig = {
  *   baseURL: 'https://api.example.com',

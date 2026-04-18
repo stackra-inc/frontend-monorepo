@@ -1,15 +1,15 @@
 {
-  "name": "@abdokouta/kbd",
+  "name": "@stakra/kbd",
   "version": "1.0.0",
   "private": false,
-  "description": "Pixielity Kbd component integration with HeroUI, providing keyboard shortcut display utilities for enhanced UI documentation and user guidance.",
+  "description": "Stakra Kbd component integration with HeroUI, providing keyboard shortcut display utilities for enhanced UI documentation and user guidance.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/pixielity/pixielity.git",
+    "url": "https://github.com/stakra/stakra.git",
     "directory": "packages/kbd"
   },
   "license": "MIT",
-  "author": "pixielity",
+  "author": "stakra",
   "sideEffects": false,
   "exports": {
     ".": {
@@ -71,11 +71,11 @@
   },
   "peerDependencies": {
     "@heroui/react": "^3.0.0",
-    "@abdokouta/ts-container": "workspace:*",
+    "@stakra/ts-container": "workspace:*",
     "@refinedev/core": "^5.0.0",
     "react": "^18.0.0 || ^19.0.0",
     "react-dom": "^18.0.0 || ^19.0.0",
-    "@abdokouta/react-support": "^1.1.0",
+    "@stakra/ts-support": "workspace:*",
     "lucide-react": "^1.0.0"
   },
   "engines": {
@@ -85,10 +85,10 @@
     "access": "public"
   },
   "peerDependenciesMeta": {
-    "@abdokouta/ts-container": {
+    "@stakra/ts-container": {
       "optional": false
     },
-    "@abdokouta/react-support": {
+    "@stakra/ts-support": {
       "optional": false
     },
     "@heroui/react": {
@@ -100,5 +100,6 @@
     "lucide-react": {
       "optional": true
     }
-  }
+  },
+  "packageManager": "pnpm@10.33.0"
 }

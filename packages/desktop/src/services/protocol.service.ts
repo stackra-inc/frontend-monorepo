@@ -5,7 +5,7 @@
  * | Custom URL protocol registration and handling.
  * |--------------------------------------------------------------------------
  * |
- * | Registers a custom URL scheme (e.g. pixielity://open?order=123)
+ * | Registers a custom URL scheme (e.g. stackra://open?order=123)
  * | so external applications can deep-link into the app.
  * |
  * | In Electron: registers the protocol via IPC and listens for
@@ -14,15 +14,15 @@
  * |
  * | Usage:
  * |   const protocol = container.get(ProtocolService);
- * |   await protocol.registerProtocol('pixielity');
+ * |   await protocol.registerProtocol('stackra');
  * |   const unsub = protocol.onProtocolUrl((parsed) => {
  * |     console.log(parsed.pathSegments, parsed.query);
  * |   });
  * |
- * @module @abdokouta/ts-desktop
+ * @module @stackra/ts-desktop
  */
 
-import { Injectable, Inject } from '@abdokouta/ts-container';
+import { Injectable, Inject } from '@stackra/ts-container';
 
 import type { ParsedProtocolUrl } from '@/interfaces/system.interface';
 import { DesktopManager } from './desktop-manager.service';
@@ -71,10 +71,10 @@ export class ProtocolService {
   |
   | Parses a protocol URL string into its components.
   |
-  | Input:  "pixielity://open/order?id=123&status=paid"
+  | Input:  "stackra://open/order?id=123&status=paid"
   | Output: {
-  |   raw: "pixielity://open/order?id=123&status=paid",
-  |   scheme: "pixielity",
+  |   raw: "stackra://open/order?id=123&status=paid",
+  |   scheme: "stackra",
   |   pathSegments: ["open", "order"],
   |   query: { id: "123", status: "paid" },
   | }

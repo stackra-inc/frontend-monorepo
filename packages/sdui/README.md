@@ -1,6 +1,6 @@
-# @abdokouta/react-sdui
+# @stackra/react-sdui
 
-Server-Driven UI package for `@abdokouta/react-refine`.
+Server-Driven UI package for `@stackra/react-refine`.
 
 Fetches page definitions from a backend Pages API and auto-registers routes and
 services. Contains `SDUIService`, `SDUIProvider`, `ComponentRegistry`, and
@@ -9,12 +9,12 @@ services. Contains `SDUIService`, `SDUIProvider`, `ComponentRegistry`, and
 ## Installation
 
 ```bash
-pnpm add @abdokouta/react-sdui
+pnpm add @stackra/react-sdui
 ```
 
 ## Peer Dependencies
 
-- `@abdokouta/react-refine`
-- `@abdokouta/ts-container`
-- `@abdokouta/react-router` (optional)
+- `@stackra/react-refine`
+- `@stackra/ts-container`
+- `@stackra/react-router` (optional)
 - `reflect-metadata`

@@ -43,5 +43,6 @@
       "optional": true
     }
   },
-  "gitHead": "bcb4747f7598a9d2655c8184a6d729ebefa07fbd"
+  "gitHead": "bcb4747f7598a9d2655c8184a6d729ebefa07fbd",
+  "packageManager": "pnpm@10.33.0"
 }

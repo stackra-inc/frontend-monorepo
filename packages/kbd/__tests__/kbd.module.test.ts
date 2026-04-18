@@ -12,7 +12,7 @@
  * - Groups: Managing shortcut groups
  * - Platform: Platform detection and key resolution
  *
- * @module @abdokouta/kbd
+ * @module @stackra/kbd
  * @category Tests
  */
 

@@ -7,7 +7,7 @@
  *
  * Required by the `globals: true` setting in vitest.config.ts.
  *
- * @module @abdokouta/react-multitenancy
+ * @module @stackra/react-multitenancy
  * @category Configuration
  */
 

@@ -5,7 +5,7 @@
  * | Types for biometric auth, keychain, and screen lock services.
  * |--------------------------------------------------------------------------
  * |
- * @module @abdokouta/ts-desktop
+ * @module @stackra/ts-desktop
  */
 
 /*

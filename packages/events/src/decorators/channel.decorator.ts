@@ -3,11 +3,14 @@
  *
  * Marks a subscriber class as belonging to a specific event channel.
  *
- * @module @abdokouta/ts-events
+ * All metadata reads and writes go through `@vivtel/metadata` for a consistent,
+ * typed API instead of raw `Reflect.*` calls.
+ *
+ * @module @stackra/ts-events
  * @category Decorators
  */
 
-import 'reflect-metadata';
+import { defineMetadata, getMetadata } from '@vivtel/metadata';
 
 /** Metadata key for the @Channel decorator. */
 export const CHANNEL_METADATA = Symbol.for('CHANNEL_METADATA');
@@ -16,12 +19,12 @@ export const CHANNEL_METADATA = Symbol.for('CHANNEL_METADATA');
 export function Channel(channel: string): ClassDecorator {
   // eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
   return (target: Function) => {
-    Reflect.defineMetadata(CHANNEL_METADATA, channel, target);
+    defineMetadata(CHANNEL_METADATA, channel, target as object);
   };
 }
 
 /** Reads the channel name from a class decorated with @Channel. */
 // eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
 export function getChannel(target: Function): string {
-  return Reflect.getMetadata(CHANNEL_METADATA, target) ?? 'default';
+  return getMetadata<string>(CHANNEL_METADATA, target as object) ?? 'default';
 }

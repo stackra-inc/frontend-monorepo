@@ -1,6 +1,6 @@
 # Multi-Tenancy Configuration
 
-Configuration utilities and presets for `@abdokouta/multitenancy` package.
+Configuration utilities and presets for `@stackra/multitenancy` package.
 
 ## Structure
 
@@ -21,7 +21,7 @@ config/
 ### Basic Usage
 
 ```typescript
-import { defineConfig, subdomainPreset } from '@abdokouta/multitenancy/config';
+import { defineConfig, subdomainPreset } from '@stackra/multitenancy/config';
 
 const config = defineConfig({
   ...subdomainPreset,
@@ -36,7 +36,7 @@ const config = defineConfig({
 ### Without Preset
 
 ```typescript
-import { defineConfig, TenantMode } from '@abdokouta/multitenancy/config';
+import { defineConfig, TenantMode } from '@stackra/multitenancy/config';
 
 const config = defineConfig({
   mode: TenantMode.HEADER,
@@ -164,7 +164,7 @@ fetchTenants: async () => {
 Full TypeScript support with comprehensive type definitions:
 
 ```typescript
-import type { MultiTenancyOptions } from '@abdokouta/multitenancy/config';
+import type { MultiTenancyOptions } from '@stackra/multitenancy/config';
 
 const config: Partial<MultiTenancyOptions> = {
   mode: TenantMode.HEADER,

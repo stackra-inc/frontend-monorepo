@@ -15,7 +15,7 @@
  * | - Disabling events in specific environments
  * | - Benchmarking without event overhead
  * |
- * @module @abdokouta/ts-events
+ * @module @stackra/ts-events
  * @category Dispatchers
  *
  * @example

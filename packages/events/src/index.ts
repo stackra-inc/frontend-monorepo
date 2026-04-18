@@ -1,16 +1,16 @@
 /**
- * @abdokouta/ts-events
+ * @stackra/ts-events
  *
  * Laravel-style event dispatcher for TypeScript.
  * Multiple drivers (memory, redis, null), wildcard matching, priority,
  * decorators, subscribers, and RxJS streaming.
  *
- * Follows the same architecture as @abdokouta/ts-cache:
+ * Follows the same architecture as @stackra/ts-cache:
  *   EventManager  → manages named dispatchers (like CacheManager → stores)
  *   EventService  → wraps a Dispatcher with high-level API (like CacheService)
  *   Dispatcher    → low-level contract (like Store)
  *
- * @module @abdokouta/ts-events
+ * @module @stackra/ts-events
  */
 
 import 'reflect-metadata';

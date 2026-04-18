@@ -1,4 +1,4 @@
-# @abdokouta/ts-desktop
+# @stackra/ts-desktop
 
 Platform-agnostic Electron desktop integration with DI, decorators, and 23
 injectable services.
@@ -6,7 +6,7 @@ injectable services.
 ## Installation
 
 ```bash
-pnpm add @abdokouta/ts-desktop
+pnpm add @stackra/ts-desktop
 ```
 
 ## Features
@@ -24,8 +24,8 @@ pnpm add @abdokouta/ts-desktop
 ## Usage
 
 ```typescript
-import { Module } from '@abdokouta/ts-container';
-import { DesktopModule } from '@abdokouta/ts-desktop';
+import { Module } from '@stackra/ts-container';
+import { DesktopModule } from '@stackra/ts-desktop';
 
 @Module({
   imports: [

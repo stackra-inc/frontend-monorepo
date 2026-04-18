@@ -1,7 +1,9 @@
 /**
- * @fileoverview Barrel export for all enums in the refine package.
+ * @fileoverview Barrel export for refine enums.
  *
- * @module @abdokouta/react-refine
+ * Auth enums (AuthEvent, AuthProvider) have been moved to @stackra/react-auth.
+ *
+ * @module @stackra/react-refine
  * @category Enums
  */
 

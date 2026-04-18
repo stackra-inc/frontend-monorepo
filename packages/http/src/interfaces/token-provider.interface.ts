@@ -8,13 +8,13 @@
  * Consumers provide their own implementation and bind it to the
  * `TOKEN_PROVIDER` injection token.
  *
- * @module @abdokouta/ts-http
+ * @module @stackra/ts-http
  * @category Interfaces
  *
  * @example
  * ```typescript
- * import { Injectable } from '@abdokouta/ts-container';
- * import type { TokenProviderInterface } from '@abdokouta/ts-http';
+ * import { Injectable } from '@stackra/ts-container';
+ * import type { TokenProviderInterface } from '@stackra/ts-http';
  *
  * @Injectable()
  * class JwtTokenProvider implements TokenProviderInterface {

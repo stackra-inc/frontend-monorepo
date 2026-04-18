@@ -1,6 +1,6 @@
 /**
- * @fileoverview Vitest configuration for @abdokouta/react-sdui package.
- * @module @abdokouta/react-sdui
+ * @fileoverview Vitest configuration for @stackra/react-sdui package.
+ * @module @stackra/react-sdui
  * @category Configuration
  */
 import { defineConfig } from 'vitest/config';

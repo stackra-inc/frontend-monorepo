@@ -24,7 +24,7 @@ This project uses a monorepo structure with:
 
 Core library packages that can be published to npm:
 
-- `packages/container/` - Main DI container library (`@abdokouta/ts-container`)
+- `packages/container/` - Main DI container library (`@stackra/ts-container`)
 - Future packages can be added here
 
 ### Example Applications (`examples/`)
@@ -41,7 +41,7 @@ Example applications demonstrating package usage (not published):
 ```
 .
 ├── packages/                     # Library packages (publishable)
-│   └── container/                # @abdokouta/ts-container package
+│   └── container/                # @stackra/ts-container package
 │       ├── src/                  # Source code
 │       ├── __tests__/            # Tests
 │       ├── dist/                 # Build output
@@ -79,7 +79,7 @@ Example applications demonstrating package usage (not published):
 
 ```json
 {
-  "name": "@abdokouta/ts-container-monorepo",
+  "name": "@stackra/ts-container-monorepo",
   "version": "1.0.4",
   "private": true,
   "description": "Dependency injection for React - NestJS-style modules powered by Inversiland",
@@ -253,7 +253,7 @@ packages/{package-name}/
 
 ```json
 {
-  "name": "@abdokouta/{package-name}",
+  "name": "@stackra/{package-name}",
   "version": "0.0.0",
   "private": false,
   "type": "module",
@@ -311,7 +311,7 @@ packages/{package-name}/
 
 **Key Points:**
 
-- Use `@abdokouta/` scope for all packages
+- Use `@stackra/` scope for all packages
 - Set `"private": false` for publishable packages
 - Set `"type": "module"` for ESM support
 - Provide dual exports (ESM + CJS) via `exports` field
@@ -403,7 +403,7 @@ export default defineConfig({
   minify: false,
   target: 'es2020',
   platform: 'neutral',
-  external: ['@abdokouta/ts-container', 'react'],
+  external: ['@stackra/ts-container', 'react'],
   splitting: false,
   skipNodeModulesBundle: true,
   outExtension({ format }) {
@@ -538,10 +538,10 @@ pnpm clean
 
 ```bash
 # Build specific package
-pnpm --filter @abdokouta/ts-container build
+pnpm --filter @stackra/ts-container build
 
 # Run dev mode for specific package
-pnpm --filter @abdokouta/ts-container dev
+pnpm --filter @stackra/ts-container dev
 
 # Run example app
 pnpm --filter vite-template dev
@@ -554,7 +554,7 @@ pnpm --filter vite-template dev
 pnpm install
 
 # Add dependency to specific package
-pnpm --filter @abdokouta/ts-container add inversify
+pnpm --filter @stackra/ts-container add inversify
 
 # Add dev dependency to root
 pnpm add -D -w turbo
@@ -754,7 +754,7 @@ src/
  * @fileoverview {ComponentType} Registry
  *
  * Centralized registry for managing {components} using BaseRegistry
- * from @abdokouta/support for consistent registry API.
+ * from @stackra/support for consistent registry API.
  *
  * Key Features:
  * - Collection-based storage (O(1) operations)
@@ -762,12 +762,12 @@ src/
  * - Custom component support
  * - Type-safe component access
  *
- * @module @abdokouta/{package-name}
+ * @module @stackra/{package-name}
  * @category Registries
  */
 
-import { BaseRegistry } from '@abdokouta/support';
-import { Injectable } from '@abdokouta/ts-container';
+import { BaseRegistry } from '@stackra/support';
+import { Injectable } from '@stackra/ts-container';
 import type { ComponentInterface } from '@/interfaces/component.interface';
 
 /**
@@ -777,8 +777,8 @@ import type { ComponentInterface } from '@/interfaces/component.interface';
  *
  * @example
  * ```typescript
- * import { useInject } from '@abdokouta/ts-container';
- * import { ComponentRegistryService } from '@abdokouta/{package-name}';
+ * import { useInject } from '@stackra/ts-container';
+ * import { ComponentRegistryService } from '@stackra/{package-name}';
  *
  * const registry = useInject(ComponentRegistryService);
  *
@@ -978,19 +978,19 @@ There are two types of index files:
 
 ````typescript
 /**
- * @abdokouta/{package-name}
+ * @stackra/{package-name}
  *
  * Brief description of the package and its purpose.
  *
  * @example
  * Basic usage:
  * ```typescript
- * import { Service, useHook } from '@abdokouta/{package-name}';
+ * import { Service, useHook } from '@stackra/{package-name}';
  *
  * // Usage example
  * ```
  *
- * @module @abdokouta/{package-name}
+ * @module @stackra/{package-name}
  */
 
 // ============================================================================
@@ -1061,7 +1061,7 @@ export { myUtil } from './utils';
  *
  * Re-exports all interface definitions.
  *
- * @module @abdokouta/{package-name}
+ * @module @stackra/{package-name}
  * @category Interfaces
  */
 
@@ -1092,7 +1092,7 @@ export type { ContainerProviderProps } from './container-provider-props.interfac
  *
  * Re-exports the useInject hook.
  *
- * @module @abdokouta/{package-name}
+ * @module @stackra/{package-name}
  * @category Hooks
  */
 
@@ -1172,7 +1172,7 @@ describe('MyService', () => {
  *
  * Brief description of what the component does.
  *
- * @module @abdokouta/{package-name}
+ * @module @stackra/{package-name}
  * @category Components
  */
 
@@ -1238,7 +1238,7 @@ export interface ComponentNameProps {
  *
  * Brief description of what the hook does.
  *
- * @module @abdokouta/{package-name}
+ * @module @stackra/{package-name}
  * @category Hooks
  */
 
@@ -1318,11 +1318,11 @@ export interface UseHookNameReturn {
  *
  * Brief description of what the service does.
  *
- * @module @abdokouta/{package-name}
+ * @module @stackra/{package-name}
  * @category Services
  */
 
-import { Injectable, Inject } from '@abdokouta/ts-container';
+import { Injectable, Inject } from '@stackra/ts-container';
 import type { ServiceNameInterface } from '@/interfaces/service-name.interface';
 import { DEPENDENCY_TOKEN } from '@/constants/tokens.constant';
 
@@ -1382,7 +1382,7 @@ module pattern, inspired by the health.module.ts reference implementation.
  *
  * @example Basic Usage
  * ```typescript
- * import { PackageModule } from '@abdokouta/{package-name}';
+ * import { PackageModule } from '@stackra/{package-name}';
  *
  * @Module({
  *   imports: [PackageModule.forRoot()],
@@ -1392,7 +1392,7 @@ module pattern, inspired by the health.module.ts reference implementation.
  *
  * @example With Configuration
  * ```typescript
- * import { PackageModule } from '@abdokouta/{package-name}';
+ * import { PackageModule } from '@stackra/{package-name}';
  *
  * @Module({
  *   imports: [
@@ -1767,13 +1767,13 @@ export interface IComponentRegistrationOptions {
 Every package MUST have a comprehensive README.md with:
 
 ```markdown
-# @abdokouta/{package-name}
+# @stackra/{package-name}
 
 Brief description of the package.
 
 ## Installation
 
-\`\`\`bash pnpm add @abdokouta/{package-name} \`\`\`
+\`\`\`bash pnpm add @stackra/{package-name} \`\`\`
 
 ## Features
 
@@ -1785,7 +1785,7 @@ Brief description of the package.
 
 ### Basic Usage
 
-\`\`\`typescript import { Service } from '@abdokouta/{package-name}';
+\`\`\`typescript import { Service } from '@stackra/{package-name}';
 
 // Usage example \`\`\`
 
@@ -1981,7 +1981,7 @@ Then fill in the configuration files using the templates above.
 2. **Use the Standard Module Pattern** - All modules MUST follow the
    health.module.ts pattern with forRoot(), registerComponent(), and
    registerComponents() methods
-3. **Use Dependency Injection** - Leverage `@abdokouta/ts-container` for loose
+3. **Use Dependency Injection** - Leverage `@stackra/ts-container` for loose
    coupling
 4. **Write Tests First** - TDD approach ensures better code quality
 5. **Document Everything** - JSDoc comments with multiple examples help other
@@ -2005,4 +2005,4 @@ Then fill in the configuration files using the templates above.
 
 ---
 
-**Last Updated:** 2026-03-30 **Maintained By:** Pixielity Team
+**Last Updated:** 2026-03-30 **Maintained By:** Stackra Team

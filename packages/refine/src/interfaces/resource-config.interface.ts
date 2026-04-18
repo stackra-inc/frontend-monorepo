@@ -1,7 +1,7 @@
 /**
  * @fileoverview Resource configuration returned by the Pages API.
  *
- * @module @abdokouta/react-refine
+ * @module @stackra/react-refine
  * @category Interfaces
  */
 

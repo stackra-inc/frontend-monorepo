@@ -22,7 +22,7 @@
  * @module facades/facade
  */
 
-import type { IApplication, InjectionToken } from '@abdokouta/ts-container';
+import type { IApplication, InjectionToken } from '@stackra/ts-container';
 
 /**
  * Abstract base class for all facades.

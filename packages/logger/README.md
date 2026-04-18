@@ -1,19 +1,19 @@
-# @abdokouta/ts-logger
+# @stackra/ts-logger
 
 Multi-channel logging system for React with DI integration. Built on
-`MultipleInstanceManager` from `@abdokouta/ts-support`.
+`MultipleInstanceManager` from `@stackra/ts-support`.
 
 ## Install
 
 ```bash
-pnpm add @abdokouta/ts-logger @abdokouta/ts-support @abdokouta/ts-container
+pnpm add @stackra/ts-logger @stackra/ts-support @stackra/ts-container
 ```
 
 ## Quick Start
 
 ```typescript
 // 1. Configure
-import { defineConfig, LogLevel, ConsoleTransporter, StorageTransporter, SilentTransporter } from '@abdokouta/ts-logger';
+import { defineConfig, LogLevel, ConsoleTransporter, StorageTransporter, SilentTransporter } from '@stackra/ts-logger';
 
 export default defineConfig({
   default: 'console',
@@ -32,8 +32,8 @@ export default defineConfig({
 });
 
 // 2. Register module
-import { Module } from '@abdokouta/ts-container';
-import { LoggerModule } from '@abdokouta/ts-logger';
+import { Module } from '@stackra/ts-container';
+import { LoggerModule } from '@stackra/ts-logger';
 import loggerConfig from './config/logger.config';
 
 @Module({
@@ -42,8 +42,8 @@ import loggerConfig from './config/logger.config';
 export class AppModule {}
 
 // 3. Use in services
-import { Injectable, Inject } from '@abdokouta/ts-container';
-import { LoggerManager, LOGGER_MANAGER } from '@abdokouta/ts-logger';
+import { Injectable, Inject } from '@stackra/ts-container';
+import { LoggerManager, LOGGER_MANAGER } from '@stackra/ts-logger';
 
 @Injectable()
 export class UserService {
@@ -55,7 +55,7 @@ export class UserService {
 }
 
 // 4. Use in React
-import { useLogger } from '@abdokouta/ts-logger';
+import { useLogger } from '@stackra/ts-logger';
 
 function MyComponent() {
   const logger = useLogger();

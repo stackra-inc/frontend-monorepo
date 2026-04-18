@@ -1,5 +1,5 @@
 {
-  "name": "@abdokouta/react-multitenancy",
+  "name": "@stakra/react-multitenancy",
   "version": "1.0.0",
   "description": "Multi-tenancy support for Refine with dynamic domain resolution",
   "keywords": [
@@ -62,14 +62,14 @@
     "@refinedev/core": "^5.0.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "@abdokouta/ts-container": "workspace:*",
-    "@abdokouta/react-cache": "^1.0.0"
+    "@stakra/ts-container": "workspace:*",
+    "@stakra/ts-cache": "^1.0.0"
   },
   "peerDependenciesMeta": {
-    "@abdokouta/ts-container": {
+    "@stakra/ts-container": {
       "optional": false
     },
-    "@abdokouta/react-cache": {
+    "@stakra/ts-cache": {
       "optional": true
     },
     "@heroui/react": {
@@ -104,5 +104,6 @@
   "engines": {
     "node": ">=18.0.0",
     "pnpm": ">=9.0.0"
-  }
+  },
+  "packageManager": "pnpm@10.33.0"
 }

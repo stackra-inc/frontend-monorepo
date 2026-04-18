@@ -6,7 +6,7 @@
  *
  * @example
  * ```tsx
- * import { TenantSelect } from "@abdokouta/react-multitenancy";
+ * import { TenantSelect } from "@stackra/react-multitenancy";
  *
  * <TenantSelect />
  * ```

@@ -5,12 +5,12 @@
  * delegate directly to the injected repository. Subclasses override
  * methods to add validation, transformation, or business rules.
  *
- * @module @abdokouta/react-refine
+ * @module @stackra/react-refine
  * @category Services
  *
  * @example
  * ```typescript
- * import { BaseService } from '@abdokouta/react-refine';
+ * import { BaseService } from '@stackra/react-refine';
  *
  * class PostService extends BaseService<Post, string> {
  *   async create(data: Partial<Post>): Promise<Post> {
@@ -23,7 +23,7 @@
  * ```
  */
 
-import { Injectable, Inject } from '@abdokouta/ts-container';
+import { Injectable, Inject } from '@stackra/ts-container';
 import type { BaseRepository } from '@/repositories/base.repository';
 import type { GetListParams } from '@/interfaces/get-list-params.interface';
 import type { GetListResult } from '@/interfaces/get-list-result.interface';

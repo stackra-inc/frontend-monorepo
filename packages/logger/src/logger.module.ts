@@ -12,7 +12,7 @@
  * @module logger.module
  */
 
-import { Module, type DynamicModule, Global } from '@abdokouta/ts-container';
+import { Module, type DynamicModule, Global } from '@stackra/ts-container';
 
 import type { LoggerModuleOptions } from './interfaces/logger-module-options.interface';
 import { LoggerManager } from './services/logger-manager.service';

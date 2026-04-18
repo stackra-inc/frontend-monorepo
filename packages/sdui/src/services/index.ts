@@ -1,2 +1,2 @@
-/** @fileoverview Barrel export for SDUI services. @module @abdokouta/react-sdui @category Services */
+/** @fileoverview Barrel export for SDUI services. @module @stackra/react-sdui @category Services */
 export { SDUIService } from './sdui.service';

@@ -5,12 +5,12 @@
  * Contains the request configuration and a metadata map that
  * middleware can use to share data between pipeline stages.
  *
- * @module @abdokouta/ts-http
+ * @module @stackra/ts-http
  * @category Interfaces
  *
  * @example
  * ```typescript
- * import type { HttpContext, HttpMiddlewareInterface } from '@abdokouta/ts-http';
+ * import type { HttpContext, HttpMiddlewareInterface } from '@stackra/ts-http';
  *
  * class TimingMiddleware implements HttpMiddlewareInterface {
  *   async handle(context: HttpContext, next: HttpNextFunction) {

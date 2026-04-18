@@ -1,7 +1,7 @@
 /**
  * @fileoverview Return type for the useCreate hook.
  *
- * @module @abdokouta/react-refine
+ * @module @stackra/react-refine
  * @category Types
  */
 

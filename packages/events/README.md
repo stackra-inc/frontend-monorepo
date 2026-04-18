@@ -1,4 +1,4 @@
-# @abdokouta/ts-events
+# @stackra/ts-events
 
 Laravel-style event dispatcher for TypeScript with multiple drivers, wildcard
 matching, priority listeners, decorators, subscribers, and RxJS streaming.
@@ -6,7 +6,7 @@ matching, priority listeners, decorators, subscribers, and RxJS streaming.
 ## Installation
 
 ```bash
-pnpm add @abdokouta/ts-events
+pnpm add @stackra/ts-events
 ```
 
 ## Features
@@ -34,8 +34,8 @@ pnpm add @abdokouta/ts-events
  * | Register EventsModule in your root AppModule.
  * |-------------------------------------------------------------------
  */
-import { Module } from '@abdokouta/ts-container';
-import { EventsModule } from '@abdokouta/ts-events';
+import { Module } from '@stackra/ts-container';
+import { EventsModule } from '@stackra/ts-events';
 
 @Module({
   imports: [
@@ -60,8 +60,8 @@ export class AppModule {}
  * | Inject EventManager and dispatch events from services.
  * |-------------------------------------------------------------------
  */
-import { Injectable, Inject } from '@abdokouta/ts-container';
-import { EventManager, EVENT_MANAGER } from '@abdokouta/ts-events';
+import { Injectable, Inject } from '@stackra/ts-container';
+import { EventManager, EVENT_MANAGER } from '@stackra/ts-events';
 
 @Injectable()
 export class UserService {
@@ -83,7 +83,7 @@ export class UserService {
  * | Use @OnEvent on subscriber methods for declarative listening.
  * |-------------------------------------------------------------------
  */
-import { Subscriber, OnEvent } from '@abdokouta/ts-events';
+import { Subscriber, OnEvent } from '@stackra/ts-events';
 
 @Subscriber()
 class UserSubscriber {
@@ -109,7 +109,7 @@ class UserSubscriber {
  * | useEvents() returns the EventManager from DI context.
  * |-------------------------------------------------------------------
  */
-import { useEvents, useEvent } from '@abdokouta/ts-events';
+import { useEvents, useEvent } from '@stackra/ts-events';
 
 function Notifications() {
   const events = useEvents();

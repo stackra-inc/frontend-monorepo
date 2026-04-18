@@ -1,10 +1,10 @@
-# @abdokouta/kbd Architecture
+# @stackra/kbd Architecture
 
 ## Package Architecture Overview
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                    @abdokouta/kbd                           │
+│                    @stackra/kbd                           │
 │                     (Main Package)                          │
 └─────────────────────────────────────────────────────────────┘
                             │
@@ -130,12 +130,12 @@ useKeyboardShortcut({
 │  @heroui/react (Kbd component)                          │
 │  react (Core library)                                    │
 │  react-dom (DOM rendering)                               │
-│  @abdokouta/core (Refine integration)                   │
+│  @stackra/core (Refine integration)                   │
 └─────────────────────────────────────────────────────────┘
                             │
                             ▼
 ┌─────────────────────────────────────────────────────────┐
-│                    @abdokouta/kbd                        │
+│                    @stackra/kbd                        │
 ├─────────────────────────────────────────────────────────┤
 │                                                          │
 │  ┌────────────┐  ┌────────────┐  ┌────────────┐       │
@@ -155,7 +155,7 @@ useKeyboardShortcut({
 │                  Consumer Application                    │
 ├─────────────────────────────────────────────────────────┤
 │  import { RefineKbd, useKeyboardShortcut } from         │
-│          "@abdokouta/kbd"                               │
+│          "@stackra/kbd"                               │
 └─────────────────────────────────────────────────────────┘
 ```
 
@@ -288,7 +288,7 @@ Test Suite
         │                   │                   │
         ▼                   ▼                   ▼
 ┌──────────────┐    ┌──────────────┐    ┌──────────────┐
-│ @abdokouta/  │    │ @abdokouta/  │    │ @abdokouta/  │
+│ @stackra/  │    │ @stackra/  │    │ @stackra/  │
 │    core      │    │   heroui     │    │    kbar      │
 └──────────────┘    └──────────────┘    └──────────────┘
         │                   │                   │
@@ -296,7 +296,7 @@ Test Suite
                             │
                             ▼
                     ┌──────────────┐
-                    │ @abdokouta/  │
+                    │ @stackra/  │
                     │     kbd      │
                     └──────────────┘
                             │

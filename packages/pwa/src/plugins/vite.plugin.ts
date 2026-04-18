@@ -13,7 +13,7 @@
  * Usage:
  * ```ts
  * import { defineConfig } from 'vite'
- * import { vitePwaPlugin } from '@abdokouta/ts-pwa/vite-plugin'
+ * import { vitePwaPlugin } from '@stackra/ts-pwa/vite-plugin'
  *
  * export default defineConfig({
  *   plugins: [

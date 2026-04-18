@@ -4,12 +4,12 @@
  * Resolves the service from the ServiceRegistry and delegates
  * to `service.getOne(id)` via TanStack Query's `useQuery`.
  *
- * @module @abdokouta/react-refine
+ * @module @stackra/react-refine
  * @category Hooks
  */
 
 import { useQuery } from '@tanstack/react-query';
-import { resolveService } from '../use-service.util';
+import { resolveService } from '@/use-service.util';
 import { QueryKeyFactory } from '@/utils/query-key-factory.util';
 import type { UseOneProps } from '@/interfaces/use-one-props.interface';
 import type { UseOneReturnType } from '@/types/use-one-return-type.type';

@@ -19,7 +19,7 @@ import type { TenantResolver } from '@/interfaces';
  *
  * @example
  * ```typescript
- * import { ServerDomainResolver } from "@abdokouta/react-multitenancy";
+ * import { ServerDomainResolver } from "@stackra/react-multitenancy";
  *
  * const resolver = new ServerDomainResolver();
  * const tenantId = resolver.resolve();

@@ -1,11 +1,11 @@
-# @abdokouta/ts-ui
+# @stackra/ts-ui
 
 Shared UI primitives — slot system, layout components, and composable patterns.
 
 ## Installation
 
 ```bash
-pnpm add @abdokouta/ts-ui
+pnpm add @stackra/ts-ui
 ```
 
 ## Slot System
@@ -17,7 +17,7 @@ them with `<SlotFill>`.
 ### Setup
 
 ```tsx
-import { SlotProvider } from '@abdokouta/ts-ui';
+import { SlotProvider } from '@stackra/ts-ui';
 
 function App() {
   return (
@@ -31,7 +31,7 @@ function App() {
 ### Define a slot
 
 ```tsx
-import { Slot } from '@abdokouta/ts-ui';
+import { Slot } from '@stackra/ts-ui';
 
 function ThemeCustomizer() {
   return (
@@ -49,7 +49,7 @@ function ThemeCustomizer() {
 ### Fill a slot
 
 ```tsx
-import { SlotFill } from '@abdokouta/ts-ui';
+import { SlotFill } from '@stackra/ts-ui';
 
 function BrandingModule() {
   return (
@@ -67,7 +67,7 @@ function BrandingModule() {
 ### Hooks
 
 ```tsx
-import { useSlot, useHasSlot } from '@abdokouta/ts-ui';
+import { useSlot, useHasSlot } from '@stackra/ts-ui';
 
 function MyComponent() {
   const hasFooter = useHasSlot('my-component.footer');

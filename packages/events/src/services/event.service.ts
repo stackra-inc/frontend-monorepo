@@ -9,7 +9,7 @@
  *
  * Equivalent to `CacheService` in the cache package.
  *
- * @module @abdokouta/ts-events
+ * @module @stackra/ts-events
  * @category Services
  */
 

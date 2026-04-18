@@ -1,6 +1,6 @@
 /**
  * @fileoverview Barrel export for router interfaces.
- * @module @abdokouta/react-router
+ * @module @stackra/react-router
  * @category Interfaces
  */
 export type { RouteMetadata } from './route-metadata.interface';

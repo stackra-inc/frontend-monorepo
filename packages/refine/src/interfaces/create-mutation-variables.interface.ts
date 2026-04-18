@@ -1,7 +1,7 @@
 /**
  * @fileoverview Variables passed to the create mutation.
  *
- * @module @abdokouta/react-refine
+ * @module @stackra/react-refine
  * @category Interfaces
  */
 

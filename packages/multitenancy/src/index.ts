@@ -1,5 +1,5 @@
 /**
- * @abdokouta/react-multitenancy
+ * @stackra/react-multitenancy
  *
  * |--------------------------------------------------------------------------
  * | Multi-tenancy support for React applications.
@@ -8,7 +8,7 @@
  * | Flexible tenant resolution strategies, data provider integration,
  * | and React components for tenant management.
  * |
- * @module @abdokouta/react-multitenancy
+ * @module @stackra/react-multitenancy
  */
 
 // ============================================================================

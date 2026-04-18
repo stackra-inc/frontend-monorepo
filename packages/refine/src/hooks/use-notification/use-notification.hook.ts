@@ -1,21 +1,40 @@
-/** @fileoverview useNotification hook. @module @abdokouta/react-refine @category Hooks */
-import type { INotificationService } from '@/interfaces/i-notification-service.interface';
+/**
+ * @fileoverview useNotification hook.
+ *
+ * Resolves the NotificationService from the DI container via `useOptionalInject`.
+ *
+ * @module @stackra/react-refine
+ * @category Hooks
+ */
+
+import { useOptionalInject } from '@stackra/ts-container';
+import { NOTIFICATION_SERVICE } from '@/constants';
+import type { INotificationService } from '@/interfaces/notification-service.interface';
 import type { OpenNotificationParams } from '@/interfaces/open-notification-params.interface';
 
-let _notificationService: INotificationService | undefined;
-export function setNotificationService(svc: INotificationService) {
-  _notificationService = svc;
-}
-
+/** No-op function for when the service is not available. */
 const noop = () => {};
 
+/**
+ * Hook for displaying notifications.
+ *
+ * Resolves the `INotificationService` from the DI container. Returns
+ * no-op functions when the service is not configured.
+ *
+ * @returns Object with `open` and `close` methods.
+ */
 export function useNotification(): {
   open: (params: OpenNotificationParams) => void;
   close: (key: string) => void;
 } {
-  if (!_notificationService) return { open: noop, close: noop };
+  const notificationService = useOptionalInject<INotificationService>(NOTIFICATION_SERVICE);
+
+  if (!notificationService) {
+    return { open: noop, close: noop };
+  }
+
   return {
-    open: (params) => _notificationService!.open(params),
-    close: (key) => _notificationService!.close(key),
+    open: (params) => notificationService.open(params),
+    close: (key) => notificationService.close(key),
   };
 }

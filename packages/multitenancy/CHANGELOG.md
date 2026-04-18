@@ -1,4 +1,4 @@
-# @abdokouta/multitenancy
+# @stackra/multitenancy
 
 ## 1.0.0
 
@@ -17,7 +17,7 @@
   - `TenantCard`: Card component for displaying tenant information
   - `TenantBadge`: Badge component for showing current tenant
   - `TenantSwitcher`: Modal-based tenant switcher with search
-- **Dependency Injection**: NestJS-style DI using `@abdokouta/container`
+- **Dependency Injection**: NestJS-style DI using `@stackra/container`
 - **Type Safety**: Full TypeScript support with comprehensive type definitions
 - **Flexible Configuration**: Support for subdomain and custom domain strategies
 
@@ -47,7 +47,7 @@ Supports multiple tenant resolution strategies:
 
 ### Dependencies
 
-- `@abdokouta/core`: ^5.0.0
-- `@abdokouta/container`: workspace:\*
-- `@abdokouta/react-cache`: ^1.0.0
+- `@stackra/core`: ^5.0.0
+- `@stackra/container`: workspace:\*
+- `@stackra/ts-cache`: ^1.0.0
 - `@heroui/react`: ^3.0.0 (optional peer dependency)

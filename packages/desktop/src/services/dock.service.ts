@@ -8,10 +8,10 @@
  * | In Electron on macOS: updates dock badge and triggers bounce.
  * | On non-macOS or browser: resolves without error, logs a warning.
  * |
- * @module @abdokouta/ts-desktop
+ * @module @stackra/ts-desktop
  */
 
-import { Injectable, Inject } from '@abdokouta/ts-container';
+import { Injectable, Inject } from '@stackra/ts-container';
 
 import { DesktopManager } from './desktop-manager.service';
 

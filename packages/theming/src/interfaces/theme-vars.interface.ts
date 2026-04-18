@@ -1,6 +1,6 @@
 /**
  * @fileoverview ThemeVars interface — full set of HeroUI CSS variable overrides for one mode.
- * @module @abdokouta/react-theming
+ * @module @stackra/react-theming
  * @category Interfaces
  */
 

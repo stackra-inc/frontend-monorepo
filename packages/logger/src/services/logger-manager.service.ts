@@ -26,13 +26,8 @@
  * @module services/logger-manager
  */
 
-import {
-  Injectable,
-  Inject,
-  type OnModuleInit,
-  type OnModuleDestroy,
-} from '@abdokouta/ts-container';
-import { MultipleInstanceManager } from '@abdokouta/ts-support';
+import { Injectable, Inject, type OnModuleInit, type OnModuleDestroy } from '@stackra/ts-container';
+import { MultipleInstanceManager } from '@stackra/ts-support';
 
 import type { LoggerConfig } from '@/interfaces/logger-config.interface';
 import type { LoggerModuleOptions } from '@/interfaces/logger-module-options.interface';

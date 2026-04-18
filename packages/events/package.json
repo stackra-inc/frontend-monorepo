@@ -1,16 +1,16 @@
 {
-  "name": "@abdokouta/ts-events",
+  "name": "@stakra/ts-events",
   "version": "0.2.0",
   "description": "Laravel-style event dispatcher for TypeScript — pub/sub with wildcard listeners, subscribers, decorators, multiple drivers (memory, redis, null), and RxJS streaming.",
   "license": "MIT",
   "author": {
-    "name": "Abdelrhman Kouta",
-    "email": "abdelrhman@pixielity.com",
-    "url": "https://github.com/abdokouta"
+    "name": "Stakra L.L.C",
+    "email": "dev@stakra.com",
+    "url": "https://github.com/stakra"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/pixielity-inc/frontend-monorepo.git",
+    "url": "https://github.com/stakra/frontend-monorepo.git",
     "directory": "packages/events"
   },
   "keywords": [
@@ -59,23 +59,23 @@
     "rxjs": "^7.8.1"
   },
   "peerDependencies": {
-    "@abdokouta/ts-container": "workspace:*",
-    "@abdokouta/ts-support": "workspace:*",
-    "@abdokouta/ts-redis": "workspace:*",
+    "@stakra/ts-container": "workspace:*",
+    "@stakra/ts-support": "workspace:*",
+    "@stakra/ts-redis": "workspace:*",
     "reflect-metadata": "^0.2.2",
     "react": "^18.0.0 || ^19.0.0"
   },
   "peerDependenciesMeta": {
-    "@abdokouta/ts-container": {
+    "@stakra/ts-container": {
       "optional": false
     },
-    "@abdokouta/ts-support": {
+    "@stakra/ts-support": {
       "optional": false
     },
     "reflect-metadata": {
       "optional": false
     },
-    "@abdokouta/ts-redis": {
+    "@stakra/ts-redis": {
       "optional": true
     },
     "react": {
@@ -105,5 +105,6 @@
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
-  }
+  },
+  "packageManager": "pnpm@10.33.0"
 }

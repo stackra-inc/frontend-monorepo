@@ -1,5 +1,5 @@
 /**
- * @fileoverview ESLint configuration for @abdokouta/react-theming package
+ * @fileoverview ESLint configuration for @stackra/react-theming package
  *
  * This configuration extends the shared @nesvel/eslint-config with
  * project-specific ignore patterns. Uses the ESLint flat config format.
@@ -10,7 +10,7 @@
  * - Code Style: Consistent code style enforcement across the monorepo
  * - Ignore Patterns: Excludes build output, node_modules, and config files
  *
- * @module @abdokouta/react-theming
+ * @module @stackra/react-theming
  * @category Configuration
  * @see https://eslint.org/docs/latest/use/configure/configuration-files
  */

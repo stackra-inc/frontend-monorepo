@@ -7,8 +7,8 @@
  * |--------------------------------------------------------------------------
  * |
  * | Usage:
- * |   import { slotRegistry } from "@abdokouta/ts-ui";
- * |   import { THEME_SLOTS } from "@abdokouta/react-theming";
+ * |   import { slotRegistry } from "@stackra/ts-ui";
+ * |   import { THEME_SLOTS } from "@stackra/react-theming";
  * |
  * |   slotRegistry.registerEntry(THEME_SLOTS.CUSTOMIZER.BEFORE_MODE, {
  * |     id: "branding:banner",

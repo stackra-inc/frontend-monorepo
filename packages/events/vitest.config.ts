@@ -1,5 +1,5 @@
 /**
- * @fileoverview Vitest configuration for @abdokouta/ts-events package
+ * @fileoverview Vitest configuration for @stackra/ts-events package
  *
  * This configuration sets up the testing environment for the package,
  * including test globals, jsdom environment, coverage reporting, and path aliases.
@@ -12,7 +12,7 @@
  * - Path Aliases: Resolves @ to ./src for consistent imports
  * - Pass With No Tests: CI won't fail if no tests exist yet
  *
- * @module @abdokouta/ts-events
+ * @module @stackra/ts-events
  * @category Configuration
  */
 

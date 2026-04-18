@@ -5,7 +5,7 @@
  * | Collects @Menu / @MenuItem decorated classes and builds the menu template.
  * |--------------------------------------------------------------------------
  * |
- * | Also auto-registers keyboard shortcuts with @abdokouta/kbd's
+ * | Also auto-registers keyboard shortcuts with @stackra/kbd's
  * | ShortcutRegistry when menu items have accelerators.
  * |
  * | Flow:
@@ -15,12 +15,12 @@
  * |   4. MenuRegistry.buildTemplate() produces the full menu structure
  * |   5. DesktopManager sends it to main process via bridge.send('menu:set')
  * |
- * @module @abdokouta/ts-desktop
+ * @module @stackra/ts-desktop
  */
 
-import 'reflect-metadata';
-import { Injectable } from '@abdokouta/ts-container';
+import { Injectable } from '@stackra/ts-container';
 
+import { getMetadata } from '@vivtel/metadata';
 import { MENU_METADATA, MENU_ITEM_METADATA } from '@/constants';
 import type { MenuMetadata, MenuItemMetadata } from '@/interfaces';
 
@@ -83,16 +83,21 @@ export class MenuRegistry {
   register(instance: object): void {
     const constructor = instance.constructor;
 
-    const menuMeta: MenuMetadata | undefined = Reflect.getMetadata(MENU_METADATA, constructor);
+    const menuMeta: MenuMetadata | undefined = getMetadata<MenuMetadata>(
+      MENU_METADATA,
+      constructor as object
+    );
     if (!menuMeta) {
-      console.log(`[MenuRegistry] No @Menu metadata on ${constructor.name} — skipping`);
+      console.log(`[MenuRegistry] No @Menu metadata on ${(constructor as any).name} — skipping`);
       return;
     }
 
-    console.log(`[MenuRegistry] Registering @Menu('${menuMeta.id}') from ${constructor.name}`);
+    console.log(
+      `[MenuRegistry] Registering @Menu('${menuMeta.id}') from ${(constructor as any).name}`
+    );
 
     const itemsMeta: MenuItemMetadata[] =
-      Reflect.getMetadata(MENU_ITEM_METADATA, constructor) ?? [];
+      getMetadata<MenuItemMetadata[]>(MENU_ITEM_METADATA, constructor as object) ?? [];
 
     console.log(`[MenuRegistry]   Found ${itemsMeta.length} @MenuItem methods`);
 

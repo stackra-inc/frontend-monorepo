@@ -1,12 +1,12 @@
 /**
  * @fileoverview useList hook — fetch a paginated, sorted, filtered list.
  *
- * @module @abdokouta/react-refine
+ * @module @stackra/react-refine
  * @category Hooks
  */
 
 import { useQuery } from '@tanstack/react-query';
-import { resolveService } from '../use-service.util';
+import { resolveService } from '@/use-service.util';
 import { QueryKeyFactory } from '@/utils/query-key-factory.util';
 import type { GetListParams } from '@/interfaces/get-list-params.interface';
 import type { UseListProps } from '@/interfaces/use-list-props.interface';

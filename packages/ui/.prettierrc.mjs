@@ -1,5 +1,5 @@
 /**
- * @fileoverview Prettier configuration for @abdokouta/ts-ui package
+ * @fileoverview Prettier configuration for @stackra/ts-ui package
  *
  * Extends the shared @nesvel/prettier-config for consistent code formatting
  * across all packages in the monorepo.
@@ -12,7 +12,7 @@
  * - Semicolons enabled
  * - LF line endings
  *
- * @module @abdokouta/ts-ui
+ * @module @stackra/ts-ui
  * @category Configuration
  * @see https://prettier.io/docs/en/configuration
  */

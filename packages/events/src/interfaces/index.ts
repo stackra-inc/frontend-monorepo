@@ -1,6 +1,6 @@
 /**
  * @fileoverview Interfaces Index
- * @module @abdokouta/ts-events
+ * @module @stackra/ts-events
  */
 
 export type { Dispatcher, EventListener } from './dispatcher.interface';

@@ -7,7 +7,7 @@
  *
  * Required by the `globals: true` setting in vitest.config.ts.
  *
- * @module @abdokouta/kbd
+ * @module @stackra/kbd
  * @category Configuration
  */
 

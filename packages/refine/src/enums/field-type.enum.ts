@@ -4,7 +4,7 @@
  * Defines the supported field types used in {@link FieldDefinition}
  * objects for Server-Driven UI and resource schema configuration.
  *
- * @module @abdokouta/react-refine
+ * @module @stackra/react-refine
  * @category Enums
  */
 

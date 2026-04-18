@@ -1,7 +1,7 @@
 /**
  * @fileoverview Return shape for the useList hook.
  *
- * @module @abdokouta/react-refine
+ * @module @stackra/react-refine
  * @category Interfaces
  */
 

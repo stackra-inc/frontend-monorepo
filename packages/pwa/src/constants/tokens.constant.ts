@@ -1,5 +1,5 @@
 /**
- * DI Tokens for @abdokouta/ts-pwa
+ * DI Tokens for @stackra/ts-pwa
  *
  * |--------------------------------------------------------------------------
  * | Injection tokens for the PwaModule DI integration.

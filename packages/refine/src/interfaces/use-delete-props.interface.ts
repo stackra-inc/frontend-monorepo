@@ -1,7 +1,7 @@
 /**
  * @fileoverview Props for the useDelete hook.
  *
- * @module @abdokouta/react-refine
+ * @module @stackra/react-refine
  * @category Interfaces
  */
 

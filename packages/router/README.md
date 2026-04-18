@@ -1,6 +1,6 @@
-# @abdokouta/react-router
+# @stackra/react-router
 
-Route auto-registration package for `@abdokouta/react-refine`.
+Route auto-registration package for `@stackra/react-refine`.
 
 Provides the `@Route` decorator, `RouteRegistry`, and route types/interfaces for
 automatic route registration from decorated React component classes.
@@ -8,12 +8,12 @@ automatic route registration from decorated React component classes.
 ## Installation
 
 ```bash
-pnpm add @abdokouta/react-router
+pnpm add @stackra/react-router
 ```
 
 ## Peer Dependencies
 
-- `@abdokouta/react-refine`
-- `@abdokouta/ts-container`
+- `@stackra/react-refine`
+- `@stackra/ts-container`
 - `react-router-dom`
 - `reflect-metadata`

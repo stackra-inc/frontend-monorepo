@@ -1,5 +1,5 @@
 {
-  "name": "@abdokouta/ts-support",
+  "name": "@stakra/ts-support",
   "version": "2.1.0",
   "description": "Laravel-style Str, Collection, and Registry utilities for JavaScript/TypeScript",
   "keywords": [
@@ -15,10 +15,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/pixielity-inc/react-support.git"
+    "url": "https://github.com/stakra/ts-support.git"
   },
   "license": "MIT",
-  "author": "Pixielity",
+  "author": "stakra",
   "type": "module",
   "sideEffects": false,
   "exports": {
@@ -56,10 +56,10 @@
     "collect.js": "^4.36.1"
   },
   "peerDependencies": {
-    "@abdokouta/ts-container": "workspace:*"
+    "@stakra/ts-container": "workspace:*"
   },
   "peerDependenciesMeta": {
-    "@abdokouta/ts-container": {
+    "@stakra/ts-container": {
       "optional": true
     }
   },

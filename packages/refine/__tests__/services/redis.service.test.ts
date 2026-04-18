@@ -12,7 +12,7 @@
  * application. It manages multiple named connections internally and provides
  * a simple API for accessing Redis functionality.
  *
- * @module @abdokouta/redis
+ * @module @stackra/redis
  * @category Tests
  */
 

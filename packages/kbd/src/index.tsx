@@ -1,5 +1,5 @@
 /**
- * @abdokouta/kbd
+ * @stackra/kbd
  *
  * Keyboard shortcut display component integration with HeroUI for Refine applications.
  * Provides components and utilities for displaying keyboard shortcuts in a visually
@@ -8,7 +8,7 @@
  * @example
  * Basic usage:
  * ```tsx
- * import { RefineKbd } from '@abdokouta/kbd';
+ * import { RefineKbd } from '@stackra/kbd';
  *
  * function MyComponent() {
  *   return (
@@ -22,7 +22,7 @@
  * @example
  * Using the keyboard shortcut hook:
  * ```tsx
- * import { RefineKbd, useKeyboardShortcut } from '@abdokouta/kbd';
+ * import { RefineKbd, useKeyboardShortcut } from '@stackra/kbd';
  *
  * function MyComponent() {
  *   useKeyboardShortcut({
@@ -37,7 +37,7 @@
  * @example
  * Using the shortcut registry:
  * ```tsx
- * import { shortcutRegistry, useShortcutRegistry } from '@abdokouta/kbd';
+ * import { shortcutRegistry, useShortcutRegistry } from '@stackra/kbd';
  *
  * // Register a shortcut
  * shortcutRegistry.register({
@@ -54,7 +54,7 @@
  * }
  * ```
  *
- * @module @abdokouta/kbd
+ * @module @stackra/kbd
  */
 
 // ============================================================================

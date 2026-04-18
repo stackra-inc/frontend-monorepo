@@ -9,8 +9,8 @@
  *
  * @example
  * ```ts
- * import { slotRegistry } from "@abdokouta/react-ui";
- * import { DRAWER_SLOTS } from "@abdokouta/react-ui";
+ * import { slotRegistry } from "@stackra/react-ui";
+ * import { DRAWER_SLOTS } from "@stackra/react-ui";
  *
  * slotRegistry.registerEntry(DRAWER_SLOTS.HEADER.BEFORE, {
  *   render: () => <AnnouncementBanner />,

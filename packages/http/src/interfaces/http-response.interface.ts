@@ -5,12 +5,12 @@
  * after a successful request. Wraps the raw axios response into a
  * clean, framework-agnostic structure.
  *
- * @module @abdokouta/ts-http
+ * @module @stackra/ts-http
  * @category Interfaces
  *
  * @example
  * ```typescript
- * import type { HttpResponse } from '@abdokouta/ts-http';
+ * import type { HttpResponse } from '@stackra/ts-http';
  *
  * const response: HttpResponse<User> = await http.get<User>('/api/users/1');
  * console.log(response.data);       // User object

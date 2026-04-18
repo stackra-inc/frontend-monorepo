@@ -3,6 +3,9 @@
  *
  * Marks a method as an IPC handler in the main process.
  *
+ * All metadata reads and writes go through `@vivtel/metadata` for a consistent,
+ * typed API instead of raw `Reflect.*` calls.
+ *
  * @example
  * ```typescript
  * @Injectable()
@@ -15,7 +18,7 @@
  * ```
  */
 
-import 'reflect-metadata';
+import { updateMetadata } from '@vivtel/metadata';
 import { ON_IPC_METADATA } from '@/constants';
 
 export interface OnIpcMetadata {
@@ -25,11 +28,11 @@ export interface OnIpcMetadata {
 
 export function OnIpc(channel: string): MethodDecorator {
   return (target: object, propertyKey: string | symbol) => {
-    const existing: OnIpcMetadata[] =
-      Reflect.getMetadata(ON_IPC_METADATA, target.constructor) ?? [];
-
-    existing.push({ channel, method: String(propertyKey) });
-
-    Reflect.defineMetadata(ON_IPC_METADATA, existing, target.constructor);
+    updateMetadata(
+      ON_IPC_METADATA,
+      [] as OnIpcMetadata[],
+      (existing) => [...existing, { channel, method: String(propertyKey) }],
+      target.constructor as object
+    );
   };
 }

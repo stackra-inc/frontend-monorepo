@@ -5,7 +5,7 @@
  * | Types for the auto-update service lifecycle events.
  * |--------------------------------------------------------------------------
  * |
- * @module @abdokouta/ts-desktop
+ * @module @stackra/ts-desktop
  */
 
 /*

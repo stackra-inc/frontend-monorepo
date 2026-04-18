@@ -2,7 +2,7 @@
  * PWA Configuration
  *
  * |--------------------------------------------------------------------------
- * | @abdokouta/ts-pwa — Progressive Web App settings
+ * | @stackra/ts-pwa — Progressive Web App settings
  * |--------------------------------------------------------------------------
  * |
  * | Unified config for both build-time (vite-plugin-pwa) and runtime
@@ -21,7 +21,7 @@
  * @module config/pwa
  */
 
-import { defineConfig } from '@abdokouta/ts-pwa';
+import { defineConfig } from '@stackra/ts-pwa';
 
 const pwaConfig = defineConfig({
   /*
@@ -60,7 +60,7 @@ const pwaConfig = defineConfig({
      * Web App Manifest — controls how the app appears when installed.
      */
     manifest: {
-      name: 'Pixielity POS',
+      name: 'Stackra POS',
       short_name: 'POS',
       description: 'Modern point-of-sale system built with React and Electron',
       theme_color: '#000000',
@@ -160,7 +160,7 @@ const pwaConfig = defineConfig({
     maxDismissals: 3,
 
     /** Banner title. */
-    title: 'Install Pixielity',
+    title: 'Install Stackra',
 
     /** Banner description. */
     description: 'Add to your home screen for offline access and a native experience.',
@@ -212,7 +212,7 @@ const pwaConfig = defineConfig({
     minDuration: 1500,
 
     /** App name displayed below the logo. */
-    appName: 'Pixielity',
+    appName: 'Stackra',
 
     /** Tagline or loading message. */
     tagline: 'Loading...',

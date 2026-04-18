@@ -3,7 +3,7 @@
  *
  * This file contains interactive examples and documentation for the RefineKbd component.
  *
- * @module @abdokouta/kbd
+ * @module @stackra/kbd
  * @category Stories
  */
 

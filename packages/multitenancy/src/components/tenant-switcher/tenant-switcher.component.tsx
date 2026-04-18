@@ -6,7 +6,7 @@
  *
  * @example
  * ```tsx
- * import { TenantSwitcher } from "@abdokouta/react-multitenancy";
+ * import { TenantSwitcher } from "@stackra/react-multitenancy";
  *
  * <TenantSwitcher />
  * ```

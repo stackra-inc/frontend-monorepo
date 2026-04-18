@@ -1,15 +1,15 @@
-# Integration Guide for @abdokouta/kbd
+# Integration Guide for @stackra/kbd
 
-This guide shows how to integrate @abdokouta/kbd into your refine application.
+This guide shows how to integrate @stackra/kbd into your refine application.
 
 ## Installation
 
 ```bash
-npm install @abdokouta/kbd
+npm install @stackra/kbd
 # or
-yarn add @abdokouta/kbd
+yarn add @stackra/kbd
 # or
-pnpm add @abdokouta/kbd
+pnpm add @stackra/kbd
 ```
 
 ## Prerequisites
@@ -17,7 +17,7 @@ pnpm add @abdokouta/kbd
 Make sure you have the following peer dependencies installed:
 
 ```bash
-npm install @heroui/react @abdokouta/core react react-dom
+npm install @heroui/react @stackra/core react react-dom
 ```
 
 ## Basic Setup
@@ -25,7 +25,7 @@ npm install @heroui/react @abdokouta/core react react-dom
 ### 1. Import the Component
 
 ```tsx
-import { RefineKbd } from '@abdokouta/kbd';
+import { RefineKbd } from '@stackra/kbd';
 ```
 
 ### 2. Use in Your Components
@@ -47,8 +47,8 @@ function MyComponent() {
 ### Example: Adding Keyboard Shortcuts to a List Page
 
 ```tsx
-import { useList } from '@abdokouta/core';
-import { RefineKbd, useKeyboardShortcut } from '@abdokouta/kbd';
+import { useList } from '@stackra/core';
+import { RefineKbd, useKeyboardShortcut } from '@stackra/kbd';
 
 export const ProductList = () => {
   const { data, isLoading } = useList({ resource: 'products' });
@@ -81,7 +81,7 @@ export const ProductList = () => {
 Create a reusable shortcuts panel component:
 
 ```tsx
-import { RefineKbd } from '@abdokouta/kbd';
+import { RefineKbd } from '@stackra/kbd';
 import { Modal } from '@heroui/react';
 
 interface Shortcut {
@@ -122,8 +122,8 @@ export const ShortcutsPanel = ({ isOpen, onClose }) => {
 ### Example: Form with Save Shortcut
 
 ```tsx
-import { useForm } from '@abdokouta/core';
-import { RefineKbd, useKeyboardShortcut } from '@abdokouta/kbd';
+import { useForm } from '@stackra/core';
+import { RefineKbd, useKeyboardShortcut } from '@stackra/kbd';
 
 export const ProductEdit = () => {
   const { onFinish, formLoading } = useForm();
@@ -155,7 +155,7 @@ The Kbd component automatically inherits your HeroUI theme settings.
 
 ```tsx
 import { HeroUIProvider } from '@heroui/react';
-import { RefineKbd } from '@abdokouta/kbd';
+import { RefineKbd } from '@stackra/kbd';
 
 function App() {
   return (
@@ -202,7 +202,7 @@ function App() {
 ### Context-Aware Shortcuts
 
 ```tsx
-import { useKeyboardShortcut } from '@abdokouta/kbd';
+import { useKeyboardShortcut } from '@stackra/kbd';
 import { useNavigate } from 'react-router-dom';
 
 export const useGlobalShortcuts = () => {
@@ -314,7 +314,7 @@ export const HelpModal = () => {
 ### Command Palette Integration
 
 ```tsx
-import { RefineKbd } from '@abdokouta/kbd';
+import { RefineKbd } from '@stackra/kbd';
 
 export const CommandPalette = () => {
   return (
@@ -352,7 +352,7 @@ export const CommandPalette = () => {
   <div>Content</div>
 </HotKeys>;
 
-// After (@abdokouta/kbd)
+// After (@stackra/kbd)
 useKeyboardShortcut({
   keys: ['command', 'K'],
   callback: handlers.SEARCH,
@@ -361,11 +361,11 @@ useKeyboardShortcut({
 
 ### From kbar
 
-The @abdokouta/kbd package complements @abdokouta/kbar. Use them together:
+The @stackra/kbd package complements @stackra/kbar. Use them together:
 
 ```tsx
-import { RefineKbarProvider, RefineKbar } from '@abdokouta/kbar';
-import { RefineKbd } from '@abdokouta/kbd';
+import { RefineKbarProvider, RefineKbar } from '@stackra/kbar';
+import { RefineKbd } from '@stackra/kbd';
 
 function App() {
   return (

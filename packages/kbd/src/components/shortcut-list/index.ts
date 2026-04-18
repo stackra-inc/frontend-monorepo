@@ -1,7 +1,7 @@
 /**
  * @fileoverview ShortcutList component exports
  *
- * @module @abdokouta/kbd
+ * @module @stackra/kbd
  * @category Components
  */
 

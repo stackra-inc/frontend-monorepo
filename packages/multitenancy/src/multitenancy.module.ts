@@ -2,7 +2,7 @@
  * Multi-Tenancy Module
  *
  * |--------------------------------------------------------------------------
- * | DI Module for @abdokouta/react-multitenancy
+ * | DI Module for @stackra/react-multitenancy
  * |--------------------------------------------------------------------------
  * |
  * | Registers:
@@ -26,10 +26,10 @@
  * export class AppModule {}
  * ```
  *
- * @module @abdokouta/react-multitenancy
+ * @module @stackra/react-multitenancy
  */
 
-import { Module, type DynamicModule } from '@abdokouta/ts-container';
+import { Module, type DynamicModule } from '@stackra/ts-container';
 
 import { TenantMode } from '@/enums';
 import type { MultiTenancyOptions } from '@/interfaces/multitenancy-options.interface';

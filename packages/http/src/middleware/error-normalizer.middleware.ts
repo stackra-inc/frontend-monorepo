@@ -10,12 +10,12 @@
  * - **Timeout errors** — request exceeded the configured timeout
  * - **API error responses** — server returned a non-2xx status code
  *
- * @module @abdokouta/ts-http
+ * @module @stackra/ts-http
  * @category Middleware
  *
  * @example
  * ```typescript
- * import type { HttpError } from '@abdokouta/ts-http';
+ * import type { HttpError } from '@stackra/ts-http';
  *
  * try {
  *   await http.get('/api/users');
@@ -28,7 +28,7 @@
  * ```
  */
 
-import { Injectable } from '@abdokouta/ts-container';
+import { Injectable } from '@stackra/ts-container';
 import { AxiosError } from 'axios';
 import { HttpMiddleware } from '@/decorators/http-middleware.decorator';
 import type {

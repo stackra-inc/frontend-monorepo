@@ -22,7 +22,7 @@ import type { PwaModuleOptions } from '@/interfaces/pwa-module-options.interface
 export function usePwaConfig(): PwaModuleOptions | undefined {
   try {
     // eslint-disable-next-line @typescript-eslint/no-require-imports
-    const mod = Function('return require("@abdokouta/ts-container")')() as {
+    const mod = Function('return require("@stackra/ts-container")')() as {
       useOptionalInject: (token: symbol) => unknown;
     };
     return mod.useOptionalInject(PWA_CONFIG) as PwaModuleOptions | undefined;

@@ -1,7 +1,7 @@
 /**
  * @fileoverview Return type for the useDeleteMany hook.
  *
- * @module @abdokouta/react-refine
+ * @module @stackra/react-refine
  * @category Types
  */
 

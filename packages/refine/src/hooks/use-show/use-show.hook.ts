@@ -1,6 +1,6 @@
-/** @fileoverview useShow hook — fetch a single record for display. @module @abdokouta/react-refine @category Hooks */
+/** @fileoverview useShow hook — fetch a single record for display. @module @stackra/react-refine @category Hooks */
 import { useQuery } from '@tanstack/react-query';
-import { resolveService } from '../use-service.util';
+import { resolveService } from '@/use-service.util';
 import { QueryKeyFactory } from '@/utils/query-key-factory.util';
 import type { UseShowProps } from '@/interfaces/use-show-props.interface';
 import type { UseShowReturnType } from '@/types/use-show-return-type.type';

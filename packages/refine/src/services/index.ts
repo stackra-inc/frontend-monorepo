@@ -1,9 +1,13 @@
 /**
- * @fileoverview Barrel export for all services in the refine package.
+ * @fileoverview Barrel export for refine services.
  *
- * @module @abdokouta/react-refine
+ * @module @stackra/react-refine
  * @category Services
  */
 
 export { BaseService } from './base.service';
-export { DefaultService } from './default.service';
+export { HttpService } from './http.service';
+export { NotificationService } from './notification.service';
+export { RealtimeService } from './realtime.service';
+export type { RealtimeConfig } from './realtime.service';
+export { AuditLogService } from './audit-log.service';

@@ -14,7 +14,7 @@ import type { Tenant } from '@/types';
  *
  * @example
  * ```typescript
- * import { useMultiTenancyContext } from "@abdokouta/react-multitenancy";
+ * import { useMultiTenancyContext } from "@stackra/react-multitenancy";
  *
  * const MyComponent = () => {
  *   const context = useMultiTenancyContext();
@@ -39,7 +39,7 @@ import type { Tenant } from '@/types';
  * @example
  * ```typescript
  * // Using with useTenant hook (recommended)
- * import { useTenant } from "@abdokouta/react-multitenancy";
+ * import { useTenant } from "@stackra/react-multitenancy";
  *
  * const TenantInfo = () => {
  *   const { tenant, tenants, isLoading, error } = useTenant();
@@ -63,7 +63,7 @@ import type { Tenant } from '@/types';
  * @example
  * ```typescript
  * // Creating the context provider
- * import { MultiTenancyContextProvider } from "@abdokouta/react-multitenancy";
+ * import { MultiTenancyContextProvider } from "@stackra/react-multitenancy";
  *
  * const App = () => {
  *   const multiTenancyProvider = createMultiTenancyProvider({

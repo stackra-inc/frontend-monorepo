@@ -6,7 +6,7 @@
  *
  * Drivers: memory, redis, null.
  *
- * @module @abdokouta/ts-events
+ * @module @stackra/ts-events
  * @category Interfaces
  */
 

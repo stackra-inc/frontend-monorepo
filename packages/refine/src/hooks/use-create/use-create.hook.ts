@@ -1,6 +1,6 @@
-/** @fileoverview useCreate hook. @module @abdokouta/react-refine @category Hooks */
+/** @fileoverview useCreate hook. @module @stackra/react-refine @category Hooks */
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { resolveService } from '../use-service.util';
+import { resolveService } from '@/use-service.util';
 import { QueryKeyFactory } from '@/utils/query-key-factory.util';
 import type { UseCreateProps } from '@/interfaces/use-create-props.interface';
 import type { CreateMutationVariables } from '@/interfaces/create-mutation-variables.interface';

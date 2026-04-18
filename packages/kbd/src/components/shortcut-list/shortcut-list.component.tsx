@@ -4,7 +4,7 @@
  * This component renders a searchable, filterable list of keyboard shortcuts
  * from the registry, with support for grouping by category or context.
  *
- * @module @abdokouta/kbd
+ * @module @stackra/kbd
  * @category Components
  */
 

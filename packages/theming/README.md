@@ -1,4 +1,4 @@
-# @abdokouta/react-theming
+# @stackra/react-theming
 
 Theme management with registry pattern, dark/light mode, customizer panels, and
 DI integration.
@@ -6,7 +6,7 @@ DI integration.
 ## Installation
 
 ```bash
-pnpm add @abdokouta/react-theming
+pnpm add @stackra/react-theming
 ```
 
 ## Features
@@ -33,8 +33,8 @@ pnpm add @abdokouta/react-theming
  * | Register ThemeModule in your root AppModule.
  * |-------------------------------------------------------------------
  */
-import { Module } from '@abdokouta/ts-container';
-import { ThemeModule } from '@abdokouta/react-theming';
+import { Module } from '@stackra/ts-container';
+import { ThemeModule } from '@stackra/react-theming';
 
 @Module({
   imports: [
@@ -55,7 +55,7 @@ export class AppModule {}
  * | Wrap your app with ThemeProvider for context access.
  * |-------------------------------------------------------------------
  */
-import { ThemeProvider } from '@abdokouta/react-theming';
+import { ThemeProvider } from '@stackra/react-theming';
 
 function Root() {
   return (
@@ -74,7 +74,7 @@ function Root() {
  * | Access and control the active theme.
  * |-------------------------------------------------------------------
  */
-import { useTheme } from '@abdokouta/react-theming';
+import { useTheme } from '@stackra/react-theming';
 
 function ThemePicker() {
   const { theme, setTheme, themes } = useTheme();
@@ -100,7 +100,7 @@ function ThemePicker() {
  * | Control dark/light/system color mode.
  * |-------------------------------------------------------------------
  */
-import { useColorMode } from '@abdokouta/react-theming';
+import { useColorMode } from '@stackra/react-theming';
 
 function ModeToggle() {
   const { isDark, toggle, setMode } = useColorMode();

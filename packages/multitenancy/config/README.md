@@ -1,21 +1,21 @@
 # Multi-Tenancy Configuration
 
 This directory contains example configuration files for the
-`@abdokouta/multitenancy` package.
+`@stackra/multitenancy` package.
 
 ## Quick Start
 
 1. Copy the example configuration to your application:
 
 ```bash
-cp node_modules/@abdokouta/multitenancy/config/multitenancy.config.example.ts src/config/multitenancy.config.ts
+cp node_modules/@stackra/multitenancy/config/multitenancy.config.example.ts src/config/multitenancy.config.ts
 ```
 
 2. Customize the configuration for your needs:
 
 ```typescript
 // src/config/multitenancy.config.ts
-import { defineConfig, subdomainPreset } from '@abdokouta/multitenancy';
+import { defineConfig, subdomainPreset } from '@stackra/multitenancy';
 
 export const multitenancyConfig = defineConfig({
   ...subdomainPreset,
@@ -31,8 +31,8 @@ export const multitenancyConfig = defineConfig({
 
 ```typescript
 // src/app.module.ts
-import { Module } from '@abdokouta/container';
-import { MultiTenancyModule } from '@abdokouta/multitenancy';
+import { Module } from '@stackra/container';
+import { MultiTenancyModule } from '@stackra/multitenancy';
 import { multitenancyConfig } from './config/multitenancy.config';
 
 @Module({

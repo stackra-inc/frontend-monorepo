@@ -1,7 +1,7 @@
 /**
  * @fileoverview Return type for the useCreateMany hook.
  *
- * @module @abdokouta/react-refine
+ * @module @stackra/react-refine
  * @category Types
  */
 

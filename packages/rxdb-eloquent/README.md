@@ -1,4 +1,4 @@
-# @abdokouta/ts-eloquent
+# @stackra/ts-eloquent
 
 Laravel Eloquent-style ORM built on RxDB for client-side TypeScript
 applications.
@@ -6,7 +6,7 @@ applications.
 ## Installation
 
 ```bash
-pnpm add @abdokouta/ts-eloquent
+pnpm add @stackra/ts-eloquent
 ```
 
 ## Features
@@ -42,8 +42,8 @@ pnpm add @abdokouta/ts-eloquent
  * | Register EloquentModule in your root AppModule.
  * |-------------------------------------------------------------------
  */
-import { Module } from '@abdokouta/ts-container';
-import { EloquentModule } from '@abdokouta/ts-eloquent';
+import { Module } from '@stackra/ts-container';
+import { EloquentModule } from '@stackra/ts-eloquent';
 
 @Module({
   imports: [
@@ -96,7 +96,7 @@ import {
   Fillable,
   HasMany,
   Timestamps,
-} from '@abdokouta/ts-eloquent';
+} from '@stackra/ts-eloquent';
 
 @Collection('users')
 @Timestamps()
@@ -140,7 +140,7 @@ const first = await User.query()
  * | useFind with live mode subscribes to document changes.
  * |-------------------------------------------------------------------
  */
-import { useFind } from '@abdokouta/ts-eloquent';
+import { useFind } from '@stackra/ts-eloquent';
 
 function UserProfile({ userId }: { userId: string }) {
   const { data: user, loading, error } = useFind(User, userId, { live: true });

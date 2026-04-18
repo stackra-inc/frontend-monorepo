@@ -1,7 +1,7 @@
 /**
  * @fileoverview Return type interface for the useTenantSwitch hook.
  *
- * @module @abdokouta/react-multitenancy
+ * @module @stackra/react-multitenancy
  * @category Interfaces
  */
 

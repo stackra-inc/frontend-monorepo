@@ -1,36 +1,25 @@
 /**
  * @fileoverview Root options type for `RefineModule.forRoot()`.
  *
- * @module @abdokouta/react-refine
+ * Auth options have been moved to @stackra/react-auth.
+ *
+ * @module @stackra/react-refine
  * @category Types
  */
 
 import type { Type } from './type-constructor.type';
-import type { IAuthService } from '@/interfaces/i-auth-service.interface';
-import type { IAccessControlService } from '@/interfaces/i-access-control-service.interface';
-import type { IRealtimeService } from '@/interfaces/i-realtime-service.interface';
-import type { INotificationService } from '@/interfaces/i-notification-service.interface';
+import type { MutationMode } from './mutation-mode.type';
+import type { IRealtimeService } from '@/interfaces/realtime-service.interface';
+import type { INotificationService } from '@/interfaces/notification-service.interface';
 import type { IAuditLogService } from '@/interfaces/audit-log.interface';
 import type { QueryStringSerializer } from '@/interfaces/query-string-serializer.interface';
 
 /**
  * Configuration options for `RefineModule.forRoot()`.
- *
- * All fields are optional. Provider services that are not supplied
- * will either use permissive defaults or no-op behavior.
  */
 export type RefineRootOptions = {
-  /**
-   * TanStack QueryClient instance.
-   * If not provided, a default QueryClient is created.
-   */
+  /** TanStack QueryClient instance. */
   queryClient?: any;
-
-  /** Auth service class or instance. */
-  authService?: Type<IAuthService> | IAuthService;
-
-  /** Access control service class or instance. */
-  accessControlService?: Type<IAccessControlService> | IAccessControlService;
 
   /** Realtime service class or instance. */
   realtimeService?: Type<IRealtimeService> | IRealtimeService;
@@ -41,11 +30,25 @@ export type RefineRootOptions = {
   /** Audit log service class or instance. */
   auditLogService?: Type<IAuditLogService> | IAuditLogService;
 
-  /**
-   * Query string serializer for HttpRepository.
-   * Defaults to `LaravelQueryStringSerializer` if not provided.
-   */
+  /** Query string serializer for HttpRepository. */
   queryStringSerializer?: QueryStringSerializer;
+
+  /**
+   * Global mutation mode.
+   *
+   * - `pessimistic` — mutation executes immediately (default).
+   * - `optimistic` — UI updates immediately, rolls back on error.
+   * - `undoable` — countdown toast before execution.
+   *
+   * @default 'pessimistic'
+   */
+  mutationMode?: MutationMode;
+
+  /**
+   * Default timeout in milliseconds for undoable mutations.
+   * @default 5000
+   */
+  undoableTimeout?: number;
 
   /** Whether this module should be registered globally. Defaults to `true`. */
   isGlobal?: boolean;

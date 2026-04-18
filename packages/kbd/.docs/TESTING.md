@@ -1,9 +1,9 @@
-# Testing Guide for @abdokouta/kbd
+# Testing Guide for @stackra/kbd
 
 ## Overview
 
-The `@abdokouta/kbd` package includes comprehensive test coverage using Vitest
-and React Testing Library.
+The `@stackra/kbd` package includes comprehensive test coverage using Vitest and
+React Testing Library.
 
 ## Running Tests
 

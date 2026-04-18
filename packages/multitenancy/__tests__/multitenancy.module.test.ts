@@ -7,7 +7,7 @@
  * - Provider setup
  * - Cache integration
  *
- * @module @abdokouta/multitenancy
+ * @module @stackra/multitenancy
  * @category Tests
  */
 

@@ -20,7 +20,7 @@
  *
  * Equivalent to `CacheManager` in the cache package.
  *
- * @module @abdokouta/ts-events
+ * @module @stackra/ts-events
  * @category Services
  */
 
@@ -30,9 +30,9 @@ import {
   Optional,
   type OnModuleInit,
   type OnModuleDestroy,
-} from '@abdokouta/ts-container';
-import { MultipleInstanceManager } from '@abdokouta/ts-support';
-import { REDIS_MANAGER, type IRedisService } from '@abdokouta/ts-redis';
+} from '@stackra/ts-container';
+import { MultipleInstanceManager } from '@stackra/ts-support';
+import { REDIS_MANAGER, type IRedisService } from '@stackra/ts-redis';
 
 import type { Dispatcher, EventModuleOptions } from '@/interfaces';
 import type { DispatcherConfig } from '@/types';
@@ -204,7 +204,7 @@ export class EventManager
   private createRedisDispatcher(config: any): RedisDispatcher {
     if (!this.redisService) {
       throw new Error(
-        'Redis event dispatcher requires @abdokouta/ts-redis.\n' +
+        'Redis event dispatcher requires @stackra/ts-redis.\n' +
           'Import RedisModule.forRoot() before EventsModule.forRoot().'
       );
     }

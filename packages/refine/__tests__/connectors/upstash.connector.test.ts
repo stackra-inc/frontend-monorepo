@@ -10,7 +10,7 @@
  * The UpstashConnector is responsible for creating Redis connections
  * using the Upstash HTTP API, which is suitable for client-side usage.
  *
- * @module @abdokouta/redis
+ * @module @stackra/redis
  * @category Tests
  */
 

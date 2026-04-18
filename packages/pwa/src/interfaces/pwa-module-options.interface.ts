@@ -40,7 +40,7 @@ export interface OfflineIndicatorConfig {
 }
 
 /**
- * Unified configuration for the entire @abdokouta/ts-pwa package.
+ * Unified configuration for the entire @stackra/ts-pwa package.
  *
  * Split into two sections:
  *   - `vite` — build-time options for vite-plugin-pwa (manifest, workbox, SW)
@@ -48,13 +48,13 @@ export interface OfflineIndicatorConfig {
  *
  * @example
  * ```ts
- * import { defineConfig } from "@abdokouta/ts-pwa";
+ * import { defineConfig } from "@stackra/ts-pwa";
  *
  * export default defineConfig({
  *   vite: {
  *     registerType: "autoUpdate",
  *     manifest: {
- *       name: "Pixielity POS",
+ *       name: "Stackra POS",
  *       short_name: "POS",
  *       theme_color: "#000000",
  *       background_color: "#000000",
@@ -66,7 +66,7 @@ export interface OfflineIndicatorConfig {
  *   install: {
  *     delay: 30000,
  *     maxDismissals: 3,
- *     title: "Install Pixielity",
+ *     title: "Install Stackra",
  *     description: "Add to your home screen for the best experience.",
  *   },
  *   update: {
@@ -74,7 +74,7 @@ export interface OfflineIndicatorConfig {
  *     title: "Update Available",
  *   },
  *   splash: {
- *     appName: "Pixielity",
+ *     appName: "Stackra",
  *     minDuration: 2000,
  *     showSpinner: true,
  *   },

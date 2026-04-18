@@ -3,7 +3,7 @@
  *
  * Provides current theme id and color mode to the component tree.
  *
- * @module @abdokouta/react-theming
+ * @module @stackra/react-theming
  * @category Contexts
  */
 

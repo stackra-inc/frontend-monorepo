@@ -2,7 +2,7 @@
  * Basic Events Usage Example
  *
  * |--------------------------------------------------------------------------
- * | @abdokouta/ts-events — Basic Usage
+ * | @stackra/ts-events — Basic Usage
  * |--------------------------------------------------------------------------
  * |
  * | This example demonstrates the fundamental event dispatcher operations:
@@ -23,9 +23,9 @@
  * |
  */
 
-import { Module } from '@abdokouta/ts-container';
-import { EventsModule, MemoryDispatcher } from '@abdokouta/ts-events';
-import type { EventDispatcherInterface } from '@abdokouta/ts-events';
+import { Module } from '@stackra/ts-container';
+import { EventsModule, MemoryDispatcher } from '@stackra/ts-events';
+import type { EventDispatcherInterface } from '@stackra/ts-events';
 
 // ─── Module Setup ───────────────────────────────────────────────────────────
 //

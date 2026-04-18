@@ -1,5 +1,5 @@
 /**
- * @fileoverview Vitest configuration for @abdokouta/ts-eloquent package
+ * @fileoverview Vitest configuration for @stackra/ts-eloquent package
  *
  * This configuration sets up the testing environment for the package,
  * including test globals, jsdom environment, coverage reporting, and path aliases.
@@ -12,7 +12,7 @@
  * - Path Aliases: Resolves @ to ./src for consistent imports
  * - Pass With No Tests: CI won't fail if no tests exist yet
  *
- * @module @abdokouta/ts-eloquent
+ * @module @stackra/ts-eloquent
  * @category Configuration
  */
 

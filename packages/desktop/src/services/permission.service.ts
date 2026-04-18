@@ -15,10 +15,10 @@
  * |   const status = await perms.requestPermission('camera');
  * |   if (status === 'granted') { ... }
  * |
- * @module @abdokouta/ts-desktop
+ * @module @stackra/ts-desktop
  */
 
-import { Injectable, Inject } from '@abdokouta/ts-container';
+import { Injectable, Inject } from '@stackra/ts-container';
 
 import type { DeviceType, PermissionState } from '@/interfaces/system.interface';
 import { DesktopManager } from './desktop-manager.service';

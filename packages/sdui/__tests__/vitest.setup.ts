@@ -1,6 +1,6 @@
 /**
- * @fileoverview Vitest setup for @abdokouta/react-sdui tests.
- * @module @abdokouta/react-sdui
+ * @fileoverview Vitest setup for @stackra/react-sdui tests.
+ * @module @stackra/react-sdui
  * @category Testing
  */
 import 'reflect-metadata';

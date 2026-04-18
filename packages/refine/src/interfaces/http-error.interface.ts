@@ -1,7 +1,7 @@
 /**
  * @fileoverview HttpError interface for standardized error responses.
  *
- * @module @abdokouta/react-refine
+ * @module @stackra/react-refine
  * @category Interfaces
  */
 

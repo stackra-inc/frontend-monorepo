@@ -1,4 +1,4 @@
-# @abdokouta/ts-settings
+# @stackra/ts-settings
 
 Registry-based settings management with decorator-driven DTOs, multi-driver
 persistence, and DI integration.
@@ -6,7 +6,7 @@ persistence, and DI integration.
 ## Installation
 
 ```bash
-pnpm add @abdokouta/ts-settings
+pnpm add @stackra/ts-settings
 ```
 
 ## Features
@@ -34,8 +34,8 @@ pnpm add @abdokouta/ts-settings
  * | Register SettingsModule in your root AppModule.
  * |-------------------------------------------------------------------
  */
-import { Module } from '@abdokouta/ts-container';
-import { SettingsModule } from '@abdokouta/ts-settings';
+import { Module } from '@stackra/ts-container';
+import { SettingsModule } from '@stackra/ts-settings';
 
 @Module({
   imports: [
@@ -68,7 +68,7 @@ export class AppModule {}
  * | Use @Setting, @Group, @Section, and @Field decorators.
  * |-------------------------------------------------------------------
  */
-import { Setting, Group, Section, Field } from '@abdokouta/ts-settings';
+import { Setting, Group, Section, Field } from '@stackra/ts-settings';
 
 @Setting({ key: 'display', label: 'Display Settings' })
 export class DisplaySettings {
@@ -108,7 +108,7 @@ export class SettingsFeatureModule {}
  * | useSettings() provides get/set with reactive updates.
  * |-------------------------------------------------------------------
  */
-import { useSettings } from '@abdokouta/ts-settings';
+import { useSettings } from '@stackra/ts-settings';
 
 function SettingsPanel() {
   const { groups, getValue, setValue, loading } = useSettings();

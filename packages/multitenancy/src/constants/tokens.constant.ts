@@ -1,5 +1,5 @@
 /**
- * DI Tokens for @abdokouta/react-multitenancy
+ * DI Tokens for @stackra/react-multitenancy
  *
  * |--------------------------------------------------------------------------
  * | Injection tokens for the MultiTenancyModule DI integration.

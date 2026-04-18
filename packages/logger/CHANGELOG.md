@@ -1,10 +1,10 @@
-# @abdokouta/ts-logger
+# @stackra/ts-logger
 
 ## 1.0.0
 
 ### Major Features
 
-- 🎉 Initial release of @abdokouta/ts-logger
+- 🎉 Initial release of @stackra/ts-logger
 - 🏗️ `LoggerModule.forRoot()` with DynamicModule DI pattern
 - 📦 `LoggerManager` extending `MultipleInstanceManager` for named channels
 - 🎯 `LoggerService` wrapping channel transporters with `debug`, `info`, `warn`,

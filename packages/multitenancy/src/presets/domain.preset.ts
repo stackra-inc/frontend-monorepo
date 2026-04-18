@@ -11,7 +11,7 @@ import type { MultiTenancyOptions } from '@/interfaces/multitenancy-options.inte
  *
  * @example
  * ```typescript
- * import { defineConfig, domainPreset } from "@abdokouta/react-multitenancy/config";
+ * import { defineConfig, domainPreset } from "@stackra/react-multitenancy/config";
  *
  * const config = defineConfig({
  *   ...domainPreset,

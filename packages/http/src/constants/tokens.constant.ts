@@ -8,13 +8,13 @@
  * allowing consumers to inject services by token rather than
  * concrete class reference.
  *
- * @module @abdokouta/ts-http
+ * @module @stackra/ts-http
  * @category Constants
  *
  * @example
  * ```typescript
- * import { Inject } from '@abdokouta/ts-container';
- * import { HTTP_CLIENT, HTTP_CONFIG } from '@abdokouta/ts-http';
+ * import { Inject } from '@stackra/ts-container';
+ * import { HTTP_CLIENT, HTTP_CONFIG } from '@stackra/ts-http';
  *
  * @Injectable()
  * class ApiService {

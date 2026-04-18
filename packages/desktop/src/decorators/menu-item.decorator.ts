@@ -3,6 +3,9 @@
  *
  * Marks a method as a menu item within a @Menu() class.
  *
+ * All metadata reads and writes go through `@vivtel/metadata` for a consistent,
+ * typed API instead of raw `Reflect.*` calls.
+ *
  * @example
  * ```typescript
  * @Menu('file')
@@ -20,20 +23,17 @@
  * ```
  */
 
-import 'reflect-metadata';
+import { getMetadata, updateMetadata } from '@vivtel/metadata';
 import { MENU_ITEM_METADATA } from '@/constants';
 import type { MenuItemOptions, MenuItemMetadata } from '@/interfaces';
 
 export function MenuItem(options: MenuItemOptions = {}): MethodDecorator {
   return (target: object, propertyKey: string | symbol) => {
-    const existing: MenuItemMetadata[] =
-      Reflect.getMetadata(MENU_ITEM_METADATA, target.constructor) ?? [];
-
-    existing.push({
-      method: String(propertyKey),
-      options,
-    });
-
-    Reflect.defineMetadata(MENU_ITEM_METADATA, existing, target.constructor);
+    updateMetadata(
+      MENU_ITEM_METADATA,
+      [] as MenuItemMetadata[],
+      (existing) => [...existing, { method: String(propertyKey), options }],
+      target.constructor as object
+    );
   };
 }

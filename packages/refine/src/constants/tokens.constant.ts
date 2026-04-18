@@ -1,10 +1,10 @@
 /**
- * @fileoverview DI tokens and metadata keys for the refine package.
+ * @fileoverview DI tokens for the refine CRUD package.
  *
- * All Symbol tokens used for dependency injection and decorator metadata
- * are centralized here. Route and SDUI tokens live in their own packages.
+ * Auth tokens (AUTH_SERVICE, SESSION_SERVICE, SECURITY_SERVICE,
+ * ACCESS_CONTROL_SERVICE) have been moved to @stackra/react-auth.
  *
- * @module @abdokouta/react-refine
+ * @module @stackra/react-refine
  * @category Constants
  */
 
@@ -24,16 +24,7 @@ export const REFINE_OPTIONS = Symbol.for('REFINE_OPTIONS');
 /** Metadata key used by the `@Resource` decorator. */
 export const RESOURCE_METADATA_KEY = Symbol.for('RESOURCE_METADATA');
 
-/** Metadata key used by the `@Model` decorator. */
-export const MODEL_METADATA_KEY = Symbol.for('MODEL_METADATA');
-
 // ─── Provider Service Tokens ─────────────────────────────────────────
-
-/** DI token for the {@link IAuthService} implementation. */
-export const AUTH_SERVICE = Symbol.for('AUTH_SERVICE');
-
-/** DI token for the {@link IAccessControlService} implementation. */
-export const ACCESS_CONTROL_SERVICE = Symbol.for('ACCESS_CONTROL_SERVICE');
 
 /** DI token for the {@link IRealtimeService} implementation. */
 export const REALTIME_SERVICE = Symbol.for('REALTIME_SERVICE');

@@ -1,6 +1,6 @@
 /**
  * @fileoverview Constants Index
- * @module @abdokouta/ts-http
+ * @module @stackra/ts-http
  */
 
 export {

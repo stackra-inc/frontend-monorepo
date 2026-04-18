@@ -1,7 +1,7 @@
 /**
  * @fileoverview Parameters for subscribing to a real-time channel.
  *
- * @module @abdokouta/react-refine
+ * @module @stackra/react-refine
  * @category Interfaces
  */
 

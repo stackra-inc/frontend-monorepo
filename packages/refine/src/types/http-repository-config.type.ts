@@ -1,7 +1,7 @@
 /**
  * @fileoverview Configuration type for HttpRepository instances.
  *
- * @module @abdokouta/react-refine
+ * @module @stackra/react-refine
  * @category Types
  */
 

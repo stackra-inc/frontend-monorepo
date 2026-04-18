@@ -1,6 +1,6 @@
 /**
  * @fileoverview Enums Index
- * @module @abdokouta/ts-http
+ * @module @stackra/ts-http
  * @category Enums
  */
 

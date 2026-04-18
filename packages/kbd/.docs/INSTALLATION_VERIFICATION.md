@@ -2,7 +2,7 @@
 
 ## Package Created Successfully ✅
 
-The `@abdokouta/kbd` package has been created at:
+The `@stackra/kbd` package has been created at:
 
 ```
 packages/kbd/
@@ -30,7 +30,7 @@ pnpm build
 Or from the root:
 
 ```bash
-pnpm build --scope @abdokouta/kbd
+pnpm build --scope @stackra/kbd
 ```
 
 Expected output:
@@ -51,7 +51,7 @@ pnpm test
 Or from the root:
 
 ```bash
-pnpm test --scope @abdokouta/kbd
+pnpm test --scope @stackra/kbd
 ```
 
 Expected: All 20 tests should pass ✅
@@ -87,7 +87,7 @@ This will watch for changes and rebuild automatically.
 ```json
 {
   "dependencies": {
-    "@abdokouta/kbd": "workspace:*"
+    "@stackra/kbd": "workspace:*"
   }
 }
 ```
@@ -95,7 +95,7 @@ This will watch for changes and rebuild automatically.
 3. Use the component:
 
 ```tsx
-import { RefineKbd } from '@abdokouta/kbd';
+import { RefineKbd } from '@stackra/kbd';
 
 function App() {
   return (

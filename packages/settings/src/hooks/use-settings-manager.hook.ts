@@ -7,7 +7,7 @@
  * @module hooks/use-settings-manager
  */
 
-import { useInject } from '@abdokouta/ts-container';
+import { useInject } from '@stackra/ts-container';
 import { SettingsStoreManager } from '@/services/settings-manager.service';
 
 /**

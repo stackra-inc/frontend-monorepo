@@ -1,7 +1,7 @@
 /**
  * @fileoverview Return type for the useCustom hook.
  *
- * @module @abdokouta/react-refine
+ * @module @stackra/react-refine
  * @category Types
  */
 

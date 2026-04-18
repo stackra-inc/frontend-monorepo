@@ -1,6 +1,6 @@
 /**
  * @fileoverview DI tokens for the SDUI package.
- * @module @abdokouta/react-sdui
+ * @module @stackra/react-sdui
  * @category Constants
  */
 

@@ -3,7 +3,7 @@
  *
  * Access and control the color mode (dark / light / system).
  *
- * @module @abdokouta/react-theming
+ * @module @stackra/react-theming
  * @category Hooks
  *
  * @example

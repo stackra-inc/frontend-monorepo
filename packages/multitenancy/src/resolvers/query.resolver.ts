@@ -15,7 +15,7 @@ import type { TenantConfig, TenantResolver } from '@/interfaces';
  *
  * @example
  * ```typescript
- * import { QueryResolver } from "@abdokouta/react-multitenancy";
+ * import { QueryResolver } from "@stackra/react-multitenancy";
  *
  * // With default parameter name (tenant_id)
  * const resolver = new QueryResolver({

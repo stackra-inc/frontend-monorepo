@@ -1,19 +1,24 @@
 /**
- * @fileoverview `@Route` class decorator for route auto-registration.
+ * @Route Decorator
  *
- * @module @abdokouta/react-router
+ * Stores route metadata on a component class for auto-registration.
+ *
+ * All metadata reads and writes go through `@vivtel/metadata` for a consistent,
+ * typed API instead of raw `Reflect.*` calls.
+ *
+ * @module @stackra/react-router
  * @category Decorators
  *
  * @example
  * ```typescript
- * import { Route } from '@abdokouta/react-router';
+ * import { Route } from '@stackra/react-router';
  *
  * @Route({ path: '/posts', resource: 'posts', action: 'list' })
  * export class PostListPage { ... }
  * ```
  */
 
-import 'reflect-metadata';
+import { defineMetadata, getMetadata } from '@vivtel/metadata';
 import { ROUTE_METADATA_KEY } from '@/constants';
 import type { RouteMetadata } from '@/interfaces/route-metadata.interface';
 
@@ -24,8 +29,9 @@ import type { RouteMetadata } from '@/interfaces/route-metadata.interface';
  * @returns A class decorator function.
  */
 export function Route(metadata: RouteMetadata): ClassDecorator {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
   return (target: Function) => {
-    Reflect.defineMetadata(ROUTE_METADATA_KEY, metadata, target);
+    defineMetadata(ROUTE_METADATA_KEY, metadata, target as object);
   };
 }
 
@@ -35,6 +41,7 @@ export function Route(metadata: RouteMetadata): ClassDecorator {
  * @param target - The class to read metadata from.
  * @returns The stored {@link RouteMetadata}, or `undefined` if not decorated.
  */
+// eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
 export function getRouteMetadata(target: Function): RouteMetadata | undefined {
-  return Reflect.getMetadata(ROUTE_METADATA_KEY, target);
+  return getMetadata<RouteMetadata>(ROUTE_METADATA_KEY, target as object);
 }

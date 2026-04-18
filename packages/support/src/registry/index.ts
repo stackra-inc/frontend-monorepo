@@ -1,7 +1,7 @@
 /**
  * @fileoverview Registry exports
  *
- * @module @abdokouta/support
+ * @module @stackra/support
  * @category Registries
  */
 

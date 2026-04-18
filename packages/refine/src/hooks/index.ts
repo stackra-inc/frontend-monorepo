@@ -1,7 +1,9 @@
 /**
- * @fileoverview Barrel export for all hooks in the refine package.
+ * @fileoverview Barrel export for CRUD and data hooks.
  *
- * @module @abdokouta/react-refine
+ * Auth hooks have been moved to @stackra/react-auth.
+ *
+ * @module @stackra/react-refine
  * @category Hooks
  */
 
@@ -22,21 +24,18 @@ export * from './use-update-many';
 export * from './use-delete-many';
 export * from './use-custom-mutation';
 
-// Auth hooks
-export * from './use-login';
-export * from './use-logout';
-export * from './use-is-authenticated';
-export * from './use-get-identity';
-export * from './use-permissions';
-
-// Access control hooks
-export * from './use-can';
-
 // Realtime hooks
 export * from './use-subscription';
 
 // Notification hooks
 export * from './use-notification';
+export * from './use-handle-notification';
+
+// Mutation mode hooks
+export * from './use-mutation-mode';
+
+// Invalidation hooks
+export * from './use-invalidate';
 
 // Audit log hooks
 export * from './use-log';
