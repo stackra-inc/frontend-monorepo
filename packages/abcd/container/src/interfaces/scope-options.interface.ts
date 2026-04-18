@@ -7,7 +7,7 @@
  * @module interfaces/scope-options
  */
 
-import type { Scope } from '../enums/scope.enum';
+import type { Scope } from '@/enums/scope.enum';
 
 /**
  * Options that can be passed to `@Injectable()` to control provider scoping.

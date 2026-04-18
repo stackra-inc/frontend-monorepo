@@ -37,4 +37,4 @@ import type { Type } from './type.interface';
  *
  * @typeParam T - The type of the provider instance this token resolves to
  */
-export type InjectionToken<T = any> = string | symbol | Type<T> | Function;
+export type InjectionToken<T = any> = string | symbol | Type<T> | ((...args: unknown[]) => unknown);

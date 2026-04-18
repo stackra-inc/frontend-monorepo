@@ -70,4 +70,30 @@ export interface ModuleMetadata {
    * @default []
    */
   exports?: Array<InjectionToken | Provider | DynamicModule | ForwardReference>;
+
+  /**
+   * Entry providers that should be instantiated immediately on bootstrap,
+   * even if not injected anywhere.
+   *
+   * Useful for providers that need to run side effects on startup:
+   * - Event listeners
+   * - Background timers
+   * - Analytics initialization
+   * - WebSocket connections
+   *
+   * Entry providers are resolved after all regular providers but before
+   * `onModuleInit()` lifecycle hooks are called.
+   *
+   * @default []
+   *
+   * @example
+   * ```typescript
+   * @Module({
+   *   providers: [AnalyticsService, EventBusService],
+   *   entryProviders: [AnalyticsService, EventBusService],
+   * })
+   * class AppModule {}
+   * ```
+   */
+  entryProviders?: Provider[];
 }

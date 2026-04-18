@@ -29,13 +29,16 @@
  *   → bindGlobalScope()                 // link globals
  * ```
  *
+ * All metadata reads go through `@vivtel/metadata` for a consistent,
+ * typed API instead of raw `Reflect.*` calls.
+ *
  * @module injector/scanner
  */
 
-import 'reflect-metadata';
+import { getMetadata } from '@vivtel/metadata';
 import type { Type, DynamicModule, Provider, ForwardReference, ModuleMetatype } from '@/interfaces';
 import { MODULE_METADATA } from '@/constants';
-import { NestContainer } from './container';
+import type { ModuleContainer } from './container';
 
 /**
  * Scans the module tree and populates the container.
@@ -46,7 +49,7 @@ import { NestContainer } from './container';
  *
  * @example
  * ```typescript
- * const container = new NestContainer();
+ * const container = new ModuleContainer();
  * const scanner = new DependenciesScanner(container);
  * await scanner.scan(AppModule);
  * // Container now has all modules, providers, imports, and exports registered
@@ -56,9 +59,9 @@ export class DependenciesScanner {
   /**
    * Create a new DependenciesScanner.
    *
-   * @param container - The `NestContainer` to populate with modules and providers
+   * @param container - The `ModuleContainer` to populate with modules and providers
    */
-  constructor(private readonly container: NestContainer) {}
+  constructor(private readonly container: ModuleContainer) {}
 
   /**
    * Scan the entire module tree starting from the root module.
@@ -99,16 +102,19 @@ export class DependenciesScanner {
    *
    * Uses DFS traversal. Tracks visited modules to avoid infinite loops
    * from circular imports. Resolves forward references before processing.
+   * Tracks module distance from root for lifecycle hook ordering.
    *
    * @param moduleDefinition - The module to scan (class or dynamic module)
    * @param ctxRegistry - Already-visited modules (for cycle detection)
+   * @param distance - Distance from root module (0 = root, 1 = direct import, etc.)
    *
    * @throws Error if an `undefined` module is encountered in imports
    *   (usually caused by circular dependencies without `forwardRef()`)
    */
   private async scanForModules(
     moduleDefinition: ModuleMetatype,
-    ctxRegistry: any[]
+    ctxRegistry: any[],
+    distance: number = 0
   ): Promise<void> {
     // Resolve forward references
     const resolved = this.resolveForwardRef(moduleDefinition);
@@ -119,12 +125,15 @@ export class DependenciesScanner {
     ctxRegistry.push(resolved);
 
     // Register this module in the container
-    await this.container.addModule(resolved);
+    const { moduleRef } = await this.container.addModule(resolved);
+
+    // Set module distance for lifecycle hook ordering
+    moduleRef.distance = distance;
 
     // Get this module's imports (from both static @Module() and dynamic metadata)
     const imports = this.getModuleImports(resolved);
 
-    // Recurse into each import
+    // Recurse into each import with distance + 1
     for (const importedModule of imports) {
       if (importedModule === undefined || importedModule === null) {
         const moduleName = this.getModuleName(resolved);
@@ -133,7 +142,7 @@ export class DependenciesScanner {
             `This is usually caused by a circular dependency. Use forwardRef() to resolve it.`
         );
       }
-      await this.scanForModules(importedModule, ctxRegistry);
+      await this.scanForModules(importedModule, ctxRegistry, distance + 1);
     }
   }
 
@@ -173,12 +182,10 @@ export class DependenciesScanner {
    * @param token - The module's token in the container
    */
   private async reflectImports(metatype: Type<any>, token: string): Promise<void> {
-    const staticImports: any[] = Reflect.getMetadata(MODULE_METADATA.IMPORTS, metatype) || [];
-    const dynamicImports: any[] = this.container.getDynamicMetadata(token, 'imports' as any) || [];
+    const staticImports = getMetadata<any[]>(MODULE_METADATA.IMPORTS, metatype) ?? [];
+    const dynamicImports: any[] = this.container.getDynamicMetadata(token, 'imports' as any) ?? [];
 
-    const allImports = [...staticImports, ...dynamicImports];
-
-    for (const related of allImports) {
+    for (const related of [...staticImports, ...dynamicImports]) {
       const resolved = this.resolveForwardRef(related);
       if (resolved) {
         this.container.addImport(resolved, token);
@@ -196,14 +203,11 @@ export class DependenciesScanner {
    * @param token - The module's token in the container
    */
   private reflectProviders(metatype: Type<any>, token: string): void {
-    const staticProviders: Provider[] =
-      Reflect.getMetadata(MODULE_METADATA.PROVIDERS, metatype) || [];
+    const staticProviders = getMetadata<Provider[]>(MODULE_METADATA.PROVIDERS, metatype) ?? [];
     const dynamicProviders: Provider[] =
-      this.container.getDynamicMetadata(token, 'providers' as any) || [];
+      this.container.getDynamicMetadata(token, 'providers' as any) ?? [];
 
-    const allProviders = [...staticProviders, ...dynamicProviders];
-
-    for (const provider of allProviders) {
+    for (const provider of [...staticProviders, ...dynamicProviders]) {
       this.container.addProvider(provider, token);
     }
   }
@@ -218,12 +222,10 @@ export class DependenciesScanner {
    * @param token - The module's token in the container
    */
   private reflectExports(metatype: Type<any>, token: string): void {
-    const staticExports: any[] = Reflect.getMetadata(MODULE_METADATA.EXPORTS, metatype) || [];
-    const dynamicExports: any[] = this.container.getDynamicMetadata(token, 'exports' as any) || [];
+    const staticExports = getMetadata<any[]>(MODULE_METADATA.EXPORTS, metatype) ?? [];
+    const dynamicExports: any[] = this.container.getDynamicMetadata(token, 'exports' as any) ?? [];
 
-    const allExports = [...staticExports, ...dynamicExports];
-
-    for (const exported of allExports) {
+    for (const exported of [...staticExports, ...dynamicExports]) {
       const resolved = this.resolveForwardRef(exported);
       this.container.addExport(resolved ?? exported, token);
     }
@@ -242,13 +244,13 @@ export class DependenciesScanner {
    */
   private getModuleImports(moduleDefinition: any): any[] {
     if (this.isDynamicModule(moduleDefinition)) {
-      const staticImports: any[] =
-        Reflect.getMetadata(MODULE_METADATA.IMPORTS, moduleDefinition.module) || [];
-      const dynamicImports: any[] = moduleDefinition.imports || [];
+      const staticImports =
+        getMetadata<any[]>(MODULE_METADATA.IMPORTS, moduleDefinition.module) ?? [];
+      const dynamicImports: any[] = moduleDefinition.imports ?? [];
       return [...staticImports, ...dynamicImports];
     }
 
-    return Reflect.getMetadata(MODULE_METADATA.IMPORTS, moduleDefinition) || [];
+    return getMetadata<any[]>(MODULE_METADATA.IMPORTS, moduleDefinition) ?? [];
   }
 
   /**

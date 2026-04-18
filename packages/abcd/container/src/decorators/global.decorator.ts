@@ -8,10 +8,13 @@
  * target class. The scanner reads this during module registration to
  * add the module to the global modules set.
  *
+ * All metadata writes go through `@vivtel/metadata` for a consistent,
+ * typed API instead of raw `Reflect.*` calls.
+ *
  * @module decorators/global
  */
 
-import 'reflect-metadata';
+import { defineMetadata } from '@vivtel/metadata';
 import { GLOBAL_MODULE_METADATA } from '@/constants';
 
 /**
@@ -48,7 +51,7 @@ import { GLOBAL_MODULE_METADATA } from '@/constants';
  * ```
  */
 export function Global(): ClassDecorator {
-  return (target: Function) => {
-    Reflect.defineMetadata(GLOBAL_MODULE_METADATA, true, target);
+  return (target: object) => {
+    defineMetadata(GLOBAL_MODULE_METADATA, true, target);
   };
 }

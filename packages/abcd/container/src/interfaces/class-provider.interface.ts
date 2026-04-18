@@ -8,7 +8,7 @@
 
 import type { Type } from './type.interface';
 import type { InjectionToken } from './injection-token.interface';
-import type { Scope } from '../enums/scope.enum';
+import type { Scope } from '@/enums/scope.enum';
 
 /**
  * Class provider — binds a token to a class that will be instantiated by the container.

@@ -8,7 +8,7 @@
  */
 
 import type { InjectionToken } from './injection-token.interface';
-import type { Scope } from '../enums/scope.enum';
+import type { Scope } from '@/enums/scope.enum';
 
 /**
  * Factory provider — binds a token to a factory function.

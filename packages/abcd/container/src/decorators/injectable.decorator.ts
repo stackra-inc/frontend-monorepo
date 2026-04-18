@@ -17,10 +17,13 @@
  * the constructor parameter type metadata that the injector needs to auto-resolve
  * dependencies.
  *
+ * All metadata writes go through `@vivtel/metadata` for a consistent,
+ * typed API instead of raw `Reflect.*` calls.
+ *
  * @module decorators/injectable
  */
 
-import 'reflect-metadata';
+import { defineMetadata } from '@vivtel/metadata';
 import { INJECTABLE_WATERMARK, SCOPE_OPTIONS_METADATA } from '@/constants';
 import type { ScopeOptions } from '@/interfaces';
 
@@ -52,8 +55,8 @@ import type { ScopeOptions } from '@/interfaces';
  * ```
  */
 export function Injectable(options?: ScopeOptions): ClassDecorator {
-  return (target: Function) => {
-    Reflect.defineMetadata(INJECTABLE_WATERMARK, true, target);
-    Reflect.defineMetadata(SCOPE_OPTIONS_METADATA, options, target);
+  return (target: object) => {
+    defineMetadata(INJECTABLE_WATERMARK, true, target);
+    defineMetadata(SCOPE_OPTIONS_METADATA, options, target);
   };
 }

@@ -1,17 +1,109 @@
-# @abdokouta/ts-container
+# @stakra/ts-container
+
+## 2.0.2 — 2026-04-18
+
+### Fixes
+
+- 📝 **README** — full documentation rewrite with badges, all API references,
+  React integration guide, lifecycle hooks, advanced features, and tsconfig
+  requirements
+
+---
+
+## 2.0.1 — 2026-04-18
+
+### Fixes & Improvements
+
+- ♻️ **Rename `NestContainer` → `ModuleContainer`** — removes the NestJS
+  internal naming from the public API
+- 🔧 **Standalone ESLint config** — replaced shared monorepo config with a
+  self-contained `typescript-eslint` setup; no more `eslint-plugin-turbo`
+  dependency
+- 🔒 **`import type` consistency** — all type-only imports now use `import type`
+  across the injector and application layers
+- � **`@ts-ignore` → `@ts-expect-error`** — virtual module imports in
+  `RegistryScanner` now use the safer directive
+- � **`Function` type removed** — replaced with explicit call signatures
+  (`(...args: unknown[]) => unknown`) in `InjectionToken`, `Type`,
+  `InstanceWrapper`, and all decorators
+- � **`pnpm-lock.yaml` added** — standalone lockfile for reproducible CI
+  installs outside the monorepo
+- � **`.prettierignore`** — excludes `pnpm-lock.yaml` and `dist/` from
+  formatting checks
+
+### Breaking Changes
+
+- `NestContainer` is renamed to `ModuleContainer`. Update any direct imports:
+  ```typescript
+  // Before
+  import { NestContainer } from '@stakra/ts-container';
+  // After
+  import { ModuleContainer } from '@stakra/ts-container';
+  ```
+
+---
+
+## 2.0.0 — 2026-04-18
+
+### New Features
+
+- 📏 **Module Distance Tracking** — lifecycle hooks now run in predictable
+  breadth-first order (root → children → grandchildren); shutdown runs in
+  reverse order (leaf → root)
+- 🏗️ **`ModuleRef.create()`** — dynamically instantiate classes outside the
+  normal DI flow via `app.getModuleRef(Module).create(Service)`
+- 🚀 **Entry Providers** — `entryProviders` field in `@Module()` for eager
+  initialization of providers that need to run side effects on startup
+- ⚙️ **Application Config** — pass `config` to `Application.create()` and it is
+  automatically registered as a global `'APP_CONFIG'` value provider
+- 🔄 **Additional Lifecycle Hooks** — `OnApplicationBootstrap`,
+  `OnApplicationShutdown`, `BeforeApplicationShutdown` with full signal support
+- 🌍 **Global Application Singleton** — `ContainerProvider` works without a
+  `context` prop; `Application.create()` registers the app globally
+  automatically
+- 🛡️ **Type Guard Exports** — `hasOnModuleInit` and `hasOnModuleDestroy`
+  exported for library authors
+- 🔬 **`@vivtel/metadata` integration** — all internal `Reflect.*` calls
+  replaced with typed `defineMetadata`, `getMetadata`, `updateMetadata`,
+  `getAllMetadata`, and `hasOwnMetadata` from `@vivtel/metadata`
+- 📁 **Separated interface files** — every exported interface, enum, and type
+  alias lives in its own `*.interface.ts` / `*.enum.ts` file
+- 🏷️ **`RegistryModuleMetadata` & `RegistryProviderMetadata`** — new interfaces
+  for compile-time registry entries used by `RegistryScanner`
+
+### Lifecycle Order
+
+**Bootstrap:**
+
+1. All providers instantiated
+2. Entry providers resolved
+3. `onModuleInit()` — breadth-first by module distance
+4. `onApplicationBootstrap()` — breadth-first by module distance
+
+**Shutdown (`app.close(signal?)`):**
+
+1. `beforeApplicationShutdown(signal)` — reverse module order
+2. `onApplicationShutdown(signal)` — reverse module order
+3. `onModuleDestroy()` — reverse module order
+
+### Breaking Changes
+
+None. All changes are fully backward compatible.
+
+---
 
 ## 1.0.0
 
 ### Major Features
 
-- 🎉 Initial release of @abdokouta/ts-container
+- 🎉 Initial release of @stakra/ts-container
 - 💉 `@Injectable()` decorator with scope support (Singleton, Transient)
 - 🎯 `@Inject(token)` for explicit token-based constructor injection
 - ❓ `@Optional()` for optional dependency injection
 - 📦 `@Module()` decorator for module metadata declaration
 - 🌐 `@Global()` decorator for global module registration
 - 🔧 `DynamicModule` interface for `forRoot()` / `forFeature()` pattern
-- 🏗️ `NestContainer` — core container managing module registry
+- 🏗️ `ModuleContainer` — core container managing module registry
 - 🔍 `DependenciesScanner` — walks module tree, resolves imports/exports
 - 🔄 `InstanceLoader` — creates provider instances, calls lifecycle hooks
 - 🔗 `Injector` — resolves constructor dependencies across module boundaries

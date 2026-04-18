@@ -13,7 +13,7 @@
  * ## Usage:
  *
  * ```typescript
- * import { Application } from '@abdokouta/ts-container';
+ * import { Application } from '@stackra/ts-container';
  *
  * const app = await Application.create(AppModule);
  * const userService = app.get(UserService);
@@ -32,7 +32,7 @@
  * ## With React:
  *
  * ```tsx
- * import { ContainerProvider } from '@abdokouta/ts-container/react';
+ * import { ContainerProvider } from '@stackra/ts-container/react';
  *
  * const app = await Application.create(AppModule);
  *
@@ -48,11 +48,12 @@
 
 import type { Type, InjectionToken } from '@/interfaces';
 import type { ApplicationOptions } from '@/interfaces/application-options.interface';
-import { NestContainer } from '@/injector/container';
+import { ModuleContainer } from '@/injector/container';
 import { DependenciesScanner } from '@/injector/scanner';
 import { InstanceLoader } from '@/injector/instance-loader';
-import { Module as ModuleRef } from '@/injector/module';
+import type { Module as ModuleRef } from '@/injector/module';
 import type { IApplication } from '@/interfaces/application.interface';
+import { setGlobalApplication } from './global-application';
 
 /**
  * The bootstrapped application context.
@@ -62,7 +63,7 @@ import type { IApplication } from '@/interfaces/application.interface';
  *
  * Implements `IApplication` (which extends `ContainerResolver`)
  * so it can be used directly with `<ContainerProvider context={app}>`
- * from `@abdokouta/ts-container/react`.
+ * from `@stackra/ts-container/react`.
  *
  * @example
  * ```typescript
@@ -75,7 +76,7 @@ export class Application implements IApplication {
   /**
    * The underlying container holding all modules and provider bindings.
    */
-  private readonly container: NestContainer;
+  private readonly container: ModuleContainer;
 
   /**
    * The instance loader that orchestrates provider instantiation
@@ -95,7 +96,7 @@ export class Application implements IApplication {
    * @param container - The populated container
    * @param instanceLoader - The loader with resolved providers
    */
-  private constructor(container: NestContainer, instanceLoader: InstanceLoader) {
+  private constructor(container: ModuleContainer, instanceLoader: InstanceLoader) {
     this.container = container;
     this.instanceLoader = instanceLoader;
   }
@@ -108,12 +109,15 @@ export class Application implements IApplication {
    * This is the single entry point for the entire DI system. It:
    * 1. Scans the module tree starting from the root module
    * 2. Resolves all providers (creates instances, injects dependencies)
-   * 3. Calls `onModuleInit()` lifecycle hooks
-   * 4. Optionally exposes the app on `window` for debugging
-   * 5. Optionally calls the `onReady` callback
+   * 3. Resolves entry providers (eager initialization)
+   * 4. Calls `onModuleInit()` lifecycle hooks
+   * 5. Calls `onApplicationBootstrap()` lifecycle hooks
+   * 6. Registers global APP_CONFIG provider if config is provided
+   * 7. Optionally exposes the app on `window` for debugging
+   * 8. Optionally calls the `onReady` callback
    *
    * @param rootModule - The root module class (your AppModule)
-   * @param options - Optional configuration for debug mode and lifecycle callbacks
+   * @param options - Optional configuration for debug mode, config, and lifecycle callbacks
    * @returns A fully bootstrapped Application
    *
    * @example
@@ -125,6 +129,10 @@ export class Application implements IApplication {
    * const app = await Application.create(AppModule, {
    *   debug: true,
    *   globalName: '__MY_APP__',
+   *   config: {
+   *     apiUrl: 'https://api.example.com',
+   *     featureFlags: { newUI: true },
+   *   },
    *   onReady: (ctx) => console.log('Bootstrapped!', ctx),
    * });
    * ```
@@ -133,18 +141,37 @@ export class Application implements IApplication {
     rootModule: Type<any>,
     options: ApplicationOptions = {}
   ): Promise<Application> {
-    const container = new NestContainer();
+    const container = new ModuleContainer();
     const scanner = new DependenciesScanner(container);
     const instanceLoader = new InstanceLoader(container);
 
     // Phase 1: Scan the module tree
     await scanner.scan(rootModule);
 
+    // Phase 1.5: Register global APP_CONFIG if provided
+    if (options.config) {
+      // Find the root module and add APP_CONFIG as a global provider
+      const rootModuleRef = container.getModuleByToken(rootModule.name);
+      if (rootModuleRef) {
+        container.addProvider(
+          { provide: 'APP_CONFIG', useValue: options.config },
+          rootModuleRef.token
+        );
+        // Export it so it's available everywhere
+        container.addExport('APP_CONFIG', rootModuleRef.token);
+        // Make root module global if config is provided
+        rootModuleRef.isGlobal = true;
+      }
+    }
+
     // Phase 2: Create all provider instances
     await instanceLoader.createInstances();
 
     const app = new Application(container, instanceLoader);
     app.isInitialized = true;
+
+    // Register as global application
+    setGlobalApplication(app);
 
     // Phase 3: Debug — expose on window for browser console access
     const { debug, globalName = '__APP__', onReady } = options;
@@ -303,35 +330,77 @@ export class Application implements IApplication {
   }
 
   /**
-   * Get the underlying NestContainer.
+   * Get a ModuleRef for a specific module.
+   *
+   * The ModuleRef provides access to the module's providers and allows
+   * dynamic instantiation via `moduleRef.create()`.
+   *
+   * @param moduleClass - The module class to get a reference for
+   * @returns The Module instance with injector access
+   *
+   * @throws Error if the module is not found
+   *
+   * @example
+   * ```typescript
+   * const moduleRef = app.getModuleRef(UserModule);
+   * const dynamicService = moduleRef.create(DynamicService, [customArg]);
+   * ```
+   */
+  public getModuleRef(moduleClass: Type<any>): ModuleRef {
+    this.assertInitialized();
+
+    for (const [, moduleRef] of this.container.getModules()) {
+      if (moduleRef.metatype === moduleClass) {
+        // Attach injector to module for create() method
+        (moduleRef as any).__injector__ = this.instanceLoader.getInjector();
+        return moduleRef;
+      }
+    }
+
+    throw new Error(`Module '${moduleClass.name}' not found in the container.`);
+  }
+
+  /**
+   * Get the underlying ModuleContainer.
    *
    * For advanced use cases like inspecting the module graph,
    * accessing raw InstanceWrappers, or building dev tools.
    *
-   * @returns The `NestContainer` instance
+   * @returns The `ModuleContainer` instance
    */
-  public getContainer(): NestContainer {
+  public getContainer(): ModuleContainer {
     return this.container;
   }
 
   /**
    * Gracefully shut down the application.
    *
-   * Calls `onModuleDestroy()` on all providers that implement it,
-   * in reverse module order (leaf modules first, root module last).
+   * Calls shutdown lifecycle hooks on all providers in three phases:
+   * 1. `beforeApplicationShutdown(signal)` — prepare for shutdown
+   * 2. `onApplicationShutdown(signal)` — main shutdown logic
+   * 3. `onModuleDestroy()` — final cleanup
+   *
+   * Hooks are called in reverse module order (leaf modules first, root module last)
+   * to ensure dependencies are still available when a provider's hooks run.
+   *
    * After calling `close()`, the context is no longer usable.
    *
-   * @returns A Promise that resolves when all destroy hooks have completed
+   * @param signal - Optional shutdown signal (e.g., 'SIGTERM', 'SIGINT')
+   * @returns A Promise that resolves when all shutdown hooks have completed
    *
    * @example
    * ```typescript
+   * // Graceful shutdown
+   * await app.close();
+   *
+   * // With signal
    * window.addEventListener('beforeunload', () => {
-   *   app.close();
+   *   app.close('SIGTERM');
    * });
    * ```
    */
-  public async close(): Promise<void> {
-    await this.instanceLoader.destroy();
+  public async close(signal?: string): Promise<void> {
+    await this.instanceLoader.destroy(signal);
     this.isInitialized = false;
   }
 

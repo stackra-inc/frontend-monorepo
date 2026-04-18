@@ -14,6 +14,12 @@ import type { ContainerResolver } from '@/interfaces';
  *
  * @example
  * ```tsx
+ * // With global application (recommended)
+ * <ContainerProvider>
+ *   <App />
+ * </ContainerProvider>
+ *
+ * // With explicit context (legacy)
  * <ContainerProvider context={app}>
  *   <App />
  * </ContainerProvider>
@@ -23,8 +29,11 @@ export interface ContainerProviderProps {
   /**
    * The container resolver (typically an `Application` instance).
    * Must implement `get()`, `getOptional()`, and `has()`.
+   *
+   * If not provided, uses the global application instance created
+   * by `Application.create()`.
    */
-  context: ContainerResolver;
+  context?: ContainerResolver;
 
   /**
    * Child components that will have access to the container.

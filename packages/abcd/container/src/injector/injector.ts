@@ -22,10 +22,13 @@
  * - Singleton (DEFAULT): resolved once, cached in the InstanceWrapper
  * - Transient: a new instance is created every time it's injected
  *
+ * All metadata reads go through `@vivtel/metadata` for a consistent,
+ * typed API instead of raw `Reflect.*` calls.
+ *
  * @module injector/injector
  */
 
-import 'reflect-metadata';
+import { getMetadata, getAllMetadata, hasOwnMetadata } from '@vivtel/metadata';
 import type { InjectionToken, Type } from '@/interfaces';
 import {
   PARAMTYPES_METADATA,
@@ -34,8 +37,8 @@ import {
   PROPERTY_DEPS_METADATA,
   OPTIONAL_PROPERTY_DEPS_METADATA,
 } from '@/constants';
-import { InstanceWrapper } from './instance-wrapper';
-import { Module } from './module';
+import type { InstanceWrapper } from './instance-wrapper';
+import type { Module } from './module';
 
 /**
  * Resolves and instantiates providers within the module graph.
@@ -263,7 +266,7 @@ export class Injector {
    * @throws Error if a factory dependency cannot be resolved
    */
   private async resolveFactory<T>(wrapper: InstanceWrapper<T>, moduleRef: Module): Promise<T> {
-    const factory = wrapper.metatype as Function;
+    const factory = wrapper.metatype as (...args: unknown[]) => T | Promise<T>;
     const injectTokens = wrapper.inject ?? [];
 
     // Use the factory's host module for dependency resolution.
@@ -386,21 +389,26 @@ export class Injector {
    * @returns Array of injection tokens, one per constructor parameter
    */
   private getConstructorDependencies(type: Type<any>): InjectionToken[] {
-    // Auto-detected types from TypeScript's emitDecoratorMetadata
-    // Try the class itself first, then its prototype chain
+    // Auto-detected types from TypeScript's emitDecoratorMetadata.
+    // hasOwnMetadata handles the SWC/esbuild bundler case where a wrapper class
+    // is created during decoration — param decorators may have stored metadata on
+    // the original class while the class decorator created a new reference.
     const paramTypes: any[] = [
-      ...(Reflect.getMetadata(PARAMTYPES_METADATA, type) ??
-        Reflect.getOwnMetadata(PARAMTYPES_METADATA, type) ??
+      ...(getMetadata<InjectionToken[]>(PARAMTYPES_METADATA, type) ??
+        (hasOwnMetadata(PARAMTYPES_METADATA, type)
+          ? getMetadata<InjectionToken[]>(PARAMTYPES_METADATA, type)
+          : undefined) ??
         []),
     ];
 
-    // Explicit overrides from @Inject() decorators
-    // Check both the class and its prototype chain (handles SWC/esbuild
-    // wrapper classes where param decorators ran on the original class)
+    // Explicit overrides from @Inject() decorators — merged over auto-detected types
     const selfDeclared: Array<{ index: number; param: InjectionToken }> =
-      Reflect.getMetadata(SELF_DECLARED_DEPS_METADATA, type) || [];
+      getMetadata<Array<{ index: number; param: InjectionToken }>>(
+        SELF_DECLARED_DEPS_METADATA,
+        type
+      ) ?? [];
 
-    // Merge: explicit @Inject() overrides auto-detected types
+    // Merge: explicit @Inject() overrides auto-detected types at each index
     for (const { index, param } of selfDeclared) {
       paramTypes[index] = param;
     }
@@ -419,7 +427,7 @@ export class Injector {
    * @returns Array of parameter indices that are marked as optional
    */
   private getOptionalDependencies(type: Type<any>): number[] {
-    return Reflect.getMetadata(OPTIONAL_DEPS_METADATA, type) || [];
+    return getMetadata<number[]>(OPTIONAL_DEPS_METADATA, type) ?? [];
   }
 
   /**
@@ -437,14 +445,20 @@ export class Injector {
    * @throws Error if a required property dependency cannot be resolved
    */
   private async resolveProperties<T>(instance: T, type: Type<T>, moduleRef: Module): Promise<void> {
-    const properties: Array<{ key: string | symbol; type: InjectionToken }> =
-      Reflect.getMetadata(PROPERTY_DEPS_METADATA, type) || [];
+    // Batch-read both property metadata keys in one call
+    const {
+      [PROPERTY_DEPS_METADATA]: properties,
+      [OPTIONAL_PROPERTY_DEPS_METADATA]: optionalKeys,
+    } = getAllMetadata<{
+      [PROPERTY_DEPS_METADATA]: Array<{ key: string | symbol; type: InjectionToken }>;
+      [OPTIONAL_PROPERTY_DEPS_METADATA]: Array<string | symbol>;
+    }>([PROPERTY_DEPS_METADATA, OPTIONAL_PROPERTY_DEPS_METADATA], type);
 
-    const optionalKeys: Array<string | symbol> =
-      Reflect.getMetadata(OPTIONAL_PROPERTY_DEPS_METADATA, type) || [];
+    const resolvedProperties = properties ?? [];
+    const resolvedOptionalKeys = optionalKeys ?? [];
 
-    for (const prop of properties) {
-      const isOptional = optionalKeys.includes(prop.key);
+    for (const prop of resolvedProperties) {
+      const isOptional = resolvedOptionalKeys.includes(prop.key);
 
       try {
         const resolved = await this.resolveDependency(prop.type, moduleRef);

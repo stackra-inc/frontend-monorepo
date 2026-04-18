@@ -20,10 +20,13 @@
  * After construction, the injector resolves each property dependency and
  * assigns it to the instance.
  *
+ * All metadata reads and writes go through `@vivtel/metadata` for a consistent,
+ * typed API instead of raw `Reflect.*` calls.
+ *
  * @module decorators/inject
  */
 
-import 'reflect-metadata';
+import { getMetadata, updateMetadata } from '@vivtel/metadata';
 import {
   PARAMTYPES_METADATA,
   PROPERTY_DEPS_METADATA,
@@ -87,11 +90,11 @@ export function Inject(
     if (!resolvedToken && !hasExplicitToken) {
       // Try to infer from TypeScript metadata
       if (key !== undefined) {
-        // Property injection — use design:type
-        resolvedToken = Reflect.getMetadata('design:type', target, key);
+        // Property injection — use design:type (typed read via @vivtel/metadata)
+        resolvedToken = getMetadata<InjectionToken>('design:type', target, key);
       } else if (index !== undefined) {
         // Constructor injection — use design:paramtypes[index]
-        const paramTypes = Reflect.getMetadata(PARAMTYPES_METADATA, target) || [];
+        const paramTypes = getMetadata<InjectionToken[]>(PARAMTYPES_METADATA, target) ?? [];
         resolvedToken = paramTypes[index];
       }
     }
@@ -103,23 +106,28 @@ export function Inject(
 
     if (index !== undefined) {
       // ── Constructor parameter injection ──────────────────────────────
-      // Store in self:paramtypes — these override design:paramtypes
-      const existingDeps = Reflect.getMetadata(SELF_DECLARED_DEPS_METADATA, target) || [];
-
-      Reflect.defineMetadata(
+      // Append to self:paramtypes — these override design:paramtypes at resolution time.
+      // Cast resolvedToken: by this point forward refs are unwrapped and the value
+      // may legitimately be undefined (injector handles that gracefully).
+      updateMetadata(
         SELF_DECLARED_DEPS_METADATA,
-        [...existingDeps, { index, param: resolvedToken }],
+        [] as Array<{ index: number; param: InjectionToken }>,
+        (deps) => [...deps, { index, param: resolvedToken as InjectionToken }],
         target
       );
     } else {
       // ── Property injection ───────────────────────────────────────────
-      // Store in self:properties_metadata
-      const existingProps = Reflect.getMetadata(PROPERTY_DEPS_METADATA, target.constructor) || [];
-
-      Reflect.defineMetadata(
+      // Append to self:properties_metadata on the constructor (not the prototype).
+      // key is always defined here — the `else` branch only runs when index is
+      // undefined, which means we are on a property decorator where key is set.
+      updateMetadata(
         PROPERTY_DEPS_METADATA,
-        [...existingProps, { key, type: resolvedToken }],
-        target.constructor
+        [] as Array<{ key: string | symbol; type: InjectionToken }>,
+        (props) => [
+          ...props,
+          { key: key as string | symbol, type: resolvedToken as InjectionToken },
+        ],
+        target.constructor as object
       );
     }
   };

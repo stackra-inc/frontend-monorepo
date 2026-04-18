@@ -1,17 +1,17 @@
 <p align="center">
-  <img src=".github/assets/banner.svg" alt="@abdokouta/ts-cache" width="100%" />
+  <img src=".github/assets/banner.svg" alt="@stackra/ts-cache" width="100%" />
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/@abdokouta/ts-cache"><img src="https://img.shields.io/npm/v/@abdokouta/ts-cache.svg?style=flat-square" alt="npm version" /></a>
-  <a href="https://www.npmjs.com/package/@abdokouta/ts-cache"><img src="https://img.shields.io/npm/dm/@abdokouta/ts-cache.svg?style=flat-square" alt="npm downloads" /></a>
-  <a href="https://github.com/abdokouta/cache/blob/main/LICENSE"><img src="https://img.shields.io/npm/l/@abdokouta/ts-cache.svg?style=flat-square" alt="license" /></a>
-  <a href="https://github.com/abdokouta/cache"><img src="https://img.shields.io/github/stars/abdokouta/cache?style=flat-square" alt="stars" /></a>
+  <a href="https://www.npmjs.com/package/@stackra/ts-cache"><img src="https://img.shields.io/npm/v/@stackra/ts-cache.svg?style=flat-square" alt="npm version" /></a>
+  <a href="https://www.npmjs.com/package/@stackra/ts-cache"><img src="https://img.shields.io/npm/dm/@stackra/ts-cache.svg?style=flat-square" alt="npm downloads" /></a>
+  <a href="https://github.com/stackra/cache/blob/main/LICENSE"><img src="https://img.shields.io/npm/l/@stackra/ts-cache.svg?style=flat-square" alt="license" /></a>
+  <a href="https://github.com/stackra/cache"><img src="https://img.shields.io/github/stars/stackra/cache?style=flat-square" alt="stars" /></a>
 </p>
 
 <p align="center">
   Laravel-inspired caching system with multiple drivers for React applications.<br/>
-  Built on top of <a href="https://www.npmjs.com/package/@abdokouta/ts-container">@abdokouta/ts-container</a> for seamless dependency injection.
+  Built on top of <a href="https://www.npmjs.com/package/@stackra/ts-container">@stackra/ts-container</a> for seamless dependency injection.
 </p>
 
 ---
@@ -59,8 +59,7 @@
   (Redis)
 - **React Hooks** — `useCache()` and `useCachedQuery()` for component-level
   caching
-- **Dependency Injection** — First-class DI support via
-  `@abdokouta/ts-container`
+- **Dependency Injection** — First-class DI support via `@stackra/ts-container`
 - **Type-Safe Configuration** — `defineConfig()` helper with full autocomplete
 - **TTL Support** — Per-operation and per-store default TTL
 - **Key Prefixing** — Global and per-store prefixes to avoid collisions
@@ -74,19 +73,19 @@
 
 ```bash
 # npm
-npm install @abdokouta/ts-cache @abdokouta/ts-container
+npm install @stackra/ts-cache @stackra/ts-container
 
 # pnpm
-pnpm add @abdokouta/ts-cache @abdokouta/ts-container
+pnpm add @stackra/ts-cache @stackra/ts-container
 
 # yarn
-yarn add @abdokouta/ts-cache @abdokouta/ts-container
+yarn add @stackra/ts-cache @stackra/ts-container
 ```
 
 For Redis support, also install:
 
 ```bash
-pnpm add @abdokouta/ts-redis
+pnpm add @stackra/ts-redis
 ```
 
 ---
@@ -94,8 +93,8 @@ pnpm add @abdokouta/ts-redis
 ## Quick Start
 
 ```typescript
-import { Module } from '@abdokouta/ts-container';
-import { CacheModule } from '@abdokouta/ts-cache';
+import { Module } from '@stackra/ts-container';
+import { CacheModule } from '@stackra/ts-cache';
 
 @Module({
   imports: [
@@ -117,7 +116,7 @@ export class AppModule {}
 Then use it anywhere via DI or hooks:
 
 ```typescript
-import { useCache } from '@abdokouta/ts-cache';
+import { useCache } from '@stackra/ts-cache';
 
 function UserProfile({ userId }: { userId: string }) {
   const cache = useCache();
@@ -146,7 +145,7 @@ The configuration object follows the same structure as Laravel's
 `config/cache.php`:
 
 ```typescript
-import { CacheModule } from '@abdokouta/ts-cache';
+import { CacheModule } from '@stackra/ts-cache';
 
 CacheModule.forRoot({
   // Default store used when none is specified
@@ -183,7 +182,7 @@ helper:
 
 ```typescript
 // cache.config.ts
-import { defineConfig } from '@abdokouta/ts-cache';
+import { defineConfig } from '@stackra/ts-cache';
 
 export default defineConfig({
   default: 'memory',
@@ -417,7 +416,7 @@ How tagging works under the hood:
 Access the cache service from any React component:
 
 ```typescript
-import { useCache } from '@abdokouta/ts-cache';
+import { useCache } from '@stackra/ts-cache';
 
 function Dashboard() {
   const cache = useCache();
@@ -444,7 +443,7 @@ function Widget() {
 A React Query-like hook that caches async query results:
 
 ```typescript
-import { useCachedQuery } from '@abdokouta/ts-cache';
+import { useCachedQuery } from '@stackra/ts-cache';
 
 function UserProfile({ userId }: { userId: string }) {
   const { data, isLoading, error, refetch, invalidate } = useCachedQuery({
@@ -567,7 +566,7 @@ interface TaggedCache {
 Implement the `Store` interface to create your own cache driver:
 
 ```typescript
-import type { Store } from '@abdokouta/ts-cache';
+import type { Store } from '@stackra/ts-cache';
 
 export class LocalStorageStore implements Store {
   async get(key: string): Promise<any> {
@@ -609,7 +608,7 @@ import type {
   StoreConfig,
   UseCachedQueryOptions,
   UseCachedQueryResult,
-} from '@abdokouta/ts-cache';
+} from '@stackra/ts-cache';
 ```
 
 ---
@@ -618,7 +617,7 @@ import type {
 
 If you're coming from Laravel, here's how the API maps:
 
-| Laravel                             | react-cache                        |
+| Laravel                             | ts-cache                           |
 | ----------------------------------- | ---------------------------------- |
 | `Cache::get('key')`                 | `cache.get('key')`                 |
 | `Cache::put('key', $val, 3600)`     | `cache.put('key', val, 3600)`      |
@@ -642,11 +641,11 @@ If you're coming from Laravel, here's how the API maps:
 
 - Node.js >= 18.0.0
 - React 18 or 19
-- `@abdokouta/ts-container` (dependency injection)
-- `@abdokouta/ts-redis` (optional, for Redis driver)
+- `@stackra/ts-container` (dependency injection)
+- `@stackra/ts-redis` (optional, for Redis driver)
 
 ---
 
 ## License
 
-[MIT](LICENSE) © [Abdelrhman Kouta](https://github.com/abdokouta)
+[MIT](LICENSE) © [Stackra L.L.C](https://github.com/stackra)

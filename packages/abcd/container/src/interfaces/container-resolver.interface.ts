@@ -3,8 +3,8 @@
  *
  * Minimal interface for resolving providers from a DI container.
  * This is the contract that any DI resolver must implement. It's used by:
- * - `@abdokouta/ts-container/react` (ContainerProvider accepts this)
- * - `@pixielity/application` (ApplicationContext implements this)
+ * - `@stackra/ts-container/react` (ContainerProvider accepts this)
+ * - `@stackra/application` (ApplicationContext implements this)
  * - Any custom resolver or testing mock
  *
  * By depending on this interface instead of a concrete class, consumers

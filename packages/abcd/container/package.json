@@ -1,6 +1,6 @@
 {
-  "name": "@abdokouta/ts-container",
-  "version": "1.2.2",
+  "name": "@stakra/ts-container",
+  "version": "2.0.2",
   "description": "NestJS-style dependency injection for React and client-side applications. Decorators, container, injector, scanner, module system, application bootstrap, and React bindings — built from scratch, no Inversify.",
   "keywords": [
     "dependency-injection",
@@ -18,24 +18,36 @@
     "application",
     "bootstrap"
   ],
+  "packageManager": "pnpm@10.33.0",
   "license": "MIT",
-  "author": "Pixielity",
+  "author": {
+    "name": "Stakra",
+    "url": "https://github.com/stakraco"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stakraco/ts-container.git"
+  },
+  "homepage": "https://github.com/stakraco/ts-container#readme",
+  "bugs": {
+    "url": "https://github.com/stakraco/ts-container/issues"
+  },
   "type": "module",
   "sideEffects": false,
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js"
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
     },
     "./react": {
       "types": "./dist/react.d.ts",
-      "import": "./dist/react.mjs",
-      "require": "./dist/react.js"
+      "import": "./dist/react.js",
+      "require": "./dist/react.cjs"
     }
   },
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist",
@@ -58,6 +70,7 @@
     "release": "pnpm publish --access public --no-git-checks"
   },
   "dependencies": {
+    "@vivtel/metadata": "^1.0.5",
     "reflect-metadata": "^0.2.2"
   },
   "peerDependencies": {
@@ -69,14 +82,14 @@
     }
   },
   "devDependencies": {
-    "@nesvel/eslint-config": "^1.0.5",
     "@nesvel/prettier-config": "^1.0.3",
     "@nesvel/tsup-config": "^1.0.3",
     "@nesvel/typescript-config": "^1.0.4",
     "@types/node": "^25.6.0",
     "@types/react": "^19.2.14",
     "@vitest/ui": "^4.1.4",
-    "eslint": "10.2.0",
+    "eslint": "10.2.1",
+    "jiti": "^2.6.1",
     "jsdom": "^29.0.2",
     "prettier": "^3.8.3",
     "react": "^19.2.5",

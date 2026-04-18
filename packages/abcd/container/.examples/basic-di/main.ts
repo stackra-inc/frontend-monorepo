@@ -18,7 +18,7 @@ import {
   Scope,
   type OnModuleInit,
   type OnModuleDestroy,
-} from '@abdokouta/ts-container';
+} from '@stackra/ts-container';
 
 // ── Injection tokens ───────────────────────────────────────────────────────
 

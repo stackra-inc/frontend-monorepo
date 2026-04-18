@@ -7,10 +7,13 @@
  * For constructor parameters, stores the parameter index in `optional:paramtypes`.
  * For class properties, stores the property key in `optional:properties_metadata`.
  *
+ * All metadata reads and writes go through `@vivtel/metadata` for a consistent,
+ * typed API instead of raw `Reflect.*` calls.
+ *
  * @module decorators/optional
  */
 
-import 'reflect-metadata';
+import { updateMetadata } from '@vivtel/metadata';
 import { OPTIONAL_DEPS_METADATA, OPTIONAL_PROPERTY_DEPS_METADATA } from '@/constants';
 
 /**
@@ -43,17 +46,22 @@ import { OPTIONAL_DEPS_METADATA, OPTIONAL_PROPERTY_DEPS_METADATA } from '@/const
 export function Optional(): PropertyDecorator & ParameterDecorator {
   return (target: object, key: string | symbol | undefined, index?: number) => {
     if (index !== undefined) {
-      // Constructor parameter — store the index
-      const existingOptional = Reflect.getMetadata(OPTIONAL_DEPS_METADATA, target) || [];
-      Reflect.defineMetadata(OPTIONAL_DEPS_METADATA, [...existingOptional, index], target);
+      // Constructor parameter — append the index to optional:paramtypes.
+      // updateMetadata handles read-default-transform-write in one call.
+      updateMetadata(
+        OPTIONAL_DEPS_METADATA,
+        [] as number[],
+        (indices) => [...indices, index],
+        target
+      );
     } else {
-      // Property — store the property key
-      const existingOptional =
-        Reflect.getMetadata(OPTIONAL_PROPERTY_DEPS_METADATA, target.constructor) || [];
-      Reflect.defineMetadata(
+      // Property — append the property key to optional:properties_metadata.
+      // key is always defined in the property decorator branch (index is undefined here).
+      updateMetadata(
         OPTIONAL_PROPERTY_DEPS_METADATA,
-        [...existingOptional, key],
-        target.constructor
+        [] as Array<string | symbol>,
+        (keys) => [...keys, key as string | symbol],
+        target.constructor as object
       );
     }
   };

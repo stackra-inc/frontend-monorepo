@@ -22,6 +22,8 @@
  * - {@link IApplication} — Interface for the bootstrapped application context
  * - {@link ApplicationOptions} — Options for `Application.create()` configuration
  * - {@link ModuleMetatype} — Union type for module definitions (class, dynamic, async)
+ * - {@link RegistryModuleMetadata} — Compile-time module entry from the virtual decorator registry
+ * - {@link RegistryProviderMetadata} — Compile-time provider entry from the virtual decorator registry
  *
  * @module interfaces
  */
@@ -38,9 +40,14 @@ export type { DynamicModule } from './dynamic-module.interface';
 export type { ForwardReference } from './forward-reference.interface';
 export type { OnModuleInit } from './on-module-init.interface';
 export type { OnModuleDestroy } from './on-module-destroy.interface';
+export type { OnApplicationBootstrap } from './on-application-bootstrap.interface';
+export type { OnApplicationShutdown } from './on-application-shutdown.interface';
+export type { BeforeApplicationShutdown } from './before-application-shutdown.interface';
 export type { ContainerResolver } from './container-resolver.interface';
 export type { ScopeOptions } from './scope-options.interface';
 export type { IApplication } from './application.interface';
 export type { ApplicationOptions } from './application-options.interface';
 export type { ModuleMetatype } from './module-metatype.interface';
 export type { ContainerProviderProps } from './container-provider-props.interface';
+export type { RegistryModuleMetadata } from './registry-module-metadata.interface';
+export type { RegistryProviderMetadata } from './registry-provider-metadata.interface';

@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to @abdokouta/ts-redis will be documented in this file.
+All notable changes to @stackra/ts-redis will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to
@@ -11,7 +11,7 @@ and this project adheres to
 ### Fixed
 
 - Replaced `forRoot` helper with inline `DynamicModule` object in
-  `RedisModule.forRoot()` for compatibility with `@abdokouta/ts-container` v2
+  `RedisModule.forRoot()` for compatibility with `@stackra/ts-container` v2
 - Providers now correctly respect `isGlobal` flag per-provider
 
 ### Added
@@ -23,7 +23,7 @@ and this project adheres to
 
 ### Added
 
-- Initial release of @abdokouta/ts-redis
+- Initial release of @stackra/ts-redis
 - Browser-compatible Redis operations using Upstash HTTP API
 - `RedisService` for connection management
 - `RedisModule` for dependency injection configuration
@@ -84,4 +84,4 @@ and this project adheres to
 - Distributed lock improvements
 - Rate limiting utilities
 - Session management utilities
-- Integration with @abdokouta/cache package
+- Integration with @stackra/cache package

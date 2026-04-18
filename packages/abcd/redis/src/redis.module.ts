@@ -7,7 +7,7 @@
  * @module redis.module
  */
 
-import { Module, type DynamicModule } from '@abdokouta/ts-container';
+import { Module, type DynamicModule } from '@stackra/ts-container';
 
 import { REDIS_CONFIG, REDIS_MANAGER, REDIS_CONNECTOR } from '@/constants/tokens.constant';
 import { RedisManager } from '@/services/redis-manager.service';

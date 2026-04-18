@@ -65,7 +65,7 @@ export class InstanceWrapper<T = any> {
    * - For factory providers: the factory function to call
    * - For value providers: `null` (no instantiation needed)
    */
-  public metatype: Type<T> | Function | null;
+  public metatype: Type<T> | ((...args: unknown[]) => unknown) | null;
 
   /**
    * The resolved instance.

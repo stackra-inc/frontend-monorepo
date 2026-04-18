@@ -1,6 +1,6 @@
 # Examples
 
-Runnable examples demonstrating `@abdokouta/ts-container` features.
+Runnable examples demonstrating `@stackra/ts-container` features.
 
 | Example                                  | Description                                                                           |
 | ---------------------------------------- | ------------------------------------------------------------------------------------- |

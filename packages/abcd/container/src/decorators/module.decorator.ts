@@ -15,17 +15,20 @@
  * class MyModule {}
  *
  * // Becomes:
- * Reflect.defineMetadata('imports', [...], MyModule)
- * Reflect.defineMetadata('providers', [...], MyModule)
- * Reflect.defineMetadata('exports', [...], MyModule)
+ * defineMetadata('imports', [...], MyModule)
+ * defineMetadata('providers', [...], MyModule)
+ * defineMetadata('exports', [...], MyModule)
  * ```
  *
  * The scanner later reads these metadata entries to build the module graph.
  *
+ * All metadata writes go through `@vivtel/metadata` for a consistent,
+ * typed API instead of raw `Reflect.*` calls.
+ *
  * @module decorators/module
  */
 
-import 'reflect-metadata';
+import { defineMetadata } from '@vivtel/metadata';
 import type { ModuleMetadata } from '@/interfaces';
 
 /**
@@ -34,7 +37,7 @@ import type { ModuleMetadata } from '@/interfaces';
  * Used to validate that consumers don't pass unknown properties
  * into the decorator, which would silently be ignored.
  */
-const VALID_MODULE_KEYS = new Set(['imports', 'providers', 'exports']);
+const VALID_MODULE_KEYS = new Set(['imports', 'providers', 'exports', 'entryProviders']);
 
 /**
  * Defines a module with its imports, providers, and exports.
@@ -69,10 +72,10 @@ export function Module(metadata: ModuleMetadata): ClassDecorator {
     );
   }
 
-  return (target: Function) => {
+  return (target: object) => {
     for (const property in metadata) {
       if (Object.prototype.hasOwnProperty.call(metadata, property)) {
-        Reflect.defineMetadata(property, (metadata as any)[property], target);
+        defineMetadata(property, (metadata as Record<string, unknown>)[property], target);
       }
     }
   };

@@ -6,7 +6,7 @@
  * - useContainer()      — access the raw container for has()/get()
  */
 
-import { useInject, useOptionalInject, useContainer } from '@abdokouta/ts-container';
+import { useInject, useOptionalInject, useContainer } from '@stackra/ts-container';
 import {
   AuthService,
   UserService,

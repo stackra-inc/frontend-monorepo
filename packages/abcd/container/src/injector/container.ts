@@ -1,5 +1,5 @@
 /**
- * NestContainer — Top-Level Module Registry
+ * ModuleContainer — Top-Level Module Registry
  *
  * This is the central registry of the DI system. It holds:
  * - All registered modules (keyed by opaque token)
@@ -27,6 +27,7 @@
  */
 
 import 'reflect-metadata';
+import { getMetadata } from '@vivtel/metadata';
 import type { Type, Provider, DynamicModule, InjectionToken, ModuleMetatype } from '@/interfaces';
 import { GLOBAL_MODULE_METADATA } from '@/constants';
 import { Module } from './module';
@@ -40,7 +41,7 @@ import { Module } from './module';
  *
  * @example
  * ```typescript
- * const container = new NestContainer();
+ * const container = new ModuleContainer();
  * const scanner = new DependenciesScanner(container);
  * await scanner.scan(AppModule);
  *
@@ -48,7 +49,7 @@ import { Module } from './module';
  * await loader.createInstances();
  * ```
  */
-export class NestContainer {
+export class ModuleContainer {
   /**
    * All registered modules, keyed by their opaque token.
    * The token is derived from the module class name (or a hash for dynamic modules).
@@ -365,6 +366,6 @@ export class NestContainer {
    */
   private isGlobalModule(type: Type<any>, dynamicMetadata?: Partial<DynamicModule>): boolean {
     if (dynamicMetadata?.global) return true;
-    return !!Reflect.getMetadata(GLOBAL_MODULE_METADATA, type);
+    return !!getMetadata<boolean>(GLOBAL_MODULE_METADATA, type);
   }
 }

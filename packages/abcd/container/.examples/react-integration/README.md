@@ -19,7 +19,7 @@ This example is a conceptual React app. To run it, integrate the files into a
 React project (Vite, Next.js, CRA, etc.) with these dependencies:
 
 ```bash
-pnpm add react react-dom @abdokouta/ts-container
+pnpm add react react-dom @stackra/ts-container
 ```
 
 Then use `main.tsx` as your entry point.

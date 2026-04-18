@@ -1,22 +1,22 @@
 {
-  "name": "@abdokouta/ts-redis",
+  "name": "@stakra/ts-redis",
   "version": "1.1.3",
   "description": "Client-side Redis connection management using Upstash HTTP API for React",
   "license": "MIT",
   "author": {
-    "name": "Abdelrhman Kouta",
-    "email": "abdelrhman@pixielity.com",
-    "url": "https://github.com/abdokouta"
+    "name": "Stakra L.L.C",
+    "email": "dev@stakra.com",
+    "url": "https://github.com/stakra"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/abdokouta/react-redis.git",
+    "url": "https://github.com/stakra/react-redis.git",
     "directory": "packages/redis"
   },
   "bugs": {
-    "url": "https://github.com/abdokouta/react-redis/issues"
+    "url": "https://github.com/stakra/react-redis/issues"
   },
-  "homepage": "https://github.com/abdokouta/react-redis#readme",
+  "homepage": "https://github.com/stakra/react-redis#readme",
   "keywords": [
     "react",
     "redis",
@@ -63,15 +63,15 @@
     "@upstash/redis": "^1.37.0"
   },
   "peerDependencies": {
-    "@abdokouta/ts-container": "workspace:*",
-    "@abdokouta/ts-support": "workspace:*",
+    "@stakra/ts-container": "workspace:*",
+    "@stakra/ts-support": "workspace:*",
     "react": "^18.0.0 || ^19.0.0"
   },
   "peerDependenciesMeta": {
-    "@abdokouta/ts-container": {
+    "@stakra/ts-container": {
       "optional": false
     },
-    "@abdokouta/ts-support": {
+    "@stakra/ts-support": {
       "optional": false
     },
     "react": {
@@ -101,5 +101,6 @@
     "node": ">=18.0.0",
     "pnpm": ">=9.0.0"
   },
-  "sideEffects": false
+  "sideEffects": false,
+  "packageManager": "pnpm@10.33.0"
 }

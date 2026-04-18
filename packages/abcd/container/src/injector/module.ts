@@ -39,6 +39,7 @@ import {
   isExistingProvider,
 } from '@/interfaces/provider.interface';
 import { SCOPE_OPTIONS_METADATA } from '@/constants';
+import { getMetadata } from '@vivtel/metadata';
 import { InstanceWrapper } from './instance-wrapper';
 
 /**
@@ -83,6 +84,14 @@ export class Module {
    * Typically the class name, set by the container during registration.
    */
   public token: string = '';
+
+  /**
+   * Distance from the root module in the dependency graph.
+   * Used to determine lifecycle hook execution order (closer to root = earlier).
+   *
+   * @default 0
+   */
+  public distance: number = 0;
 
   /**
    * All providers registered in this module.
@@ -390,7 +399,7 @@ export class Module {
    * @returns The provider scope
    */
   private getClassScope(type: Type<any>): Scope {
-    const options = Reflect.getMetadata(SCOPE_OPTIONS_METADATA, type);
+    const options = getMetadata<{ scope?: Scope }>(SCOPE_OPTIONS_METADATA, type);
     return options?.scope ?? Scope.DEFAULT;
   }
 
@@ -404,5 +413,74 @@ export class Module {
     if (typeof token === 'function') return token.name;
     if (typeof token === 'symbol') return token.toString();
     return String(token);
+  }
+
+  /**
+   * Create an instance of a class with DI-resolved dependencies.
+   *
+   * This method allows you to instantiate classes outside the normal DI flow,
+   * useful for factories, dynamic components, or manual instantiation with
+   * custom arguments.
+   *
+   * **Note:** This method requires the module to have an injector attached,
+   * which happens automatically when you get the module via `app.getModuleRef()`.
+   *
+   * @typeParam T - The type of the instance to create
+   * @param type - The class to instantiate
+   * @param customArgs - Optional custom arguments to override DI resolution
+   * @returns A new instance with dependencies injected
+   *
+   * @throws Error if no injector is attached to the module
+   * @throws Error if a required dependency cannot be resolved
+   *
+   * @example
+   * ```typescript
+   * // Get module reference from application
+   * const moduleRef = app.getModuleRef(UserModule);
+   *
+   * // With DI-resolved dependencies
+   * const service = moduleRef.create(UserService);
+   *
+   * // With custom arguments
+   * const service = moduleRef.create(UserService, [customDb, customLogger]);
+   * ```
+   */
+  public create<T>(type: Type<T>, customArgs?: any[]): T {
+    const injector = (this as any).__injector__;
+
+    if (!injector) {
+      throw new Error(
+        'ModuleRef.create() requires an injector instance. ' +
+          'Get the module reference via app.getModuleRef(ModuleClass) to use this method.'
+      );
+    }
+
+    // If custom args provided, use them directly
+    if (customArgs) {
+      return new type(...customArgs);
+    }
+
+    // Otherwise, resolve dependencies via DI
+    const deps = (injector as any).getConstructorDependencies(type);
+    const optionalIndices: number[] = (injector as any).getOptionalDependencies(type);
+
+    const resolvedDeps = deps.map((dep: InjectionToken, index: number) => {
+      if (dep === undefined || dep === null || dep === Object) {
+        if (optionalIndices.includes(index)) return undefined;
+        return undefined;
+      }
+
+      const result = injector.lookupProvider(dep, this);
+      if (!result) {
+        if (optionalIndices.includes(index)) return undefined;
+        throw new Error(
+          `Cannot resolve dependency '${this.getTokenName(dep)}' for ModuleRef.create(${type.name})`
+        );
+      }
+
+      return result.wrapper.instance;
+    });
+
+    return new type(...resolvedDeps);
   }
 }

@@ -17,7 +17,7 @@
 import type { Type } from './type.interface';
 import type { InjectionToken } from './injection-token.interface';
 import type { ContainerResolver } from './container-resolver.interface';
-import type { NestContainer } from '@/injector/container';
+import type { ModuleContainer } from '@/injector/container';
 
 /**
  * The public API of a bootstrapped application context.
@@ -98,14 +98,14 @@ export interface IApplication extends ContainerResolver {
   select<T = any>(moduleClass: Type<any>, token: InjectionToken<T>): T;
 
   /**
-   * Get the underlying NestContainer.
+   * Get the underlying ModuleContainer.
    *
    * For advanced use cases like inspecting the module graph,
    * accessing raw InstanceWrappers, or building dev tools.
    *
-   * @returns The `NestContainer` instance
+   * @returns The `ModuleContainer` instance
    */
-  getContainer(): NestContainer;
+  getContainer(): ModuleContainer;
 
   /**
    * Gracefully shut down the application.

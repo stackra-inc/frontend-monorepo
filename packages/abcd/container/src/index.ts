@@ -1,5 +1,5 @@
 /**
- * @abdokouta/ts-container
+ * @stackra/ts-container
  *
  * NestJS-style dependency injection for React and client-side applications.
  * Built from scratch — no Inversify, no heavy runtime.
@@ -15,7 +15,7 @@
  * @example
  * ```typescript
  * import 'reflect-metadata';
- * import { Injectable, Inject, Module, Application } from '@abdokouta/ts-container';
+ * import { Injectable, Inject, Module, Application } from '@stackra/ts-container';
  *
  * @Injectable()
  * class UserService {
@@ -32,7 +32,7 @@
  * const userService = app.get(UserService);
  * ```
  *
- * @module @abdokouta/ts-container
+ * @module @stackra/ts-container
  */
 
 import 'reflect-metadata';
@@ -61,6 +61,9 @@ export type { DynamicModule } from './interfaces/dynamic-module.interface';
 export type { ForwardReference } from './interfaces/forward-reference.interface';
 export type { OnModuleInit } from './interfaces/on-module-init.interface';
 export type { OnModuleDestroy } from './interfaces/on-module-destroy.interface';
+export type { OnApplicationBootstrap } from './interfaces/on-application-bootstrap.interface';
+export type { OnApplicationShutdown } from './interfaces/on-application-shutdown.interface';
+export type { BeforeApplicationShutdown } from './interfaces/before-application-shutdown.interface';
 export type { ContainerResolver } from './interfaces/container-resolver.interface';
 export type { ScopeOptions } from './interfaces/scope-options.interface';
 export type { IApplication } from './interfaces/application.interface';
@@ -77,21 +80,30 @@ export { Scope } from './enums/scope.enum';
 // Utilities
 // ============================================================================
 export { forwardRef } from './utils/forward-ref.util';
+export { defineConfig } from './utils/define-config.util';
+export { hasOnModuleInit } from './interfaces/on-module-init.interface';
+export { hasOnModuleDestroy } from './interfaces/on-module-destroy.interface';
 
 // ============================================================================
 // Application Bootstrap
 // ============================================================================
 export { Application } from './application/application';
+export {
+  getGlobalApplication,
+  hasGlobalApplication,
+  clearGlobalApplication,
+} from './application/global-application';
 
 // ============================================================================
 // DI Engine (Container, Injector, Scanner, Module, etc.)
 // ============================================================================
-export { NestContainer } from './injector/container';
+export { ModuleContainer } from './injector/container';
 export { Module as ModuleRef } from './injector/module';
 export { Injector } from './injector/injector';
 export { InstanceWrapper } from './injector/instance-wrapper';
 export { InstanceLoader } from './injector/instance-loader';
 export { DependenciesScanner } from './injector/scanner';
+export { RegistryScanner } from './injector/registry-scanner';
 
 // ============================================================================
 // React Bindings

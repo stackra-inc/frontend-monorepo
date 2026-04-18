@@ -1,4 +1,4 @@
-# @abdokouta/ts-redis
+# @stackra/ts-redis
 
 Client-side Redis connection management using Upstash HTTP API for Refine
 applications.
@@ -8,7 +8,7 @@ applications.
 - ✅ **Browser-Compatible**: Uses Upstash HTTP REST API (no Node.js required)
 - ✅ **Multiple Connections**: Support for named connections (cache, session,
   etc.)
-- ✅ **Dependency Injection**: Integrates with @abdokouta/container
+- ✅ **Dependency Injection**: Integrates with @stackra/container
 - ✅ **React Hooks**: Easy-to-use hooks for React components
 - ✅ **TypeScript**: Full type safety with comprehensive JSDoc
 - ✅ **Production-Ready**: Error handling, retries, and timeouts
@@ -17,11 +17,11 @@ applications.
 ## Installation
 
 ```bash
-npm install @abdokouta/ts-redis @upstash/redis
+npm install @stackra/ts-redis @upstash/redis
 # or
-yarn add @abdokouta/ts-redis @upstash/redis
+yarn add @stackra/ts-redis @upstash/redis
 # or
-pnpm add @abdokouta/ts-redis @upstash/redis
+pnpm add @stackra/ts-redis @upstash/redis
 ```
 
 ## Quick Start
@@ -36,8 +36,8 @@ pnpm add @abdokouta/ts-redis @upstash/redis
 
 ```typescript
 // app.module.ts
-import { Module } from '@abdokouta/container';
-import { RedisModule } from '@abdokouta/ts-redis';
+import { Module } from '@stackra/container';
+import { RedisModule } from '@stackra/ts-redis';
 
 @Module({
   imports: [
@@ -60,8 +60,8 @@ export class AppModule {}
 #### In Services (with DI)
 
 ```typescript
-import { Injectable } from '@abdokouta/container';
-import { RedisService } from '@abdokouta/ts-redis';
+import { Injectable } from '@stackra/container';
+import { RedisService } from '@stackra/ts-redis';
 
 @Injectable()
 export class UserService {
@@ -87,7 +87,7 @@ export class UserService {
 #### In React Components (with Hooks)
 
 ```typescript
-import { useRedis } from '@abdokouta/ts-redis';
+import { useRedis } from '@stackra/ts-redis';
 import { useEffect, useState } from 'react';
 
 function UserProfile({ userId }: { userId: string }) {
@@ -468,7 +468,7 @@ import type {
   RedisConnectionConfig,
   SetOptions,
   RedisPipeline,
-} from '@abdokouta/ts-redis';
+} from '@stackra/ts-redis';
 ```
 
 ## Browser Compatibility
@@ -499,6 +499,6 @@ submitting PRs.
 
 ## Related Packages
 
-- [@abdokouta/cache](../cache) - Multi-driver cache system
+- [@stackra/cache](../cache) - Multi-driver cache system
 - [@upstash/redis](https://github.com/upstash/upstash-redis) - Upstash Redis
   client

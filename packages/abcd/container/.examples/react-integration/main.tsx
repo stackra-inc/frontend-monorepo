@@ -9,7 +9,7 @@
 
 // @ts-ignore
 import ReactDOM from 'react-dom/client';
-import { Application, ContainerProvider } from '@abdokouta/ts-container';
+import { Application, ContainerProvider } from '@stackra/ts-container';
 import { AppModule } from './services';
 import { App } from './components';
 

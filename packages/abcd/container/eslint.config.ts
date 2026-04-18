@@ -1,46 +1,76 @@
 /**
- * @fileoverview ESLint configuration for @abdokouta/ts-container package
+ * ESLint configuration for @stakra/ts-container
  *
- * This configuration extends the shared @nesvel/eslint-config with
- * project-specific ignore patterns. Uses the ESLint flat config format.
+ * Standalone flat config — does not extend the monorepo shared config
+ * to avoid pulling in monorepo-only plugins (turbo, etc.) that are not
+ * installed in this package.
  *
- * Configuration Features:
- * - TypeScript Rules: TypeScript-aware linting via typescript-eslint
- * - Import Ordering: Enforces consistent import order and detects unused imports
- * - Code Style: Consistent code style enforcement across the monorepo
- * - Ignore Patterns: Excludes build output, node_modules, and config files
+ * Rule philosophy for a DI framework:
+ * - `any` is intentional in injector internals where types are erased at runtime
+ * - Non-null assertions are intentional where invariants are guaranteed by design
+ * - These are turned off rather than warned, since --max-warnings 0 treats
+ *   warnings as errors and would block CI on every legitimate use.
  *
- * @module @abdokouta/ts-container
- * @category Configuration
- * @see https://eslint.org/docs/latest/use/configure/configuration-files
+ * @module eslint.config
  */
 
-// Import the Linter type for type-safe configuration
-import type { Linter } from 'eslint';
+import tseslint from 'typescript-eslint';
 
-// Import the shared Vite-optimized ESLint configuration from @nesvel/eslint-config.
-// This includes TypeScript, import ordering, and style rules.
-import { viteConfig } from '@nesvel/eslint-config';
-
-const config: Linter.Config[] = [
-  // Spread the shared Nesvel ESLint configuration.
-  // Includes TypeScript, import, and style rules.
-  ...viteConfig,
-
-  // Files and directories excluded from linting:
-  //   - dist/          — build output (generated code)
-  //   - node_modules/  — third-party dependencies
-  //   - *.config.js    — JavaScript config files
-  //   - *.config.ts    — TypeScript config files (tsup, vitest, etc.)
+export default tseslint.config(
+  // ── Ignore patterns ──────────────────────────────────────────────────────
   {
-    ignores: ['dist/**', 'node_modules/**', '*.config.js', '*.config.ts'],
+    ignores: ['dist/**', 'node_modules/**', 'coverage/**', '.examples/**', 'eslint.config.ts'],
   },
 
-  // Add package-specific rule overrides here.
-  // These take precedence over the shared config.
+  // ── TypeScript source files ───────────────────────────────────────────────
   {
-    rules: {},
-  },
-];
+    files: ['src/**/*.ts', 'src/**/*.tsx'],
+    extends: [...tseslint.configs.recommended],
+    languageOptions: {
+      parserOptions: {
+        project: './tsconfig.json',
+        tsconfigRootDir: import.meta.dirname,
+      },
+    },
+    rules: {
+      // ── Intentionally off for DI internals ─────────────────────────────
+      // `any` is unavoidable in a reflection-based DI system where types
+      // are erased at runtime (design:paramtypes returns `any[]`)
+      '@typescript-eslint/no-explicit-any': 'off',
 
-export default config;
+      // Non-null assertions are used where the DI invariants guarantee
+      // a value exists (e.g. after isResolved check, after has() check)
+      '@typescript-eslint/no-non-null-assertion': 'off',
+
+      // ── Errors ─────────────────────────────────────────────────────────
+      // Prefer @ts-expect-error over @ts-ignore (catches stale suppressions)
+      '@typescript-eslint/ban-ts-comment': [
+        'error',
+        {
+          'ts-ignore': 'allow-with-description',
+          'ts-expect-error': 'allow-with-description',
+          'ts-nocheck': true,
+          minimumDescriptionLength: 10,
+        },
+      ],
+
+      // No Function type — use explicit signatures
+      '@typescript-eslint/no-unsafe-function-type': 'error',
+
+      // Unused vars — allow _ prefix for intentionally unused params
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
+      ],
+
+      // No require() — ESM only
+      '@typescript-eslint/no-require-imports': 'error',
+
+      // Consistent type imports
+      '@typescript-eslint/consistent-type-imports': [
+        'error',
+        { prefer: 'type-imports', fixStyle: 'inline-type-imports' },
+      ],
+    },
+  }
+);

@@ -13,7 +13,7 @@
  * @module cache.module
  */
 
-import { Module, type DynamicModule } from '@abdokouta/ts-container';
+import { Module, type DynamicModule } from '@stackra/ts-container';
 
 import type { CacheModuleOptions } from '@/interfaces';
 import { CacheManager } from '@/services/cache-manager.service';
