@@ -7,13 +7,13 @@ inclusion: auto
 
 ## workspace:\* Protocol
 
-All `@abdokouta/*` packages within the monorepo MUST use `workspace:*` version:
+All `@stackra/*` packages within the monorepo MUST use `workspace:*` version:
 
 ```json
 {
   "dependencies": {
-    "@abdokouta/ts-container": "workspace:*",
-    "@abdokouta/ts-support": "workspace:*"
+    "@stackra/ts-container": "workspace:*",
+    "@stackra/ts-support": "workspace:*"
   }
 }
 ```
@@ -26,8 +26,8 @@ Framework packages that other packages depend on MUST be listed as
 ```json
 {
   "peerDependencies": {
-    "@abdokouta/ts-container": "workspace:*",
-    "@abdokouta/ts-support": "workspace:*",
+    "@stackra/ts-container": "workspace:*",
+    "@stackra/ts-support": "workspace:*",
     "react": "^18.0.0 || ^19.0.0"
   }
 }
@@ -35,8 +35,8 @@ Framework packages that other packages depend on MUST be listed as
 
 Rules:
 
-- `@abdokouta/ts-container` — peerDependency for all packages that use DI
-- `@abdokouta/ts-support` — peerDependency for packages using
+- `@stackra/ts-container` — peerDependency for all packages that use DI
+- `@stackra/ts-support` — peerDependency for packages using
   BaseRegistry/MultipleInstanceManager
 - `react` — peerDependency for packages with React hooks/components (mark as
   optional)

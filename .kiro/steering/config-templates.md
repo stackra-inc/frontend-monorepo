@@ -5,8 +5,8 @@ inclusion: auto
 
 # Package Config Templates
 
-Unified config file templates for all packages. Based on the
-`@abdokouta/ts-cache` gold standard.
+Unified config file templates for all packages. Based on the `@stackra/ts-cache`
+gold standard.
 
 ## tsconfig.json
 
@@ -110,9 +110,9 @@ Every package MUST externalize its peer dependencies. Common externals:
 
 ```typescript
 external: [
-  '@abdokouta/ts-container',
-  '@abdokouta/ts-container-react',
-  '@abdokouta/ts-support',
+  '@stackra/ts-container',
+  '@stackra/ts-container-react',
+  '@stackra/ts-support',
   'react',
   // Add package-specific peer deps here
 ],

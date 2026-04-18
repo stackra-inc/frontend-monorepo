@@ -20,7 +20,7 @@ Laravel `|---|` style:
  * |
  * | Detailed explanation of behavior, patterns, and usage.
  * |
- * @module @abdokouta/package-name
+ * @module @stackra/package-name
  */
 ```
 
