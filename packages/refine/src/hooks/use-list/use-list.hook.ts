@@ -1,7 +1,7 @@
 /**
  * @fileoverview useList hook — fetch a paginated, sorted, filtered list.
  *
- * @module @stackra/react-refine
+ * @module @stackra-inc/react-refine
  * @category Hooks
  */
 

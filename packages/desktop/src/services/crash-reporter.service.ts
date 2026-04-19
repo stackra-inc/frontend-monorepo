@@ -16,10 +16,10 @@
  * |   await crash.initialize({ sentryDsn: 'https://...@sentry.io/123' });
  * |   crash.captureException(new Error('Something broke'));
  * |
- * @module @stackra/ts-desktop
+ * @module @stackra-inc/ts-desktop
  */
 
-import { Injectable, Inject } from '@stackra/ts-container';
+import { Injectable, Inject } from '@stackra-inc/ts-container';
 
 import { DESKTOP_CONFIG } from '@/constants';
 import type { DesktopModuleOptions } from '@/interfaces/desktop-module-options.interface';

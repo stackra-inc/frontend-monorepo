@@ -9,7 +9,7 @@
 
 import fg from 'fast-glob';
 import { basename, extname } from 'path';
-import { Str } from '@stackra/ts-support';
+import { Str } from '@stackra-inc/ts-support';
 
 import type { FileMap, I18nPluginOptions } from '@/interfaces';
 

@@ -7,7 +7,7 @@
  *
  * @example
  * ```typescript
- * import { TenantMode } from "@stackra/react-multitenancy";
+ * import { TenantMode } from "@stackra-inc/react-multitenancy";
  *
  * const config = {
  *   mode: TenantMode.HEADER, // Use HTTP header

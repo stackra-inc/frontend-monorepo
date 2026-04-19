@@ -17,7 +17,7 @@ This sub-package owns the pure PHP foundation that the `search` package and
 and a compile-time registry (`IndexerRegistry`).
 
 This sub-package has NO Elasticsearch dependency — it is pure PHP attributes,
-contracts, traits, and enums. The search package (`stackra/laravel-search`)
+contracts, traits, and enums. The search package (`stackra-inc/laravel-search`)
 provides the ES-specific implementations using `pdphilip/elasticsearch`. The
 reporting package provides ES aggregation implementations. This sub-package
 defines the contracts and data structures they implement.

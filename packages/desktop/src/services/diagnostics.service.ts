@@ -14,10 +14,10 @@
  * |   const info = await diag.getSystemInfo();
  * |   const mem = await diag.getMemoryUsage();
  * |
- * @module @stackra/ts-desktop
+ * @module @stackra-inc/ts-desktop
  */
 
-import { Injectable, Inject } from '@stackra/ts-container';
+import { Injectable, Inject } from '@stackra-inc/ts-container';
 
 import type {
   SystemInfo,

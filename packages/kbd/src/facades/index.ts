@@ -10,8 +10,8 @@
  * ## Setup (once, in main.tsx)
  *
  * ```typescript
- * import { Application } from '@stackra/ts-container';
- * import { Facade } from '@stackra/ts-support';
+ * import { Application } from '@stackra-inc/ts-container';
+ * import { Facade } from '@stackra-inc/ts-support';
  *
  * const app = await Application.create(AppModule);
  * Facade.setApplication(app); // wires all facades at once

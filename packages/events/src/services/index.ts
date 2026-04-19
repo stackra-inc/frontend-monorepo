@@ -1,6 +1,6 @@
 /**
  * @fileoverview Services Index
- * @module @stackra/ts-events
+ * @module @stackra-inc/ts-events
  */
 
 export { EventManager } from './event-manager.service';

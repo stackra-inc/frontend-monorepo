@@ -1,6 +1,6 @@
 /**
  * @fileoverview Hooks Index
- * @module @stackra/ts-events
+ * @module @stackra-inc/ts-events
  */
 
 export { useEvents } from './use-events';

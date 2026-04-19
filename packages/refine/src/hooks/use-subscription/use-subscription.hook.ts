@@ -4,12 +4,12 @@
  * Resolves the RealtimeService from the DI container via `useInject`
  * and subscribes to a real-time channel. No setter functions needed.
  *
- * @module @stackra/react-refine
+ * @module @stackra-inc/react-refine
  * @category Hooks
  */
 
 import { useEffect } from 'react';
-import { useOptionalInject } from '@stackra/ts-container';
+import { useOptionalInject } from '@stackra-inc/ts-container';
 import { REALTIME_SERVICE } from '@/constants';
 import type { IRealtimeService } from '@/interfaces/realtime-service.interface';
 import type { UseSubscriptionProps } from '@/interfaces/use-subscription-props.interface';

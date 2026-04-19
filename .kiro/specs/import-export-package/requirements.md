@@ -2,15 +2,16 @@
 
 ## Introduction
 
-The `stackra/laravel-import-export` package provides a unified, attribute-driven
-import/export engine for the MNGO venue management platform. Built on top of
-`maatwebsite/laravel-excel` (Laravel Excel 3.x), the package enables any entity
-across the Stackra monorepo to declare itself as importable, exportable, or
-sample-data-capable via PHP attributes (`#[Exportable]`, `#[Importable]`,
-`#[SampleData]`). The package complements the existing `TenantDataExportService`
-/ `TenantDataImportService` in the tenancy package — those handle bulk
-tenant-level JSON migration, while this package handles granular, entity-level
-import/export with CSV, XLSX, JSON, and PDF format support.
+The `stackra-inc/laravel-import-export` package provides a unified,
+attribute-driven import/export engine for the MNGO venue management platform.
+Built on top of `maatwebsite/laravel-excel` (Laravel Excel 3.x), the package
+enables any entity across the Stackra monorepo to declare itself as importable,
+exportable, or sample-data-capable via PHP attributes (`#[Exportable]`,
+`#[Importable]`, `#[SampleData]`). The package complements the existing
+`TenantDataExportService` / `TenantDataImportService` in the tenancy package —
+those handle bulk tenant-level JSON migration, while this package handles
+granular, entity-level import/export with CSV, XLSX, JSON, and PDF format
+support.
 
 The package follows the established Stackra patterns: attribute-driven
 configuration, interface-first design with `ATTR_*` constants, Discovery facade
@@ -81,9 +82,9 @@ monorepo build system and module discovery.
    using `#[Bind]` on interfaces and `HasBindings` hook interface.
 3. THE package SHALL use the namespace `Stackra\ImportExport` with PSR-4
    autoloading from `src/`.
-4. THE package SHALL declare `stackra/laravel-discovery`,
-   `stackra/laravel-crud`, `stackra/laravel-database`, and `maatwebsite/excel`
-   as composer dependencies.
+4. THE package SHALL declare `stackra-inc/laravel-discovery`,
+   `stackra-inc/laravel-crud`, `stackra-inc/laravel-database`, and
+   `maatwebsite/excel` as composer dependencies.
 5. THE package SHALL include `composer.json`, `module.json`,
    `config/import-export.php`, and standard directory structure (`Attributes/`,
    `Contracts/`, `Controllers/`, `Enums/`, `Events/`, `Services/`, `Providers/`,

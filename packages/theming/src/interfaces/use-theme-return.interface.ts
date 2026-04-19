@@ -1,7 +1,7 @@
 /**
  * @fileoverview Return type interface for the useTheme hook.
  *
- * @module @stackra/react-theming
+ * @module @stackra-inc/react-theming
  * @category Interfaces
  */
 

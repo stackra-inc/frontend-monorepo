@@ -1,5 +1,5 @@
 /**
- * @fileoverview Prettier configuration for @stackra/kbd package
+ * @fileoverview Prettier configuration for @stackra-inc/kbd package
  *
  * Extends the shared @nesvel/prettier-config for consistent code formatting
  * across all packages in the monorepo.
@@ -12,7 +12,7 @@
  * - Semicolons enabled
  * - LF line endings
  *
- * @module @stackra/kbd
+ * @module @stackra-inc/kbd
  * @category Configuration
  * @see https://prettier.io/docs/en/configuration
  */

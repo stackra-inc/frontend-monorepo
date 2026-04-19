@@ -22,7 +22,7 @@ import type { ConfigModuleOptions } from '@/interfaces';
  * @example
  * ```typescript
  * // config.config.ts
- * import { defineConfig } from '@stackra/config';
+ * import { defineConfig } from '@stackra-inc/config';
  *
  * export default defineConfig({
  *   default: 'env',

@@ -3,7 +3,7 @@
  *
  * Exports all constants used in the kbd package.
  *
- * @module @stackra/kbd
+ * @module @stackra-inc/kbd
  * @category Constants
  */
 

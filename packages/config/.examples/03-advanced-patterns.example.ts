@@ -7,8 +7,8 @@
  * @module examples/advanced-patterns
  *
  * Prerequisites:
- * - @stackra/ts-config installed and ConfigModule.forRoot() configured
- * - @stackra/ts-container installed
+ * - @stackra-inc/ts-config installed and ConfigModule.forRoot() configured
+ * - @stackra-inc/ts-container installed
  */
 
 // ============================================================================
@@ -20,8 +20,8 @@ import {
   CONFIG_MANAGER,
   CONFIG_SERVICE,
   type ConfigService,
-} from '@stackra/ts-config';
-import { Injectable, Inject } from '@stackra/ts-container';
+} from '@stackra-inc/ts-config';
+import { Injectable, Inject } from '@stackra-inc/ts-container';
 
 /**
  * Runtime overrides let you change config values without restarting.
@@ -139,7 +139,7 @@ class DiagnosticsService {
  */
 
 // import { defineConfig, loadEnv } from 'vite';
-// import { viteConfigPlugin } from '@stackra/ts-config/vite-plugin';
+// import { viteConfigPlugin } from '@stackra-inc/ts-config/vite-plugin';
 //
 // export default defineConfig(({ mode }) => {
 //   const env = loadEnv(mode, 'environments', '');
@@ -162,7 +162,7 @@ class DiagnosticsService {
  * Consumers import from the virtual module:
  *
  * ```typescript
- * import { config, get, has } from 'virtual:@stackra/ts-config';
+ * import { config, get, has } from 'virtual:@stackra-inc/ts-config';
  *
  * const appName = get('APP_NAME', 'MyApp');
  * const hasDebug = has('DEBUG');
@@ -173,14 +173,14 @@ class DiagnosticsService {
  * ```json
  * {
  *   "compilerOptions": {
- *     "types": ["@stackra/ts-config/client"]
+ *     "types": ["@stackra-inc/ts-config/client"]
  *   }
  * }
  * ```
  *
  * Or add a triple-slash directive:
  * ```typescript
- * /// <reference types="@stackra/ts-config/client" />
+ * /// <reference types="@stackra-inc/ts-config/client" />
  * ```
  */
 
@@ -188,7 +188,7 @@ class DiagnosticsService {
 // 4. Config Validation
 // ============================================================================
 
-import { Module } from '@stackra/ts-container';
+import { Module } from '@stackra-inc/ts-container';
 import { ConfigModule } from '@/index';
 
 /**

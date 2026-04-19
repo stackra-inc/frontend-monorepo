@@ -14,7 +14,7 @@
  * - Platform Detection: Detecting and resolving platform-specific keys
  * - Events: Subscribing to registry changes
  *
- * @module @stackra/kbd
+ * @module @stackra-inc/kbd
  * @category Tests
  */
 

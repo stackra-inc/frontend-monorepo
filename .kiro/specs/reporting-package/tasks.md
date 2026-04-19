@@ -1,4 +1,4 @@
-# Implementation Plan: Reporting Package (`stackra/laravel-reporting`)
+# Implementation Plan: Reporting Package (`stackra-inc/laravel-reporting`)
 
 ## Overview
 
@@ -13,9 +13,9 @@ direct ES dependency.
 
 - [x] 1. Scaffold package structure, config, and service provider
   - [x] 1.1 Create `packages/reporting/composer.json` with dependencies on
-        `stackra/laravel-framework`, `stackra/laravel-search`,
-        `stackra/laravel-import-export`, `stackra/laravel-discovery`,
-        `stackra/laravel-tenancy`; PSR-4 autoload from `src/` under
+        `stackra-inc/laravel-framework`, `stackra-inc/laravel-search`,
+        `stackra-inc/laravel-import-export`, `stackra-inc/laravel-discovery`,
+        `stackra-inc/laravel-tenancy`; PSR-4 autoload from `src/` under
         `Stackra\Reporting`
     - Create `module.json` with name `Reporting`, alias, version, active flag
     - Create directory structure: `Attributes/`, `Compiler/`, `Commands/`,

@@ -1,7 +1,7 @@
 /**
  * @fileoverview Props interface for the useSubscription realtime hook.
  *
- * @module @stackra/react-refine
+ * @module @stackra-inc/react-refine
  * @category Interfaces
  */
 

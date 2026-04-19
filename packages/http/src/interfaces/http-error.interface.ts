@@ -6,12 +6,12 @@
  * for error handling regardless of the underlying error type
  * (network error, timeout, HTTP error response).
  *
- * @module @stackra/ts-http
+ * @module @stackra-inc/ts-http
  * @category Interfaces
  *
  * @example
  * ```typescript
- * import type { HttpError } from '@stackra/ts-http';
+ * import type { HttpError } from '@stackra-inc/ts-http';
  *
  * try {
  *   await http.post('/api/users', { name: '' });

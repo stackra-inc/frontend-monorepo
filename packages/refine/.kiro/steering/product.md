@@ -1,8 +1,8 @@
 # Product Overview
 
-`@stackra/react-refine` — Refine Framework integration with dependency injection
-for React applications
+`@stackra-inc/react-refine` — Refine Framework integration with dependency
+injection for React applications
 
 ## Package Exports
 
-- `@stackra/react-refine` — main entry point
+- `@stackra-inc/react-refine` — main entry point

@@ -3,6 +3,6 @@
  *
  * Equivalent to `CacheDriver` in the cache package.
  *
- * @module @stackra/ts-events
+ * @module @stackra-inc/ts-events
  */
 export type EventDriver = 'memory' | 'redis' | 'null';

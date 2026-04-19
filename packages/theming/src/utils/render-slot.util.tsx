@@ -2,7 +2,7 @@
  * renderSlot Utility
  *
  * |--------------------------------------------------------------------------
- * | Renders a named slot if @stackra/ts-ui is available.
+ * | Renders a named slot if @stackra-inc/ts-ui is available.
  * |--------------------------------------------------------------------------
  * |
  * | Tries to import the slotRegistry from ts-ui and render entries.
@@ -21,7 +21,7 @@ function getRegistry(): any {
   if (_resolved) return _registry;
   _resolved = true;
   try {
-    const mod = Function('return require("@stackra/ts-ui")')();
+    const mod = Function('return require("@stackra-inc/ts-ui")')();
     _registry = mod?.slotRegistry ?? null;
   } catch {
     _registry = null;

@@ -1,5 +1,5 @@
 /**
- * DI Tokens for @stackra/ts-pwa
+ * DI Tokens for @stackra-inc/ts-pwa
  *
  * |--------------------------------------------------------------------------
  * | Injection tokens for the PwaModule DI integration.

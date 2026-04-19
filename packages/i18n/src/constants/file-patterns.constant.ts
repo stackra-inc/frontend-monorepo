@@ -15,7 +15,7 @@
  *
  * @example
  * ```typescript
- * import { TRANSLATION_FILE_PATTERNS } from '@stackra/react-i18n';
+ * import { TRANSLATION_FILE_PATTERNS } from '@stackra-inc/react-i18n';
  *
  * const files = await glob(TRANSLATION_FILE_PATTERNS.include, {
  *   ignore: TRANSLATION_FILE_PATTERNS.exclude,

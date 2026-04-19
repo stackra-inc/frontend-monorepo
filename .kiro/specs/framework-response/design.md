@@ -1933,7 +1933,7 @@ The canonical response payload produced by `ApiResponse::buildPayload()`:
 
 ```
 packages/framework/src/Response/
-├── composer.json                    # stackra/laravel-response
+├── composer.json                    # stackra-inc/laravel-response
 ├── module.json                      # name: Response, alias: response
 ├── phpunit.xml
 ├── README.md

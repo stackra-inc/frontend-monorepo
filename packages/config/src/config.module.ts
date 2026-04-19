@@ -14,7 +14,7 @@
  * @module config.module
  */
 
-import { Module, type DynamicModule } from '@stackra/ts-container';
+import { Module, type DynamicModule } from '@stackra-inc/ts-container';
 
 import type { ConfigModuleOptions } from './interfaces/config-module-options.interface';
 import { ConfigManager } from './services/config-manager.service';

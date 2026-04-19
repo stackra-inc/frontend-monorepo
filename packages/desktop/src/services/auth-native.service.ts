@@ -8,10 +8,10 @@
  * | In Electron: prompts for biometric auth via IPC.
  * | In browser: returns { success: false, error: 'not available' }.
  * |
- * @module @stackra/ts-desktop
+ * @module @stackra-inc/ts-desktop
  */
 
-import { Injectable, Inject } from '@stackra/ts-container';
+import { Injectable, Inject } from '@stackra-inc/ts-container';
 
 import type { BiometricResult } from '@/interfaces/security.interface';
 import { DesktopManager } from './desktop-manager.service';

@@ -15,7 +15,7 @@ import type { RuntimeCachingEntry } from './runtime-caching-entry.interface';
  *
  * @example
  * ```ts
- * import { vitePwaPlugin } from '@stackra/ts-pwa/vite-plugin'
+ * import { vitePwaPlugin } from '@stackra-inc/ts-pwa/vite-plugin'
  *
  * export default defineConfig({
  *   plugins: [

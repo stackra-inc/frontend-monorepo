@@ -10,10 +10,10 @@
  * |
  * | In browser: falls back to localStorage with a security warning.
  * |
- * @module @stackra/ts-desktop
+ * @module @stackra-inc/ts-desktop
  */
 
-import { Injectable, Inject } from '@stackra/ts-container';
+import { Injectable, Inject } from '@stackra-inc/ts-container';
 
 import { DesktopManager } from './desktop-manager.service';
 

@@ -8,7 +8,7 @@ approach (boolean flags + `DrawerOverlay` + HeroUI Drawer). The system provides
 a single context provider, stack operations (push/pop/replace/clear/popTo),
 sub-view navigation, configurable widths per drawer type, and animated
 transitions. Zero application-specific imports — extractable to
-`@stackra/react-drawers`.
+`@stackra-inc/react-drawers`.
 
 ### Drawer Width Presets
 
@@ -150,7 +150,7 @@ transitions. Zero application-specific imports — extractable to
   - Verify zero application-specific imports in the drawer-stack directory
   - Build the package with `tsup` and confirm dist output
 
-- [x] 6. Export from @stackra/react-ui and build
+- [x] 6. Export from @stackra-inc/react-ui and build
   - [x] 6.1 Update `packages/ui/src/components/index.ts` to re-export
         drawer-stack
     - Add `export * from "./drawer-stack"` to components barrel

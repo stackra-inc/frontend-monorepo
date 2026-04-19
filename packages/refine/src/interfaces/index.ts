@@ -1,9 +1,9 @@
 /**
  * @fileoverview Barrel export for refine interfaces.
  *
- * Auth interfaces have been moved to @stackra/react-auth.
+ * Auth interfaces have been moved to @stackra-inc/react-auth.
  *
- * @module @stackra/react-refine
+ * @module @stackra-inc/react-refine
  * @category Interfaces
  */
 

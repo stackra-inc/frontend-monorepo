@@ -3,24 +3,24 @@
 ## Overview
 
 Build the `packages/invitation/` package (`Stackra\Invitation`,
-`stackra/laravel-invitation`) — a standalone, reusable polymorphic invitation
-lifecycle system. Implementation follows bottom-up order: scaffolding → data
-layer → domain logic → HTTP layer → consumer migration. All code must have
-comprehensive multiline docblocks, detailed comments, `declare(strict_types=1)`,
-and follow all Stackra steering conventions (attribute-driven config,
-`Interface::ATTR_*` constants, repository pattern, `#[AsEvent]` events,
-`#[Bind]`/`#[Scoped]`/`#[Singleton]` on interfaces).
+`stackra-inc/laravel-invitation`) — a standalone, reusable polymorphic
+invitation lifecycle system. Implementation follows bottom-up order: scaffolding
+→ data layer → domain logic → HTTP layer → consumer migration. All code must
+have comprehensive multiline docblocks, detailed comments,
+`declare(strict_types=1)`, and follow all Stackra steering conventions
+(attribute-driven config, `Interface::ATTR_*` constants, repository pattern,
+`#[AsEvent]` events, `#[Bind]`/`#[Scoped]`/`#[Singleton]` on interfaces).
 
 ## Tasks
 
 - [x] 1. Package scaffolding and configuration
   - [x] 1.1 Create `packages/invitation/composer.json` with package name
-        `stackra/laravel-invitation`, namespace `Stackra\\Invitation\\`,
-        autoload PSR-4 mapping to `src/`, require `stackra/laravel-crud`,
-        `stackra/laravel-database`, `stackra/laravel-discovery`,
-        `stackra/laravel-enum`, `stackra/laravel-event`, and `illuminate/*`
-        deps. Include path repos for local dev, `@dev` constraints, and
-        `allow-plugins` for attribute collector.
+        `stackra-inc/laravel-invitation`, namespace `Stackra\\Invitation\\`,
+        autoload PSR-4 mapping to `src/`, require `stackra-inc/laravel-crud`,
+        `stackra-inc/laravel-database`, `stackra-inc/laravel-discovery`,
+        `stackra-inc/laravel-enum`, `stackra-inc/laravel-event`, and
+        `illuminate/*` deps. Include path repos for local dev, `@dev`
+        constraints, and `allow-plugins` for attribute collector.
     - _Requirements: 1.1, 1.2_
 
   - [x] 1.2 Create `packages/invitation/module.json` with module name
@@ -341,7 +341,7 @@ and follow all Stackra steering conventions (attribute-driven config,
     all components are wired together.
 
 - [x] 20. Family package migration
-  - [x] 20.1 Add `"stackra/laravel-invitation": "@dev"` to
+  - [x] 20.1 Add `"stackra-inc/laravel-invitation": "@dev"` to
         `packages/family/composer.json` require section. Add path repo entry for
         `"../invitation"`.
     - _Requirements: 12.2_

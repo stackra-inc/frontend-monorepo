@@ -1,7 +1,7 @@
 /**
  * @example Basic CRUD Application
  *
- * Demonstrates the core workflow of @stackra/react-refine:
+ * Demonstrates the core workflow of @stackra-inc/react-refine:
  * - Module configuration with `forRoot` and `forFeature`
  * - Model definition with `@Resource` decorator
  * - All CRUD hooks: useList, useOne, useShow, useMany, useCreate, useUpdate, useDelete
@@ -9,7 +9,7 @@
  * - Filtering, sorting, and pagination
  * - Conditional fetching with `enabled`
  *
- * @module @stackra/react-refine
+ * @module @stackra-inc/react-refine
  * @category Examples
  */
 
@@ -28,8 +28,8 @@ import {
   useDeleteMany,
   useCreateMany,
   useUpdateMany,
-} from '@stackra/react-refine';
-import { Module } from '@stackra/ts-container';
+} from '@stackra-inc/react-refine';
+import { Module } from '@stackra-inc/ts-container';
 
 // ─── 1. Resource Tokens ──────────────────────────────────────────────
 

@@ -1,8 +1,8 @@
-# Requirements Document — Reporting Package (`stackra/laravel-reporting`)
+# Requirements Document — Reporting Package (`stackra-inc/laravel-reporting`)
 
 ## Introduction
 
-The `stackra/laravel-reporting` package provides the reporting and analytics
+The `stackra-inc/laravel-reporting` package provides the reporting and analytics
 engine for the MNGO venue management platform. It builds on top of the framework
 Indexer sub-package (`packages/framework/src/Indexer/`) which owns the
 `#[Aggregatable]` attribute, `AggregationType` enum, `IndexerRegistry`, and
@@ -144,12 +144,12 @@ monorepo build system and module discovery.
    expressions during the boot phase.
 4. THE package SHALL use the namespace `Stackra\Reporting` with PSR-4
    autoloading from `src/`.
-5. THE package SHALL declare `stackra/laravel-framework` (for Indexer
+5. THE package SHALL declare `stackra-inc/laravel-framework` (for Indexer
    sub-package: `#[Aggregatable]`, `AggregationType`, `IndexerRegistry`),
-   `stackra/laravel-search` (for ES connection via `pdphilip/elasticsearch`),
-   `stackra/laravel-import-export` (for report export: CSV, XLSX, JSON, PDF),
-   `stackra/laravel-discovery`, and `stackra/laravel-tenancy` as composer
-   dependencies.
+   `stackra-inc/laravel-search` (for ES connection via
+   `pdphilip/elasticsearch`), `stackra-inc/laravel-import-export` (for report
+   export: CSV, XLSX, JSON, PDF), `stackra-inc/laravel-discovery`, and
+   `stackra-inc/laravel-tenancy` as composer dependencies.
 6. THE package SHALL NOT depend on `pdphilip/elasticsearch`,
    `elasticsearch/elasticsearch`, or any direct ES client library — all ES
    access goes through the search package's connection.

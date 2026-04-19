@@ -3,7 +3,7 @@
  *
  * This file contains interactive examples and documentation for the ShortcutHelp component.
  *
- * @module @stackra/kbd
+ * @module @stackra-inc/kbd
  * @category Stories
  */
 

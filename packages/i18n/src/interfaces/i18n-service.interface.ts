@@ -5,16 +5,16 @@
  * translation, locale resolution, language switching, and resource
  * management. Injected via the `I18N_SERVICE` token.
  *
- * Mirrors the `HttpClient` service pattern from `@stackra/ts-http`
- * and the `IMultiTenancyProvider` from `@stackra/react-multitenancy`.
+ * Mirrors the `HttpClient` service pattern from `@stackra-inc/ts-http`
+ * and the `IMultiTenancyProvider` from `@stackra-inc/react-multitenancy`.
  *
  * @module interfaces/i18n-service
  *
  * @example
  * ```typescript
- * import { Inject, Injectable } from '@stackra/ts-container';
- * import { I18N_SERVICE } from '@stackra/react-i18n';
- * import type { II18nService } from '@stackra/react-i18n';
+ * import { Inject, Injectable } from '@stackra-inc/ts-container';
+ * import { I18N_SERVICE } from '@stackra-inc/react-i18n';
+ * import type { II18nService } from '@stackra-inc/react-i18n';
  *
  * @Injectable()
  * class NotificationService {

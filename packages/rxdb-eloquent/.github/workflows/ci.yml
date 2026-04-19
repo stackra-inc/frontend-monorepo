@@ -1,5 +1,5 @@
 # =============================================================================
-# CI — @stackra/ts-eloquent
+# CI — @stackra-inc/ts-eloquent
 #
 # Runs on every push to main/develop and on pull requests targeting those
 # branches. Jobs run in parallel where possible; test waits for build.

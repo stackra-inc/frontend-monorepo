@@ -19,7 +19,7 @@
  */
 
 import type { TagSet as ITagSet } from '@/interfaces';
-import type { RedisConnection } from '@stackra/ts-redis';
+import type { RedisConnection } from '@stackra-inc/ts-redis';
 
 /**
  * Redis tag set implementation

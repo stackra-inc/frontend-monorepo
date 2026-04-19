@@ -16,7 +16,7 @@ import type { TenantConfig, TenantResolver } from '@/interfaces';
  *
  * @example
  * ```typescript
- * import { SubdomainResolver } from "@stackra/react-multitenancy";
+ * import { SubdomainResolver } from "@stackra-inc/react-multitenancy";
  *
  * // Without mapping (subdomain is tenant ID)
  * const resolver = new SubdomainResolver({

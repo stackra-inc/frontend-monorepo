@@ -58,7 +58,7 @@ importers:
 
   apps/desktop:
     dependencies:
-      '@stackra/ts-desktop':
+      '@stackra-inc/ts-desktop':
         specifier: workspace:*
         version: link:../../packages/desktop
     devDependencies:
@@ -86,40 +86,40 @@ importers:
       '@heroui/styles':
         specifier: 3.0.1
         version: 3.0.1(tailwind-merge@3.4.0)(tailwindcss@4.1.11)
-      '@stackra/kbd':
+      '@stackra-inc/kbd':
         specifier: workspace:*
         version: link:../../packages/kbd
-      '@stackra/ts-cache':
+      '@stackra-inc/ts-cache':
         specifier: workspace:*
         version: link:../../packages/cache
-      '@stackra/ts-config':
+      '@stackra-inc/ts-config':
         specifier: workspace:*
         version: link:../../packages/config
-      '@stackra/ts-container':
+      '@stackra-inc/ts-container':
         specifier: ^2.0.4
         version: 2.0.4(react@19.2.5)
-      '@stackra/ts-desktop':
+      '@stackra-inc/ts-desktop':
         specifier: workspace:*
         version: link:../../packages/desktop
-      '@stackra/ts-events':
+      '@stackra-inc/ts-events':
         specifier: workspace:*
         version: link:../../packages/events
-      '@stackra/ts-logger':
+      '@stackra-inc/ts-logger':
         specifier: workspace:*
         version: link:../../packages/logger
-      '@stackra/ts-pwa':
+      '@stackra-inc/ts-pwa':
         specifier: workspace:*
         version: link:../../packages/pwa
-      '@stackra/ts-redis':
+      '@stackra-inc/ts-redis':
         specifier: workspace:*
         version: link:../../packages/redis
-      '@stackra/ts-settings':
+      '@stackra-inc/ts-settings':
         specifier: workspace:*
         version: link:../../packages/settings
-      '@stackra/ts-support':
+      '@stackra-inc/ts-support':
         specifier: workspace:*
         version: link:../../packages/abcd/support
-      '@stackra/ts-ui':
+      '@stackra-inc/ts-ui':
         specifier: workspace:*
         version: link:../../packages/ui
       clsx:
@@ -225,7 +225,7 @@ importers:
 
   packages/abcd/support:
     dependencies:
-      '@stackra/ts-container':
+      '@stackra-inc/ts-container':
         specifier: ^2.0.4
         version: 2.0.4(react@19.2.5)
       collect.js:
@@ -283,13 +283,13 @@ importers:
 
   packages/auth:
     dependencies:
-      '@stackra/ts-cache':
+      '@stackra-inc/ts-cache':
         specifier: workspace:*
         version: link:../cache
-      '@stackra/ts-container':
+      '@stackra-inc/ts-container':
         specifier: ^2.0.4
         version: 2.0.4(react@19.2.5)
-      '@stackra/ts-support':
+      '@stackra-inc/ts-support':
         specifier: workspace:*
         version: link:../abcd/support
       reflect-metadata:
@@ -311,10 +311,10 @@ importers:
       '@nesvel/typescript-config':
         specifier: ^1.0.4
         version: 1.0.4(typescript@6.0.3)
-      '@stackra/ts-events':
+      '@stackra-inc/ts-events':
         specifier: workspace:^
         version: link:../events
-      '@stackra/ts-http':
+      '@stackra-inc/ts-http':
         specifier: workspace:^
         version: link:../http
       '@tanstack/react-query':
@@ -347,13 +347,13 @@ importers:
 
   packages/cache:
     dependencies:
-      '@stackra/ts-container':
+      '@stackra-inc/ts-container':
         specifier: ^2.0.4
         version: 2.0.4(react@19.2.5)
-      '@stackra/ts-redis':
+      '@stackra-inc/ts-redis':
         specifier: workspace:*
         version: link:../redis
-      '@stackra/ts-support':
+      '@stackra-inc/ts-support':
         specifier: workspace:*
         version: link:../abcd/support
       react:
@@ -405,13 +405,13 @@ importers:
 
   packages/config:
     dependencies:
-      '@stackra/ts-container':
+      '@stackra-inc/ts-container':
         specifier: ^2.0.4
         version: 2.0.4(react@19.2.5)
-      '@stackra/ts-http':
+      '@stackra-inc/ts-http':
         specifier: workspace:*
         version: link:../http
-      '@stackra/ts-support':
+      '@stackra-inc/ts-support':
         specifier: workspace:*
         version: link:../abcd/support
       fast-glob:
@@ -524,10 +524,10 @@ importers:
 
   packages/desktop:
     dependencies:
-      '@stackra/ts-container':
+      '@stackra-inc/ts-container':
         specifier: ^2.0.4
         version: 2.0.4(react@19.2.5)
-      '@stackra/ts-support':
+      '@stackra-inc/ts-support':
         specifier: workspace:*
         version: link:../abcd/support
       electron:
@@ -585,13 +585,13 @@ importers:
 
   packages/events:
     dependencies:
-      '@stackra/ts-container':
+      '@stackra-inc/ts-container':
         specifier: ^2.0.4
         version: 2.0.4(react@19.2.5)
-      '@stackra/ts-redis':
+      '@stackra-inc/ts-redis':
         specifier: workspace:*
         version: link:../redis
-      '@stackra/ts-support':
+      '@stackra-inc/ts-support':
         specifier: workspace:*
         version: link:../abcd/support
       react:
@@ -649,10 +649,10 @@ importers:
 
   packages/http:
     dependencies:
-      '@stackra/ts-container':
+      '@stackra-inc/ts-container':
         specifier: ^2.0.4
         version: 2.0.4(react@19.2.5)
-      '@stackra/ts-support':
+      '@stackra-inc/ts-support':
         specifier: workspace:*
         version: link:../abcd/support
       axios:
@@ -716,13 +716,13 @@ importers:
 
   packages/i18n:
     dependencies:
-      '@stackra/ts-container':
+      '@stackra-inc/ts-container':
         specifier: ^2.0.4
         version: 2.0.4(react@19.2.5)
-      '@stackra/ts-http':
+      '@stackra-inc/ts-http':
         specifier: workspace:*
         version: link:../http
-      '@stackra/ts-support':
+      '@stackra-inc/ts-support':
         specifier: workspace:*
         version: link:../abcd/support
       fast-glob:
@@ -783,10 +783,10 @@ importers:
       '@heroui/react':
         specifier: ^3.0.0
         version: 3.0.1(@react-spectrum/provider@3.11.0(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(tailwindcss@4.1.11)
-      '@stackra/ts-container':
+      '@stackra-inc/ts-container':
         specifier: ^2.0.4
         version: 2.0.4(react@19.2.5)
-      '@stackra/ts-support':
+      '@stackra-inc/ts-support':
         specifier: workspace:*
         version: link:../abcd/support
       lucide-react:
@@ -883,10 +883,10 @@ importers:
       '@nesvel/typescript-config':
         specifier: ^1.0.4
         version: 1.0.4(typescript@6.0.3)
-      '@stackra/ts-container':
+      '@stackra-inc/ts-container':
         specifier: ^2.0.4
         version: 2.0.4(react@19.2.5)
-      '@stackra/ts-support':
+      '@stackra-inc/ts-support':
         specifier: workspace:*
         version: link:../abcd/support
       '@types/node':
@@ -931,13 +931,13 @@ importers:
       '@refinedev/core':
         specifier: ^5.0.0
         version: 5.0.12(@tanstack/react-query@5.99.0(react@19.2.5))(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
-      '@stackra/ts-cache':
+      '@stackra-inc/ts-cache':
         specifier: ^1.0.0
         version: link:../cache
-      '@stackra/ts-container':
+      '@stackra-inc/ts-container':
         specifier: ^2.0.4
         version: 2.0.4(react@19.2.5)
-      '@stackra/ts-support':
+      '@stackra-inc/ts-support':
         specifier: workspace:*
         version: link:../abcd/support
     devDependencies:
@@ -1004,7 +1004,7 @@ importers:
       '@heroui/react':
         specifier: ^3.0.0
         version: 3.0.1(@react-spectrum/provider@3.11.0(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(tailwindcss@4.1.11)
-      '@stackra/ts-container':
+      '@stackra-inc/ts-container':
         specifier: ^2.0.4
         version: 2.0.4(react@19.2.5)
       lucide-react:
@@ -1065,10 +1065,10 @@ importers:
 
   packages/redis:
     dependencies:
-      '@stackra/ts-container':
+      '@stackra-inc/ts-container':
         specifier: ^2.0.4
         version: 2.0.4(react@19.2.5)
-      '@stackra/ts-support':
+      '@stackra-inc/ts-support':
         specifier: workspace:*
         version: link:../abcd/support
       '@upstash/redis':
@@ -1120,16 +1120,16 @@ importers:
 
   packages/refine:
     dependencies:
-      '@stackra/ts-container':
+      '@stackra-inc/ts-container':
         specifier: ^2.0.4
         version: 2.0.4(react@19.2.5)
-      '@stackra/ts-eloquent':
+      '@stackra-inc/ts-eloquent':
         specifier: workspace:*
         version: link:../rxdb-eloquent
-      '@stackra/ts-redis':
+      '@stackra-inc/ts-redis':
         specifier: workspace:*
         version: link:../redis
-      '@stackra/ts-support':
+      '@stackra-inc/ts-support':
         specifier: workspace:*
         version: link:../abcd/support
       reflect-metadata:
@@ -1154,13 +1154,13 @@ importers:
       '@nesvel/typescript-config':
         specifier: ^1.0.4
         version: 1.0.4(typescript@6.0.3)
-      '@stackra/ts-cache':
+      '@stackra-inc/ts-cache':
         specifier: workspace:^
         version: link:../cache
-      '@stackra/ts-events':
+      '@stackra-inc/ts-events':
         specifier: workspace:^
         version: link:../events
-      '@stackra/ts-http':
+      '@stackra-inc/ts-http':
         specifier: workspace:^
         version: link:../http
       '@tanstack/react-query':
@@ -1211,13 +1211,13 @@ importers:
 
   packages/router:
     dependencies:
-      '@stackra/react-refine':
+      '@stackra-inc/react-refine':
         specifier: workspace:*
         version: link:../refine
-      '@stackra/ts-container':
+      '@stackra-inc/ts-container':
         specifier: ^2.0.4
         version: 2.0.4(react@19.2.5)
-      '@stackra/ts-support':
+      '@stackra-inc/ts-support':
         specifier: workspace:*
         version: link:../abcd/support
       react-router-dom:
@@ -1281,13 +1281,13 @@ importers:
 
   packages/rxdb-eloquent:
     dependencies:
-      '@stackra/ts-container':
+      '@stackra-inc/ts-container':
         specifier: ^2.0.4
         version: 2.0.4(react@19.2.5)
-      '@stackra/ts-logger':
+      '@stackra-inc/ts-logger':
         specifier: workspace:*
         version: link:../logger
-      '@stackra/ts-support':
+      '@stackra-inc/ts-support':
         specifier: workspace:*
         version: link:../abcd/support
       rxdb:
@@ -1348,16 +1348,16 @@ importers:
 
   packages/sdui:
     dependencies:
-      '@stackra/react-refine':
+      '@stackra-inc/react-refine':
         specifier: workspace:*
         version: link:../refine
-      '@stackra/react-router':
+      '@stackra-inc/react-router':
         specifier: workspace:*
         version: link:../router
-      '@stackra/ts-container':
+      '@stackra-inc/ts-container':
         specifier: ^2.0.4
         version: 2.0.4(react@19.2.5)
-      '@stackra/ts-support':
+      '@stackra-inc/ts-support':
         specifier: workspace:*
         version: link:../abcd/support
       reflect-metadata:
@@ -1418,13 +1418,13 @@ importers:
 
   packages/settings:
     dependencies:
-      '@stackra/ts-cache':
+      '@stackra-inc/ts-cache':
         specifier: workspace:*
         version: link:../cache
-      '@stackra/ts-container':
+      '@stackra-inc/ts-container':
         specifier: ^2.0.4
         version: 2.0.4(react@19.2.5)
-      '@stackra/ts-support':
+      '@stackra-inc/ts-support':
         specifier: workspace:*
         version: link:../abcd/support
       react:
@@ -1476,13 +1476,13 @@ importers:
       '@heroui/react':
         specifier: ^3.0.0
         version: 3.0.1(@react-spectrum/provider@3.11.0(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(tailwindcss@4.1.11)
-      '@stackra/ts-container':
+      '@stackra-inc/ts-container':
         specifier: ^2.0.4
         version: 2.0.4(react@19.2.5)
-      '@stackra/ts-support':
+      '@stackra-inc/ts-support':
         specifier: workspace:*
         version: link:../abcd/support
-      '@stackra/ts-ui':
+      '@stackra-inc/ts-ui':
         specifier: workspace:*
         version: link:../ui
       next-themes:
@@ -1543,10 +1543,10 @@ importers:
 
   packages/ui:
     dependencies:
-      '@stackra/ts-container':
+      '@stackra-inc/ts-container':
         specifier: ^2.0.4
         version: 2.0.4(react@19.2.5)
-      '@stackra/ts-support':
+      '@stackra-inc/ts-support':
         specifier: workspace:*
         version: link:../abcd/support
     devDependencies:
@@ -3967,7 +3967,7 @@ packages:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
       react-dom: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
 
-  '@stackra/ts-container@2.0.4':
+  '@stackra-inc/ts-container@2.0.4':
     resolution: {integrity: sha512-MDZsvqbuzUqaj8y5OPE6W8xEgeJo0/u6PROybm1AOULV9m6YvuC1f5/px8J18xC9K/GcRdIsk+3XoS7r3CPwFw==}
     engines: {node: '>=18'}
     peerDependencies:
@@ -11789,7 +11789,7 @@ snapshots:
       react: 19.2.5
       react-dom: 19.2.5(react@19.2.5)
 
-  '@stackra/ts-container@2.0.4(react@19.2.5)':
+  '@stackra-inc/ts-container@2.0.4(react@19.2.5)':
     dependencies:
       '@vivtel/metadata': 1.0.5(reflect-metadata@0.2.2)
       reflect-metadata: 0.2.2

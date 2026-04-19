@@ -17,7 +17,7 @@
  * // => "🐛 [DEBUG] [14:30:00.000] Hello world {userId: 42}"
  * ```
  */
-import { Str } from '@stackra/ts-support';
+import { Str } from '@stackra-inc/ts-support';
 import { LogLevel } from '@/enums';
 import type { FormatterInterface, LogEntry } from '@/interfaces';
 

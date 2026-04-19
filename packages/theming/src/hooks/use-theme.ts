@@ -3,7 +3,7 @@
  *
  * Access and control the active named theme.
  *
- * @module @stackra/react-theming
+ * @module @stackra-inc/react-theming
  * @category Hooks
  *
  * @example

@@ -9,10 +9,10 @@
  * | a lock event when the idle timeout elapses.
  * | Works in both Electron and browser — uses DOM event listeners.
  * |
- * @module @stackra/ts-desktop
+ * @module @stackra-inc/ts-desktop
  */
 
-import { Injectable, Inject } from '@stackra/ts-container';
+import { Injectable, Inject } from '@stackra-inc/ts-container';
 
 import { DESKTOP_CONFIG } from '@/constants';
 import type { DesktopModuleOptions } from '@/interfaces/desktop-module-options.interface';

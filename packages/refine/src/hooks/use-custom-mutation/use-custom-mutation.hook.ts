@@ -1,4 +1,4 @@
-/** @fileoverview useCustomMutation hook. @module @stackra/react-refine @category Hooks */
+/** @fileoverview useCustomMutation hook. @module @stackra-inc/react-refine @category Hooks */
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { QueryKeyFactory } from '@/utils/query-key-factory.util';
 import type { CustomParams } from '@/interfaces/custom-params.interface';

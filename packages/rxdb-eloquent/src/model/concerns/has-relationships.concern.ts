@@ -26,7 +26,7 @@
  * ```
  */
 
-import { Str } from '@stackra/ts-support';
+import { Str } from '@stackra-inc/ts-support';
 import { MetadataStorage } from '@/metadata/metadata.storage';
 import type { RelationMetadata } from '@/metadata/metadata.storage';
 import { HasOneRelation } from '@/relations/has-one.relation';

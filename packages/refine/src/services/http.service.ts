@@ -5,7 +5,7 @@
  * `forFeature` creates a `HttpService` instance bound to the
  * auto-created repository.
  *
- * @module @stackra/react-refine
+ * @module @stackra-inc/react-refine
  * @category Services
  */
 

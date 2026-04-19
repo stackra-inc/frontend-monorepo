@@ -1,7 +1,7 @@
 /**
  * @fileoverview GetListParams interface for list query parameters.
  *
- * @module @stackra/react-refine
+ * @module @stackra-inc/react-refine
  * @category Interfaces
  */
 

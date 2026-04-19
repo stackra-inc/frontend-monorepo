@@ -1,7 +1,7 @@
 /**
  * @fileoverview Redis-backed RealtimeService implementation.
  *
- * Uses `@stackra/ts-redis` (Upstash HTTP) for pub/sub-style
+ * Uses `@stackra-inc/ts-redis` (Upstash HTTP) for pub/sub-style
  * realtime communication. Publishing sends messages via Redis
  * `PUBLISH`. Subscribing polls a Redis list for new messages
  * since Upstash's HTTP transport does not support persistent
@@ -27,13 +27,13 @@
  * Polling a list is the simplest reliable pattern for HTTP-based
  * Redis clients.
  *
- * @module @stackra/react-refine
+ * @module @stackra-inc/react-refine
  * @category Services
  *
  * @example
  * ```typescript
- * import { RealtimeService } from '@stackra/react-refine';
- * import { RedisManager } from '@stackra/ts-redis';
+ * import { RealtimeService } from '@stackra-inc/react-refine';
+ * import { RedisManager } from '@stackra-inc/ts-redis';
  *
  * const redis = container.resolve(RedisManager);
  * const realtime = new RealtimeService(redis);
@@ -44,9 +44,9 @@
  * ```
  */
 
-import { REDIS_MANAGER } from '@stackra/ts-redis';
-import type { RedisManager } from '@stackra/ts-redis';
-import { Injectable, Inject, Optional } from '@stackra/ts-container';
+import { REDIS_MANAGER } from '@stackra-inc/ts-redis';
+import type { RedisManager } from '@stackra-inc/ts-redis';
+import { Injectable, Inject, Optional } from '@stackra-inc/ts-container';
 
 import type { IRealtimeService } from '@/interfaces/realtime-service.interface';
 import type { SubscribeParams } from '@/interfaces/subscribe-params.interface';
@@ -82,7 +82,7 @@ export interface RealtimeConfig {
 /**
  * Redis-backed realtime service.
  *
- * Implements {@link IRealtimeService} using `@stackra/ts-redis`
+ * Implements {@link IRealtimeService} using `@stackra-inc/ts-redis`
  * for event publishing and polling-based subscriptions.
  */
 @Injectable()

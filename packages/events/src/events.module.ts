@@ -15,7 +15,7 @@
  * @module events.module
  */
 
-import { Module, type DynamicModule } from '@stackra/ts-container';
+import { Module, type DynamicModule } from '@stackra-inc/ts-container';
 
 import type { EventModuleOptions } from '@/interfaces';
 import { EventManager } from '@/services/event-manager.service';

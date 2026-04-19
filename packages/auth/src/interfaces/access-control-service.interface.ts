@@ -3,7 +3,7 @@
  *
  * Defines the contract for authorization checks.
  *
- * @module @stackra/react-auth
+ * @module @stackra-inc/react-auth
  * @category Interfaces
  */
 

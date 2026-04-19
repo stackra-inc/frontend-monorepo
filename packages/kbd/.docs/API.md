@@ -1,6 +1,6 @@
 # API Reference
 
-Complete API reference for `@stackra/kbd`.
+Complete API reference for `@stackra-inc/kbd`.
 
 ## Table of Contents
 
@@ -572,7 +572,7 @@ const SHORTCUT_PRIORITIES = {
 Global registry instance.
 
 ```tsx
-import { shortcutRegistry } from "@stackra/kbd";
+import { shortcutRegistry } from "@stackra-inc/kbd";
 
 // Use directly (not recommended, use KbdModule instead)
 shortcutRegistry.register({...});

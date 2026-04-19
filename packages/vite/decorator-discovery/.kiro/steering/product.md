@@ -1,8 +1,8 @@
 # Product Overview
 
-`@stackra/vite-decorator-discovery` — Vite plugin for build-time decorator
+`@stackra-inc/vite-decorator-discovery` — Vite plugin for build-time decorator
 discovery and virtual module generation. Inspired by NestJS DiscoveryService.
 
 ## Package Exports
 
-- `@stackra/vite-decorator-discovery` — main entry point
+- `@stackra-inc/vite-decorator-discovery` — main entry point

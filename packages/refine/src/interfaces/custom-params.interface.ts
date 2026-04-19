@@ -1,7 +1,7 @@
 /**
  * @fileoverview CustomParams interface for custom/ad-hoc operations.
  *
- * @module @stackra/react-refine
+ * @module @stackra-inc/react-refine
  * @category Interfaces
  */
 

@@ -26,7 +26,7 @@ payments, partial checkout, and real-time sync via event-based deltas.
    for extension without modifying core code.
 3. **@cart scope** — The cart packages use a dedicated `@cart` scope to keep
    them self-contained and independently publishable, separate from the existing
-   `@stackra` workspace packages.
+   `@stackra-inc` workspace packages.
 4. **tsup + vitest** — Follows the existing monorepo conventions: `tsup` for
    building, `vitest` for testing, TypeScript strict mode.
 

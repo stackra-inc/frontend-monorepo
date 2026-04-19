@@ -21,8 +21,8 @@
  *
  * @example
  * ```typescript
- * import type { DriverCreator } from '@stackra/ts-cache';
- * import type { Store } from '@stackra/ts-cache';
+ * import type { DriverCreator } from '@stackra-inc/ts-cache';
+ * import type { Store } from '@stackra-inc/ts-cache';
  *
  * // Define a custom driver creator
  * const createDynamoStore: DriverCreator<Store> = (config, prefix) => {

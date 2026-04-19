@@ -3,13 +3,13 @@
  *
  * Provides locale switching functionality with loading and error state.
  * Mirrors the `useTenantSwitch` hook pattern from
- * `@stackra/react-multitenancy`.
+ * `@stackra-inc/react-multitenancy`.
  *
  * @module hooks/use-change-locale
  *
  * @example
  * ```tsx
- * import { useChangeLocale } from '@stackra/react-i18n';
+ * import { useChangeLocale } from '@stackra-inc/react-i18n';
  *
  * const LanguageSwitcher = () => {
  *   const { changeLocale, isChanging } = useChangeLocale();

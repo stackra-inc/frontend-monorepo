@@ -5,12 +5,12 @@
  * so that identical queries share cache entries regardless of parameter
  * insertion order.
  *
- * @module @stackra/react-refine
+ * @module @stackra-inc/react-refine
  * @category Utils
  *
  * @example
  * ```typescript
- * import { QueryKeyFactory } from '@stackra/react-refine';
+ * import { QueryKeyFactory } from '@stackra-inc/react-refine';
  *
  * QueryKeyFactory.list('posts', { pagination: { current: 1, pageSize: 10 } });
  * // → ['posts', 'list', { pagination: { current: 1, pageSize: 10 } }]

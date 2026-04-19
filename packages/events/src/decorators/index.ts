@@ -1,6 +1,6 @@
 /**
  * @fileoverview Decorators Index
- * @module @stackra/ts-events
+ * @module @stackra-inc/ts-events
  */
 
 export { OnEvent } from './on-event.decorator';

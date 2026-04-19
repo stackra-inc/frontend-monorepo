@@ -1,7 +1,7 @@
 /**
  * @fileoverview Props interface for the useCan access-control hook.
  *
- * @module @stackra/react-auth
+ * @module @stackra-inc/react-auth
  * @category Interfaces
  */
 

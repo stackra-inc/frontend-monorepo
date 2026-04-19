@@ -16,12 +16,12 @@
  * Each middleware calls `next(context)` to pass control downstream.
  * The response bubbles back up through the chain in reverse order.
  *
- * @module @stackra/ts-http
+ * @module @stackra-inc/ts-http
  * @category Services
  *
  * @example
  * ```typescript
- * import { MiddlewarePipeline } from '@stackra/ts-http';
+ * import { MiddlewarePipeline } from '@stackra-inc/ts-http';
  *
  * const pipeline = new MiddlewarePipeline(registry);
  *
@@ -32,7 +32,7 @@
  * ```
  */
 
-import { Injectable, Inject } from '@stackra/ts-container';
+import { Injectable, Inject } from '@stackra-inc/ts-container';
 import { MIDDLEWARE_REGISTRY } from '@/constants';
 import { MiddlewareRegistry } from '@/registries/middleware.registry';
 import type { HttpContext } from '@/interfaces/http-context.interface';

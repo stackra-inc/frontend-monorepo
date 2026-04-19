@@ -1,5 +1,5 @@
 # =============================================================================
-# CI — @stackra/ts-ui
+# CI — @stackra-inc/ts-ui
 #
 # Runs on every push to main/develop and on pull requests targeting those
 # branches. Jobs run in parallel where possible; test waits for build.

@@ -1,7 +1,7 @@
 /**
  * @fileoverview Response shape for authentication checks.
  *
- * @module @stackra/react-auth
+ * @module @stackra-inc/react-auth
  * @category Interfaces
  */
 

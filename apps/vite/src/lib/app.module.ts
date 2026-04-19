@@ -22,16 +22,16 @@
 
 import 'reflect-metadata';
 
-import { Module } from '@stackra/ts-container';
-import { ConfigModule } from '@stackra/ts-config';
-import { LoggerModule } from '@stackra/ts-logger';
-import { RedisModule } from '@stackra/ts-redis';
-import { CacheModule } from '@stackra/ts-cache';
-import { EventsModule } from '@stackra/ts-events';
-import { SettingsModule } from '@stackra/ts-settings';
-import { DesktopModule } from '@stackra/ts-desktop';
-import { KbdModule } from '@stackra/kbd';
-import { PwaModule } from '@stackra/ts-pwa';
+import { Module } from '@stackra-inc/ts-container';
+import { ConfigModule } from '@stackra-inc/ts-config';
+import { LoggerModule } from '@stackra-inc/ts-logger';
+import { RedisModule } from '@stackra-inc/ts-redis';
+import { CacheModule } from '@stackra-inc/ts-cache';
+import { EventsModule } from '@stackra-inc/ts-events';
+import { SettingsModule } from '@stackra-inc/ts-settings';
+import { DesktopModule } from '@stackra-inc/ts-desktop';
+import { KbdModule } from '@stackra-inc/kbd';
+import { PwaModule } from '@stackra-inc/ts-pwa';
 
 import { configConfig } from '@/config/config.config';
 import loggerConfig from '@/config/logger.config';

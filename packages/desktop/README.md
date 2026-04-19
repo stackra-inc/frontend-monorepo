@@ -1,10 +1,10 @@
 <p align="center">
-  <img src=".github/assets/banner.svg" alt="@stackra/ts-desktop" width="100%" />
+  <img src=".github/assets/banner.svg" alt="@stackra-inc/ts-desktop" width="100%" />
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/@stackra/ts-desktop">
-    <img src="https://img.shields.io/npm/v/@stackra/ts-desktop?style=flat-square&color=38bdf8&label=npm" alt="npm version" />
+  <a href="https://www.npmjs.com/package/@stackra-inc/ts-desktop">
+    <img src="https://img.shields.io/npm/v/@stackra-inc/ts-desktop?style=flat-square&color=38bdf8&label=npm" alt="npm version" />
   </a>
   <a href="./LICENSE">
     <img src="https://img.shields.io/badge/license-MIT-818cf8?style=flat-square" alt="MIT license" />
@@ -19,7 +19,7 @@
 
 ---
 
-# @stackra/ts-desktop
+# @stackra-inc/ts-desktop
 
 Electron desktop integration — menu decorators, window management, platform
 bridge, and DI module. Brings NestJS-style DI to Electron main process code.
@@ -27,7 +27,7 @@ bridge, and DI module. Brings NestJS-style DI to Electron main process code.
 ## Installation
 
 ```bash
-pnpm add @stackra/ts-desktop
+pnpm add @stackra-inc/ts-desktop
 ```
 
 ## Features
@@ -35,7 +35,7 @@ pnpm add @stackra/ts-desktop
 - 🖥️ `@Menu()` / `@MenuItem()` decorators for declarative menu building
 - 🪟 `@Window()` decorator for window management
 - 🌉 Platform bridge for renderer ↔ main IPC
-- 💉 Full `@stackra/ts-container` DI support
+- 💉 Full `@stackra-inc/ts-container` DI support
 - 🏗️ `DesktopModule.forRoot()` pattern
 - 🔔 System tray integration
 - ⌨️ Global shortcut registration
@@ -43,8 +43,8 @@ pnpm add @stackra/ts-desktop
 ## Quick Start
 
 ```typescript
-import { Module } from '@stackra/ts-container';
-import { DesktopModule } from '@stackra/ts-desktop';
+import { Module } from '@stackra-inc/ts-container';
+import { DesktopModule } from '@stackra-inc/ts-desktop';
 
 @Module({
   imports: [DesktopModule.forRoot()],
@@ -54,7 +54,7 @@ export class AppModule {}
 ```
 
 ```typescript
-import { Menu, MenuItem, Injectable } from '@stackra/ts-desktop';
+import { Menu, MenuItem, Injectable } from '@stackra-inc/ts-desktop';
 
 @Menu({ label: 'File' })
 @Injectable()
@@ -73,4 +73,4 @@ class FileMenu {
 
 ## License
 
-MIT © [Stackra](https://github.com/stackra-co)
+MIT © [Stackra](https://github.com/stackra-inc)

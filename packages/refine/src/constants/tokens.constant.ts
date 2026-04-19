@@ -2,9 +2,9 @@
  * @fileoverview DI tokens for the refine CRUD package.
  *
  * Auth tokens (AUTH_SERVICE, SESSION_SERVICE, SECURITY_SERVICE,
- * ACCESS_CONTROL_SERVICE) have been moved to @stackra/react-auth.
+ * ACCESS_CONTROL_SERVICE) have been moved to @stackra-inc/react-auth.
  *
- * @module @stackra/react-refine
+ * @module @stackra-inc/react-refine
  * @category Constants
  */
 

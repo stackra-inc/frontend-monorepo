@@ -1,5 +1,5 @@
 /**
- * @fileoverview ESLint configuration for @stackra/react-multitenancy package
+ * @fileoverview ESLint configuration for @stackra-inc/react-multitenancy package
  *
  * This configuration extends the shared @nesvel/eslint-config with
  * project-specific ignore patterns. Uses the ESLint flat config format.
@@ -10,7 +10,7 @@
  * - Code Style: Consistent code style enforcement across the monorepo
  * - Ignore Patterns: Excludes build output, node_modules, and config files
  *
- * @module @stackra/react-multitenancy
+ * @module @stackra-inc/react-multitenancy
  * @category Configuration
  * @see https://eslint.org/docs/latest/use/configure/configuration-files
  */

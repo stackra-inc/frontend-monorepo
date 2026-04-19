@@ -6,11 +6,11 @@
 # Uses Caddy for static file serving with SPA fallback and compression.
 #
 # Build:
-#   docker build -t stackra-frontend .
-#   docker build --build-arg APP_NAME=vite -t stackra-frontend .
+#   docker build -t stackra-inc-frontend .
+#   docker build --build-arg APP_NAME=vite -t stackra-inc-frontend .
 #
 # Run:
-#   docker run -p 8080:8080 stackra-frontend
+#   docker run -p 8080:8080 stackra-inc-frontend
 #
 # =============================================================================
 

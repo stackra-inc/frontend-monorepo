@@ -61,7 +61,7 @@
 
   <!-- Package name -->
   <text x="240" y="178" font-family="ui-monospace, 'Cascadia Code', 'Fira Code', Menlo, monospace" font-size="42" font-weight="700" fill="#f1f5f9" letter-spacing="-0.5">
-    @stackra/ts-cache
+    @stackra-inc/ts-cache
   </text>
 
   <!-- Description -->

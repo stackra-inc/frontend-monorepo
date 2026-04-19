@@ -1,5 +1,5 @@
 /**
- * @fileoverview tsup build configuration for @stackra/react-i18n
+ * @fileoverview tsup build configuration for @stackra-inc/react-i18n
  *
  * Uses the @nesvel/tsup-config React library preset which extends the
  * base preset with JSX automatic transform and React externalization.
@@ -18,7 +18,7 @@
  *   dist/providers/index.mjs  — ESM providers
  *   dist/providers/index.js   — CJS providers
  *
- * @module @stackra/react-i18n
+ * @module @stackra-inc/react-i18n
  * @category Configuration
  * @see https://tsup.egoist.dev/
  */

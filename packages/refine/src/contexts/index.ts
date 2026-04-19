@@ -1,6 +1,6 @@
 /**
  * @fileoverview Barrel export for React contexts.
- * @module @stackra/react-refine
+ * @module @stackra-inc/react-refine
  * @category Contexts
  */
 

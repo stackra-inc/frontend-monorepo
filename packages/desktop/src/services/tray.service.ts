@@ -8,10 +8,10 @@
  * | In Electron: creates/manages the system tray via IPC.
  * | In browser: resolves without error, logs a warning.
  * |
- * @module @stackra/ts-desktop
+ * @module @stackra-inc/ts-desktop
  */
 
-import { Injectable, Inject } from '@stackra/ts-container';
+import { Injectable, Inject } from '@stackra-inc/ts-container';
 
 import type { TrayOptions, TrayMenuTemplate } from '@/interfaces/window.interface';
 import { DesktopManager } from './desktop-manager.service';

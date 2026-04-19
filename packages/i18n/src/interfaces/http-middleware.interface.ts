@@ -2,7 +2,7 @@
  * HTTP Middleware Interface (Local Mirror)
  *
  * Local definition of the HTTP middleware contract from
- * `@stackra/ts-http`. Defined here to avoid a hard dependency
+ * `@stackra-inc/ts-http`. Defined here to avoid a hard dependency
  * on the HTTP package.
  *
  * @module interfaces/http-middleware

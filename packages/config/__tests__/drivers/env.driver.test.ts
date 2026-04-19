@@ -8,7 +8,7 @@
  * - Default values
  * - Type conversions
  *
- * @module @stackra/config
+ * @module @stackra-inc/config
  * @category Tests
  */
 

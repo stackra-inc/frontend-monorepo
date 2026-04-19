@@ -5,7 +5,7 @@
  *
  * @example
  * ```typescript
- * import { createDataProvider } from "@stackra/react-multitenancy";
+ * import { createDataProvider } from "@stackra-inc/react-multitenancy";
  * import dataProviderSimpleRest from "@refinedev/simple-rest";
  *
  * const baseDataProvider = dataProviderSimpleRest("https://api.example.com");

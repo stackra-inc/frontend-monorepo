@@ -1,7 +1,7 @@
 /**
  * Cache Facade
  *
- * Typed proxy for {@link CacheManager} from `@stackra/ts-cache`.
+ * Typed proxy for {@link CacheManager} from `@stackra-inc/ts-cache`.
  *
  * Multi-driver cache orchestrator. Manages named stores (memory, redis, null).
  *
@@ -12,8 +12,8 @@
  * ## Setup (once, in main.tsx)
  *
  * ```typescript
- * import { Application } from '@stackra/ts-container';
- * import { Facade } from '@stackra/ts-support';
+ * import { Application } from '@stackra-inc/ts-container';
+ * import { Facade } from '@stackra-inc/ts-support';
  *
  * const app = await Application.create(AppModule);
  * Facade.setApplication(app); // wires all facades
@@ -22,7 +22,7 @@
  * ## Usage
  *
  * ```typescript
- * import { CacheFacade } from '@stackra/ts-cache';
+ * import { CacheFacade } from '@stackra-inc/ts-cache';
  *
  * // Full autocomplete — no .proxy() call needed
  * CacheFacade.store();
@@ -37,7 +37,7 @@
  * ## Testing — swap in a mock
  *
  * ```typescript
- * import { Facade } from '@stackra/ts-support';
+ * import { Facade } from '@stackra-inc/ts-support';
  * import { CACHE_MANAGER } from '@/constants/tokens.constant';
  *
  * // Before test — replace the resolved instance
@@ -52,7 +52,7 @@
  * @see {@link Facade} — the base class providing `make()`
  */
 
-import { Facade } from '@stackra/ts-support';
+import { Facade } from '@stackra-inc/ts-support';
 import { CacheManager } from '@/services/cache-manager.service';
 import { CACHE_MANAGER } from '@/constants/tokens.constant';
 

@@ -1,9 +1,9 @@
 # Product Overview
 
-`@stackra/ts-http` — Middleware-driven HTTP client for TypeScript — axios
+`@stackra-inc/ts-http` — Middleware-driven HTTP client for TypeScript — axios
 underneath, decorator-based middleware registration, and DI integration via
-@stackra/ts-container.
+@stackra-inc/ts-container.
 
 ## Package Exports
 
-- `@stackra/ts-http` — main entry point
+- `@stackra-inc/ts-http` — main entry point

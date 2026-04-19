@@ -2,7 +2,7 @@
  * KBD Module
  *
  * |--------------------------------------------------------------------------
- * | DI Module for @stackra/kbd
+ * | DI Module for @stackra-inc/kbd
  * |--------------------------------------------------------------------------
  * |
  * | Registers:
@@ -28,10 +28,10 @@
  * export class AppModule {}
  * ```
  *
- * @module @stackra/kbd
+ * @module @stackra-inc/kbd
  */
 
-import { Module, type DynamicModule } from '@stackra/ts-container';
+import { Module, type DynamicModule } from '@stackra-inc/ts-container';
 
 import type { KeyboardShortcut, ShortcutGroup } from '@/interfaces';
 import { shortcutRegistry, ShortcutRegistry } from '@/registries/shortcut.registry';

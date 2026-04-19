@@ -13,11 +13,11 @@
  * |   const formatter = container.get(EscPosFormatter);
  * |   const bytes = formatter.formatReceipt(receiptData, 80);
  * |
- * @module @stackra/ts-desktop
+ * @module @stackra-inc/ts-desktop
  */
 
-import { Str } from '@stackra/ts-support';
-import { Injectable } from '@stackra/ts-container';
+import { Str } from '@stackra-inc/ts-support';
+import { Injectable } from '@stackra-inc/ts-container';
 
 import type { ReceiptData, ReceiptItem } from '@/interfaces/hardware.interface';
 

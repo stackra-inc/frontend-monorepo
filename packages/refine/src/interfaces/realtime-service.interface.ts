@@ -3,7 +3,7 @@
  *
  * Defines the contract for real-time subscriptions and event publishing.
  *
- * @module @stackra/react-refine
+ * @module @stackra-inc/react-refine
  * @category Interfaces
  */
 

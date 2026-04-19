@@ -1,15 +1,15 @@
 {
-  "name": "stackra-frontend-monorepo",
+  "name": "stackra-inc-frontend-monorepo",
   "version": "0.0.0",
   "description": "Stackra frontend monorepo — React/Vite/Electron apps and shared TypeScript packages.",
   "private": true,
-  "homepage": "https://github.com/stackra-co/frontend-monorepo#readme",
+  "homepage": "https://github.com/stackra-inc/frontend-monorepo#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/stackra-co/frontend-monorepo.git"
+    "url": "git+https://github.com/stackra-inc/frontend-monorepo.git"
   },
   "bugs": {
-    "url": "https://github.com/stackra-co/frontend-monorepo/issues"
+    "url": "https://github.com/stackra-inc/frontend-monorepo/issues"
   },
   "license": "MIT",
   "author": {

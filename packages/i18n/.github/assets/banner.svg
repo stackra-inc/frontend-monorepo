@@ -83,7 +83,7 @@
 
   <!-- ── Main content (center-left) ── -->
   <!-- Package name -->
-  <text x="175" y="105" font-family="'Courier New', Courier, monospace" font-size="32" font-weight="700" fill="url(#textGrad)">@stackra/i18n</text>
+  <text x="175" y="105" font-family="'Courier New', Courier, monospace" font-size="32" font-weight="700" fill="url(#textGrad)">@stackra-inc/i18n</text>
 
   <!-- Description -->
   <text x="175" y="133" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" fill="#94a3b8">Comprehensive i18n Vite plugin with i18next, auto-globbing &amp; type generation</text>
@@ -129,7 +129,7 @@
   <text x="576" y="100" font-family="'Courier New', Courier, monospace" font-size="11" fill="#818cf8">import</text>
   <text x="618" y="100" font-family="'Courier New', Courier, monospace" font-size="11" fill="#e2e8f0">{ i18nPlugin }</text>
   <text x="718" y="100" font-family="'Courier New', Courier, monospace" font-size="11" fill="#818cf8">from</text>
-  <text x="576" y="116" font-family="'Courier New', Courier, monospace" font-size="11" fill="#38bdf8">  '@stackra/i18n/vite-plugin'</text>
+  <text x="576" y="116" font-family="'Courier New', Courier, monospace" font-size="11" fill="#38bdf8">  '@stackra-inc/i18n/vite-plugin'</text>
   <text x="576" y="134" font-family="'Courier New', Courier, monospace" font-size="11" fill="#e2e8f0">i18nPlugin({</text>
   <text x="576" y="152" font-family="'Courier New', Courier, monospace" font-size="11" fill="#94a3b8">  defaultLanguage:</text>
   <text x="700" y="152" font-family="'Courier New', Courier, monospace" font-size="11" fill="#86efac">'en'</text>

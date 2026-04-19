@@ -4,12 +4,12 @@
  * Enumerates the supported authentication providers / strategies.
  * Used when initiating challenge, verify, link, or unlink flows.
  *
- * @module @stackra/react-auth
+ * @module @stackra-inc/react-auth
  * @category Enums
  *
  * @example
  * ```typescript
- * import { AuthProvider } from '@stackra/react-auth';
+ * import { AuthProvider } from '@stackra-inc/react-auth';
  *
  * const { mutate: challenge } = useChallenge();
  * challenge({ provider: AuthProvider.Totp });

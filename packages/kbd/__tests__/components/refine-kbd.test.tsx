@@ -12,7 +12,7 @@
  * - Custom Styling: Applying custom CSS classes
  * - Variants: Testing different visual variants
  *
- * @module @stackra/kbd
+ * @module @stackra-inc/kbd
  * @category Tests
  */
 

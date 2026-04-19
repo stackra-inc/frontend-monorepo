@@ -1,7 +1,7 @@
 /**
  * Config Package Configuration
  *
- * Configuration for the @stackra/ts-config package.
+ * Configuration for the @stackra-inc/ts-config package.
  * Defines how configuration is loaded and accessed across the application.
  *
  * ## Available Drivers
@@ -15,7 +15,7 @@
  * @module config/config
  */
 
-import { defineConfig } from '@stackra/config';
+import { defineConfig } from '@stackra-inc/config';
 
 /**
  * Config Configuration

@@ -1,5 +1,5 @@
 # =============================================================================
-# CI — @stackra/ts-events
+# CI — @stackra-inc/ts-events
 #
 # Runs on every push to main/develop and on pull requests targeting those
 # branches. Jobs run in parallel where possible; test waits for build.

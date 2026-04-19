@@ -4,7 +4,7 @@
  * This hook provides access to the ShortcutRegistry for querying, registering,
  * and managing shortcuts from within React components.
  *
- * @module @stackra/kbd
+ * @module @stackra-inc/kbd
  * @category Hooks
  */
 

@@ -1,10 +1,10 @@
 /**
- * Vite Plugin Adapter for @stackra/react-i18n
+ * Vite Plugin Adapter for @stackra-inc/react-i18n
  *
  * Integrates the i18n pipeline into Vite's build system by:
  * - Scanning for translation files at build start
  * - Building i18next configuration from discovered files
- * - Serving a virtual module (`virtual:@stackra/react-i18n`)
+ * - Serving a virtual module (`virtual:@stackra-inc/react-i18n`)
  * - Generating TypeScript definitions for translation keys
  * - Supporting HMR when translation files change
  *
@@ -28,10 +28,10 @@ import type { I18nPluginOptions } from '@/interfaces';
  *
  * @example
  * ```typescript
- * import { t } from 'virtual:@stackra/react-i18n';
+ * import { t } from 'virtual:@stackra-inc/react-i18n';
  * ```
  */
-const VIRTUAL_MODULE_ID = 'virtual:@stackra/react-i18n';
+const VIRTUAL_MODULE_ID = 'virtual:@stackra-inc/react-i18n';
 
 /**
  * Vite-internal resolved ID (prefixed with `\0` to mark as virtual).
@@ -52,7 +52,7 @@ const RESOLVED_VIRTUAL_MODULE_ID = `\\0${VIRTUAL_MODULE_ID}`;
  * ```typescript
  * import { defineConfig } from 'vite';
  * import react from '@vitejs/plugin-react';
- * import { i18nPlugin } from '@stackra/react-i18n';
+ * import { i18nPlugin } from '@stackra-inc/react-i18n';
  *
  * export default defineConfig({
  *   plugins: [
@@ -77,7 +77,7 @@ export function i18nPlugin(options?: Partial<I18nPluginOptions>): Plugin {
   let i18nextConfig: Awaited<ReturnType<typeof buildI18nextConfig>> | null = null;
 
   return {
-    name: '@stackra/react-i18n',
+    name: '@stackra-inc/react-i18n',
     apply: 'serve',
     enforce: 'pre',
 
@@ -104,7 +104,7 @@ export function i18nPlugin(options?: Partial<I18nPluginOptions>): Plugin {
 
         if (config.typeGeneration && i18nextConfig.resources) {
           const typeOutputPath = resolve(
-            config.typeOutputDir || '.stackra/react-i18n/types',
+            config.typeOutputDir || '.stackra-inc/react-i18n/types',
             'index.d.ts'
           );
           await generateTypeDefinitions(i18nextConfig.resources, typeOutputPath, config.debug);
@@ -170,7 +170,7 @@ export function i18nPlugin(options?: Partial<I18nPluginOptions>): Plugin {
 
           if (config.typeGeneration && i18nextConfig.resources) {
             const typeOutputPath = resolve(
-              config.typeOutputDir || '.stackra/react-i18n/types',
+              config.typeOutputDir || '.stackra-inc/react-i18n/types',
               'index.d.ts'
             );
             await generateTypeDefinitions(i18nextConfig.resources, typeOutputPath, config.debug);

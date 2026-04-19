@@ -1,7 +1,7 @@
 /**
  * Desktop Facade
  *
- * Typed proxy for {@link DesktopManager} from `@stackra/ts-desktop`.
+ * Typed proxy for {@link DesktopManager} from `@stackra-inc/ts-desktop`.
  *
  * Desktop integration manager. Provides Electron bridge, menu, and IPC access.
  *
@@ -12,8 +12,8 @@
  * ## Setup (once, in main.tsx)
  *
  * ```typescript
- * import { Application } from '@stackra/ts-container';
- * import { Facade } from '@stackra/ts-support';
+ * import { Application } from '@stackra-inc/ts-container';
+ * import { Facade } from '@stackra-inc/ts-support';
  *
  * const app = await Application.create(AppModule);
  * Facade.setApplication(app); // wires all facades
@@ -22,7 +22,7 @@
  * ## Usage
  *
  * ```typescript
- * import { DesktopFacade } from '@stackra/ts-desktop';
+ * import { DesktopFacade } from '@stackra-inc/ts-desktop';
  *
  * // Full autocomplete — no .proxy() call needed
  * DesktopFacade.bridge();
@@ -38,7 +38,7 @@
  * ## Testing — swap in a mock
  *
  * ```typescript
- * import { Facade } from '@stackra/ts-support';
+ * import { Facade } from '@stackra-inc/ts-support';
  * import { DesktopManager } from '@/services/desktop-manager.service';
  *
  * // Before test — replace the resolved instance
@@ -53,7 +53,7 @@
  * @see {@link Facade} — the base class providing `make()`
  */
 
-import { Facade } from '@stackra/ts-support';
+import { Facade } from '@stackra-inc/ts-support';
 import { DesktopManager } from '@/services/desktop-manager.service';
 
 /**

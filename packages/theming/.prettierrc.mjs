@@ -1,5 +1,5 @@
 /**
- * @fileoverview Prettier configuration for @stackra/react-theming package
+ * @fileoverview Prettier configuration for @stackra-inc/react-theming package
  *
  * Extends the shared @nesvel/prettier-config for consistent code formatting
  * across all packages in the monorepo.
@@ -12,7 +12,7 @@
  * - Semicolons enabled
  * - LF line endings
  *
- * @module @stackra/react-theming
+ * @module @stackra-inc/react-theming
  * @category Configuration
  * @see https://prettier.io/docs/en/configuration
  */

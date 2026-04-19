@@ -1,7 +1,7 @@
 /**
  * @fileoverview Parameters for publishing a real-time event.
  *
- * @module @stackra/react-refine
+ * @module @stackra-inc/react-refine
  * @category Interfaces
  */
 

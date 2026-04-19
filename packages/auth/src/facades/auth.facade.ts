@@ -1,7 +1,7 @@
 /**
  * Auth Facade
  *
- * Typed proxy for {@link AuthService} from `@stackra/react-auth`.
+ * Typed proxy for {@link AuthService} from `@stackra-inc/react-auth`.
  *
  * Authentication service. Handles login, logout, registration, MFA, and sessions.
  *
@@ -12,8 +12,8 @@
  * ## Setup (once, in main.tsx)
  *
  * ```typescript
- * import { Application } from '@stackra/ts-container';
- * import { Facade } from '@stackra/ts-support';
+ * import { Application } from '@stackra-inc/ts-container';
+ * import { Facade } from '@stackra-inc/ts-support';
  *
  * const app = await Application.create(AppModule);
  * Facade.setApplication(app); // wires all facades
@@ -22,7 +22,7 @@
  * ## Usage
  *
  * ```typescript
- * import { AuthFacade } from '@stackra/react-auth';
+ * import { AuthFacade } from '@stackra-inc/react-auth';
  *
  * // Full autocomplete — no .proxy() call needed
  * AuthFacade.login();
@@ -39,7 +39,7 @@
  * ## Testing — swap in a mock
  *
  * ```typescript
- * import { Facade } from '@stackra/ts-support';
+ * import { Facade } from '@stackra-inc/ts-support';
  * import { AUTH_SERVICE } from '@/constants/tokens.constant';
  *
  * // Before test — replace the resolved instance
@@ -54,7 +54,7 @@
  * @see {@link Facade} — the base class providing `make()`
  */
 
-import { Facade } from '@stackra/ts-support';
+import { Facade } from '@stackra-inc/ts-support';
 
 import { AUTH_SERVICE } from '@/constants/tokens.constant';
 import type { IAuthService } from '@/interfaces/auth-service.interface';

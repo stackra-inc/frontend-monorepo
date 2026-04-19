@@ -4,7 +4,7 @@
  * `forRoot()` registers AuthService, SessionService, SecurityService,
  * and AccessControlService in the DI container.
  *
- * @module @stackra/react-auth
+ * @module @stackra-inc/react-auth
  * @category Module
  */
 

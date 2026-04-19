@@ -1,5 +1,5 @@
 # =============================================================================
-# Publish — @stackra/react-sdui
+# Publish — @stackra-inc/react-sdui
 #
 # Triggered by:
 #   - Pushing a semver tag  (v1.2.3 / v1.2.3-beta.0)
@@ -125,7 +125,7 @@ jobs:
       id-token: write # required for npm provenance
     environment:
       name: npm
-      url: https://www.npmjs.com/package/@stackra/react-sdui
+      url: https://www.npmjs.com/package/@stackra-inc/react-sdui
     steps:
       - uses: actions/checkout@v5
       - uses: ./.github/actions/setup
@@ -175,7 +175,7 @@ jobs:
           if [ ! -s release_body.md ]; then
             echo "Release v${VERSION}" > release_body.md
           fi
-          echo "See [CHANGELOG](https://github.com/stackra-co/react-sdui/blob/main/CHANGELOG.md) for full details." >> release_body.md
+          echo "See [CHANGELOG](https://github.com/stackra-inc/react-sdui/blob/main/CHANGELOG.md) for full details." >> release_body.md
 
       - name: 🎉 Create Release
         uses: softprops/action-gh-release@v2
@@ -296,16 +296,16 @@ jobs:
           webhook-type: incoming-webhook
           payload: |
             {
-              "text": "✅ @stackra/react-sdui ${{ needs.validate.outputs.tag }} published to npm",
+              "text": "✅ @stackra-inc/react-sdui ${{ needs.validate.outputs.tag }} published to npm",
               "blocks": [
                 {
                   "type": "image",
-                  "image_url": "https://raw.githubusercontent.com/stackra-co/react-sdui/main/.github/assets/banner.png",
-                  "alt_text": "@stackra/react-sdui banner"
+                  "image_url": "https://raw.githubusercontent.com/stackra-inc/react-sdui/main/.github/assets/banner.png",
+                  "alt_text": "@stackra-inc/react-sdui banner"
                 },
                 {
                   "type": "header",
-                  "text": { "type": "plain_text", "text": "📦 @stackra/react-sdui ${{ needs.validate.outputs.tag }}", "emoji": true }
+                  "text": { "type": "plain_text", "text": "📦 @stackra-inc/react-sdui ${{ needs.validate.outputs.tag }}", "emoji": true }
                 },
                 {
                   "type": "section",
@@ -325,16 +325,16 @@ jobs:
                 {
                   "type": "actions",
                   "elements": [
-                    { "type": "button", "text": { "type": "plain_text", "text": "📦 npm", "emoji": true }, "url": "https://www.npmjs.com/package/@stackra/react-sdui/v/${{ needs.validate.outputs.version }}" },
-                    { "type": "button", "text": { "type": "plain_text", "text": "🏷️ GitHub Release", "emoji": true }, "url": "https://github.com/stackra-co/react-sdui/releases/tag/${{ needs.validate.outputs.tag }}" },
-                    { "type": "button", "text": { "type": "plain_text", "text": "📝 Full Changelog", "emoji": true }, "url": "https://github.com/stackra-co/react-sdui/blob/main/CHANGELOG.md" },
+                    { "type": "button", "text": { "type": "plain_text", "text": "📦 npm", "emoji": true }, "url": "https://www.npmjs.com/package/@stackra-inc/react-sdui/v/${{ needs.validate.outputs.version }}" },
+                    { "type": "button", "text": { "type": "plain_text", "text": "🏷️ GitHub Release", "emoji": true }, "url": "https://github.com/stackra-inc/react-sdui/releases/tag/${{ needs.validate.outputs.tag }}" },
+                    { "type": "button", "text": { "type": "plain_text", "text": "📝 Full Changelog", "emoji": true }, "url": "https://github.com/stackra-inc/react-sdui/blob/main/CHANGELOG.md" },
                     { "type": "button", "text": { "type": "plain_text", "text": "⚙️ Workflow Run", "emoji": true }, "url": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" }
                   ]
                 },
                 {
                   "type": "context",
                   "elements": [
-                    { "type": "mrkdwn", "text": "Triggered by *${{ github.actor }}* · Commit `${{ steps.notes.outputs.short_sha }}` · <https://github.com/stackra-co/react-sdui/compare/${{ steps.notes.outputs.prev_tag }}...${{ needs.validate.outputs.tag }}|Compare changes>" }
+                    { "type": "mrkdwn", "text": "Triggered by *${{ github.actor }}* · Commit `${{ steps.notes.outputs.short_sha }}` · <https://github.com/stackra-inc/react-sdui/compare/${{ steps.notes.outputs.prev_tag }}...${{ needs.validate.outputs.tag }}|Compare changes>" }
                   ]
                 }
               ]
@@ -350,11 +350,11 @@ jobs:
           webhook-type: incoming-webhook
           payload: |
             {
-              "text": "❌ @stackra/react-sdui ${{ needs.validate.outputs.tag }} publish FAILED",
+              "text": "❌ @stackra-inc/react-sdui ${{ needs.validate.outputs.tag }} publish FAILED",
               "blocks": [
                 {
                   "type": "header",
-                  "text": { "type": "plain_text", "text": "❌ Publish Failed: @stackra/react-sdui ${{ needs.validate.outputs.tag }}", "emoji": true }
+                  "text": { "type": "plain_text", "text": "❌ Publish Failed: @stackra-inc/react-sdui ${{ needs.validate.outputs.tag }}", "emoji": true }
                 },
                 {
                   "type": "section",

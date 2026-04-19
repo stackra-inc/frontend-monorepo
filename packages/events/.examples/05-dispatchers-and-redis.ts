@@ -2,12 +2,12 @@
  * Dispatchers & Redis Example
  *
  * |--------------------------------------------------------------------------
- * | @stackra/ts-events — Multiple Dispatchers & Redis
+ * | @stackra-inc/ts-events — Multiple Dispatchers & Redis
  * |--------------------------------------------------------------------------
  * |
  * | This example demonstrates the dispatcher architecture:
  * | - MemoryDispatcher (default, in-memory)
- * | - RedisDispatcher (cross-process via @stackra/ts-redis)
+ * | - RedisDispatcher (cross-process via @stackra-inc/ts-redis)
  * | - NullDispatcher (testing, silences all dispatch)
  * | - EventService as the manager (resolves dispatchers by name)
  * | - Switching between dispatchers at runtime
@@ -32,8 +32,8 @@ import {
   Subscriber,
   OnEvent,
   Channel,
-} from '@stackra/ts-events';
-import type { EventDispatcherInterface, EventSubscriber } from '@stackra/ts-events';
+} from '@stackra-inc/ts-events';
+import type { EventDispatcherInterface, EventSubscriber } from '@stackra-inc/ts-events';
 
 // ─── Example 1: MemoryDispatcher (Default) ──────────────────────────────────
 //

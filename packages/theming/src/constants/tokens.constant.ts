@@ -1,11 +1,11 @@
 /**
- * DI Tokens for @stackra/react-theming
+ * DI Tokens for @stackra-inc/react-theming
  *
  * |--------------------------------------------------------------------------
  * | Injection tokens and metadata keys.
  * |--------------------------------------------------------------------------
  * |
- * @module @stackra/react-theming
+ * @module @stackra-inc/react-theming
  */
 
 /** Injection token for the ThemeModule configuration. */

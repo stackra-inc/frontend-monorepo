@@ -11,7 +11,7 @@
  * Requests can opt out of auth by setting `meta.skipAuth: true`
  * in the request config.
  *
- * @module @stackra/ts-http
+ * @module @stackra-inc/ts-http
  * @category Middleware
  *
  * @example
@@ -25,7 +25,7 @@
  * ```
  */
 
-import { Injectable, Inject } from '@stackra/ts-container';
+import { Injectable, Inject } from '@stackra-inc/ts-container';
 import { HttpMiddleware } from '@/decorators/http-middleware.decorator';
 import { TOKEN_PROVIDER } from '@/constants';
 import type { TokenProviderInterface } from '@/interfaces/token-provider.interface';

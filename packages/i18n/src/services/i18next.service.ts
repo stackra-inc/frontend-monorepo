@@ -22,7 +22,7 @@
  *
  * @example
  * ```typescript
- * import { I18nextService } from '@stackra/react-i18n';
+ * import { I18nextService } from '@stackra-inc/react-i18n';
  *
  * const i18nextService = new I18nextService({
  *   lng: 'en',

@@ -2,7 +2,7 @@
  * Dependency Injection Tokens
  *
  * Symbol-based tokens for the config package DI system.
- * Used with `@stackra/ts-container` for dependency injection.
+ * Used with `@stackra-inc/ts-container` for dependency injection.
  *
  * @module constants/tokens
  */

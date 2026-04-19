@@ -7,7 +7,7 @@
  *
  * Implements a fail-fast (stop at first success) and fail-safe
  * (continue on error) pattern, mirroring `createResolverChain` from
- * `@stackra/react-multitenancy`.
+ * `@stackra-inc/react-multitenancy`.
  *
  * @module utils/create-locale-resolver-chain
  */
@@ -33,7 +33,7 @@ import type { ILocaleResolver } from '@/resolvers/locale-resolver.interface';
  *   UrlPathLocaleResolver,
  *   StorageLocaleResolver,
  *   NavigatorLocaleResolver,
- * } from '@stackra/react-i18n';
+ * } from '@stackra-inc/react-i18n';
  *
  * const resolveLocale = createLocaleResolverChain([
  *   new UrlPathLocaleResolver(),

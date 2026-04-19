@@ -5,7 +5,7 @@
  *
  * @example
  * ```tsx
- * import { useTenantSwitch } from "@stackra/react-multitenancy";
+ * import { useTenantSwitch } from "@stackra-inc/react-multitenancy";
  *
  * const TenantSwitcher = () => {
  *   const { switchTenant, isSwitching } = useTenantSwitch({

@@ -5,7 +5,7 @@
  * | Types for window management, tray, and dock services.
  * |--------------------------------------------------------------------------
  * |
- * @module @stackra/ts-desktop
+ * @module @stackra-inc/ts-desktop
  */
 
 /*

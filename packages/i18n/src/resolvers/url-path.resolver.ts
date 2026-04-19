@@ -13,7 +13,7 @@
  *
  * @example
  * ```typescript
- * import { UrlPathLocaleResolver } from '@stackra/react-i18n';
+ * import { UrlPathLocaleResolver } from '@stackra-inc/react-i18n';
  *
  * // Without allowed languages (matches any locale-like segment)
  * const resolver = new UrlPathLocaleResolver();
@@ -35,7 +35,7 @@
  */
 
 import { LocaleResolverPriority } from '@/enums';
-import { Str } from '@stackra/ts-support';
+import { Str } from '@stackra-inc/ts-support';
 import type { ILocaleResolver } from './locale-resolver.interface';
 
 /**

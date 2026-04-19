@@ -6,13 +6,13 @@
  * {@link useTranslation}, and {@link useChangeLocale} hooks.
  *
  * Mirrors the `IMultiTenancyContext` pattern from
- * `@stackra/react-multitenancy`.
+ * `@stackra-inc/react-multitenancy`.
  *
  * @module interfaces/i18n-context
  *
  * @example
  * ```typescript
- * import { useI18nContext } from '@stackra/react-i18n';
+ * import { useI18nContext } from '@stackra-inc/react-i18n';
  *
  * const MyComponent = () => {
  *   const ctx = useI18nContext();

@@ -10,14 +10,14 @@
  * All metadata reads and writes go through `@vivtel/metadata` for a consistent,
  * typed API instead of raw `Reflect.*` calls.
  *
- * @module @stackra/ts-http
+ * @module @stackra-inc/ts-http
  * @category Decorators
  *
  * @example
  * ```typescript
- * import { Injectable } from '@stackra/ts-container';
- * import { HttpMiddleware } from '@stackra/ts-http';
- * import type { HttpMiddlewareInterface, HttpNextFunction, HttpContext, HttpResponse } from '@stackra/ts-http';
+ * import { Injectable } from '@stackra-inc/ts-container';
+ * import { HttpMiddleware } from '@stackra-inc/ts-http';
+ * import type { HttpMiddlewareInterface, HttpNextFunction, HttpContext, HttpResponse } from '@stackra-inc/ts-http';
  *
  * @HttpMiddleware({ priority: 10, name: 'auth' })
  * @Injectable()

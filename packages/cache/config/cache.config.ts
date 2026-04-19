@@ -25,7 +25,7 @@
  * @module config/cache
  */
 
-import { defineConfig } from '@stackra/ts-cache';
+import { defineConfig } from '@stackra-inc/ts-cache';
 
 /**
  * Application cache configuration.

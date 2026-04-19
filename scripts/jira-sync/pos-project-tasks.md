@@ -24,7 +24,7 @@ Stories/Tasks, and their children map to Sub-tasks.
   - [ ] 1.7 Set up local development environment documentation (README,
         CONTRIBUTING)
 
-- [ ] 2. Frontend: @stackra/ts-container — IoC Container & DI
+- [ ] 2. Frontend: @stackra-inc/ts-container — IoC Container & DI
   - [ ] 2.1 Implement Container class with bind, singleton, factory, resolve,
         and make methods
   - [ ] 2.2 Implement @Injectable(), @Inject(), @Optional() decorators with
@@ -39,7 +39,7 @@ Stories/Tasks, and their children map to Sub-tasks.
         invocation
   - [ ] 2.7 Build and publish package with tsup (ESM + CJS + DTS)
 
-- [ ] 3. Frontend: @stackra/ts-container-react — React DI Integration
+- [ ] 3. Frontend: @stackra-inc/ts-container-react — React DI Integration
   - [ ] 3.1 Implement ContainerProvider React context that accepts
         ApplicationContext
   - [ ] 3.2 Implement useInject() hook for resolving services from the DI
@@ -47,7 +47,7 @@ Stories/Tasks, and their children map to Sub-tasks.
   - [ ] 3.3 Implement useOptionalInject() hook for optional service resolution
   - [ ] 3.4 Build and publish package
 
-- [ ] 4. Frontend: @stackra/ts-application — App Bootstrap
+- [ ] 4. Frontend: @stackra-inc/ts-application — App Bootstrap
   - [ ] 4.1 Implement bootstrapApp(AppModule) function that creates
         ApplicationContext and resolves all modules
   - [ ] 4.2 Implement module graph traversal and topological sort for dependency
@@ -56,7 +56,7 @@ Stories/Tasks, and their children map to Sub-tasks.
         are resolved
   - [ ] 4.4 Build and publish package
 
-- [ ] 5. Frontend: @stackra/ts-support — Shared Utilities
+- [ ] 5. Frontend: @stackra-inc/ts-support — Shared Utilities
   - [ ] 5.1 Implement BaseRegistry abstract class with Map-based storage, get,
         has, getAll, clear
   - [ ] 5.2 Implement MultipleInstanceManager abstract class for named
@@ -65,7 +65,7 @@ Stories/Tasks, and their children map to Sub-tasks.
         helpers)
   - [ ] 5.4 Build and publish package
 
-- [ ] 6. Frontend: @stackra/ts-config — Environment Configuration
+- [ ] 6. Frontend: @stackra-inc/ts-config — Environment Configuration
   - [ ] 6.1 Implement ConfigModule with forRoot() DI registration
   - [ ] 6.2 Implement ConfigService with get, set, has, all methods
   - [ ] 6.3 Implement EnvDriver that reads from import.meta.env (Vite),
@@ -74,7 +74,7 @@ Stories/Tasks, and their children map to Sub-tasks.
   - [ ] 6.5 Implement environment variable expansion and type coercion
   - [ ] 6.6 Build and publish package
 
-- [ ] 7. Frontend: @stackra/ts-logger — Structured Logging
+- [ ] 7. Frontend: @stackra-inc/ts-logger — Structured Logging
   - [ ] 7.1 Implement LoggerModule with forRoot() DI registration
   - [ ] 7.2 Implement LoggerManager extending MultipleInstanceManager for named
         channels
@@ -87,7 +87,7 @@ Stories/Tasks, and their children map to Sub-tasks.
   - [ ] 7.6 Implement useLogger() React hook
   - [ ] 7.7 Build and publish package
 
-- [ ] 8. Frontend: @stackra/ts-redis — Upstash Redis Client
+- [ ] 8. Frontend: @stackra-inc/ts-redis — Upstash Redis Client
   - [ ] 8.1 Implement RedisModule with forRoot() DI registration
   - [ ] 8.2 Implement RedisManager extending MultipleInstanceManager for named
         connections
@@ -99,7 +99,7 @@ Stories/Tasks, and their children map to Sub-tasks.
   - [ ] 8.6 Implement useRedis() React hook
   - [ ] 8.7 Build and publish package
 
-- [ ] 9. Frontend: @stackra/ts-cache — Multi-Driver Cache
+- [ ] 9. Frontend: @stackra-inc/ts-cache — Multi-Driver Cache
   - [ ] 9.1 Implement CacheModule with forRoot() DI registration
   - [ ] 9.2 Implement CacheManager extending MultipleInstanceManager for named
         stores
@@ -113,7 +113,7 @@ Stories/Tasks, and their children map to Sub-tasks.
   - [ ] 9.8 Implement useCache() React hook
   - [ ] 9.9 Build and publish package
 
-- [ ] 10. Frontend: @stackra/ts-events — Event Dispatcher
+- [ ] 10. Frontend: @stackra-inc/ts-events — Event Dispatcher
   - [ ] 10.1 Implement EventsModule with forRoot() DI registration
   - [ ] 10.2 Implement EventManager extending MultipleInstanceManager for named
         dispatchers
@@ -128,7 +128,7 @@ Stories/Tasks, and their children map to Sub-tasks.
   - [ ] 10.8 Implement useEvents() and useEvent() React hooks
   - [ ] 10.9 Build and publish package
 
-- [ ] 11. Frontend: @stackra/ts-settings — Settings Management
+- [ ] 11. Frontend: @stackra-inc/ts-settings — Settings Management
   - [ ] 11.1 Implement SettingsModule with forRoot() DI registration
   - [ ] 11.2 Implement SettingsManager extending MultipleInstanceManager for
         named stores
@@ -139,7 +139,7 @@ Stories/Tasks, and their children map to Sub-tasks.
   - [ ] 11.6 Implement useSettings() React hook
   - [ ] 11.7 Build and publish package
 
-- [ ] 12. Frontend: @stackra/kbd — Keyboard Shortcut Management
+- [ ] 12. Frontend: @stackra-inc/kbd — Keyboard Shortcut Management
   - [ ] 12.1 Implement ShortcutRegistry extending BaseRegistry with platform
         detection, conflict detection, and group management
   - [ ] 12.2 Implement KbdModule with forRoot() / forFeature() DI registration
@@ -155,7 +155,8 @@ Stories/Tasks, and their children map to Sub-tasks.
         visibility
   - [ ] 12.8 Build and publish package
 
-- [ ] 13. Frontend: @stackra/ts-desktop — Electron Desktop Integration (Core)
+- [ ] 13. Frontend: @stackra-inc/ts-desktop — Electron Desktop Integration
+      (Core)
   - [ ] 13.1 Implement DesktopModule with forRoot() / forFeature() DI
         registration
   - [ ] 13.2 Implement DesktopManager with platform detection (Electron vs
@@ -173,7 +174,7 @@ Stories/Tasks, and their children map to Sub-tasks.
         register menu shortcuts automatically
   - [ ] 13.10 Build and publish package
 
-- [ ] 14. Frontend: @stackra/ts-desktop — Enhanced Services (23 services)
+- [ ] 14. Frontend: @stackra-inc/ts-desktop — Enhanced Services (23 services)
   - [ ] 14.1 Implement error types: DesktopServiceError, HardwareTimeoutError,
         HardwareNotConfiguredError
   - [ ] 14.2 Add 21 DI tokens for all new services
@@ -304,7 +305,7 @@ Stories/Tasks, and their children map to Sub-tasks.
   - [ ] 16.9 Implement is-electron CSS class for traffic light padding and drag
         region
   - [ ] 16.10 Implement demo pages for each package (Config, Logger, Container)
-  - [ ] 16.11 Configure dependency graph — all @stackra/_ packages as
+  - [ ] 16.11 Configure dependency graph — all @stackra-inc/_ packages as
         workspace:_ dependencies
 
 - [ ] 17. Frontend: Package Standardization
@@ -335,7 +336,7 @@ Stories/Tasks, and their children map to Sub-tasks.
   - [ ] 18.7 Set up Jira sync script for backend monorepo
   - [ ] 18.8 Create README.md, CONTRIBUTING.md, and CHANGELOG.md
 
-- [ ] 19. Backend: stackra/laravel-foundation — Core Foundation Module
+- [ ] 19. Backend: stackra-inc/laravel-foundation — Core Foundation Module
   - [ ] 19.1 Implement custom Application class extending Laravel Application
         with module-aware bootstrapping
   - [ ] 19.2 Implement ApplicationBuilder with HasDirectories, HasEnvironments,
@@ -380,7 +381,7 @@ Stories/Tasks, and their children map to Sub-tasks.
   - [ ] 19.17 Implement RootController for health check and root API endpoint
   - [ ] 19.18 Implement Binaryable trait for binary data handling
 
-- [ ] 20. Backend: stackra/laravel-framework — Framework Utilities Module
+- [ ] 20. Backend: stackra-inc/laravel-framework — Framework Utilities Module
   - [ ] 20.1 Implement attribute-based routing system (@Get, @Post, @Put,
         @Patch, @Delete, @Options, @Route, @Resource, @ApiResource)
   - [ ] 20.2 Implement route attribute modifiers (@Group, @Prefix, @Domain,
@@ -428,21 +429,21 @@ Stories/Tasks, and their children map to Sub-tasks.
   - [ ] 20.23 Implement Singleton trait for singleton pattern enforcement
   - [ ] 20.24 Implement Polyfills and Support helpers
 
-- [ ] 21. Backend: stackra/laravel-database — Database Module
+- [ ] 21. Backend: stackra-inc/laravel-database — Database Module
   - [ ] 21.1 Implement DatabaseServiceProvider with migration path registration
         and config publishing
   - [ ] 21.2 Implement migration management for modular migration loading from
         each module
   - [ ] 21.3 Implement seeder infrastructure for modular database seeding
 
-- [ ] 22. Backend: stackra/laravel-user — User Domain Module
+- [ ] 22. Backend: stackra-inc/laravel-user — User Domain Module
   - [ ] 22.1 Implement User model with factory, fillable attributes, and casts
   - [ ] 22.2 Implement UserFactory for testing and seeding
   - [ ] 22.3 Implement create_users_table migration
   - [ ] 22.4 Implement UserServiceProvider with migration and factory
         registration
 
-- [ ] 23. Backend: stackra/laravel-octane — High-Performance Server Module
+- [ ] 23. Backend: stackra-inc/laravel-octane — High-Performance Server Module
   - [ ] 23.1 Implement OctaneServiceProvider with command registration
   - [ ] 23.2 Implement StartAppCommand — production-ready RoadRunner server
         start with auto-optimization (config, route, view, event caching),
@@ -450,7 +451,7 @@ Stories/Tasks, and their children map to Sub-tasks.
   - [ ] 23.3 Implement RestartAppCommand — graceful server restart
   - [ ] 23.4 Implement StopAppCommand — graceful server shutdown
 
-- [ ] 24. Backend: stackra/laravel-docker — Docker Infrastructure Module
+- [ ] 24. Backend: stackra-inc/laravel-docker — Docker Infrastructure Module
   - [ ] 24.1 Implement DockerScripts Composer plugin for container lifecycle
         management
   - [ ] 24.2 Implement Docker Compose configuration for development (PHP-FPM,
@@ -470,21 +471,22 @@ Stories/Tasks, and their children map to Sub-tasks.
   - [ ] 26.7 Configure Rector for API-specific code quality rules
 
 - [ ] 26. Flutter: Core Packages
-  - [ ] 27.1 Implement stackra_container — IoC container with service locator
-        pattern
-  - [ ] 27.2 Implement stackra_config — environment-aware configuration
-  - [ ] 27.3 Implement stackra_logger — structured logging with channels
-  - [ ] 27.4 Implement stackra_cache — multi-driver caching (memory,
+  - [ ] 27.1 Implement stackra-inc_container — IoC container with service
+        locator pattern
+  - [ ] 27.2 Implement stackra-inc_config — environment-aware configuration
+  - [ ] 27.3 Implement stackra-inc_logger — structured logging with channels
+  - [ ] 27.4 Implement stackra-inc_cache — multi-driver caching (memory,
         shared_preferences, Hive)
-  - [ ] 26.5 Implement stackra_database — database abstraction with Drift/Isar
-  - [ ] 26.6 Implement stackra_localization — i18n with ARB files and locale
+  - [ ] 26.5 Implement stackra-inc_database — database abstraction with
+        Drift/Isar
+  - [ ] 26.6 Implement stackra-inc_localization — i18n with ARB files and locale
         switching
-  - [ ] 26.7 Implement stackra_support — shared utilities and base classes
+  - [ ] 26.7 Implement stackra-inc_support — shared utilities and base classes
 
 - [ ] 27. Flutter: UI Package & Example App
-  - [ ] 27.1 Implement stackra_ui — design system widgets (buttons, cards,
+  - [ ] 27.1 Implement stackra-inc_ui — design system widgets (buttons, cards,
         inputs, modals)
   - [ ] 27.2 Implement AppOnboarding widget with PageView navigation and dot
         indicators
-  - [ ] 27.3 Implement stackra_refine — data provider and CRUD framework
+  - [ ] 27.3 Implement stackra-inc_refine — data provider and CRUD framework
   - [ ] 27.4 Implement example_app with all packages integrated and demo pages

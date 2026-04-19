@@ -1,7 +1,7 @@
 /**
  * @fileoverview Props for the useOne hook.
  *
- * @module @stackra/react-refine
+ * @module @stackra-inc/react-refine
  * @category Interfaces
  */
 

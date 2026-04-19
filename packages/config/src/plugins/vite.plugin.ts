@@ -1,7 +1,7 @@
 /**
  * Vite Plugin for Config Package
  *
- * Serves configuration via a virtual module (`virtual:@stackra/ts-config`)
+ * Serves configuration via a virtual module (`virtual:@stackra-inc/ts-config`)
  * with full HMR support. Merges Vite's `loadEnv()` output with scanned
  * `.config.ts` files and exposes the result as an importable module.
  *
@@ -25,7 +25,7 @@
 
 import path from 'path';
 import type { Plugin } from 'vite';
-import { Str } from '@stackra/ts-support';
+import { Str } from '@stackra-inc/ts-support';
 
 import { validatePluginConfig } from '@/utils/validate-plugin-config.util';
 import { generateVirtualModule } from '@/utils/generate-virtual-module.util';
@@ -37,10 +37,10 @@ import type { ViteConfigPluginOptions } from '@/interfaces/vite-config-plugin-op
  *
  * @example
  * ```typescript
- * import { config, get, has } from 'virtual:@stackra/ts-config';
+ * import { config, get, has } from 'virtual:@stackra-inc/ts-config';
  * ```
  */
-const VIRTUAL_MODULE_ID = 'virtual:@stackra/ts-config';
+const VIRTUAL_MODULE_ID = 'virtual:@stackra-inc/ts-config';
 
 /**
  * Vite-internal resolved ID (prefixed with `\0` to mark as virtual).
@@ -61,7 +61,7 @@ const RESOLVED_VIRTUAL_MODULE_ID = `\0${VIRTUAL_MODULE_ID}`;
  * @example
  * ```typescript
  * import { defineConfig, loadEnv } from 'vite';
- * import { viteConfigPlugin } from '@stackra/ts-config/vite-plugin';
+ * import { viteConfigPlugin } from '@stackra-inc/ts-config/vite-plugin';
  *
  * export default defineConfig(({ mode }) => {
  *   const env = loadEnv(mode, 'environments', '');

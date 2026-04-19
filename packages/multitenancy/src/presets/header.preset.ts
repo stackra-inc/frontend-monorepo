@@ -10,7 +10,7 @@ import type { MultiTenancyOptions } from '@/interfaces/multitenancy-options.inte
  *
  * @example
  * ```typescript
- * import { defineConfig, headerPreset } from "@stackra/react-multitenancy/config";
+ * import { defineConfig, headerPreset } from "@stackra-inc/react-multitenancy/config";
  *
  * const config = defineConfig({
  *   ...headerPreset,

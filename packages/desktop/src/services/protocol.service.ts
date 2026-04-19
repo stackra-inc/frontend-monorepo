@@ -5,7 +5,7 @@
  * | Custom URL protocol registration and handling.
  * |--------------------------------------------------------------------------
  * |
- * | Registers a custom URL scheme (e.g. stackra://open?order=123)
+ * | Registers a custom URL scheme (e.g. stackra-inc://open?order=123)
  * | so external applications can deep-link into the app.
  * |
  * | In Electron: registers the protocol via IPC and listens for
@@ -14,15 +14,15 @@
  * |
  * | Usage:
  * |   const protocol = container.get(ProtocolService);
- * |   await protocol.registerProtocol('stackra');
+ * |   await protocol.registerProtocol('stackra-inc');
  * |   const unsub = protocol.onProtocolUrl((parsed) => {
  * |     console.log(parsed.pathSegments, parsed.query);
  * |   });
  * |
- * @module @stackra/ts-desktop
+ * @module @stackra-inc/ts-desktop
  */
 
-import { Injectable, Inject } from '@stackra/ts-container';
+import { Injectable, Inject } from '@stackra-inc/ts-container';
 
 import type { ParsedProtocolUrl } from '@/interfaces/system.interface';
 import { DesktopManager } from './desktop-manager.service';
@@ -71,10 +71,10 @@ export class ProtocolService {
   |
   | Parses a protocol URL string into its components.
   |
-  | Input:  "stackra://open/order?id=123&status=paid"
+  | Input:  "stackra-inc://open/order?id=123&status=paid"
   | Output: {
-  |   raw: "stackra://open/order?id=123&status=paid",
-  |   scheme: "stackra",
+  |   raw: "stackra-inc://open/order?id=123&status=paid",
+  |   scheme: "stackra-inc",
   |   pathSegments: ["open", "order"],
   |   query: { id: "123", status: "paid" },
   | }

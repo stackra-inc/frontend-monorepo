@@ -4,12 +4,12 @@
  * Produces spec-compliant query strings like:
  * `?page[number]=1&page[size]=10&sort=-createdAt&filter[status]=published`
  *
- * @module @stackra/react-refine
+ * @module @stackra-inc/react-refine
  * @category Serializers
  *
  * @example
  * ```typescript
- * import { JsonApiQueryStringSerializer } from '@stackra/react-refine';
+ * import { JsonApiQueryStringSerializer } from '@stackra-inc/react-refine';
  *
  * const serializer = new JsonApiQueryStringSerializer();
  * const qs = serializer.serialize({

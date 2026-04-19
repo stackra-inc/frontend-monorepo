@@ -1,5 +1,5 @@
 import { useEffect, useCallback } from 'react';
-import { Str } from '@stackra/ts-support';
+import { Str } from '@stackra-inc/ts-support';
 import type { KeyValue } from '@/types';
 
 /**

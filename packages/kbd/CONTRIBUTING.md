@@ -1,6 +1,6 @@
-# Contributing to @stackra/kbd
+# Contributing to @stackra-inc/kbd
 
-Thank you for your interest in contributing to @stackra/kbd! This document
+Thank you for your interest in contributing to @stackra-inc/kbd! This document
 provides guidelines and instructions for contributing.
 
 ## Development Setup

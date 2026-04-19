@@ -1,12 +1,12 @@
 /**
  * @fileoverview Generic constructor type alias.
  *
- * @module @stackra/react-refine
+ * @module @stackra-inc/react-refine
  * @category Types
  *
  * @example
  * ```typescript
- * import type { Type } from '@stackra/react-refine';
+ * import type { Type } from '@stackra-inc/react-refine';
  *
  * function createInstance<T>(ctor: Type<T>): T {
  *   return new ctor();

@@ -1,10 +1,10 @@
-# @stackra/kbd Architecture
+# @stackra-inc/kbd Architecture
 
 ## Package Architecture Overview
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                    @stackra/kbd                           │
+│                    @stackra-inc/kbd                           │
 │                     (Main Package)                          │
 └─────────────────────────────────────────────────────────────┘
                             │
@@ -130,12 +130,12 @@ useKeyboardShortcut({
 │  @heroui/react (Kbd component)                          │
 │  react (Core library)                                    │
 │  react-dom (DOM rendering)                               │
-│  @stackra/core (Refine integration)                   │
+│  @stackra-inc/core (Refine integration)                   │
 └─────────────────────────────────────────────────────────┘
                             │
                             ▼
 ┌─────────────────────────────────────────────────────────┐
-│                    @stackra/kbd                        │
+│                    @stackra-inc/kbd                        │
 ├─────────────────────────────────────────────────────────┤
 │                                                          │
 │  ┌────────────┐  ┌────────────┐  ┌────────────┐       │
@@ -155,7 +155,7 @@ useKeyboardShortcut({
 │                  Consumer Application                    │
 ├─────────────────────────────────────────────────────────┤
 │  import { RefineKbd, useKeyboardShortcut } from         │
-│          "@stackra/kbd"                               │
+│          "@stackra-inc/kbd"                               │
 └─────────────────────────────────────────────────────────┘
 ```
 
@@ -288,7 +288,7 @@ Test Suite
         │                   │                   │
         ▼                   ▼                   ▼
 ┌──────────────┐    ┌──────────────┐    ┌──────────────┐
-│ @stackra/  │    │ @stackra/  │    │ @stackra/  │
+│ @stackra-inc/  │    │ @stackra-inc/  │    │ @stackra-inc/  │
 │    core      │    │   heroui     │    │    kbar      │
 └──────────────┘    └──────────────┘    └──────────────┘
         │                   │                   │
@@ -296,7 +296,7 @@ Test Suite
                             │
                             ▼
                     ┌──────────────┐
-                    │ @stackra/  │
+                    │ @stackra-inc/  │
                     │     kbd      │
                     └──────────────┘
                             │

@@ -2,8 +2,8 @@
 
 ## Introduction
 
-Complete the `@stackra/react-refine` package by fixing the critical auth hook
-wiring bug, adding missing hooks (`useSession`, `useSecurity`,
+Complete the `@stackra-inc/react-refine` package by fixing the critical auth
+hook wiring bug, adding missing hooks (`useSession`, `useSecurity`,
 `useActiveDevices`, `usePublish`), consolidating setter inconsistencies,
 exporting missing types, writing comprehensive tests, and updating examples to
 showcase the full feature set.
@@ -19,8 +19,8 @@ showcase the full feature set.
 - **Setter_Function**: A module-level function (e.g. `setAuthService()`) that
   assigns a service instance to a module-scoped variable so hooks can access the
   service without DI.
-- **DI_Container**: The `@stackra/ts-container` dependency injection container
-  that resolves service instances and their dependencies.
+- **DI_Container**: The `@stackra-inc/ts-container` dependency injection
+  container that resolves service instances and their dependencies.
 - **ServiceRegistry**: A singleton registry that maps resource names to service
   instances for data hooks.
 - **TanStack_Query**: The `@tanstack/react-query` library used by all
@@ -165,7 +165,7 @@ realtime events from React components.
 **User Story:** As a developer, I want all new hooks, the `resolveService`
 utility, and service types (`Session`, `SecurityCheckResult`, `ActiveDevice`) to
 be exported from the package barrel, so that I can import them from
-`@stackra/react-refine`.
+`@stackra-inc/react-refine`.
 
 #### Acceptance Criteria
 
@@ -265,4 +265,4 @@ to use the full feature set.
 4. THE examples SHALL include a component demonstrating `usePublish` for
    publishing a realtime event.
 5. THE examples SHALL include a component demonstrating the AuthEvent system by
-   listening to events via `@stackra/ts-events`.
+   listening to events via `@stackra-inc/ts-events`.

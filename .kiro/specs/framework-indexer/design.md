@@ -12,7 +12,7 @@ This sub-package owns the attribute definitions, contracts, traits, enums,
 events, DTOs, and compile-time registry that the `search` package and
 `reporting` package build on top of. It has **zero Elasticsearch dependency** —
 all ES-specific implementations live in the search package
-(`stackra/laravel-search`).
+(`stackra-inc/laravel-search`).
 
 ### Key Design Decisions
 

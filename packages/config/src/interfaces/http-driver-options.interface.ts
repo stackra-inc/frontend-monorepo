@@ -2,7 +2,7 @@
  * HTTP Driver Options Interface
  *
  * Configuration options for the HTTP-based configuration driver.
- * The actual HTTP requests are made via `@stackra/ts-http`'s `HttpClient`,
+ * The actual HTTP requests are made via `@stackra-inc/ts-http`'s `HttpClient`,
  * which is injected through DI. These options control what to fetch
  * and how to transform the response.
  *

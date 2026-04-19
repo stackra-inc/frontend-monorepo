@@ -16,8 +16,8 @@ at the end.
 
 - [x] 1. Scaffold project structure and package metadata
   - Create `packages/framework/src/Indexer/composer.json` with
-    `stackra/framework-indexer` name, `Stackra\Indexer\` PSR-4 autoload, PHP
-    `^8.5` requirement, and `stackra/laravel-discovery` dependency
+    `stackra-inc/framework-indexer` name, `Stackra\Indexer\` PSR-4 autoload, PHP
+    `^8.5` requirement, and `stackra-inc/laravel-discovery` dependency
   - Create `packages/framework/src/Indexer/module.json` with module name, alias,
     and version
   - Create directory structure: `src/Attributes/`, `src/Compiler/`,

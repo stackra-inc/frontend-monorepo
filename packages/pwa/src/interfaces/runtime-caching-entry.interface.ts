@@ -1,7 +1,7 @@
 /**
  * @fileoverview Workbox runtime caching strategy configuration.
  *
- * @module @stackra/ts-pwa
+ * @module @stackra-inc/ts-pwa
  * @category Interfaces
  */
 

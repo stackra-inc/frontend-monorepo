@@ -394,7 +394,7 @@ consistently with the monorepo build and module system.
 1. THE Response sub-package SHALL reside at `packages/framework/src/Response/`
    with source code in `src/` and configuration in `config/`.
 2. THE Response sub-package SHALL have a `composer.json` with name
-   `stackra/laravel-response`, PSR-4 autoload mapping `Stackra\Response\` to
+   `stackra-inc/laravel-response`, PSR-4 autoload mapping `Stackra\Response\` to
    `src/`, and appropriate dependencies.
 3. THE Response sub-package SHALL have a `module.json` with name `Response`,
    alias `response`, and a service provider reference.

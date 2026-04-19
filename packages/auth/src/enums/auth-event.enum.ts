@@ -1,18 +1,18 @@
 /**
  * @fileoverview Auth event names for the event dispatcher.
  *
- * These constants are used with `@stackra/ts-events` to publish
+ * These constants are used with `@stackra-inc/ts-events` to publish
  * lifecycle events from the {@link AuthService}, {@link SessionService},
  * and {@link SecurityService}. Consumers can listen to these events
  * via `EventService.listen()` or the `@OnEvent` decorator.
  *
- * @module @stackra/react-auth
+ * @module @stackra-inc/react-auth
  * @category Enums
  *
  * @example
  * ```typescript
- * import { AuthEvent } from '@stackra/react-auth';
- * import { useEvents } from '@stackra/ts-events';
+ * import { AuthEvent } from '@stackra-inc/react-auth';
+ * import { useEvents } from '@stackra-inc/ts-events';
  *
  * const events = useEvents();
  * events.listen(AuthEvent.LoginSucceeded, (payload) => {

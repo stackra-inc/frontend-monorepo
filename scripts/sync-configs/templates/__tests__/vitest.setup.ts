@@ -20,7 +20,7 @@
 import { vi } from 'vitest';
 
 /**
- * Mock @stackra/ts-container decorators.
+ * Mock @stackra-inc/ts-container decorators.
  *
  * Replaces DI decorators with no-op implementations so that:
  * - Classes decorated with @Injectable() are returned unchanged
@@ -31,9 +31,9 @@ import { vi } from 'vitest';
  * This ensures decorator metadata doesn't interfere with tests
  * and allows testing module behavior in isolation.
  */
-vi.mock('@stackra/ts-container', async () => {
+vi.mock('@stackra-inc/ts-container', async () => {
   // Import the actual module to preserve non-decorator exports
-  const actual = await vi.importActual('@stackra/ts-container');
+  const actual = await vi.importActual('@stackra-inc/ts-container');
 
   return {
     ...actual,

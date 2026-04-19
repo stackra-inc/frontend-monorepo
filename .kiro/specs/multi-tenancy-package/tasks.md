@@ -2,21 +2,21 @@
 
 ## Overview
 
-Implement `stackra/laravel-tenancy`, a single-database multi-tenancy Laravel 13
-package using `tenant_id` column scoping. The package follows the Stackra
+Implement `stackra-inc/laravel-tenancy`, a single-database multi-tenancy Laravel
+13 package using `tenant_id` column scoping. The package follows the Stackra
 monorepo modular structure with interface-first design, Laravel 13
 container/Eloquent attributes, attribute-based discovery, state machines, audit
-logging, and the `stackra/laravel-crud` Repository + Service pattern. All tasks
-are ordered by dependency chain.
+logging, and the `stackra-inc/laravel-crud` Repository + Service pattern. All
+tasks are ordered by dependency chain.
 
 ## Tasks
 
 - [x] 1. Package scaffolding and configuration
   - [x] 1.1 Create `packages/tenancy/composer.json` with all dependencies
-    - Follow `.docs/user/composer.json` pattern with `stackra/laravel-tenancy`
-      naming
-    - Require: `stackra/laravel-crud`, `stackra/laravel-discovery`,
-      `stackra/laravel-feature-flags`, `stackra/laravel-health`,
+    - Follow `.docs/user/composer.json` pattern with
+      `stackra-inc/laravel-tenancy` naming
+    - Require: `stackra-inc/laravel-crud`, `stackra-inc/laravel-discovery`,
+      `stackra-inc/laravel-feature-flags`, `stackra-inc/laravel-health`,
       `spatie/laravel-model-states`, `spatie/laravel-activitylog`,
       `laravel/pennant`, `php: ^8.2`, `illuminate/*: ^13.0`
     - PSR-4 autoload: `Stackra\\Tenancy\\` → `src/`
@@ -706,7 +706,7 @@ are ordered by dependency chain.
   - [x] 24.3 Create `src/Concerns/HasDiscovery.php` trait
     - Provide `collectBootstrappers()`, `collectFeatures()`,
       `collectIdentifications()` methods
-    - Call `stackra/laravel-discovery` for auto-registration of annotated
+    - Call `stackra-inc/laravel-discovery` for auto-registration of annotated
       classes
     - _Requirements: 33.2, 33.3, 33.7, 22.6_
 
@@ -761,7 +761,7 @@ are ordered by dependency chain.
 
 - [x] 29. Criteria classes
   - [x] 29.1 Create `src/Criteria/ActiveTenantCriteria.php`
-    - Annotate with `#[AsCriteria]` from `stackra/laravel-crud`
+    - Annotate with `#[AsCriteria]` from `stackra-inc/laravel-crud`
     - Filter tenants by active status using `TenantInterface::ATTR_STATUS`
     - _Requirements: 28.16_
 
@@ -804,6 +804,7 @@ are ordered by dependency chain.
 - State machines use `spatie/laravel-model-states` for tenant status and
   subscription status
 - Audit logging uses `spatie/laravel-activitylog` with `LogsActivity` trait
-- Feature flags use `stackra/laravel-feature-flags` built on Laravel Pennant
-- Health checks use `stackra/laravel-health` with `#[AsHealthCheck]` attribute
+- Feature flags use `stackra-inc/laravel-feature-flags` built on Laravel Pennant
+- Health checks use `stackra-inc/laravel-health` with `#[AsHealthCheck]`
+  attribute
 - The package lives at `packages/tenancy/` in the monorepo

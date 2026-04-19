@@ -3,7 +3,7 @@
  *
  * Dropdown select for choosing a named theme.
  *
- * @module @stackra/react-theming
+ * @module @stackra-inc/react-theming
  * @category Components
  */
 

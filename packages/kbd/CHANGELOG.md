@@ -1,4 +1,4 @@
-# @stackra/kbd
+# @stackra-inc/kbd
 
 ## 2.0.0
 
@@ -17,7 +17,7 @@
 
 ### Initial Release
 
-- 🎉 Initial release of @stackra/kbd
+- 🎉 Initial release of @stackra-inc/kbd
 - ⌨️ HeroUI Kbd component integration
 - 🗂️ Keyboard shortcut registry with categories and contexts
 - 🔧 Platform-specific key resolution (macOS, Windows, Linux)

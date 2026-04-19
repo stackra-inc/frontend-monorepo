@@ -38,11 +38,11 @@ describe('ServiceName', () => {
 
 ## DI Mocking
 
-The setup file MUST mock `@stackra/ts-container` decorators:
+The setup file MUST mock `@stackra-inc/ts-container` decorators:
 
 ```typescript
-vi.mock('@stackra/ts-container', async () => {
-  const actual = await vi.importActual('@stackra/ts-container');
+vi.mock('@stackra-inc/ts-container', async () => {
+  const actual = await vi.importActual('@stackra-inc/ts-container');
   return {
     ...actual,
     Injectable: () => (target: any) => target,

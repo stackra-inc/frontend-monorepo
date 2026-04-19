@@ -7,7 +7,7 @@
  * - Custom config merging
  * - Provider setup
  *
- * @module @stackra/config
+ * @module @stackra-inc/config
  * @category Tests
  */
 

@@ -1,7 +1,7 @@
 # Events Examples
 
-This folder contains examples demonstrating how to use `@stackra/ts-events` in
-various scenarios.
+This folder contains examples demonstrating how to use `@stackra-inc/ts-events`
+in various scenarios.
 
 ## Examples Overview
 
@@ -99,17 +99,17 @@ npx ts-node .examples/05-dispatchers-and-redis.ts
 ### Installation
 
 ```bash
-pnpm add @stackra/ts-events rxjs reflect-metadata
+pnpm add @stackra-inc/ts-events rxjs reflect-metadata
 
 # For Redis dispatcher (optional):
-pnpm add @stackra/ts-redis
+pnpm add @stackra-inc/ts-redis
 ```
 
 ### Module Setup
 
 ```typescript
-import { Module } from '@stackra/ts-container';
-import { EventsModule } from '@stackra/ts-events';
+import { Module } from '@stackra-inc/ts-container';
+import { EventsModule } from '@stackra-inc/ts-events';
 import { UserSubscriber } from './subscribers/user.subscriber';
 
 @Module({
@@ -122,8 +122,8 @@ export class AppModule {}
 ### With Redis Dispatcher
 
 ```typescript
-import { RedisModule } from '@stackra/ts-redis';
-import { EventsModule } from '@stackra/ts-events';
+import { RedisModule } from '@stackra-inc/ts-redis';
+import { EventsModule } from '@stackra-inc/ts-events';
 
 @Module({
   imports: [
@@ -148,8 +148,8 @@ export class AppModule {}
 ### Dispatch Events
 
 ```typescript
-import { Injectable, Inject } from '@stackra/ts-container';
-import { EventService } from '@stackra/ts-events';
+import { Injectable, Inject } from '@stackra-inc/ts-container';
+import { EventService } from '@stackra-inc/ts-events';
 
 @Injectable()
 class OrderService {
@@ -166,8 +166,8 @@ class OrderService {
 ### Create a Subscriber
 
 ```typescript
-import { Injectable } from '@stackra/ts-container';
-import { Subscriber, OnEvent, EventPriority } from '@stackra/ts-events';
+import { Injectable } from '@stackra-inc/ts-container';
+import { Subscriber, OnEvent, EventPriority } from '@stackra-inc/ts-events';
 
 @Subscriber()
 @Injectable()
@@ -187,7 +187,7 @@ class OrderSubscriber {
 ### React Components
 
 ```tsx
-import { useEvent, useEventDispatcher } from '@stackra/ts-events';
+import { useEvent, useEventDispatcher } from '@stackra-inc/ts-events';
 
 function OrderNotification() {
   useEvent('order.created', (payload) => {

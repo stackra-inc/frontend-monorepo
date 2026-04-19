@@ -4,12 +4,12 @@
  * Every chainable method returns a new `QueryBuilder` instance,
  * leaving the original unchanged. This enables base query reuse.
  *
- * @module @stackra/react-refine
+ * @module @stackra-inc/react-refine
  * @category Utils
  *
  * @example
  * ```typescript
- * import { QueryBuilder } from '@stackra/react-refine';
+ * import { QueryBuilder } from '@stackra-inc/react-refine';
  *
  * const base = new QueryBuilder()
  *   .where('status', 'published')

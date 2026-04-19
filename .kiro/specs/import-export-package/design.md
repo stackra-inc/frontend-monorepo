@@ -2,7 +2,7 @@
 
 ## Overview
 
-The `stackra/laravel-import-export` package provides an attribute-driven
+The `stackra-inc/laravel-import-export` package provides an attribute-driven
 import/export engine built on top of `maatwebsite/laravel-excel` (Laravel Excel
 3.1). Instead of requiring developers to write per-entity export/import classes,
 the package uses PHP attributes (`#[Exportable]`, `#[Importable]`,

@@ -4,8 +4,8 @@ inclusion: always
 
 # Code Standards & Conventions
 
-Mandatory coding standards for the `@stackra` frontend monorepo. All code — new
-and modified — must follow these rules. No exceptions.
+Mandatory coding standards for the `@stackra-inc` frontend monorepo. All code —
+new and modified — must follow these rules. No exceptions.
 
 ## Quick Reference — Specialized Standards
 
@@ -25,27 +25,27 @@ and modified — must follow these rules. No exceptions.
 
 ## 1. Package Scope
 
-The canonical package scope is `@stackra`. All packages use this scope:
+The canonical package scope is `@stackra-inc`. All packages use this scope:
 
 ```
-@stackra/ts-container
-@stackra/ts-support
-@stackra/ts-cache
-@stackra/ts-config
-@stackra/ts-events
-@stackra/ts-http
-@stackra/ts-logger
-@stackra/ts-redis
-@stackra/ts-settings
-@stackra/ts-desktop
-@stackra/ts-pwa
-@stackra/kbd
-@stackra/react-auth
-@stackra/react-router
-@stackra/react-refine
-@stackra/react-theming
-@stackra/react-multitenancy
-@stackra/react-i18n
+@stackra-inc/ts-container
+@stackra-inc/ts-support
+@stackra-inc/ts-cache
+@stackra-inc/ts-config
+@stackra-inc/ts-events
+@stackra-inc/ts-http
+@stackra-inc/ts-logger
+@stackra-inc/ts-redis
+@stackra-inc/ts-settings
+@stackra-inc/ts-desktop
+@stackra-inc/ts-pwa
+@stackra-inc/kbd
+@stackra-inc/react-auth
+@stackra-inc/react-router
+@stackra-inc/react-refine
+@stackra-inc/react-theming
+@stackra-inc/react-multitenancy
+@stackra-inc/react-i18n
 ```
 
 ---
@@ -92,7 +92,7 @@ All file names use **lower-kebab-case** with a mandatory suffix:
 
 1. Side-effect imports (`import 'reflect-metadata'`)
 2. External packages (`import axios from 'axios'`)
-3. Workspace packages (`import { Str } from '@stackra/ts-support'`)
+3. Workspace packages (`import { Str } from '@stackra-inc/ts-support'`)
 4. Path alias imports (`import { CACHE_CONFIG } from '@/constants'`)
 5. Relative imports (`import { InstanceWrapper } from './instance-wrapper'`)
 
@@ -105,8 +105,8 @@ All file names use **lower-kebab-case** with a mandatory suffix:
 ```typescript
 import 'reflect-metadata';
 import axios from 'axios';
-import { Str } from '@stackra/ts-support';
-import { Injectable, Inject } from '@stackra/ts-container';
+import { Str } from '@stackra-inc/ts-support';
+import { Injectable, Inject } from '@stackra-inc/ts-container';
 import type { InjectionToken, Type } from '@/interfaces';
 import { CACHE_CONFIG } from '@/constants';
 import { InstanceWrapper } from './instance-wrapper';
@@ -116,7 +116,7 @@ import { InstanceWrapper } from './instance-wrapper';
 
 ## 5. String Manipulation
 
-**Always use `Str` from `@stackra/ts-support`.** Never use raw native string
+**Always use `Str` from `@stackra-inc/ts-support`.** Never use raw native string
 methods. See `string-utilities.md` for the complete mapping.
 
 ```typescript
@@ -285,7 +285,7 @@ src/
 ## 14. Forbidden Patterns
 
 - ❌ Raw `Reflect.*` calls — use `@vivtel/metadata`
-- ❌ Raw native string methods — use `Str` from `@stackra/ts-support`
+- ❌ Raw native string methods — use `Str` from `@stackra-inc/ts-support`
 - ❌ Class-based facades — use typed constant pattern
 - ❌ `import 'reflect-metadata'` in individual files — only in entry point
 - ❌ Implicit access modifiers — always explicit `public`/`private`/`protected`
@@ -312,4 +312,4 @@ src/
 - [ ] Imports use `import type` for type-only imports
 - [ ] All public method return types explicitly annotated
 - [ ] Facade exported from package if new service added
-- [ ] `@stackra/ts-support` in dependencies if using `Str`
+- [ ] `@stackra-inc/ts-support` in dependencies if using `Str`

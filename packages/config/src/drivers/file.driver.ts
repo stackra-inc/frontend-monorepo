@@ -13,7 +13,7 @@
  * @module drivers/file
  */
 
-import { Str } from '@stackra/ts-support';
+import { Str } from '@stackra-inc/ts-support';
 import type { ConfigDriver } from '@/interfaces/config-driver.interface';
 import { getNestedValue, hasNestedValue } from '@/utils/get-nested-value.util';
 

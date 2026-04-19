@@ -1,7 +1,7 @@
 /**
  * @fileoverview GetListResult interface for list query responses.
  *
- * @module @stackra/react-refine
+ * @module @stackra-inc/react-refine
  * @category Interfaces
  */
 

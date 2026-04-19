@@ -1,22 +1,22 @@
 {
-  "name": "@stackra/react-refine",
+  "name": "@stackra-inc/react-refine",
   "version": "1.0.2",
   "description": "Refine Framework integration with dependency injection for React applications",
   "license": "MIT",
   "author": {
     "name": "Stackra L.L.C",
     "email": "dev@stackra.com",
-    "url": "https://github.com/stackra-co"
+    "url": "https://github.com/stackra-inc"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/stackra-co/react-refine.git",
+    "url": "https://github.com/stackra-inc/react-refine.git",
     "directory": "packages/refine"
   },
   "bugs": {
-    "url": "https://github.com/stackra-co/react-refine/issues"
+    "url": "https://github.com/stackra-inc/react-refine/issues"
   },
-  "homepage": "https://github.com/stackra-co/react-refine#readme",
+  "homepage": "https://github.com/stackra-inc/react-refine#readme",
   "keywords": [
     "react",
     "refine",
@@ -69,9 +69,9 @@
     "tslib": "^2.8.1"
   },
   "devDependencies": {
-    "@stackra/ts-cache": "workspace:^",
-    "@stackra/ts-events": "workspace:^",
-    "@stackra/ts-http": "workspace:^",
+    "@stackra-inc/ts-cache": "workspace:^",
+    "@stackra-inc/ts-events": "workspace:^",
+    "@stackra-inc/ts-http": "workspace:^",
     "@nesvel/eslint-config": "^1.0.5",
     "@nesvel/prettier-config": "^1.0.3",
     "@nesvel/tsup-config": "^1.0.3",
@@ -94,13 +94,13 @@
     "vitest": "^4.1.2"
   },
   "peerDependencies": {
-    "@stackra/ts-eloquent": "workspace:*",
-    "@stackra/ts-cache": "workspace:*",
-    "@stackra/ts-container": "^2.0.4",
-    "@stackra/ts-events": "workspace:*",
-    "@stackra/ts-http": "workspace:*",
-    "@stackra/ts-redis": "workspace:*",
-    "@stackra/ts-support": "workspace:*",
+    "@stackra-inc/ts-eloquent": "workspace:*",
+    "@stackra-inc/ts-cache": "workspace:*",
+    "@stackra-inc/ts-container": "^2.0.4",
+    "@stackra-inc/ts-events": "workspace:*",
+    "@stackra-inc/ts-http": "workspace:*",
+    "@stackra-inc/ts-redis": "workspace:*",
+    "@stackra-inc/ts-support": "workspace:*",
     "@tanstack/react-query": "^5.0.0",
     "react": "^18.0.0 || ^19.0.0",
     "react-dom": "^18.0.0 || ^19.0.0",
@@ -111,22 +111,22 @@
     "@heroui/react": {
       "optional": false
     },
-    "@stackra/ts-container": {
+    "@stackra-inc/ts-container": {
       "optional": false
     },
-    "@stackra/ts-http": {
+    "@stackra-inc/ts-http": {
       "optional": false
     },
-    "@stackra/ts-cache": {
+    "@stackra-inc/ts-cache": {
       "optional": true
     },
-    "@stackra/ts-eloquent": {
+    "@stackra-inc/ts-eloquent": {
       "optional": true
     },
-    "@stackra/ts-events": {
+    "@stackra-inc/ts-events": {
       "optional": true
     },
-    "@stackra/ts-redis": {
+    "@stackra-inc/ts-redis": {
       "optional": true
     },
     "@tanstack/react-query": {

@@ -1,11 +1,11 @@
 /**
- * @stackra/ts-settings
+ * @stackra-inc/ts-settings
  *
  * Registry-based settings system with decorator-driven DTOs,
  * multi-driver persistence (localStorage, API, memory), and
  * the MultipleInstanceManager pattern from ts-support.
  *
- * @module @stackra/ts-settings
+ * @module @stackra-inc/ts-settings
  */
 
 // Module

@@ -1,22 +1,22 @@
 {
-  "name": "@stackra/ts-config",
+  "name": "@stackra-inc/ts-config",
   "version": "1.0.3",
   "description": "Multi-source configuration management with multiple drivers (Env, File, HTTP) and DI integration",
   "license": "MIT",
   "author": {
     "name": "Stackra L.L.C",
     "email": "dev@stackra.com",
-    "url": "https://github.com/stackra-co"
+    "url": "https://github.com/stackra-inc"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/stackra-co/config.git",
+    "url": "https://github.com/stackra-inc/config.git",
     "directory": "packages/config"
   },
   "bugs": {
-    "url": "https://github.com/stackra-co/config/issues"
+    "url": "https://github.com/stackra-inc/config/issues"
   },
-  "homepage": "https://github.com/stackra-co/config#readme",
+  "homepage": "https://github.com/stackra-inc/config#readme",
   "keywords": [
     "react",
     "config",
@@ -70,20 +70,20 @@
     "release": "pnpm publish --access public --no-git-checks"
   },
   "peerDependencies": {
-    "@stackra/ts-container": "^2.0.4",
-    "@stackra/ts-support": "workspace:*",
-    "@stackra/ts-http": "workspace:*",
+    "@stackra-inc/ts-container": "^2.0.4",
+    "@stackra-inc/ts-support": "workspace:*",
+    "@stackra-inc/ts-http": "workspace:*",
     "fast-glob": "^3.3.0",
     "vite": "^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0"
   },
   "peerDependenciesMeta": {
-    "@stackra/ts-container": {
+    "@stackra-inc/ts-container": {
       "optional": false
     },
-    "@stackra/ts-support": {
+    "@stackra-inc/ts-support": {
       "optional": false
     },
-    "@stackra/ts-http": {
+    "@stackra-inc/ts-http": {
       "optional": true
     },
     "fast-glob": {

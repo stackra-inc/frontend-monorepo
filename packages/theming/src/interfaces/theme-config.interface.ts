@@ -1,6 +1,6 @@
 /**
  * @fileoverview ThemeConfig interface — a registered theme entry.
- * @module @stackra/react-theming
+ * @module @stackra-inc/react-theming
  * @category Interfaces
  */
 

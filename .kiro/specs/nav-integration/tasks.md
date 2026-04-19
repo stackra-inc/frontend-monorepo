@@ -14,7 +14,7 @@ builds on them, and the demo page comes last.
 - [x] 1. Add `<Slot>` injection points to `@nav/ui` components
   - [x] 1.1 Add `before`/`after` slots to generic components (`Nav.Header`,
         `Nav.Sidebar`, `Nav.Footer`)
-    - Import `Slot` from `@stackra/react-ui` in
+    - Import `Slot` from `@stackra-inc/react-ui` in
       `packages/nav/ui/src/header.tsx`, `sidebar.tsx`, `footer.tsx`
     - Add `<Slot name="nav.header.before" />` /
       `<Slot name="nav.header.after" />` in `header.tsx`
@@ -26,7 +26,7 @@ builds on them, and the demo page comes last.
 
   - [x] 1.2 Add `before`/`after` slots to POS components (`Nav.POS.Header`,
         `Nav.POS.Sidebar`)
-    - Import `Slot` from `@stackra/react-ui` in
+    - Import `Slot` from `@stackra-inc/react-ui` in
       `packages/nav/ui/src/pos/header.tsx`, `pos/sidebar.tsx`
     - Add `<Slot name="nav.pos.header.before" />` /
       `<Slot name="nav.pos.header.after" />` in `pos/header.tsx`
@@ -36,7 +36,7 @@ builds on them, and the demo page comes last.
 
   - [x] 1.3 Add `before`/`after` slots to Dashboard components
         (`Nav.Dashboard.Sidebar`, `Nav.Dashboard.Layout`)
-    - Import `Slot` from `@stackra/react-ui` in
+    - Import `Slot` from `@stackra-inc/react-ui` in
       `packages/nav/ui/src/dashboard/sidebar.tsx`, `dashboard/layout.tsx`
     - Add `<Slot name="nav.dashboard.sidebar.before" />` /
       `<Slot name="nav.dashboard.sidebar.after" />` in `dashboard/sidebar.tsx`
@@ -46,7 +46,7 @@ builds on them, and the demo page comes last.
 
   - [x] 1.4 Add `before`/`after` slots to Landing components
         (`Nav.Landing.Header`, `Nav.Landing.Footer`)
-    - Import `Slot` from `@stackra/react-ui` in
+    - Import `Slot` from `@stackra-inc/react-ui` in
       `packages/nav/ui/src/landing/header.tsx`, `landing/footer.tsx`
     - Add `<Slot name="nav.landing.header.before" />` /
       `<Slot name="nav.landing.header.after" />` in `landing/header.tsx`
@@ -62,7 +62,7 @@ builds on them, and the demo page comes last.
     - Add static `registerSlot(slotName, entry)` method that delegates to
       `slotRegistry.registerEntry()`
     - Add static `registerSlots(registrations[])` method for batch registration
-    - Import `slotRegistry` and `SlotEntryOptions` from `@stackra/react-ui`
+    - Import `slotRegistry` and `SlotEntryOptions` from `@stackra-inc/react-ui`
     - Export `NavigationModule` and `SlotRegistration` type from
       `packages/nav/ui/src/index.ts`
     - _Requirements: 9.1, 9.2, 9.3, 9.4, 9.5_

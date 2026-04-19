@@ -2,7 +2,7 @@
  * i18n React Provider Component
  *
  * Wraps the React component tree with i18n state. Uses `useInject(I18N_SERVICE)`
- * from `@stackra/ts-container` to resolve the service from the DI container
+ * from `@stackra-inc/ts-container` to resolve the service from the DI container
  * automatically.
  *
  * On mount:
@@ -18,7 +18,7 @@
  *
  * @example
  * ```tsx
- * import { I18nProvider } from '@stackra/react-i18n';
+ * import { I18nProvider } from '@stackra-inc/react-i18n';
  *
  * // Inside <ContainerProvider> — service is resolved automatically
  * <ContainerProvider context={app}>
@@ -30,7 +30,7 @@
  */
 
 import React, { useEffect, useState, useMemo, useCallback } from 'react';
-import { useInject } from '@stackra/ts-container';
+import { useInject } from '@stackra-inc/ts-container';
 
 import { I18N_SERVICE } from '@/constants';
 import { I18nContext } from '@/contexts/i18n.context';

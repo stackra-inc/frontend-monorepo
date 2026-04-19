@@ -3,7 +3,7 @@
 ## Overview
 
 The Invitation package (`packages/invitation/`, namespace `Stackra\Invitation`,
-composer `stackra/laravel-invitation`) is a standalone, reusable invitation
+composer `stackra-inc/laravel-invitation`) is a standalone, reusable invitation
 lifecycle system extracted from the family package. It provides polymorphic
 invitations that any bounded context can consume — family invites, tenant
 invites, team invites, referral invites, etc.
@@ -75,12 +75,12 @@ graph TB
 ### Package Dependency Graph
 
 ```
-stackra/laravel-invitation
-├── stackra/laravel-crud       (Base Repository, Base Service)
-├── stackra/laravel-database   (Base Model)
-├── stackra/laravel-discovery  (Attribute discovery)
-├── stackra/laravel-enum       (Enum trait, Label, Description)
-├── stackra/laravel-event      (#[AsEvent] attribute)
+stackra-inc/laravel-invitation
+├── stackra-inc/laravel-crud       (Base Repository, Base Service)
+├── stackra-inc/laravel-database   (Base Model)
+├── stackra-inc/laravel-discovery  (Attribute discovery)
+├── stackra-inc/laravel-enum       (Enum trait, Label, Description)
+├── stackra-inc/laravel-event      (#[AsEvent] attribute)
 └── illuminate/* (Laravel 13)
 ```
 
@@ -762,7 +762,8 @@ Schema::create(InvitationInterface::TABLE, function (Blueprint $table): void {
 
 ### Files to Modify in `packages/family/`
 
-**`composer.json`** — Add `"stackra/laravel-invitation": "@dev"` to `require`.
+**`composer.json`** — Add `"stackra-inc/laravel-invitation": "@dev"` to
+`require`.
 
 **Validates: Requirement 12.2**
 

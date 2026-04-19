@@ -10,9 +10,9 @@
  *
  * The RedisModule follows the dynamic module pattern, allowing runtime
  * configuration to be provided via the forRoot() method. This is the
- * standard pattern for configurable modules in @stackra/ts-container.
+ * standard pattern for configurable modules in @stackra-inc/ts-container.
  *
- * @module @stackra/redis
+ * @module @stackra-inc/redis
  * @category Tests
  */
 

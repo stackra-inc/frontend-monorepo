@@ -1,7 +1,7 @@
 /**
  * @fileoverview DI tokens for the auth package.
  *
- * @module @stackra/react-auth
+ * @module @stackra-inc/react-auth
  * @category Constants
  */
 

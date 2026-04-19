@@ -3,7 +3,7 @@
  *
  * Defines the contract for tracking data changes and audit trails.
  *
- * @module @stackra/react-refine
+ * @module @stackra-inc/react-refine
  * @category Interfaces
  */
 

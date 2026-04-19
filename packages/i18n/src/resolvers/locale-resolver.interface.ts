@@ -10,14 +10,14 @@
  * (ascending — lower number = higher priority) until one returns a
  * non-`undefined` value.
  *
- * Mirrors the `TenantResolver` pattern from `@stackra/react-multitenancy`.
+ * Mirrors the `TenantResolver` pattern from `@stackra-inc/react-multitenancy`.
  *
  * @module resolvers/locale-resolver
  *
  * @example
  * ```typescript
- * import type { ILocaleResolver } from '@stackra/react-i18n';
- * import { LocaleResolverPriority } from '@stackra/react-i18n';
+ * import type { ILocaleResolver } from '@stackra-inc/react-i18n';
+ * import { LocaleResolverPriority } from '@stackra-inc/react-i18n';
  *
  * class CookieLocaleResolver implements ILocaleResolver {
  *   name = 'cookie';

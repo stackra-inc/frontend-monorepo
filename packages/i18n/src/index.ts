@@ -1,15 +1,15 @@
 /**
- * @stackra/react-i18n — Comprehensive i18n System with i18next
+ * @stackra-inc/react-i18n — Comprehensive i18n System with i18next
  *
  * Full-fledged internationalization package providing:
- * - DI module (`I18nModule.forRoot()`) with `@stackra/ts-container`
+ * - DI module (`I18nModule.forRoot()`) with `@stackra-inc/ts-container`
  * - Services (`I18nextService` for i18next, `I18nService` for high-level API)
  * - React context (`<I18nProvider>`) and hooks (`useLocale`, `useTranslation`, `useChangeLocale`)
  * - Locale resolver chain (URL path, query param, storage, navigator, HTTP header)
- * - HTTP middleware (`LocaleMiddleware`) for `@stackra/ts-http` pipeline
+ * - HTTP middleware (`LocaleMiddleware`) for `@stackra-inc/ts-http` pipeline
  * - Vite plugin (`i18nPlugin`) for build-time translation scanning
  *
- * @module @stackra/react-i18n
+ * @module @stackra-inc/react-i18n
  */
 
 // ============================================================================

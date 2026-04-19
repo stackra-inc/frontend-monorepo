@@ -1,7 +1,7 @@
 /**
  * @fileoverview Manifest icon definition for PWA web app manifests.
  *
- * @module @stackra/ts-pwa
+ * @module @stackra-inc/ts-pwa
  * @category Interfaces
  */
 

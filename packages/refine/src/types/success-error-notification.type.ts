@@ -6,7 +6,7 @@
  * suppress, or a callback that receives the result/error and
  * returns the config dynamically.
  *
- * @module @stackra/react-refine
+ * @module @stackra-inc/react-refine
  * @category Types
  */
 

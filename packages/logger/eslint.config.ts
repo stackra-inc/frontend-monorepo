@@ -1,5 +1,5 @@
 /**
- * @fileoverview ESLint configuration for @stackra/ts-logger package
+ * @fileoverview ESLint configuration for @stackra-inc/ts-logger package
  *
  * This configuration extends the shared @nesvel/eslint-config with
  * project-specific ignore patterns. Uses the ESLint flat config format.
@@ -10,7 +10,7 @@
  * - Code Style: Consistent code style enforcement across the monorepo
  * - Ignore Patterns: Excludes build output, node_modules, and config files
  *
- * @module @stackra/ts-logger
+ * @module @stackra-inc/ts-logger
  * @category Configuration
  * @see https://eslint.org/docs/latest/use/configure/configuration-files
  */

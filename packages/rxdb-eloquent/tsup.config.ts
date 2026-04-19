@@ -1,5 +1,5 @@
 /**
- * @fileoverview tsup build configuration for @stackra/ts-eloquent
+ * @fileoverview tsup build configuration for @stackra-inc/ts-eloquent
  *
  * Uses the @nesvel/tsup-config base preset which automatically handles:
  * - Dual format output (ESM + CJS)
@@ -13,7 +13,7 @@
  *   dist/index.js    — CJS (Node.js, legacy bundlers)
  *   dist/index.d.ts  — TypeScript declarations
  *
- * @module @stackra/ts-eloquent
+ * @module @stackra-inc/ts-eloquent
  * @category Configuration
  * @see https://tsup.egoist.dev/
  */

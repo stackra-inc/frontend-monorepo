@@ -1,10 +1,10 @@
-# Requirements Document — Search Package (`stackra/laravel-search`)
+# Requirements Document — Search Package (`stackra-inc/laravel-search`)
 
 ## Introduction
 
-The `stackra/laravel-search` package provides the Elasticsearch implementation
-layer for the Stackra monorepo. It builds on top of the framework Indexer
-sub-package (`packages/framework/src/Indexer/`) which owns the pure PHP
+The `stackra-inc/laravel-search` package provides the Elasticsearch
+implementation layer for the Stackra monorepo. It builds on top of the framework
+Indexer sub-package (`packages/framework/src/Indexer/`) which owns the pure PHP
 foundation: attributes (`#[Indexed]`, `#[EmbedOne]`, `#[EmbedMany]`,
 `#[Aggregatable]`, `#[UseIndex]`), contracts (`IndexerInterface`,
 `IndexManagerInterface`, `RecordBuilderInterface`), traits (`Indexable`,
@@ -152,11 +152,11 @@ system and module discovery.
    bindings for `SearchManagerInterface`, and any package-local interfaces.
 3. THE package SHALL use the namespace `Stackra\Search` with PSR-4 autoloading
    from `src/`.
-4. THE package SHALL declare `stackra/laravel-framework` (for Indexer
+4. THE package SHALL declare `stackra-inc/laravel-framework` (for Indexer
    sub-package attributes, contracts, traits, enums, registry),
    `pdphilip/elasticsearch: ^5.0` (ES Eloquent driver),
-   `stackra/laravel-discovery`, `stackra/laravel-crud`,
-   `stackra/laravel-database`, and `stackra/laravel-tenancy` as composer
+   `stackra-inc/laravel-discovery`, `stackra-inc/laravel-crud`,
+   `stackra-inc/laravel-database`, and `stackra-inc/laravel-tenancy` as composer
    dependencies.
 5. THE package SHALL NOT depend on `laravel/scout`,
    `meilisearch/meilisearch-php`, `pdphilip/elasticlens`,

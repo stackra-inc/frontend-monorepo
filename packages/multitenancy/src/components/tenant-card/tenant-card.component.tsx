@@ -6,7 +6,7 @@
  *
  * @example
  * ```tsx
- * import { TenantCard } from "@stackra/react-multitenancy";
+ * import { TenantCard } from "@stackra-inc/react-multitenancy";
  *
  * <TenantCard />
  * ```

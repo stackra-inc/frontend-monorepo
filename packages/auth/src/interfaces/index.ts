@@ -1,4 +1,4 @@
-/** @fileoverview Barrel export for auth interfaces. @module @stackra/react-auth @category Interfaces */
+/** @fileoverview Barrel export for auth interfaces. @module @stackra-inc/react-auth @category Interfaces */
 export type { IAuthService } from './auth-service.interface';
 export type { AuthActionResponse } from './auth-action-response.interface';
 export type { CheckResponse } from './check-response.interface';

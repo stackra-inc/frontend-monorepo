@@ -2,11 +2,11 @@
  * Dynamic Domain Resolver
  *
  * Resolves tenant ID by calling an API endpoint with the current domain.
- * Implements caching with TTL using @stackra/ts-cache to reduce API calls.
+ * Implements caching with TTL using @stackra-inc/ts-cache to reduce API calls.
  *
  * @example
  * ```tsx
- * import { CacheService } from '@stackra/ts-cache';
+ * import { CacheService } from '@stackra-inc/ts-cache';
  *
  * const resolver = new DynamicDomainResolver({
  *   apiUrl: "https://api.example.com/tenants/resolve",
@@ -24,7 +24,7 @@ import { ResolverPriority } from '@/enums/resolver-priority.enum';
  * Dynamic Domain Resolver
  *
  * Calls an API endpoint to resolve tenant ID from domain.
- * Caches results using @stackra/ts-cache to minimize API calls.
+ * Caches results using @stackra-inc/ts-cache to minimize API calls.
  * Falls back to in-memory cache if cache service is not provided.
  */
 export class DynamicDomainResolver implements TenantResolver {

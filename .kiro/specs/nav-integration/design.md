@@ -31,8 +31,9 @@ This design covers the integration of the `@nav/*` package suite into the
   `nav.pos.header.before`, `nav.dashboard.sidebar.after`). Generic components
   omit the context segment (e.g., `nav.header.before`).
 - **NavigationModule delegates to slotRegistry**: It uses the same
-  `slotRegistry` singleton from `@stackra/react-ui`, ensuring slots registered
-  via `NavigationModule` are rendered by the existing `<Slot>` component.
+  `slotRegistry` singleton from `@stackra-inc/react-ui`, ensuring slots
+  registered via `NavigationModule` are rendered by the existing `<Slot>`
+  component.
 
 ## Architecture
 
@@ -157,7 +158,7 @@ A new DI module following the `UIModule` pattern.
   name: '@nav/ui',
   version: '1.0.0',
   description: 'Navigation UI components and slot registration',
-  dependencies: ['@stackra/react-ui'],
+  dependencies: ['@stackra-inc/react-ui'],
   tags: ['nav', 'slots'],
 })
 @Module({})
@@ -182,7 +183,7 @@ export class NavigationModule {
 ### 5. Slot Additions to `@nav/ui` Components
 
 Each component gets `before` and `after` `<Slot>` injection points. The `<Slot>`
-component is imported from `@stackra/react-ui`.
+component is imported from `@stackra-inc/react-ui`.
 
 | Component               | Before Slot                    | After Slot                    |
 | ----------------------- | ------------------------------ | ----------------------------- |

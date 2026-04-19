@@ -13,9 +13,9 @@
 #   docker-compose logs -f app         # view app logs
 #
 # Multi-tenancy:
-#   http://stackra.test              # main app
-#   http://acme.stackra.test         # acme tenant
-#   http://globex.stackra.test       # globex tenant
+#   http://stackra-inc.test              # main app
+#   http://acme.stackra-inc.test         # acme tenant
+#   http://globex.stackra-inc.test       # globex tenant
 #
 # =============================================================================
 
@@ -39,7 +39,7 @@ services:
       retries: 3
 
   # ── Proxy — Caddy with wildcard subdomain support ───────────────────────
-  # Only needed for local development with *.stackra.test domains.
+  # Only needed for local development with *.stackra-inc.test domains.
   # In production, your load balancer / CDN handles this.
   proxy:
     image: caddy:2-alpine

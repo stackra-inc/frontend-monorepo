@@ -4,7 +4,7 @@
  * Represents a device with an active session, as returned by the
  * backend `DeviceController`.
  *
- * @module @stackra/react-auth
+ * @module @stackra-inc/react-auth
  * @category Interfaces
  */
 

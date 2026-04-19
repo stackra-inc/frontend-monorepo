@@ -6,7 +6,7 @@
  * All metadata writes go through `@vivtel/metadata` for a consistent,
  * typed API instead of raw `Reflect.*` calls.
  *
- * @module @stackra/ts-events
+ * @module @stackra-inc/ts-events
  * @category Decorators
  */
 

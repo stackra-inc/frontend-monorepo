@@ -4,12 +4,12 @@
  * This hook provides a declarative way to register shortcuts by ID with automatic cleanup.
  * It integrates with the ShortcutRegistry to enable/disable shortcuts and handle their lifecycle.
  *
- * @module @stackra/kbd
+ * @module @stackra-inc/kbd
  * @category Hooks
  */
 
 import { useEffect, useCallback } from 'react';
-import { Str } from '@stackra/ts-support';
+import { Str } from '@stackra-inc/ts-support';
 import { shortcutRegistry } from '@/registries/shortcut.registry';
 
 /**

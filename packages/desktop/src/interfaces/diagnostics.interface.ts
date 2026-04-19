@@ -5,7 +5,7 @@
  * | Types for system info, memory, GPU, network, and crash reporting.
  * |--------------------------------------------------------------------------
  * |
- * @module @stackra/ts-desktop
+ * @module @stackra-inc/ts-desktop
  */
 
 /*

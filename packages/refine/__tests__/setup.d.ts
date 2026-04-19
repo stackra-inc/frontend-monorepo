@@ -7,7 +7,7 @@
  *
  * Required by the `globals: true` setting in vitest.config.ts.
  *
- * @module @stackra/react-refine
+ * @module @stackra-inc/react-refine
  * @category Configuration
  */
 

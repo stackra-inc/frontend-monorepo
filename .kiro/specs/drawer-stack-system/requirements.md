@@ -9,7 +9,7 @@ implementations (HeroUI Drawer and custom DrawerOverlay) coexist — with a sing
 stack-based context that supports push/pop/replace/clear operations, animated
 transitions, z-index management, and internal sub-view navigation. The system is
 built on HeroUI Drawer v3, React 19, and TypeScript, and is designed to be
-extractable into a standalone package (`@stackra/react-drawers`).
+extractable into a standalone package (`@stackra-inc/react-drawers`).
 
 ## Glossary
 
@@ -230,7 +230,7 @@ big-bang rewrite.
 
 **User Story:** As a developer, I want the drawer stack system to be structured
 as an extractable module, so that it can later be published as
-`@stackra/react-drawers` without refactoring.
+`@stackra-inc/react-drawers` without refactoring.
 
 #### Acceptance Criteria
 

@@ -1,10 +1,10 @@
 <p align="center">
-  <img src=".github/assets/banner.svg" alt="@stackra/react-multitenancy" width="100%" />
+  <img src=".github/assets/banner.svg" alt="@stackra-inc/react-multitenancy" width="100%" />
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/@stackra/react-multitenancy">
-    <img src="https://img.shields.io/npm/v/@stackra/react-multitenancy?style=flat-square&color=38bdf8&label=npm" alt="npm version" />
+  <a href="https://www.npmjs.com/package/@stackra-inc/react-multitenancy">
+    <img src="https://img.shields.io/npm/v/@stackra-inc/react-multitenancy?style=flat-square&color=38bdf8&label=npm" alt="npm version" />
   </a>
   <a href="./LICENSE">
     <img src="https://img.shields.io/badge/license-MIT-818cf8?style=flat-square" alt="MIT license" />
@@ -20,12 +20,12 @@
 ---
 
 <p align="center">
-  <img src=".github/assets/banner.svg" alt="@stackra/react-multitenancy" width="100%" />
+  <img src=".github/assets/banner.svg" alt="@stackra-inc/react-multitenancy" width="100%" />
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/@stackra/react-multitenancy">
-    <img src="https://img.shields.io/npm/v/@stackra/react-multitenancy?style=flat-square&color=38bdf8&label=npm" alt="npm version" />
+  <a href="https://www.npmjs.com/package/@stackra-inc/react-multitenancy">
+    <img src="https://img.shields.io/npm/v/@stackra-inc/react-multitenancy?style=flat-square&color=38bdf8&label=npm" alt="npm version" />
   </a>
   <a href="./LICENSE">
     <img src="https://img.shields.io/badge/license-MIT-818cf8?style=flat-square" alt="MIT license" />
@@ -38,12 +38,12 @@
 ---
 
 <p align="center">
-  <img src=".github/assets/banner.svg" alt="@stackra/react-multitenancy" width="100%" />
+  <img src=".github/assets/banner.svg" alt="@stackra-inc/react-multitenancy" width="100%" />
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/@stackra/react-multitenancy">
-    <img src="https://img.shields.io/npm/v/@stackra/react-multitenancy?style=flat-square&color=38bdf8&label=npm" alt="npm version" />
+  <a href="https://www.npmjs.com/package/@stackra-inc/react-multitenancy">
+    <img src="https://img.shields.io/npm/v/@stackra-inc/react-multitenancy?style=flat-square&color=38bdf8&label=npm" alt="npm version" />
   </a>
   <a href="./LICENSE">
     <img src="https://img.shields.io/badge/license-MIT-818cf8?style=flat-square" alt="MIT license" />
@@ -60,7 +60,7 @@
 
 # Multi-Tenancy Configuration
 
-Configuration utilities and presets for `@stackra/multitenancy` package.
+Configuration utilities and presets for `@stackra-inc/multitenancy` package.
 
 ## Structure
 
@@ -81,7 +81,10 @@ config/
 ### Basic Usage
 
 ```typescript
-import { defineConfig, subdomainPreset } from '@stackra/multitenancy/config';
+import {
+  defineConfig,
+  subdomainPreset,
+} from '@stackra-inc/multitenancy/config';
 
 const config = defineConfig({
   ...subdomainPreset,
@@ -96,7 +99,7 @@ const config = defineConfig({
 ### Without Preset
 
 ```typescript
-import { defineConfig, TenantMode } from '@stackra/multitenancy/config';
+import { defineConfig, TenantMode } from '@stackra-inc/multitenancy/config';
 
 const config = defineConfig({
   mode: TenantMode.HEADER,
@@ -224,7 +227,7 @@ fetchTenants: async () => {
 Full TypeScript support with comprehensive type definitions:
 
 ```typescript
-import type { MultiTenancyOptions } from '@stackra/multitenancy/config';
+import type { MultiTenancyOptions } from '@stackra-inc/multitenancy/config';
 
 const config: Partial<MultiTenancyOptions> = {
   mode: TenantMode.HEADER,

@@ -1,4 +1,4 @@
-/** @fileoverview useCustom hook — execute a custom query. @module @stackra/react-refine @category Hooks */
+/** @fileoverview useCustom hook — execute a custom query. @module @stackra-inc/react-refine @category Hooks */
 import { useQuery } from '@tanstack/react-query';
 import { resolveService } from '@/use-service.util';
 import { QueryKeyFactory } from '@/utils/query-key-factory.util';

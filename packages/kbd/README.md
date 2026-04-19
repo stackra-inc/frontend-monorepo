@@ -1,10 +1,10 @@
 <p align="center">
-  <img src=".github/assets/banner.svg" alt="@stackra/kbd" width="100%" />
+  <img src=".github/assets/banner.svg" alt="@stackra-inc/kbd" width="100%" />
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/@stackra/kbd">
-    <img src="https://img.shields.io/npm/v/@stackra/kbd?style=flat-square&color=38bdf8&label=npm" alt="npm version" />
+  <a href="https://www.npmjs.com/package/@stackra-inc/kbd">
+    <img src="https://img.shields.io/npm/v/@stackra-inc/kbd?style=flat-square&color=38bdf8&label=npm" alt="npm version" />
   </a>
   <a href="./LICENSE">
     <img src="https://img.shields.io/badge/license-MIT-818cf8?style=flat-square" alt="MIT license" />
@@ -17,12 +17,12 @@
 ---
 
 <p align="center">
-  <img src=".github/assets/banner.svg" alt="@stackra/kbd" width="100%" />
+  <img src=".github/assets/banner.svg" alt="@stackra-inc/kbd" width="100%" />
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/@stackra/kbd">
-    <img src="https://img.shields.io/npm/v/@stackra/kbd?style=flat-square&color=38bdf8&label=npm" alt="npm version" />
+  <a href="https://www.npmjs.com/package/@stackra-inc/kbd">
+    <img src="https://img.shields.io/npm/v/@stackra-inc/kbd?style=flat-square&color=38bdf8&label=npm" alt="npm version" />
   </a>
   <a href="./LICENSE">
     <img src="https://img.shields.io/badge/license-MIT-818cf8?style=flat-square" alt="MIT license" />
@@ -35,12 +35,12 @@
 ---
 
 <p align="center">
-  <img src=".github/assets/banner.svg" alt="@stackra/kbd" width="100%" />
+  <img src=".github/assets/banner.svg" alt="@stackra-inc/kbd" width="100%" />
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/@stackra/kbd">
-    <img src="https://img.shields.io/npm/v/@stackra/kbd?style=flat-square&color=38bdf8&label=npm" alt="npm version" />
+  <a href="https://www.npmjs.com/package/@stackra-inc/kbd">
+    <img src="https://img.shields.io/npm/v/@stackra-inc/kbd?style=flat-square&color=38bdf8&label=npm" alt="npm version" />
   </a>
   <a href="./LICENSE">
     <img src="https://img.shields.io/badge/license-MIT-818cf8?style=flat-square" alt="MIT license" />
@@ -52,7 +52,7 @@
 
 ---
 
-# @stackra/kbd
+# @stackra-inc/kbd
 
 Keyboard shortcut management with DI integration, registry pattern,
 platform-specific keys, and React components.
@@ -60,7 +60,7 @@ platform-specific keys, and React components.
 ## Installation
 
 ```bash
-pnpm add @stackra/kbd
+pnpm add @stackra-inc/kbd
 ```
 
 ## Features
@@ -88,8 +88,8 @@ pnpm add @stackra/kbd
  * | Register KbdModule in your root AppModule.
  * |-------------------------------------------------------------------
  */
-import { Module } from '@stackra/ts-container';
-import { KbdModule } from '@stackra/kbd';
+import { Module } from '@stackra-inc/ts-container';
+import { KbdModule } from '@stackra-inc/kbd';
 
 @Module({
   imports: [KbdModule.forRoot({ registerBuiltIn: true, debug: false })],
@@ -130,8 +130,8 @@ export class PosModule {}
  * | Inject ShortcutRegistry via DI to register/query shortcuts.
  * |-------------------------------------------------------------------
  */
-import { Injectable, Inject } from '@stackra/ts-container';
-import { ShortcutRegistry, SHORTCUT_REGISTRY } from '@stackra/kbd';
+import { Injectable, Inject } from '@stackra-inc/ts-container';
+import { ShortcutRegistry, SHORTCUT_REGISTRY } from '@stackra-inc/kbd';
 
 @Injectable()
 export class EditorService {
@@ -158,7 +158,7 @@ export class EditorService {
  * | useShortcut registers a shortcut with automatic cleanup.
  * |-------------------------------------------------------------------
  */
-import { useShortcut, useShortcutRegistry, RefineKbd } from '@stackra/kbd';
+import { useShortcut, useShortcutRegistry, RefineKbd } from '@stackra-inc/kbd';
 
 function SaveButton() {
   useShortcut({ id: 'editor.save', callback: () => handleSave() });

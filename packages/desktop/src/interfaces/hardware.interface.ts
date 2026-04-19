@@ -5,7 +5,7 @@
  * | Types for printer, cash drawer, scanner, scale, and display services.
  * |--------------------------------------------------------------------------
  * |
- * @module @stackra/ts-desktop
+ * @module @stackra-inc/ts-desktop
  */
 
 /*

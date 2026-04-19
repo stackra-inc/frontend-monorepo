@@ -32,8 +32,8 @@ import {
   Optional,
   type OnModuleInit,
   type OnModuleDestroy,
-} from '@stackra/ts-container';
-import { MultipleInstanceManager } from '@stackra/ts-support';
+} from '@stackra-inc/ts-container';
+import { MultipleInstanceManager } from '@stackra-inc/ts-support';
 
 import { EnvDriver } from '@/drivers/env.driver';
 import { FileDriver } from '@/drivers/file.driver';
@@ -48,7 +48,7 @@ import type {
 
 /**
  * Token for the optional HttpClient injection.
- * Resolved from `@stackra/ts-http` if available.
+ * Resolved from `@stackra-inc/ts-http` if available.
  */
 const HTTP_CLIENT_TOKEN = Symbol.for('HTTP_CLIENT');
 
@@ -261,7 +261,7 @@ export class ConfigManager
 
         if (!this.httpClient) {
           throw new Error(
-            'HTTP config driver requires @stackra/ts-http.\n' +
+            'HTTP config driver requires @stackra-inc/ts-http.\n' +
               'Import HttpModule.forRoot() before ConfigModule.forRoot().'
           );
         }

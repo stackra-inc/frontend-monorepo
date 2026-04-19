@@ -8,7 +8,7 @@
  */
 
 import { useState, useEffect, useCallback, useRef } from 'react';
-import { useInject } from '@stackra/ts-container';
+import { useInject } from '@stackra-inc/ts-container';
 import type {
   SettingDtoConstructor,
   ResolvedSettingGroup,

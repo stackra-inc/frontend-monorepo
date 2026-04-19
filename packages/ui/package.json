@@ -1,5 +1,5 @@
 {
-  "name": "@stackra/ts-ui",
+  "name": "@stackra-inc/ts-ui",
   "version": "1.0.0",
   "private": false,
   "type": "module",
@@ -34,8 +34,8 @@
     "release": "pnpm publish --access public --no-git-checks"
   },
   "peerDependencies": {
-    "@stackra/ts-support": "workspace:*",
-    "@stackra/ts-container": "^2.0.4",
+    "@stackra-inc/ts-support": "workspace:*",
+    "@stackra-inc/ts-container": "^2.0.4",
     "react": "^18.0.0 || ^19.0.0"
   },
   "peerDependenciesMeta": {

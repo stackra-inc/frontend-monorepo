@@ -1,5 +1,5 @@
 {
-  "name": "@stackra/vite",
+  "name": "@stackra-inc/vite",
   "private": true,
   "version": "0.1.0",
   "type": "module",
@@ -18,18 +18,18 @@
     "upgrade": "pnpm update --latest"
   },
   "dependencies": {
-    "@stackra/ts-config": "workspace:*",
-    "@stackra/ts-container": "^2.0.4",
-    "@stackra/ts-desktop": "workspace:*",
-    "@stackra/kbd": "workspace:*",
-    "@stackra/ts-pwa": "workspace:*",
-    "@stackra/ts-ui": "workspace:*",
-    "@stackra/ts-logger": "workspace:*",
-    "@stackra/ts-redis": "workspace:*",
-    "@stackra/ts-cache": "workspace:*",
-    "@stackra/ts-settings": "workspace:*",
-    "@stackra/ts-events": "workspace:*",
-    "@stackra/ts-support": "workspace:*",
+    "@stackra-inc/ts-config": "workspace:*",
+    "@stackra-inc/ts-container": "^2.0.4",
+    "@stackra-inc/ts-desktop": "workspace:*",
+    "@stackra-inc/kbd": "workspace:*",
+    "@stackra-inc/ts-pwa": "workspace:*",
+    "@stackra-inc/ts-ui": "workspace:*",
+    "@stackra-inc/ts-logger": "workspace:*",
+    "@stackra-inc/ts-redis": "workspace:*",
+    "@stackra-inc/ts-cache": "workspace:*",
+    "@stackra-inc/ts-settings": "workspace:*",
+    "@stackra-inc/ts-events": "workspace:*",
+    "@stackra-inc/ts-support": "workspace:*",
     "@heroui/react": "3.0.1",
     "@heroui/styles": "3.0.1",
     "clsx": "2.1.1",
@@ -69,10 +69,10 @@
     "vite-tsconfig-paths": "5.1.4"
   },
   "description": "Stackra Vite application — HeroUI starter.",
-  "homepage": "https://github.com/stackra-co/frontend-monorepo/tree/main/apps/vite",
+  "homepage": "https://github.com/stackra-inc/frontend-monorepo/tree/main/apps/vite",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/stackra-co/frontend-monorepo.git",
+    "url": "git+https://github.com/stackra-inc/frontend-monorepo.git",
     "directory": "apps/vite"
   },
   "license": "MIT",
@@ -82,7 +82,7 @@
     "url": "https://stackra.com"
   },
   "bugs": {
-    "url": "https://github.com/stackra-co/frontend-monorepo/issues"
+    "url": "https://github.com/stackra-inc/frontend-monorepo/issues"
   },
   "engines": {
     "node": ">=18",

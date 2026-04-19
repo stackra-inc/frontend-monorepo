@@ -2,14 +2,14 @@
  * defineConfig Helper
  *
  * |--------------------------------------------------------------------------
- * | Type-safe config factory for @stackra/ts-pwa.
+ * | Type-safe config factory for @stackra-inc/ts-pwa.
  * |--------------------------------------------------------------------------
  * |
  * | Provides IntelliSense and type checking for the PWA config file.
  * | Returns the config object unchanged — it's purely a type helper.
  * |
  * | Usage:
- * |   import { defineConfig } from "@stackra/ts-pwa";
+ * |   import { defineConfig } from "@stackra-inc/ts-pwa";
  * |
  * |   export default defineConfig({
  * |     vite: { manifest: { name: "My App" } },

@@ -1,7 +1,7 @@
 /**
  * @fileoverview A single field definition within a resource.
  *
- * @module @stackra/react-refine
+ * @module @stackra-inc/react-refine
  * @category Interfaces
  */
 

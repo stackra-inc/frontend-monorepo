@@ -1,22 +1,22 @@
 <p align="center">
-  <img src=".github/assets/banner.svg" alt="@stackra/ts-settings" width="100%" />
+  <img src=".github/assets/banner.svg" alt="@stackra-inc/ts-settings" width="100%" />
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/@stackra/ts-settings">
-    <img src="https://img.shields.io/npm/v/@stackra/ts-settings?style=flat-square&color=38bdf8&label=npm" alt="npm version" />
+  <a href="https://www.npmjs.com/package/@stackra-inc/ts-settings">
+    <img src="https://img.shields.io/npm/v/@stackra-inc/ts-settings?style=flat-square&color=38bdf8&label=npm" alt="npm version" />
   </a>
   <a href="./LICENSE">
     <img src="https://img.shields.io/badge/license-MIT-818cf8?style=flat-square" alt="MIT license" />
   </a>
   <a href="https://www.typescriptlang.org/">
     <img src="https://img.shields.io/badge/TypeScript-5.x-3178c6?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript" />
-  </a>prependreprepend_banner "$BASE/settings" "settings" "@stackra/ts-settings" "1.actprep2Bprepend_banner "$BASE/settings" "settings" "@stackra/ts-slorprepend aprepend_banner "$BASE/settings" "settings" "@stackra/ts-settings" "1.ingprepend_banneeaprepend_banner "$BASE/settings" "settings" "@stackra/ts-settings" "1.0.1" prependreprepend_banner
+  </a>prependreprepend_banner "$BASE/settings" "settings" "@stackra-inc/ts-settings" "1.actprep2Bprepend_banner "$BASE/settings" "settings" "@stackra-inc/ts-slorprepend aprepend_banner "$BASE/settings" "settings" "@stackra-inc/ts-settings" "1.ingprepend_banneeaprepend_banner "$BASE/settings" "settings" "@stackra-inc/ts-settings" "1.0.1" prependreprepend_banner
 </p>
 
 ---
 
-# @stackra/ts-settings
+# @stackra-inc/ts-settings
 
 Registry-based settings management with decorator-driven DTOs, multi-driver
 persistence, and DI integration.
@@ -24,7 +24,7 @@ persistence, and DI integration.
 ## Installation
 
 ```bash
-pnpm add @stackra/ts-settings
+pnpm add @stackra-inc/ts-settings
 ```
 
 ## Features
@@ -52,8 +52,8 @@ pnpm add @stackra/ts-settings
  * | Register SettingsModule in your root AppModule.
  * |-------------------------------------------------------------------
  */
-import { Module } from '@stackra/ts-container';
-import { SettingsModule } from '@stackra/ts-settings';
+import { Module } from '@stackra-inc/ts-container';
+import { SettingsModule } from '@stackra-inc/ts-settings';
 
 @Module({
   imports: [
@@ -86,7 +86,7 @@ export class AppModule {}
  * | Use @Setting, @Group, @Section, and @Field decorators.
  * |-------------------------------------------------------------------
  */
-import { Setting, Group, Section, Field } from '@stackra/ts-settings';
+import { Setting, Group, Section, Field } from '@stackra-inc/ts-settings';
 
 @Setting({ key: 'display', label: 'Display Settings' })
 export class DisplaySettings {
@@ -126,7 +126,7 @@ export class SettingsFeatureModule {}
  * | useSettings() provides get/set with reactive updates.
  * |-------------------------------------------------------------------
  */
-import { useSettings } from '@stackra/ts-settings';
+import { useSettings } from '@stackra-inc/ts-settings';
 
 function SettingsPanel() {
   const { groups, getValue, setValue, loading } = useSettings();

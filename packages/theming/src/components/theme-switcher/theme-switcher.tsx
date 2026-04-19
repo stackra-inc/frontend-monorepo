@@ -3,7 +3,7 @@
  *
  * Color swatch row for picking a named theme.
  *
- * @module @stackra/react-theming
+ * @module @stackra-inc/react-theming
  * @category Components
  */
 

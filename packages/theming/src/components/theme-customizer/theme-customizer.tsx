@@ -10,7 +10,7 @@
  * |   - Theme palette switcher (color swatches)
  * |   - Registered customizer panels (via ThemeModule.registerCustomizer)
  * |
- * | Slot positions (via @stackra/ts-ui slotRegistry):
+ * | Slot positions (via @stackra-inc/ts-ui slotRegistry):
  * |   - theme.customizer.before
  * |   - theme.customizer.before-mode
  * |   - theme.customizer.after-mode

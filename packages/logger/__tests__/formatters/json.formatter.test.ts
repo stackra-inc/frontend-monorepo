@@ -12,7 +12,7 @@
  * useful for structured logging and integration with log aggregation
  * systems like ELK, Splunk, or CloudWatch.
  *
- * @module @stackra/ts-logger
+ * @module @stackra-inc/ts-logger
  * @category Tests
  */
 

@@ -7,7 +7,7 @@
  * @module hooks/use-logger
  */
 
-import { useInject } from '@stackra/ts-container';
+import { useInject } from '@stackra-inc/ts-container';
 import { LoggerManager } from '@/services/logger-manager.service';
 import type { LoggerService } from '@/services/logger.service';
 

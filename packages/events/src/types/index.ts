@@ -1,6 +1,6 @@
 /**
  * @fileoverview Types Index
- * @module @stackra/ts-events
+ * @module @stackra-inc/ts-events
  */
 
 export type { EventDriver } from './event-driver.type';

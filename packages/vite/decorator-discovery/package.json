@@ -1,5 +1,5 @@
 {
-  "name": "@stackra/vite-decorator-discovery",
+  "name": "@stackra-inc/vite-decorator-discovery",
   "version": "1.0.0",
   "description": "Vite plugin for build-time decorator discovery and virtual module generation. Inspired by NestJS DiscoveryService.",
   "keywords": [
@@ -14,7 +14,7 @@
     "compile-time"
   ],
   "license": "MIT",
-  "author": "stackra",
+  "author": "stackra-inc",
   "type": "module",
   "sideEffects": false,
   "exports": {
@@ -54,7 +54,7 @@
   "dependencies": {
     "glob": "^11.0.0",
     "typescript": "^6.0.3",
-    "@stackra/ts-support": "workspace:*"
+    "@stackra-inc/ts-support": "workspace:*"
   },
   "peerDependencies": {
     "vite": "^5.0.0 || ^6.0.0"

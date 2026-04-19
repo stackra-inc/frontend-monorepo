@@ -1,6 +1,6 @@
 /**
- * @fileoverview Vitest configuration for @stackra/react-router package.
- * @module @stackra/react-router
+ * @fileoverview Vitest configuration for @stackra-inc/react-router package.
+ * @module @stackra-inc/react-router
  * @category Configuration
  */
 import { defineConfig } from 'vitest/config';

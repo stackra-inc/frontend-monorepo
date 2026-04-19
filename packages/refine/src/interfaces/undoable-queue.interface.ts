@@ -4,7 +4,7 @@
  * Types for the undoable mutation queue that powers
  * `mutationMode: "undoable"` in data hooks.
  *
- * @module @stackra/react-refine
+ * @module @stackra-inc/react-refine
  * @category Interfaces
  */
 

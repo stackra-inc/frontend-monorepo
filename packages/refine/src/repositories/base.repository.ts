@@ -4,13 +4,13 @@
  * All resource repositories (HttpRepository, custom)
  * extend this class to ensure a consistent data-access interface.
  *
- * @module @stackra/react-refine
+ * @module @stackra-inc/react-refine
  * @category Repositories
  *
  * @example
  * ```typescript
- * import { BaseRepository } from '@stackra/react-refine';
- * import type { GetListParams, GetListResult, CustomParams } from '@stackra/react-refine';
+ * import { BaseRepository } from '@stackra-inc/react-refine';
+ * import type { GetListParams, GetListResult, CustomParams } from '@stackra-inc/react-refine';
  *
  * class MyRepository extends BaseRepository<Post, string> {
  *   async getOne(id: string) { ... }
@@ -20,7 +20,7 @@
  * ```
  */
 
-import { Injectable } from '@stackra/ts-container';
+import { Injectable } from '@stackra-inc/ts-container';
 import type { GetListParams } from '@/interfaces/get-list-params.interface';
 import type { GetListResult } from '@/interfaces/get-list-result.interface';
 import type { CustomParams } from '@/interfaces/custom-params.interface';

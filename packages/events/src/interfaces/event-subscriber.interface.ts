@@ -3,7 +3,7 @@
  *
  * An event subscriber is a class that subscribes to multiple events.
  *
- * @module @stackra/ts-events
+ * @module @stackra-inc/ts-events
  * @category Interfaces
  */
 

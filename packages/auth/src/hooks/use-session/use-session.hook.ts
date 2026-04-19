@@ -1,6 +1,6 @@
-/** @fileoverview useSession hook. @module @stackra/react-auth @category Hooks */
+/** @fileoverview useSession hook. @module @stackra-inc/react-auth @category Hooks */
 import { useQuery, useMutation } from '@tanstack/react-query';
-import { useInject } from '@stackra/ts-container';
+import { useInject } from '@stackra-inc/ts-container';
 import { SESSION_SERVICE } from '@/constants';
 import type { SessionService } from '@/services/session.service';
 import type { Session } from '@/interfaces/session.interface';

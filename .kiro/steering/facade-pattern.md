@@ -12,7 +12,7 @@ an injectable service MUST have a corresponding facade.
 Facades are typed constants created via `Facade.make<T>(token)`:
 
 ```typescript
-import { Facade } from '@stackra/ts-support';
+import { Facade } from '@stackra-inc/ts-support';
 import { CacheManager } from '../services/cache-manager.service';
 import { CACHE_MANAGER } from '../constants/tokens.constant';
 
@@ -39,8 +39,8 @@ Call `Facade.setApplication(app)` once in `main.tsx` after
 `Application.create()`:
 
 ```typescript
-import { Application } from '@stackra/ts-container';
-import { Facade } from '@stackra/ts-support';
+import { Application } from '@stackra-inc/ts-container';
+import { Facade } from '@stackra-inc/ts-support';
 
 const app = await Application.create(AppModule);
 Facade.setApplication(app); // wires all facades
@@ -49,7 +49,7 @@ Facade.setApplication(app); // wires all facades
 ## Usage
 
 ```typescript
-import { CacheFacade } from '@stackra/ts-cache';
+import { CacheFacade } from '@stackra-inc/ts-cache';
 
 // Full autocomplete — no .proxy() call, no .instance getter
 CacheFacade.store().remember('key', 3600, () => fetch());
@@ -58,7 +58,7 @@ CacheFacade.store().remember('key', 3600, () => fetch());
 ## Testing — Swap in a Mock
 
 ```typescript
-import { Facade } from '@stackra/ts-support';
+import { Facade } from '@stackra-inc/ts-support';
 
 // Before test
 Facade.swap(CACHE_MANAGER, mockInstance);
@@ -74,17 +74,17 @@ Run `node scripts/generate-facades.mjs` to regenerate all facades. Run
 
 ## Existing Facades
 
-| Facade           | Package                  | Service                | Token                  |
-| ---------------- | ------------------------ | ---------------------- | ---------------------- |
-| `CacheFacade`    | `@stackra/ts-cache`      | `CacheManager`         | `CACHE_MANAGER`        |
-| `ConfigFacade`   | `@stackra/ts-config`     | `ConfigManager`        | `ConfigManager`        |
-| `EventFacade`    | `@stackra/ts-events`     | `EventManager`         | `EVENT_MANAGER`        |
-| `HttpFacade`     | `@stackra/ts-http`       | `HttpClient`           | `HTTP_CLIENT`          |
-| `ShortcutFacade` | `@stackra/kbd`           | `ShortcutRegistry`     | `ShortcutRegistry`     |
-| `LogFacade`      | `@stackra/ts-logger`     | `LoggerManager`        | `LoggerManager`        |
-| `RedisFacade`    | `@stackra/ts-redis`      | `RedisManager`         | `RedisManager`         |
-| `SettingsFacade` | `@stackra/ts-settings`   | `SettingsStoreManager` | `SettingsStoreManager` |
-| `DesktopFacade`  | `@stackra/ts-desktop`    | `DesktopManager`       | `DesktopManager`       |
-| `AuthFacade`     | `@stackra/react-auth`    | `AuthService`          | `AUTH_SERVICE`         |
-| `RouteFacade`    | `@stackra/react-router`  | `RouteRegistry`        | `ROUTE_REGISTRY`       |
-| `ThemeFacade`    | `@stackra/react-theming` | `ThemeRegistry`        | `THEME_REGISTRY`       |
+| Facade           | Package                      | Service                | Token                  |
+| ---------------- | ---------------------------- | ---------------------- | ---------------------- |
+| `CacheFacade`    | `@stackra-inc/ts-cache`      | `CacheManager`         | `CACHE_MANAGER`        |
+| `ConfigFacade`   | `@stackra-inc/ts-config`     | `ConfigManager`        | `ConfigManager`        |
+| `EventFacade`    | `@stackra-inc/ts-events`     | `EventManager`         | `EVENT_MANAGER`        |
+| `HttpFacade`     | `@stackra-inc/ts-http`       | `HttpClient`           | `HTTP_CLIENT`          |
+| `ShortcutFacade` | `@stackra-inc/kbd`           | `ShortcutRegistry`     | `ShortcutRegistry`     |
+| `LogFacade`      | `@stackra-inc/ts-logger`     | `LoggerManager`        | `LoggerManager`        |
+| `RedisFacade`    | `@stackra-inc/ts-redis`      | `RedisManager`         | `RedisManager`         |
+| `SettingsFacade` | `@stackra-inc/ts-settings`   | `SettingsStoreManager` | `SettingsStoreManager` |
+| `DesktopFacade`  | `@stackra-inc/ts-desktop`    | `DesktopManager`       | `DesktopManager`       |
+| `AuthFacade`     | `@stackra-inc/react-auth`    | `AuthService`          | `AUTH_SERVICE`         |
+| `RouteFacade`    | `@stackra-inc/react-router`  | `RouteRegistry`        | `ROUTE_REGISTRY`       |
+| `ThemeFacade`    | `@stackra-inc/react-theming` | `ThemeRegistry`        | `THEME_REGISTRY`       |

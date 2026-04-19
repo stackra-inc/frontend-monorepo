@@ -2,10 +2,10 @@
  * HTTP Response Interface (Local Mirror)
  *
  * Local definition of the HTTP response returned by the
- * `@stackra/ts-http` middleware pipeline. Defined here to avoid
+ * `@stackra-inc/ts-http` middleware pipeline. Defined here to avoid
  * a hard dependency on the HTTP package.
  *
- * Matches the `HttpResponse` interface from `@stackra/ts-http`.
+ * Matches the `HttpResponse` interface from `@stackra-inc/ts-http`.
  *
  * @module interfaces/http-response
  */

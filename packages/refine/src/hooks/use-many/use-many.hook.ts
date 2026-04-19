@@ -1,4 +1,4 @@
-/** @fileoverview useMany hook — fetch multiple records by IDs. @module @stackra/react-refine @category Hooks */
+/** @fileoverview useMany hook — fetch multiple records by IDs. @module @stackra-inc/react-refine @category Hooks */
 import { useQuery } from '@tanstack/react-query';
 import { resolveService } from '@/use-service.util';
 import { QueryKeyFactory } from '@/utils/query-key-factory.util';

@@ -16,7 +16,7 @@ import type { TenantResolver } from '@/interfaces';
  *
  * @example
  * ```typescript
- * import { createResolverChain } from "@stackra/react-multitenancy";
+ * import { createResolverChain } from "@stackra-inc/react-multitenancy";
  *
  * const resolvers = [
  *   new SubdomainResolver(config),

@@ -5,12 +5,12 @@
 # Routes wildcard subdomains to the Vite dev server or production app.
 #
 # Local development (pnpm dev):
-#   http://stackra.test       → localhost:5173
-#   http://acme.stackra.test  → localhost:5173
+#   http://stackra-inc.test       → localhost:5173
+#   http://acme.stackra-inc.test  → localhost:5173
 #
 # Docker (docker-compose up):
-#   http://stackra.test       → app:8080
-#   http://acme.stackra.test  → app:8080
+#   http://stackra-inc.test       → app:8080
+#   http://acme.stackra-inc.test  → app:8080
 #
 # The subdomain is passed to the app via the Host header.
 # The multitenancy package's SubdomainResolver reads it.
@@ -23,6 +23,6 @@
 }
 
 # ── Local development — proxy to Vite dev server ────────────────────────────
-http://stackra.test, http://*.stackra.test {
+http://stackra-inc.test, http://*.stackra-inc.test {
     reverse_proxy localhost:5173
 }

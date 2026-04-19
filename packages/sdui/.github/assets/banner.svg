@@ -41,7 +41,7 @@
     <rect x="12" y="84" width="24" height="8" rx="2" fill="#c084fc" opacity="0.3"/>
     <rect x="12" y="96" width="30" height="8" rx="2" fill="#38bdf8" opacity="0.3"/>
   </g>
-  <text x="240" y="178" font-family="ui-monospace,'Cascadia Code','Fira Code',Menlo,monospace" font-size="42" font-weight="700" fill="#f1f5f9" letter-spacing="-0.5">@stackra/react-sdui</text>
+  <text x="240" y="178" font-family="ui-monospace,'Cascadia Code','Fira Code',Menlo,monospace" font-size="42" font-weight="700" fill="#f1f5f9" letter-spacing="-0.5">@stackra-inc/react-sdui</text>
   <text x="240" y="218" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif" font-size="18" fill="#94a3b8">Server-Driven UI — fetch page definitions, auto-register routes</text>
   <g transform="translate(240, 245)">
     <rect x="0" y="0" width="110" height="32" rx="6" fill="#38bdf8" opacity="0.12"/>

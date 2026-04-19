@@ -1,10 +1,10 @@
 /**
- * @stackra/react-auth — Authentication & Session Management for React
+ * @stackra-inc/react-auth — Authentication & Session Management for React
  *
  * Provides auth services, session management, security checks, device
  * management, and React hooks for building complete auth UIs.
  *
- * @module @stackra/react-auth
+ * @module @stackra-inc/react-auth
  */
 
 import 'reflect-metadata';

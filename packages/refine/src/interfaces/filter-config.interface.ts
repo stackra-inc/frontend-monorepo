@@ -1,7 +1,7 @@
 /**
  * @fileoverview Filter configuration for a resource field.
  *
- * @module @stackra/react-refine
+ * @module @stackra-inc/react-refine
  * @category Interfaces
  */
 

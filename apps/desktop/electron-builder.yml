@@ -12,7 +12,7 @@
 # |   pnpm package:linux — build Linux .AppImage + .deb
 # |
 
-appId: com.stackra.desktop
+appId: com.stackra-inc.desktop
 productName: Stackra
 copyright: Copyright © 2025 Stackra L.L.C
 

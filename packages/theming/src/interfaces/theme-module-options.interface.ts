@@ -1,6 +1,6 @@
 /**
  * @fileoverview ThemeModuleOptions interface — forRoot configuration.
- * @module @stackra/react-theming
+ * @module @stackra-inc/react-theming
  * @category Interfaces
  */
 

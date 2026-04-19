@@ -1,10 +1,10 @@
 <p align="center">
-  <img src=".github/assets/banner.svg" alt="@stackra/ts-eloquent" width="100%" />
+  <img src=".github/assets/banner.svg" alt="@stackra-inc/ts-eloquent" width="100%" />
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/@stackra/ts-eloquent">
-    <img src="https://img.shields.io/npm/v/@stackra/ts-eloquent?style=flat-square&color=38bdf8&label=npm" alt="npm version" />
+  <a href="https://www.npmjs.com/package/@stackra-inc/ts-eloquent">
+    <img src="https://img.shields.io/npm/v/@stackra-inc/ts-eloquent?style=flat-square&color=38bdf8&label=npm" alt="npm version" />
   </a>
   <a href="./LICENSE">
     <img src="https://img.shields.io/badge/license-MIT-818cf8?style=flat-square" alt="MIT license" />
@@ -20,12 +20,12 @@
 ---
 
 <p align="center">
-  <img src=".github/assets/banner.svg" alt="@stackra/ts-eloquent" width="100%" />
+  <img src=".github/assets/banner.svg" alt="@stackra-inc/ts-eloquent" width="100%" />
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/@stackra/ts-eloquent">
-    <img src="https://img.shields.io/npm/v/@stackra/ts-eloquent?style=flat-square&color=38bdf8&label=npm" alt="npm version" />
+  <a href="https://www.npmjs.com/package/@stackra-inc/ts-eloquent">
+    <img src="https://img.shields.io/npm/v/@stackra-inc/ts-eloquent?style=flat-square&color=38bdf8&label=npm" alt="npm version" />
   </a>
   <a href="./LICENSE">
     <img src="https://img.shields.io/badge/license-MIT-818cf8?style=flat-square" alt="MIT license" />
@@ -38,12 +38,12 @@
 ---
 
 <p align="center">
-  <img src=".github/assets/banner.svg" alt="@stackra/ts-eloquent" width="100%" />
+  <img src=".github/assets/banner.svg" alt="@stackra-inc/ts-eloquent" width="100%" />
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/@stackra/ts-eloquent">
-    <img src="https://img.shields.io/npm/v/@stackra/ts-eloquent?style=flat-square&color=38bdf8&label=npm" alt="npm version" />
+  <a href="https://www.npmjs.com/package/@stackra-inc/ts-eloquent">
+    <img src="https://img.shields.io/npm/v/@stackra-inc/ts-eloquent?style=flat-square&color=38bdf8&label=npm" alt="npm version" />
   </a>
   <a href="./LICENSE">
     <img src="https://img.shields.io/badge/license-MIT-818cf8?style=flat-square" alt="MIT license" />
@@ -58,7 +58,7 @@
 
 ---
 
-# @stackra/ts-eloquent
+# @stackra-inc/ts-eloquent
 
 Laravel Eloquent-style ORM built on RxDB for client-side TypeScript
 applications.
@@ -66,7 +66,7 @@ applications.
 ## Installation
 
 ```bash
-pnpm add @stackra/ts-eloquent
+pnpm add @stackra-inc/ts-eloquent
 ```
 
 ## Features
@@ -102,8 +102,8 @@ pnpm add @stackra/ts-eloquent
  * | Register EloquentModule in your root AppModule.
  * |-------------------------------------------------------------------
  */
-import { Module } from '@stackra/ts-container';
-import { EloquentModule } from '@stackra/ts-eloquent';
+import { Module } from '@stackra-inc/ts-container';
+import { EloquentModule } from '@stackra-inc/ts-eloquent';
 
 @Module({
   imports: [
@@ -156,7 +156,7 @@ import {
   Fillable,
   HasMany,
   Timestamps,
-} from '@stackra/ts-eloquent';
+} from '@stackra-inc/ts-eloquent';
 
 @Collection('users')
 @Timestamps()
@@ -200,7 +200,7 @@ const first = await User.query()
  * | useFind with live mode subscribes to document changes.
  * |-------------------------------------------------------------------
  */
-import { useFind } from '@stackra/ts-eloquent';
+import { useFind } from '@stackra-inc/ts-eloquent';
 
 function UserProfile({ userId }: { userId: string }) {
   const { data: user, loading, error } = useFind(User, userId, { live: true });

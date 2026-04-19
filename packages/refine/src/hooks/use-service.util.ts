@@ -1,7 +1,7 @@
 /**
  * @fileoverview Internal utility for resolving services in hooks.
  *
- * @module @stackra/react-refine
+ * @module @stackra-inc/react-refine
  * @category Hooks
  * @internal
  */

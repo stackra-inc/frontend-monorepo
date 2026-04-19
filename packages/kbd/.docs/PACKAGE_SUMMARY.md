@@ -1,15 +1,15 @@
-# @stackra/kbd Package Summary
+# @stackra-inc/kbd Package Summary
 
 ## Overview
 
-The `@stackra/kbd` package is a production-ready keyboard shortcut display
+The `@stackra-inc/kbd` package is a production-ready keyboard shortcut display
 component library for refine applications, built on top of HeroUI's Kbd
 component. It provides a simple, accessible, and visually appealing way to
 display keyboard shortcuts in your UI.
 
 ## Package Information
 
-- **Name**: `@stackra/kbd`
+- **Name**: `@stackra-inc/kbd`
 - **Version**: 1.0.0
 - **License**: MIT
 - **Repository**: https://github.com/refinedev/refine
@@ -17,15 +17,15 @@ display keyboard shortcuts in your UI.
 
 ## Key Features
 
-✅ **100% Compatible with Refine**: Follows the same patterns as @stackra/kbar
-and other refine packages ✅ **Full HeroUI Integration**: Built on HeroUI v3 Kbd
-component with complete theming support ✅ **TypeScript Support**: Comprehensive
-type definitions for all APIs ✅ **Production Ready**: Complete with tests,
-documentation, and examples ✅ **Accessible**: ARIA attributes and semantic HTML
-for screen readers ✅ **Customizable**: Multiple variants, custom separators,
-and Tailwind CSS support ✅ **Keyboard Hook**: Includes `useKeyboardShortcut`
-hook for registering shortcuts ✅ **Comprehensive Documentation**: API docs,
-integration guide, and examples
+✅ **100% Compatible with Refine**: Follows the same patterns as
+@stackra-inc/kbar and other refine packages ✅ **Full HeroUI Integration**:
+Built on HeroUI v3 Kbd component with complete theming support ✅ **TypeScript
+Support**: Comprehensive type definitions for all APIs ✅ **Production Ready**:
+Complete with tests, documentation, and examples ✅ **Accessible**: ARIA
+attributes and semantic HTML for screen readers ✅ **Customizable**: Multiple
+variants, custom separators, and Tailwind CSS support ✅ **Keyboard Hook**:
+Includes `useKeyboardShortcut` hook for registering shortcuts ✅ **Comprehensive
+Documentation**: API docs, integration guide, and examples
 
 ## Package Structure
 
@@ -133,7 +133,7 @@ packages/kbd/
 ### Basic Usage
 
 ```tsx
-import { RefineKbd } from '@stackra/kbd';
+import { RefineKbd } from '@stackra-inc/kbd';
 
 <RefineKbd keys={['command', 'K']} />;
 ```
@@ -141,7 +141,7 @@ import { RefineKbd } from '@stackra/kbd';
 ### With Keyboard Hook
 
 ```tsx
-import { RefineKbd, useKeyboardShortcut } from '@stackra/kbd';
+import { RefineKbd, useKeyboardShortcut } from '@stackra-inc/kbd';
 
 useKeyboardShortcut({
   keys: ['command', 'K'],
@@ -172,7 +172,7 @@ useKeyboardShortcut({
 ### Peer Dependencies
 
 - `@heroui/react`: ^3.0.0
-- `@stackra/core`: ^5.0.0
+- `@stackra-inc/core`: ^5.0.0
 - `react`: ^18.0.0 || ^19.0.0
 - `react-dom`: ^18.0.0 || ^19.0.0
 
@@ -263,9 +263,9 @@ pnpm test:watch    # Watch mode
 - ✅ Screen reader support
 - ✅ Keyboard navigation
 
-## Comparison with @stackra/kbar
+## Comparison with @stackra-inc/kbar
 
-| Feature             | @stackra/kbar            | @stackra/kbd                  |
+| Feature             | @stackra-inc/kbar        | @stackra-inc/kbd              |
 | ------------------- | ------------------------ | ----------------------------- |
 | Purpose             | Command palette          | Keyboard shortcut display     |
 | Main Component      | RefineKbar               | RefineKbd                     |
@@ -278,9 +278,9 @@ pnpm test:watch    # Watch mode
 
 ### Works Well With
 
-- ✅ @stackra/kbar (command palette)
-- ✅ @stackra/heroui (UI components)
-- ✅ @stackra/core (refine core)
+- ✅ @stackra-inc/kbar (command palette)
+- ✅ @stackra-inc/heroui (UI components)
+- ✅ @stackra-inc/core (refine core)
 - ✅ All refine UI packages
 
 ### Use Cases
@@ -307,7 +307,7 @@ pnpm test:watch    # Watch mode
 
 - **Access**: Public
 - **Registry**: npm
-- **Package Name**: @stackra/kbd
+- **Package Name**: @stackra-inc/kbd
 
 ## Future Enhancements
 

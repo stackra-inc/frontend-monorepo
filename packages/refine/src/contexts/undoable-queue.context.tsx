@@ -10,7 +10,7 @@
  * component for each active entry that drives the countdown and
  * fires progress notifications.
  *
- * @module @stackra/react-refine
+ * @module @stackra-inc/react-refine
  * @category Contexts
  */
 

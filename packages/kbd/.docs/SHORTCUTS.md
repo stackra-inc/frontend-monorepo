@@ -1,6 +1,7 @@
 # Built-in Keyboard Shortcuts
 
-This document lists all built-in keyboard shortcuts provided by `@stackra/kbd`.
+This document lists all built-in keyboard shortcuts provided by
+`@stackra-inc/kbd`.
 
 ## Navigation Shortcuts
 
@@ -101,7 +102,7 @@ Built-in shortcuts are automatically registered when you configure the KBD
 module:
 
 ```tsx
-import { KbdModule } from '@stackra/kbd';
+import { KbdModule } from '@stackra-inc/kbd';
 
 KbdModule.configure({
   registerBuiltIn: true, // Enable built-in shortcuts
@@ -113,7 +114,7 @@ KbdModule.configure({
 You can override built-in shortcuts by registering a shortcut with the same ID:
 
 ```tsx
-import { KbdModule } from '@stackra/kbd';
+import { KbdModule } from '@stackra-inc/kbd';
 
 // Override the save shortcut
 KbdModule.register({
@@ -132,7 +133,7 @@ KbdModule.register({
 You can disable specific built-in shortcuts:
 
 ```tsx
-import { KbdModule } from '@stackra/kbd';
+import { KbdModule } from '@stackra-inc/kbd';
 
 // Disable the save shortcut
 KbdModule.disable('editing.save');
@@ -146,7 +147,7 @@ KbdModule.disable('editing.save');
 ### Using Built-in Shortcuts in Components
 
 ```tsx
-import { useShortcut } from '@stackra/kbd';
+import { useShortcut } from '@stackra-inc/kbd';
 
 function MyComponent() {
   // Use a built-in shortcut with custom callback
@@ -175,7 +176,7 @@ import {
   VIEW_SHORTCUTS,
   HELP_SHORTCUTS,
   MODAL_SHORTCUTS,
-} from '@stackra/kbd';
+} from '@stackra-inc/kbd';
 
 // Use them as needed
 console.log('Total built-in shortcuts:', BUILT_IN_SHORTCUTS.length);

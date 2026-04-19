@@ -3,20 +3,21 @@
 ## Introduction
 
 This feature adds backend session and device management to the PHP auth module
-and aligns the frontend `@stackra/react-refine` package with the real backend
-API contract. The backend currently uses Sanctum tokens as sessions but provides
-no way to list, manage, or revoke them. Device fingerprints are captured but not
-exposed via API. The frontend services (`AuthService`, `SessionService`,
-`SecurityService`) call endpoints that do not exist and miss provider-aware auth
-flows (challenge/verify, identity linking, password management). This spec
-covers creating the `user_sessions` table and API endpoints on the backend, then
-rewriting the frontend services and adding missing hooks to match.
+and aligns the frontend `@stackra-inc/react-refine` package with the real
+backend API contract. The backend currently uses Sanctum tokens as sessions but
+provides no way to list, manage, or revoke them. Device fingerprints are
+captured but not exposed via API. The frontend services (`AuthService`,
+`SessionService`, `SecurityService`) call endpoints that do not exist and miss
+provider-aware auth flows (challenge/verify, identity linking, password
+management). This spec covers creating the `user_sessions` table and API
+endpoints on the backend, then rewriting the frontend services and adding
+missing hooks to match.
 
 ## Glossary
 
 - **Backend**: The PHP monorepo auth module at `modules/auth`, using Laravel
   Sanctum for token-based authentication.
-- **Frontend**: The `@stackra/react-refine` TypeScript/React package that
+- **Frontend**: The `@stackra-inc/react-refine` TypeScript/React package that
   provides hooks and services for auth, sessions, security, and device
   management.
 - **Sanctum_Token**: A Laravel Sanctum personal access token stored in the
@@ -443,7 +444,7 @@ without manual setup.
 
 **User Story:** As a frontend developer, I want all new hooks, enums, and
 interfaces exported from the package barrel, so that I can import them from
-`@stackra/react-refine`.
+`@stackra-inc/react-refine`.
 
 #### Acceptance Criteria
 

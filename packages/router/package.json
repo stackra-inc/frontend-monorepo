@@ -1,16 +1,16 @@
 {
-  "name": "@stackra/react-router",
+  "name": "@stackra-inc/react-router",
   "version": "1.0.0",
-  "description": "Route auto-registration package with @Route decorator and RouteRegistry for @stackra/react-refine.",
+  "description": "Route auto-registration package with @Route decorator and RouteRegistry for @stackra-inc/react-refine.",
   "license": "MIT",
   "author": {
     "name": "Stackra L.L.C",
     "email": "dev@stackra.com",
-    "url": "https://github.com/stackra-co"
+    "url": "https://github.com/stackra-inc"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/stackra-co/frontend-monorepo.git",
+    "url": "https://github.com/stackra-inc/frontend-monorepo.git",
     "directory": "packages/router"
   },
   "keywords": [
@@ -54,8 +54,8 @@
   },
   "dependencies": {
     "tslib": "^2.8.1",
-    "@stackra/ts-support": "workspace:*",
-    "@stackra/ts-container": "^2.0.4"
+    "@stackra-inc/ts-support": "workspace:*",
+    "@stackra-inc/ts-container": "^2.0.4"
   },
   "devDependencies": {
     "@types/node": "^25.5.0",
@@ -76,18 +76,18 @@
     "typescript-eslint": "^8.58.0"
   },
   "peerDependencies": {
-    "@stackra/react-refine": "workspace:*",
-    "@stackra/ts-container": "^2.0.4",
-    "@stackra/ts-support": "workspace:*",
+    "@stackra-inc/react-refine": "workspace:*",
+    "@stackra-inc/ts-container": "^2.0.4",
+    "@stackra-inc/ts-support": "workspace:*",
     "react-router-dom": "^6.0.0 || ^7.0.0",
     "react": "^18.0.0 || ^19.0.0",
     "reflect-metadata": "^0.2.2"
   },
   "peerDependenciesMeta": {
-    "@stackra/react-refine": {
+    "@stackra-inc/react-refine": {
       "optional": false
     },
-    "@stackra/ts-container": {
+    "@stackra-inc/ts-container": {
       "optional": false
     },
     "react-router-dom": {

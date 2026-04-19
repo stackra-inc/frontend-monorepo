@@ -15,7 +15,7 @@ import type { GetTenantParams, SetTenantParams, Tenant, TenantResponse } from '@
  *
  * @example
  * ```typescript
- * import { createMultiTenancyProvider } from "@stackra/react-multitenancy";
+ * import { createMultiTenancyProvider } from "@stackra-inc/react-multitenancy";
  *
  * const multiTenancyProvider = createMultiTenancyProvider({
  *   config: {

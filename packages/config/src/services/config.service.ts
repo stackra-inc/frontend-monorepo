@@ -11,7 +11,7 @@
  * @module services/config
  */
 
-import { Str } from '@stackra/ts-support';
+import { Str } from '@stackra-inc/ts-support';
 import type { ConfigDriver } from '@/interfaces/config-driver.interface';
 import type { ConfigServiceInterface } from '@/interfaces/config-service.interface';
 

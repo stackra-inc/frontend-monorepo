@@ -1,9 +1,9 @@
 /**
  * @fileoverview Root options type for `RefineModule.forRoot()`.
  *
- * Auth options have been moved to @stackra/react-auth.
+ * Auth options have been moved to @stackra-inc/react-auth.
  *
- * @module @stackra/react-refine
+ * @module @stackra-inc/react-refine
  * @category Types
  */
 

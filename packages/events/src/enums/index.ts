@@ -1,6 +1,6 @@
 /**
  * @fileoverview Enums Index
- * @module @stackra/ts-events
+ * @module @stackra-inc/ts-events
  * @category Enums
  */
 

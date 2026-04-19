@@ -3,7 +3,7 @@
  *
  * Possible security statuses returned by the security check endpoint.
  *
- * @module @stackra/react-auth
+ * @module @stackra-inc/react-auth
  * @category Interfaces
  */
 

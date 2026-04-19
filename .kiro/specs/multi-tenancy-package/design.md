@@ -34,7 +34,7 @@ audit logging, subscription management, and health checks.
    each with interface and `#[Bind]`.
 6. **Event-driven bootstrapper lifecycle** — Tenant initialization/teardown
    fires events that trigger bootstrappers. Bootstrappers are auto-discovered
-   via `#[AsBootstrapper]` attribute from `stackra/laravel-discovery`.
+   via `#[AsBootstrapper]` attribute from `stackra-inc/laravel-discovery`.
 7. **Resolver chain with caching** — Multiple identification strategies
    evaluated in priority order. Resolved tenants are cached.
 8. **Key-value stores for settings/metadata** — Dedicated `tenant_settings` and
@@ -45,10 +45,10 @@ audit logging, subscription management, and health checks.
    transitions.
 10. **Audit logging via spatie/laravel-activitylog** — All tenant operations are
     automatically logged with tenant-scoped tags.
-11. **Feature flags via stackra/laravel-feature-flags** — Built on Laravel
+11. **Feature flags via stackra-inc/laravel-feature-flags** — Built on Laravel
     Pennant, scoped to tenant with repository pattern and helper functions.
-12. **Health checks via stackra/laravel-health** — Tenant-scoped health checks
-    with `#[AsHealthCheck]` attribute discovery.
+12. **Health checks via stackra-inc/laravel-health** — Tenant-scoped health
+    checks with `#[AsHealthCheck]` attribute discovery.
 13. **Model Organization** — Each model has `Contracts/`, `Traits/ModelName/`
     with AccessorsTrait, RelationsTrait, ScopesTrait.
 
@@ -133,7 +133,7 @@ graph TB
 
     subgraph "Cross-Cutting Concerns"
         AL[ActivityLog - spatie/laravel-activitylog]
-        FF[Feature Flags - stackra/laravel-feature-flags]
+        FF[Feature Flags - stackra-inc/laravel-feature-flags]
         PEN[Laravel Pennant Scope → tenant]
     end
 ```

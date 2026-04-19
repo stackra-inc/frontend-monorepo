@@ -14,10 +14,10 @@
  * |   // ... later
  * |   await power.allowSleep(blockerId);
  * |
- * @module @stackra/ts-desktop
+ * @module @stackra-inc/ts-desktop
  */
 
-import { Injectable, Inject } from '@stackra/ts-container';
+import { Injectable, Inject } from '@stackra-inc/ts-container';
 
 import type { PowerState } from '@/interfaces/system.interface';
 import { DesktopManager } from './desktop-manager.service';

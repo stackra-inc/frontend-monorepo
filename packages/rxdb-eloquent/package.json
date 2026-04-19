@@ -1,22 +1,22 @@
 {
-  "name": "@stackra/ts-eloquent",
+  "name": "@stackra-inc/ts-eloquent",
   "version": "1.2.1",
   "description": "Laravel Eloquent-style TypeScript ORM built on RxDB — reactive, offline-first, with Supabase replication",
   "license": "MIT",
   "author": {
     "name": "Stackra L.L.C",
     "email": "dev@stackra.com",
-    "url": "https://github.com/stackra-co"
+    "url": "https://github.com/stackra-inc"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/stackra-co/rxdb-eloquent.git",
+    "url": "https://github.com/stackra-inc/rxdb-eloquent.git",
     "directory": "packages/rxdb-eloquent"
   },
   "bugs": {
-    "url": "https://github.com/stackra-co/rxdb-eloquent/issues"
+    "url": "https://github.com/stackra-inc/rxdb-eloquent/issues"
   },
-  "homepage": "https://github.com/stackra-co/rxdb-eloquent#readme",
+  "homepage": "https://github.com/stackra-inc/rxdb-eloquent#readme",
   "keywords": [
     "rxdb",
     "eloquent",
@@ -66,24 +66,24 @@
     "release": "pnpm publish --access public --no-git-checks"
   },
   "peerDependencies": {
-    "@stackra/ts-support": "workspace:*",
-    "@stackra/ts-container": "^2.0.4",
-    "@stackra/ts-logger": "workspace:*",
+    "@stackra-inc/ts-support": "workspace:*",
+    "@stackra-inc/ts-container": "^2.0.4",
+    "@stackra-inc/ts-logger": "workspace:*",
     "@supabase/supabase-js": "^2.0.0",
     "rxdb": "^17.1.0",
     "rxjs": "^7.8.2"
   },
   "peerDependenciesMeta": {
-    "@stackra/ts-container": {
+    "@stackra-inc/ts-container": {
       "optional": false
     },
-    "@stackra/ts-support": {
+    "@stackra-inc/ts-support": {
       "optional": false
     },
     "@supabase/supabase-js": {
       "optional": true
     },
-    "@stackra/ts-logger": {
+    "@stackra-inc/ts-logger": {
       "optional": true
     },
     "rxdb": {

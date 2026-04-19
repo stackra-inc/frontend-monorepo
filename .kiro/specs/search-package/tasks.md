@@ -1,4 +1,4 @@
-# Implementation Plan: Search Package (`stackra/laravel-search`)
+# Implementation Plan: Search Package (`stackra-inc/laravel-search`)
 
 ## Overview
 
@@ -12,9 +12,9 @@ sub-package must be implemented first.
 - [x] 1. Package scaffolding, configuration, and service provider
   - [x] 1.1 Create `packages/search/composer.json` with namespace
         `Stackra\Search`, PSR-4 autoload from `src/`, dependencies on
-        `stackra/laravel-framework`, `pdphilip/elasticsearch: ^5.0`,
-        `stackra/laravel-discovery`, `stackra/laravel-crud`,
-        `stackra/laravel-database`, `stackra/laravel-tenancy`. Ensure
+        `stackra-inc/laravel-framework`, `pdphilip/elasticsearch: ^5.0`,
+        `stackra-inc/laravel-discovery`, `stackra-inc/laravel-crud`,
+        `stackra-inc/laravel-database`, `stackra-inc/laravel-tenancy`. Ensure
         `laravel/scout`, `meilisearch/meilisearch-php`, `pdphilip/elasticlens`,
         `matchish/laravel-scout-elasticsearch`, `elasticsearch/elasticsearch`
         are NOT listed.

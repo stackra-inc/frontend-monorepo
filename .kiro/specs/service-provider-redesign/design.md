@@ -6,7 +6,8 @@ This document describes the technical design for redesigning the Stackra service
 provider package. The redesigned package replaces property/flag-based
 configuration with PHP 8.5 attributes, consolidates ~20 concern traits into 7,
 uses `composer-attribute-collector` for zero-reflection attribute reading, and
-`stackra/laravel-discovery` for cached auto-discovery. All code is Octane-safe.
+`stackra-inc/laravel-discovery` for cached auto-discovery. All code is
+Octane-safe.
 
 The new package lives at `packages/service-provider/` with namespace
 `Stackra\ServiceProvider`.
@@ -91,7 +92,7 @@ bootApplication()
   │   └── discoverSeeders()        ← convention-based class check
   │
   ├── [PublishesResources trait]
-  │   ├── publishAssets()          ← resources/ → public/stackra/{slug}/{version}/
+  │   ├── publishAssets()          ← resources/ → public/stackra-inc/{slug}/{version}/
   │   ├── publishConfig()          ← config/*.php → config_path()
   │   ├── publishViews()           ← views/ → resources/views/vendor/{slug}/
   │   └── publishTranslations()   ← i18n/ → lang/vendor/{slug}/
@@ -910,7 +911,7 @@ interface ModuleConstants
     public const TAG_LANG = 'lang';
 
     // Path prefix
-    public const PATH_PREFIX = 'stackra';
+    public const PATH_PREFIX = 'stackra-inc';
 }
 ```
 
@@ -1059,7 +1060,7 @@ packages/service-provider/
 
 ```json
 {
-  "name": "stackra/laravel-service-provider",
+  "name": "stackra-inc/laravel-service-provider",
   "description": "Attribute-based modular service provider for Laravel 13",
   "require": {
     "php": "^8.5",
@@ -1067,12 +1068,12 @@ packages/service-provider/
     "illuminate/routing": "^13.0",
     "illuminate/console": "^13.0",
     "koriym/attributes": "^1.0",
-    "stackra/laravel-discovery": "^1.0",
-    "stackra/laravel-enum": "^1.0"
+    "stackra-inc/laravel-discovery": "^1.0",
+    "stackra-inc/laravel-enum": "^1.0"
   },
   "suggest": {
     "spatie/laravel-health": "Required for health check registration",
-    "stackra/laravel-routing": "Required for controller/middleware discovery via #[AsController]/#[AsMiddleware]"
+    "stackra-inc/laravel-routing": "Required for controller/middleware discovery via #[AsController]/#[AsMiddleware]"
   },
   "autoload": {
     "psr-4": {

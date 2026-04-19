@@ -13,9 +13,10 @@ previous, ensuring no orphaned code.
 
 - [x] 1. Scaffold project structure and configuration
   - [x] 1.1 Create `packages/framework/src/Response/composer.json` with name
-        `stackra/laravel-response`, PSR-4 autoload mapping `Stackra\Response\`
-        to `src/`, and required dependencies (illuminate/support,
-        illuminate/http, illuminate/pipeline, illuminate/contracts)
+        `stackra-inc/laravel-response`, PSR-4 autoload mapping
+        `Stackra\Response\` to `src/`, and required dependencies
+        (illuminate/support, illuminate/http, illuminate/pipeline,
+        illuminate/contracts)
     - _Requirements: 14.2_
   - [x] 1.2 Create `packages/framework/src/Response/module.json` with name
         `Response`, alias `response`, and service provider reference

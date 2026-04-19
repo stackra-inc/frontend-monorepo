@@ -11,7 +11,7 @@
  * | No React context or provider needed — the registry is a global singleton.
  * | Entries are registered imperatively and read at render time.
  * |
- * | Extends BaseRegistry from @stackra/ts-support for consistent
+ * | Extends BaseRegistry from @stackra-inc/ts-support for consistent
  * | registry API. Each slot name maps to a SlotEntriesMap.
  * |
  * | Usage:
@@ -26,8 +26,8 @@
  * @category Registries
  */
 
-import { Injectable } from '@stackra/ts-container';
-import { BaseRegistry } from '@stackra/ts-support';
+import { Injectable } from '@stackra-inc/ts-container';
+import { BaseRegistry } from '@stackra-inc/ts-support';
 import type { SlotEntry, SlotEntryOptions } from '@/interfaces/slot-entry.interface';
 
 /**

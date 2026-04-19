@@ -1,9 +1,9 @@
-# Testing Guide for @stackra/kbd
+# Testing Guide for @stackra-inc/kbd
 
 ## Overview
 
-The `@stackra/kbd` package includes comprehensive test coverage using Vitest and
-React Testing Library.
+The `@stackra-inc/kbd` package includes comprehensive test coverage using Vitest
+and React Testing Library.
 
 ## Running Tests
 

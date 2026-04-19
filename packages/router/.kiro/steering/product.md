@@ -1,8 +1,8 @@
 # Product Overview
 
-`@stackra/react-router` — Route auto-registration package with @Route decorator
-and RouteRegistry for @stackra/react-refine.
+`@stackra-inc/react-router` — Route auto-registration package with @Route
+decorator and RouteRegistry for @stackra-inc/react-refine.
 
 ## Package Exports
 
-- `@stackra/react-router` — main entry point
+- `@stackra-inc/react-router` — main entry point

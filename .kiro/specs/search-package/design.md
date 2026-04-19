@@ -1,15 +1,15 @@
-# Design Document — Search Package (`stackra/laravel-search`)
+# Design Document — Search Package (`stackra-inc/laravel-search`)
 
 ## Overview
 
-The `stackra/laravel-search` package is the Elasticsearch implementation layer
-for the Stackra monorepo. It implements the three framework Indexer contracts
-(`IndexerInterface`, `IndexManagerInterface`, `RecordBuilderInterface`) using
-`pdphilip/elasticsearch` v5 as the ES Eloquent driver, and provides the full
-search orchestration layer: unified cross-entity search, entity-specific search,
-autocomplete, faceted search, geo-search, SQL LIKE fallback, observer chains,
-tenant lifecycle management, Artisan commands, health checks, and search
-analytics.
+The `stackra-inc/laravel-search` package is the Elasticsearch implementation
+layer for the Stackra monorepo. It implements the three framework Indexer
+contracts (`IndexerInterface`, `IndexManagerInterface`,
+`RecordBuilderInterface`) using `pdphilip/elasticsearch` v5 as the ES Eloquent
+driver, and provides the full search orchestration layer: unified cross-entity
+search, entity-specific search, autocomplete, faceted search, geo-search, SQL
+LIKE fallback, observer chains, tenant lifecycle management, Artisan commands,
+health checks, and search analytics.
 
 ### Key Design Decisions
 

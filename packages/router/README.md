@@ -1,10 +1,10 @@
 <p align="center">
-  <img src=".github/assets/banner.svg" alt="@stackra/react-router" width="100%" />
+  <img src=".github/assets/banner.svg" alt="@stackra-inc/react-router" width="100%" />
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/@stackra/react-router">
-    <img src="https://img.shields.io/npm/v/@stackra/react-router?style=flat-square&color=38bdf8&label=npm" alt="npm version" />
+  <a href="https://www.npmjs.com/package/@stackra-inc/react-router">
+    <img src="https://img.shields.io/npm/v/@stackra-inc/react-router?style=flat-square&color=38bdf8&label=npm" alt="npm version" />
   </a>
   <a href="./LICENSE">
     <img src="https://img.shields.io/badge/license-MIT-818cf8?style=flat-square" alt="MIT license" />
@@ -16,31 +16,31 @@
 
 ---
 
-# @stackra/react-router
+# @stackra-inc/react-router
 
 Route auto-registration package with `@Route` decorator and `RouteRegistry` for
-`@stackra/react-refine`. Eliminates manual route configuration by discovering
-routes at build time.
+`@stackra-inc/react-refine`. Eliminates manual route configuration by
+discovering routes at build time.
 
 ## Installation
 
 ```bash
-pnpm add @stackra/react-router
+pnpm add @stackra-inc/react-router
 ```
 
 ## Features
 
 - 🎭 `@Route()` decorator for declarative route definition
 - 📋 `RouteRegistry` — injectable registry of all registered routes
-- �� Auto-registration with `@stackra/react-refine`
-- 💉 DI integration via `@stackra/ts-container`
+- �� Auto-registration with `@stackra-inc/react-refine`
+- 💉 DI integration via `@stackra-inc/ts-container`
 - 🏗️ `RouterModule.forRoot()` pattern
 - 🔒 Route-level auth guards
 
 ## Quick Start
 
 ```typescript
-import { Route, Injectable } from '@stackra/react-router';
+import { Route, Injectable } from '@stackra-inc/react-router';
 
 @Route({ path: '/users', name: 'users' })
 @Injectable()
@@ -57,8 +57,8 @@ class UserDetailPage {
 ```
 
 ```typescript
-import { Module } from '@stackra/ts-container';
-import { RouterModule } from '@stackra/react-router';
+import { Module } from '@stackra-inc/ts-container';
+import { RouterModule } from '@stackra-inc/react-router';
 
 @Module({
   imports: [RouterModule.forRoot()],
@@ -69,4 +69,4 @@ export class AppModule {}
 
 ## License
 
-MIT © [Stackra](https://github.com/stackra-co)
+MIT © [Stackra](https://github.com/stackra-inc)

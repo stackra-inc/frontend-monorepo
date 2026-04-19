@@ -3,7 +3,7 @@
  *
  * Defines priority levels for keyboard shortcuts.
  *
- * @module @stackra/kbd
+ * @module @stackra-inc/kbd
  * @category Constants
  */
 

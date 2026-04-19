@@ -1,7 +1,7 @@
 /**
  * Redis Cache Store
  *
- * Redis-backed cache implementation using `@stackra/ts-redis` for connection
+ * Redis-backed cache implementation using `@stackra-inc/ts-redis` for connection
  * management. Supports all standard cache operations plus tagging via
  * {@link RedisTagSet} and {@link TaggedCache}.
  *
@@ -41,7 +41,7 @@
  * ```
  */
 
-import type { RedisConnection, IRedisService } from '@stackra/ts-redis';
+import type { RedisConnection, IRedisService } from '@stackra-inc/ts-redis';
 
 import { RedisTagSet } from '@/tags/redis-tag-set';
 import type { TaggableStore, TaggedCache } from '@/interfaces';

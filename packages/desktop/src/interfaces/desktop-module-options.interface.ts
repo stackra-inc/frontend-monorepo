@@ -9,7 +9,7 @@
  * | Optional domain fields configure POS hardware, offline/sync,
  * | security, crash reporting, and other services.
  * |
- * @module @stackra/ts-desktop
+ * @module @stackra-inc/ts-desktop
  */
 
 import type { PrinterConfig } from './hardware.interface';
@@ -117,7 +117,7 @@ export interface DesktopModuleOptions {
   |--------------------------------------------------------------------------
   */
 
-  /** Custom URL protocol scheme (e.g. 'stackra'). */
+  /** Custom URL protocol scheme (e.g. 'stackra-inc'). */
   protocol?: string;
 
   /** Tray icon configuration. */

@@ -1,7 +1,7 @@
 /**
  * Null Dispatcher Configuration
  *
- * @module @stackra/ts-events
+ * @module @stackra-inc/ts-events
  * @category Interfaces
  */
 

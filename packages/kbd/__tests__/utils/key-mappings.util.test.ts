@@ -9,7 +9,7 @@
  * - getKeyMapping: Retrieves the symbol and title for a given key
  * - keyMappings: Ensures all expected key mappings are defined
  *
- * @module @stackra/kbd
+ * @module @stackra-inc/kbd
  * @category Tests
  */
 

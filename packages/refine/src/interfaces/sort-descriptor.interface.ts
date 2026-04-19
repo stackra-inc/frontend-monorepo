@@ -1,7 +1,7 @@
 /**
  * @fileoverview Sort descriptor interface for list query ordering.
  *
- * @module @stackra/react-refine
+ * @module @stackra-inc/react-refine
  * @category Interfaces
  */
 

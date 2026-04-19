@@ -1,8 +1,8 @@
-# Design Document — Reporting Package (`stackra/laravel-reporting`)
+# Design Document — Reporting Package (`stackra-inc/laravel-reporting`)
 
 ## Overview
 
-The `stackra/laravel-reporting` package provides the reporting and analytics
+The `stackra-inc/laravel-reporting` package provides the reporting and analytics
 engine for the MNGO venue management platform. It builds on the framework
 Indexer sub-package (which owns `#[Aggregatable]`, `AggregationType`,
 `IndexerRegistry`, `IndexConfigurationDTO`) and the search package (which owns
@@ -30,7 +30,7 @@ data store, no materialized views.
 
 4. **No Direct ES Dependency** — All ES access goes through the search package's
    `pdphilip/elasticsearch` `Connection`. The reporting package declares
-   `stackra/laravel-search` as a composer dependency, not
+   `stackra-inc/laravel-search` as a composer dependency, not
    `pdphilip/elasticsearch` or `elasticsearch/elasticsearch`.
 
 5. **PostgreSQL for Historical Results** — Report execution results are stored

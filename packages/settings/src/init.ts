@@ -7,7 +7,7 @@
  *
  * @example
  * ```ts
- * import { initSettings } from '@stackra/ts-settings';
+ * import { initSettings } from '@stackra-inc/ts-settings';
  * import { DisplaySettings, TerminalSettings } from './settings';
  *
  * initSettings({

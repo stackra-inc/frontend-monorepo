@@ -1,9 +1,9 @@
 /**
  * @fileoverview Barrel export for CRUD and data hooks.
  *
- * Auth hooks have been moved to @stackra/react-auth.
+ * Auth hooks have been moved to @stackra-inc/react-auth.
  *
- * @module @stackra/react-refine
+ * @module @stackra-inc/react-refine
  * @category Hooks
  */
 

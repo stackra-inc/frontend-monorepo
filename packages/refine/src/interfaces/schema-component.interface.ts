@@ -1,7 +1,7 @@
 /**
  * @fileoverview A component node in the SDUI schema tree.
  *
- * @module @stackra/react-refine
+ * @module @stackra-inc/react-refine
  * @category Interfaces
  */
 

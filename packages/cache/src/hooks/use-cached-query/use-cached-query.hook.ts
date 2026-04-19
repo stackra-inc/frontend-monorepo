@@ -10,7 +10,7 @@
  * - Cache invalidation
  * - Configurable TTL
  *
- * **Note:** This requires React and @stackra/ts-container to be installed.
+ * **Note:** This requires React and @stackra-inc/ts-container to be installed.
  *
  * @module hooks/use-cached-query
  */

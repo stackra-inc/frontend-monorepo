@@ -1,7 +1,7 @@
 /**
  * Event Facade
  *
- * Typed proxy for {@link EventManager} from `@stackra/ts-events`.
+ * Typed proxy for {@link EventManager} from `@stackra-inc/ts-events`.
  *
  * Event dispatcher manager. Manages named dispatchers (memory, redis, null).
  *
@@ -12,8 +12,8 @@
  * ## Setup (once, in main.tsx)
  *
  * ```typescript
- * import { Application } from '@stackra/ts-container';
- * import { Facade } from '@stackra/ts-support';
+ * import { Application } from '@stackra-inc/ts-container';
+ * import { Facade } from '@stackra-inc/ts-support';
  *
  * const app = await Application.create(AppModule);
  * Facade.setApplication(app); // wires all facades
@@ -22,7 +22,7 @@
  * ## Usage
  *
  * ```typescript
- * import { EventFacade } from '@stackra/ts-events';
+ * import { EventFacade } from '@stackra-inc/ts-events';
  *
  * // Full autocomplete — no .proxy() call needed
  * EventFacade.dispatcher();
@@ -37,7 +37,7 @@
  * ## Testing — swap in a mock
  *
  * ```typescript
- * import { Facade } from '@stackra/ts-support';
+ * import { Facade } from '@stackra-inc/ts-support';
  * import { EVENT_MANAGER } from '@/constants/tokens.constant';
  *
  * // Before test — replace the resolved instance
@@ -52,7 +52,7 @@
  * @see {@link Facade} — the base class providing `make()`
  */
 
-import { Facade } from '@stackra/ts-support';
+import { Facade } from '@stackra-inc/ts-support';
 import { EventManager } from '@/services/event-manager.service';
 import { EVENT_MANAGER } from '@/constants/tokens.constant';
 

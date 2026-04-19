@@ -3,7 +3,7 @@
 Fix Workspace Dependencies
 
 Scans all package.json files in the monorepo and replaces any
-@stackra/* dependency version with "workspace:*".
+@stackra-inc/* dependency version with "workspace:*".
 
 This ensures all internal packages reference each other via
 the pnpm workspace protocol instead of hardcoded npm versions.
@@ -53,7 +53,7 @@ for pkg_path in sorted(files):
         deps = pkg.get(section, {})
         for dep_name, dep_version in list(deps.items()):
             # Only convert if the dep is an actual workspace package
-            if dep_name.startswith("@stackra/") and dep_version != "workspace:*" and dep_name in workspace_names:
+            if dep_name.startswith("@stackra-inc/") and dep_version != "workspace:*" and dep_name in workspace_names:
                 if DRY_RUN:
                     print(f"  [DRY] {pkg_name} → {section}.{dep_name}: {dep_version} → workspace:*")
                 else:

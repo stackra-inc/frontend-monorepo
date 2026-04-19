@@ -4,7 +4,7 @@
  * Hooks resolve the correct service by calling `resolve(resourceName)`.
  * Services are registered by `forFeature()` during module initialization.
  *
- * @module @stackra/react-refine
+ * @module @stackra-inc/react-refine
  * @category Registries
  *
  * @example
@@ -15,8 +15,8 @@
  * ```
  */
 
-import { Injectable } from '@stackra/ts-container';
-import { BaseRegistry } from '@stackra/ts-support';
+import { Injectable } from '@stackra-inc/ts-container';
+import { BaseRegistry } from '@stackra-inc/ts-support';
 import type { BaseService } from '@/services/base.service';
 
 /**

@@ -1,5 +1,5 @@
 /**
- * DI Tokens for @stackra/ts-desktop
+ * DI Tokens for @stackra-inc/ts-desktop
  *
  * |--------------------------------------------------------------------------
  * | Injection tokens and metadata keys.
@@ -15,7 +15,7 @@
  * |   POS Hardware, Permissions, Offline & Sync, Window & Shell,
  * |   Security, System Integration, Updates & Diagnostics
  * |
- * @module @stackra/ts-desktop
+ * @module @stackra-inc/ts-desktop
  */
 
 /*

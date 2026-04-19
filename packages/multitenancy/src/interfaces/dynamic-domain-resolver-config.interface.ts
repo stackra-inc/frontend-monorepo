@@ -1,7 +1,7 @@
 /**
  * @fileoverview Configuration interface for the DynamicDomainResolver.
  *
- * @module @stackra/react-multitenancy
+ * @module @stackra-inc/react-multitenancy
  * @category Interfaces
  */
 
@@ -45,7 +45,7 @@ export interface DynamicDomainResolverConfig {
   responsePath?: string;
 
   /**
-   * Optional cache service instance from @stackra/ts-cache
+   * Optional cache service instance from @stackra-inc/ts-cache
    * If not provided, uses in-memory Map cache
    */
   cacheService?: any;

@@ -1,7 +1,7 @@
 /**
  * @fileoverview ShortcutHelp component exports
  *
- * @module @stackra/kbd
+ * @module @stackra-inc/kbd
  * @category Components
  */
 

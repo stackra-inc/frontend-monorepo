@@ -1,5 +1,5 @@
 /**
- * @fileoverview Prettier configuration for @stackra/ts-cache package
+ * @fileoverview Prettier configuration for @stackra-inc/ts-cache package
  *
  * Extends the shared @nesvel/prettier-config for consistent code formatting
  * across all packages in the monorepo.
@@ -12,7 +12,7 @@
  * - Semicolons enabled
  * - LF line endings
  *
- * @module @stackra/ts-cache
+ * @module @stackra-inc/ts-cache
  * @category Configuration
  * @see https://prettier.io/docs/en/configuration
  */

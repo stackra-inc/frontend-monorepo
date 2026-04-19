@@ -19,9 +19,9 @@
 import 'reflect-metadata';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
-import { Application } from '@stackra/ts-container';
-import { ContainerProvider } from '@stackra/ts-container/react';
-import { Facade } from '@stackra/ts-support';
+import { Application } from '@stackra-inc/ts-container';
+import { ContainerProvider } from '@stackra-inc/ts-container/react';
+import { Facade } from '@stackra-inc/ts-support';
 
 import { Provider } from './provider';
 import App from './App';

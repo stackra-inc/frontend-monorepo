@@ -4,7 +4,7 @@
  * Re-exports commonly used type aliases for convenience.
  * These are shorthand references to types defined in the interfaces.
  *
- * @module @stackra/ts-http
+ * @module @stackra-inc/ts-http
  * @category Types
  */
 

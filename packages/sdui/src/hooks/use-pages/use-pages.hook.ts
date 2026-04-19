@@ -1,11 +1,11 @@
 /**
  * @fileoverview usePages hook — fetch page definitions from SDUIService.
- * @module @stackra/react-sdui
+ * @module @stackra-inc/react-sdui
  * @category Hooks
  */
 
 import { useState, useEffect } from 'react';
-import type { PageDefinition } from '@stackra/react-refine';
+import type { PageDefinition } from '@stackra-inc/react-refine';
 import type { SDUIService } from '@/services/sdui.service';
 
 /** Props for the usePages hook. */

@@ -1,6 +1,6 @@
 /**
  * @fileoverview DI tokens for the router package.
- * @module @stackra/react-router
+ * @module @stackra-inc/react-router
  * @category Constants
  */
 

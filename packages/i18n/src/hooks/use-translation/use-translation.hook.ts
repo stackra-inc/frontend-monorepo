@@ -9,7 +9,7 @@
  *
  * @example
  * ```tsx
- * import { useTranslation } from '@stackra/react-i18n';
+ * import { useTranslation } from '@stackra-inc/react-i18n';
  *
  * const Greeting = () => {
  *   const { t } = useTranslation();

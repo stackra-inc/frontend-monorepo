@@ -1,19 +1,19 @@
 /**
  * Middleware Registry
  *
- * Extends {@link BaseRegistry} from `@stackra/ts-support` to store
+ * Extends {@link BaseRegistry} from `@stackra-inc/ts-support` to store
  * HTTP middleware instances sorted by priority. Lower priority values
  * execute first in the pipeline.
  *
  * The {@link HttpModule} populates this registry during initialization
  * by reading `@HttpMiddleware()` metadata from provider classes.
  *
- * @module @stackra/ts-http
+ * @module @stackra-inc/ts-http
  * @category Registries
  *
  * @example
  * ```typescript
- * import { MiddlewareRegistry } from '@stackra/ts-http';
+ * import { MiddlewareRegistry } from '@stackra-inc/ts-http';
  *
  * const registry = new MiddlewareRegistry();
  *
@@ -26,8 +26,8 @@
  * ```
  */
 
-import { Injectable } from '@stackra/ts-container';
-import { BaseRegistry } from '@stackra/ts-support';
+import { Injectable } from '@stackra-inc/ts-container';
+import { BaseRegistry } from '@stackra-inc/ts-support';
 import type { HttpMiddlewareInterface } from '@/interfaces/http-middleware.interface';
 
 /**

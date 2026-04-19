@@ -7,7 +7,7 @@
  *
  * Required by the `globals: true` setting in vitest.config.ts.
  *
- * @module @stackra/react-theming
+ * @module @stackra-inc/react-theming
  * @category Configuration
  */
 

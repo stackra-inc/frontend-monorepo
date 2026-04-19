@@ -1,7 +1,7 @@
 /**
- * @fileoverview Root barrel export for `@stackra/react-sdui`.
+ * @fileoverview Root barrel export for `@stackra-inc/react-sdui`.
  *
- * @module @stackra/react-sdui
+ * @module @stackra-inc/react-sdui
  * @category Entry
  */
 

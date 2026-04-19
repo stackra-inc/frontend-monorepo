@@ -42,8 +42,8 @@ development, and all feature implementations across the platform.
   - [ ] 2.9 Suppress HeroUI v3 beta CSS warnings in esbuild config
 
 - [ ] 3. Dependency Injection and Module System
-  - [ ] 45.1 Set up InversifyJS DI container (@stackra/ts-container,
-        @stackra/ts-application, @stackra/ts-container-react)
+  - [ ] 45.1 Set up InversifyJS DI container (@stackra-inc/ts-container,
+        @stackra-inc/ts-application, @stackra-inc/ts-container-react)
   - [ ] 45.2 Create AppModule (app.module.ts) as root DI module with @Module
         decorator
   - [ ] 45.3 Bootstrap application in main.tsx with
@@ -71,8 +71,8 @@ development, and all feature implementations across the platform.
         base data provider
   - [ ] 46.5 Wrap auth provider with multitenancy support (withMultitenancy) for
         tenant-scoped auth
-  - [ ] 46.6 Wire KbdVisibilityProvider from @stackra/kbd for keyboard shortcut
-        visibility toggle
+  - [ ] 46.6 Wire KbdVisibilityProvider from @stackra-inc/kbd for keyboard
+        shortcut visibility toggle
   - [ ] 46.7 Set up PWA deferred prompt capture (beforeinstallprompt event on
         window)
 
@@ -99,7 +99,7 @@ development, and all feature implementations across the platform.
         shortcut
   - [ ] 48.6 Implement multi-cart session management (create, delete, rename,
         switch, getActiveCart, updateActiveCartItems)
-  - [ ] 48.7 Wire keyboard shortcut visibility to @stackra/kbd
+  - [ ] 48.7 Wire keyboard shortcut visibility to @stackra-inc/kbd
         KbdVisibilityProvider
   - [ ] 48.8 Create DockProvider context with zone-based actions (catalog, cart,
         drawer, hidden zones)
@@ -237,7 +237,8 @@ development, and all feature implementations across the platform.
         solutions.json, integrations.json, ai-technology.json)
 
 - [ ] 13. Auth Provider and Auth Pages
-  - [ ] 41.1 Wire auth provider from @stackra/react-auth (lib/auth-provider.ts)
+  - [ ] 41.1 Wire auth provider from @stackra-inc/react-auth
+        (lib/auth-provider.ts)
   - [ ] 41.2 Create AuthLayoutWrapper with configurable variant
         (split/centered/fullscreen/kiosk)
   - [ ] 41.3 Create MngoKioskLayout custom auth variant with animated grid
@@ -290,7 +291,7 @@ development, and all feature implementations across the platform.
         380px, Profile 420px, Checkout 480px, Event Detail 560px, Seat Map
         640px)
   - [ ] 1.6 useDrawerStack and useSubView consumer hooks with error boundaries
-  - [ ] 1.7 Barrel exports from @stackra/react-ui package
+  - [ ] 1.7 Barrel exports from @stackra-inc/react-ui package
 
 - [ ] 16. Drawer Stack Enhancements - Lifecycle and Persistence
   - [ ] 44.1 Lifecycle hooks: onBeforeOpen (async guard), onAfterOpen
@@ -669,27 +670,27 @@ development, and all feature implementations across the platform.
   - [ ] 40.6 End Shift / Final Close dock action: cash reconciliation, Z-report
         printing
 
-- [ ] 41. Supporting Packages - @stackra/react-kbd
+- [ ] 41. Supporting Packages - @stackra-inc/react-kbd
   - [ ] 41.1 Keyboard shortcut system with hotkey registration and command
         palette
   - [ ] 41.2 POS-specific keyboard shortcuts (barcode scanner, quick actions,
         navigation)
   - [ ] 41.3 Package build and publish configuration (ESM + CJS output)
 
-- [ ] 42. Supporting Packages - @stackra/react-multitenancy
+- [ ] 42. Supporting Packages - @stackra-inc/react-multitenancy
   - [ ] 42.1 Tenant context provider with tenant resolution and scoped data
         access
   - [ ] 42.2 Multi-tenant isolation for all data stores (cart, preferences,
         sessions, audit logs)
   - [ ] 42.3 Tenant switch handling with registry and preference reload
 
-- [ ] 43. Supporting Packages - @stackra/react-theming
+- [ ] 43. Supporting Packages - @stackra-inc/react-theming
   - [ ] 43.1 Theme provider with dark/light mode support and CSS variable
         injection
   - [ ] 43.2 POS-specific theme tokens and color schemes
   - [ ] 43.3 Theme persistence and system preference detection
 
-- [ ] 44. Supporting Packages - @stackra/react-auth
+- [ ] 44. Supporting Packages - @stackra-inc/react-auth
   - [ ] 44.1 Authentication provider with token management and session handling
   - [ ] 44.2 Auth pages: login, OTP, reset password, forgot password, lock
         screen, device limit, account locked

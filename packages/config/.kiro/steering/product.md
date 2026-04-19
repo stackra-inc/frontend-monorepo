@@ -1,8 +1,8 @@
 # Product Overview
 
-`@stackra/ts-config` — Multi-source configuration management with multiple
+`@stackra-inc/ts-config` — Multi-source configuration management with multiple
 drivers (Env, File, HTTP) and DI integration
 
 ## Package Exports
 
-- `@stackra/ts-config` — main entry point
+- `@stackra-inc/ts-config` — main entry point

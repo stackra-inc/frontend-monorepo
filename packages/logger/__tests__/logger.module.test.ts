@@ -4,7 +4,7 @@
  * This test suite validates the LoggerModule functionality including
  * configuration, logging operations, and transporter management.
  *
- * @module @stackra/ts-logger
+ * @module @stackra-inc/ts-logger
  * @category Tests
  */
 

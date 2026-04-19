@@ -1,7 +1,7 @@
 /**
  * @fileoverview Barrel export for all interfaces in the theming package.
  *
- * @module @stackra/react-theming
+ * @module @stackra-inc/react-theming
  * @category Interfaces
  */
 

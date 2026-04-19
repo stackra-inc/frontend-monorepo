@@ -18,14 +18,14 @@
  *   → HttpResponse
  * ```
  *
- * @module @stackra/ts-http
+ * @module @stackra-inc/ts-http
  * @category Services
  *
  * @example
  * ```typescript
- * import { Inject, Injectable } from '@stackra/ts-container';
- * import { HTTP_CLIENT } from '@stackra/ts-http';
- * import type { HttpClient, HttpResponse } from '@stackra/ts-http';
+ * import { Inject, Injectable } from '@stackra-inc/ts-container';
+ * import { HTTP_CLIENT } from '@stackra-inc/ts-http';
+ * import type { HttpClient, HttpResponse } from '@stackra-inc/ts-http';
  *
  * @Injectable()
  * class UserService {
@@ -43,8 +43,8 @@
  */
 
 import axios from 'axios';
-import { Injectable, Inject } from '@stackra/ts-container';
-import { Str } from '@stackra/ts-support';
+import { Injectable, Inject } from '@stackra-inc/ts-container';
+import { Str } from '@stackra-inc/ts-support';
 import type { AxiosRequestConfig, AxiosResponse } from 'axios';
 
 import { HTTP_CONFIG, MIDDLEWARE_PIPELINE } from '@/constants';

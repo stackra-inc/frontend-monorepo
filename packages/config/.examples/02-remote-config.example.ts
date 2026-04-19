@@ -2,14 +2,14 @@
  * @fileoverview Remote Configuration — HTTP, AWS AppConfig, Firebase
  *
  * Demonstrates how to fetch configuration from remote sources using
- * the HTTP driver with `@stackra/ts-http`'s HttpClient.
+ * the HTTP driver with `@stackra-inc/ts-http`'s HttpClient.
  *
  * @module examples/remote-config
  *
  * Prerequisites:
- * - @stackra/ts-config installed
- * - @stackra/ts-http installed (for HTTP driver)
- * - @stackra/ts-container installed
+ * - @stackra-inc/ts-config installed
+ * - @stackra-inc/ts-http installed (for HTTP driver)
+ * - @stackra-inc/ts-container installed
  * - HttpModule.forRoot() imported before ConfigModule.forRoot()
  */
 
@@ -19,9 +19,9 @@ import {
   CONFIG_MANAGER,
   CONFIG_SERVICE,
   type ConfigService,
-} from '@stackra/ts-config';
-import { HttpModule } from '@stackra/ts-http';
-import { Module, Injectable, Inject } from '@stackra/ts-container';
+} from '@stackra-inc/ts-config';
+import { HttpModule } from '@stackra-inc/ts-http';
+import { Module, Injectable, Inject } from '@stackra-inc/ts-container';
 
 // ============================================================================
 // 1. Simple REST API Config Endpoint

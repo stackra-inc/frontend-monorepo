@@ -1,12 +1,12 @@
-# @stackra/ts-desktop
+# @stackra-inc/ts-desktop
 
 ## 1.0.0
 
 ### Major Features
 
-- 🎉 Initial release of @stackra/ts-desktop
+- 🎉 Initial release of @stackra-inc/ts-desktop
 - 🖥️ Platform-agnostic desktop integration (Electron + browser fallbacks)
-- 💉 Full DI integration with @stackra/ts-container
+- 💉 Full DI integration with @stackra-inc/ts-container
 - 🔌 23 injectable services across 7 domains
 
 ### Core

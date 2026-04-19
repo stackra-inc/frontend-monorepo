@@ -6,9 +6,10 @@ inclusion: auto
 
 ## Overview
 
-`@stackra/ts-container` is a NestJS-style IoC container and dependency injection
-system for client-side TypeScript applications. It provides a complete DI system
-with decorators, module system, lifecycle hooks, and React integration.
+`@stackra-inc/ts-container` is a NestJS-style IoC container and dependency
+injection system for client-side TypeScript applications. It provides a complete
+DI system with decorators, module system, lifecycle hooks, and React
+integration.
 
 ## Core Concepts
 
@@ -381,13 +382,13 @@ pre-compiled decorator registries instead of runtime reflection.
 1. **Install decorator discovery plugin**:
 
    ```bash
-   pnpm add -D @stackra/vite-decorator-discovery
+   pnpm add -D @stackra-inc/vite-decorator-discovery
    ```
 
 2. **Add plugin to vite.config.ts**:
 
    ```typescript
-   import { decoratorDiscoveryPlugin } from '@stackra/vite-decorator-discovery';
+   import { decoratorDiscoveryPlugin } from '@stackra-inc/vite-decorator-discovery';
 
    export default defineConfig({
      plugins: [decoratorDiscoveryPlugin(), react()],
@@ -397,13 +398,13 @@ pre-compiled decorator registries instead of runtime reflection.
 3. **Add type reference to vite-env.d.ts**:
    ```typescript
    /// <reference types="vite/client" />
-   /// <reference types="@stackra/vite-decorator-discovery/virtual-modules" />
+   /// <reference types="@stackra-inc/vite-decorator-discovery/virtual-modules" />
    ```
 
 ### Usage
 
 ```typescript
-import { Application } from '@stackra/ts-container';
+import { Application } from '@stackra-inc/ts-container';
 
 // Automatically uses RegistryScanner if available
 const app = await Application.create(AppModule);
@@ -537,7 +538,7 @@ class RequestLogger {}
 ### Setup
 
 ```typescript
-import { Application, ContainerProvider } from '@stackra/ts-container';
+import { Application, ContainerProvider } from '@stackra-inc/ts-container';
 import { createRoot } from 'react-dom/client';
 
 // Create application
@@ -554,7 +555,7 @@ createRoot(document.getElementById('root')!).render(
 ### Using Hooks
 
 ```typescript
-import { useInject, useContainer } from '@stackra/ts-container/react';
+import { useInject, useContainer } from '@stackra-inc/ts-container/react';
 
 function UserProfile() {
   // Inject services
@@ -642,7 +643,7 @@ class AppModule {}
 ### Using forwardRef()
 
 ```typescript
-import { forwardRef } from '@stackra/ts-container';
+import { forwardRef } from '@stackra-inc/ts-container';
 
 @Module({
   imports: [forwardRef(() => BModule)],
@@ -782,7 +783,7 @@ class HttpModule {}
 
 ### "Virtual decorator registries not found"
 
-- Add `@stackra/vite-decorator-discovery` plugin
+- Add `@stackra-inc/vite-decorator-discovery` plugin
 - Add type reference to `vite-env.d.ts`
 - Check plugin configuration in `vite.config.ts`
 

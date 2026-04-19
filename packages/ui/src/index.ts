@@ -1,9 +1,9 @@
 /**
- * @stackra/ts-ui
+ * @stackra-inc/ts-ui
  *
  * Shared UI primitives — slot system, drawer stack, command dock, and PWA.
  *
- * @module @stackra/ts-ui
+ * @module @stackra-inc/ts-ui
  */
 
 // ─── Components ────────────────────────────────────────────────────

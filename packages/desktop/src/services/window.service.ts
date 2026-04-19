@@ -8,10 +8,10 @@
  * | In Electron: creates/closes BrowserWindows via IPC.
  * | In browser: uses Fullscreen API where applicable, warns for the rest.
  * |
- * @module @stackra/ts-desktop
+ * @module @stackra-inc/ts-desktop
  */
 
-import { Injectable, Inject } from '@stackra/ts-container';
+import { Injectable, Inject } from '@stackra-inc/ts-container';
 
 import type { ChildWindowOptions, WindowInfo } from '@/interfaces/window.interface';
 import { DesktopManager } from './desktop-manager.service';

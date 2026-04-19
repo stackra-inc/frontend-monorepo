@@ -1,6 +1,6 @@
 /**
  * @fileoverview Route definition interface extending RouteMetadata with component.
- * @module @stackra/react-router
+ * @module @stackra-inc/react-router
  * @category Interfaces
  */
 

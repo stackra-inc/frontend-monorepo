@@ -64,7 +64,7 @@ Tailwind CSS, using Vite.
     - _Requirements: 4.1, 4.2, 4.3_
 
   - [x] 2.5 Implement drawer dismiss button consistency
-    - Extend `DrawerConfig` type (in `@stackra/react-ui`) with
+    - Extend `DrawerConfig` type (in `@stackra-inc/react-ui`) with
       `showCloseButton?: boolean` property (default `true`)
     - Update `DrawerHeader` component to conditionally render the X button based
       on `showCloseButton`
@@ -219,7 +219,7 @@ Tailwind CSS, using Vite.
       `apps/vite-template/src/components/drawers/experience-builder-drawer.tsx`
     - Implement 3-step wizard: Step 1 (category grid), Step 2 (filtered event
       list), Step 3 (ticket types with quantity steppers)
-    - Use `SubViewNavigator` from `@stackra/react-ui` for step transitions
+    - Use `SubViewNavigator` from `@stackra-inc/react-ui` for step transitions
       within the drawer
     - Show running cart summary as sticky footer with "Checkout" button
     - Support "Back" navigation at each step preserving selections from other
@@ -379,7 +379,7 @@ Tailwind CSS, using Vite.
 - Each task references specific requirements for traceability
 - Checkpoints ensure incremental validation
 - All new drawers follow the existing `push`/`pop`/`update`/`clear` pattern from
-  `@stackra/react-ui`
+  `@stackra-inc/react-ui`
 - The `@cart/react` package manages cart state; new features extend metadata,
   not the core cart API
 - All code is TypeScript React with Tailwind CSS

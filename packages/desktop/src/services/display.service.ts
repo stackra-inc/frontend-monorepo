@@ -16,10 +16,10 @@
  * |   display.configureDisplay({ type: 'screen', screenIndex: 1 });
  * |   await display.showOnDisplay('Total: $42.50');
  * |
- * @module @stackra/ts-desktop
+ * @module @stackra-inc/ts-desktop
  */
 
-import { Injectable, Inject } from '@stackra/ts-container';
+import { Injectable, Inject } from '@stackra-inc/ts-container';
 
 import { DESKTOP_CONFIG } from '@/constants';
 import type { DesktopModuleOptions } from '@/interfaces/desktop-module-options.interface';

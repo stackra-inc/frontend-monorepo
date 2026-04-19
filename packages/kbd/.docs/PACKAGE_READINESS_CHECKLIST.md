@@ -1,4 +1,4 @@
-# @stackra/kbd Package Readiness Checklist
+# @stackra-inc/kbd Package Readiness Checklist
 
 ## ✅ Package Structure
 
@@ -67,7 +67,7 @@
 
 ### package.json
 
-- ✅ Name: `@stackra/kbd`
+- ✅ Name: `@stackra-inc/kbd`
 - ✅ Version: `1.0.0`
 - ✅ License: MIT
 - ✅ Exports configured (CJS + ESM)
@@ -174,7 +174,7 @@ npm publish
 
 ## ✅ Final Status
 
-**The @stackra/kbd package is READY for use and publication!**
+**The @stackra-inc/kbd package is READY for use and publication!**
 
 ### Summary
 

@@ -3,21 +3,21 @@
 ## Introduction
 
 This feature adds automatic event dispatching at the repository layer of
-`@stackra/react-refine`. Every CRUD operation (create, read, update, delete, and
-their bulk variants) will dispatch before, after, and error events through the
-existing `@stackra/ts-events` EventManager. The system uses the decorator
-pattern — an `EventDispatchingRepository` wraps any `BaseRepository` and
-transparently intercepts calls to dispatch events without modifying existing
+`@stackra-inc/react-refine`. Every CRUD operation (create, read, update, delete,
+and their bulk variants) will dispatch before, after, and error events through
+the existing `@stackra-inc/ts-events` EventManager. The system uses the
+decorator pattern — an `EventDispatchingRepository` wraps any `BaseRepository`
+and transparently intercepts calls to dispatch events without modifying existing
 repository classes. React hooks are provided for subscribing to resource events.
 The `UndoableQueueProvider` is wired to listen to `beforeDelete` events so
 undoable deletions are event-driven.
 
 ## Glossary
 
-- **EventManager**: The event bus from `@stackra/ts-events` used to dispatch and
-  subscribe to named events.
-- **BaseRepository**: The abstract class in `@stackra/react-refine` defining the
-  CRUD contract (`getOne`, `getList`, `getMany`, `create`, `update`,
+- **EventManager**: The event bus from `@stackra-inc/ts-events` used to dispatch
+  and subscribe to named events.
+- **BaseRepository**: The abstract class in `@stackra-inc/react-refine` defining
+  the CRUD contract (`getOne`, `getList`, `getMany`, `create`, `update`,
   `deleteOne`, `deleteMany`, `createMany`, `updateMany`, `custom`).
 - **EventDispatchingRepository**: A concrete decorator class that wraps a
   `BaseRepository`, dispatching events before and after each CRUD operation.
@@ -186,7 +186,7 @@ together without multiple hook invocations.
 
 **User Story:** As a developer, I want all new event system types, classes, and
 hooks exported from the package barrel, so that I can import them from
-`@stackra/react-refine` directly.
+`@stackra-inc/react-refine` directly.
 
 #### Acceptance Criteria
 

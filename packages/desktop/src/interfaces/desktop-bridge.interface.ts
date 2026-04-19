@@ -10,7 +10,7 @@
  * |   - ElectronBridge: real IPC via window.electronAPI
  * |   - BrowserBridge: graceful fallbacks (window.print, etc.)
  * |
- * @module @stackra/ts-desktop
+ * @module @stackra-inc/ts-desktop
  */
 
 export interface DesktopBridge {

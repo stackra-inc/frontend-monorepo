@@ -1,7 +1,7 @@
 /**
  * @fileoverview Return shape for mutation hooks (useCreate, useUpdate, useDelete, etc.).
  *
- * @module @stackra/react-refine
+ * @module @stackra-inc/react-refine
  * @category Interfaces
  */
 

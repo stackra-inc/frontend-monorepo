@@ -1,7 +1,7 @@
 /**
  * @fileoverview Domain configuration interface for a specific tenant.
  *
- * @module @stackra/react-multitenancy
+ * @module @stackra-inc/react-multitenancy
  * @category Interfaces
  */
 

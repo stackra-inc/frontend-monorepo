@@ -17,8 +17,8 @@
  * ```
  */
 
-import { Injectable, Inject, type OnModuleInit } from '@stackra/ts-container';
-import { BaseRegistry } from '@stackra/ts-support';
+import { Injectable, Inject, type OnModuleInit } from '@stackra-inc/ts-container';
+import { BaseRegistry } from '@stackra-inc/ts-support';
 import type { Migration } from '@/migration/migration';
 import { MigrationRunner } from '@/migration/migration.runner';
 import { ConnectionManager } from '@/connection/connection.manager';

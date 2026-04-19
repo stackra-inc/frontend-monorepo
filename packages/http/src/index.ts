@@ -1,9 +1,9 @@
 /**
- * @stackra/ts-http
+ * @stackra-inc/ts-http
  *
  * Middleware-driven HTTP client for TypeScript.
  * Axios underneath, decorator-based middleware registration,
- * and DI integration via @stackra/ts-container.
+ * and DI integration via @stackra-inc/ts-container.
  *
  * @example
  * ```typescript
@@ -29,7 +29,7 @@
  * }
  * ```
  *
- * @module @stackra/ts-http
+ * @module @stackra-inc/ts-http
  */
 
 import 'reflect-metadata';

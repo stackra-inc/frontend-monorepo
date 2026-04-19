@@ -1,7 +1,7 @@
 /**
  * @example Advanced Patterns
  *
- * Demonstrates advanced usage of @stackra/react-refine:
+ * Demonstrates advanced usage of @stackra-inc/react-refine:
  * - Custom repositories extending BaseRepository
  * - Custom services extending BaseService with business logic
  * - Query string serializers (Laravel, JSON:API)
@@ -10,7 +10,7 @@
  * - Composing hooks for complex UI patterns
  * - Registering models with custom service/repository in @Resource
  *
- * @module @stackra/react-refine
+ * @module @stackra-inc/react-refine
  * @category Examples
  */
 
@@ -30,9 +30,9 @@ import {
   useCustom,
   useCustomMutation,
   useNotification,
-} from '@stackra/react-refine';
-import type { GetListParams, GetListResult, CustomParams } from '@stackra/react-refine';
-import { Module, Injectable } from '@stackra/ts-container';
+} from '@stackra-inc/react-refine';
+import type { GetListParams, GetListResult, CustomParams } from '@stackra-inc/react-refine';
+import { Module, Injectable } from '@stackra-inc/ts-container';
 
 // ─── 1. Custom Repository ────────────────────────────────────────────
 

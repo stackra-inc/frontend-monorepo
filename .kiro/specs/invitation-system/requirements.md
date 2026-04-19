@@ -3,11 +3,11 @@
 ## Introduction
 
 The Invitation package (`packages/invitation/`, namespace `Stackra\Invitation`,
-composer name `stackra/laravel-invitation`) is a standalone, reusable invitation
-system extracted from the family package. It provides a complete polymorphic
-invitation lifecycle that any bounded context can consume — family invites,
-admin invites, tenant invites, developer collaborator invites, referral invites,
-and any future invitable context.
+composer name `stackra-inc/laravel-invitation`) is a standalone, reusable
+invitation system extracted from the family package. It provides a complete
+polymorphic invitation lifecycle that any bounded context can consume — family
+invites, admin invites, tenant invites, developer collaborator invites, referral
+invites, and any future invitable context.
 
 The current family package has a basic invitation implementation (create +
 accept by token). This new package replaces it with a full-fledged system
@@ -59,7 +59,7 @@ modular monolith architecture.
 #### Acceptance Criteria
 
 1. THE Invitation_System SHALL reside at `packages/invitation/` with namespace
-   `Stackra\Invitation` and composer name `stackra/laravel-invitation`.
+   `Stackra\Invitation` and composer name `stackra-inc/laravel-invitation`.
 2. THE Invitation_System SHALL include all required package files:
    `composer.json`, `module.json`, `phpunit.xml`, `rector.php`, `.gitignore`,
    `CHANGELOG.md`, `LICENSE`, `README.md`.
@@ -353,7 +353,7 @@ that invitation logic is centralized and reusable.
    its own `Invitation` model, `InvitationInterface`, `InvitationStatus` enum,
    `InvitationRepository`, `InvitationRepositoryInterface`, `InvitationSent`
    event, `InvitationAccepted` event, and invitation migration.
-2. THE family package SHALL add `stackra/laravel-invitation` as a composer
+2. THE family package SHALL add `stackra-inc/laravel-invitation` as a composer
    dependency.
 3. THE `FamilyAccount` model SHALL implement
    `Stackra\Invitation\Contracts\InvitableInterface`.

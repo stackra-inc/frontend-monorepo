@@ -1,6 +1,6 @@
 /**
  * @fileoverview CustomizerPanel interface — a customizer panel registered with the ThemeModule.
- * @module @stackra/react-theming
+ * @module @stackra-inc/react-theming
  * @category Interfaces
  */
 

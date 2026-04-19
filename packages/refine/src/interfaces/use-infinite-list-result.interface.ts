@@ -1,7 +1,7 @@
 /**
  * @fileoverview Return shape for the useInfiniteList hook.
  *
- * @module @stackra/react-refine
+ * @module @stackra-inc/react-refine
  * @category Interfaces
  */
 

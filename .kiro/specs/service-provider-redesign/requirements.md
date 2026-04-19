@@ -8,8 +8,8 @@ package at `.docs/ServiceProvider/` uses ~20 concern traits with boolean flags
 (`$loadMigrations`, `$loadTranslations`, etc.) and runtime reflection for
 attribute reading. The redesigned package uses `composer-attribute-collector`
 (`Attributes::forClass()`) for cached attribute reading with zero runtime
-reflection in hot paths, `stackra/laravel-discovery` for auto-discovery, and is
-fully Octane-safe. The `ProvidesServices` trait is retained for composition
+reflection in hot paths, `stackra-inc/laravel-discovery` for auto-discovery, and
+is fully Octane-safe. The `ProvidesServices` trait is retained for composition
 flexibility, and all concern traits are consolidated into fewer, cohesive
 traits.
 
@@ -33,9 +33,9 @@ traits.
   `composer-attribute-collector` library accessed via `Attributes::forClass()`
   that provides build-time cached attribute reading with zero runtime
   reflection.
-- **Discovery_Package**: The `stackra/laravel-discovery` package that provides
-  attribute-based auto-discovery of classes (commands, controllers, middleware,
-  listeners, seeders) using cached composer data.
+- **Discovery_Package**: The `stackra-inc/laravel-discovery` package that
+  provides attribute-based auto-discovery of classes (commands, controllers,
+  middleware, listeners, seeders) using cached composer data.
 - **Octane_Safe**: A design constraint requiring no static mutable state across
   requests; all request-scoped registries use Laravel's `#[Scoped]` container
   binding.
@@ -130,8 +130,8 @@ runtime reflection overhead during request handling.
 
 **User Story:** As a package developer, I want all discoverable resources
 (commands, controllers, middleware, listeners, seeders) to be found via
-`stackra/laravel-discovery`, so that I get consistent, cached discovery without
-manual registration.
+`stackra-inc/laravel-discovery`, so that I get consistent, cached discovery
+without manual registration.
 
 #### Acceptance Criteria
 
@@ -288,7 +288,7 @@ system, so that users can customize module resources.
 
 1. WHEN publishables loading is enabled, THE Service_Provider SHALL register the
    module's `resources/` directory as publishable to
-   `public/stackra/{module_slug}/{asset_version}/` tagged as
+   `public/stackra-inc/{module_slug}/{asset_version}/` tagged as
    `{module_slug}-assets`.
 2. WHEN publishables loading is enabled, THE Service_Provider SHALL register the
    module's `config/*.php` files as publishable tagged as
@@ -385,7 +385,7 @@ consistent naming without magic strings.
 3. THE Service_Provider package SHALL define constants for publishing tags:
    TAG_ASSETS='assets', TAG_CONFIG='config', TAG_VIEWS='views', TAG_LANG='lang'.
 4. THE Service_Provider package SHALL define a path prefix constant:
-   PATH_PREFIX='stackra'.
+   PATH_PREFIX='stackra-inc'.
 
 ### Requirement 15: Deferred Loading Support
 

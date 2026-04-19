@@ -1,9 +1,9 @@
 /**
- * @stackra/react-theming
+ * @stackra-inc/react-theming
  *
  * Theme customizer registry, provider, hooks, and UI components.
  *
- * @module @stackra/react-theming
+ * @module @stackra-inc/react-theming
  */
 
 // ============================================================================

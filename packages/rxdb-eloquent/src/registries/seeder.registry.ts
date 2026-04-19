@@ -15,8 +15,8 @@
  * ```
  */
 
-import { Injectable } from '@stackra/ts-container';
-import { BaseRegistry } from '@stackra/ts-support';
+import { Injectable } from '@stackra-inc/ts-container';
+import { BaseRegistry } from '@stackra-inc/ts-support';
 import type { Seeder } from '@/seeder/seeder';
 
 /** A Seeder class constructor. */

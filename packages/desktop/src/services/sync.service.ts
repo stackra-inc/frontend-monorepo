@@ -19,10 +19,10 @@
  * |   });
  * |   const progress = await sync.sync();
  * |
- * @module @stackra/ts-desktop
+ * @module @stackra-inc/ts-desktop
  */
 
-import { Injectable, Inject } from '@stackra/ts-container';
+import { Injectable, Inject } from '@stackra-inc/ts-container';
 
 import { DESKTOP_CONFIG } from '@/constants';
 import type { DesktopModuleOptions } from '@/interfaces/desktop-module-options.interface';

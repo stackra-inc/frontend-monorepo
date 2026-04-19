@@ -1,7 +1,7 @@
 /**
  * @fileoverview Variables passed to the update-many mutation.
  *
- * @module @stackra/react-refine
+ * @module @stackra-inc/react-refine
  * @category Interfaces
  */
 

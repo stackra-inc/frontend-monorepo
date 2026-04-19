@@ -1,5 +1,5 @@
 /**
- * @stackra/ts-config
+ * @stackra-inc/ts-config
  *
  * Multi-source configuration management with multiple drivers for loading
  * configuration from various sources (environment variables, files, HTTP
@@ -12,9 +12,9 @@
  *
  * @example
  * ```typescript
- * import { ConfigModule, ConfigManager, CONFIG_SERVICE } from '@stackra/ts-config';
- * import { Module, Injectable, Inject } from '@stackra/ts-container';
- * import type { ConfigService } from '@stackra/ts-config';
+ * import { ConfigModule, ConfigManager, CONFIG_SERVICE } from '@stackra-inc/ts-config';
+ * import { Module, Injectable, Inject } from '@stackra-inc/ts-container';
+ * import type { ConfigService } from '@stackra-inc/ts-config';
  *
  * @Module({
  *   imports: [
@@ -39,7 +39,7 @@
  * }
  * ```
  *
- * @module @stackra/ts-config
+ * @module @stackra-inc/ts-config
  */
 
 // ============================================================================

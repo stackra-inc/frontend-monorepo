@@ -1,7 +1,7 @@
 /**
  * i18n Configuration
  *
- * Default configuration for the `@stackra/react-i18n` package.
+ * Default configuration for the `@stackra-inc/react-i18n` package.
  * Pass this to `I18nModule.forRoot()` or override individual values.
  *
  * Follows the same pattern as `logger.config.ts` and `settings.config.ts`
@@ -11,7 +11,7 @@
  *
  * @example
  * ```typescript
- * import i18nConfig from '@stackra/react-i81n';
+ * import i18nConfig from '@stackra-inc/react-i81n';
  *
  * // Use as-is
  * I18nModule.forRoot(i18nConfig);
@@ -25,7 +25,7 @@
  * ```
  */
 
-import type { I18nModuleOptions } from '@stackra/react-i81n';
+import type { I18nModuleOptions } from '@stackra-inc/react-i81n';
 
 /**
  * Default i18n configuration.
@@ -94,7 +94,7 @@ const i18nConfig: I18nModuleOptions = {
   |--------------------------------------------------------------------------
   |
   | Controls how the LocaleMiddleware injects and reads locale headers
-  | on HTTP requests/responses via @stackra/ts-http.
+  | on HTTP requests/responses via @stackra-inc/ts-http.
   |
   */
 
