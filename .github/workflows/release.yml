@@ -8,7 +8,7 @@
 #
 # Requires secrets:
 #   GITHUB_TOKEN — auto-provided by GitHub Actions
-#   STACKTRA_NPM_TOKEN    — npm access token for publishing
+#   STACKRA_NPM_TOKEN    — npm access token for publishing
 #
 # =============================================================================
 
@@ -71,8 +71,8 @@ jobs:
           title: "🔖 chore: version packages"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          STACKTRA_NPM_TOKEN: ${{ secrets.STACKTRA_NPM_TOKEN }}
-          NODE_AUTH_TOKEN: ${{ secrets.STACKTRA_NPM_TOKEN }}
+          STACKRA_NPM_TOKEN: ${{ secrets.STACKRA_NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.STACKRA_NPM_TOKEN }}
 
       - name: "📢 Log published packages"
         if: steps.changesets.outputs.published == 'true'

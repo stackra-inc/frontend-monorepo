@@ -6,7 +6,7 @@
 # Use this when you want to publish without changesets.
 #
 # Requires secrets:
-#   STACKTRA_NPM_TOKEN — npm access token for publishing
+#   STACKRA_NPM_TOKEN — npm access token for publishing
 #
 # =============================================================================
 
@@ -58,5 +58,5 @@ jobs:
       - name: "📦 Publish to npm"
         run: pnpm ci:publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.STACKTRA_NPM_TOKEN }}
-          STACKTRA_NPM_TOKEN: ${{ secrets.STACKTRA_NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.STACKRA_NPM_TOKEN }}
+          STACKRA_NPM_TOKEN: ${{ secrets.STACKRA_NPM_TOKEN }}

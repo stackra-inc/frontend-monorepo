@@ -84,10 +84,10 @@ Shared composite action used by all jobs:
 
 ## Required Secrets
 
-| Secret                       | Required | Purpose                |
-| ---------------------------- | -------- | ---------------------- |
-| `STACKTRA_NPM_TOKEN`         | Yes      | npm automation token   |
-| `STACKTRA_SLACK_WEBHOOK_URL` | No       | Slack incoming webhook |
+| Secret                      | Required | Purpose                |
+| --------------------------- | -------- | ---------------------- |
+| `STACKRA_NPM_TOKEN`         | Yes      | npm automation token   |
+| `STACKRA_SLACK_WEBHOOK_URL` | No       | Slack incoming webhook |
 
 ## Standardization Script
 

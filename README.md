@@ -174,12 +174,12 @@ git tag my-package-v1.0.0 && git push --tags
 
 ### Required secrets
 
-| Secret               | Workflow    | Description                             |
-| -------------------- | ----------- | --------------------------------------- |
-| `CODECOV_TOKEN`      | ci.yml      | [codecov.io](https://codecov.io) token  |
-| `STACKTRA_NPM_TOKEN` | release.yml | npm publish token                       |
-| `TURBO_TOKEN`        | ci.yml      | Turborepo remote cache token (optional) |
-| `TURBO_TEAM`         | ci.yml      | Turborepo team slug (optional)          |
+| Secret              | Workflow    | Description                             |
+| ------------------- | ----------- | --------------------------------------- |
+| `CODECOV_TOKEN`     | ci.yml      | [codecov.io](https://codecov.io) token  |
+| `STACKRA_NPM_TOKEN` | release.yml | npm publish token                       |
+| `TURBO_TOKEN`       | ci.yml      | Turborepo remote cache token (optional) |
+| `TURBO_TEAM`        | ci.yml      | Turborepo team slug (optional)          |
 
 ---
 

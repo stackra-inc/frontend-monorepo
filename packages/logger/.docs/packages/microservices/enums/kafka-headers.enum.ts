@@ -11,7 +11,7 @@ export enum KafkaHeaders {
   DELIVERY_ATTEMPT = 'kafka_deliveryAttempt',
   DLT_EXCEPTION_FQCN = 'kafka_dlt-exception-fqcn',
   DLT_EXCEPTION_MESSAGE = 'kafka_dlt-exception-message',
-  DLT_EXCEPTION_STACKTRACE = 'kafka_dlt-exception-stacktrace',
+  DLT_EXCEPTION_STACKRACE = 'kafka_dlt-exception-stacktrace',
   DLT_ORIGINAL_OFFSET = 'kafka_dlt-original-offset',
   DLT_ORIGINAL_PARTITION = 'kafka_dlt-original-partition',
   DLT_ORIGINAL_TIMESTAMP = 'kafka_dlt-original-timestamp',
