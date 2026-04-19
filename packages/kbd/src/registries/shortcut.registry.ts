@@ -8,8 +8,8 @@
  * @category Registries
  */
 
-import { Injectable } from '@stackra-inc/ts-container';
-import { BaseRegistry, Str } from '@stackra-inc/ts-support';
+import { Injectable } from '@stackra/ts-container';
+import { BaseRegistry, Str } from '@stackra/ts-support';
 import type {
   KeyboardShortcut,
   ShortcutGroup,
@@ -30,7 +30,7 @@ import type { KeyValue } from '@/types';
  *
  * @example
  * ```typescript
- * import { shortcutRegistry } from '@stackra-inc/kbd';
+ * import { shortcutRegistry } from '@stackra/kbd';
  *
  * // Register a shortcut
  * shortcutRegistry.register({

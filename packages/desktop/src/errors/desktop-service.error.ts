@@ -2,14 +2,14 @@
  * Desktop Service Errors
  *
  * |--------------------------------------------------------------------------
- * | Error hierarchy for @stackra-inc/ts-desktop services.
+ * | Error hierarchy for @stackra/ts-desktop services.
  * |--------------------------------------------------------------------------
  * |
  * | DesktopServiceError        — base error for all desktop services
  * | HardwareTimeoutError       — hardware operation exceeded timeout
  * | HardwareNotConfiguredError — hardware used before configure() called
  * |
- * @module @stackra-inc/ts-desktop
+ * @module @stackra/ts-desktop
  */
 
 /*

@@ -1,7 +1,7 @@
 /**
  * @fileoverview Return type for the useDelete hook.
  *
- * @module @stackra-inc/react-refine
+ * @module @stackra/react-refine
  * @category Types
  */
 

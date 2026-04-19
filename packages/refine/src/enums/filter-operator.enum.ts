@@ -4,12 +4,12 @@
  * Defines all supported comparison and logical operators used in
  * {@link FilterDescriptor} objects when building list queries.
  *
- * @module @stackra-inc/react-refine
+ * @module @stackra/react-refine
  * @category Enums
  *
  * @example
  * ```typescript
- * import { FilterOperator } from '@stackra-inc/react-refine';
+ * import { FilterOperator } from '@stackra/react-refine';
  *
  * const filter = {
  *   field: 'status',

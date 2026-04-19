@@ -2,13 +2,13 @@
 
 ## Introduction
 
-Split the monolithic `@stackra-inc/kbd` package into three focused
-micro-packages (`@kbd/core`, `@kbd/react`, `@kbd/refine`) following the same
-conventions established by `@cart/*` and `@nav/*`. The goal is clean separation
-of concerns: pure logic with zero framework dependencies in core, React hooks
-and components in react, and Refine.dev integration in refine. The original
-`@stackra-inc/kbd` package is retained as a compatibility wrapper that
-re-exports from the new packages.
+Split the monolithic `@stackra/kbd` package into three focused micro-packages
+(`@kbd/core`, `@kbd/react`, `@kbd/refine`) following the same conventions
+established by `@cart/*` and `@nav/*`. The goal is clean separation of concerns:
+pure logic with zero framework dependencies in core, React hooks and components
+in react, and Refine.dev integration in refine. The original `@stackra/kbd`
+package is retained as a compatibility wrapper that re-exports from the new
+packages.
 
 ## Glossary
 
@@ -22,7 +22,7 @@ re-exports from the new packages.
 - **Refine_Package**: The `@kbd/refine` micro-package containing
   Refine.dev-specific integration (Refine-aware RefineKbd, any Refine-specific
   hooks). Depends on Core_Package, React_Package, and @refinedev/core.
-- **Compatibility_Wrapper**: The original `@stackra-inc/kbd` package updated to
+- **Compatibility_Wrapper**: The original `@stackra/kbd` package updated to
   re-export all public API from Core_Package, React_Package, and Refine_Package
   so existing consumers continue to work without changes.
 - **Workspace**: The pnpm monorepo managed by Turborepo, with packages under
@@ -31,7 +31,7 @@ re-exports from the new packages.
   `packages/kbd/core/`) following the same structure as `@cart/*` and `@nav/*`.
 - **ShortcutRegistry**: The central registry class that manages keyboard
   shortcut registration, lookup, conflict detection, and platform-specific key
-  resolution. Extends BaseRegistry from `@stackra-inc/ts-support`.
+  resolution. Extends BaseRegistry from `@stackra/ts-support`.
 - **KbdModule**: The static module class providing a high-level API for
   configuring and managing keyboard shortcuts, including built-in shortcut
   registration.
@@ -64,8 +64,8 @@ logic in any JavaScript/TypeScript environment.
 7. THE Core_Package SHALL export Built_In_Shortcuts: BUILT_IN_SHORTCUTS,
    BUILT_IN_GROUPS, NAVIGATION_SHORTCUTS, SEARCH_SHORTCUTS, EDITING_SHORTCUTS,
    VIEW_SHORTCUTS, HELP_SHORTCUTS, MODAL_SHORTCUTS.
-8. THE Core_Package SHALL declare `@stackra-inc/ts-support` as a runtime
-   dependency for the BaseRegistry base class.
+8. THE Core_Package SHALL declare `@stackra/ts-support` as a runtime dependency
+   for the BaseRegistry base class.
 9. THE Core_Package SHALL have zero React, ReactDOM, or browser-DOM runtime
    dependencies in its package.json dependencies field.
 10. WHEN Built_In_Shortcuts reference icon components, THE Core_Package SHALL
@@ -164,15 +164,15 @@ that dependency resolution and task orchestration work correctly.
 
 ### Requirement 6: Compatibility Wrapper
 
-**User Story:** As an existing consumer of `@stackra-inc/kbd`, I want the
-original package to continue working as a re-export wrapper, so that I do not
-need to update my import paths immediately after the split.
+**User Story:** As an existing consumer of `@stackra/kbd`, I want the original
+package to continue working as a re-export wrapper, so that I do not need to
+update my import paths immediately after the split.
 
 #### Acceptance Criteria
 
 1. THE Compatibility_Wrapper SHALL re-export all public API members from
    Core_Package, React_Package, and Refine_Package.
-2. WHEN an existing consumer imports from `@stackra-inc/kbd`, THE
+2. WHEN an existing consumer imports from `@stackra/kbd`, THE
    Compatibility_Wrapper SHALL resolve the import to the corresponding export
    from the appropriate Micro_Package.
 3. THE Compatibility_Wrapper SHALL declare Core_Package, React_Package, and
@@ -221,8 +221,8 @@ package, so that the core remains truly framework-agnostic.
 ### Requirement 9: Public API Preservation
 
 **User Story:** As a library consumer, I want the combined public API of the
-three new packages to be identical to the current `@stackra-inc/kbd` public API,
-so that no functionality is lost during the split.
+three new packages to be identical to the current `@stackra/kbd` public API, so
+that no functionality is lost during the split.
 
 #### Acceptance Criteria
 

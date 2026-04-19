@@ -6,12 +6,12 @@
  * All metadata reads and writes go through `@vivtel/metadata` for a consistent,
  * typed API instead of raw `Reflect.*` calls.
  *
- * @module @stackra-inc/react-router
+ * @module @stackra/react-router
  * @category Decorators
  *
  * @example
  * ```typescript
- * import { Route } from '@stackra-inc/react-router';
+ * import { Route } from '@stackra/react-router';
  *
  * @Route({ path: '/posts', resource: 'posts', action: 'list' })
  * export class PostListPage { ... }

@@ -6,7 +6,7 @@
  *
  * @example
  * ```tsx
- * import { TenantBadge } from "@stackra-inc/react-multitenancy";
+ * import { TenantBadge } from "@stackra/react-multitenancy";
  *
  * <TenantBadge />
  * ```

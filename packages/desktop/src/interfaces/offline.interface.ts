@@ -5,7 +5,7 @@
  * | Types for offline state detection, operation queuing, and sync.
  * |--------------------------------------------------------------------------
  * |
- * @module @stackra-inc/ts-desktop
+ * @module @stackra/ts-desktop
  */
 
 /*

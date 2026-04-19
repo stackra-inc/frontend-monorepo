@@ -133,7 +133,7 @@
       style="fill:rgb(255, 247, 237);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:system-ui, -apple-system, sans-serif;font-size:14px;font-weight:400;text-anchor:start;dominant-baseline:auto">
       <tspan fill="#f97316" font-weight="700"
         style="fill:rgb(249, 115, 22);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:system-ui, -apple-system, sans-serif;font-size:14px;font-weight:700;text-anchor:start;dominant-baseline:auto">
-        › </tspan>@stackra-inc/react-ui shared component lib
+        › </tspan>@stackra/react-ui shared component lib
     </text>
     <text x="672" y="154"
       style="fill:rgb(255, 247, 237);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:system-ui, -apple-system, sans-serif;font-size:14px;font-weight:400;text-anchor:start;dominant-baseline:auto">

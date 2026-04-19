@@ -4,12 +4,12 @@
  * This component renders a searchable, filterable list of keyboard shortcuts
  * from the registry, with support for grouping by category or context.
  *
- * @module @stackra-inc/kbd
+ * @module @stackra/kbd
  * @category Components
  */
 
 import React, { useState, useMemo } from 'react';
-import { Str } from '@stackra-inc/ts-support';
+import { Str } from '@stackra/ts-support';
 import { RefineKbd } from '@/components/refine-kbd';
 import { useShortcutRegistry } from '@/hooks/use-shortcut-registry';
 import { shortcutRegistry } from '@/registries/shortcut.registry';

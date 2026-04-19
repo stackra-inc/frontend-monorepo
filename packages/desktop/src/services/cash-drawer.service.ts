@@ -13,10 +13,10 @@
  * |   drawer.configureDrawer({ type: 'printer-kick' });
  * |   await drawer.openDrawer();
  * |
- * @module @stackra-inc/ts-desktop
+ * @module @stackra/ts-desktop
  */
 
-import { Injectable, Inject } from '@stackra-inc/ts-container';
+import { Injectable, Inject } from '@stackra/ts-container';
 
 import { DESKTOP_CONFIG } from '@/constants';
 import type { DesktopModuleOptions } from '@/interfaces/desktop-module-options.interface';

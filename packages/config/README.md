@@ -1,10 +1,10 @@
 <p align="center">
-  <img src=".github/assets/banner.svg" alt="@stackra-inc/ts-config" width="100%" />
+  <img src=".github/assets/banner.svg" alt="@stackra/ts-config" width="100%" />
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/@stackra-inc/ts-config">
-    <img src="https://img.shields.io/npm/v/@stackra-inc/ts-config?style=flat-square&color=38bdf8&label=npm" alt="npm version" />
+  <a href="https://www.npmjs.com/package/@stackra/ts-config">
+    <img src="https://img.shields.io/npm/v/@stackra/ts-config?style=flat-square&color=38bdf8&label=npm" alt="npm version" />
   </a>
   <a href="./LICENSE">
     <img src="https://img.shields.io/badge/license-MIT-818cf8?style=flat-square" alt="MIT license" />
@@ -16,7 +16,7 @@
 
 ---
 
-# @stackra-inc/config
+# @stackra/config
 
 NestJS-inspired configuration management with multiple drivers (Env, File,
 Firebase) for Refine applications.
@@ -34,9 +34,9 @@ Firebase) for Refine applications.
 ## Installation
 
 ```bash
-npm install @stackra-inc/config
+npm install @stackra/config
 # or
-pnpm add @stackra-inc/config
+pnpm add @stackra/config
 ```
 
 ## Quick Start
@@ -44,8 +44,8 @@ pnpm add @stackra-inc/config
 ### 1. Using Environment Variables (Default)
 
 ```typescript
-import { Module } from '@stackra-inc/container';
-import { ConfigModule, ConfigService } from '@stackra-inc/config';
+import { Module } from '@stackra/container';
+import { ConfigModule, ConfigService } from '@stackra/config';
 
 @Module({
   imports: [
@@ -150,7 +150,7 @@ config.all();
 Use the `Env` helper for direct environment variable access:
 
 ```typescript
-import { Env } from '@stackra-inc/config';
+import { Env } from '@stackra/config';
 
 // Get string
 const appName = Env.get('APP_NAME', 'MyApp');
@@ -253,21 +253,21 @@ ConfigModule.forRoot({
 
 ## Comparison with Other Packages
 
-### vs @stackra-inc/cache and @stackra-inc/logger
+### vs @stackra/cache and @stackra/logger
 
 All three packages follow the same pattern:
 
 ```typescript
 // Cache
-import cacheConfig from '@stackra-inc/cache/config/cache.config';
+import cacheConfig from '@stackra/cache/config/cache.config';
 CacheModule.forRoot(cacheConfig);
 
 // Logger
-import loggerConfig from '@stackra-inc/logger/config/logger.config';
+import loggerConfig from '@stackra/logger/config/logger.config';
 LoggerModule.forRoot(loggerConfig);
 
 // Config (manages both!)
-import { ConfigModule, ConfigService } from '@stackra-inc/config';
+import { ConfigModule, ConfigService } from '@stackra/config';
 ConfigModule.forRoot({ isGlobal: true });
 
 // Now use ConfigService to get cache/logger settings

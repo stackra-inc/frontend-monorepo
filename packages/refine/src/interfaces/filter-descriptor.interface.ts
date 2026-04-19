@@ -1,7 +1,7 @@
 /**
  * @fileoverview Filter descriptor interface for list query filtering.
  *
- * @module @stackra-inc/react-refine
+ * @module @stackra/react-refine
  * @category Interfaces
  */
 

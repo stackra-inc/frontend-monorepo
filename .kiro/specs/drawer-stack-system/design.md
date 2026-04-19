@@ -11,7 +11,7 @@ custom `<DrawerOverlay>`), and hand-rolled sub-view navigation in
 The system lives at `apps/vite-template/src/lib/drawer-stack/` and exports a
 provider, a container renderer, a sub-view navigator, hooks, and all TypeScript
 types from a barrel `index.ts`. It has zero application-specific imports, making
-it extractable to `@stackra-inc/react-drawers`.
+it extractable to `@stackra/react-drawers`.
 
 ### Key Design Decisions
 

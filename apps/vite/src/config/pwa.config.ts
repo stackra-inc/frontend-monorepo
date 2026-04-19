@@ -2,7 +2,7 @@
  * PWA Configuration
  *
  * |--------------------------------------------------------------------------
- * | @stackra-inc/ts-pwa — Progressive Web App settings
+ * | @stackra/ts-pwa — Progressive Web App settings
  * |--------------------------------------------------------------------------
  * |
  * | Unified config for both build-time (vite-plugin-pwa) and runtime
@@ -21,7 +21,7 @@
  * @module config/pwa
  */
 
-import { defineConfig } from '@stackra-inc/ts-pwa';
+import { defineConfig } from '@stackra/ts-pwa';
 
 const pwaConfig = defineConfig({
   /*

@@ -17,7 +17,7 @@ import type { TenantConfig, TenantResolver } from '@/interfaces';
  *
  * @example
  * ```typescript
- * import { HeaderResolver } from "@stackra-inc/react-multitenancy";
+ * import { HeaderResolver } from "@stackra/react-multitenancy";
  *
  * // With default header name (X-Tenant-ID)
  * const resolver = new HeaderResolver({

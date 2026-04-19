@@ -2,7 +2,7 @@
  * HTTP Configuration Driver
  *
  * Fetches configuration from a remote HTTP endpoint using
- * `@stackra-inc/ts-http`'s `HttpClient`. Supports response transformation
+ * `@stackra/ts-http`'s `HttpClient`. Supports response transformation
  * and retry logic for resilient remote config loading.
  *
  * This driver is created internally by `ConfigManager.createDriverAsync()`
@@ -19,7 +19,7 @@
  * @module drivers/http
  */
 
-import type { HttpClient, HttpResponse } from '@stackra-inc/ts-http';
+import type { HttpClient, HttpResponse } from '@stackra/ts-http';
 import type { ConfigDriver } from '@/interfaces/config-driver.interface';
 import type { HttpDriverOptions } from '@/interfaces/http-driver-options.interface';
 import { getNestedValue, hasNestedValue } from '@/utils/get-nested-value.util';
@@ -27,7 +27,7 @@ import { getNestedValue, hasNestedValue } from '@/utils/get-nested-value.util';
 /**
  * HttpDriver — fetches configuration from a remote HTTP endpoint.
  *
- * Requires an `HttpClient` instance (from `@stackra-inc/ts-http`) and
+ * Requires an `HttpClient` instance (from `@stackra/ts-http`) and
  * options specifying the URL and optional response transform.
  *
  * @example
@@ -70,7 +70,7 @@ export class HttpDriver implements ConfigDriver {
   /**
    * Create a new HttpDriver.
    *
-   * @param httpClient - The `HttpClient` instance from `@stackra-inc/ts-http`
+   * @param httpClient - The `HttpClient` instance from `@stackra/ts-http`
    * @param options - Driver configuration (URL, transform, retries)
    */
   constructor(

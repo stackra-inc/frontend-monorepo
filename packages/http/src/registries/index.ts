@@ -1,6 +1,6 @@
 /**
  * @fileoverview Registries Index
- * @module @stackra-inc/ts-http
+ * @module @stackra/ts-http
  * @category Registries
  */
 

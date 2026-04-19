@@ -1,7 +1,7 @@
 /**
  * @fileoverview Barrel export for refine services.
  *
- * @module @stackra-inc/react-refine
+ * @module @stackra/react-refine
  * @category Services
  */
 

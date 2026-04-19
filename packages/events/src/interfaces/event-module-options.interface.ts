@@ -4,7 +4,7 @@
  * Main configuration object for the events module.
  * Equivalent to `CacheModuleOptions` in the cache package.
  *
- * @module @stackra-inc/ts-events
+ * @module @stackra/ts-events
  * @category Interfaces
  */
 

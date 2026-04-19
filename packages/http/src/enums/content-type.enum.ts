@@ -4,12 +4,12 @@
  * Common MIME types used in HTTP request and response headers.
  * Provides type-safe constants instead of raw strings.
  *
- * @module @stackra-inc/ts-http
+ * @module @stackra/ts-http
  * @category Enums
  *
  * @example
  * ```typescript
- * import { ContentType } from '@stackra-inc/ts-http';
+ * import { ContentType } from '@stackra/ts-http';
  *
  * const config: HttpRequestConfig = {
  *   url: '/api/users',

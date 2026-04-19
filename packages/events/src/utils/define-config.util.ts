@@ -3,7 +3,7 @@
  *
  * Type-safe helper for creating EventsModule configuration.
  *
- * @module @stackra-inc/ts-events
+ * @module @stackra/ts-events
  * @category Utils
  */
 

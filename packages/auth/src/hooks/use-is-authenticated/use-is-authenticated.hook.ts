@@ -1,6 +1,6 @@
-/** @fileoverview useIsAuthenticated hook. @module @stackra-inc/react-auth @category Hooks */
+/** @fileoverview useIsAuthenticated hook. @module @stackra/react-auth @category Hooks */
 import { useQuery } from '@tanstack/react-query';
-import { useInject } from '@stackra-inc/ts-container';
+import { useInject } from '@stackra/ts-container';
 import { AUTH_SERVICE } from '@/constants';
 import type { IAuthService } from '@/interfaces/auth-service.interface';
 import type { CheckResponse } from '@/interfaces/check-response.interface';

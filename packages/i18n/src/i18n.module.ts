@@ -1,7 +1,7 @@
 /**
  * i18n Module
  *
- * DI module for `@stackra-inc/react-i18n`.
+ * DI module for `@stackra/react-i18n`.
  *
  * Registers:
  * - `I18N_CONFIG` — the merged module configuration
@@ -17,8 +17,8 @@
  *
  * @example
  * ```typescript
- * import { Module } from '@stackra-inc/ts-container';
- * import { I18nModule } from '@stackra-inc/react-i18n';
+ * import { Module } from '@stackra/ts-container';
+ * import { I18nModule } from '@stackra/react-i18n';
  *
  * @Module({
  *   imports: [
@@ -53,7 +53,7 @@
  * ```
  */
 
-import { Module, type DynamicModule } from '@stackra-inc/ts-container';
+import { Module, type DynamicModule } from '@stackra/ts-container';
 
 import type { I18nModuleOptions } from '@/interfaces/i18n-module-options.interface';
 import {

@@ -1,7 +1,7 @@
 /**
  * @fileoverview Props for the useCreate hook.
  *
- * @module @stackra-inc/react-refine
+ * @module @stackra/react-refine
  * @category Interfaces
  */
 

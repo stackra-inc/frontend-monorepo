@@ -3,10 +3,10 @@
  *
  * Default configuration for the settings package.
  *
- * @module @stackra-inc/ts-settings
+ * @module @stackra/ts-settings
  */
 
-import type { SettingsModuleOptions } from '@stackra-inc/ts-settings';
+import type { SettingsModuleOptions } from '@stackra/ts-settings';
 
 export const defaultSettingsConfig: SettingsModuleOptions = {
   default: 'memory',

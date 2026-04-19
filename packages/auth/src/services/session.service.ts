@@ -6,17 +6,17 @@
  * backend API via the injected {@link HttpClient} for server-side
  * session operations (list, get current, destroy, destroy all).
  *
- * Dispatches {@link AuthEvent} events through `@stackra-inc/ts-events`
+ * Dispatches {@link AuthEvent} events through `@stackra/ts-events`
  * on every session lifecycle change.
  *
- * @module @stackra-inc/react-auth
+ * @module @stackra/react-auth
  * @category Services
  *
  * @example
  * ```typescript
- * import { Inject } from '@stackra-inc/ts-container';
- * import { SESSION_SERVICE } from '@stackra-inc/react-auth';
- * import type { SessionService } from '@stackra-inc/react-auth';
+ * import { Inject } from '@stackra/ts-container';
+ * import { SESSION_SERVICE } from '@stackra/react-auth';
+ * import type { SessionService } from '@stackra/react-auth';
  *
  * @Injectable()
  * class DashboardService {
@@ -30,11 +30,11 @@
  * ```
  */
 
-import { Injectable, Inject, Optional } from '@stackra-inc/ts-container';
-import { HTTP_CLIENT } from '@stackra-inc/ts-http';
-import { EVENT_MANAGER } from '@stackra-inc/ts-events';
-import type { HttpClient, HttpResponse } from '@stackra-inc/ts-http';
-import type { EventManager } from '@stackra-inc/ts-events';
+import { Injectable, Inject, Optional } from '@stackra/ts-container';
+import { HTTP_CLIENT } from '@stackra/ts-http';
+import { EVENT_MANAGER } from '@stackra/ts-events';
+import type { HttpClient, HttpResponse } from '@stackra/ts-http';
+import type { EventManager } from '@stackra/ts-events';
 import { AuthEvent } from '@/enums/auth-event.enum';
 import { SESSION_STORAGE_KEY } from '@/constants';
 import type { Session } from '@/interfaces/session.interface';

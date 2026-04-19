@@ -1,6 +1,6 @@
-/** @fileoverview useCan hook — access control check. @module @stackra-inc/react-auth @category Hooks */
+/** @fileoverview useCan hook — access control check. @module @stackra/react-auth @category Hooks */
 import { useQuery } from '@tanstack/react-query';
-import { useInject } from '@stackra-inc/ts-container';
+import { useInject } from '@stackra/ts-container';
 import { ACCESS_CONTROL_SERVICE } from '@/constants';
 import type { IAccessControlService } from '@/interfaces/access-control-service.interface';
 import type { CanResponse } from '@/interfaces/can-response.interface';

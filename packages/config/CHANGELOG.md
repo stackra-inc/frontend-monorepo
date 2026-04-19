@@ -1,10 +1,10 @@
-# @stackra-inc/ts-config
+# @stackra/ts-config
 
 ## 1.0.0
 
 ### Major Features
 
-- 🎉 Initial release of @stackra-inc/ts-config
+- 🎉 Initial release of @stackra/ts-config
 - 🔧 `ConfigModule.forRoot()` with DynamicModule pattern
 - 📦 `ConfigService` with type-safe getters (`getString`, `getNumber`,
   `getBool`, `getArray`, `getJson`)

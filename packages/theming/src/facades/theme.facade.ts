@@ -1,7 +1,7 @@
 /**
  * Theme Facade
  *
- * Typed proxy for {@link ThemeRegistry} from `@stackra-inc/react-theming`.
+ * Typed proxy for {@link ThemeRegistry} from `@stackra/react-theming`.
  *
  * Theme registry. Stores and retrieves registered theme configurations.
  *
@@ -12,8 +12,8 @@
  * ## Setup (once, in main.tsx)
  *
  * ```typescript
- * import { Application } from '@stackra-inc/ts-container';
- * import { Facade } from '@stackra-inc/ts-support';
+ * import { Application } from '@stackra/ts-container';
+ * import { Facade } from '@stackra/ts-support';
  *
  * const app = await Application.create(AppModule);
  * Facade.setApplication(app); // wires all facades
@@ -22,7 +22,7 @@
  * ## Usage
  *
  * ```typescript
- * import { ThemeFacade } from '@stackra-inc/react-theming';
+ * import { ThemeFacade } from '@stackra/react-theming';
  *
  * // Full autocomplete — no .proxy() call needed
  * ThemeFacade.register();
@@ -39,7 +39,7 @@
  * ## Testing — swap in a mock
  *
  * ```typescript
- * import { Facade } from '@stackra-inc/ts-support';
+ * import { Facade } from '@stackra/ts-support';
  * import { THEME_REGISTRY } from '@/constants/tokens.constant';
  *
  * // Before test — replace the resolved instance
@@ -54,7 +54,7 @@
  * @see {@link Facade} — the base class providing `make()`
  */
 
-import { Facade } from '@stackra-inc/ts-support';
+import { Facade } from '@stackra/ts-support';
 import { ThemeRegistry } from '@/registries/theme.registry';
 import { THEME_REGISTRY } from '@/constants/tokens.constant';
 

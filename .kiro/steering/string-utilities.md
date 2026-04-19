@@ -5,7 +5,7 @@ inclusion: always
 # String Utilities Standard
 
 All string manipulation in the frontend monorepo MUST use the `Str` class from
-`@stackra-inc/ts-support`. No raw native string methods.
+`@stackra/ts-support`. No raw native string methods.
 
 ## The Rule
 
@@ -26,7 +26,7 @@ value.charAt(0).toUpperCase() + value.slice(1);
 **Always do this:**
 
 ```typescript
-import { Str } from '@stackra-inc/ts-support';
+import { Str } from '@stackra/ts-support';
 
 Str.lower(value);
 Str.upper(value);
@@ -74,25 +74,25 @@ These patterns are NOT replaceable with `Str` and should stay as native:
 ## Import Pattern
 
 ```typescript
-import { Str } from '@stackra-inc/ts-support';
+import { Str } from '@stackra/ts-support';
 ```
 
-If the package already imports from `@stackra-inc/ts-support` (e.g.,
+If the package already imports from `@stackra/ts-support` (e.g.,
 `BaseRegistry`), combine the imports:
 
 ```typescript
-import { BaseRegistry, Str } from '@stackra-inc/ts-support';
+import { BaseRegistry, Str } from '@stackra/ts-support';
 ```
 
 ## Dependency Requirement
 
-Every package that uses `Str` must have `@stackra-inc/ts-support` in its
+Every package that uses `Str` must have `@stackra/ts-support` in its
 `dependencies` or `peerDependencies` in `package.json`:
 
 ```json
 {
   "dependencies": {
-    "@stackra-inc/ts-support": "workspace:*"
+    "@stackra/ts-support": "workspace:*"
   }
 }
 ```

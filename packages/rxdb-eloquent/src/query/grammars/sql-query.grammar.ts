@@ -22,7 +22,7 @@
  * Numeric and boolean values are rendered inline.
  */
 
-import { Str } from '@stackra-inc/ts-support';
+import { Str } from '@stackra/ts-support';
 import { QueryGrammar } from './query.grammar';
 import type { QueryBuilderState, WhereClause, OrderByClause } from '@/query/query.builder';
 

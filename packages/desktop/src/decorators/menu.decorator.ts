@@ -20,7 +20,7 @@
  */
 
 import { defineMetadata } from '@vivtel/metadata';
-import { Str } from '@stackra-inc/ts-support';
+import { Str } from '@stackra/ts-support';
 import { MENU_METADATA } from '@/constants';
 import type { MenuMetadata } from '@/interfaces';
 

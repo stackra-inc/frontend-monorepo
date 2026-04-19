@@ -1,2 +1,2 @@
-/** @fileoverview Test type declarations for @stackra-inc/react-router. */
+/** @fileoverview Test type declarations for @stackra/react-router. */
 /// <reference types="vitest/globals" />

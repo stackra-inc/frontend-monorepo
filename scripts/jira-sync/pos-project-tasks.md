@@ -24,7 +24,7 @@ Stories/Tasks, and their children map to Sub-tasks.
   - [ ] 1.7 Set up local development environment documentation (README,
         CONTRIBUTING)
 
-- [ ] 2. Frontend: @stackra-inc/ts-container — IoC Container & DI
+- [ ] 2. Frontend: @stackra/ts-container — IoC Container & DI
   - [ ] 2.1 Implement Container class with bind, singleton, factory, resolve,
         and make methods
   - [ ] 2.2 Implement @Injectable(), @Inject(), @Optional() decorators with
@@ -39,7 +39,7 @@ Stories/Tasks, and their children map to Sub-tasks.
         invocation
   - [ ] 2.7 Build and publish package with tsup (ESM + CJS + DTS)
 
-- [ ] 3. Frontend: @stackra-inc/ts-container-react — React DI Integration
+- [ ] 3. Frontend: @stackra/ts-container-react — React DI Integration
   - [ ] 3.1 Implement ContainerProvider React context that accepts
         ApplicationContext
   - [ ] 3.2 Implement useInject() hook for resolving services from the DI
@@ -47,7 +47,7 @@ Stories/Tasks, and their children map to Sub-tasks.
   - [ ] 3.3 Implement useOptionalInject() hook for optional service resolution
   - [ ] 3.4 Build and publish package
 
-- [ ] 4. Frontend: @stackra-inc/ts-application — App Bootstrap
+- [ ] 4. Frontend: @stackra/ts-application — App Bootstrap
   - [ ] 4.1 Implement bootstrapApp(AppModule) function that creates
         ApplicationContext and resolves all modules
   - [ ] 4.2 Implement module graph traversal and topological sort for dependency
@@ -56,7 +56,7 @@ Stories/Tasks, and their children map to Sub-tasks.
         are resolved
   - [ ] 4.4 Build and publish package
 
-- [ ] 5. Frontend: @stackra-inc/ts-support — Shared Utilities
+- [ ] 5. Frontend: @stackra/ts-support — Shared Utilities
   - [ ] 5.1 Implement BaseRegistry abstract class with Map-based storage, get,
         has, getAll, clear
   - [ ] 5.2 Implement MultipleInstanceManager abstract class for named
@@ -65,7 +65,7 @@ Stories/Tasks, and their children map to Sub-tasks.
         helpers)
   - [ ] 5.4 Build and publish package
 
-- [ ] 6. Frontend: @stackra-inc/ts-config — Environment Configuration
+- [ ] 6. Frontend: @stackra/ts-config — Environment Configuration
   - [ ] 6.1 Implement ConfigModule with forRoot() DI registration
   - [ ] 6.2 Implement ConfigService with get, set, has, all methods
   - [ ] 6.3 Implement EnvDriver that reads from import.meta.env (Vite),
@@ -74,7 +74,7 @@ Stories/Tasks, and their children map to Sub-tasks.
   - [ ] 6.5 Implement environment variable expansion and type coercion
   - [ ] 6.6 Build and publish package
 
-- [ ] 7. Frontend: @stackra-inc/ts-logger — Structured Logging
+- [ ] 7. Frontend: @stackra/ts-logger — Structured Logging
   - [ ] 7.1 Implement LoggerModule with forRoot() DI registration
   - [ ] 7.2 Implement LoggerManager extending MultipleInstanceManager for named
         channels
@@ -87,7 +87,7 @@ Stories/Tasks, and their children map to Sub-tasks.
   - [ ] 7.6 Implement useLogger() React hook
   - [ ] 7.7 Build and publish package
 
-- [ ] 8. Frontend: @stackra-inc/ts-redis — Upstash Redis Client
+- [ ] 8. Frontend: @stackra/ts-redis — Upstash Redis Client
   - [ ] 8.1 Implement RedisModule with forRoot() DI registration
   - [ ] 8.2 Implement RedisManager extending MultipleInstanceManager for named
         connections
@@ -99,7 +99,7 @@ Stories/Tasks, and their children map to Sub-tasks.
   - [ ] 8.6 Implement useRedis() React hook
   - [ ] 8.7 Build and publish package
 
-- [ ] 9. Frontend: @stackra-inc/ts-cache — Multi-Driver Cache
+- [ ] 9. Frontend: @stackra/ts-cache — Multi-Driver Cache
   - [ ] 9.1 Implement CacheModule with forRoot() DI registration
   - [ ] 9.2 Implement CacheManager extending MultipleInstanceManager for named
         stores
@@ -113,7 +113,7 @@ Stories/Tasks, and their children map to Sub-tasks.
   - [ ] 9.8 Implement useCache() React hook
   - [ ] 9.9 Build and publish package
 
-- [ ] 10. Frontend: @stackra-inc/ts-events — Event Dispatcher
+- [ ] 10. Frontend: @stackra/ts-events — Event Dispatcher
   - [ ] 10.1 Implement EventsModule with forRoot() DI registration
   - [ ] 10.2 Implement EventManager extending MultipleInstanceManager for named
         dispatchers
@@ -128,7 +128,7 @@ Stories/Tasks, and their children map to Sub-tasks.
   - [ ] 10.8 Implement useEvents() and useEvent() React hooks
   - [ ] 10.9 Build and publish package
 
-- [ ] 11. Frontend: @stackra-inc/ts-settings — Settings Management
+- [ ] 11. Frontend: @stackra/ts-settings — Settings Management
   - [ ] 11.1 Implement SettingsModule with forRoot() DI registration
   - [ ] 11.2 Implement SettingsManager extending MultipleInstanceManager for
         named stores
@@ -139,7 +139,7 @@ Stories/Tasks, and their children map to Sub-tasks.
   - [ ] 11.6 Implement useSettings() React hook
   - [ ] 11.7 Build and publish package
 
-- [ ] 12. Frontend: @stackra-inc/kbd — Keyboard Shortcut Management
+- [ ] 12. Frontend: @stackra/kbd — Keyboard Shortcut Management
   - [ ] 12.1 Implement ShortcutRegistry extending BaseRegistry with platform
         detection, conflict detection, and group management
   - [ ] 12.2 Implement KbdModule with forRoot() / forFeature() DI registration
@@ -155,8 +155,7 @@ Stories/Tasks, and their children map to Sub-tasks.
         visibility
   - [ ] 12.8 Build and publish package
 
-- [ ] 13. Frontend: @stackra-inc/ts-desktop — Electron Desktop Integration
-      (Core)
+- [ ] 13. Frontend: @stackra/ts-desktop — Electron Desktop Integration (Core)
   - [ ] 13.1 Implement DesktopModule with forRoot() / forFeature() DI
         registration
   - [ ] 13.2 Implement DesktopManager with platform detection (Electron vs
@@ -174,7 +173,7 @@ Stories/Tasks, and their children map to Sub-tasks.
         register menu shortcuts automatically
   - [ ] 13.10 Build and publish package
 
-- [ ] 14. Frontend: @stackra-inc/ts-desktop — Enhanced Services (23 services)
+- [ ] 14. Frontend: @stackra/ts-desktop — Enhanced Services (23 services)
   - [ ] 14.1 Implement error types: DesktopServiceError, HardwareTimeoutError,
         HardwareNotConfiguredError
   - [ ] 14.2 Add 21 DI tokens for all new services
@@ -305,7 +304,7 @@ Stories/Tasks, and their children map to Sub-tasks.
   - [ ] 16.9 Implement is-electron CSS class for traffic light padding and drag
         region
   - [ ] 16.10 Implement demo pages for each package (Config, Logger, Container)
-  - [ ] 16.11 Configure dependency graph — all @stackra-inc/_ packages as
+  - [ ] 16.11 Configure dependency graph — all @stackra/_ packages as
         workspace:_ dependencies
 
 - [ ] 17. Frontend: Package Standardization

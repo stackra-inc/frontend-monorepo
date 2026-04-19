@@ -1,7 +1,7 @@
 {
-  "name": "@stackra-inc/react-router",
+  "name": "@stackra/react-router",
   "version": "1.0.0",
-  "description": "Route auto-registration package with @Route decorator and RouteRegistry for @stackra-inc/react-refine.",
+  "description": "Route auto-registration package with @Route decorator and RouteRegistry for @stackra/react-refine.",
   "license": "MIT",
   "author": {
     "name": "Stackra L.L.C",
@@ -54,8 +54,8 @@
   },
   "dependencies": {
     "tslib": "^2.8.1",
-    "@stackra-inc/ts-support": "workspace:*",
-    "@stackra-inc/ts-container": "^2.0.4"
+    "@stackra/ts-support": "workspace:*",
+    "@stackra/ts-container": "^2.0.4"
   },
   "devDependencies": {
     "@types/node": "^25.5.0",
@@ -76,18 +76,18 @@
     "typescript-eslint": "^8.58.0"
   },
   "peerDependencies": {
-    "@stackra-inc/react-refine": "workspace:*",
-    "@stackra-inc/ts-container": "^2.0.4",
-    "@stackra-inc/ts-support": "workspace:*",
+    "@stackra/react-refine": "workspace:*",
+    "@stackra/ts-container": "^2.0.4",
+    "@stackra/ts-support": "workspace:*",
     "react-router-dom": "^6.0.0 || ^7.0.0",
     "react": "^18.0.0 || ^19.0.0",
     "reflect-metadata": "^0.2.2"
   },
   "peerDependenciesMeta": {
-    "@stackra-inc/react-refine": {
+    "@stackra/react-refine": {
       "optional": false
     },
-    "@stackra-inc/ts-container": {
+    "@stackra/ts-container": {
       "optional": false
     },
     "react-router-dom": {

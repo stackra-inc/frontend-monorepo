@@ -2,7 +2,7 @@
  * Wildcards & Priority Example
  *
  * |--------------------------------------------------------------------------
- * | @stackra-inc/ts-events — Wildcards & Priority
+ * | @stackra/ts-events — Wildcards & Priority
  * |--------------------------------------------------------------------------
  * |
  * | This example demonstrates advanced event matching:
@@ -22,8 +22,8 @@
  * |
  */
 
-import { MemoryDispatcher, EventPriority } from '@stackra-inc/ts-events';
-import type { EventDispatcherInterface } from '@stackra-inc/ts-events';
+import { MemoryDispatcher, EventPriority } from '@stackra/ts-events';
+import type { EventDispatcherInterface } from '@stackra/ts-events';
 
 // ─── Example 1: Single-Segment Wildcard (*) ────────────────────────────────
 //

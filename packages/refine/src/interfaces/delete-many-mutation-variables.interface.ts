@@ -1,7 +1,7 @@
 /**
  * @fileoverview Variables passed to the delete-many mutation.
  *
- * @module @stackra-inc/react-refine
+ * @module @stackra/react-refine
  * @category Interfaces
  */
 

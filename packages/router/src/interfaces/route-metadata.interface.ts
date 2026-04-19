@@ -1,6 +1,6 @@
 /**
  * @fileoverview Route metadata interface stored by the @Route decorator.
- * @module @stackra-inc/react-router
+ * @module @stackra/react-router
  * @category Interfaces
  */
 

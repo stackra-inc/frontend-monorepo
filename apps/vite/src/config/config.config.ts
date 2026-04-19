@@ -1,13 +1,13 @@
 /**
  * Config Package Configuration
  *
- * Configuration for the @stackra-inc/config package.
+ * Configuration for the @stackra/config package.
  * Defines how environment variables are loaded and accessed.
  *
  * @module config/config
  */
 
-import { defineConfig } from '@stackra-inc/ts-config';
+import { defineConfig } from '@stackra/ts-config';
 
 /**
  * Config Configuration

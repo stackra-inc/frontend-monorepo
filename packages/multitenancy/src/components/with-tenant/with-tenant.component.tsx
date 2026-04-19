@@ -5,7 +5,7 @@
  *
  * @example
  * ```tsx
- * import { WithTenant } from "@stackra-inc/react-multitenancy";
+ * import { WithTenant } from "@stackra/react-multitenancy";
  *
  * const App = () => (
  *   <WithTenant>

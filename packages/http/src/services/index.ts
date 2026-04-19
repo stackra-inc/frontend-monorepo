@@ -1,6 +1,6 @@
 /**
  * @fileoverview Services Index
- * @module @stackra-inc/ts-http
+ * @module @stackra/ts-http
  * @category Services
  */
 

@@ -4,13 +4,13 @@
  * Provides access to the current locale state: active locale code,
  * available languages, and RTL direction.
  *
- * Mirrors the `useTenant` hook pattern from `@stackra-inc/react-multitenancy`.
+ * Mirrors the `useTenant` hook pattern from `@stackra/react-multitenancy`.
  *
  * @module hooks/use-locale
  *
  * @example
  * ```tsx
- * import { useLocale } from '@stackra-inc/react-i18n';
+ * import { useLocale } from '@stackra/react-i18n';
  *
  * const LanguageSwitcher = () => {
  *   const { locale, languages, isRTL } = useLocale();

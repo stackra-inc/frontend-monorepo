@@ -2,10 +2,10 @@
  * HTTP Context Interface (Local Mirror)
  *
  * Local definition of the HTTP context that flows through the
- * `@stackra-inc/ts-http` middleware pipeline. Defined here to avoid
+ * `@stackra/ts-http` middleware pipeline. Defined here to avoid
  * a hard dependency on the HTTP package while maintaining type safety.
  *
- * Matches the `HttpContext` interface from `@stackra-inc/ts-http`.
+ * Matches the `HttpContext` interface from `@stackra/ts-http`.
  *
  * @module interfaces/http-context
  */

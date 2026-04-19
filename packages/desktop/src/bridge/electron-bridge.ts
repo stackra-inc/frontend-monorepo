@@ -4,7 +4,7 @@
  * Real implementation that communicates with the Electron main process
  * via the preload-exposed window.electronAPI.
  *
- * @module @stackra-inc/ts-desktop
+ * @module @stackra/ts-desktop
  */
 
 import type { DesktopBridge } from '@/interfaces';

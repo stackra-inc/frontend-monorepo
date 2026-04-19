@@ -1,6 +1,6 @@
 /**
- * @fileoverview ESLint configuration for @stackra-inc/react-router package.
- * @module @stackra-inc/react-router
+ * @fileoverview ESLint configuration for @stackra/react-router package.
+ * @module @stackra/react-router
  * @category Configuration
  */
 import type { Linter } from 'eslint';

@@ -7,7 +7,7 @@
  * Runs late in the pipeline (priority 90) so it captures the final
  * request state after all other middleware have processed it.
  *
- * @module @stackra-inc/ts-http
+ * @module @stackra/ts-http
  * @category Middleware
  *
  * @example
@@ -19,8 +19,8 @@
  * ```
  */
 
-import { Str } from '@stackra-inc/ts-support';
-import { Injectable } from '@stackra-inc/ts-container';
+import { Str } from '@stackra/ts-support';
+import { Injectable } from '@stackra/ts-container';
 import { HttpMiddleware } from '@/decorators/http-middleware.decorator';
 import type {
   HttpMiddlewareInterface,

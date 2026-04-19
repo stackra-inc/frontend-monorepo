@@ -1,7 +1,7 @@
 /**
  * @fileoverview Return shape for query hooks (useOne, useMany, useShow, useCustom).
  *
- * @module @stackra-inc/react-refine
+ * @module @stackra/react-refine
  * @category Interfaces
  */
 

@@ -1,7 +1,7 @@
 /**
  * Http Facade
  *
- * Typed proxy for {@link HttpClient} from `@stackra-inc/ts-http`.
+ * Typed proxy for {@link HttpClient} from `@stackra/ts-http`.
  *
  * Middleware-driven HTTP client. Runs requests through a configurable pipeline.
  *
@@ -12,8 +12,8 @@
  * ## Setup (once, in main.tsx)
  *
  * ```typescript
- * import { Application } from '@stackra-inc/ts-container';
- * import { Facade } from '@stackra-inc/ts-support';
+ * import { Application } from '@stackra/ts-container';
+ * import { Facade } from '@stackra/ts-support';
  *
  * const app = await Application.create(AppModule);
  * Facade.setApplication(app); // wires all facades
@@ -22,7 +22,7 @@
  * ## Usage
  *
  * ```typescript
- * import { HttpFacade } from '@stackra-inc/ts-http';
+ * import { HttpFacade } from '@stackra/ts-http';
  *
  * // Full autocomplete — no .proxy() call needed
  * HttpFacade.get<T>();
@@ -39,7 +39,7 @@
  * ## Testing — swap in a mock
  *
  * ```typescript
- * import { Facade } from '@stackra-inc/ts-support';
+ * import { Facade } from '@stackra/ts-support';
  * import { HTTP_CLIENT } from '@/constants/tokens.constant';
  *
  * // Before test — replace the resolved instance
@@ -54,7 +54,7 @@
  * @see {@link Facade} — the base class providing `make()`
  */
 
-import { Facade } from '@stackra-inc/ts-support';
+import { Facade } from '@stackra/ts-support';
 import { HttpClient } from '@/services/http-client.service';
 import { HTTP_CLIENT } from '@/constants/tokens.constant';
 

@@ -8,13 +8,13 @@
  * All metadata reads and writes go through `@vivtel/metadata` for a consistent,
  * typed API instead of raw `Reflect.*` calls.
  *
- * @module @stackra-inc/ts-events
+ * @module @stackra/ts-events
  * @category Decorators
  *
  * @example
  * ```typescript
- * import { Injectable } from '@stackra-inc/ts-container';
- * import { OnEvent, EventPriority } from '@stackra-inc/ts-events';
+ * import { Injectable } from '@stackra/ts-container';
+ * import { OnEvent, EventPriority } from '@stackra/ts-events';
  *
  * @Injectable()
  * export class UserListener {

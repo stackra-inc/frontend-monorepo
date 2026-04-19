@@ -1,4 +1,4 @@
-/** @fileoverview Query hook result interface. @module @stackra-inc/react-auth @category Interfaces */
+/** @fileoverview Query hook result interface. @module @stackra/react-auth @category Interfaces */
 
 /**
  * Standard return shape for query hooks.

@@ -2,7 +2,7 @@
  * @file pages/container.tsx
  * @description DI Container demo page.
  *
- * Demonstrates @stackra-inc/ts-container:
+ * Demonstrates @stackra/ts-container:
  *   - @Injectable() decorator
  *   - @Inject() for constructor injection
  *   - @Module() with providers
@@ -11,9 +11,9 @@
  */
 
 import { useState, useEffect } from 'react';
-import { Injectable, Module, Inject } from '@stackra-inc/ts-container';
-import { useInject, ContainerProvider } from '@stackra-inc/ts-container';
-import { ApplicationContext } from '@stackra-inc/ts-container';
+import { Injectable, Module, Inject } from '@stackra/ts-container';
+import { useInject, ContainerProvider } from '@stackra/ts-container';
+import { ApplicationContext } from '@stackra/ts-container';
 
 import { title, subtitle } from '@/components/primitives';
 
@@ -132,7 +132,7 @@ export default function ContainerPage() {
       <div>
         <h1 className={title()}>Container Package</h1>
         <p className={subtitle({ class: 'mt-2' })}>
-          @stackra-inc/ts-container — NestJS-style dependency injection
+          @stackra/ts-container — NestJS-style dependency injection
         </p>
       </div>
 

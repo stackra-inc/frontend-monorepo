@@ -10,7 +10,7 @@
 
 'use client';
 
-// import { useTheme } from '@stackra-inc/react-theming';
+// import { useTheme } from '@stackra/react-theming';
 import type { ProgressProviderProps } from '@bprogress/react';
 import { ProgressProvider as BProgressProvider } from '@bprogress/react';
 
@@ -24,7 +24,7 @@ import { ProgressProvider as BProgressProvider } from '@bprogress/react';
  * @example
  * ```tsx
  * // In your root layout - uses theme settings automatically
- * import { ProgressProvider } from '@stackra-inc/heroui';
+ * import { ProgressProvider } from '@stackra/heroui';
  *
  * export default function RootLayout({ children }) {
  *   return (

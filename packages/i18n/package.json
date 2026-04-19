@@ -1,5 +1,5 @@
 {
-  "name": "@stackra-inc/react-i18n",
+  "name": "@stackra/react-i18n",
   "version": "1.0.0",
   "description": "Comprehensive i18n Vite plugin with i18next integration, auto-file-globbing, type generation, and Refine provider support",
   "main": "./dist/index.js",
@@ -61,8 +61,8 @@
   },
   "peerDependencies": {
     "vite": "^7.2.4",
-    "@stackra-inc/ts-container": "^2.0.4",
-    "@stackra-inc/ts-http": "workspace:*"
+    "@stackra/ts-container": "^2.0.4",
+    "@stackra/ts-http": "workspace:*"
   },
   "dependencies": {
     "fast-glob": "^3.3.3",
@@ -70,7 +70,7 @@
     "i18next-browser-languagedetector": "^8.2.1",
     "i18next-http-backend": "^3.0.4",
     "react-i18next": "^17.0.4",
-    "@stackra-inc/ts-support": "workspace:*"
+    "@stackra/ts-support": "workspace:*"
   },
   "devDependencies": {
     "@nesvel/eslint-config": "^1.0.5",
@@ -87,10 +87,10 @@
     "vite": "^8.0.8"
   },
   "peerDependenciesMeta": {
-    "@stackra-inc/ts-container": {
+    "@stackra/ts-container": {
       "optional": false
     },
-    "@stackra-inc/ts-http": {
+    "@stackra/ts-http": {
       "optional": true
     },
     "vite": {

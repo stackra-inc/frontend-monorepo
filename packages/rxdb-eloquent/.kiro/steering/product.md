@@ -1,8 +1,8 @@
 # Product Overview
 
-`@stackra-inc/ts-eloquent` — Laravel Eloquent-style TypeScript ORM built on RxDB
-— reactive, offline-first, with Supabase replication
+`@stackra/ts-eloquent` — Laravel Eloquent-style TypeScript ORM built on RxDB —
+reactive, offline-first, with Supabase replication
 
 ## Package Exports
 
-- `@stackra-inc/ts-eloquent` — main entry point
+- `@stackra/ts-eloquent` — main entry point

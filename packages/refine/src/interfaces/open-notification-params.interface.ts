@@ -1,6 +1,6 @@
 /**
  * @fileoverview OpenNotificationParams interface — parameters for opening a notification.
- * @module @stackra-inc/react-refine
+ * @module @stackra/react-refine
  * @category Interfaces
  */
 

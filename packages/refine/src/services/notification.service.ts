@@ -10,7 +10,7 @@
  * is displayed. Pressing "Undo" calls `cancelMutation()` to abort
  * the pending operation.
  *
- * @module @stackra-inc/react-refine
+ * @module @stackra/react-refine
  * @category Services
  *
  * @example
@@ -32,7 +32,7 @@
  * ```
  */
 
-import { Injectable } from '@stackra-inc/ts-container';
+import { Injectable } from '@stackra/ts-container';
 import { toast } from '@heroui/react';
 import type { INotificationService } from '@/interfaces/notification-service.interface';
 import type { OpenNotificationParams } from '@/interfaces/open-notification-params.interface';

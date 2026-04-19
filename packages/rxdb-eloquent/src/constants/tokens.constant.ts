@@ -2,14 +2,14 @@
  * @file tokens.constant.ts
  * @description DI injection tokens for the rxdb-eloquent package.
  *
- * These symbols are used with `@stackra-inc/ts-container` to identify
+ * These symbols are used with `@stackra/ts-container` to identify
  * providers in the dependency injection container. Consumers inject
  * these tokens to access global services like ConnectionManager,
  * ModelRegistry, MigrationRunner, and SeederRunner.
  *
  * @example
  * ```ts
- * import { Inject } from '@stackra-inc/ts-container';
+ * import { Inject } from '@stackra/ts-container';
  * import { MODEL_REGISTRY } from 'rxdb-eloquent';
  *
  * constructor(@Inject(MODEL_REGISTRY) private registry: ModelRegistry) {}

@@ -1,4 +1,4 @@
-# @stackra-inc/redis - Usage Examples
+# @stackra/redis - Usage Examples
 
 Comprehensive examples for using the Redis package in various scenarios.
 
@@ -16,8 +16,8 @@ Comprehensive examples for using the Redis package in various scenarios.
 
 ```typescript
 // app.module.ts
-import { Module } from '@stackra-inc/ts-container';
-import { RedisModule } from '@stackra-inc/redis';
+import { Module } from '@stackra/ts-container';
+import { RedisModule } from '@stackra/redis';
 
 @Module({
   imports: [
@@ -53,8 +53,8 @@ UPSTASH_REDIS_REST_TOKEN=your-token-here
 ### Basic Cache Operations
 
 ```typescript
-import { Injectable } from '@stackra-inc/ts-container';
-import { RedisService } from '@stackra-inc/redis';
+import { Injectable } from '@stackra/ts-container';
+import { RedisService } from '@stackra/redis';
 
 @Injectable()
 export class CacheService {
@@ -87,8 +87,8 @@ export class CacheService {
 ### User Service with Caching
 
 ```typescript
-import { Injectable } from '@stackra-inc/ts-container';
-import { RedisService } from '@stackra-inc/redis';
+import { Injectable } from '@stackra/ts-container';
+import { RedisService } from '@stackra/redis';
 
 interface User {
   id: string;
@@ -155,7 +155,7 @@ export class UserService {
 ### Basic Hook Usage
 
 ```typescript
-import { useRedis } from '@stackra-inc/redis';
+import { useRedis } from '@stackra/redis';
 import { useEffect, useState } from 'react';
 
 function UserProfile({ userId }: { userId: string }) {
@@ -205,7 +205,7 @@ function UserProfile({ userId }: { userId: string }) {
 ### Custom Cache Hook
 
 ```typescript
-import { useRedis } from '@stackra-inc/redis';
+import { useRedis } from '@stackra/redis';
 import { useEffect, useState } from 'react';
 
 function useCache<T>(key: string, fetcher: () => Promise<T>, ttl: number = 3600) {
@@ -604,8 +604,8 @@ export class ResilientCacheService {
 ### Testing
 
 ```typescript
-import { Test } from '@stackra-inc/testing';
-import { RedisModule, RedisService } from '@stackra-inc/redis';
+import { Test } from '@stackra/testing';
+import { RedisModule, RedisService } from '@stackra/redis';
 
 describe('UserService', () => {
   let userService: UserService;

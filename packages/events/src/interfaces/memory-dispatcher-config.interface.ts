@@ -1,7 +1,7 @@
 /**
  * Memory Dispatcher Configuration
  *
- * @module @stackra-inc/ts-events
+ * @module @stackra/ts-events
  * @category Interfaces
  */
 

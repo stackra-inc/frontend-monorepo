@@ -5,7 +5,7 @@
  * cache entries for a given resource. Used internally by mutation
  * hooks after successful operations, and available for manual use.
  *
- * @module @stackra-inc/react-refine
+ * @module @stackra/react-refine
  * @category Hooks
  */
 

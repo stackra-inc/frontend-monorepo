@@ -1,18 +1,18 @@
 /**
  * @fileoverview ComponentRegistry — maps component type strings to React components.
  *
- * @module @stackra-inc/react-sdui
+ * @module @stackra/react-sdui
  * @category Registries
  */
 
-import { Injectable } from '@stackra-inc/ts-container';
-import { BaseRegistry } from '@stackra-inc/ts-support';
+import { Injectable } from '@stackra/ts-container';
+import { BaseRegistry } from '@stackra/ts-support';
 import type { ComponentType } from 'react';
 
 /**
  * Registry mapping Filament component type strings to React component implementations.
  *
- * Extends BaseRegistry from @stackra-inc/ts-support for consistent
+ * Extends BaseRegistry from @stackra/ts-support for consistent
  * registry API (get, has, getAll, getKeys, register, clear).
  *
  * Uses a fallback renderer for unknown component types — returns `() => null`

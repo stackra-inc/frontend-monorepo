@@ -13,7 +13,7 @@
  *
  * @example
  * ```tsx
- * import { withMultitenancy } from "@stackra-inc/react-multitenancy";
+ * import { withMultitenancy } from "@stackra/react-multitenancy";
  *
  * const authProvider = withMultitenancy(baseAuthProvider, {
  *   tenantIdKey: "X-Tenant-ID",
@@ -398,7 +398,7 @@ export function createTenantSwitcher(config: MultitenancyConfig) {
  *
  * @example
  * ```tsx
- * import { useTenant } from "@stackra-inc/react-multitenancy";
+ * import { useTenant } from "@stackra/react-multitenancy";
  *
  * function MyComponent() {
  *   const { tenantId, switchTenant } = useTenant();

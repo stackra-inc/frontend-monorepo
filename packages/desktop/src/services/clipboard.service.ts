@@ -8,10 +8,10 @@
  * | In Electron: uses the Electron clipboard API via IPC.
  * | In browser: uses navigator.clipboard API.
  * |
- * @module @stackra-inc/ts-desktop
+ * @module @stackra/ts-desktop
  */
 
-import { Injectable, Inject } from '@stackra-inc/ts-container';
+import { Injectable, Inject } from '@stackra/ts-container';
 
 import { DesktopManager } from './desktop-manager.service';
 

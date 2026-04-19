@@ -1,7 +1,7 @@
 /**
  * @fileoverview Column definition for list views.
  *
- * @module @stackra-inc/react-refine
+ * @module @stackra/react-refine
  * @category Interfaces
  */
 

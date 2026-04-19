@@ -11,7 +11,7 @@
 
 import { extname } from 'path';
 import { readFileSync } from 'fs';
-import { Str } from '@stackra-inc/ts-support';
+import { Str } from '@stackra/ts-support';
 
 import { mergeDeep } from './merge-deep.util';
 import { DEFAULT_I18NEXT_CONFIG } from '@/constants/default-config.constant';

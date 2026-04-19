@@ -8,10 +8,10 @@
  * | In Electron: uses electron-updater via IPC to the main process.
  * | In browser: returns null / no-op for all methods.
  * |
- * @module @stackra-inc/ts-desktop
+ * @module @stackra/ts-desktop
  */
 
-import { Injectable, Inject, type OnModuleInit } from '@stackra-inc/ts-container';
+import { Injectable, Inject, type OnModuleInit } from '@stackra/ts-container';
 
 import { DESKTOP_CONFIG } from '@/constants';
 import type { DesktopModuleOptions } from '@/interfaces/desktop-module-options.interface';

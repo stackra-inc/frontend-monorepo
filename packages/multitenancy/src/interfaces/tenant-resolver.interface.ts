@@ -13,7 +13,7 @@ import type { BaseKey } from '@refinedev/core';
  *
  * @example
  * ```typescript
- * import { TenantResolver, ResolverPriority } from "@stackra-inc/react-multitenancy";
+ * import { TenantResolver, ResolverPriority } from "@stackra/react-multitenancy";
  *
  * // Synchronous resolver
  * class SubdomainResolver implements TenantResolver {
@@ -43,8 +43,8 @@ import type { BaseKey } from '@refinedev/core';
  *
  * @example
  * ```typescript
- * // Custom resolver with caching using @stackra-inc/ts-cache
- * import { TTLCache } from "@stackra-inc/ts-cache";
+ * // Custom resolver with caching using @stackra/ts-cache
+ * import { TTLCache } from "@stackra/ts-cache";
  *
  * class CachedDomainResolver implements TenantResolver {
  *   name = "cached-domain";

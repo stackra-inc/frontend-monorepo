@@ -1,7 +1,7 @@
 /**
  * @fileoverview Interface definitions for the multi-tenancy package.
  *
- * @module @stackra-inc/react-multitenancy
+ * @module @stackra/react-multitenancy
  * @category Interfaces
  */
 

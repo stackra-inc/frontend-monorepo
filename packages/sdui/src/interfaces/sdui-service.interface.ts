@@ -1,10 +1,10 @@
 /**
  * @fileoverview SDUI service interface.
- * @module @stackra-inc/react-sdui
+ * @module @stackra/react-sdui
  * @category Interfaces
  */
 
-import type { PageDefinition, ResourceConfig } from '@stackra-inc/react-refine';
+import type { PageDefinition, ResourceConfig } from '@stackra/react-refine';
 
 /**
  * Interface for the Server-Driven UI service.

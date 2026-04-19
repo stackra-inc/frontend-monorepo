@@ -3,7 +3,7 @@
  *
  * Default configuration for the settings package.
  *
- * @module @stackra-inc/ts-settings
+ * @module @stackra/ts-settings
  */
 
 import type { SettingsModuleOptions } from '@/src/interfaces';

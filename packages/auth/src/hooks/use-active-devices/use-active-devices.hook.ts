@@ -1,6 +1,6 @@
-/** @fileoverview useActiveDevices hook. @module @stackra-inc/react-auth @category Hooks */
+/** @fileoverview useActiveDevices hook. @module @stackra/react-auth @category Hooks */
 import { useQuery, useMutation } from '@tanstack/react-query';
-import { useInject } from '@stackra-inc/ts-container';
+import { useInject } from '@stackra/ts-container';
 import { SECURITY_SERVICE } from '@/constants';
 import type { SecurityService } from '@/services/security.service';
 import type { ActiveDevice } from '@/interfaces/active-device.interface';

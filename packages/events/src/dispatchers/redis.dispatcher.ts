@@ -2,18 +2,18 @@
  * Redis Dispatcher
  *
  * Extends MemoryDispatcher with Redis pub/sub for cross-process events.
- * Uses the RedisManager (IRedisService) from @stackra-inc/ts-redis.
+ * Uses the RedisManager (IRedisService) from @stackra/ts-redis.
  *
  * NOT injectable — created by EventManager.createDriver().
  * The RedisManager is passed in by the EventManager, same pattern
  * as RedisStore in the cache package.
  *
- * @module @stackra-inc/ts-events
+ * @module @stackra/ts-events
  * @category Dispatchers
  */
 
 import { MemoryDispatcher } from './memory.dispatcher';
-import type { IRedisService } from '@stackra-inc/ts-redis';
+import type { IRedisService } from '@stackra/ts-redis';
 
 /** Serialised event stored in Redis. */
 interface RedisEventMessage {

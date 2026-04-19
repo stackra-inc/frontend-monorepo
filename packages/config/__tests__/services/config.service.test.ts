@@ -8,7 +8,7 @@
  * - Default value handling
  * - Nested key access
  *
- * @module @stackra-inc/config
+ * @module @stackra/config
  * @category Tests
  */
 

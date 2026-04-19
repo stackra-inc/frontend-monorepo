@@ -19,10 +19,10 @@
  * |     console.log(parsed.pathSegments, parsed.query);
  * |   });
  * |
- * @module @stackra-inc/ts-desktop
+ * @module @stackra/ts-desktop
  */
 
-import { Injectable, Inject } from '@stackra-inc/ts-container';
+import { Injectable, Inject } from '@stackra/ts-container';
 
 import type { ParsedProtocolUrl } from '@/interfaces/system.interface';
 import { DesktopManager } from './desktop-manager.service';

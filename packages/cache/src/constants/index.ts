@@ -9,7 +9,7 @@
  *
  * @example
  * ```typescript
- * import { CACHE_CONFIG, CACHE_SERVICE, CACHE_MANAGER } from '@stackra-inc/ts-cache';
+ * import { CACHE_CONFIG, CACHE_SERVICE, CACHE_MANAGER } from '@stackra/ts-cache';
  * ```
  */
 

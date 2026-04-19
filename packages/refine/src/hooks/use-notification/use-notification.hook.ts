@@ -3,11 +3,11 @@
  *
  * Resolves the NotificationService from the DI container via `useOptionalInject`.
  *
- * @module @stackra-inc/react-refine
+ * @module @stackra/react-refine
  * @category Hooks
  */
 
-import { useOptionalInject } from '@stackra-inc/ts-container';
+import { useOptionalInject } from '@stackra/ts-container';
 import { NOTIFICATION_SERVICE } from '@/constants';
 import type { INotificationService } from '@/interfaces/notification-service.interface';
 import type { OpenNotificationParams } from '@/interfaces/open-notification-params.interface';

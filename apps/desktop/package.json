@@ -1,5 +1,5 @@
 {
-  "name": "@stackra-inc/desktop",
+  "name": "@stackra/desktop",
   "version": "0.1.0",
   "private": true,
   "description": "Stackra Desktop — Electron shell wrapping the Vite app",
@@ -10,10 +10,10 @@
   "license": "MIT",
   "main": "dist/main/index.js",
   "scripts": {
-    "dev": "concurrently -k -n vite,electron \"pnpm --filter @stackra-inc/vite dev\" \"wait-on http://localhost:5173 && electron .\"",
+    "dev": "concurrently -k -n vite,electron \"pnpm --filter @stackra/vite dev\" \"wait-on http://localhost:5173 && electron .\"",
     "build:main": "tsc -p tsconfig.main.json",
     "build:preload": "tsc -p tsconfig.preload.json",
-    "build": "pnpm --filter @stackra-inc/vite build && pnpm build:main && pnpm build:preload",
+    "build": "pnpm --filter @stackra/vite build && pnpm build:main && pnpm build:preload",
     "package": "pnpm build && electron-builder",
     "package:mac": "pnpm build && electron-builder --mac",
     "package:win": "pnpm build && electron-builder --win",
@@ -23,7 +23,7 @@
     "typecheck": "tsc -p tsconfig.main.json --noEmit && tsc -p tsconfig.preload.json --noEmit"
   },
   "dependencies": {
-    "@stackra-inc/ts-desktop": "workspace:*"
+    "@stackra/ts-desktop": "workspace:*"
   },
   "devDependencies": {
     "electron": "^35.0.0",

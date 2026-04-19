@@ -1,7 +1,7 @@
 /**
  * Virtual Module Ambient Type Definitions
  *
- * Provides type information for the `virtual:@stackra-inc/react-i18n` module
+ * Provides type information for the `virtual:@stackra/react-i18n` module
  * so that IDE autocomplete and type checking work for consumers importing
  * from the virtual module.
  *
@@ -12,9 +12,9 @@ import type i18next from 'i18next';
 
 /**
  * Augment Vite's module resolution
- * Define the virtual:@stackra-inc/react-i18n module
+ * Define the virtual:@stackra/react-i18n module
  */
-declare module 'virtual:@stackra-inc/react-i18n' {
+declare module 'virtual:@stackra/react-i18n' {
   /**
    * Simple translation function - alias for t
    * Translates a key without parameters
@@ -24,7 +24,7 @@ declare module 'virtual:@stackra-inc/react-i18n' {
    *
    * @example
    * ```typescript
-   * import { __ } from 'virtual:@stackra-inc/react-i18n';
+   * import { __ } from 'virtual:@stackra/react-i18n';
    * const greeting = __('greeting');
    * ```
    */
@@ -40,7 +40,7 @@ declare module 'virtual:@stackra-inc/react-i18n' {
    *
    * @example
    * ```typescript
-   * import { t } from 'virtual:@stackra-inc/react-i18n';
+   * import { t } from 'virtual:@stackra/react-i18n';
    * const greeting = t('greeting.welcome', { name: 'John' });
    * ```
    */
@@ -56,7 +56,7 @@ declare module 'virtual:@stackra-inc/react-i18n' {
    *
    * @example
    * ```typescript
-   * import { trans } from 'virtual:@stackra-inc/react-i18n';
+   * import { trans } from 'virtual:@stackra/react-i18n';
    * const message = trans('message', { name: 'John' });
    * ```
    */
@@ -68,7 +68,7 @@ declare module 'virtual:@stackra-inc/react-i18n' {
    *
    * @example
    * ```typescript
-   * import { i18n } from 'virtual:@stackra-inc/react-i18n';
+   * import { i18n } from 'virtual:@stackra/react-i18n';
    * await i18n.changeLanguage('ar');
    * const lang = i18n.language;
    * ```
@@ -83,7 +83,7 @@ declare module 'virtual:@stackra-inc/react-i18n' {
    *
    * @example
    * ```typescript
-   * import { changeLanguage } from 'virtual:@stackra-inc/react-i18n';
+   * import { changeLanguage } from 'virtual:@stackra/react-i18n';
    * await changeLanguage('ar');
    * ```
    */
@@ -96,7 +96,7 @@ declare module 'virtual:@stackra-inc/react-i18n' {
    *
    * @example
    * ```typescript
-   * import { getLanguage } from 'virtual:@stackra-inc/react-i18n';
+   * import { getLanguage } from 'virtual:@stackra/react-i18n';
    * const currentLang = getLanguage();
    * ```
    */
@@ -109,7 +109,7 @@ declare module 'virtual:@stackra-inc/react-i18n' {
    *
    * @example
    * ```typescript
-   * import { getLanguages } from 'virtual:@stackra-inc/react-i18n';
+   * import { getLanguages } from 'virtual:@stackra/react-i18n';
    * const languages = getLanguages(); // ['en', 'ar', 'es']
    * ```
    */
@@ -125,7 +125,7 @@ declare module 'virtual:@stackra-inc/react-i18n' {
    *
    * @example
    * ```typescript
-   * import { addResources } from 'virtual:@stackra-inc/react-i18n';
+   * import { addResources } from 'virtual:@stackra/react-i18n';
    * addResources('en', 'auth', {
    *   'login': 'Login',
    *   'logout': 'Logout'

@@ -1,6 +1,6 @@
 /**
  * @fileoverview INotificationService interface — contract for displaying user-facing notifications.
- * @module @stackra-inc/react-refine
+ * @module @stackra/react-refine
  * @category Interfaces
  */
 

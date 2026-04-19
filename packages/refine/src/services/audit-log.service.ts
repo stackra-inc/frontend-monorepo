@@ -3,14 +3,14 @@
  *
  * Provides a fully functional audit log service that communicates
  * with a backend API via the injected {@link HttpClient} from
- * `@stackra-inc/ts-http`. Handles creating, retrieving, and updating
+ * `@stackra/ts-http`. Handles creating, retrieving, and updating
  * audit trail entries out of the box.
  *
  * Users can override this by passing a custom `auditLogService` to
  * `RefineModule.forRoot()`. The custom service must implement
  * {@link IAuditLogService}.
  *
- * @module @stackra-inc/react-refine
+ * @module @stackra/react-refine
  * @category Services
  *
  * @example
@@ -23,9 +23,9 @@
  * ```
  */
 
-import { Injectable, Inject } from '@stackra-inc/ts-container';
-import { HTTP_CLIENT } from '@stackra-inc/ts-http';
-import type { HttpClient, HttpResponse } from '@stackra-inc/ts-http';
+import { Injectable, Inject } from '@stackra/ts-container';
+import { HTTP_CLIENT } from '@stackra/ts-http';
+import type { HttpClient, HttpResponse } from '@stackra/ts-http';
 import type {
   IAuditLogService,
   AuditLogCreateParams,
@@ -38,7 +38,7 @@ import type {
  *
  * Communicates with a backend API using the injected {@link HttpClient}.
  * Authentication headers are handled automatically by the HTTP client's
- * middleware pipeline (e.g. `AuthMiddleware` from `@stackra-inc/ts-http`).
+ * middleware pipeline (e.g. `AuthMiddleware` from `@stackra/ts-http`).
  *
  * ### API Contract
  *
@@ -54,7 +54,7 @@ export class AuditLogService implements IAuditLogService {
    * Create a new AuditLogService instance.
    *
    * @param http - The {@link HttpClient} instance injected via DI.
-   *   Provided by `@stackra-inc/ts-http` through `HttpModule.forRoot()`.
+   *   Provided by `@stackra/ts-http` through `HttpModule.forRoot()`.
    */
   constructor(@Inject(HTTP_CLIENT) private readonly http: HttpClient) {}
 

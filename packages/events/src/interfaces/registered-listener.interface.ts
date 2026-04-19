@@ -3,7 +3,7 @@
  *
  * A registered listener with its priority, once flag, and source info.
  *
- * @module @stackra-inc/ts-events
+ * @module @stackra/ts-events
  * @category Interfaces
  */
 

@@ -38,7 +38,7 @@
  * ```
  */
 
-import { Module, Global, type DynamicModule } from '@stackra-inc/ts-container';
+import { Module, Global, type DynamicModule } from '@stackra/ts-container';
 
 import { ConnectionManager } from './connection/connection.manager';
 import { SchemaResolver } from './schema/schema.resolver';

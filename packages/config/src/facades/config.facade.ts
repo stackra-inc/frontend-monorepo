@@ -1,7 +1,7 @@
 /**
  * Config Facade
  *
- * Typed proxy for {@link ConfigManager} from `@stackra-inc/ts-config`.
+ * Typed proxy for {@link ConfigManager} from `@stackra/ts-config`.
  *
  * Multi-source configuration manager. Manages named sources (env, file, http).
  *
@@ -12,8 +12,8 @@
  * ## Setup (once, in main.tsx)
  *
  * ```typescript
- * import { Application } from '@stackra-inc/ts-container';
- * import { Facade } from '@stackra-inc/ts-support';
+ * import { Application } from '@stackra/ts-container';
+ * import { Facade } from '@stackra/ts-support';
  *
  * const app = await Application.create(AppModule);
  * Facade.setApplication(app); // wires all facades
@@ -22,7 +22,7 @@
  * ## Usage
  *
  * ```typescript
- * import { ConfigFacade } from '@stackra-inc/ts-config';
+ * import { ConfigFacade } from '@stackra/ts-config';
  *
  * // Full autocomplete — no .proxy() call needed
  * ConfigFacade.source();
@@ -37,7 +37,7 @@
  * ## Testing — swap in a mock
  *
  * ```typescript
- * import { Facade } from '@stackra-inc/ts-support';
+ * import { Facade } from '@stackra/ts-support';
  * import { ConfigManager } from '@/services/config-manager.service';
  *
  * // Before test — replace the resolved instance
@@ -52,7 +52,7 @@
  * @see {@link Facade} — the base class providing `make()`
  */
 
-import { Facade } from '@stackra-inc/ts-support';
+import { Facade } from '@stackra/ts-support';
 import { ConfigManager } from '@/services/config-manager.service';
 
 /**

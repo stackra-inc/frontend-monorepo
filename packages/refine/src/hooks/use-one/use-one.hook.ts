@@ -4,7 +4,7 @@
  * Resolves the service from the ServiceRegistry and delegates
  * to `service.getOne(id)` via TanStack Query's `useQuery`.
  *
- * @module @stackra-inc/react-refine
+ * @module @stackra/react-refine
  * @category Hooks
  */
 

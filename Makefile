@@ -66,12 +66,12 @@ dev:
 ## dev-vite: Start the Vite app only
 dev-vite:
 	@echo "$(BLUE)Starting Vite app...$(NC)"
-	pnpm --filter @stackra-inc/vite dev
+	pnpm --filter @stackra/vite dev
 
 ## dev-desktop: Start the Electron desktop app (Vite + Electron)
 dev-desktop:
 	@echo "$(BLUE)Starting Electron desktop app...$(NC)"
-	pnpm --filter @stackra-inc/desktop dev
+	pnpm --filter @stackra/desktop dev
 
 # =============================================================================
 # Build
@@ -197,7 +197,7 @@ sync-configs:
 	@echo "$(BLUE)Syncing config files across all packages...$(NC)"
 	pnpm sync-configs
 
-## fix-deps: Fix all @stackra-inc/* deps to use workspace:*
+## fix-deps: Fix all @stackra/* deps to use workspace:*
 fix-deps:
 	@echo "$(BLUE)Fixing workspace dependencies...$(NC)"
 	pnpm fix-deps

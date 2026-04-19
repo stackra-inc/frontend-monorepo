@@ -9,11 +9,11 @@
  * - `optimistic` — UI updates immediately, rolls back on error.
  * - `undoable` — shows a countdown toast; mutation executes after timeout unless cancelled.
  *
- * @module @stackra-inc/react-refine
+ * @module @stackra/react-refine
  * @category Hooks
  */
 
-import { useOptionalInject } from '@stackra-inc/ts-container';
+import { useOptionalInject } from '@stackra/ts-container';
 import { REFINE_OPTIONS } from '@/constants';
 import type { RefineRootOptions } from '@/types/refine-root-options.type';
 import type { MutationMode } from '@/types/mutation-mode.type';

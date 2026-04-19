@@ -40,7 +40,7 @@ export interface OfflineIndicatorConfig {
 }
 
 /**
- * Unified configuration for the entire @stackra-inc/ts-pwa package.
+ * Unified configuration for the entire @stackra/ts-pwa package.
  *
  * Split into two sections:
  *   - `vite` — build-time options for vite-plugin-pwa (manifest, workbox, SW)
@@ -48,7 +48,7 @@ export interface OfflineIndicatorConfig {
  *
  * @example
  * ```ts
- * import { defineConfig } from "@stackra-inc/ts-pwa";
+ * import { defineConfig } from "@stackra/ts-pwa";
  *
  * export default defineConfig({
  *   vite: {

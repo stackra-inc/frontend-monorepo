@@ -1,7 +1,7 @@
 /**
  * Log Facade
  *
- * Typed proxy for {@link LoggerManager} from `@stackra-inc/ts-logger`.
+ * Typed proxy for {@link LoggerManager} from `@stackra/ts-logger`.
  *
  * Logger channel manager. Manages named logging channels with multiple transporters.
  *
@@ -12,8 +12,8 @@
  * ## Setup (once, in main.tsx)
  *
  * ```typescript
- * import { Application } from '@stackra-inc/ts-container';
- * import { Facade } from '@stackra-inc/ts-support';
+ * import { Application } from '@stackra/ts-container';
+ * import { Facade } from '@stackra/ts-support';
  *
  * const app = await Application.create(AppModule);
  * Facade.setApplication(app); // wires all facades
@@ -22,7 +22,7 @@
  * ## Usage
  *
  * ```typescript
- * import { LogFacade } from '@stackra-inc/ts-logger';
+ * import { LogFacade } from '@stackra/ts-logger';
  *
  * // Full autocomplete — no .proxy() call needed
  * LogFacade.channel();
@@ -38,7 +38,7 @@
  * ## Testing — swap in a mock
  *
  * ```typescript
- * import { Facade } from '@stackra-inc/ts-support';
+ * import { Facade } from '@stackra/ts-support';
  * import { LoggerManager } from '@/services/logger-manager.service';
  *
  * // Before test — replace the resolved instance
@@ -53,7 +53,7 @@
  * @see {@link Facade} — the base class providing `make()`
  */
 
-import { Facade } from '@stackra-inc/ts-support';
+import { Facade } from '@stackra/ts-support';
 import { LoggerManager } from '@/services/logger-manager.service';
 
 /**

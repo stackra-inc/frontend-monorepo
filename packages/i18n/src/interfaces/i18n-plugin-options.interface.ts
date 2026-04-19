@@ -11,7 +11,7 @@
 import type { I18nextOptions } from '@/types';
 
 /**
- * Configuration options for the @stackra-inc/react-i18n Vite plugin
+ * Configuration options for the @stackra/react-i18n Vite plugin
  * Combines plugin-specific settings with i18next configuration options
  *
  * @example

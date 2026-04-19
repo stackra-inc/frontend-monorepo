@@ -2,7 +2,7 @@
  * React Hooks Example
  *
  * |--------------------------------------------------------------------------
- * | @stackra-inc/ts-events — React Hooks
+ * | @stackra/ts-events — React Hooks
  * |--------------------------------------------------------------------------
  * |
  * | This example demonstrates using events in React components:
@@ -11,7 +11,7 @@
  * | - Component-to-component communication via events
  * | - Wildcard listeners in components
  * |
- * | These hooks integrate with @stackra-inc/ts-container's DI container.
+ * | These hooks integrate with @stackra/ts-container's DI container.
  * | The EventService must be registered via EventsModule.forRoot().
  * |
  * | NOTE: This file shows the code patterns — it won't run standalone
@@ -20,7 +20,7 @@
  * | @example
  * | ```tsx
  * | // In your React app:
- * | import { useEvent, useEventDispatcher } from '@stackra-inc/ts-events';
+ * | import { useEvent, useEventDispatcher } from '@stackra/ts-events';
  * | ```
  * |
  */
@@ -47,7 +47,7 @@
 */
 const NotificationBannerExample = `
 import { useState } from 'react';
-import { useEvent } from '@stackra-inc/ts-events';
+import { useEvent } from '@stackra/ts-events';
 
 function NotificationBanner() {
   const [message, setMessage] = useState('');
@@ -87,7 +87,7 @@ function NotificationBanner() {
 |
 */
 const CreateOrderButtonExample = `
-import { useEventDispatcher } from '@stackra-inc/ts-events';
+import { useEventDispatcher } from '@stackra/ts-events';
 
 function CreateOrderButton({ orderData }: { orderData: OrderData }) {
   const events = useEventDispatcher();
@@ -132,7 +132,7 @@ function CreateOrderButton({ orderData }: { orderData: OrderData }) {
 const CartCommunicationExample = `
 // ── Cart Component (Publisher) ──────────────────────────────────────────
 
-import { useEventDispatcher } from '@stackra-inc/ts-events';
+import { useEventDispatcher } from '@stackra/ts-events';
 
 function Cart() {
   const events = useEventDispatcher();
@@ -160,7 +160,7 @@ function Cart() {
 // ── CartBadge Component (Subscriber) ────────────────────────────────────
 
 import { useState } from 'react';
-import { useEvent } from '@stackra-inc/ts-events';
+import { useEvent } from '@stackra/ts-events';
 
 function CartBadge() {
   const [count, setCount] = useState(0);
@@ -197,7 +197,7 @@ function CartBadge() {
 |
 */
 const ActivityLoggerExample = `
-import { useEvent } from '@stackra-inc/ts-events';
+import { useEvent } from '@stackra/ts-events';
 
 function ActivityLogger() {
   // Listen for all user events.
@@ -231,8 +231,8 @@ function ActivityLogger() {
 const FullAppSetupExample = `
 // ── app.module.ts ───────────────────────────────────────────────────────
 
-import { Module } from '@stackra-inc/ts-container';
-import { EventsModule } from '@stackra-inc/ts-events';
+import { Module } from '@stackra/ts-container';
+import { EventsModule } from '@stackra/ts-events';
 import { UserSubscriber } from './subscribers/user.subscriber';
 
 @Module({
@@ -243,7 +243,7 @@ export class AppModule {}
 
 // ── App.tsx ─────────────────────────────────────────────────────────────
 
-import { ModuleProvider } from '@stackra-inc/ts-container';
+import { ModuleProvider } from '@stackra/ts-container';
 import { AppModule } from './app.module';
 
 function App() {
@@ -259,7 +259,7 @@ function App() {
 
 // ── MainContent.tsx ─────────────────────────────────────────────────────
 
-import { useEventDispatcher } from '@stackra-inc/ts-events';
+import { useEventDispatcher } from '@stackra/ts-events';
 
 function MainContent() {
   const events = useEventDispatcher();

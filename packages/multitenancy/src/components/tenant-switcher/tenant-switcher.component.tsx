@@ -6,14 +6,14 @@
  *
  * @example
  * ```tsx
- * import { TenantSwitcher } from "@stackra-inc/react-multitenancy";
+ * import { TenantSwitcher } from "@stackra/react-multitenancy";
  *
  * <TenantSwitcher />
  * ```
  */
 
 import React, { useState, useMemo } from 'react';
-import { Str } from '@stackra-inc/ts-support';
+import { Str } from '@stackra/ts-support';
 import { Button, Modal, Input, ListBox } from '@heroui/react';
 import { useTenant, useTenantSwitch } from '@/hooks';
 import type { Tenant } from '@/types';

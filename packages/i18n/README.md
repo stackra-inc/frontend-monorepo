@@ -1,10 +1,10 @@
 <p align="center">
-  <img src=".github/assets/banner.svg" alt="@stackra-inc/react-i18n banner" width="900" />
+  <img src=".github/assets/banner.svg" alt="@stackra/react-i18n banner" width="900" />
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/@stackra-inc/react-i18n">
-    <img src="https://img.shields.io/npm/v/@stackra-inc/react-i18n?style=flat-square&color=38bdf8&label=npm" alt="npm version" />
+  <a href="https://www.npmjs.com/package/@stackra/react-i18n">
+    <img src="https://img.shields.io/npm/v/@stackra/react-i18n?style=flat-square&color=38bdf8&label=npm" alt="npm version" />
   </a>
   <a href="./LICENSE">
     <img src="https://img.shields.io/badge/license-MIT-818cf8?style=flat-square" alt="MIT license" />
@@ -15,11 +15,10 @@
 
 ## Overview
 
-`@stackra-inc/react-i18n` is a full-fledged internationalization system for
-React + Vite projects. Built on **i18next**, it integrates with the
-`@stackra-inc/ts-container` DI system, the `@stackra-inc/ts-http` middleware
-pipeline, and follows the same architectural patterns as
-`@stackra-inc/react-multitenancy`.
+`@stackra/react-i18n` is a full-fledged internationalization system for React +
+Vite projects. Built on **i18next**, it integrates with the
+`@stackra/ts-container` DI system, the `@stackra/ts-http` middleware pipeline,
+and follows the same architectural patterns as `@stackra/react-multitenancy`.
 
 **Key highlights:**
 
@@ -40,11 +39,11 @@ pipeline, and follows the same architectural patterns as
 ## Installation
 
 ```bash
-pnpm add @stackra-inc/react-i18n
+pnpm add @stackra/react-i18n
 ```
 
-**Peer dependencies:** `vite`, `@stackra-inc/ts-container`,
-`@stackra-inc/ts-http` (optional, for middleware).
+**Peer dependencies:** `vite`, `@stackra/ts-container`, `@stackra/ts-http`
+(optional, for middleware).
 
 ---
 
@@ -71,8 +70,8 @@ I18nModule.forRoot(config)
 ## Module Setup
 
 ```typescript
-import { Module } from '@stackra-inc/ts-container';
-import { I18nModule } from '@stackra-inc/react-i18n';
+import { Module } from '@stackra/ts-container';
+import { I18nModule } from '@stackra/react-i18n';
 
 @Module({
   imports: [
@@ -93,8 +92,8 @@ export class AppModule {}
 ## React Provider Setup
 
 ```tsx
-import { ContainerProvider } from '@stackra-inc/ts-container';
-import { I18nProvider } from '@stackra-inc/react-i18n';
+import { ContainerProvider } from '@stackra/ts-container';
+import { I18nProvider } from '@stackra/react-i18n';
 
 // I18nProvider uses useInject(I18N_SERVICE) internally —
 // just nest it inside ContainerProvider, no manual wiring needed.
@@ -115,7 +114,7 @@ const App = () => (
 ### useTranslation
 
 ```tsx
-import { useTranslation } from '@stackra-inc/react-i18n';
+import { useTranslation } from '@stackra/react-i18n';
 
 const Greeting = () => {
   const { t } = useTranslation();
@@ -126,7 +125,7 @@ const Greeting = () => {
 ### useLocale
 
 ```tsx
-import { useLocale } from '@stackra-inc/react-i18n';
+import { useLocale } from '@stackra/react-i18n';
 
 const LanguageInfo = () => {
   const { locale, languages, isRTL } = useLocale();
@@ -137,7 +136,7 @@ const LanguageInfo = () => {
 ### useChangeLocale
 
 ```tsx
-import { useLocale, useChangeLocale } from '@stackra-inc/react-i18n';
+import { useLocale, useChangeLocale } from '@stackra/react-i18n';
 
 const LanguageSwitcher = () => {
   const { locale, languages } = useLocale();
@@ -164,9 +163,9 @@ const LanguageSwitcher = () => {
 ## Injecting the Service
 
 ```typescript
-import { Injectable, Inject } from '@stackra-inc/ts-container';
-import { I18N_SERVICE } from '@stackra-inc/react-i18n';
-import type { II18nService } from '@stackra-inc/react-i18n';
+import { Injectable, Inject } from '@stackra/ts-container';
+import { I18N_SERVICE } from '@stackra/react-i18n';
+import type { II18nService } from '@stackra/react-i18n';
 
 @Injectable()
 class NotificationService {
@@ -196,8 +195,8 @@ priority order (lower = higher priority). The first to return a value wins.
 ### Custom Resolvers
 
 ```typescript
-import type { ILocaleResolver } from '@stackra-inc/react-i18n';
-import { LocaleResolverPriority } from '@stackra-inc/react-i18n';
+import type { ILocaleResolver } from '@stackra/react-i18n';
+import { LocaleResolverPriority } from '@stackra/react-i18n';
 
 class JwtLocaleResolver implements ILocaleResolver {
   name = 'jwt';
@@ -220,7 +219,7 @@ I18nModule.forRoot({
 
 ## HTTP Middleware
 
-The `LocaleMiddleware` integrates with `@stackra-inc/ts-http`:
+The `LocaleMiddleware` integrates with `@stackra/ts-http`:
 
 - Injects `Accept-Language` header on every outgoing request
 - Reads `Content-Language` from API responses and syncs back
@@ -237,7 +236,7 @@ For build-time translation scanning (separate from the DI system):
 
 ```typescript
 import { defineConfig } from 'vite';
-import { i18nPlugin } from '@stackra-inc/react-i18n';
+import { i18nPlugin } from '@stackra/react-i18n';
 
 export default defineConfig({
   plugins: [
@@ -251,7 +250,7 @@ export default defineConfig({
 ```
 
 Features: auto-discovery via glob, TypeScript type generation, HMR for
-translation files, virtual module (`virtual:@stackra-inc/react-i18n`).
+translation files, virtual module (`virtual:@stackra/react-i18n`).
 
 ---
 

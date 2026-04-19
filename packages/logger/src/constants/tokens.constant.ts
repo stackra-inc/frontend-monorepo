@@ -2,7 +2,7 @@
  * Dependency Injection Tokens
  *
  * Defines DI tokens for the logger package.
- * Used with @stackra-inc/ts-container for dependency injection.
+ * Used with @stackra/ts-container for dependency injection.
  *
  * @module constants/tokens
  */

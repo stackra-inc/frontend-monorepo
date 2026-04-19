@@ -1,9 +1,9 @@
 /**
  * @fileoverview Barrel export for all registries in the refine package.
  *
- * NOTE: RouteRegistry lives in `@stackra-inc/react-router`.
+ * NOTE: RouteRegistry lives in `@stackra/react-router`.
  *
- * @module @stackra-inc/react-refine
+ * @module @stackra/react-refine
  * @category Registries
  */
 

@@ -1,7 +1,7 @@
 /**
  * Route Facade
  *
- * Typed proxy for {@link RouteRegistry} from `@stackra-inc/react-router`.
+ * Typed proxy for {@link RouteRegistry} from `@stackra/react-router`.
  *
  * Route registry. Stores and retrieves route definitions registered via @Route.
  *
@@ -12,8 +12,8 @@
  * ## Setup (once, in main.tsx)
  *
  * ```typescript
- * import { Application } from '@stackra-inc/ts-container';
- * import { Facade } from '@stackra-inc/ts-support';
+ * import { Application } from '@stackra/ts-container';
+ * import { Facade } from '@stackra/ts-support';
  *
  * const app = await Application.create(AppModule);
  * Facade.setApplication(app); // wires all facades
@@ -22,7 +22,7 @@
  * ## Usage
  *
  * ```typescript
- * import { RouteFacade } from '@stackra-inc/react-router';
+ * import { RouteFacade } from '@stackra/react-router';
  *
  * // Full autocomplete — no .proxy() call needed
  * RouteFacade.register();
@@ -38,7 +38,7 @@
  * ## Testing — swap in a mock
  *
  * ```typescript
- * import { Facade } from '@stackra-inc/ts-support';
+ * import { Facade } from '@stackra/ts-support';
  * import { ROUTE_REGISTRY } from '@/constants/tokens.constant';
  *
  * // Before test — replace the resolved instance
@@ -53,7 +53,7 @@
  * @see {@link Facade} — the base class providing `make()`
  */
 
-import { Facade } from '@stackra-inc/ts-support';
+import { Facade } from '@stackra/ts-support';
 import { RouteRegistry } from '@/registries/route.registry';
 import { ROUTE_REGISTRY } from '@/constants/tokens.constant';
 

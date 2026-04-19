@@ -4,12 +4,12 @@
  * Produces query strings like:
  * `?page=1&per_page=10&sort=-createdAt&filter[status]=published`
  *
- * @module @stackra-inc/react-refine
+ * @module @stackra/react-refine
  * @category Serializers
  *
  * @example
  * ```typescript
- * import { LaravelQueryStringSerializer } from '@stackra-inc/react-refine';
+ * import { LaravelQueryStringSerializer } from '@stackra/react-refine';
  *
  * const serializer = new LaravelQueryStringSerializer();
  * const qs = serializer.serialize({

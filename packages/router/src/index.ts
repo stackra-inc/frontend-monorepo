@@ -1,7 +1,7 @@
 /**
- * @fileoverview Root barrel export for `@stackra-inc/react-router`.
+ * @fileoverview Root barrel export for `@stackra/react-router`.
  *
- * @module @stackra-inc/react-router
+ * @module @stackra/react-router
  * @category Entry
  */
 

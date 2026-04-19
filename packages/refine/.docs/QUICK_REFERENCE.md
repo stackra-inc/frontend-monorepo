@@ -1,15 +1,15 @@
-# @stackra-inc/redis - Quick Reference
+# @stackra/redis - Quick Reference
 
 ## Installation
 
 ```bash
-npm install @stackra-inc/redis @upstash/redis
+npm install @stackra/redis @upstash/redis
 ```
 
 ## Setup
 
 ```typescript
-import { RedisModule } from '@stackra-inc/redis';
+import { RedisModule } from '@stackra/redis';
 
 RedisModule.forRoot({
   default: 'cache',
@@ -25,7 +25,7 @@ RedisModule.forRoot({
 ## Service Usage
 
 ```typescript
-import { RedisService } from '@stackra-inc/redis';
+import { RedisService } from '@stackra/redis';
 
 @Injectable()
 export class MyService {
@@ -49,7 +49,7 @@ export class MyService {
 ## React Hooks
 
 ```typescript
-import { useRedis } from '@stackra-inc/redis';
+import { useRedis } from '@stackra/redis';
 
 function MyComponent() {
   const redis = useRedis();

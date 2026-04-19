@@ -5,7 +5,7 @@
  * | Collects @Menu / @MenuItem decorated classes and builds the menu template.
  * |--------------------------------------------------------------------------
  * |
- * | Also auto-registers keyboard shortcuts with @stackra-inc/kbd's
+ * | Also auto-registers keyboard shortcuts with @stackra/kbd's
  * | ShortcutRegistry when menu items have accelerators.
  * |
  * | Flow:
@@ -15,11 +15,11 @@
  * |   4. MenuRegistry.buildTemplate() produces the full menu structure
  * |   5. DesktopManager sends it to main process via bridge.send('menu:set')
  * |
- * @module @stackra-inc/ts-desktop
+ * @module @stackra/ts-desktop
  */
 
-import { Injectable } from '@stackra-inc/ts-container';
-import { Str } from '@stackra-inc/ts-support';
+import { Injectable } from '@stackra/ts-container';
+import { Str } from '@stackra/ts-support';
 
 import { getMetadata } from '@vivtel/metadata';
 import { MENU_METADATA, MENU_ITEM_METADATA } from '@/constants';

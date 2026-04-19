@@ -1,5 +1,5 @@
 {
-  "name": "@stackra-inc/react-refine",
+  "name": "@stackra/react-refine",
   "version": "1.0.2",
   "description": "Refine Framework integration with dependency injection for React applications",
   "license": "MIT",
@@ -69,9 +69,9 @@
     "tslib": "^2.8.1"
   },
   "devDependencies": {
-    "@stackra-inc/ts-cache": "workspace:^",
-    "@stackra-inc/ts-events": "workspace:^",
-    "@stackra-inc/ts-http": "workspace:^",
+    "@stackra/ts-cache": "workspace:^",
+    "@stackra/ts-events": "workspace:^",
+    "@stackra/ts-http": "workspace:^",
     "@nesvel/eslint-config": "^1.0.5",
     "@nesvel/prettier-config": "^1.0.3",
     "@nesvel/tsup-config": "^1.0.3",
@@ -94,13 +94,13 @@
     "vitest": "^4.1.2"
   },
   "peerDependencies": {
-    "@stackra-inc/ts-eloquent": "workspace:*",
-    "@stackra-inc/ts-cache": "workspace:*",
-    "@stackra-inc/ts-container": "^2.0.4",
-    "@stackra-inc/ts-events": "workspace:*",
-    "@stackra-inc/ts-http": "workspace:*",
-    "@stackra-inc/ts-redis": "workspace:*",
-    "@stackra-inc/ts-support": "workspace:*",
+    "@stackra/ts-eloquent": "workspace:*",
+    "@stackra/ts-cache": "workspace:*",
+    "@stackra/ts-container": "^2.0.4",
+    "@stackra/ts-events": "workspace:*",
+    "@stackra/ts-http": "workspace:*",
+    "@stackra/ts-redis": "workspace:*",
+    "@stackra/ts-support": "workspace:*",
     "@tanstack/react-query": "^5.0.0",
     "react": "^18.0.0 || ^19.0.0",
     "react-dom": "^18.0.0 || ^19.0.0",
@@ -111,22 +111,22 @@
     "@heroui/react": {
       "optional": false
     },
-    "@stackra-inc/ts-container": {
+    "@stackra/ts-container": {
       "optional": false
     },
-    "@stackra-inc/ts-http": {
+    "@stackra/ts-http": {
       "optional": false
     },
-    "@stackra-inc/ts-cache": {
+    "@stackra/ts-cache": {
       "optional": true
     },
-    "@stackra-inc/ts-eloquent": {
+    "@stackra/ts-eloquent": {
       "optional": true
     },
-    "@stackra-inc/ts-events": {
+    "@stackra/ts-events": {
       "optional": true
     },
-    "@stackra-inc/ts-redis": {
+    "@stackra/ts-redis": {
       "optional": true
     },
     "@tanstack/react-query": {

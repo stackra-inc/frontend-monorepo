@@ -7,16 +7,16 @@
  * @module examples/module-setup
  *
  * Prerequisites:
- * - @stackra-inc/ts-cache installed
- * - @stackra-inc/ts-container installed
- * - @stackra-inc/ts-redis installed (optional, for Redis driver)
+ * - @stackra/ts-cache installed
+ * - @stackra/ts-container installed
+ * - @stackra/ts-redis installed (optional, for Redis driver)
  */
 
 // ============================================================================
 // 1. Basic Module Setup — Memory Store Only
 // ============================================================================
 
-import { Module } from '@stackra-inc/ts-container';
+import { Module } from '@stackra/ts-container';
 import { CacheModule, defineConfig } from '@/index';
 
 /**

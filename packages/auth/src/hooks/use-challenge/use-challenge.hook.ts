@@ -1,6 +1,6 @@
-/** @fileoverview useChallenge hook. @module @stackra-inc/react-auth @category Hooks */
+/** @fileoverview useChallenge hook. @module @stackra/react-auth @category Hooks */
 import { useMutation } from '@tanstack/react-query';
-import { useInject } from '@stackra-inc/ts-container';
+import { useInject } from '@stackra/ts-container';
 import { AUTH_SERVICE } from '@/constants';
 import type { IAuthService } from '@/interfaces/auth-service.interface';
 import type { UseMutationHookResult } from '@/interfaces/use-mutation-hook-result.interface';

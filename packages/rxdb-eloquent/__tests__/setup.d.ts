@@ -7,7 +7,7 @@
  *
  * Required by the `globals: true` setting in vitest.config.ts.
  *
- * @module @stackra-inc/ts-eloquent
+ * @module @stackra/ts-eloquent
  * @category Configuration
  */
 

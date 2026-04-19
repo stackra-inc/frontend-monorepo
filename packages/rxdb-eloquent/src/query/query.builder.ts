@@ -37,7 +37,7 @@
  */
 
 import { Observable, of } from 'rxjs';
-import { Str } from '@stackra-inc/ts-support';
+import { Str } from '@stackra/ts-support';
 import { MangoQueryGrammar } from './grammars/mango-query.grammar';
 import { MetadataStorage } from '@/metadata/metadata.storage';
 

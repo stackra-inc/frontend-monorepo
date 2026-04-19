@@ -10,7 +10,7 @@
  * - Audit logging: useLog
  * - Realtime subscriptions: useSubscription
  *
- * @module @stackra-inc/react-refine
+ * @module @stackra/react-refine
  * @category Examples
  */
 
@@ -27,7 +27,7 @@ import {
   useSubscription,
   useList,
   useCreate,
-} from '@stackra-inc/react-refine';
+} from '@stackra/react-refine';
 import type {
   IAuthService,
   INotificationService,
@@ -36,8 +36,8 @@ import type {
   OnErrorResponse,
   OpenNotificationParams,
   LiveEvent,
-} from '@stackra-inc/react-refine';
-import { Module, Injectable } from '@stackra-inc/ts-container';
+} from '@stackra/react-refine';
+import { Module, Injectable } from '@stackra/ts-container';
 
 // ─── 1. Zero-Config Setup (Built-in Defaults) ───────────────────────
 //

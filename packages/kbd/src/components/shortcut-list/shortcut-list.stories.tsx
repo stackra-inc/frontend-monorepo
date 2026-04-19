@@ -3,7 +3,7 @@
  *
  * This file contains interactive examples and documentation for the ShortcutList component.
  *
- * @module @stackra-inc/kbd
+ * @module @stackra/kbd
  * @category Stories
  */
 

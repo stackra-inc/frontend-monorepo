@@ -4,7 +4,7 @@
  * This component renders a modal or dialog with a searchable list of all
  * available keyboard shortcuts, typically triggered by a help shortcut.
  *
- * @module @stackra-inc/kbd
+ * @module @stackra/kbd
  * @category Components
  */
 

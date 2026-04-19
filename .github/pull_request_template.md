@@ -74,7 +74,7 @@ Closes #
 - [ ] New types are in `types/*.type.ts`
 - [ ] DI tokens are Symbols in `constants/tokens.constant.ts`
 - [ ] Config files match the unified template (`pnpm sync-configs`)
-- [ ] `@stackra-inc/*` deps use `workspace:*` (`pnpm fix-deps`)
+- [ ] `@stackra/*` deps use `workspace:*` (`pnpm fix-deps`)
 - [ ] CHANGELOG updated (if applicable)
 
 ## Breaking Changes

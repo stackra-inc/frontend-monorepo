@@ -5,7 +5,7 @@ inclusion: always
 # Metadata Management Standards
 
 This document defines how metadata is read, written, and managed across
-`@stackra-inc/ts-container`. All metadata operations **must** go through
+`@stackra/ts-container`. All metadata operations **must** go through
 `@vivtel/metadata` — never call `Reflect.*` directly.
 
 ---

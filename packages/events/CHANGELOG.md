@@ -1,10 +1,10 @@
-# @stackra-inc/ts-events
+# @stackra/ts-events
 
 ## 1.0.0
 
 ### Major Features
 
-- 🎉 Initial release of @stackra-inc/ts-events
+- 🎉 Initial release of @stackra/ts-events
 - 🚀 `EventsModule.forRoot()` with DynamicModule DI pattern
 - 📦 `EventManager` extending MultipleInstanceManager for named dispatchers
 - 🎯 `EventService` high-level API wrapping individual dispatchers

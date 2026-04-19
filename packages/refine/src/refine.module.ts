@@ -8,9 +8,9 @@
  * metadata, auto-creates Repository + Service pairs, and registers them in
  * the ServiceRegistry.
  *
- * Auth services have been moved to `@stackra-inc/react-auth`.
+ * Auth services have been moved to `@stackra/react-auth`.
  *
- * @module @stackra-inc/react-refine
+ * @module @stackra/react-refine
  * @category Module
  */
 
@@ -147,7 +147,7 @@ export class RefineModule {
 
   private static requireEloquent(): { Model: any; Repository: any } {
     // eslint-disable-next-line @typescript-eslint/no-require-imports
-    return require('@stackra-inc/ts-eloquent');
+    return require('@stackra/ts-eloquent');
   }
 
   static getServiceRegistry(): ServiceRegistry {

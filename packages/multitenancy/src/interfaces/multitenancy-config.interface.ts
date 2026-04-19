@@ -1,7 +1,7 @@
 /**
  * @fileoverview Multitenancy configuration interface for auth provider wrapping.
  *
- * @module @stackra-inc/react-multitenancy
+ * @module @stackra/react-multitenancy
  * @category Interfaces
  */
 

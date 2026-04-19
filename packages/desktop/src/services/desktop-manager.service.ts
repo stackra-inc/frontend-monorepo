@@ -12,10 +12,10 @@
  * |   4. Registers IPC listeners for menu action callbacks
  * |   5. Registers menu shortcuts with kbd (if injected via DI)
  * |
- * @module @stackra-inc/ts-desktop
+ * @module @stackra/ts-desktop
  */
 
-import { Injectable, Inject, Optional, type OnModuleInit } from '@stackra-inc/ts-container';
+import { Injectable, Inject, Optional, type OnModuleInit } from '@stackra/ts-container';
 
 import { DESKTOP_CONFIG } from '@/constants';
 import type { DesktopModuleOptions, DesktopBridge } from '@/interfaces';
@@ -28,7 +28,7 @@ import { MenuRegistry } from './menu-registry.service';
 | SHORTCUT_REGISTRY token
 |--------------------------------------------------------------------------
 |
-| Matches the token exported by @stackra-inc/kbd.
+| Matches the token exported by @stackra/kbd.
 | Used for optional DI injection — if kbd is imported in the app module,
 | the ShortcutRegistry will be injected. Otherwise it's undefined.
 |
@@ -36,7 +36,7 @@ import { MenuRegistry } from './menu-registry.service';
 const SHORTCUT_REGISTRY = Symbol.for('SHORTCUT_REGISTRY');
 
 /**
- * Minimal interface for the ShortcutRegistry from @stackra-inc/kbd.
+ * Minimal interface for the ShortcutRegistry from @stackra/kbd.
  * Avoids a hard import dependency on the kbd package.
  */
 interface ShortcutRegistryLike {

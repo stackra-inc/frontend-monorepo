@@ -9,15 +9,15 @@
  * | ThemeModule.registerTheme(). The ThemeProvider and ThemeSwitcher
  * | consume them.
  * |
- * | Extends BaseRegistry from @stackra-inc/ts-support for consistent
+ * | Extends BaseRegistry from @stackra/ts-support for consistent
  * | registry API (get, has, getAll, getKeys, register, clear).
  * |
- * @module @stackra-inc/react-theming
+ * @module @stackra/react-theming
  * @category Registries
  */
 
-import { Injectable } from '@stackra-inc/ts-container';
-import { BaseRegistry } from '@stackra-inc/ts-support';
+import { Injectable } from '@stackra/ts-container';
+import { BaseRegistry } from '@stackra/ts-support';
 import type { ThemeConfig } from '@/interfaces/theme-config.interface';
 
 @Injectable()

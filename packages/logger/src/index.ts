@@ -1,12 +1,12 @@
 /**
- * @stackra-inc/ts-logger
+ * @stackra/ts-logger
  *
  * A lightweight, client-side logging package inspired by Laravel's
  * logging architecture. Provides a clean interface for structured
  * logging with pluggable transporters, customizable formatters,
  * contextual logging, colors, and emoji support.
  *
- * @module @stackra-inc/ts-logger
+ * @module @stackra/ts-logger
  */
 
 // ============================================================================

@@ -1,6 +1,6 @@
 /**
  * @fileoverview Decorators Index
- * @module @stackra-inc/ts-http
+ * @module @stackra/ts-http
  * @category Decorators
  */
 

@@ -1,6 +1,6 @@
 /**
  * @fileoverview Interfaces Index
- * @module @stackra-inc/ts-http
+ * @module @stackra/ts-http
  * @category Interfaces
  */
 

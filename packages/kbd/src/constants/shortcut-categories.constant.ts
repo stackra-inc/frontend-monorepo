@@ -3,7 +3,7 @@
  *
  * Defines all available shortcut categories used throughout the application.
  *
- * @module @stackra-inc/kbd
+ * @module @stackra/kbd
  * @category Constants
  */
 

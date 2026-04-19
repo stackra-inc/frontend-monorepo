@@ -4,7 +4,7 @@
  * Default configuration for the events package.
  * Override these values when calling EventsModule.forRoot().
  *
- * @module @stackra-inc/ts-events
+ * @module @stackra/ts-events
  * @category Config
  */
 
@@ -33,7 +33,7 @@ export const defaultEventsConfig: EventModuleOptions = {
   |
   | Drivers:
   |   - 'memory': In-memory (Map + RxJS Subject). Default.
-  |   - 'redis':  Redis-backed via @stackra-inc/ts-redis.
+  |   - 'redis':  Redis-backed via @stackra/ts-redis.
   |   - 'null':   No-op for testing.
   |
   */

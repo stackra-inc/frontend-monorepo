@@ -1,7 +1,7 @@
 /**
  * @fileoverview Props for the useList hook.
  *
- * @module @stackra-inc/react-refine
+ * @module @stackra/react-refine
  * @category Interfaces
  */
 

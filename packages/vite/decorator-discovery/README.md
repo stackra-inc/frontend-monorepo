@@ -1,10 +1,10 @@
 <p align="center">
-  <img src=".github/assets/banner.svg" alt="@stackra-inc/vite-decorator-discovery" width="100%" />
+  <img src=".github/assets/banner.svg" alt="@stackra/vite-decorator-discovery" width="100%" />
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/@stackra-inc/vite-decorator-discovery">
-    <img src="https://img.shields.io/npm/v/@stackra-inc/vite-decorator-discovery?style=flat-square&color=38bdf8&label=npm" alt="npm version" />
+  <a href="https://www.npmjs.com/package/@stackra/vite-decorator-discovery">
+    <img src="https://img.shields.io/npm/v/@stackra/vite-decorator-discovery?style=flat-square&color=38bdf8&label=npm" alt="npm version" />
   </a>
   <a href="./LICENSE">
     <img src="https://img.shields.io/badge/license-MIT-818cf8?style=flat-square" alt="MIT license" />
@@ -16,7 +16,7 @@
 
 ---
 
-# @stackra-inc/vite-decorator-discovery
+# @stackra/vite-decorator-discovery
 
 > Build-time decorator discovery and virtual module generation for TypeScript
 > decorators. Inspired by NestJS's DiscoveryService.
@@ -33,7 +33,7 @@
 ## Installation
 
 ```bash
-pnpm add -D @stackra-inc/vite-decorator-discovery
+pnpm add -D @stackra/vite-decorator-discovery
 ```
 
 ## Usage
@@ -43,7 +43,7 @@ pnpm add -D @stackra-inc/vite-decorator-discovery
 ```typescript
 // vite.config.ts
 import { defineConfig } from 'vite';
-import { decoratorDiscoveryPlugin } from '@stackra-inc/vite-decorator-discovery';
+import { decoratorDiscoveryPlugin } from '@stackra/vite-decorator-discovery';
 
 export default defineConfig({
   plugins: [
@@ -61,7 +61,7 @@ Add this to your `vite-env.d.ts` or `env.d.ts`:
 
 ```typescript
 /// <reference types="vite/client" />
-/// <reference types="@stackra-inc/vite-decorator-discovery/virtual-modules" />
+/// <reference types="@stackra/vite-decorator-discovery/virtual-modules" />
 ```
 
 Or add to your `tsconfig.json`:
@@ -69,7 +69,7 @@ Or add to your `tsconfig.json`:
 ```json
 {
   "compilerOptions": {
-    "types": ["@stackra-inc/vite-decorator-discovery/virtual-modules"]
+    "types": ["@stackra/vite-decorator-discovery/virtual-modules"]
   }
 }
 ```

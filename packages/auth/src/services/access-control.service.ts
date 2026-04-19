@@ -3,15 +3,15 @@
  *
  * Provides a fully functional access control service that checks
  * permissions against a backend API via the injected {@link HttpClient}
- * from `@stackra-inc/ts-http`. Uses the {@link CacheService} from
- * `@stackra-inc/ts-cache` to avoid redundant network requests for the
+ * from `@stackra/ts-http`. Uses the {@link CacheService} from
+ * `@stackra/ts-cache` to avoid redundant network requests for the
  * same resource/action pair.
  *
  * Users can override this by passing a custom `accessControlService`
  * to `AuthModule.forRoot()`. The custom service must implement
  * {@link IAccessControlService}.
  *
- * @module @stackra-inc/react-auth
+ * @module @stackra/react-auth
  * @category Services
  *
  * @example
@@ -24,11 +24,11 @@
  * ```
  */
 
-import { Injectable, Inject } from '@stackra-inc/ts-container';
-import { HTTP_CLIENT } from '@stackra-inc/ts-http';
-import { CACHE_SERVICE } from '@stackra-inc/ts-cache';
-import type { HttpClient, HttpResponse } from '@stackra-inc/ts-http';
-import type { CacheService } from '@stackra-inc/ts-cache';
+import { Injectable, Inject } from '@stackra/ts-container';
+import { HTTP_CLIENT } from '@stackra/ts-http';
+import { CACHE_SERVICE } from '@stackra/ts-cache';
+import type { HttpClient, HttpResponse } from '@stackra/ts-http';
+import type { CacheService } from '@stackra/ts-cache';
 import type { IAccessControlService } from '@/interfaces/access-control-service.interface';
 import type { CanResponse } from '@/interfaces/can-response.interface';
 
@@ -59,9 +59,9 @@ export class AccessControlService implements IAccessControlService {
    * Create a new AccessControlService instance.
    *
    * @param http - The {@link HttpClient} instance injected via DI.
-   *   Provided by `@stackra-inc/ts-http` through `HttpModule.forRoot()`.
+   *   Provided by `@stackra/ts-http` through `HttpModule.forRoot()`.
    * @param cache - The {@link CacheService} instance injected via DI.
-   *   Provided by `@stackra-inc/ts-cache` through `CacheModule.forRoot()`.
+   *   Provided by `@stackra/ts-cache` through `CacheModule.forRoot()`.
    *   When the cache module is not configured, this will be `undefined`
    *   and the service falls back to uncached requests.
    */

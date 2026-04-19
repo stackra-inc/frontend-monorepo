@@ -1,6 +1,6 @@
 /**
  * @fileoverview Theme Types
- * @module @stackra-inc/react-theming
+ * @module @stackra/react-theming
  * @category Types
  */
 

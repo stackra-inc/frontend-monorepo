@@ -7,14 +7,13 @@ inclusion: auto
 
 ## workspace:\* Protocol
 
-All `@stackra-inc/*` packages within the monorepo MUST use `workspace:*`
-version:
+All `@stackra/*` packages within the monorepo MUST use `workspace:*` version:
 
 ```json
 {
   "dependencies": {
-    "@stackra-inc/ts-container": "^2.0.4",
-    "@stackra-inc/ts-support": "workspace:*"
+    "@stackra/ts-container": "^2.0.4",
+    "@stackra/ts-support": "workspace:*"
   }
 }
 ```
@@ -27,8 +26,8 @@ Framework packages that other packages depend on MUST be listed as
 ```json
 {
   "peerDependencies": {
-    "@stackra-inc/ts-container": "^2.0.4",
-    "@stackra-inc/ts-support": "workspace:*",
+    "@stackra/ts-container": "^2.0.4",
+    "@stackra/ts-support": "workspace:*",
     "react": "^18.0.0 || ^19.0.0"
   }
 }
@@ -36,8 +35,8 @@ Framework packages that other packages depend on MUST be listed as
 
 Rules:
 
-- `@stackra-inc/ts-container` — peerDependency for all packages that use DI
-- `@stackra-inc/ts-support` — peerDependency for packages using
+- `@stackra/ts-container` — peerDependency for all packages that use DI
+- `@stackra/ts-support` — peerDependency for packages using
   BaseRegistry/MultipleInstanceManager
 - `react` — peerDependency for packages with React hooks/components (mark as
   optional)

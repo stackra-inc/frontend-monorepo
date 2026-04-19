@@ -1,7 +1,7 @@
 /**
  * Shortcut Facade
  *
- * Typed proxy for {@link ShortcutRegistry} from `@stackra-inc/kbd`.
+ * Typed proxy for {@link ShortcutRegistry} from `@stackra/kbd`.
  *
  * Keyboard shortcut registry. Handles registration, lookup, and conflict detection.
  *
@@ -12,8 +12,8 @@
  * ## Setup (once, in main.tsx)
  *
  * ```typescript
- * import { Application } from '@stackra-inc/ts-container';
- * import { Facade } from '@stackra-inc/ts-support';
+ * import { Application } from '@stackra/ts-container';
+ * import { Facade } from '@stackra/ts-support';
  *
  * const app = await Application.create(AppModule);
  * Facade.setApplication(app); // wires all facades
@@ -22,7 +22,7 @@
  * ## Usage
  *
  * ```typescript
- * import { ShortcutFacade } from '@stackra-inc/kbd';
+ * import { ShortcutFacade } from '@stackra/kbd';
  *
  * // Full autocomplete — no .proxy() call needed
  * ShortcutFacade.register();
@@ -39,7 +39,7 @@
  * ## Testing — swap in a mock
  *
  * ```typescript
- * import { Facade } from '@stackra-inc/ts-support';
+ * import { Facade } from '@stackra/ts-support';
  * import { ShortcutRegistry } from '@/registries/shortcut.registry';
  *
  * // Before test — replace the resolved instance
@@ -54,7 +54,7 @@
  * @see {@link Facade} — the base class providing `make()`
  */
 
-import { Facade } from '@stackra-inc/ts-support';
+import { Facade } from '@stackra/ts-support';
 import { ShortcutRegistry } from '@/registries/shortcut.registry';
 
 /**

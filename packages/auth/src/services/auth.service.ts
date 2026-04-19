@@ -3,7 +3,7 @@
  *
  * Provides a fully functional authentication service that communicates
  * with a backend API via the injected {@link HttpClient} from
- * `@stackra-inc/ts-http`. Handles login, logout, registration,
+ * `@stackra/ts-http`. Handles login, logout, registration,
  * multi-factor challenge/verify, password management, identity
  * provider linking, session checks, and identity retrieval.
  *
@@ -11,7 +11,7 @@
  * `AuthModule.forRoot()`. The custom service must implement
  * {@link IAuthService}.
  *
- * @module @stackra-inc/react-auth
+ * @module @stackra/react-auth
  * @category Services
  *
  * @example
@@ -24,11 +24,11 @@
  * ```
  */
 
-import { Injectable, Inject, Optional } from '@stackra-inc/ts-container';
-import { HTTP_CLIENT } from '@stackra-inc/ts-http';
-import { EVENT_MANAGER } from '@stackra-inc/ts-events';
-import type { HttpClient, HttpResponse } from '@stackra-inc/ts-http';
-import type { EventManager } from '@stackra-inc/ts-events';
+import { Injectable, Inject, Optional } from '@stackra/ts-container';
+import { HTTP_CLIENT } from '@stackra/ts-http';
+import { EVENT_MANAGER } from '@stackra/ts-events';
+import type { HttpClient, HttpResponse } from '@stackra/ts-http';
+import type { EventManager } from '@stackra/ts-events';
 import { AUTH_TOKEN_KEY, AUTH_USER_KEY } from '@/constants';
 import type { IAuthService } from '@/interfaces/auth-service.interface';
 import type { AuthActionResponse } from '@/interfaces/auth-action-response.interface';

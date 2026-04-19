@@ -1,4 +1,4 @@
-/** @fileoverview Barrel export for auth services. @module @stackra-inc/react-auth @category Services */
+/** @fileoverview Barrel export for auth services. @module @stackra/react-auth @category Services */
 export { AuthService } from './auth.service';
 export { SessionService } from './session.service';
 export { SecurityService } from './security.service';

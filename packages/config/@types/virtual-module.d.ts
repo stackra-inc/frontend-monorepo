@@ -5,18 +5,18 @@
  * ```json
  * {
  *   "compilerOptions": {
- *     "types": ["@stackra-inc/ts-config/client"]
+ *     "types": ["@stackra/ts-config/client"]
  *   }
  * }
  * ```
  *
  * Or add a triple-slash directive in a `.d.ts` file:
  * ```typescript
- * /// <reference types="@stackra-inc/ts-config/client" />
+ * /// <reference types="@stackra/ts-config/client" />
  * ```
  */
 
-declare module 'virtual:@stackra-inc/ts-config' {
+declare module 'virtual:@stackra/ts-config' {
   /**
    * The full configuration object.
    * Contains merged environment variables and scanned config file values.

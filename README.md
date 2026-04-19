@@ -27,12 +27,12 @@ shared ESLint/tsconfig, CI/CD, git hooks, and MCP.
 ```
 frontend-monorepo/
 ├── apps/
-│   ├── web/                   # @stackra-inc/web — Next.js 16 (port 3000)
-│   └── docs/                  # @stackra-inc/docs — Next.js 16 (port 3001)
+│   ├── web/                   # @stackra/web — Next.js 16 (port 3000)
+│   └── docs/                  # @stackra/docs — Next.js 16 (port 3001)
 ├── packages/
-│   ├── react-ui/              # @stackra-inc/react-ui — shared React component library
-│   ├── eslint-config/         # @stackra-inc/eslint-config — ESLint 9 flat config
-│   └── typescript-config/     # @stackra-inc/typescript-config — shared tsconfigs
+│   ├── react-ui/              # @stackra/react-ui — shared React component library
+│   ├── eslint-config/         # @stackra/eslint-config — ESLint 9 flat config
+│   └── typescript-config/     # @stackra/typescript-config — shared tsconfigs
 ├── .github/
 │   ├── assets/banner.svg
 │   ├── workflows/
@@ -91,41 +91,41 @@ npm run dev
 Filter to a single workspace:
 
 ```bash
-npm run build -- --filter=@stackra-inc/web
-npm run test  -- --filter=@stackra-inc/react-ui
-npm run dev   -- --filter=@stackra-inc/docs
+npm run build -- --filter=@stackra/web
+npm run test  -- --filter=@stackra/react-ui
+npm run dev   -- --filter=@stackra/docs
 ```
 
 ---
 
 ## Packages
 
-### `@stackra-inc/react-ui`
+### `@stackra/react-ui`
 
 Shared React component library consumed by all apps.
 
 ```tsx
-import { Button } from '@stackra-inc/react-ui/button';
+import { Button } from '@stackra/react-ui/button';
 ```
 
-### `@stackra-inc/eslint-config`
+### `@stackra/eslint-config`
 
 Three ESLint 9 flat configs:
 
 ```js
 // eslint.config.js in an app
-import { nextJs } from '@stackra-inc/eslint-config/next-js';
+import { nextJs } from '@stackra/eslint-config/next-js';
 export default [...nextJs];
 ```
 
 Exports: `./base`, `./next-js`, `./react-internal`
 
-### `@stackra-inc/typescript-config`
+### `@stackra/typescript-config`
 
 Shared tsconfigs:
 
 ```json
-{ "extends": "@stackra-inc/typescript-config/nextjs" }
+{ "extends": "@stackra/typescript-config/nextjs" }
 ```
 
 Exports: `./base`, `./nextjs`, `./react-library`
@@ -139,7 +139,7 @@ Exports: `./base`, `./nextjs`, `./react-library`
 npx create-next-app apps/my-app --typescript --tailwind --app
 
 # 2. Update apps/my-app/package.json:
-#    "name": "@stackra-inc/my-app"
+#    "name": "@stackra/my-app"
 
 # 3. Add shared deps
 npm install
@@ -149,7 +149,7 @@ npm install
 
 ```bash
 mkdir -p packages/my-package/src
-# Add package.json with "name": "@stackra-inc/my-package"
+# Add package.json with "name": "@stackra/my-package"
 npm install
 ```
 

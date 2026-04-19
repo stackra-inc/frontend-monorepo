@@ -1,10 +1,10 @@
 <p align="center">
-  <img src=".github/assets/banner.svg" alt="@stackra-inc/ts-logger" width="100%" />
+  <img src=".github/assets/banner.svg" alt="@stackra/ts-logger" width="100%" />
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/@stackra-inc/ts-logger">
-    <img src="https://img.shields.io/npm/v/@stackra-inc/ts-logger?style=flat-square&color=38bdf8&label=npm" alt="npm version" />
+  <a href="https://www.npmjs.com/package/@stackra/ts-logger">
+    <img src="https://img.shields.io/npm/v/@stackra/ts-logger?style=flat-square&color=38bdf8&label=npm" alt="npm version" />
   </a>
   <a href="./LICENSE">
     <img src="https://img.shields.io/badge/license-MIT-818cf8?style=flat-square" alt="MIT license" />
@@ -17,12 +17,12 @@
 ---
 
 <p align="center">
-  <img src=".github/assets/banner.svg" alt="@stackra-inc/ts-logger" width="100%" />
+  <img src=".github/assets/banner.svg" alt="@stackra/ts-logger" width="100%" />
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/@stackra-inc/ts-logger">
-    <img src="https://img.shields.io/npm/v/@stackra-inc/ts-logger?style=flat-square&color=38bdf8&label=npm" alt="npm version" />
+  <a href="https://www.npmjs.com/package/@stackra/ts-logger">
+    <img src="https://img.shields.io/npm/v/@stackra/ts-logger?style=flat-square&color=38bdf8&label=npm" alt="npm version" />
   </a>
   <a href="./LICENSE">
     <img src="https://img.shields.io/badge/license-MIT-818cf8?style=flat-square" alt="MIT license" />
@@ -35,12 +35,12 @@
 ---
 
 <p align="center">
-  <img src=".github/assets/banner.svg" alt="@stackra-inc/ts-logger" width="100%" />
+  <img src=".github/assets/banner.svg" alt="@stackra/ts-logger" width="100%" />
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/@stackra-inc/ts-logger">
-    <img src="https://img.shields.io/npm/v/@stackra-inc/ts-logger?style=flat-square&color=38bdf8&label=npm" alt="npm version" />
+  <a href="https://www.npmjs.com/package/@stackra/ts-logger">
+    <img src="https://img.shields.io/npm/v/@stackra/ts-logger?style=flat-square&color=38bdf8&label=npm" alt="npm version" />
   </a>
   <a href="./LICENSE">
     <img src="https://img.shields.io/badge/license-MIT-818cf8?style=flat-square" alt="MIT license" />
@@ -52,22 +52,22 @@
 
 ---
 
-# @stackra-inc/ts-logger
+# @stackra/ts-logger
 
 Multi-channel logging system for React with DI integration. Built on
-`MultipleInstanceManager` from `@stackra-inc/ts-support`.
+`MultipleInstanceManager` from `@stackra/ts-support`.
 
 ## Install
 
 ```bash
-pnpm add @stackra-inc/ts-logger @stackra-inc/ts-support @stackra-inc/ts-container
+pnpm add @stackra/ts-logger @stackra/ts-support @stackra/ts-container
 ```
 
 ## Quick Start
 
 ```typescript
 // 1. Configure
-import { defineConfig, LogLevel, ConsoleTransporter, StorageTransporter, SilentTransporter } from '@stackra-inc/ts-logger';
+import { defineConfig, LogLevel, ConsoleTransporter, StorageTransporter, SilentTransporter } from '@stackra/ts-logger';
 
 export default defineConfig({
   default: 'console',
@@ -86,8 +86,8 @@ export default defineConfig({
 });
 
 // 2. Register module
-import { Module } from '@stackra-inc/ts-container';
-import { LoggerModule } from '@stackra-inc/ts-logger';
+import { Module } from '@stackra/ts-container';
+import { LoggerModule } from '@stackra/ts-logger';
 import loggerConfig from './config/logger.config';
 
 @Module({
@@ -96,8 +96,8 @@ import loggerConfig from './config/logger.config';
 export class AppModule {}
 
 // 3. Use in services
-import { Injectable, Inject } from '@stackra-inc/ts-container';
-import { LoggerManager, LOGGER_MANAGER } from '@stackra-inc/ts-logger';
+import { Injectable, Inject } from '@stackra/ts-container';
+import { LoggerManager, LOGGER_MANAGER } from '@stackra/ts-logger';
 
 @Injectable()
 export class UserService {
@@ -109,7 +109,7 @@ export class UserService {
 }
 
 // 4. Use in React
-import { useLogger } from '@stackra-inc/ts-logger';
+import { useLogger } from '@stackra/ts-logger';
 
 function MyComponent() {
   const logger = useLogger();

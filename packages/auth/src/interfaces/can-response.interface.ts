@@ -1,7 +1,7 @@
 /**
  * @fileoverview Response shape for access control checks.
  *
- * @module @stackra-inc/react-auth
+ * @module @stackra/react-auth
  * @category Interfaces
  */
 

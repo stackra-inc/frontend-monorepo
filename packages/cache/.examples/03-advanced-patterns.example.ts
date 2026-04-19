@@ -7,9 +7,9 @@
  * @module examples/advanced-patterns
  *
  * Prerequisites:
- * - @stackra-inc/ts-cache installed and CacheModule.forRoot() configured
- * - @stackra-inc/ts-container installed
- * - @stackra-inc/ts-redis installed (for tagging examples)
+ * - @stackra/ts-cache installed and CacheModule.forRoot() configured
+ * - @stackra/ts-container installed
+ * - @stackra/ts-redis installed (for tagging examples)
  */
 
 // ============================================================================
@@ -76,7 +76,7 @@ async function cacheTaggingExample() {
 // 2. Service Injection — Using Cache in Injectable Services
 // ============================================================================
 
-import { Injectable, Inject } from '@stackra-inc/ts-container';
+import { Injectable, Inject } from '@stackra/ts-container';
 import { CACHE_MANAGER, CacheManager, type CacheService } from '@/index';
 
 interface Product {

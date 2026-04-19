@@ -7,7 +7,7 @@
  *
  * @example
  * ```tsx
- * import { useFind } from '@stackra-inc/ts-eloquent';
+ * import { useFind } from '@stackra/ts-eloquent';
  * import { User } from './models/user.model';
  *
  * function UserProfile({ userId }: { userId: string }) {

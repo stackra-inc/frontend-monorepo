@@ -7,9 +7,9 @@
  * @module examples/module-setup
  *
  * Prerequisites:
- * - @stackra-inc/ts-config installed
- * - @stackra-inc/ts-container installed
- * - @stackra-inc/ts-support installed
+ * - @stackra/ts-config installed
+ * - @stackra/ts-container installed
+ * - @stackra/ts-support installed
  */
 
 // ============================================================================
@@ -23,8 +23,8 @@ import {
   CONFIG_MANAGER,
   defineConfig,
   type ConfigService,
-} from '@stackra-inc/ts-config';
-import { Module, Injectable, Inject } from '@stackra-inc/ts-container';
+} from '@stackra/ts-config';
+import { Module, Injectable, Inject } from '@stackra/ts-container';
 
 /**
  * Minimal setup with a single env source.

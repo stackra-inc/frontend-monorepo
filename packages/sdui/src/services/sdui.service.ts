@@ -1,11 +1,11 @@
 /**
  * @fileoverview SDUIService — fetches page definitions and auto-registers routes/services.
  *
- * @module @stackra-inc/react-sdui
+ * @module @stackra/react-sdui
  * @category Services
  */
 
-import type { PageDefinition, ResourceConfig } from '@stackra-inc/react-refine';
+import type { PageDefinition, ResourceConfig } from '@stackra/react-refine';
 import type { ISDUIService } from '@/interfaces/sdui-service.interface';
 
 /**

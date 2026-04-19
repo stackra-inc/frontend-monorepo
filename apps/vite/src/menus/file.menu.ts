@@ -5,7 +5,7 @@
  * Auto-registered via DesktopModule.forFeature([FileMenu]).
  */
 
-import { Menu, MenuItem } from '@stackra-inc/ts-desktop';
+import { Menu, MenuItem } from '@stackra/ts-desktop';
 
 @Menu('file', { label: 'File', order: 0 })
 export class FileMenu {

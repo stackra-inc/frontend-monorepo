@@ -1,7 +1,7 @@
 {
-  "name": "@stackra-inc/react-sdui",
+  "name": "@stackra/react-sdui",
   "version": "1.0.0",
-  "description": "Server-Driven UI package for @stackra-inc/react-refine — fetches page definitions from a backend Pages API and auto-registers routes and services.",
+  "description": "Server-Driven UI package for @stackra/react-refine — fetches page definitions from a backend Pages API and auto-registers routes and services.",
   "license": "MIT",
   "author": {
     "name": "Stackra L.L.C",
@@ -74,21 +74,21 @@
     "typescript-eslint": "^8.58.0"
   },
   "peerDependencies": {
-    "@stackra-inc/react-refine": "workspace:*",
-    "@stackra-inc/ts-container": "^2.0.4",
-    "@stackra-inc/ts-support": "workspace:*",
-    "@stackra-inc/react-router": "workspace:*",
+    "@stackra/react-refine": "workspace:*",
+    "@stackra/ts-container": "^2.0.4",
+    "@stackra/ts-support": "workspace:*",
+    "@stackra/react-router": "workspace:*",
     "react": "^18.0.0 || ^19.0.0",
     "reflect-metadata": "^0.2.2"
   },
   "peerDependenciesMeta": {
-    "@stackra-inc/react-refine": {
+    "@stackra/react-refine": {
       "optional": false
     },
-    "@stackra-inc/ts-container": {
+    "@stackra/ts-container": {
       "optional": false
     },
-    "@stackra-inc/react-router": {
+    "@stackra/react-router": {
       "optional": true
     },
     "reflect-metadata": {

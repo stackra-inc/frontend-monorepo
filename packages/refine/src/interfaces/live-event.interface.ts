@@ -1,7 +1,7 @@
 /**
  * @fileoverview A live event received from a real-time channel.
  *
- * @module @stackra-inc/react-refine
+ * @module @stackra/react-refine
  * @category Interfaces
  */
 

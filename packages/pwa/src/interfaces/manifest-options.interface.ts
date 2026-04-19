@@ -1,7 +1,7 @@
 /**
  * @fileoverview Web App Manifest configuration options.
  *
- * @module @stackra-inc/ts-pwa
+ * @module @stackra/ts-pwa
  * @category Interfaces
  */
 

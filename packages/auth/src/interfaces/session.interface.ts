@@ -4,7 +4,7 @@
  * Shape of a user session as returned by the backend
  * `UserSessionResource`. Managed by the {@link SessionService}.
  *
- * @module @stackra-inc/react-auth
+ * @module @stackra/react-auth
  * @category Interfaces
  */
 

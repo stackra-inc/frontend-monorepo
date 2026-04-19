@@ -2,7 +2,7 @@
  * @file pages/logger.tsx
  * @description Logger package showcase page.
  *
- * Demonstrates @stackra-inc/ts-logger:
+ * Demonstrates @stackra/ts-logger:
  *   - All log levels (debug, info, warn, error, fatal)
  *   - Contextual logging (withContext)
  *   - useLogger() React hook
@@ -10,7 +10,7 @@
  */
 
 import React, { useState, useCallback } from 'react';
-import { useLogger, LogLevel } from '@stackra-inc/ts-logger';
+import { useLogger, LogLevel } from '@stackra/ts-logger';
 import { Card, Chip, Separator, Button } from '@heroui/react';
 
 import { title, subtitle } from '@/components/primitives';
@@ -116,7 +116,7 @@ export default function LoggerPage() {
       <div>
         <h1 className={title()}>Logger Package</h1>
         <p className={subtitle({ class: 'mt-2' })}>
-          @stackra-inc/ts-logger — structured logging with channels and context
+          @stackra/ts-logger — structured logging with channels and context
         </p>
       </div>
 

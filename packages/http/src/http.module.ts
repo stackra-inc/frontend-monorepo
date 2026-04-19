@@ -7,13 +7,13 @@
  *
  * Follows the standard module pattern used by events, cache, and bus.
  *
- * @module @stackra-inc/ts-http
+ * @module @stackra/ts-http
  * @category Module
  *
  * @example
  * ```typescript
- * import { Module } from '@stackra-inc/ts-container';
- * import { HttpModule } from '@stackra-inc/ts-http';
+ * import { Module } from '@stackra/ts-container';
+ * import { HttpModule } from '@stackra/ts-http';
  *
  * @Module({
  *   imports: [
@@ -47,7 +47,7 @@
  * ```
  */
 
-import { Module, type DynamicModule } from '@stackra-inc/ts-container';
+import { Module, type DynamicModule } from '@stackra/ts-container';
 
 import { HTTP_CLIENT, HTTP_CONFIG, MIDDLEWARE_PIPELINE, MIDDLEWARE_REGISTRY } from '@/constants';
 import type { HttpClientConfig } from '@/interfaces/http-config.interface';

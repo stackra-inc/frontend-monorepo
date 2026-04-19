@@ -8,7 +8,7 @@
  * @module config/cache
  */
 
-import { defineConfig } from '@stackra-inc/ts-cache';
+import { defineConfig } from '@stackra/ts-cache';
 
 const cacheConfig = defineConfig({
   /**

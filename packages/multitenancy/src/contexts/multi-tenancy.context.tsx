@@ -5,7 +5,7 @@
  *
  * @example
  * ```tsx
- * import { MultiTenancyProvider } from "@stackra-inc/react-multitenancy";
+ * import { MultiTenancyProvider } from "@stackra/react-multitenancy";
  *
  * <MultiTenancyProvider provider={multiTenancyProvider}>
  *   <App />

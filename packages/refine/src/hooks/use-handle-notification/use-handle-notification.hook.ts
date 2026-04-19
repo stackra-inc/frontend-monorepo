@@ -8,7 +8,7 @@
  * If the notification config is `false`, no notification is shown.
  * If it's `undefined`, the fallback notification is used.
  *
- * @module @stackra-inc/react-refine
+ * @module @stackra/react-refine
  * @category Hooks
  * @internal
  */

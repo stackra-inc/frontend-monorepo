@@ -8,7 +8,7 @@
  *
  * @example
  * ```typescript
- * import multitenancyConfig from '@stackra-inc/react-multitenancy/config';
+ * import multitenancyConfig from '@stackra/react-multitenancy/config';
  *
  * <MultiTenancyProvider options={multitenancyConfig}>
  *   <App />

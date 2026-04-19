@@ -5,7 +5,7 @@
  * login, logout, registration, multi-factor challenge/verify,
  * password management, identity linking, and session retrieval.
  *
- * @module @stackra-inc/react-auth
+ * @module @stackra/react-auth
  * @category Interfaces
  */
 

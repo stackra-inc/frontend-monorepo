@@ -1,7 +1,7 @@
 {
-  "name": "@stackra-inc/ts-http",
+  "name": "@stackra/ts-http",
   "version": "0.1.0",
-  "description": "Middleware-driven HTTP client for TypeScript — axios underneath, decorator-based middleware registration, and DI integration via @stackra-inc/ts-container.",
+  "description": "Middleware-driven HTTP client for TypeScript — axios underneath, decorator-based middleware registration, and DI integration via @stackra/ts-container.",
   "license": "MIT",
   "author": {
     "name": "Stackra L.L.C",
@@ -72,16 +72,16 @@
     "tslib": "^2.8.1"
   },
   "peerDependencies": {
-    "@stackra-inc/ts-container": "^2.0.4",
-    "@stackra-inc/ts-support": "workspace:*",
+    "@stackra/ts-container": "^2.0.4",
+    "@stackra/ts-support": "workspace:*",
     "reflect-metadata": "^0.2.2",
     "react": "^18.0.0 || ^19.0.0"
   },
   "peerDependenciesMeta": {
-    "@stackra-inc/ts-container": {
+    "@stackra/ts-container": {
       "optional": false
     },
-    "@stackra-inc/ts-support": {
+    "@stackra/ts-support": {
       "optional": false
     },
     "reflect-metadata": {

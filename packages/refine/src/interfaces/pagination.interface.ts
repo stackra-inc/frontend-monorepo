@@ -1,12 +1,12 @@
 /**
  * @fileoverview Pagination interface for list queries.
  *
- * @module @stackra-inc/react-refine
+ * @module @stackra/react-refine
  * @category Interfaces
  *
  * @example
  * ```typescript
- * import type { Pagination } from '@stackra-inc/react-refine';
+ * import type { Pagination } from '@stackra/react-refine';
  *
  * const pagination: Pagination = {
  *   current: 1,

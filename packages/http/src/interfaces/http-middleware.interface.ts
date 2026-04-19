@@ -8,18 +8,18 @@
  *
  * Mirrors Laravel's middleware pattern adapted for HTTP requests.
  *
- * @module @stackra-inc/ts-http
+ * @module @stackra/ts-http
  * @category Interfaces
  *
  * @example
  * ```typescript
- * import { Injectable } from '@stackra-inc/ts-container';
+ * import { Injectable } from '@stackra/ts-container';
  * import type {
  *   HttpMiddlewareInterface,
  *   HttpNextFunction,
  *   HttpContext,
  *   HttpResponse,
- * } from '@stackra-inc/ts-http';
+ * } from '@stackra/ts-http';
  *
  * @Injectable()
  * class TimingMiddleware implements HttpMiddlewareInterface {

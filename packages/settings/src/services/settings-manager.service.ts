@@ -1,15 +1,15 @@
 /**
  * Settings Store Manager
  *
- * Extends `MultipleInstanceManager<SettingsStore>` from `@stackra-inc/ts-support`.
+ * Extends `MultipleInstanceManager<SettingsStore>` from `@stackra/ts-support`.
  * Same pattern as CacheManager — manages named store instances with lazy
  * initialization, caching, and extensibility via `extend()`.
  *
  * @module stores/settings-store-manager
  */
 
-import { Injectable, Inject } from '@stackra-inc/ts-container';
-import { MultipleInstanceManager } from '@stackra-inc/ts-support';
+import { Injectable, Inject } from '@stackra/ts-container';
+import { MultipleInstanceManager } from '@stackra/ts-support';
 
 import type { SettingsStore } from '@/interfaces/settings-store.interface';
 import type { SettingsModuleOptions } from '@/interfaces/settings-module-options.interface';

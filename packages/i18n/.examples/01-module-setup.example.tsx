@@ -7,7 +7,7 @@
  * DI container — no manual wiring needed.
  *
  * ## What this example covers:
- * - Registering the i18n module with `@stackra-inc/ts-container`
+ * - Registering the i18n module with `@stackra/ts-container`
  * - Configuring languages, resolvers, and middleware options
  * - Wiring the React context provider (auto-resolves from DI)
  * - Using `useTranslation()` and `useLocale()` in components
@@ -28,9 +28,9 @@
 // Step 1: Configure the DI Module (app.module.ts)
 // ============================================================================
 
-import { Module } from '@stackra-inc/ts-container';
-import { HttpModule } from '@stackra-inc/ts-http';
-import { I18nModule } from '@stackra-inc/react-i18n';
+import { Module } from '@stackra/ts-container';
+import { HttpModule } from '@stackra/ts-http';
+import { I18nModule } from '@stackra/react-i18n';
 
 /**
  * Root application module.
@@ -87,8 +87,8 @@ export class AppModule {}
 
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { ContainerProvider, Application } from '@stackra-inc/ts-container';
-import { I18nProvider } from '@stackra-inc/react-i18n';
+import { ContainerProvider, Application } from '@stackra/ts-container';
+import { I18nProvider } from '@stackra/react-i18n';
 
 // Bootstrap the DI container from the root module
 const app = await Application.create(AppModule);
@@ -118,7 +118,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 // Step 3: Using Hooks in Components (App.tsx)
 // ============================================================================
 
-import { useTranslation, useLocale, useChangeLocale } from '@stackra-inc/react-i18n';
+import { useTranslation, useLocale, useChangeLocale } from '@stackra/react-i18n';
 
 /**
  * Root application component demonstrating all three hooks.

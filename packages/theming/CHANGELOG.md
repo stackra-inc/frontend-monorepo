@@ -1,4 +1,4 @@
-# @stackra-inc/react-theming
+# @stackra/react-theming
 
 ## 2.0.0
 
@@ -32,7 +32,7 @@
 
 ### Initial Release
 
-- 🎉 Initial release of @stackra-inc/react-theming
+- 🎉 Initial release of @stackra/react-theming
 - 🎨 Theme registry with built-in and custom theme support
 - 🌗 Dark/light mode switching
 - 💉 DI integration with ThemeModule.forRoot()

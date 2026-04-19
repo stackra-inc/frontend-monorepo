@@ -14,11 +14,11 @@
  * |
  * | Place this once in the app shell (Provider) to enable all shortcuts.
  * |
- * @module @stackra-inc/vite
+ * @module @stackra/vite
  */
 
 import { useEffect, useCallback } from 'react';
-import { shortcutRegistry } from '@stackra-inc/kbd';
+import { shortcutRegistry } from '@stackra/kbd';
 
 /** Whether we're running inside Electron. */
 const isElectron = typeof window !== 'undefined' && !!(window as any).electronAPI;

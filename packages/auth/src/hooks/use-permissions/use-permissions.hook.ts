@@ -1,6 +1,6 @@
-/** @fileoverview usePermissions hook. @module @stackra-inc/react-auth @category Hooks */
+/** @fileoverview usePermissions hook. @module @stackra/react-auth @category Hooks */
 import { useQuery } from '@tanstack/react-query';
-import { useInject } from '@stackra-inc/ts-container';
+import { useInject } from '@stackra/ts-container';
 import { AUTH_SERVICE } from '@/constants';
 import type { IAuthService } from '@/interfaces/auth-service.interface';
 import type { UseQueryHookResult } from '@/interfaces/use-query-hook-result.interface';

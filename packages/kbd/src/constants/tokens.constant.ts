@@ -1,11 +1,11 @@
 /**
- * DI Tokens for @stackra-inc/kbd
+ * DI Tokens for @stackra/kbd
  *
  * |--------------------------------------------------------------------------
  * | Injection tokens for the KbdModule DI integration.
  * |--------------------------------------------------------------------------
  * |
- * @module @stackra-inc/kbd
+ * @module @stackra/kbd
  */
 
 /** Injection token for the KbdModule configuration. */

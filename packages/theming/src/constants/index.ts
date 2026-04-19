@@ -1,9 +1,9 @@
 /**
  * @fileoverview Constants Index
  *
- * Re-exports all constants for @stackra-inc/react-theming.
+ * Re-exports all constants for @stackra/react-theming.
  *
- * @module @stackra-inc/react-theming
+ * @module @stackra/react-theming
  * @category Constants
  */
 

@@ -1,17 +1,17 @@
 /**
- * @stackra-inc/react-refine — CRUD Data Layer for React
+ * @stackra/react-refine — CRUD Data Layer for React
  *
  * Service-oriented data management package providing:
- * - DI module (`RefineModule.forRoot()` / `forFeature()`) with `@stackra-inc/ts-container`
+ * - DI module (`RefineModule.forRoot()` / `forFeature()`) with `@stackra/ts-container`
  * - `@Resource` decorator for marking API-backed models
- * - Repository layer (`HttpRepository`) using `@stackra-inc/ts-http`
+ * - Repository layer (`HttpRepository`) using `@stackra/ts-http`
  * - Service layer (`BaseService`, `HttpService`) with CRUD delegation
  * - Built-in provider services (Auth, ACL, Notification, Realtime, AuditLog)
  * - React hooks (`useList`, `useOne`, `useCreate`, `useUpdate`, `useDelete`, etc.)
  * - Query string serializers (Laravel, JSON:API)
  * - ServiceRegistry for resource → service resolution
  *
- * @module @stackra-inc/react-refine
+ * @module @stackra/react-refine
  */
 
 import 'reflect-metadata';

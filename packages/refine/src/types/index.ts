@@ -1,7 +1,7 @@
 /**
  * @fileoverview Barrel export for all types in the refine package.
  *
- * @module @stackra-inc/react-refine
+ * @module @stackra/react-refine
  * @category Types
  */
 

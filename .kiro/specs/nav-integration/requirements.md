@@ -37,10 +37,10 @@ application across three workstreams:
   `apps/vite-template/src/components/pos-sidebar.tsx`.
 - **POS_Layout**: The `POSLayoutV2` component in
   `apps/vite-template/src/layouts/pos-layout.tsx`.
-- **SlotRegistry**: The global singleton from `@stackra-inc/react-ui` that
-  manages dynamic UI slot injection.
+- **SlotRegistry**: The global singleton from `@stackra/react-ui` that manages
+  dynamic UI slot injection.
 - **Slot_Component**: The `<Slot name="..." />` React component from
-  `@stackra-inc/react-ui` that renders all content registered to a named slot.
+  `@stackra/react-ui` that renders all content registered to a named slot.
 - **NavigationModule**: A new DI module that provides static methods for
   registering nav slot content, following the `UIModule.registerSlot()` pattern.
 - **AppModule**: The root DI module in `apps/vite-template/src/app.module.ts`
@@ -251,7 +251,7 @@ from the `AppModule`.
    `registerSlots(registrations: SlotRegistration[]): DynamicModule` method that
    registers multiple entries to the SlotRegistry.
 4. THE NavigationModule SHALL use the same `slotRegistry` singleton from
-   `@stackra-inc/react-ui` to store entries.
+   `@stackra/react-ui` to store entries.
 5. THE NavigationModule SHALL be importable in the AppModule's `imports` array
    to register nav slot content at application startup.
 6. WHEN `NavigationModule.registerSlot("nav.pos.header.after", entry)` is called

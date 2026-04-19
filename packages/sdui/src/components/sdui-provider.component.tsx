@@ -1,12 +1,12 @@
 /**
  * @fileoverview SDUIProvider — React component that wraps the app and fetches page definitions.
  *
- * @module @stackra-inc/react-sdui
+ * @module @stackra/react-sdui
  * @category Components
  */
 
 import React, { useEffect, useState, type ReactNode } from 'react';
-import type { PageDefinition } from '@stackra-inc/react-refine';
+import type { PageDefinition } from '@stackra/react-refine';
 import type { SDUIService } from '@/services/sdui.service';
 
 /** Props for the SDUIProvider component. */

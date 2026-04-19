@@ -1,6 +1,6 @@
 /**
  * @fileoverview Utils Index
- * @module @stackra-inc/ts-events
+ * @module @stackra/ts-events
  * @category Utils
  */
 

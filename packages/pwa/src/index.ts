@@ -1,11 +1,11 @@
 /**
- * @fileoverview Main entry point for @stackra-inc/ts-pwa.
+ * @fileoverview Main entry point for @stackra/ts-pwa.
  *
  * PWA toolkit — install prompt, update prompt, offline indicator,
  * splash screen, pull-to-refresh, app shell, onboarding components,
  * hooks, providers, constants, and interfaces.
  *
- * @module @stackra-inc/ts-pwa
+ * @module @stackra/ts-pwa
  */
 
 // ─── Module ────────────────────────────────────────────────────────

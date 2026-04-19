@@ -39,7 +39,7 @@
     <rect x="22" y="72" width="80" height="36" rx="6" fill="#1e293b" stroke="url(#iconGrad)" stroke-width="2"/>
     <text x="62" y="95" font-family="ui-monospace,'Cascadia Code',Menlo,monospace" font-size="11" fill="#94a3b8" text-anchor="middle">space</text>
   </g>
-  <text x="240" y="178" font-family="ui-monospace,'Cascadia Code','Fira Code',Menlo,monospace" font-size="42" font-weight="700" fill="#f1f5f9" letter-spacing="-0.5">@stackra-inc/kbd</text>
+  <text x="240" y="178" font-family="ui-monospace,'Cascadia Code','Fira Code',Menlo,monospace" font-size="42" font-weight="700" fill="#f1f5f9" letter-spacing="-0.5">@stackra/kbd</text>
   <text x="240" y="218" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif" font-size="18" fill="#94a3b8">Keyboard shortcut display utilities for HeroUI — enhanced UX docs</text>
   <g transform="translate(240, 245)">
     <rect x="0" y="0" width="96" height="32" rx="6" fill="#38bdf8" opacity="0.12"/>

@@ -1,6 +1,6 @@
 /**
  * @fileoverview MutationMode type.
- * @module @stackra-inc/react-refine
+ * @module @stackra/react-refine
  * @category Types
  */
 

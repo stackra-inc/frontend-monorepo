@@ -2,7 +2,7 @@
  * Theme Module
  *
  * |--------------------------------------------------------------------------
- * | DI Module for @stackra-inc/react-theming
+ * | DI Module for @stackra/react-theming
  * |--------------------------------------------------------------------------
  * |
  * | Registers:
@@ -27,11 +27,11 @@
  * export class AppModule {}
  * ```
  *
- * @module @stackra-inc/react-theming
+ * @module @stackra/react-theming
  */
 
 import 'reflect-metadata';
-import { Module, type DynamicModule } from '@stackra-inc/ts-container';
+import { Module, type DynamicModule } from '@stackra/ts-container';
 
 import type { ThemeConfig } from '@/interfaces/theme-config.interface';
 import type { ThemeModuleOptions } from '@/interfaces/theme-module-options.interface';

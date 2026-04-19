@@ -6,7 +6,7 @@
  * | and permission services.
  * |--------------------------------------------------------------------------
  * |
- * @module @stackra-inc/ts-desktop
+ * @module @stackra/ts-desktop
  */
 
 /*

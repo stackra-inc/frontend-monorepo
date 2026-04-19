@@ -49,7 +49,7 @@ export const CACHE_SERVICE = Symbol.for('CACHE_SERVICE');
  *
  * @example
  * ```typescript
- * import { REDIS_FACTORY } from '@stackra-inc/ts-cache';
+ * import { REDIS_FACTORY } from '@stackra/ts-cache';
  *
  * // In your module providers:
  * { provide: REDIS_FACTORY, useClass: MyRedisFactory }
@@ -66,7 +66,7 @@ export const REDIS_FACTORY = Symbol.for('REDIS_FACTORY');
  *
  * @example
  * ```typescript
- * import { CACHE_MANAGER } from '@stackra-inc/ts-cache';
+ * import { CACHE_MANAGER } from '@stackra/ts-cache';
  *
  * const manager = useInject<CacheManager>(CACHE_MANAGER);
  * const redisCache = manager.store('redis');

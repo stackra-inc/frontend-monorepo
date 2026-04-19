@@ -1,10 +1,10 @@
 <p align="center">
-  <img src=".github/assets/banner.svg" alt="@stackra-inc/react-theming" width="100%" />
+  <img src=".github/assets/banner.svg" alt="@stackra/react-theming" width="100%" />
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/@stackra-inc/react-theming">
-    <img src="https://img.shields.io/npm/v/@stackra-inc/react-theming?style=flat-square&color=38bdf8&label=npm" alt="npm version" />
+  <a href="https://www.npmjs.com/package/@stackra/react-theming">
+    <img src="https://img.shields.io/npm/v/@stackra/react-theming?style=flat-square&color=38bdf8&label=npm" alt="npm version" />
   </a>
   <a href="./LICENSE">
     <img src="https://img.shields.io/badge/license-MIT-818cf8?style=flat-square" alt="MIT license" />
@@ -16,7 +16,7 @@
 
 ---
 
-# @stackra-inc/react-theming
+# @stackra/react-theming
 
 Theme management with registry pattern, dark/light mode, customizer panels, and
 DI integration.
@@ -24,7 +24,7 @@ DI integration.
 ## Installation
 
 ```bash
-pnpm add @stackra-inc/react-theming
+pnpm add @stackra/react-theming
 ```
 
 ## Features
@@ -51,8 +51,8 @@ pnpm add @stackra-inc/react-theming
  * | Register ThemeModule in your root AppModule.
  * |-------------------------------------------------------------------
  */
-import { Module } from '@stackra-inc/ts-container';
-import { ThemeModule } from '@stackra-inc/react-theming';
+import { Module } from '@stackra/ts-container';
+import { ThemeModule } from '@stackra/react-theming';
 
 @Module({
   imports: [
@@ -73,7 +73,7 @@ export class AppModule {}
  * | Wrap your app with ThemeProvider for context access.
  * |-------------------------------------------------------------------
  */
-import { ThemeProvider } from '@stackra-inc/react-theming';
+import { ThemeProvider } from '@stackra/react-theming';
 
 function Root() {
   return (
@@ -92,7 +92,7 @@ function Root() {
  * | Access and control the active theme.
  * |-------------------------------------------------------------------
  */
-import { useTheme } from '@stackra-inc/react-theming';
+import { useTheme } from '@stackra/react-theming';
 
 function ThemePicker() {
   const { theme, setTheme, themes } = useTheme();
@@ -118,7 +118,7 @@ function ThemePicker() {
  * | Control dark/light/system color mode.
  * |-------------------------------------------------------------------
  */
-import { useColorMode } from '@stackra-inc/react-theming';
+import { useColorMode } from '@stackra/react-theming';
 
 function ModeToggle() {
   const { isDark, toggle, setMode } = useColorMode();

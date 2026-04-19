@@ -1,7 +1,7 @@
 /**
  * Menu Item Interfaces
  *
- * @module @stackra-inc/ts-desktop
+ * @module @stackra/ts-desktop
  */
 
 /** Options for the @MenuItem() decorator. */

@@ -8,7 +8,7 @@
  *   but data is lost on process restart. Best for development, testing,
  *   or client-side caching.
  *
- * - `'redis'` — Redis-backed cache via `@stackra-inc/ts-redis`. Persistent,
+ * - `'redis'` — Redis-backed cache via `@stackra/ts-redis`. Persistent,
  *   shared across processes, supports tagging. Requires a Redis connection.
  *
  * - `'null'` — No-op cache that doesn't store anything. All writes succeed

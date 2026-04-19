@@ -1,7 +1,7 @@
 /**
  * @fileoverview Barrel export for all query string serializers.
  *
- * @module @stackra-inc/react-refine
+ * @module @stackra/react-refine
  * @category Serializers
  */
 

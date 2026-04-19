@@ -1,6 +1,6 @@
-/** @fileoverview useSecurity hook. @module @stackra-inc/react-auth @category Hooks */
+/** @fileoverview useSecurity hook. @module @stackra/react-auth @category Hooks */
 import { useQuery } from '@tanstack/react-query';
-import { useInject } from '@stackra-inc/ts-container';
+import { useInject } from '@stackra/ts-container';
 import { SECURITY_SERVICE } from '@/constants';
 import type { SecurityService } from '@/services/security.service';
 import type { SecurityCheckResult } from '@/interfaces/security-check-result.interface';

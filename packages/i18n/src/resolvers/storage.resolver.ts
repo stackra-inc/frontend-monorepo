@@ -14,7 +14,7 @@
  *
  * @example
  * ```typescript
- * import { StorageLocaleResolver } from '@stackra-inc/react-i18n';
+ * import { StorageLocaleResolver } from '@stackra/react-i18n';
  *
  * // Default key ('i18nextLng') and localStorage
  * const resolver = new StorageLocaleResolver();

@@ -14,7 +14,7 @@
  *
  * @example
  * ```typescript
- * import { NavigatorLocaleResolver } from '@stackra-inc/react-i18n';
+ * import { NavigatorLocaleResolver } from '@stackra/react-i18n';
  *
  * // Accept any browser language
  * const resolver = new NavigatorLocaleResolver();
@@ -37,7 +37,7 @@
  */
 
 import { LocaleResolverPriority } from '@/enums';
-import { Str } from '@stackra-inc/ts-support';
+import { Str } from '@stackra/ts-support';
 import type { ILocaleResolver } from './locale-resolver.interface';
 
 /**

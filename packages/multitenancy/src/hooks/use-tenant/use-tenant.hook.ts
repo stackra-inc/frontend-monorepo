@@ -5,7 +5,7 @@
  *
  * @example
  * ```tsx
- * import { useTenant } from "@stackra-inc/react-multitenancy";
+ * import { useTenant } from "@stackra/react-multitenancy";
  *
  * const MyComponent = () => {
  *   const { tenant, tenants, setTenant, isLoading, error } = useTenant();

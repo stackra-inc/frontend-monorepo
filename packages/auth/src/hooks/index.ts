@@ -1,4 +1,4 @@
-/** @fileoverview Barrel export for auth hooks. @module @stackra-inc/react-auth @category Hooks */
+/** @fileoverview Barrel export for auth hooks. @module @stackra/react-auth @category Hooks */
 
 // Auth hooks
 export * from './use-login';

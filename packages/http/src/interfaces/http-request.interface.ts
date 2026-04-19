@@ -5,13 +5,13 @@
  * HTTP client methods. Wraps the most common axios config options
  * with a clean, framework-agnostic API.
  *
- * @module @stackra-inc/ts-http
+ * @module @stackra/ts-http
  * @category Interfaces
  *
  * @example
  * ```typescript
- * import { HttpMethod } from '@stackra-inc/ts-http';
- * import type { HttpRequestConfig } from '@stackra-inc/ts-http';
+ * import { HttpMethod } from '@stackra/ts-http';
+ * import type { HttpRequestConfig } from '@stackra/ts-http';
  *
  * const config: HttpRequestConfig = {
  *   url: '/api/users',

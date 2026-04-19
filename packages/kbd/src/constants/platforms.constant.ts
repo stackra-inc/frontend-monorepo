@@ -3,7 +3,7 @@
  *
  * Defines platform types and detection utilities.
  *
- * @module @stackra-inc/kbd
+ * @module @stackra/kbd
  * @category Constants
  */
 

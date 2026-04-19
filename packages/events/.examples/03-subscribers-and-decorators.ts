@@ -2,7 +2,7 @@
  * Subscribers & Decorators Example
  *
  * |--------------------------------------------------------------------------
- * | @stackra-inc/ts-events — Subscribers & Decorators
+ * | @stackra/ts-events — Subscribers & Decorators
  * |--------------------------------------------------------------------------
  * |
  * | This example demonstrates the decorator-based subscriber pattern:
@@ -25,7 +25,7 @@
  */
 
 import 'reflect-metadata';
-import { Module } from '@stackra-inc/ts-container';
+import { Module } from '@stackra/ts-container';
 import {
   EventsModule,
   MemoryDispatcher,
@@ -33,8 +33,8 @@ import {
   OnEvent,
   Channel,
   EventPriority,
-} from '@stackra-inc/ts-events';
-import type { EventDispatcherInterface, EventSubscriber } from '@stackra-inc/ts-events';
+} from '@stackra/ts-events';
+import type { EventDispatcherInterface, EventSubscriber } from '@stackra/ts-events';
 
 // ─── Example 1: Basic Subscriber with @OnEvent ─────────────────────────────
 //

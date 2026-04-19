@@ -5,7 +5,7 @@
  * Provides graceful degradation — print uses window.print(), notifications
  * use the Notification API, etc.
  *
- * @module @stackra-inc/ts-desktop
+ * @module @stackra/ts-desktop
  */
 
 import type { DesktopBridge } from '@/interfaces';

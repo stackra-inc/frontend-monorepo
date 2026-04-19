@@ -1,7 +1,7 @@
 /**
  * @fileoverview A relation definition between resources.
  *
- * @module @stackra-inc/react-refine
+ * @module @stackra/react-refine
  * @category Interfaces
  */
 

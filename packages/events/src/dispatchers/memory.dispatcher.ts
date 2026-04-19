@@ -16,7 +16,7 @@
  * | - Development and testing
  * | - When cross-process event sharing is not needed
  * |
- * @module @stackra-inc/ts-events
+ * @module @stackra/ts-events
  * @category Dispatchers
  *
  * @example

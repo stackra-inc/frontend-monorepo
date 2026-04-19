@@ -6,7 +6,7 @@
  * @module hooks/use-cache
  */
 
-import { useInject } from '@stackra-inc/ts-container';
+import { useInject } from '@stackra/ts-container';
 
 import { CACHE_MANAGER } from '@/constants/tokens.constant';
 import type { CacheService } from '@/services/cache.service';

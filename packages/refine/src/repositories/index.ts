@@ -1,7 +1,7 @@
 /**
  * @fileoverview Barrel export for all repositories in the refine package.
  *
- * @module @stackra-inc/react-refine
+ * @module @stackra/react-refine
  * @category Repositories
  */
 

@@ -1,7 +1,7 @@
 /**
  * Locale Middleware for HTTP Pipeline
  *
- * Integrates with the `@stackra-inc/ts-http` middleware pipeline to:
+ * Integrates with the `@stackra/ts-http` middleware pipeline to:
  * 1. Inject the current locale as an `Accept-Language` header on every
  *    outgoing HTTP request.
  * 2. Optionally read the `Content-Language` (or custom) header from the
@@ -12,7 +12,7 @@
  * Requests can opt out by setting `meta.skipLocale: true` in the
  * request config.
  *
- * Uses the `@HttpMiddleware()` decorator from `@stackra-inc/ts-http`
+ * Uses the `@HttpMiddleware()` decorator from `@stackra/ts-http`
  * for automatic discovery and registration in the middleware pipeline.
  *
  * ## Pipeline Position
@@ -29,8 +29,8 @@
  * ```typescript
  * // Registered automatically via I18nModule.forRoot()
  * // Or manually:
- * import { LocaleMiddleware } from '@stackra-inc/react-i18n';
- * import { I18N_CONFIG, I18NEXT_SERVICE } from '@stackra-inc/react-i18n';
+ * import { LocaleMiddleware } from '@stackra/react-i18n';
+ * import { I18N_CONFIG, I18NEXT_SERVICE } from '@stackra/react-i18n';
  *
  * @Module({
  *   providers: [LocaleMiddleware],
@@ -39,8 +39,8 @@
  * ```
  */
 
-import { Injectable, Inject } from '@stackra-inc/ts-container';
-import { HttpMiddleware } from '@stackra-inc/ts-http';
+import { Injectable, Inject } from '@stackra/ts-container';
+import { HttpMiddleware } from '@stackra/ts-http';
 
 import { I18N_CONFIG, I18NEXT_SERVICE } from '@/constants';
 import type { II18nextService } from '@/interfaces/i18next-service.interface';

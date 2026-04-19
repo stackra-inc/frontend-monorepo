@@ -3,7 +3,7 @@
  *
  * Result of a security check performed by the {@link SecurityService}.
  *
- * @module @stackra-inc/react-auth
+ * @module @stackra/react-auth
  * @category Interfaces
  */
 

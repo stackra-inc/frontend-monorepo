@@ -6,14 +6,14 @@
  * {@link HttpClient} and dispatches {@link AuthEvent} events on
  * security-related state changes.
  *
- * @module @stackra-inc/react-auth
+ * @module @stackra/react-auth
  * @category Services
  *
  * @example
  * ```typescript
- * import { Inject } from '@stackra-inc/ts-container';
- * import { SECURITY_SERVICE } from '@stackra-inc/react-auth';
- * import type { SecurityService } from '@stackra-inc/react-auth';
+ * import { Inject } from '@stackra/ts-container';
+ * import { SECURITY_SERVICE } from '@stackra/react-auth';
+ * import type { SecurityService } from '@stackra/react-auth';
  *
  * @Injectable()
  * class LoginFlow {
@@ -29,11 +29,11 @@
  * ```
  */
 
-import { Injectable, Inject, Optional } from '@stackra-inc/ts-container';
-import { HTTP_CLIENT } from '@stackra-inc/ts-http';
-import { EVENT_MANAGER } from '@stackra-inc/ts-events';
-import type { HttpClient, HttpResponse } from '@stackra-inc/ts-http';
-import type { EventManager } from '@stackra-inc/ts-events';
+import { Injectable, Inject, Optional } from '@stackra/ts-container';
+import { HTTP_CLIENT } from '@stackra/ts-http';
+import { EVENT_MANAGER } from '@stackra/ts-events';
+import type { HttpClient, HttpResponse } from '@stackra/ts-http';
+import type { EventManager } from '@stackra/ts-events';
 import { AuthEvent } from '@/enums/auth-event.enum';
 import type { SecurityCheckResult } from '@/interfaces/security-check-result.interface';
 import type { ActiveDevice } from '@/interfaces/active-device.interface';

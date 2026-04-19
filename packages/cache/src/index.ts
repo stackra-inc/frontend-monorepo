@@ -1,5 +1,5 @@
 /**
- * @stackra-inc/ts-cache
+ * @stackra/ts-cache
  *
  * Laravel-inspired caching system for Refine with multiple drivers and stores.
  * Provides a clean, unified interface for caching with support for memory,
@@ -8,8 +8,8 @@
  * @example
  * Basic usage with memory store:
  * ```typescript
- * import { CacheModule, CacheService } from '@stackra-inc/ts-cache';
- * import { Module, Injectable, Inject } from '@stackra-inc/ts-container';
+ * import { CacheModule, CacheService } from '@stackra/ts-cache';
+ * import { Module, Injectable, Inject } from '@stackra/ts-container';
  *
  * @Module({
  *   imports: [
@@ -51,7 +51,7 @@
  * @example
  * React hook usage:
  * ```typescript
- * import { useCache, useCachedQuery } from '@stackra-inc/ts-cache';
+ * import { useCache, useCachedQuery } from '@stackra/ts-cache';
  *
  * function UserProfile({ userId }: { userId: string }) {
  *   const cache = useCache();
@@ -66,7 +66,7 @@
  * }
  * ```
  *
- * @module @stackra-inc/ts-cache
+ * @module @stackra/ts-cache
  */
 
 // ============================================================================

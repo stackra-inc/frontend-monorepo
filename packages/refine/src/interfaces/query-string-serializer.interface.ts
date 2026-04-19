@@ -4,7 +4,7 @@
  * Implementations convert {@link GetListParams} objects into URL query strings
  * in various formats (Laravel, JSON:API, etc.).
  *
- * @module @stackra-inc/react-refine
+ * @module @stackra/react-refine
  * @category Interfaces
  */
 

@@ -8,12 +8,12 @@
  * All metadata reads and writes go through `@vivtel/metadata` for a consistent,
  * typed API instead of raw `Reflect.*` calls.
  *
- * @module @stackra-inc/react-refine
+ * @module @stackra/react-refine
  * @category Decorators
  *
  * @example
  * ```typescript
- * import { Resource } from '@stackra-inc/react-refine';
+ * import { Resource } from '@stackra/react-refine';
  * import { POST_RESOURCE } from '@/tokens/post.token';
  *
  * @Resource({ name: POST_RESOURCE, endpoint: '/api/posts' })

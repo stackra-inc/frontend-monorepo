@@ -9,7 +9,7 @@
  * @module services/settings
  */
 
-import { Injectable, Inject } from '@stackra-inc/ts-container';
+import { Injectable, Inject } from '@stackra/ts-container';
 import { SETTINGS_REGISTRY, SETTINGS_MANAGER } from '@/constants/tokens.constant';
 import { SettingsRegistry } from '@/registries/settings-registry.service';
 import { SettingsStoreManager } from './settings-manager.service';

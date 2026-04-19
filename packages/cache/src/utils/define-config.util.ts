@@ -3,7 +3,7 @@
  *
  * Helper function to define cache configuration with type safety.
  *
- * @module @stackra-inc/ts-cache
+ * @module @stackra/ts-cache
  */
 
 import type { CacheModuleOptions } from '@/interfaces';
@@ -20,7 +20,7 @@ import type { CacheModuleOptions } from '@/interfaces';
  * @example
  * ```typescript
  * // cache.config.ts
- * import { defineConfig } from '@stackra-inc/ts-cache';
+ * import { defineConfig } from '@stackra/ts-cache';
  *
  * export default defineConfig({
  *   default: 'memory',

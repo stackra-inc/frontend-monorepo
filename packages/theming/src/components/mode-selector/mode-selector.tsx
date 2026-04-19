@@ -3,7 +3,7 @@
  *
  * Explicit dropdown to select light / dark / system mode.
  *
- * @module @stackra-inc/react-theming
+ * @module @stackra/react-theming
  * @category Components
  */
 

@@ -21,7 +21,7 @@
  * @module drivers/env
  */
 
-import { Str } from '@stackra-inc/ts-support';
+import { Str } from '@stackra/ts-support';
 import type { ConfigDriver } from '@/interfaces';
 import { getNestedValue, hasNestedValue } from '@/utils';
 

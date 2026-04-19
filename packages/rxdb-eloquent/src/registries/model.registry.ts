@@ -2,7 +2,7 @@
  * @file model.registry.ts
  * @description Central registry for all Model classes in the application.
  *
- * Extends `BaseRegistry` from `@stackra-inc/ts-support`. Implements
+ * Extends `BaseRegistry` from `@stackra/ts-support`. Implements
  * `OnModuleInit` so that when the DI container finishes bootstrapping,
  * all registered models are automatically booted:
  *
@@ -10,7 +10,7 @@
  * 2. Creates the corresponding RxDB collection on the Connection
  *
  * This follows the same pattern as `CacheManager.onModuleInit()` in
- * `@stackra-inc/ts-cache`.
+ * `@stackra/ts-cache`.
  *
  * @category Registries
  *
@@ -21,13 +21,8 @@
  * ```
  */
 
-import {
-  Injectable,
-  Inject,
-  type OnModuleInit,
-  type OnModuleDestroy,
-} from '@stackra-inc/ts-container';
-import { BaseRegistry, Str } from '@stackra-inc/ts-support';
+import { Injectable, Inject, type OnModuleInit, type OnModuleDestroy } from '@stackra/ts-container';
+import { BaseRegistry, Str } from '@stackra/ts-support';
 import { ConnectionManager } from '@/connection/connection.manager';
 import { SchemaResolver } from '@/schema/schema.resolver';
 import { MetadataStorage } from '@/metadata/metadata.storage';

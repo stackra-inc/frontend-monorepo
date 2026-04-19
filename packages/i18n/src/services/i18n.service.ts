@@ -22,9 +22,9 @@
  *
  * @example
  * ```typescript
- * import { Inject, Injectable } from '@stackra-inc/ts-container';
- * import { I18N_SERVICE } from '@stackra-inc/react-i18n';
- * import type { II18nService } from '@stackra-inc/react-i18n';
+ * import { Inject, Injectable } from '@stackra/ts-container';
+ * import { I18N_SERVICE } from '@stackra/react-i18n';
+ * import type { II18nService } from '@stackra/react-i18n';
  *
  * @Injectable()
  * class NotificationService {
@@ -37,8 +37,8 @@
  * ```
  */
 
-import { Injectable, Inject } from '@stackra-inc/ts-container';
-import { Str } from '@stackra-inc/ts-support';
+import { Injectable, Inject } from '@stackra/ts-container';
+import { Str } from '@stackra/ts-support';
 
 import { I18N_CONFIG, I18NEXT_SERVICE, LOCALE_RESOLVER_CHAIN } from '@/constants';
 import type { II18nextService } from '@/interfaces/i18next-service.interface';

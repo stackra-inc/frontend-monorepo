@@ -6,7 +6,7 @@ project.
 ## Step 1: Install the Package
 
 ```bash
-pnpm add -D @stackra-inc/vite-decorator-discovery
+pnpm add -D @stackra/vite-decorator-discovery
 ```
 
 ## Step 2: Add Plugin to Vite Config
@@ -15,7 +15,7 @@ pnpm add -D @stackra-inc/vite-decorator-discovery
 // vite.config.ts
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import { decoratorDiscoveryPlugin } from '@stackra-inc/vite-decorator-discovery';
+import { decoratorDiscoveryPlugin } from '@stackra/vite-decorator-discovery';
 
 export default defineConfig({
   plugins: [
@@ -40,7 +40,7 @@ Create or update your `vite-env.d.ts` or `env.d.ts` file:
 ```typescript
 // vite-env.d.ts or env.d.ts
 /// <reference types="vite/client" />
-/// <reference types="@stackra-inc/vite-decorator-discovery/virtual-modules" />
+/// <reference types="@stackra/vite-decorator-discovery/virtual-modules" />
 ```
 
 ### Option B: Using tsconfig.json
@@ -52,7 +52,7 @@ Add to your `tsconfig.json`:
   "compilerOptions": {
     "types": [
       "vite/client",
-      "@stackra-inc/vite-decorator-discovery/virtual-modules"
+      "@stackra/vite-decorator-discovery/virtual-modules"
     ]
   }
 }
@@ -91,8 +91,8 @@ console.log('All subscribers:', getAllSubscribers());
 
 ## Step 5: Update Container to Use Registry (Optional)
 
-If you're using `@stackra-inc/ts-container`, update the scanner to use the
-compiled registry:
+If you're using `@stackra/ts-container`, update the scanner to use the compiled
+registry:
 
 ```typescript
 // packages/abcd/container/src/injector/scanner.ts

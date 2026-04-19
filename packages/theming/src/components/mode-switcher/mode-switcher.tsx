@@ -3,7 +3,7 @@
  *
  * Toggle button cycling through light / dark / system modes.
  *
- * @module @stackra-inc/react-theming
+ * @module @stackra/react-theming
  * @category Components
  */
 

@@ -1,11 +1,11 @@
 /**
  * Wildcard Utility
  *
- * @module @stackra-inc/ts-events
+ * @module @stackra/ts-events
  * @category Utils
  */
 
-import { Str } from '@stackra-inc/ts-support';
+import { Str } from '@stackra/ts-support';
 
 /*
 |--------------------------------------------------------------------------

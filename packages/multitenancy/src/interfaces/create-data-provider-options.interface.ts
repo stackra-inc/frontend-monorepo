@@ -1,7 +1,7 @@
 /**
  * @fileoverview Options interface for creating a tenant-aware data provider.
  *
- * @module @stackra-inc/react-multitenancy
+ * @module @stackra/react-multitenancy
  * @category Interfaces
  */
 

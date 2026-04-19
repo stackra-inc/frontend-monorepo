@@ -3,11 +3,11 @@
  *
  * Resolves the AuditLogService from the DI container via `useOptionalInject`.
  *
- * @module @stackra-inc/react-refine
+ * @module @stackra/react-refine
  * @category Hooks
  */
 
-import { useOptionalInject } from '@stackra-inc/ts-container';
+import { useOptionalInject } from '@stackra/ts-container';
 import { AUDIT_LOG_SERVICE } from '@/constants';
 import type {
   IAuditLogService,

@@ -1,12 +1,12 @@
 /**
  * @fileoverview RouteRegistry — stores route definitions for auto-registration.
  *
- * @module @stackra-inc/react-router
+ * @module @stackra/react-router
  * @category Registries
  */
 
-import { Injectable } from '@stackra-inc/ts-container';
-import { BaseRegistry } from '@stackra-inc/ts-support';
+import { Injectable } from '@stackra/ts-container';
+import { BaseRegistry } from '@stackra/ts-support';
 import type { ComponentType } from 'react';
 import type { RouteMetadata } from '@/interfaces/route-metadata.interface';
 import type { RouteDefinition } from '@/interfaces/route-definition.interface';
@@ -14,7 +14,7 @@ import type { RouteDefinition } from '@/interfaces/route-definition.interface';
 /**
  * Singleton registry that stores route metadata collected from `@Route` decorators.
  *
- * Extends BaseRegistry from @stackra-inc/ts-support for consistent
+ * Extends BaseRegistry from @stackra/ts-support for consistent
  * registry API (get, has, getAll, getKeys, register, clear).
  */
 @Injectable()

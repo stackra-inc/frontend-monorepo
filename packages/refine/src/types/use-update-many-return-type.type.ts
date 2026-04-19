@@ -1,7 +1,7 @@
 /**
  * @fileoverview Return type for the useUpdateMany hook.
  *
- * @module @stackra-inc/react-refine
+ * @module @stackra/react-refine
  * @category Types
  */
 
