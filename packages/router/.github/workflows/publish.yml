@@ -6,10 +6,10 @@
 #   - Manual workflow_dispatch with optional dry-run
 #
 # Required secrets:
-#   NPM_TOKEN          — npm automation token (Granular: read+write packages)
+#   STACKTRA_NPM_TOKEN          — npm automation token (Granular: read+write packages)
 #
 # Optional secrets (Slack notification):
-#   SLACK_WEBHOOK_URL  — Incoming Webhook URL for release announcements
+#   STACKTRA_SLACK_WEBHOOK_URL  — Incoming Webhook URL for release announcements
 #
 # Flow:
 #   validate ──► quality ──► publish ──► release ──► notify (optional)
@@ -17,7 +17,7 @@
 # Notes:
 #   - npm provenance is enabled (--provenance) for supply-chain transparency
 #   - GitHub Release is created automatically from CHANGELOG.md
-#   - Slack message is skipped if SLACK_WEBHOOK_URL secret is not set
+#   - Slack message is skipped if STACKTRA_SLACK_WEBHOOK_URL secret is not set
 # =============================================================================
 
 name: Publish
@@ -147,7 +147,7 @@ jobs:
       - name: 🚀 Publish
         run: pnpm publish --access public --no-git-checks --provenance
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.STACKTRA_NPM_TOKEN }}
 
   # ---------------------------------------------------------------------------
   # Create GitHub Release
@@ -189,7 +189,7 @@ jobs:
           make_latest: ${{ needs.validate.outputs.is_prerelease == 'false' }}
 
   # ---------------------------------------------------------------------------
-  # Slack notification (optional — skipped if SLACK_WEBHOOK_URL not set)
+  # Slack notification (optional — skipped if STACKTRA_SLACK_WEBHOOK_URL not set)
   # ---------------------------------------------------------------------------
   notify:
     name: 💬 Slack Notification
@@ -207,11 +207,11 @@ jobs:
       - name: 🔍 Check if Slack webhook is configured
         id: check
         run: |
-          if [ -n "${{ secrets.SLACK_WEBHOOK_URL }}" ]; then
+          if [ -n "${{ secrets.STACKTRA_SLACK_WEBHOOK_URL }}" ]; then
             echo "configured=true" >> $GITHUB_OUTPUT
           else
             echo "configured=false" >> $GITHUB_OUTPUT
-            echo "ℹ️ SLACK_WEBHOOK_URL not set — skipping Slack notification"
+            echo "ℹ️ STACKTRA_SLACK_WEBHOOK_URL not set — skipping Slack notification"
           fi
 
       - name: 📝 Extract release notes & metadata
@@ -292,7 +292,7 @@ jobs:
           needs.release.result == 'success'
         uses: slackapi/slack-github-action@v2
         with:
-          webhook: ${{ secrets.SLACK_WEBHOOK_URL }}
+          webhook: ${{ secrets.STACKTRA_SLACK_WEBHOOK_URL }}
           webhook-type: incoming-webhook
           payload: |
             {
@@ -305,94 +305,36 @@ jobs:
                 },
                 {
                   "type": "header",
-                  "text": {
-                    "type": "plain_text",
-                    "text": "📦 @stackra/react-router ${{ needs.validate.outputs.tag }}",
-                    "emoji": true
-                  }
+                  "text": { "type": "plain_text", "text": "📦 @stackra/react-router ${{ needs.validate.outputs.tag }}", "emoji": true }
                 },
                 {
                   "type": "section",
                   "fields": [
-                    {
-                      "type": "mrkdwn",
-                      "text": "*Status:*\n✅ Published"
-                    },
-                    {
-                      "type": "mrkdwn",
-                      "text": "*Release Type:*\n${{ steps.notes.outputs.release_type }}"
-                    },
-                    {
-                      "type": "mrkdwn",
-                      "text": "*Version:*\n`${{ needs.validate.outputs.version }}`"
-                    },
-                    {
-                      "type": "mrkdwn",
-                      "text": "*Commits:*\n${{ steps.notes.outputs.commit_count }} since last release"
-                    }
+                    { "type": "mrkdwn", "text": "*Status:*\n✅ Published" },
+                    { "type": "mrkdwn", "text": "*Release Type:*\n${{ steps.notes.outputs.release_type }}" },
+                    { "type": "mrkdwn", "text": "*Version:*\n`${{ needs.validate.outputs.version }}`" },
+                    { "type": "mrkdwn", "text": "*Commits:*\n${{ steps.notes.outputs.commit_count }} since last release" }
                   ]
                 },
-                {
-                  "type": "divider"
-                },
+                { "type": "divider" },
                 {
                   "type": "section",
-                  "text": {
-                    "type": "mrkdwn",
-                    "text": "*📋 Release Notes:*\n${{ steps.notes.outputs.notes }}"
-                  }
+                  "text": { "type": "mrkdwn", "text": "*📋 Release Notes:*\n${{ steps.notes.outputs.notes }}" }
                 },
-                {
-                  "type": "divider"
-                },
+                { "type": "divider" },
                 {
                   "type": "actions",
                   "elements": [
-                    {
-                      "type": "button",
-                      "text": {
-                        "type": "plain_text",
-                        "text": "📦 npm",
-                        "emoji": true
-                      },
-                      "url": "https://www.npmjs.com/package/@stackra/react-router/v/${{ needs.validate.outputs.version }}"
-                    },
-                    {
-                      "type": "button",
-                      "text": {
-                        "type": "plain_text",
-                        "text": "🏷️ GitHub Release",
-                        "emoji": true
-                      },
-                      "url": "https://github.com/stackra-co/react-router/releases/tag/${{ needs.validate.outputs.tag }}"
-                    },
-                    {
-                      "type": "button",
-                      "text": {
-                        "type": "plain_text",
-                        "text": "📝 Full Changelog",
-                        "emoji": true
-                      },
-                      "url": "https://github.com/stackra-co/react-router/blob/main/CHANGELOG.md"
-                    },
-                    {
-                      "type": "button",
-                      "text": {
-                        "type": "plain_text",
-                        "text": "⚙️ Workflow Run",
-                        "emoji": true
-                      },
-                      "url": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-                    }
+                    { "type": "button", "text": { "type": "plain_text", "text": "📦 npm", "emoji": true }, "url": "https://www.npmjs.com/package/@stackra/react-router/v/${{ needs.validate.outputs.version }}" },
+                    { "type": "button", "text": { "type": "plain_text", "text": "🏷️ GitHub Release", "emoji": true }, "url": "https://github.com/stackra-co/react-router/releases/tag/${{ needs.validate.outputs.tag }}" },
+                    { "type": "button", "text": { "type": "plain_text", "text": "📝 Full Changelog", "emoji": true }, "url": "https://github.com/stackra-co/react-router/blob/main/CHANGELOG.md" },
+                    { "type": "button", "text": { "type": "plain_text", "text": "⚙️ Workflow Run", "emoji": true }, "url": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" }
                   ]
                 },
                 {
                   "type": "context",
                   "elements": [
-                    {
-                      "type": "mrkdwn",
-                      "text": "Triggered by *${{ github.actor }}* · Commit `${{ steps.notes.outputs.short_sha }}` · <https://github.com/stackra-co/react-router/compare/${{ steps.notes.outputs.prev_tag }}...${{ needs.validate.outputs.tag }}|Compare changes>"
-                    }
+                    { "type": "mrkdwn", "text": "Triggered by *${{ github.actor }}* · Commit `${{ steps.notes.outputs.short_sha }}` · <https://github.com/stackra-co/react-router/compare/${{ steps.notes.outputs.prev_tag }}...${{ needs.validate.outputs.tag }}|Compare changes>" }
                   ]
                 }
               ]
@@ -404,7 +346,7 @@ jobs:
           (needs.publish.result == 'failure' || needs.release.result == 'failure')
         uses: slackapi/slack-github-action@v2
         with:
-          webhook: ${{ secrets.SLACK_WEBHOOK_URL }}
+          webhook: ${{ secrets.STACKTRA_SLACK_WEBHOOK_URL }}
           webhook-type: incoming-webhook
           payload: |
             {
@@ -412,67 +354,29 @@ jobs:
               "blocks": [
                 {
                   "type": "header",
-                  "text": {
-                    "type": "plain_text",
-                    "text": "❌ Publish Failed: @stackra/react-router ${{ needs.validate.outputs.tag }}",
-                    "emoji": true
-                  }
+                  "text": { "type": "plain_text", "text": "❌ Publish Failed: @stackra/react-router ${{ needs.validate.outputs.tag }}", "emoji": true }
                 },
                 {
                   "type": "section",
                   "fields": [
-                    {
-                      "type": "mrkdwn",
-                      "text": "*npm publish:*\n${{ needs.publish.result == 'failure' && '❌ Failed' || '✅ OK' }}"
-                    },
-                    {
-                      "type": "mrkdwn",
-                      "text": "*GitHub Release:*\n${{ needs.release.result == 'failure' && '❌ Failed' || '✅ OK' }}"
-                    },
-                    {
-                      "type": "mrkdwn",
-                      "text": "*Version:*\n`${{ needs.validate.outputs.version }}`"
-                    },
-                    {
-                      "type": "mrkdwn",
-                      "text": "*Tag:*\n`${{ needs.validate.outputs.tag }}`"
-                    }
+                    { "type": "mrkdwn", "text": "*npm publish:*\n${{ needs.publish.result == 'failure' && '❌ Failed' || '✅ OK' }}" },
+                    { "type": "mrkdwn", "text": "*GitHub Release:*\n${{ needs.release.result == 'failure' && '❌ Failed' || '✅ OK' }}" },
+                    { "type": "mrkdwn", "text": "*Version:*\n`${{ needs.validate.outputs.version }}`" },
+                    { "type": "mrkdwn", "text": "*Tag:*\n`${{ needs.validate.outputs.tag }}`" }
                   ]
                 },
-                {
-                  "type": "divider"
-                },
+                { "type": "divider" },
                 {
                   "type": "actions",
                   "elements": [
-                    {
-                      "type": "button",
-                      "text": {
-                        "type": "plain_text",
-                        "text": "🔍 View Logs",
-                        "emoji": true
-                      },
-                      "style": "danger",
-                      "url": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-                    },
-                    {
-                      "type": "button",
-                      "text": {
-                        "type": "plain_text",
-                        "text": "🔄 Re-run Workflow",
-                        "emoji": true
-                      },
-                      "url": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-                    }
+                    { "type": "button", "text": { "type": "plain_text", "text": "🔍 View Logs", "emoji": true }, "style": "danger", "url": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" },
+                    { "type": "button", "text": { "type": "plain_text", "text": "🔄 Re-run Workflow", "emoji": true }, "url": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" }
                   ]
                 },
                 {
                   "type": "context",
                   "elements": [
-                    {
-                      "type": "mrkdwn",
-                      "text": "Triggered by *${{ github.actor }}* · Commit `${{ steps.notes.outputs.short_sha }}`"
-                    }
+                    { "type": "mrkdwn", "text": "Triggered by *${{ github.actor }}* · Commit `${{ steps.notes.outputs.short_sha }}`" }
                   ]
                 }
               ]
