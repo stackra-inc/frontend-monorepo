@@ -55,8 +55,9 @@
  */
 
 import { Facade } from '@stackra/ts-support';
-import { AuthService } from '@/services/auth.service';
+
 import { AUTH_SERVICE } from '@/constants/tokens.constant';
+import type { IAuthService } from '@/interfaces/auth-service.interface';
 
 /**
  * AuthFacade — typed proxy for {@link AuthService}.
@@ -72,4 +73,4 @@ import { AUTH_SERVICE } from '@/constants/tokens.constant';
  * AuthFacade.login();
  * ```
  */
-export const AuthFacade: AuthService = Facade.make<AuthService>(AUTH_SERVICE);
+export const AuthFacade: IAuthService = Facade.make<IAuthService>(AUTH_SERVICE);
