@@ -4,8 +4,8 @@
 
 <div align="center">
 
-[![CI](https://github.com/stackra-inc/frontend-monorepo/actions/workflows/ci.yml/badge.svg)](https://github.com/stackra-inc/frontend-monorepo/actions/workflows/ci.yml)
-[![Security](https://github.com/stackra-inc/frontend-monorepo/actions/workflows/security.yml/badge.svg)](https://github.com/stackra-inc/frontend-monorepo/actions/workflows/security.yml)
+[![CI](https://github.com/stackra-co-inc/frontend-monorepo/actions/workflows/ci.yml/badge.svg)](https://github.com/stackra-co-inc/frontend-monorepo/actions/workflows/ci.yml)
+[![Security](https://github.com/stackra-co-inc/frontend-monorepo/actions/workflows/security.yml/badge.svg)](https://github.com/stackra-co-inc/frontend-monorepo/actions/workflows/security.yml)
 [![Node](https://img.shields.io/badge/Node-18%2B-339933?logo=node.js&logoColor=white)](https://nodejs.org)
 [![Next.js](https://img.shields.io/badge/Next.js-16-000000?logo=next.js&logoColor=white)](https://nextjs.org)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?logo=typescript&logoColor=white)](https://typescriptlang.org)
@@ -55,7 +55,7 @@ frontend-monorepo/
 
 ```bash
 # 1. Clone
-git clone https://github.com/stackra-inc/frontend-monorepo.git
+git clone https://github.com/stackra-co-inc/frontend-monorepo.git
 cd frontend-monorepo
 
 # 2. Install (also registers git hooks via `prepare`)
@@ -174,12 +174,12 @@ git tag my-package-v1.0.0 && git push --tags
 
 ### Required secrets
 
-| Secret          | Workflow    | Description                             |
-| --------------- | ----------- | --------------------------------------- |
-| `CODECOV_TOKEN` | ci.yml      | [codecov.io](https://codecov.io) token  |
-| `NPM_TOKEN`     | release.yml | npm publish token                       |
-| `TURBO_TOKEN`   | ci.yml      | Turborepo remote cache token (optional) |
-| `TURBO_TEAM`    | ci.yml      | Turborepo team slug (optional)          |
+| Secret               | Workflow    | Description                             |
+| -------------------- | ----------- | --------------------------------------- |
+| `CODECOV_TOKEN`      | ci.yml      | [codecov.io](https://codecov.io) token  |
+| `STACKTRA_NPM_TOKEN` | release.yml | npm publish token                       |
+| `TURBO_TOKEN`        | ci.yml      | Turborepo remote cache token (optional) |
+| `TURBO_TEAM`         | ci.yml      | Turborepo team slug (optional)          |
 
 ---
 
@@ -199,4 +199,4 @@ Configured in `.kiro/settings/mcp.json`:
 
 ## License
 
-MIT © [Stackra](https://github.com/stackra-inc)
+MIT © [Stackra](https://github.com/stackra-co-inc)

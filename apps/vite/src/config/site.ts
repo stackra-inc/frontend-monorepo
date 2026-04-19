@@ -18,7 +18,7 @@ export const siteConfig = {
     { label: 'Docs', href: '/docs' },
     {
       label: 'GitHub',
-      href: 'https://github.com/stackra-inc/frontend-monorepo',
+      href: 'https://github.com/stackra-co-inc/frontend-monorepo',
     },
   ],
   links: {

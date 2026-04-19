@@ -21,6 +21,7 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { Application } from '@stackra/ts-container';
 import { ContainerProvider } from '@stackra/ts-container/react';
+import { Facade } from '@stackra/ts-support';
 
 import { Provider } from './provider';
 import App from './App';
@@ -49,6 +50,11 @@ async function bootstrap() {
   // Application.create() bootstraps the DI container and registers
   // the app globally — ContainerProvider works without a context prop.
   const app: Application = await Application.create(AppModule);
+
+  // Wire all facades to the bootstrapped application.
+  // After this call, every XxxFacade.proxy() and XxxFacade.instance
+  // resolves from the DI container without needing explicit injection.
+  Facade.setApplication(app);
 
   /*
   |--------------------------------------------------------------------------

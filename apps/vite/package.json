@@ -1,5 +1,5 @@
 {
-  "name": "@stakra/vite",
+  "name": "@stackra/vite",
   "private": true,
   "version": "0.1.0",
   "type": "module",
@@ -18,18 +18,18 @@
     "upgrade": "pnpm update --latest"
   },
   "dependencies": {
-    "@stakra/ts-config": "workspace:*",
-    "@stakra/ts-container": "workspace:*",
-    "@stakra/ts-desktop": "workspace:*",
-    "@stakra/kbd": "workspace:*",
-    "@stakra/ts-pwa": "workspace:*",
-    "@stakra/ts-ui": "workspace:*",
-    "@stakra/ts-logger": "workspace:*",
-    "@stakra/ts-redis": "workspace:*",
-    "@stakra/ts-cache": "workspace:*",
-    "@stakra/ts-settings": "workspace:*",
-    "@stakra/ts-events": "workspace:*",
-    "@stakra/ts-support": "workspace:*",
+    "@stackra/ts-config": "workspace:*",
+    "@stackra/ts-container": "^2.0.4",
+    "@stackra/ts-desktop": "workspace:*",
+    "@stackra/kbd": "workspace:*",
+    "@stackra/ts-pwa": "workspace:*",
+    "@stackra/ts-ui": "workspace:*",
+    "@stackra/ts-logger": "workspace:*",
+    "@stackra/ts-redis": "workspace:*",
+    "@stackra/ts-cache": "workspace:*",
+    "@stackra/ts-settings": "workspace:*",
+    "@stackra/ts-events": "workspace:*",
+    "@stackra/ts-support": "workspace:*",
     "@heroui/react": "3.0.1",
     "@heroui/styles": "3.0.1",
     "clsx": "2.1.1",
@@ -68,21 +68,21 @@
     "vite": "6.0.11",
     "vite-tsconfig-paths": "5.1.4"
   },
-  "description": "Stakra Vite application — HeroUI starter.",
-  "homepage": "https://github.com/stakra/frontend-monorepo/tree/main/apps/vite",
+  "description": "Stackra Vite application — HeroUI starter.",
+  "homepage": "https://github.com/stackra-co/frontend-monorepo/tree/main/apps/vite",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/stakra/frontend-monorepo.git",
+    "url": "git+https://github.com/stackra-co/frontend-monorepo.git",
     "directory": "apps/vite"
   },
   "license": "MIT",
   "author": {
-    "name": "Stakra Team",
-    "email": "dev@stakra.com",
-    "url": "https://stakra.com"
+    "name": "Stackra Team",
+    "email": "dev@stackra.com",
+    "url": "https://stackra.com"
   },
   "bugs": {
-    "url": "https://github.com/stakra/frontend-monorepo/issues"
+    "url": "https://github.com/stackra-co/frontend-monorepo/issues"
   },
   "engines": {
     "node": ">=18",
