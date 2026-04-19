@@ -4,388 +4,312 @@ inclusion: always
 
 # Code Standards & Conventions
 
-This document defines the mandatory coding standards for
-`@stackra/ts-container`. All code — new and modified — must follow these rules.
+Mandatory coding standards for the `@stackra` frontend monorepo. All code — new
+and modified — must follow these rules. No exceptions.
+
+## Quick Reference — Specialized Standards
+
+| Topic               | Steering File                                                  |
+| ------------------- | -------------------------------------------------------------- |
+| String manipulation | `string-utilities.md` — always use `Str` class                 |
+| Metadata / Reflect  | `metadata-standards.md` — always use `@vivtel/metadata`        |
+| Facades             | `facade-pattern.md` — typed constant pattern                   |
+| DI container        | `ts-container-architecture.md` — modules, providers, lifecycle |
+| Module pattern      | `module-pattern.md` — forRoot/forFeature                       |
+| Docblocks           | `docblocks-and-comments.md` — JSDoc rules                      |
+| Package structure   | `package-structure-guide.md` — folder layout                   |
+| Testing             | `testing-standards.md` — vitest conventions                    |
+| Dependencies        | `dependency-management.md` — workspace protocol                |
 
 ---
 
-## 1. File Naming & Organization
+## 1. Package Scope
 
-### General Rules
+The canonical package scope is `@stackra`. All packages use this scope:
 
-- All file names use **lower-kebab-case** exclusively.
-- Every file type has a mandatory suffix that describes its role.
-- No exceptions. No `utils.ts`, no `types.ts`, no `helpers.ts`.
-
-### Suffix Table
-
-| Content Type     | Suffix                  | Example                       |
-| ---------------- | ----------------------- | ----------------------------- |
-| Interface        | `.interface.ts`         | `class-provider.interface.ts` |
-| Enum             | `.enum.ts`              | `scope.enum.ts`               |
-| Type alias       | `.type.ts`              | `injection-token.type.ts`     |
-| Class            | `.ts` (no suffix)       | `instance-wrapper.ts`         |
-| Decorator        | `.decorator.ts`         | `injectable.decorator.ts`     |
-| Utility function | `.util.ts`              | `forward-ref.util.ts`         |
-| React hook       | `.hook.ts`              | `use-inject.hook.ts`          |
-| React component  | `.tsx`                  | `container.provider.tsx`      |
-| React context    | `.context.ts`           | `container.context.ts`        |
-| Constant         | `.constant.ts`          | `tokens.constant.ts`          |
-| Test             | `.spec.ts` / `.test.ts` | `injector.spec.ts`            |
-| Barrel export    | `index.ts`              | `src/interfaces/index.ts`     |
-
-### Excluded Suffixes
-
-Do **not** add suffixes to:
-
-- Class implementation files (e.g., `injector.ts`, `module.ts`, `scanner.ts`)
-- Barrel `index.ts` files
-
----
-
-## 2. One Export Per File (Interfaces, Enums, Types)
-
-### Interfaces
-
-- Every exported `interface` lives in its **own file** inside `src/interfaces/`.
-- File name: lower-kebab-case version of the interface name + `.interface.ts`.
-- Examples:
-  - `ClassProvider` → `src/interfaces/class-provider.interface.ts`
-  - `ApplicationOptions` → `src/interfaces/application-options.interface.ts`
-  - `ContainerResolver` → `src/interfaces/container-resolver.interface.ts`
-
-### Enums
-
-- Every exported `enum` lives in its **own file** inside `src/enums/`.
-- File name: lower-kebab-case version of the enum name + `.enum.ts`.
-- Example: `Scope` → `src/enums/scope.enum.ts`
-
-### Type Aliases
-
-- Every exported `type` alias lives in its **own file** inside `src/interfaces/`
-  (for domain types) or `src/types/` (for utility types).
-- File name: lower-kebab-case version of the type name + `.type.ts` or
-  `.interface.ts` depending on context.
-- Example: `InjectionToken` → `src/interfaces/injection-token.interface.ts`
-
-### Type Guards
-
-- Type guard functions (`is*`, `has*`) that belong to an interface live in the
-  **same file** as that interface.
-- They are exported from the same file and re-exported from the barrel.
-
-### Constants
-
-- All metadata key constants live in `src/constants/tokens.constant.ts`.
-- Group-level constant objects (e.g., `MODULE_METADATA`) live in the same file.
-
----
-
-## 3. Barrel Exports
-
-- Every folder with multiple files **must** have an `index.ts` barrel.
-- The barrel re-exports everything from the folder's files.
-- Barrels use `export type { ... }` for interfaces and types.
-- Barrels use `export { ... }` for classes, functions, enums, and constants.
-
-```typescript
-// Good barrel pattern
-export type { ClassProvider } from './class-provider.interface';
-export type { ValueProvider } from './value-provider.interface';
-export { Scope } from '../enums/scope.enum';
+```
+@stackra/ts-container
+@stackra/ts-support
+@stackra/ts-cache
+@stackra/ts-config
+@stackra/ts-events
+@stackra/ts-http
+@stackra/ts-logger
+@stackra/ts-redis
+@stackra/ts-settings
+@stackra/ts-desktop
+@stackra/ts-pwa
+@stackra/kbd
+@stackra/react-auth
+@stackra/react-router
+@stackra/react-refine
+@stackra/react-theming
+@stackra/react-multitenancy
+@stackra/react-i18n
 ```
 
 ---
 
-## 4. JSDoc & Docblocks
+## 2. File Naming
 
-### File-Level Docblock (Required on Every File)
+All file names use **lower-kebab-case** with a mandatory suffix:
 
-Every `.ts` / `.tsx` file must start with a file-level JSDoc block that
-includes:
+| Content Type     | Suffix                   | Example                       |
+| ---------------- | ------------------------ | ----------------------------- |
+| Interface        | `.interface.ts`          | `class-provider.interface.ts` |
+| Enum             | `.enum.ts`               | `scope.enum.ts`               |
+| Type alias       | `.type.ts`               | `driver-creator.type.ts`      |
+| Service class    | `.service.ts`            | `cache-manager.service.ts`    |
+| Decorator        | `.decorator.ts`          | `injectable.decorator.ts`     |
+| Utility function | `.util.ts`               | `forward-ref.util.ts`         |
+| React hook       | `.hook.ts`               | `use-inject.hook.ts`          |
+| React component  | `.component.tsx`         | `shortcut-list.component.tsx` |
+| React provider   | `.provider.tsx`          | `container.provider.tsx`      |
+| React context    | `.context.ts`            | `container.context.ts`        |
+| Constant         | `.constant.ts`           | `tokens.constant.ts`          |
+| Facade           | `.facade.ts`             | `cache.facade.ts`             |
+| Registry         | `.registry.ts`           | `shortcut.registry.ts`        |
+| Module           | `.module.ts`             | `cache.module.ts`             |
+| Config           | `.config.ts`             | `logger.config.ts`            |
+| Test             | `.test.ts` / `.test.tsx` | `injector.test.ts`            |
+| Barrel export    | `index.ts`               | `src/interfaces/index.ts`     |
 
-- A one-line summary of the file's purpose.
-- A longer description if the file is non-trivial (2+ sentences).
-- A `@module` tag identifying the module path.
+---
 
-```typescript
-/**
- * ClassProvider Interface
- *
- * Defines the shape of a class provider binding: `{ provide, useClass, scope? }`.
- * The container will instantiate `useClass` with resolved constructor dependencies.
- *
- * @module interfaces/class-provider
- */
-```
+## 3. One Export Per File
 
-### Class Docblock (Required)
+- Every exported `interface` → own file in `src/interfaces/`
+- Every exported `enum` → own file in `src/enums/`
+- Every exported `type` alias → own file in `src/types/` or `src/interfaces/`
+- Type guards (`is*`, `has*`) live in the same file as their interface
+- Constants → `src/constants/tokens.constant.ts`
 
-Every exported class must have a JSDoc block with:
+---
 
-- Summary sentence.
-- Detailed description of responsibility and lifecycle.
-- `@example` block showing typical usage.
+## 4. Imports
 
-````typescript
-/**
- * Wraps a single provider binding with all its metadata and cached instance.
- *
- * Created by `Module.addProvider()` for each registered provider. The injector
- * reads the wrapper's metadata to determine how to resolve the provider.
- *
- * @typeParam T - The type of the provider instance
- *
- * @example
- * ```typescript
- * const wrapper = new InstanceWrapper({ token: UserService, metatype: UserService });
- * ```
- */
-export class InstanceWrapper<T = any> { ... }
-````
+### Order
 
-### Method Docblock (Required on Public Methods)
+1. Side-effect imports (`import 'reflect-metadata'`)
+2. External packages (`import axios from 'axios'`)
+3. Workspace packages (`import { Str } from '@stackra/ts-support'`)
+4. Path alias imports (`import { CACHE_CONFIG } from '@/constants'`)
+5. Relative imports (`import { InstanceWrapper } from './instance-wrapper'`)
 
-Every public method must have a JSDoc block with:
+### Rules
 
-- Summary sentence.
-- `@param` for every parameter.
-- `@returns` describing the return value.
-- `@throws` for every error condition.
-- `@example` for non-trivial methods.
-
-````typescript
-/**
- * Resolve a provider by its injection token.
- *
- * @typeParam T - The expected type of the resolved instance
- * @param token - The injection token (class, string, or symbol)
- * @returns The resolved provider instance
- * @throws Error if the provider is not found in any module
- *
- * @example
- * ```typescript
- * const userService = app.get(UserService);
- * ```
- */
-public get<T = any>(token: InjectionToken<T>): T { ... }
-````
-
-### Private Method Docblock (Required)
-
-Private methods must have at minimum a summary sentence and `@param` /
-`@returns` tags.
-
-### Property Docblock (Required on Public & Protected Properties)
-
-Every public or protected class property must have a JSDoc comment:
+- Use `import type { ... }` for type-only imports
+- Use `@/` path alias for `src/` imports
+- Never use `import type` for values used as injection tokens
 
 ```typescript
-/**
- * The injection token used to look up this provider.
- * Can be a class, string, or symbol.
- */
-public readonly token: InjectionToken;
-```
-
-### Interface Property Docblock (Required)
-
-Every property in an interface must have a JSDoc comment explaining its purpose,
-valid values, and default (if applicable):
-
-```typescript
-export interface ScopeOptions {
-  /**
-   * The scope of the provider.
-   *
-   * Controls how instances are shared:
-   * - `Scope.DEFAULT` — Singleton, one instance for the whole app
-   * - `Scope.TRANSIENT` — New instance per injection point
-   *
-   * @default Scope.DEFAULT
-   */
-  scope?: Scope;
-}
-```
-
-### Enum Member Docblock (Required)
-
-Every enum member must have a JSDoc comment:
-
-```typescript
-export enum Scope {
-  /**
-   * Singleton scope. One instance shared across all consumers.
-   * This is the default when no scope option is specified.
-   */
-  DEFAULT = 0,
-
-  /**
-   * Transient scope. A new instance is created for every injection point.
-   */
-  TRANSIENT = 1,
-}
+import 'reflect-metadata';
+import axios from 'axios';
+import { Str } from '@stackra/ts-support';
+import { Injectable, Inject } from '@stackra/ts-container';
+import type { InjectionToken, Type } from '@/interfaces';
+import { CACHE_CONFIG } from '@/constants';
+import { InstanceWrapper } from './instance-wrapper';
 ```
 
 ---
 
-## 5. Inline Comments
+## 5. String Manipulation
 
-### Section Separators
-
-Use ASCII section separators to group related code within a file:
-
-```typescript
-// ── Public API ───────────────────────────────────────────────────────────────
-
-// ── Private: Resolution ──────────────────────────────────────────────────────
-
-// ── Helpers ──────────────────────────────────────────────────────────────────
-```
-
-### Inline Explanations
-
-Add inline comments for:
-
-- Non-obvious logic or algorithm steps.
-- Why a particular approach was chosen (not just what it does).
-- Workarounds for TypeScript/bundler quirks.
-- Phase labels in multi-step processes.
+**Always use `Str` from `@stackra/ts-support`.** Never use raw native string
+methods. See `string-utilities.md` for the complete mapping.
 
 ```typescript
-// Phase 1: Scan the module tree
-await scanner.scan(rootModule);
+// ✅ Correct
+Str.lower(value);
+Str.contains(haystack, needle);
+Str.ucfirst(name);
 
-// Phase 2: Create all provider instances
-await instanceLoader.createInstances();
-
-// Circular dependency detection — if token is already in the stack, throw
-if (this.resolutionStack.has(wrapper.token)) { ... }
+// ❌ Forbidden
+value.toLowerCase();
+haystack.includes(needle);
+name.charAt(0).toUpperCase() + name.slice(1);
 ```
 
 ---
 
-## 6. TypeScript Conventions
+## 6. Metadata
 
-### Imports
-
-- Use `import type { ... }` for type-only imports.
-- Group imports: external → internal (path aliases) → relative.
-- Use `@/` path alias for `src/` imports.
+**Always use `@vivtel/metadata`.** Never call `Reflect.*` directly. See
+`metadata-standards.md` for the complete API.
 
 ```typescript
-import 'reflect-metadata'; // side-effect
-import type { InjectionToken, Type } from '@/interfaces'; // internal types
-import { Scope } from '@/enums'; // internal values
-import { InstanceWrapper } from './instance-wrapper'; // relative
+// ✅ Correct
+import { defineMetadata, getMetadata } from '@vivtel/metadata';
+defineMetadata(KEY, value, target);
+
+// ❌ Forbidden
+Reflect.defineMetadata(KEY, value, target);
 ```
 
-### Generics
+---
 
-- Always document generic type parameters with `@typeParam` in JSDoc.
-- Use descriptive names: `T` for the primary type, `K` for keys, `V` for values.
+## 7. Facades
+
+Every package's main service gets a facade. Facades are typed constants, not
+classes. See `facade-pattern.md` for the complete pattern.
+
+```typescript
+// ✅ Correct — one-line typed constant
+export const CacheFacade: CacheManager = Facade.make<CacheManager>(CACHE_MANAGER);
+
+// ❌ Forbidden — class-based facade
+export class CacheFacade extends Facade { ... }
+```
+
+---
+
+## 8. DI & Module Pattern
+
+- Every configurable package has a `forRoot()` static method
+- `forRoot()` returns `{ global: true }` so exports are available everywhere
+- Config is provided via a Symbol token (`PACKAGE_CONFIG`)
+- Manager service is provided via both class and Symbol token
+- See `module-pattern.md` and `ts-container-architecture.md`
+
+---
+
+## 9. TypeScript Conventions
 
 ### Access Modifiers
 
-- Always explicit: `public`, `private`, or `protected`. Never implicit.
-- Use `readonly` for properties that don't change after construction.
+Always explicit: `public`, `private`, or `protected`. Never implicit.
 
 ### Return Types
 
-- Always annotate return types on public methods.
-- Annotate private method return types when non-obvious.
+Always annotate return types on public methods.
+
+### Readonly
+
+Use `readonly` for properties that don't change after construction.
+
+### Generics
+
+Document with `@typeParam` in JSDoc. Use descriptive names: `T`, `K`, `V`.
+
+### Nullish Coalescing
+
+Use `?? []` instead of `|| []` for array defaults.
 
 ---
 
-## 7. Utility Functions
+## 10. Docblocks
 
-- All utility functions live in `src/utils/` with the `.util.ts` suffix.
-- Each utility function file exports one primary function.
-- Helper functions used only within the utility file are not exported.
-- Every utility function must have a full JSDoc docblock with `@param`,
-  `@returns`, and `@example`.
+Every exported symbol must have a JSDoc docblock. See
+`docblocks-and-comments.md` for the complete rules. Key requirements:
 
+- File-level `@module` docblock on every file
+- `@param`, `@returns`, `@throws` on every public method
+- `@example` on non-trivial public methods
+- Interface properties documented individually
+- Enum members documented individually
+- Section separators for grouping related code
+
+---
+
+## 11. Barrel Exports
+
+Every folder with multiple files must have an `index.ts` barrel:
+
+```typescript
+// Use `export type` for interfaces and types
+export type { ClassProvider } from './class-provider.interface';
+
+// Use `export` for classes, functions, enums, constants
+export { Scope } from './scope.enum';
 ```
-src/utils/
-  forward-ref.util.ts    → forwardRef()
-  get-token-name.util.ts → getTokenName()  (if extracted)
+
+Root `src/index.ts` uses section headers:
+
+```typescript
+// ============================================================================
+// Core Services
+// ============================================================================
+export { CacheManager } from './services/cache-manager.service';
+
+// ============================================================================
+// Facades
+// ============================================================================
+export { CacheFacade } from './facades';
 ```
 
 ---
 
-## 8. React Hooks
-
-- All hooks live in `src/hooks/<hook-name>/` with the `.hook.ts` suffix.
-- Each hook folder has an `index.ts` barrel.
-- Hook files export exactly one hook function.
-- Hooks must document: what they return, when they throw, and memoization
-  behavior.
-
-```
-src/hooks/
-  use-inject/
-    index.ts
-    use-inject.hook.ts
-  use-container/
-    index.ts
-    use-container.hook.ts
-```
-
----
-
-## 9. Decorators
-
-- All decorators live in `src/decorators/` with the `.decorator.ts` suffix.
-- Each decorator file exports exactly one decorator function.
-- Decorator docblocks must explain: what metadata is written, what reads it, and
-  when it runs.
-
----
-
-## 10. Constants
-
-- All metadata key constants live in `src/constants/tokens.constant.ts`.
-- Constants use `UPPER_SNAKE_CASE`.
-- Group related constants with section comments.
-- Every constant must have a JSDoc comment explaining what writes it and what
-  reads it.
-
----
-
-## 11. Folder Structure Reference
+## 12. Folder Structure
 
 ```
 src/
-  application/          # Bootstrap entry point (Application, global singleton)
-  constants/            # Metadata key constants (*.constant.ts)
+  application/          # Bootstrap (Application, global singleton)
+  constants/            # Metadata keys, DI tokens (*.constant.ts)
   contexts/             # React contexts (*.context.ts)
   decorators/           # Decorators (*.decorator.ts)
   enums/                # Enums (*.enum.ts)
-  hooks/                # React hooks (use-*/index.ts + use-*.hook.ts)
-  injector/             # DI engine (container, module, injector, scanner, etc.)
+  facades/              # Facades (*.facade.ts)
+  hooks/                # React hooks (use-*/use-*.hook.ts)
   interfaces/           # Interfaces & type aliases (*.interface.ts)
-  providers/            # React providers (*.tsx)
+  providers/            # React providers (*.provider.tsx)
+  registries/           # Registries (*.registry.ts)
+  services/             # Services (*.service.ts)
+  stores/               # Store implementations (*.store.ts)
+  types/                # Type aliases (*.type.ts)
   utils/                # Utility functions (*.util.ts)
+  {package}.module.ts   # Module definition
   index.ts              # Public API barrel
 ```
 
 ---
 
-## 12. Checklist Before Committing
+## 13. Naming Conventions
 
-- [ ] Every new interface is in its own `*.interface.ts` file in
-      `src/interfaces/`
-- [ ] Every new enum is in its own `*.enum.ts` file in `src/enums/`
-- [ ] Every new type alias is in its own `*.interface.ts` or `*.type.ts` file
-- [ ] Every new utility function is in `src/utils/*.util.ts`
-- [ ] Every new React hook is in `src/hooks/use-*/use-*.hook.ts`
-- [ ] Every new decorator is in `src/decorators/*.decorator.ts`
-- [ ] Every new constant is in `src/constants/*.constant.ts`
-- [ ] All barrel `index.ts` files are updated
+| Thing            | Convention                          | Example                       |
+| ---------------- | ----------------------------------- | ----------------------------- |
+| Files            | lower-kebab-case + suffix           | `cache-manager.service.ts`    |
+| Classes          | PascalCase                          | `CacheManager`                |
+| Interfaces       | PascalCase, no `I` prefix           | `DesktopBridge`               |
+| Types            | PascalCase                          | `PowerState`                  |
+| Constants        | UPPER_SNAKE_CASE                    | `CACHE_MANAGER`               |
+| DI Tokens        | UPPER_SNAKE_CASE Symbols            | `Symbol.for('CACHE_MANAGER')` |
+| Functions        | camelCase                           | `getAppVersion`               |
+| Variables        | camelCase                           | `isDesktop`                   |
+| Enums            | PascalCase name, UPPER_SNAKE values | `Scope.DEFAULT`               |
+| React hooks      | `use` prefix                        | `useInject`                   |
+| React components | PascalCase                          | `ShortcutList`                |
+
+---
+
+## 14. Forbidden Patterns
+
+- ❌ Raw `Reflect.*` calls — use `@vivtel/metadata`
+- ❌ Raw native string methods — use `Str` from `@stackra/ts-support`
+- ❌ Class-based facades — use typed constant pattern
+- ❌ `import 'reflect-metadata'` in individual files — only in entry point
+- ❌ Implicit access modifiers — always explicit `public`/`private`/`protected`
+- ❌ `|| []` for array defaults — use `?? []`
+- ❌ `I` prefix on interfaces — use `DesktopBridge` not `IDesktopBridge`
+- ❌ Singletons via `new` — use the DI container
+- ❌ `TODO` without context — use issue tracker
+- ❌ Commented-out code — delete it, git has history
+- ❌ Empty docblocks — `/** */` is worse than none
+- ❌ Single-line method docblocks — always multi-line with tags
+
+---
+
+## 15. Checklist Before Committing
+
+- [ ] All string manipulation uses `Str` class
+- [ ] All metadata operations use `@vivtel/metadata`
+- [ ] Every new interface in its own `*.interface.ts` file
+- [ ] Every new enum in its own `*.enum.ts` file
+- [ ] All barrel `index.ts` files updated
 - [ ] Every exported symbol has a JSDoc docblock
-- [ ] Every public method has `@param`, `@returns`, and `@throws` tags
-- [ ] Every interface property has a JSDoc comment
-- [ ] Every enum member has a JSDoc comment
+- [ ] Every public method has `@param`, `@returns`, `@throws`
 - [ ] File starts with a file-level `@module` docblock
 - [ ] Imports use `import type` for type-only imports
-- [ ] All public method return types are explicitly annotated
+- [ ] All public method return types explicitly annotated
+- [ ] Facade exported from package if new service added
+- [ ] `@stackra/ts-support` in dependencies if using `Str`

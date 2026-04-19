@@ -12,7 +12,7 @@ All `@stackra/*` packages within the monorepo MUST use `workspace:*` version:
 ```json
 {
   "dependencies": {
-    "@stackra/ts-container": "workspace:*",
+    "@stackra/ts-container": "^2.0.4",
     "@stackra/ts-support": "workspace:*"
   }
 }
@@ -26,7 +26,7 @@ Framework packages that other packages depend on MUST be listed as
 ```json
 {
   "peerDependencies": {
-    "@stackra/ts-container": "workspace:*",
+    "@stackra/ts-container": "^2.0.4",
     "@stackra/ts-support": "workspace:*",
     "react": "^18.0.0 || ^19.0.0"
   }
