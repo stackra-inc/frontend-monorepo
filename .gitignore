@@ -75,3 +75,5 @@ logs
 
 # Generated files
 dependency-graph.html
+packages/ab/vite/ngrok/
+packages/ab/vite/qrcode/
