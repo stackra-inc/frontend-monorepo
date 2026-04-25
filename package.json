@@ -35,10 +35,9 @@
     "test": "turbo run test",
     "test:watch": "turbo run test:watch",
     "test:coverage": "turbo run test:coverage",
-    "clean": "turbo run clean",
+    "clean": "./scripts/cleanup.sh build",
     "clean:all": "./scripts/cleanup.sh all",
     "clean:deps": "./scripts/cleanup.sh deps",
-    "clean:build": "./scripts/cleanup.sh build",
     "clean:cache": "./scripts/cleanup.sh cache",
     "reset": "pnpm clean:all && pnpm install",
     "prepare": "husky",
@@ -53,10 +52,9 @@
     "fix-deps": "python3 ./scripts/sync-configs/fix-workspace-deps.py",
     "validate": "pnpm lint && pnpm check-types && pnpm build",
     "graph": "turbo run build --graph=dependency-graph.html",
-    "update:deps": "pnpm update -r --latest",
-    "update:interactive": "pnpm update -r --latest --interactive",
-    "audit": "pnpm audit --audit-level=moderate",
-    "audit:fix": "pnpm audit --fix"
+    "update:deps": "npx npm-check-updates -u --peer --root --workspaces",
+    "update:interactive": "npx npm-check-updates -u --peer --root --workspaces --interactive",
+    "audit": "pnpm audit --audit-level=moderate"
   },
   "devDependencies": {
     "prettier": "^3.8.1",

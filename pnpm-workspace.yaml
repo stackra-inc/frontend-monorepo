@@ -13,9 +13,10 @@
 
 packages:
   # ── Deployable Applications ────────────────────────────────────────────────
-  - "apps/*"
+  - 'apps/*'
 
   # ── Shared Packages / Libraries ────────────────────────────────────────────
-  - "packages/*"
-  - "packages/abcd/*"
-  - "packages/abcd/vite/*"
+  - 'packages/*'
+  - 'packages/ab/*'
+  - 'packages/ab/vite/*'
+  - 'packages/acd/*'

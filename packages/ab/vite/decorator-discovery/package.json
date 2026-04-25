@@ -1,0 +1,83 @@
+{
+  "name": "@stackra/vite-decorator-discovery",
+  "version": "1.0.0",
+  "description": "Vite plugin for build-time decorator discovery and virtual module generation. Inspired by NestJS DiscoveryService.",
+  "keywords": [
+    "vite",
+    "plugin",
+    "decorator",
+    "discovery",
+    "typescript",
+    "nestjs",
+    "virtual-module",
+    "build-time",
+    "compile-time"
+  ],
+  "license": "MIT",
+  "author": "stackra-inc",
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./@types": {
+      "types": "./@types/index.d.ts"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "@types",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist",
+    "test": "vitest run --passWithNoTests",
+    "lint": "eslint . --max-warnings 0",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "prepublishOnly": "pnpm run build",
+    "release": "pnpm publish --access public --no-git-checks"
+  },
+  "dependencies": {
+    "glob": "^11.0.0",
+    "typescript": "^6.0.3",
+    "@stackra/ts-support": "workspace:*"
+  },
+  "peerDependencies": {
+    "vite": "^5.0.0 || ^6.0.0"
+  },
+  "devDependencies": {
+    "@nesvel/eslint-config": "^1.0.5",
+    "@nesvel/prettier-config": "^1.0.3",
+    "@nesvel/tsup-config": "^1.0.3",
+    "@nesvel/typescript-config": "^1.0.4",
+    "@types/node": "^25.6.0",
+    "@vitest/ui": "^4.1.4",
+    "eslint": "10.2.0",
+    "prettier": "^3.8.3",
+    "tsup": "^8.5.1",
+    "typescript-eslint": "^8.58.2",
+    "vite": "^6.0.11",
+    "vitest": "^4.1.4"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "packageManager": "pnpm@10.33.0"
+}
