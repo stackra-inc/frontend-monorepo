@@ -42,14 +42,14 @@ pnpm add @stackra/react-auth
 ## Quick Start
 
 ```typescript
-import { Module } from '@stackra/ts-container';
-import { AuthModule } from '@stackra/react-auth';
+import { Module } from "@stackra/ts-container";
+import { AuthModule } from "@stackra/react-auth";
 
 @Module({
   imports: [
     AuthModule.forRoot({
-      provider: 'jwt',
-      tokenKey: 'auth_token',
+      provider: "jwt",
+      tokenKey: "auth_token",
     }),
   ],
 })
@@ -57,7 +57,7 @@ export class AppModule {}
 ```
 
 ```tsx
-import { useAuth } from '@stackra/react-auth';
+import { useAuth } from "@stackra/react-auth";
 
 function Profile() {
   const { user, isAuthenticated, signIn, signOut } = useAuth();

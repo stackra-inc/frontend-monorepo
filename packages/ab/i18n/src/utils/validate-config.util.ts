@@ -8,8 +8,8 @@
  * @module utils/validate-config
  */
 
-import { DEFAULT_PLUGIN_OPTIONS } from '@/constants';
-import type { I18nPluginOptions } from '@/interfaces';
+import { DEFAULT_PLUGIN_OPTIONS } from "@/constants";
+import type { I18nPluginOptions } from "@/interfaces";
 
 /**
  * Validate and normalize plugin options.
@@ -30,7 +30,7 @@ import type { I18nPluginOptions } from '@/interfaces';
  * ```
  */
 export function validateConfig(
-  userOptions?: Partial<I18nPluginOptions>
+  userOptions?: Partial<I18nPluginOptions>,
 ): Required<I18nPluginOptions> {
   const config = { ...DEFAULT_PLUGIN_OPTIONS };
 
@@ -41,12 +41,12 @@ export function validateConfig(
   // ── Languages ────────────────────────────────────────────────────────
 
   if (!Array.isArray(config.languages)) {
-    config.languages = config.languages ? [String(config.languages)] : ['en'];
+    config.languages = config.languages ? [String(config.languages)] : ["en"];
   }
 
   if (config.languages.length === 0) {
     console.warn('[i18n] No languages configured, defaulting to ["en"]');
-    config.languages = ['en'];
+    config.languages = ["en"];
   }
 
   // ── Include / Exclude patterns ───────────────────────────────────────
@@ -68,7 +68,7 @@ export function validateConfig(
   // ── Default language must be in the languages list ───────────────────
 
   if (!config.defaultLanguage) {
-    config.defaultLanguage = config.languages[0] || 'en';
+    config.defaultLanguage = config.languages[0] || "en";
   }
 
   if (!config.languages.includes(config.defaultLanguage)) {
@@ -78,17 +78,17 @@ export function validateConfig(
   // ── HTTP backend requires a URL ──────────────────────────────────────
 
   if (config.useHttpBackend && !config.backendUrl) {
-    throw new Error('[i18n] HTTP backend enabled but no backendUrl provided');
+    throw new Error("[i18n] HTTP backend enabled but no backendUrl provided");
   }
 
   // ── Remaining defaults ───────────────────────────────────────────────
 
   if (!config.defaultNamespace) {
-    config.defaultNamespace = 'translation';
+    config.defaultNamespace = "translation";
   }
 
   if (!config.typeOutputDir) {
-    config.typeOutputDir = '.stackra-inc/react-i18n/types';
+    config.typeOutputDir = ".stackra-inc/react-i18n/types";
   }
 
   if (!config.resourcesPath) {

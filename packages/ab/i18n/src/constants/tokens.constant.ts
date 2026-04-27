@@ -50,7 +50,7 @@
  * }
  * ```
  */
-export const I18N_SERVICE = Symbol.for('I18N_SERVICE');
+export const I18N_SERVICE = Symbol.for("I18N_SERVICE");
 
 // ── Core Tokens ────────────────────────────────────────────────────────────
 
@@ -68,7 +68,7 @@ export const I18N_SERVICE = Symbol.for('I18N_SERVICE');
  * }
  * ```
  */
-export const I18N_CONFIG = Symbol.for('I18N_CONFIG');
+export const I18N_CONFIG = Symbol.for("I18N_CONFIG");
 
 /**
  * Injection token for the i18n provider instance.
@@ -85,7 +85,7 @@ export const I18N_CONFIG = Symbol.for('I18N_CONFIG');
  * }
  * ```
  */
-export const I18NEXT_SERVICE = Symbol.for('I18NEXT_SERVICE');
+export const I18NEXT_SERVICE = Symbol.for("I18NEXT_SERVICE");
 
 /**
  * Injection token for the composed locale resolver chain.
@@ -105,21 +105,21 @@ export const I18NEXT_SERVICE = Symbol.for('I18NEXT_SERVICE');
  * }
  * ```
  */
-export const LOCALE_RESOLVER_CHAIN = Symbol.for('LOCALE_RESOLVER_CHAIN');
+export const LOCALE_RESOLVER_CHAIN = Symbol.for("LOCALE_RESOLVER_CHAIN");
 
 // ── Resolver Tokens ────────────────────────────────────────────────────────
 
 /** Injection token for the {@link UrlPathLocaleResolver}. */
-export const URL_PATH_LOCALE_RESOLVER = Symbol.for('URL_PATH_LOCALE_RESOLVER');
+export const URL_PATH_LOCALE_RESOLVER = Symbol.for("URL_PATH_LOCALE_RESOLVER");
 
 /** Injection token for the {@link QueryParamLocaleResolver}. */
-export const QUERY_PARAM_LOCALE_RESOLVER = Symbol.for('QUERY_PARAM_LOCALE_RESOLVER');
+export const QUERY_PARAM_LOCALE_RESOLVER = Symbol.for("QUERY_PARAM_LOCALE_RESOLVER");
 
 /** Injection token for the {@link StorageLocaleResolver}. */
-export const STORAGE_LOCALE_RESOLVER = Symbol.for('STORAGE_LOCALE_RESOLVER');
+export const STORAGE_LOCALE_RESOLVER = Symbol.for("STORAGE_LOCALE_RESOLVER");
 
 /** Injection token for the {@link NavigatorLocaleResolver}. */
-export const NAVIGATOR_LOCALE_RESOLVER = Symbol.for('NAVIGATOR_LOCALE_RESOLVER');
+export const NAVIGATOR_LOCALE_RESOLVER = Symbol.for("NAVIGATOR_LOCALE_RESOLVER");
 
 /** Injection token for the {@link AcceptLanguageLocaleResolver}. */
-export const ACCEPT_LANGUAGE_LOCALE_RESOLVER = Symbol.for('ACCEPT_LANGUAGE_LOCALE_RESOLVER');
+export const ACCEPT_LANGUAGE_LOCALE_RESOLVER = Symbol.for("ACCEPT_LANGUAGE_LOCALE_RESOLVER");

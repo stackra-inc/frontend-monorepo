@@ -12,7 +12,7 @@
 // virtual:decorator-registry/modules
 // ============================================================================
 
-declare module 'virtual:decorator-registry/modules' {
+declare module "virtual:decorator-registry/modules" {
   /**
    * Metadata for a @Module decorator.
    */
@@ -52,7 +52,7 @@ declare module 'virtual:decorator-registry/modules' {
 // virtual:decorator-registry/providers
 // ============================================================================
 
-declare module 'virtual:decorator-registry/providers' {
+declare module "virtual:decorator-registry/providers" {
   /**
    * Metadata for an @Injectable decorator.
    */
@@ -92,7 +92,7 @@ declare module 'virtual:decorator-registry/providers' {
 // virtual:decorator-registry/subscribers
 // ============================================================================
 
-declare module 'virtual:decorator-registry/subscribers' {
+declare module "virtual:decorator-registry/subscribers" {
   /**
    * Metadata for @Subscribe or @AsSubscriber decorators.
    */
@@ -142,7 +142,7 @@ declare module 'virtual:decorator-registry/subscribers' {
 // virtual:decorator-registry/all
 // ============================================================================
 
-declare module 'virtual:decorator-registry/all' {
+declare module "virtual:decorator-registry/all" {
   /**
    * Generic decorator metadata.
    */

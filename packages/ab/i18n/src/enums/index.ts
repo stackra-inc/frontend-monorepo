@@ -8,4 +8,4 @@
  * @module enums
  */
 
-export { LocaleResolverPriority } from './locale-resolver-priority.enum';
+export { LocaleResolverPriority } from "./locale-resolver-priority.enum";

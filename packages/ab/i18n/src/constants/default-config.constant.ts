@@ -13,7 +13,7 @@
  * @module constants/default-config
  */
 
-import type { I18nextConfig } from '@/interfaces';
+import type { I18nextConfig } from "@/interfaces";
 
 /**
  * Default plugin configuration values.
@@ -31,21 +31,21 @@ import type { I18nextConfig } from '@/interfaces';
  */
 // SWC workaround: `include` and `exclude` as property names trigger a parser bug.
 // Extract to variables first, then assign.
-const defaultInclude = ['**/i18n/**/*.{json,js,ts}'];
+const defaultInclude = ["**/i18n/**/*.{json,js,ts}"];
 const defaultExclude = [
-  '**/node_modules/**',
-  '**/dist/**',
-  '**/.next/**',
-  '**/build/**',
-  '**/.turbo/**',
+  "**/node_modules/**",
+  "**/dist/**",
+  "**/.next/**",
+  "**/build/**",
+  "**/.turbo/**",
 ];
 
 export const DEFAULT_PLUGIN_OPTIONS = {
   /** @default 'en' */
-  defaultLanguage: 'en',
+  defaultLanguage: "en",
 
   /** @default ['en'] */
-  languages: ['en'],
+  languages: ["en"],
 
   /** Searches relative to project root by default. */
   resourcesPath: process.cwd(),
@@ -57,25 +57,25 @@ export const DEFAULT_PLUGIN_OPTIONS = {
   exclude: defaultExclude,
 
   /** Enabled in non-production environments. */
-  enableHMR: typeof process !== 'undefined' ? process.env?.NODE_ENV !== 'production' : true,
+  enableHMR: typeof process !== "undefined" ? process.env?.NODE_ENV !== "production" : true,
 
   /** Generates `.d.ts` files for translation key autocomplete. */
   typeGeneration: true,
 
   /** @default '.stackra-inc/react-i18n/types' */
-  typeOutputDir: '.stackra-inc/react-i18n/types',
+  typeOutputDir: ".stackra-inc/react-i18n/types",
 
   /** @default false */
   debug: false,
 
   /** @default 'translation' */
-  defaultNamespace: 'translation',
+  defaultNamespace: "translation",
 
   /** @default false */
   useHttpBackend: false,
 
   /** Must be provided when `useHttpBackend` is `true`. */
-  backendUrl: '',
+  backendUrl: "",
 
   /** Auto-detects language from browser / localStorage. */
   useBrowserLanguageDetector: true,
@@ -100,16 +100,16 @@ export const DEFAULT_PLUGIN_OPTIONS = {
  */
 export const DEFAULT_I18NEXT_CONFIG: I18nextConfig = {
   /** @default 'en' */
-  lng: 'en',
+  lng: "en",
 
   /** @default 'en' */
-  fallbackLng: 'en',
+  fallbackLng: "en",
 
   /** @default ['translation'] */
-  ns: ['translation'],
+  ns: ["translation"],
 
   /** @default 'translation' */
-  defaultNS: 'translation',
+  defaultNS: "translation",
 
   /** @default false */
   debug: false,
@@ -123,21 +123,21 @@ export const DEFAULT_I18NEXT_CONFIG: I18nextConfig = {
    */
   interpolation: {
     escapeValue: false,
-    prefix: '{{',
-    suffix: '}}',
-    formatSeparator: ',',
+    prefix: "{{",
+    suffix: "}}",
+    formatSeparator: ",",
   },
 
   /** Dot-notation separator for nested keys. */
-  keySeparator: '.',
+  keySeparator: ".",
 
   /** Colon separator between namespace and key. */
-  nsSeparator: ':',
+  nsSeparator: ":",
 
   /** React-i18next integration defaults. */
   react: {
     useSuspense: true,
-    bindI18n: 'languageChanged',
-    bindI18nStore: 'added removed',
+    bindI18n: "languageChanged",
+    bindI18nStore: "added removed",
   },
 };

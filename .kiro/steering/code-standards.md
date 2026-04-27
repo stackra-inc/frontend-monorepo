@@ -103,13 +103,13 @@ All file names use **lower-kebab-case** with a mandatory suffix:
 - Never use `import type` for values used as injection tokens
 
 ```typescript
-import 'reflect-metadata';
-import axios from 'axios';
-import { Str } from '@stackra/ts-support';
-import { Injectable, Inject } from '@stackra/ts-container';
-import type { InjectionToken, Type } from '@/interfaces';
-import { CACHE_CONFIG } from '@/constants';
-import { InstanceWrapper } from './instance-wrapper';
+import "reflect-metadata";
+import axios from "axios";
+import { Str } from "@stackra/ts-support";
+import { Injectable, Inject } from "@stackra/ts-container";
+import type { InjectionToken, Type } from "@/interfaces";
+import { CACHE_CONFIG } from "@/constants";
+import { InstanceWrapper } from "./instance-wrapper";
 ```
 
 ---
@@ -140,7 +140,7 @@ name.charAt(0).toUpperCase() + name.slice(1);
 
 ```typescript
 // ✅ Correct
-import { defineMetadata, getMetadata } from '@vivtel/metadata';
+import { defineMetadata, getMetadata } from "@vivtel/metadata";
 defineMetadata(KEY, value, target);
 
 // ❌ Forbidden
@@ -170,7 +170,74 @@ export class CacheFacade extends Facade { ... }
 - `forRoot()` returns `{ global: true }` so exports are available everywhere
 - Config is provided via a Symbol token (`PACKAGE_CONFIG`)
 - Manager service is provided via both class and Symbol token
+- **All `Symbol.for()` tokens MUST live in `src/constants/tokens.constant.ts`**
+  — never define symbols inline in module files or other locations
+- **No module-level global singletons** — never use
+  `const globalFoo = new Foo()` outside a class. All singletons must be managed
+  by the DI container via `useClass` providers
+- **`forFeature()` must use factory providers** — when `forFeature()` needs to
+  register items on a registry, use a factory provider that injects the
+  DI-managed registry instance, not a module-level global
 - See `module-pattern.md` and `ts-container-architecture.md`
+
+### ✅ Correct — DI-managed registry
+
+```typescript
+// tokens.constant.ts
+export const MY_REGISTRY = Symbol.for('MY_REGISTRY');
+export const MY_FEATURE_CLASSES = Symbol.for('MY_FEATURE_CLASSES');
+
+// my.module.ts
+static forRoot(config): DynamicModule {
+  return {
+    module: MyModule,
+    global: true,
+    providers: [
+      { provide: MyRegistry, useClass: MyRegistry },
+      { provide: MY_REGISTRY, useExisting: MyRegistry },
+    ],
+    exports: [MyRegistry, MY_REGISTRY],
+  };
+}
+
+static forFeature(classes): DynamicModule {
+  return {
+    module: MyModule,
+    providers: [
+      { provide: MY_FEATURE_CLASSES, useValue: classes },
+      {
+        provide: `MY_FEATURE_INIT_${Date.now()}`,
+        useFactory: (registry: MyRegistry, items) => {
+          for (const item of items) registry.register(item);
+          return true;
+        },
+        inject: [MyRegistry, MY_FEATURE_CLASSES],
+      },
+    ],
+    exports: [],
+  };
+}
+```
+
+### ❌ Forbidden — module-level global singleton
+
+```typescript
+// ❌ Never do this
+const globalRegistry = new MyRegistry();
+
+static forRoot(config): DynamicModule {
+  return {
+    providers: [
+      { provide: MyRegistry, useValue: globalRegistry }, // ❌
+    ],
+  };
+}
+
+static forFeature(items): DynamicModule {
+  for (const item of items) globalRegistry.register(item); // ❌
+  return { module: MyModule, providers: [], exports: [] };
+}
+```
 
 ---
 
@@ -218,10 +285,10 @@ Every folder with multiple files must have an `index.ts` barrel:
 
 ```typescript
 // Use `export type` for interfaces and types
-export type { ClassProvider } from './class-provider.interface';
+export type { ClassProvider } from "./class-provider.interface";
 
 // Use `export` for classes, functions, enums, constants
-export { Scope } from './scope.enum';
+export { Scope } from "./scope.enum";
 ```
 
 Root `src/index.ts` uses section headers:
@@ -230,12 +297,12 @@ Root `src/index.ts` uses section headers:
 // ============================================================================
 // Core Services
 // ============================================================================
-export { CacheManager } from './services/cache-manager.service';
+export { CacheManager } from "./services/cache-manager.service";
 
 // ============================================================================
 // Facades
 // ============================================================================
-export { CacheFacade } from './facades';
+export { CacheFacade } from "./facades";
 ```
 
 ---
@@ -296,6 +363,11 @@ src/
 - ❌ Commented-out code — delete it, git has history
 - ❌ Empty docblocks — `/** */` is worse than none
 - ❌ Single-line method docblocks — always multi-line with tags
+- ❌ `Symbol.for()` outside `tokens.constant.ts` — all DI tokens must be
+  centralized
+- ❌ Module-level `const x = new SomeClass()` — use DI `useClass` providers
+- ❌ Direct mutation of global singletons in `forFeature()` — use factory
+  providers that inject the DI-managed instance
 
 ---
 
@@ -313,3 +385,6 @@ src/
 - [ ] All public method return types explicitly annotated
 - [ ] Facade exported from package if new service added
 - [ ] `@stackra/ts-support` in dependencies if using `Str`
+- [ ] All `Symbol.for()` tokens defined in `tokens.constant.ts` only
+- [ ] No module-level `new SomeClass()` singletons — use DI `useClass`
+- [ ] `forFeature()` uses factory providers, not direct global mutation

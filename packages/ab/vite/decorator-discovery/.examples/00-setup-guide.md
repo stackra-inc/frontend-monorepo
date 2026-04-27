@@ -13,15 +13,15 @@ pnpm add -D @stackra/vite-decorator-discovery
 
 ```typescript
 // vite.config.ts
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-import { decoratorDiscoveryPlugin } from '@stackra/vite-decorator-discovery';
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import { decoratorDiscoveryPlugin } from "@stackra/vite-decorator-discovery";
 
 export default defineConfig({
   plugins: [
     decoratorDiscoveryPlugin({
       debug: true, // Enable debug logging
-      customDecorators: ['MyCustomDecorator'], // Optional: track custom decorators
+      customDecorators: ["MyCustomDecorator"], // Optional: track custom decorators
     }),
     react(),
   ],
@@ -67,26 +67,26 @@ Now you can import the virtual modules in your code:
 import {
   MODULE_REGISTRY,
   getAllModules,
-} from 'virtual:decorator-registry/modules';
+} from "virtual:decorator-registry/modules";
 import {
   PROVIDER_REGISTRY,
   getAllProviders,
-} from 'virtual:decorator-registry/providers';
+} from "virtual:decorator-registry/providers";
 import {
   SUBSCRIBER_REGISTRY,
   getAllSubscribers,
-} from 'virtual:decorator-registry/subscribers';
+} from "virtual:decorator-registry/subscribers";
 
 // Or import the combined registry
 import {
   DECORATOR_REGISTRY,
   getAllDecorators,
-} from 'virtual:decorator-registry/all';
+} from "virtual:decorator-registry/all";
 
 // Use the registries
-console.log('All modules:', getAllModules());
-console.log('All providers:', getAllProviders());
-console.log('All subscribers:', getAllSubscribers());
+console.log("All modules:", getAllModules());
+console.log("All providers:", getAllProviders());
+console.log("All subscribers:", getAllSubscribers());
 ```
 
 ## Step 5: Update Container to Use Registry (Optional)
@@ -96,19 +96,19 @@ registry:
 
 ```typescript
 // packages/abcd/container/src/injector/scanner.ts
-import { MODULE_REGISTRY } from 'virtual:decorator-registry/modules';
+import { MODULE_REGISTRY } from "virtual:decorator-registry/modules";
 
 export class DependenciesScanner {
   public async scan(rootModule: Type<any>): Promise<void> {
     // Try compiled registry first
     const moduleMetadata = MODULE_REGISTRY.find(
-      (m) => m.className === rootModule.name
+      (m) => m.className === rootModule.name,
     );
 
     if (!moduleMetadata) {
       throw new Error(
         `Module ${rootModule.name} not found in registry. ` +
-          `Make sure the decorator discovery plugin is enabled.`
+          `Make sure the decorator discovery plugin is enabled.`,
       );
     }
 
@@ -161,12 +161,12 @@ A, ensure the file is included in your `tsconfig.json`:
 ```typescript
 decoratorDiscoveryPlugin({
   include: [
-    'packages/*/src/**/*.ts',
-    'packages/*/src/**/*.tsx',
-    'apps/*/src/**/*.ts',
-    'apps/*/src/**/*.tsx',
+    "packages/*/src/**/*.ts",
+    "packages/*/src/**/*.tsx",
+    "apps/*/src/**/*.ts",
+    "apps/*/src/**/*.tsx",
   ],
-  exclude: ['**/*.spec.ts', '**/*.test.ts', '**/node_modules/**'],
+  exclude: ["**/*.spec.ts", "**/*.test.ts", "**/node_modules/**"],
 });
 ```
 

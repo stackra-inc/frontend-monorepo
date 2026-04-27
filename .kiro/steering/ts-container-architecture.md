@@ -22,8 +22,8 @@ automatically:
 class UserService {
   constructor(
     private logger: LoggerService,
-    @Inject('API_URL') private apiUrl: string,
-    @Optional() private analytics?: AnalyticsService
+    @Inject("API_URL") private apiUrl: string,
+    @Optional() private analytics?: AnalyticsService,
   ) {}
 }
 ```
@@ -48,14 +48,14 @@ class UserModule {}
 const app = await Application.create(AppModule, {
   debug: true,
   config: {
-    apiUrl: 'https://api.example.com',
+    apiUrl: "https://api.example.com",
     featureFlags: { newUI: true },
   },
-  onReady: (ctx) => console.log('Ready!'),
+  onReady: (ctx) => console.log("Ready!"),
 });
 
 const userService = app.get(UserService);
-await app.close('SIGTERM');
+await app.close("SIGTERM");
 ```
 
 ---
@@ -174,13 +174,13 @@ class MonitoringModule {}
 @Injectable()
 class AnalyticsService implements OnModuleInit {
   onModuleInit() {
-    console.log('Analytics initialized');
+    console.log("Analytics initialized");
     this.trackPageView(window.location.pathname);
     this.registerErrorHandler();
   }
 
   private registerErrorHandler() {
-    window.addEventListener('error', (event) => {
+    window.addEventListener("error", (event) => {
       // Track error
     });
   }
@@ -210,16 +210,16 @@ config modules.
 // 1. Pass config to Application.create()
 const app = await Application.create(AppModule, {
   config: {
-    apiUrl: 'https://api.example.com',
+    apiUrl: "https://api.example.com",
     featureFlags: { newUI: true },
-    environment: 'production',
+    environment: "production",
   },
 });
 
 // 2. Inject in any service
 @Injectable()
 class ApiService {
-  constructor(@Inject('APP_CONFIG') private config: any) {}
+  constructor(@Inject("APP_CONFIG") private config: any) {}
 
   getApiUrl(): string {
     return this.config.apiUrl;
@@ -282,11 +282,11 @@ class DatabaseService
     OnModuleDestroy
 {
   onModuleInit() {
-    console.log('1. Module initialized');
+    console.log("1. Module initialized");
   }
 
   onApplicationBootstrap() {
-    console.log('2. Application bootstrapped');
+    console.log("2. Application bootstrapped");
     // Start background jobs that need full DI graph
   }
 
@@ -301,12 +301,12 @@ class DatabaseService
   }
 
   onModuleDestroy() {
-    console.log('5. Final cleanup');
+    console.log("5. Final cleanup");
   }
 }
 
 // Trigger shutdown
-await app.close('SIGTERM');
+await app.close("SIGTERM");
 ```
 
 ---
@@ -387,7 +387,7 @@ pre-compiled decorator registries instead of runtime reflection.
 2. **Add plugin to vite.config.ts**:
 
    ```typescript
-   import { decoratorDiscoveryPlugin } from '@stackra/vite-decorator-discovery';
+   import { decoratorDiscoveryPlugin } from "@stackra/vite-decorator-discovery";
 
    export default defineConfig({
      plugins: [decoratorDiscoveryPlugin(), react()],
@@ -403,7 +403,7 @@ pre-compiled decorator registries instead of runtime reflection.
 ### Usage
 
 ```typescript
-import { Application } from '@stackra/ts-container';
+import { Application } from "@stackra/ts-container";
 
 // Automatically uses RegistryScanner if available
 const app = await Application.create(AppModule);
@@ -628,7 +628,7 @@ class DatabaseModule {
 // Usage
 @Module({
   imports: [
-    DatabaseModule.forRoot({ host: 'localhost' }),
+    DatabaseModule.forRoot({ host: "localhost" }),
     DatabaseModule.forFeature([User, Post]),
   ],
 })
@@ -642,7 +642,7 @@ class AppModule {}
 ### Using forwardRef()
 
 ```typescript
-import { forwardRef } from '@stackra/ts-container';
+import { forwardRef } from "@stackra/ts-container";
 
 @Module({
   imports: [forwardRef(() => BModule)],
@@ -688,7 +688,7 @@ class BModule {}
 ```typescript
 // Create test application
 const app = await Application.create(TestModule, {
-  config: { environment: 'test' },
+  config: { environment: "test" },
 });
 
 // Get service
@@ -737,7 +737,7 @@ class ConfigModule {
   providers: [
     UserService,
     UserRepository,
-    { provide: 'USER_CACHE', useValue: new Map() },
+    { provide: "USER_CACHE", useValue: new Map() },
   ],
   exports: [UserService],
 })
@@ -750,11 +750,11 @@ class UserModule {}
 @Module({
   providers: [
     {
-      provide: 'HTTP_CLIENT',
+      provide: "HTTP_CLIENT",
       useFactory: (config: ConfigService) => {
         return axios.create({
-          baseURL: config.get('API_URL'),
-          timeout: config.get('TIMEOUT'),
+          baseURL: config.get("API_URL"),
+          timeout: config.get("TIMEOUT"),
         });
       },
       inject: [ConfigService],

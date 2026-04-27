@@ -1,10 +1,10 @@
 /** @fileoverview useSecurity hook. @module @stackra/react-auth @category Hooks */
-import { useQuery } from '@tanstack/react-query';
-import { useInject } from '@stackra/ts-container';
-import { SECURITY_SERVICE } from '@/constants';
-import type { SecurityService } from '@/services/security.service';
-import type { SecurityCheckResult } from '@/interfaces/security-check-result.interface';
-import type { UseQueryHookResult } from '@/interfaces/use-query-hook-result.interface';
+import { useQuery } from "@tanstack/react-query";
+import { useInject } from "@stackra/ts-container";
+import { SECURITY_SERVICE } from "@/constants";
+import type { SecurityService } from "@/services/security.service";
+import type { SecurityCheckResult } from "@/interfaces/security-check-result.interface";
+import type { UseQueryHookResult } from "@/interfaces/use-query-hook-result.interface";
 
 /**
  * Hook for performing a security check on the current user's account.
@@ -16,7 +16,7 @@ import type { UseQueryHookResult } from '@/interfaces/use-query-hook-result.inte
 export function useSecurity(): UseQueryHookResult<SecurityCheckResult, Error> {
   const securityService = useInject<SecurityService>(SECURITY_SERVICE);
   const query = useQuery({
-    queryKey: ['auth', 'security'],
+    queryKey: ["auth", "security"],
     queryFn: () => securityService.check(),
   });
   return {

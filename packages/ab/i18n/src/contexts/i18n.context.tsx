@@ -7,9 +7,9 @@
  * @module contexts/i18n
  */
 
-import { createContext, useContext } from 'react';
+import { createContext, useContext } from "react";
 
-import type { II18nContext } from '@/interfaces/i18n-context.interface';
+import type { II18nContext } from "@/interfaces/i18n-context.interface";
 
 // ── Context ────────────────────────────────────────────────────────────────
 
@@ -42,8 +42,8 @@ export const useI18nContext = (): II18nContext => {
 
   if (!context) {
     throw new Error(
-      '[i18n] useI18nContext must be used within <I18nProvider>. ' +
-        'Wrap your component tree with <I18nProvider>.'
+      "[i18n] useI18nContext must be used within <I18nProvider>. " +
+        "Wrap your component tree with <I18nProvider>.",
     );
   }
 

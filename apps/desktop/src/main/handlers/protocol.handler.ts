@@ -14,7 +14,7 @@
  * @module desktop/main/handlers
  */
 
-import { ipcMain, app, type BrowserWindow } from 'electron';
+import { ipcMain, app, type BrowserWindow } from "electron";
 
 export function registerProtocolHandlers(mainWindow: BrowserWindow): void {
   /*
@@ -22,7 +22,7 @@ export function registerProtocolHandlers(mainWindow: BrowserWindow): void {
   | protocol:register
   |--------------------------------------------------------------------------
   */
-  ipcMain.handle('protocol:register', async (_event, scheme: string) => {
+  ipcMain.handle("protocol:register", async (_event, scheme: string) => {
     const success = app.setAsDefaultProtocolClient(scheme);
     console.log(`[ProtocolHandler] Registered protocol "${scheme}":`, success);
   });
@@ -32,12 +32,12 @@ export function registerProtocolHandlers(mainWindow: BrowserWindow): void {
   | Handle incoming protocol URLs on macOS (open-url event).
   |--------------------------------------------------------------------------
   */
-  app.on('open-url', (event, url) => {
+  app.on("open-url", (event, url) => {
     event.preventDefault();
-    console.log('[ProtocolHandler] Received protocol URL:', url);
+    console.log("[ProtocolHandler] Received protocol URL:", url);
 
     if (mainWindow && !mainWindow.isDestroyed()) {
-      mainWindow.webContents.send('protocol:url', url);
+      mainWindow.webContents.send("protocol:url", url);
 
       /* Bring the window to front. */
       if (mainWindow.isMinimized()) mainWindow.restore();
@@ -50,11 +50,11 @@ export function registerProtocolHandlers(mainWindow: BrowserWindow): void {
   | Handle incoming protocol URLs on Windows/Linux (second-instance event).
   |--------------------------------------------------------------------------
   */
-  app.on('second-instance', (_event, commandLine) => {
+  app.on("second-instance", (_event, commandLine) => {
     /* The protocol URL is the last argument. */
-    const url = commandLine.find((arg) => arg.includes('://'));
+    const url = commandLine.find((arg) => arg.includes("://"));
     if (url && mainWindow && !mainWindow.isDestroyed()) {
-      mainWindow.webContents.send('protocol:url', url);
+      mainWindow.webContents.send("protocol:url", url);
 
       if (mainWindow.isMinimized()) mainWindow.restore();
       mainWindow.focus();

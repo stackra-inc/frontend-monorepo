@@ -62,16 +62,16 @@ an inline style object:
 ```typescript
 // Current (broken):
 const animClass = animating
-  ? direction === 'forward'
-    ? 'animate-slide-in-right'
-    : 'animate-slide-in-left'
-  : '';
+  ? direction === "forward"
+    ? "animate-slide-in-right"
+    : "animate-slide-in-left"
+  : "";
 
 // Fixed:
 const animStyle: React.CSSProperties = animating
   ? {
       transform:
-        direction === 'forward' ? 'translateX(100%)' : 'translateX(-100%)',
+        direction === "forward" ? "translateX(100%)" : "translateX(-100%)",
       transition: `transform ${DRAWER_DEFAULTS.ANIMATION_DURATION_MS}ms cubic-bezier(0.32, 0.72, 0, 1)`,
     }
   : {};
@@ -90,13 +90,13 @@ useEffect(() => {
     return;
   }
   // Phase 1: set starting position (off-screen)
-  const startX = direction === 'forward' ? '100%' : '-100%';
+  const startX = direction === "forward" ? "100%" : "-100%";
   setAnimStyle({ transform: `translateX(${startX})` });
 
   // Phase 2: animate to final position on next frame
   const raf = requestAnimationFrame(() => {
     setAnimStyle({
-      transform: 'translateX(0)',
+      transform: "translateX(0)",
       transition: `transform ${DRAWER_DEFAULTS.ANIMATION_DURATION_MS}ms cubic-bezier(0.32, 0.72, 0, 1)`,
     });
   });
@@ -146,7 +146,7 @@ useEffect(() => {
     const prev = previouslyFocusedRef.current;
     if (
       prev &&
-      typeof prev.focus === 'function' &&
+      typeof prev.focus === "function" &&
       document.body.contains(prev)
     ) {
       prev.focus();
@@ -209,8 +209,8 @@ const onPointerUp = useCallback(
       // Snapshot stack length before calling onDismiss
       // onDismiss calls operations.pop() which checks onBeforeClose
       const stackBefore = el
-        .closest('[data-drawer-active]')
-        ?.getAttribute('data-drawer-active');
+        .closest("[data-drawer-active]")
+        ?.getAttribute("data-drawer-active");
 
       // Call onDismiss first — this checks onBeforeClose
       await onDismiss();
@@ -218,23 +218,23 @@ const onPointerUp = useCallback(
       // Check if the element is still in the DOM (pop succeeded)
       if (!document.body.contains(el)) {
         // Already removed by React, no animation needed
-        el.style.transition = '';
-        el.style.transform = '';
+        el.style.transition = "";
+        el.style.transform = "";
       } else {
         // Pop was blocked — snap back
         el.style.transition = `transform ${SNAP_BACK_MS}ms ${EASE_CURVE}`;
-        el.style.transform = '';
+        el.style.transform = "";
         // cleanup handled by AbortController (Fix 5)
       }
     } else {
       // Snap back
       el.style.transition = `transform ${SNAP_BACK_MS}ms ${EASE_CURVE}`;
-      el.style.transform = '';
+      el.style.transform = "";
     }
     currentOffset.current = 0;
     velocity.current = 0;
   },
-  [onDismiss]
+  [onDismiss],
 );
 ```
 
@@ -274,13 +274,13 @@ if (shouldDismiss) {
   // After pop resolves, check if we're still mounted (pop was blocked)
   await new Promise((r) => requestAnimationFrame(r));
   if (
-    el.getAttribute('data-drawer-active') === 'true' ||
+    el.getAttribute("data-drawer-active") === "true" ||
     !document.body.contains(el)
   ) {
     // Pop was blocked or element removed — snap back or do nothing
     if (document.body.contains(el)) {
       el.style.transition = `transform ${SNAP_BACK_MS}ms ${EASE_CURVE}`;
-      el.style.transform = '';
+      el.style.transform = "";
     }
   }
 }
@@ -321,7 +321,7 @@ const pop = useCallback(async (): Promise<boolean> => {
       return false;
     }
   }
-  dispatch({ type: 'POP' });
+  dispatch({ type: "POP" });
   return true;
 }, []);
 ```
@@ -335,12 +335,12 @@ if (shouldDismiss) {
   const dismissed = await onDismiss();
   if (dismissed && el) {
     el.style.transition = `transform ${SNAP_BACK_MS}ms ${EASE_CURVE}`;
-    el.style.transform = 'translateX(100%)';
+    el.style.transform = "translateX(100%)";
     // transitionend cleanup via AbortController
   } else if (el) {
     // Snap back
     el.style.transition = `transform ${SNAP_BACK_MS}ms ${EASE_CURVE}`;
-    el.style.transform = '';
+    el.style.transform = "";
   }
 }
 ```
@@ -366,7 +366,7 @@ these variables, causing lock count mismatches and scroll restoration failures.
 Replace the module-level variables with a shared singleton:
 
 ```typescript
-const SCROLL_LOCK_KEY = '__drawerStackScrollLock';
+const SCROLL_LOCK_KEY = "__drawerStackScrollLock";
 
 interface ScrollLockState {
   lockCount: number;
@@ -433,25 +433,25 @@ export function useDrawerDrag({
       if (shouldDismiss) {
         // ... dismiss logic ...
         el.addEventListener(
-          'transitionend',
+          "transitionend",
           () => {
-            el.style.transition = '';
-            el.style.transform = '';
+            el.style.transition = "";
+            el.style.transform = "";
             // ...
           },
-          { once: true, signal }
+          { once: true, signal },
         );
       } else {
         el.addEventListener(
-          'transitionend',
+          "transitionend",
           () => {
-            el.style.transition = '';
+            el.style.transition = "";
           },
-          { once: true, signal }
+          { once: true, signal },
         );
       }
     },
-    [onDismiss]
+    [onDismiss],
   );
 
   // ...
@@ -481,12 +481,12 @@ Create a shared helper function within `drawer-container.component.tsx`:
 ```typescript
 function getDrawerWrapper(): HTMLElement | null {
   const wrapper = document.querySelector(
-    '[data-drawer-wrapper]'
+    "[data-drawer-wrapper]",
   ) as HTMLElement | null;
-  if (!wrapper && process.env.NODE_ENV !== 'production') {
+  if (!wrapper && process.env.NODE_ENV !== "production") {
     console.warn(
-      '[DrawerStack] No element with `data-drawer-wrapper` attribute found. ' +
-        'Add `data-drawer-wrapper` to your app wrapper element to enable background scaling on mobile.'
+      "[DrawerStack] No element with `data-drawer-wrapper` attribute found. " +
+        "Add `data-drawer-wrapper` to your app wrapper element to enable background scaling on mobile.",
     );
   }
   return wrapper;
@@ -504,13 +504,13 @@ module-level flag:
 let wrapperWarned = false;
 function getDrawerWrapper(): HTMLElement | null {
   const wrapper = document.querySelector(
-    '[data-drawer-wrapper]'
+    "[data-drawer-wrapper]",
   ) as HTMLElement | null;
-  if (!wrapper && !wrapperWarned && process.env.NODE_ENV !== 'production') {
+  if (!wrapper && !wrapperWarned && process.env.NODE_ENV !== "production") {
     wrapperWarned = true;
     console.warn(
-      '[DrawerStack] No element with `data-drawer-wrapper` attribute found. ' +
-        'Add `data-drawer-wrapper` to your app wrapper element to enable background scaling on mobile.'
+      "[DrawerStack] No element with `data-drawer-wrapper` attribute found. " +
+        "Add `data-drawer-wrapper` to your app wrapper element to enable background scaling on mobile.",
     );
   }
   return wrapper;
@@ -536,15 +536,15 @@ In `drawer-container.component.tsx`, modify the ESC handler:
 useEffect(() => {
   if (!isOpen) return;
   const h = (e: KeyboardEvent) => {
-    if (e.key !== 'Escape') return;
+    if (e.key !== "Escape") return;
     if (e.defaultPrevented) return; // ← New: respect nested handlers
     if (activeDrawer?.config.closeOnEscape === false) return;
     e.preventDefault();
     e.stopPropagation();
     operations.pop();
   };
-  window.addEventListener('keydown', h, true); // Keep capture phase
-  return () => window.removeEventListener('keydown', h, true);
+  window.addEventListener("keydown", h, true); // Keep capture phase
+  return () => window.removeEventListener("keydown", h, true);
 }, [isOpen, activeDrawer, operations]);
 ```
 

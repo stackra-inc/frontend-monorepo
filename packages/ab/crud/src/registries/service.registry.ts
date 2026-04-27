@@ -9,7 +9,7 @@
  *
  * @example
  * ```typescript
- * const registry = new ServiceRegistry();
+ * const ServiceRegistry();
  * registry.register('posts', postService);
  * const service = registry.resolve('posts'); // → postService
  * ```

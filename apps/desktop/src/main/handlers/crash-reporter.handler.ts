@@ -11,7 +11,7 @@
  * @module desktop/main/handlers
  */
 
-import { ipcMain, crashReporter } from 'electron';
+import { ipcMain, crashReporter } from "electron";
 
 export function registerCrashReporterHandlers(): void {
   /*
@@ -24,17 +24,17 @@ export function registerCrashReporterHandlers(): void {
   | JS errors are handled by Sentry in the renderer process.
   |
   */
-  ipcMain.handle('crash-reporter:start', async (_event, config: any) => {
+  ipcMain.handle("crash-reporter:start", async (_event, config: any) => {
     try {
       crashReporter.start({
-        submitURL: config.submitURL ?? '',
-        productName: config.productName ?? 'DesktopApp',
+        submitURL: config.submitURL ?? "",
+        productName: config.productName ?? "DesktopApp",
         uploadToServer: !!config.submitURL,
         compress: true,
       });
-      console.log('[CrashReporterHandler] Electron crash reporter started');
+      console.log("[CrashReporterHandler] Electron crash reporter started");
     } catch (err) {
-      console.warn('[CrashReporterHandler] Failed to start crash reporter:', err);
+      console.warn("[CrashReporterHandler] Failed to start crash reporter:", err);
     }
   });
 }

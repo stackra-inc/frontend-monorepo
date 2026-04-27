@@ -8,18 +8,18 @@
  * @category Module
  */
 
-import { AuthService } from '@/services/auth.service';
-import { SessionService } from '@/services/session.service';
-import { SecurityService } from '@/services/security.service';
-import { AccessControlService } from '@/services/access-control.service';
+import { AuthService } from "@/services/auth.service";
+import { SessionService } from "@/services/session.service";
+import { SecurityService } from "@/services/security.service";
+import { AccessControlService } from "@/services/access-control.service";
 import {
   AUTH_SERVICE,
   SESSION_SERVICE,
   SECURITY_SERVICE,
   ACCESS_CONTROL_SERVICE,
-} from '@/constants';
-import type { IAuthService } from '@/interfaces/auth-service.interface';
-import type { IAccessControlService } from '@/interfaces/access-control-service.interface';
+} from "@/constants";
+import type { IAuthService } from "@/interfaces/auth-service.interface";
+import type { IAccessControlService } from "@/interfaces/access-control-service.interface";
 
 /** Configuration options for `AuthModule.forRoot()`. */
 export interface AuthModuleOptions {

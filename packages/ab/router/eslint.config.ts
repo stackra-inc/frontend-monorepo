@@ -4,7 +4,7 @@
  * @category Configuration
  */
 import type { Linter } from 'eslint';
-import { viteConfig } from '@nesvel/eslint-config';
+import { viteConfig } from '@stackra/eslint-config';
 
 const config: Linter.Config[] = [
   ...viteConfig,

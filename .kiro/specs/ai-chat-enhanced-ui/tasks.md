@@ -43,7 +43,7 @@ backend interleaved where dependencies exist.
       `{ success: true, message: "Frontend-executed tool" }`
     - _Requirements: 9.1, 9.4, 10.1, 10.2_
 
-  - [ ]\* 2.2 Write property test for walkthrough step schema validation
+  - [ ] 2.2 Write property test for walkthrough step schema validation
     - **Property 22: Walkthrough step schema validation**
     - **Validates: Requirements 10.2**
 
@@ -59,7 +59,7 @@ backend interleaved where dependencies exist.
     - Configurable similarity threshold (default 0.92) and TTL (default 30 days)
     - _Requirements: 12.1, 12.2, 12.3, 12.5, 12.6, 12.7_
 
-  - [ ]\* 2.5 Write property tests for answer cache service
+  - [ ] 2.5 Write property tests for answer cache service
     - **Property 25: Answer cache returns only same-tenant results**
     - **Property 26: Cache hit above threshold returns cached answer with flag**
     - **Property 28: Stale cache entries are refreshed after TTL**
@@ -90,7 +90,7 @@ backend interleaved where dependencies exist.
     - For `navigateUI` and `startWalkthrough`, set `frontendExecutable: true`
     - _Requirements: 8.1, 8.2, 8.5, 2.5_
 
-  - [ ]\* 4.2 Write property tests for WebSocket protocol messages
+  - [ ] 4.2 Write property tests for WebSocket protocol messages
     - **Property 6: Gateway tool-call messages contain all required fields**
     - **Property 20: Gateway tool-result messages contain required fields**
     - **Validates: Requirements 2.5, 8.1, 8.2, 8.5**
@@ -126,7 +126,7 @@ backend interleaved where dependencies exist.
       cashier's current screen state
     - _Requirements: 7.3, 11.3_
 
-  - [ ]\* 5.2 Write property test for prompt builder UI context inclusion
+  - [ ] 5.2 Write property test for prompt builder UI context inclusion
     - **Property 18: Prompt builder includes full UI context snapshot**
     - **Validates: Requirements 7.3, 11.3**
 
@@ -154,14 +154,14 @@ backend interleaved where dependencies exist.
     - Both return structured result with success/error
     - _Requirements: 4.7, 4.8_
 
-  - [ ]\* 5.6 Write property tests for tool handler contracts
+  - [ ] 5.6 Write property tests for tool handler contracts
     - **Property 10: Tool handler result contract**
     - **Property 11: Hold/resume cart round-trip**
     - **Property 12: toggleDarkMode inverts theme state**
     - **Property 13: Customer lookup returns only matching records**
     - **Validates: Requirements 4.1, 4.3, 4.4, 4.5, 4.9, 4.10**
 
-  - [ ]\* 5.7 Write property test for session reconnect
+  - [ ] 5.7 Write property test for session reconnect
     - **Property 30: Session reconnect preserves conversation history**
     - **Validates: Requirements 6.5**
 
@@ -192,7 +192,7 @@ backend interleaved where dependencies exist.
       disconnect/reconnect
     - _Requirements: 2.1, 2.3, 2.4, 5.2, 5.4, 5.5, 12.4_
 
-  - [ ]\* 7.3 Write property tests for message store
+  - [ ] 7.3 Write property tests for message store
     - **Property 3: Tool-call messages are created from WebSocket tool-call
       events**
     - **Property 4: Tool result updates the corresponding tool-call message
@@ -214,7 +214,7 @@ backend interleaved where dependencies exist.
     - Exclude sensitive data (payment card numbers, auth tokens)
     - _Requirements: 7.1, 7.2, 11.1, 11.2, 11.5_
 
-  - [ ]\* 8.2 Write property tests for UI context collector
+  - [ ] 8.2 Write property tests for UI context collector
     - **Property 17: UI context changes trigger debounced pos-state-update**
     - **Property 19: UI context snapshot contains all required fields and
       excludes sensitive data**
@@ -230,7 +230,7 @@ backend interleaved where dependencies exist.
     - Send `tool-result` message back to gateway after execution
     - _Requirements: 9.2, 9.3, 9.5, 10.1_
 
-  - [ ]\* 8.4 Write property test for navigateUI executor
+  - [ ] 8.4 Write property test for navigateUI executor
     - **Property 21: NavigateUI executor opens correct drawer and returns
       confirmation**
     - **Validates: Requirements 9.2, 9.5**
@@ -258,7 +258,7 @@ backend interleaved where dependencies exist.
     - Accept `content` and `isStreaming` props
     - _Requirements: 1.1, 1.2, 1.3, 1.4, 1.5_
 
-  - [ ]\* 10.2 Write property tests for MarkdownRenderer
+  - [ ] 10.2 Write property tests for MarkdownRenderer
     - **Property 1: Markdown renders all syntax elements as correct HTML**
     - **Property 2: Markdown sanitization removes XSS vectors**
     - **Validates: Requirements 1.1, 1.3, 1.4**
@@ -281,7 +281,7 @@ backend interleaved where dependencies exist.
       message
     - _Requirements: 3.1, 3.2, 3.3, 3.4, 3.5_
 
-  - [ ]\* 11.3 Write property tests for tool cards and approval flow
+  - [ ] 11.3 Write property tests for tool cards and approval flow
     - **Property 5: Tool-related cards display all required information**
     - **Property 7: High-trust tool calls render as ApprovalCards**
     - **Property 8: Approval actions send correct WebSocket messages**
@@ -306,7 +306,7 @@ backend interleaved where dependencies exist.
     - Skip steps where target selector doesn't match any DOM element
     - _Requirements: 10.3, 10.4, 10.5, 10.6, 10.7, 10.8, 10.9, 10.10_
 
-  - [ ]\* 12.3 Write property tests for walkthrough overlay
+  - [ ] 12.3 Write property tests for walkthrough overlay
     - **Property 23: Walkthrough navigation advances and retreats correctly**
     - **Property 24: Walkthrough popover displays all required elements**
     - **Validates: Requirements 10.4, 10.5, 10.6, 10.7**
@@ -328,7 +328,7 @@ backend interleaved where dependencies exist.
       gateway or message store)
     - _Requirements: 1.1, 1.5, 2.1, 3.1, 3.6, 5.1, 5.2, 5.3, 9.6, 12.4_
 
-  - [ ]\* 13.2 Write property test for cached response indicator
+  - [ ] 13.2 Write property test for cached response indicator
     - **Property 27: Cached response indicator in chat UI**
     - **Validates: Requirements 12.4**
 

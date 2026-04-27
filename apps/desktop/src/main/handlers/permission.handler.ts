@@ -13,9 +13,9 @@
  * @module desktop/main/handlers
  */
 
-import { ipcMain, systemPreferences } from 'electron';
+import { ipcMain, systemPreferences } from "electron";
 
-const isMac = process.platform === 'darwin';
+const isMac = process.platform === "darwin";
 
 export function registerPermissionHandlers(): void {
   /*
@@ -27,20 +27,20 @@ export function registerPermissionHandlers(): void {
   | Other device types return 'granted' (Electron has full access).
   |
   */
-  ipcMain.handle('permission:request', async (_event, deviceType: string) => {
-    if (isMac && (deviceType === 'camera' || deviceType === 'microphone')) {
+  ipcMain.handle("permission:request", async (_event, deviceType: string) => {
+    if (isMac && (deviceType === "camera" || deviceType === "microphone")) {
       const granted = await systemPreferences.askForMediaAccess(
-        deviceType === 'camera' ? 'camera' : 'microphone'
+        deviceType === "camera" ? "camera" : "microphone",
       );
-      return granted ? 'granted' : 'denied';
+      return granted ? "granted" : "denied";
     }
 
     /* USB, Bluetooth, Serial: Electron has full access by default. */
-    if (['usb', 'bluetooth', 'serial'].includes(deviceType)) {
-      return 'granted';
+    if (["usb", "bluetooth", "serial"].includes(deviceType)) {
+      return "granted";
     }
 
-    return 'unsupported';
+    return "unsupported";
   });
 
   /*
@@ -48,19 +48,19 @@ export function registerPermissionHandlers(): void {
   | permission:check
   |--------------------------------------------------------------------------
   */
-  ipcMain.handle('permission:check', async (_event, deviceType: string) => {
-    if (isMac && (deviceType === 'camera' || deviceType === 'microphone')) {
+  ipcMain.handle("permission:check", async (_event, deviceType: string) => {
+    if (isMac && (deviceType === "camera" || deviceType === "microphone")) {
       const status = systemPreferences.getMediaAccessStatus(
-        deviceType === 'camera' ? 'camera' : 'microphone'
+        deviceType === "camera" ? "camera" : "microphone",
       );
-      return status === 'granted' ? 'granted' : status === 'denied' ? 'denied' : 'prompt';
+      return status === "granted" ? "granted" : status === "denied" ? "denied" : "prompt";
     }
 
-    if (['usb', 'bluetooth', 'serial'].includes(deviceType)) {
-      return 'granted';
+    if (["usb", "bluetooth", "serial"].includes(deviceType)) {
+      return "granted";
     }
 
-    return 'unsupported';
+    return "unsupported";
   });
 
   /*
@@ -72,9 +72,9 @@ export function registerPermissionHandlers(): void {
   | We can only log a message directing the user to system settings.
   |
   */
-  ipcMain.handle('permission:revoke', async (_event, deviceType: string) => {
+  ipcMain.handle("permission:revoke", async (_event, deviceType: string) => {
     console.log(
-      `[PermissionHandler] Permission revocation for "${deviceType}" must be done in System Settings.`
+      `[PermissionHandler] Permission revocation for "${deviceType}" must be done in System Settings.`,
     );
   });
 }

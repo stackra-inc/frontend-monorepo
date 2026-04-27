@@ -102,20 +102,20 @@ function updateItem(
   cart: Cart,
   itemId: string,
   update: Partial<CartItemUpdate>,
-  config: CartConfig
+  config: CartConfig,
 ): Cart;
 function removeItem(cart: Cart, itemId: string, config: CartConfig): Cart;
 function applyDiscount(
   cart: Cart,
   discount: DiscountDescriptor,
-  config: CartConfig
+  config: CartConfig,
 ): Cart;
 function applyCoupon(cart: Cart, couponCode: string, config: CartConfig): Cart;
 function attachCustomer(cart: Cart, customer: Customer): Cart;
 function calculate(
   cart: Cart,
   pipeline: PricingPipeline,
-  config: CartConfig
+  config: CartConfig,
 ): Cart;
 function serialize(cart: Cart): string;
 function deserialize(json: string): Cart;
@@ -135,7 +135,7 @@ function createPipeline(steps?: PricingStep[]): PricingPipeline;
 function insertStep(
   pipeline: PricingPipeline,
   step: PricingStep,
-  position?: number
+  position?: number,
 ): PricingPipeline;
 
 // Built-in steps
@@ -157,19 +157,19 @@ interface CartManagerState {
 
 function createCartManager(
   channel: Channel,
-  config?: Partial<CartConfig>
+  config?: Partial<CartConfig>,
 ): CartManagerState;
 function managerCreateCart(
   state: CartManagerState,
   channel: Channel,
-  config?: Partial<CartConfig>
+  config?: Partial<CartConfig>,
 ): CartManagerState;
 function switchCart(state: CartManagerState, cartId: string): CartManagerState;
 function deleteCart(
   state: CartManagerState,
   cartId: string,
   channel: Channel,
-  config?: Partial<CartConfig>
+  config?: Partial<CartConfig>,
 ): CartManagerState;
 function holdCart(state: CartManagerState): CartManagerState;
 function resumeCart(state: CartManagerState, cartId: string): CartManagerState;
@@ -188,11 +188,11 @@ function createHistory(maxDepth?: number): HistoryState;
 function pushHistory(history: HistoryState, cart: Cart): HistoryState;
 function undo(
   history: HistoryState,
-  currentCart: Cart
+  currentCart: Cart,
 ): { history: HistoryState; cart: Cart };
 function redo(
   history: HistoryState,
-  currentCart: Cart
+  currentCart: Cart,
 ): { history: HistoryState; cart: Cart };
 ```
 
@@ -205,7 +205,7 @@ interface QueuedAction {
   payload: unknown;
   timestamp: number;
   retries: number;
-  status: 'pending' | 'failed';
+  status: "pending" | "failed";
 }
 
 interface ActionQueueState {
@@ -215,7 +215,7 @@ interface ActionQueueState {
 function createActionQueue(): ActionQueueState;
 function enqueue(
   queue: ActionQueueState,
-  action: Omit<QueuedAction, 'id' | 'retries' | 'status'>
+  action: Omit<QueuedAction, "id" | "retries" | "status">,
 ): ActionQueueState;
 function dequeue(queue: ActionQueueState): {
   queue: ActionQueueState;
@@ -223,7 +223,7 @@ function dequeue(queue: ActionQueueState): {
 };
 function markFailed(
   queue: ActionQueueState,
-  actionId: string
+  actionId: string,
 ): ActionQueueState;
 function persistQueue(queue: ActionQueueState): string;
 function restoreQueue(json: string): ActionQueueState;
@@ -259,7 +259,7 @@ function createPluginRegistry(): PluginRegistry;
 function registerPlugin(
   registry: PluginRegistry,
   plugin: CartPlugin,
-  context: CartEngineContext
+  context: CartEngineContext,
 ): PluginRegistry;
 ```
 
@@ -280,7 +280,7 @@ interface SplitPaymentResult {
 function validateSplitPayment(
   cart: Cart,
   allocations: PaymentAllocation[],
-  config: CartConfig
+  config: CartConfig,
 ): SplitPaymentResult;
 
 interface PartialCheckoutResult {
@@ -292,7 +292,7 @@ function partialCheckout(
   cart: Cart,
   itemIds: string[],
   pipeline: PricingPipeline,
-  config: CartConfig
+  config: CartConfig,
 ): PartialCheckoutResult;
 ```
 
@@ -364,8 +364,8 @@ Compound component API built on HeroUI and Tailwind CSS v4:
 // Compound component namespace
 const Cart: {
   Root: React.FC<{
-    layout: 'pos' | 'ecommerce' | 'food';
-    density: 'compact' | 'comfy';
+    layout: "pos" | "ecommerce" | "food";
+    density: "compact" | "comfy";
     children: React.ReactNode;
   }>;
   Header: React.FC<{
@@ -381,14 +381,14 @@ const Cart: {
   Item: React.FC<{ item: CartItem; children?: React.ReactNode }> & {
     Image: React.FC<{ src?: string; alt?: string }>;
     Info: React.FC;
-    Modifiers: React.FC<{ mode?: 'inline' | 'modal' }>;
+    Modifiers: React.FC<{ mode?: "inline" | "modal" }>;
     Quantity: React.FC;
     Price: React.FC;
     Actions: React.FC;
   };
   Summary: React.FC;
   Footer: React.FC<{ actions?: FooterAction[] }>;
-  Modifiers: React.FC<{ mode: 'inline' | 'modal'; modifiers: Modifier[] }>;
+  Modifiers: React.FC<{ mode: "inline" | "modal"; modifiers: Modifier[] }>;
 };
 ```
 
@@ -425,15 +425,15 @@ function createKitchenPlugin(config: {
 
 ```typescript
 // ─── Channel ───────────────────────────────────────────────────────
-type Channel = 'pos' | 'ecommerce' | 'food' | 'custom';
+type Channel = "pos" | "ecommerce" | "food" | "custom";
 
 // ─── Cart Configuration ────────────────────────────────────────────
 interface CartConfig {
   currency: string;
-  taxMode: 'inclusive' | 'exclusive';
+  taxMode: "inclusive" | "exclusive";
   taxRate: number;
   allowNegativeQty: boolean;
-  rounding: 'floor' | 'ceil' | 'round';
+  rounding: "floor" | "ceil" | "round";
   features: {
     modifiers: boolean;
     discounts: boolean;
@@ -445,11 +445,11 @@ interface CartConfig {
 // Channel presets
 const CHANNEL_PRESETS: Record<Channel, CartConfig> = {
   pos: {
-    currency: 'USD',
-    taxMode: 'exclusive',
+    currency: "USD",
+    taxMode: "exclusive",
     taxRate: 0.05,
     allowNegativeQty: false,
-    rounding: 'round',
+    rounding: "round",
     features: {
       modifiers: false,
       discounts: true,
@@ -458,11 +458,11 @@ const CHANNEL_PRESETS: Record<Channel, CartConfig> = {
     },
   },
   ecommerce: {
-    currency: 'USD',
-    taxMode: 'exclusive',
+    currency: "USD",
+    taxMode: "exclusive",
     taxRate: 0.05,
     allowNegativeQty: false,
-    rounding: 'round',
+    rounding: "round",
     features: {
       modifiers: false,
       discounts: true,
@@ -471,11 +471,11 @@ const CHANNEL_PRESETS: Record<Channel, CartConfig> = {
     },
   },
   food: {
-    currency: 'USD',
-    taxMode: 'inclusive',
+    currency: "USD",
+    taxMode: "inclusive",
     taxRate: 0.05,
     allowNegativeQty: false,
-    rounding: 'round',
+    rounding: "round",
     features: {
       modifiers: true,
       discounts: true,
@@ -484,11 +484,11 @@ const CHANNEL_PRESETS: Record<Channel, CartConfig> = {
     },
   },
   custom: {
-    currency: 'USD',
-    taxMode: 'exclusive',
+    currency: "USD",
+    taxMode: "exclusive",
     taxRate: 0,
     allowNegativeQty: false,
-    rounding: 'round',
+    rounding: "round",
     features: {
       modifiers: true,
       discounts: true,
@@ -509,7 +509,7 @@ interface ModifierOption {
 interface Modifier {
   id: string;
   name: string;
-  type: 'single' | 'multiple';
+  type: "single" | "multiple";
   options: ModifierOption[];
 }
 
@@ -572,19 +572,19 @@ interface CartItemUpdate {
 }
 
 // ─── Discount ──────────────────────────────────────────────────────
-type DiscountType = 'percentage' | 'fixed';
+type DiscountType = "percentage" | "fixed";
 
 interface DiscountDescriptor {
   id: string;
   type: DiscountType;
   value: number; // percentage (0-100) or fixed amount
-  scope: 'cart' | 'item';
+  scope: "cart" | "item";
   itemId?: string; // required when scope is "item"
   label?: string;
 }
 
 // ─── Cart ──────────────────────────────────────────────────────────
-type CartStatus = 'active' | 'held' | 'completed';
+type CartStatus = "active" | "held" | "completed";
 
 interface Cart {
   id: string;
@@ -949,7 +949,7 @@ a descriptive error when called outside `CartProvider`:
 
 ```typescript
 throw new Error(
-  '[CartEngine] useCart must be used within a <CartProvider>. Wrap your component tree with <CartProvider>.'
+  "[CartEngine] useCart must be used within a <CartProvider>. Wrap your component tree with <CartProvider>.",
 );
 ```
 
@@ -993,12 +993,12 @@ Example:
 ```typescript
 // Feature: composable-cart-engine, Property 1: Pricing total invariant
 test.prop([cartArbitrary, configArbitrary], { numRuns: 100 })(
-  'pricing total equals subtotal - discount + tax + service',
+  "pricing total equals subtotal - discount + tax + service",
   (cart, config) => {
     const result = calculate(cart, createPipeline(), config);
     const { subtotal, discount, tax, service, total } = result.pricing;
     expect(total).toBeCloseTo(subtotal - discount + tax + service, 2);
-  }
+  },
 );
 ```
 

@@ -29,6 +29,7 @@
 
 import type { SettingsStoreConfig } from './settings-store-config.type';
 import type { SettingsGroupOverride } from './settings-group-override.interface';
+import type { SettingsSyncConfig } from './settings-sync-config.interface';
 
 // Re-export all types that were previously in this file for backwards compatibility
 export type { BuiltInSettingsDriver, SettingsDriverName } from './settings-driver.type';
@@ -38,6 +39,7 @@ export type { ApiStoreConfig } from './api-store-config.interface';
 export type { MemoryStoreConfig } from './memory-store-config.interface';
 export type { SettingsStoreConfig } from './settings-store-config.type';
 export type { SettingsGroupOverride } from './settings-group-override.interface';
+export type { SettingsSyncConfig } from './settings-sync-config.interface';
 
 /**
  * Root module configuration.
@@ -85,4 +87,26 @@ export interface SettingsModuleOptions {
    * @default 300
    */
   debounceMs?: number;
+
+  /**
+   * Real-time sync configuration.
+   *
+   * When provided, `SettingsModule.forRoot()` registers the
+   * `SettingsSyncService`, `RealtimeStore` driver, and associated
+   * DI tokens for real-time settings synchronization via
+   * `@stackra/ts-realtime`.
+   *
+   * @example
+   * ```ts
+   * SettingsModule.forRoot({
+   *   default: 'local',
+   *   stores: { local: { driver: 'localStorage' } },
+   *   sync: {
+   *     groups: ['theme', 'notifications'],
+   *     storageAdapter: 'localStorage',
+   *   },
+   * })
+   * ```
+   */
+  sync?: SettingsSyncConfig;
 }

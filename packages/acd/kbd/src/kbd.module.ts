@@ -115,7 +115,9 @@ export class KbdModule {
               }
 
               if (options.debug) {
-                console.log(`[KbdModule] Registered ${BUILT_IN_SHORTCUTS.length} built-in shortcuts`);
+                console.log(
+                  `[KbdModule] Registered ${BUILT_IN_SHORTCUTS.length} built-in shortcuts`
+                );
                 console.log(`[KbdModule] Registered ${BUILT_IN_GROUPS.length} built-in groups`);
               }
             }

@@ -1,3 +1,3 @@
-import { baseConfig } from '@nesvel/eslint-config/base';
+import { baseConfig } from "@stackra/eslint-config/base";
 
 export default [...baseConfig];

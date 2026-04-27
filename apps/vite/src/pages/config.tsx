@@ -9,24 +9,24 @@
  *   - Live env var display
  */
 
-import { useInject } from '@stackra/ts-container';
-import { ConfigService } from '@stackra/ts-config';
-import { Card, Chip, Separator } from '@heroui/react';
+import { useInject } from "@stackra/ts-container";
+import { ConfigService } from "@stackra/ts-config";
+import { Card, Chip, Separator } from "@heroui/react";
 
-import { title, subtitle } from '@/components/primitives';
+import { title, subtitle } from "@/components/primitives";
 
 /** A single config entry shown in the UI. */
 interface ConfigEntry {
   key: string;
   value: unknown;
   type: string;
-  source: 'env' | 'default';
+  source: "env" | "default";
 }
 
 /** Derive a display type label from a JS value. */
 function typeLabel(value: unknown): string {
-  if (Array.isArray(value)) return 'array';
-  if (value === null) return 'null';
+  if (Array.isArray(value)) return "array";
+  if (value === null) return "null";
 
   return typeof value;
 }
@@ -36,41 +36,41 @@ export default function ConfigPage() {
 
   const entries: ConfigEntry[] = [
     {
-      key: 'VITE_APP_NAME',
-      value: config.get('VITE_APP_NAME', 'Stackra Vite'),
-      type: 'string',
-      source: config.get('VITE_APP_NAME') ? 'env' : 'default',
+      key: "VITE_APP_NAME",
+      value: config.get("VITE_APP_NAME", "Stackra Vite"),
+      type: "string",
+      source: config.get("VITE_APP_NAME") ? "env" : "default",
     },
     {
-      key: 'VITE_APP_VERSION',
-      value: config.get('VITE_APP_VERSION', '1.0.0'),
-      type: 'string',
-      source: config.get('VITE_APP_VERSION') ? 'env' : 'default',
+      key: "VITE_APP_VERSION",
+      value: config.get("VITE_APP_VERSION", "1.0.0"),
+      type: "string",
+      source: config.get("VITE_APP_VERSION") ? "env" : "default",
     },
     {
-      key: 'VITE_API_URL',
-      value: config.get('VITE_API_URL', 'https://api.example.com'),
-      type: 'string',
-      source: config.get('VITE_API_URL') ? 'env' : 'default',
+      key: "VITE_API_URL",
+      value: config.get("VITE_API_URL", "https://api.example.com"),
+      type: "string",
+      source: config.get("VITE_API_URL") ? "env" : "default",
     },
     {
-      key: 'VITE_DEBUG',
-      value: config.get('VITE_DEBUG', false),
-      type: 'boolean',
-      source: config.get('VITE_DEBUG') !== undefined ? 'env' : 'default',
+      key: "VITE_DEBUG",
+      value: config.get("VITE_DEBUG", false),
+      type: "boolean",
+      source: config.get("VITE_DEBUG") !== undefined ? "env" : "default",
     },
     {
-      key: 'VITE_MAX_RETRIES',
-      value: config.get('VITE_MAX_RETRIES', 3),
-      type: 'number',
-      source: config.get('VITE_MAX_RETRIES') !== undefined ? 'env' : 'default',
+      key: "VITE_MAX_RETRIES",
+      value: config.get("VITE_MAX_RETRIES", 3),
+      type: "number",
+      source: config.get("VITE_MAX_RETRIES") !== undefined ? "env" : "default",
     },
   ];
 
   const featureFlags = [
-    { key: 'VITE_FEATURE_DARK_MODE', label: 'Dark Mode', default: true },
-    { key: 'VITE_FEATURE_ANALYTICS', label: 'Analytics', default: false },
-    { key: 'VITE_FEATURE_BETA', label: 'Beta Features', default: false },
+    { key: "VITE_FEATURE_DARK_MODE", label: "Dark Mode", default: true },
+    { key: "VITE_FEATURE_ANALYTICS", label: "Analytics", default: false },
+    { key: "VITE_FEATURE_BETA", label: "Beta Features", default: false },
   ];
 
   return (
@@ -78,7 +78,7 @@ export default function ConfigPage() {
       {/* Header */}
       <div>
         <h1 className={title()}>Config Package</h1>
-        <p className={subtitle({ class: 'mt-2' })}>
+        <p className={subtitle({ class: "mt-2" })}>
           @stackra/ts-config — environment-aware configuration with typed access
         </p>
       </div>
@@ -105,7 +105,7 @@ export default function ConfigPage() {
                     {typeLabel(entry.value)}
                   </Chip>
                   <Chip
-                    color={entry.source === 'env' ? 'success' : 'warning'}
+                    color={entry.source === "env" ? "success" : "warning"}
                     size="sm"
                     variant="soft"
                   >
@@ -137,11 +137,11 @@ export default function ConfigPage() {
                   className="border-divider flex items-center gap-2 rounded-lg border px-4 py-2"
                 >
                   <span
-                    className={`h-2 w-2 rounded-full ${enabled ? 'bg-success' : 'bg-default-300'}`}
+                    className={`h-2 w-2 rounded-full ${enabled ? "bg-success" : "bg-default-300"}`}
                   />
                   <span className="text-sm">{flag.label}</span>
-                  <Chip color={enabled ? 'success' : 'default'} size="sm" variant="soft">
-                    {enabled ? 'on' : 'off'}
+                  <Chip color={enabled ? "success" : "default"} size="sm" variant="soft">
+                    {enabled ? "on" : "off"}
                   </Chip>
                 </div>
               );

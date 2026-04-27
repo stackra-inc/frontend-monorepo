@@ -22,7 +22,7 @@
  * const lang: LanguageCode = 'zh'; // Chinese
  * ```
  */
-export type LanguageCode = string & { readonly __brand: 'LanguageCode' };
+export type LanguageCode = string & { readonly __brand: "LanguageCode" };
 
 /**
  * Helper function to create a branded LanguageCode type

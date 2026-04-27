@@ -29,7 +29,7 @@
  * ```
  */
 
-import { useI18nContext } from '@/contexts';
+import { useI18nContext } from "@/contexts";
 
 /**
  * Return type for the {@link useLocale} hook.
@@ -126,11 +126,11 @@ export const useLocale = (): UseLocaleReturn => {
     };
   } catch (error) {
     // Return safe defaults when used outside I18nProvider
-    console.warn('[useLocale] Used outside I18nProvider, returning safe defaults');
+    console.warn("[useLocale] Used outside I18nProvider, returning safe defaults");
 
     return {
-      locale: 'en',
-      languages: ['en'],
+      locale: "en",
+      languages: ["en"],
       isRTL: false,
       isLoading: false,
       error: null,

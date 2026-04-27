@@ -1,12 +1,12 @@
 ---
 name: heroui-migration
 description:
-  'HeroUI v2 to v3 migration guide for agents. Use when migrating HeroUI v2 apps
+  "HeroUI v2 to v3 migration guide for agents. Use when migrating HeroUI v2 apps
   to v3, upgrading components, or accessing migration documentation. Keywords:
-  HeroUI migration, v2 to v3, migration guide, upgrade HeroUI.'
+  HeroUI migration, v2 to v3, migration guide, upgrade HeroUI."
 metadata:
   author: heroui
-  version: '2.0.0'
+  version: "2.0.0"
   status: preview
 ---
 

@@ -7,12 +7,12 @@
  * |
  * | Registers:
  * |   - `THEME_CONFIG`          — raw config object
- * |   - `ThemeRegistry`         — the global theme registry singleton
- * |   - `THEME_REGISTRY`        — useValue alias to the same singleton
- * |   - `CustomizerRegistry`    — the global customizer registry singleton
- * |   - `CUSTOMIZER_REGISTRY`   — useValue alias to the same singleton
+ * |   - `ThemeRegistry`         — DI-managed singleton (useClass)
+ * |   - `THEME_REGISTRY`        — useExisting alias
+ * |   - `CustomizerRegistry`    — DI-managed singleton (useClass)
+ * |   - `CUSTOMIZER_REGISTRY`   — useExisting alias
  * |
- * | Follows the same pattern as CacheModule, EventsModule, DesktopModule.
+ * | Follows the same pattern as CacheModule, SettingsModule, DesktopModule.
  * |
  * @example
  * ```typescript
@@ -35,10 +35,16 @@ import { Module, type DynamicModule } from '@stackra/ts-container';
 
 import type { ThemeConfig } from '@/interfaces/theme-config.interface';
 import type { ThemeModuleOptions } from '@/interfaces/theme-module-options.interface';
-import { ThemeRegistry, themeRegistry } from '@/registries/theme.registry';
-import { CustomizerRegistry, customizerRegistry } from '@/registries/customizer.registry';
+import { ThemeRegistry } from '@/registries/theme.registry';
+import { CustomizerRegistry } from '@/registries/customizer.registry';
 import type { CustomizerPanel } from '@/interfaces/customizer-panel.interface';
-import { THEME_CONFIG, THEME_REGISTRY, CUSTOMIZER_REGISTRY } from '@/constants/tokens.constant';
+import {
+  THEME_CONFIG,
+  THEME_REGISTRY,
+  CUSTOMIZER_REGISTRY,
+  THEME_FEATURE_CONFIGS,
+  CUSTOMIZER_FEATURE_PANELS,
+} from '@/constants/tokens.constant';
 import { BUILT_IN_THEMES } from '@/constants/themes.constant';
 
 @Module({})
@@ -49,42 +55,40 @@ export class ThemeModule {
   | forRoot
   |--------------------------------------------------------------------------
   |
-  | Registers the ThemeRegistry and CustomizerRegistry as global DI singletons.
-  | Seeds the ThemeRegistry with built-in themes + any extra themes from config.
+  | Registers the ThemeRegistry and CustomizerRegistry as DI-managed
+  | singletons. Seeds the ThemeRegistry with built-in themes + any
+  | extra themes from config via a factory provider.
   |
   */
   static forRoot(config: ThemeModuleOptions = {}): DynamicModule {
-    /*
-    |--------------------------------------------------------------------------
-    | Register built-in themes (idempotent — skip if already registered).
-    |--------------------------------------------------------------------------
-    */
-    for (const theme of BUILT_IN_THEMES) {
-      if (!themeRegistry.has(theme.id)) {
-        themeRegistry.register(theme.id, theme);
-      }
-    }
-
-    /*
-    |--------------------------------------------------------------------------
-    | Register extra themes from config.
-    |--------------------------------------------------------------------------
-    */
-    if (config.themes) {
-      for (const theme of config.themes) {
-        themeRegistry.register(theme.id, theme);
-      }
-    }
-
     return {
       module: ThemeModule,
       global: true,
       providers: [
         { provide: THEME_CONFIG, useValue: config },
-        { provide: ThemeRegistry, useValue: themeRegistry },
-        { provide: THEME_REGISTRY, useValue: themeRegistry },
-        { provide: CustomizerRegistry, useValue: customizerRegistry },
-        { provide: CUSTOMIZER_REGISTRY, useValue: customizerRegistry },
+        // Registry — DI-managed singletons (no module-level globals)
+        { provide: ThemeRegistry, useClass: ThemeRegistry },
+        { provide: THEME_REGISTRY, useExisting: ThemeRegistry },
+        { provide: CustomizerRegistry, useClass: CustomizerRegistry },
+        { provide: CUSTOMIZER_REGISTRY, useExisting: CustomizerRegistry },
+        // Seed built-in themes + config themes via factory
+        {
+          provide: 'THEME_BUILTIN_INIT',
+          useFactory: (registry: ThemeRegistry) => {
+            for (const theme of BUILT_IN_THEMES) {
+              if (!registry.has(theme.id)) {
+                registry.register(theme.id, theme);
+              }
+            }
+            if (config.themes) {
+              for (const theme of config.themes) {
+                registry.register(theme.id, theme);
+              }
+            }
+            return true;
+          },
+          inject: [ThemeRegistry],
+        },
       ],
       exports: [
         THEME_CONFIG,
@@ -102,14 +106,27 @@ export class ThemeModule {
   |--------------------------------------------------------------------------
   |
   | Register additional themes from a feature module.
-  | Themes are added to the global ThemeRegistry singleton.
+  | Uses a factory provider that injects the DI-managed ThemeRegistry.
   |
   */
   static forFeature(themes: ThemeConfig[]): DynamicModule {
-    for (const theme of themes) {
-      themeRegistry.register(theme.id, theme);
-    }
-    return { module: ThemeModule, providers: [], exports: [] };
+    return {
+      module: ThemeModule,
+      providers: [
+        { provide: THEME_FEATURE_CONFIGS, useValue: themes },
+        {
+          provide: `THEME_FEATURE_INIT_${Date.now()}`,
+          useFactory: (registry: ThemeRegistry, configs: ThemeConfig[]) => {
+            for (const theme of configs) {
+              registry.register(theme.id, theme);
+            }
+            return true;
+          },
+          inject: [ThemeRegistry, THEME_FEATURE_CONFIGS],
+        },
+      ],
+      exports: [],
+    };
   }
 
   /*
@@ -117,12 +134,11 @@ export class ThemeModule {
   | registerTheme
   |--------------------------------------------------------------------------
   |
-  | Register a single custom theme.
+  | Register a single custom theme via a factory provider.
   |
   */
   static registerTheme(theme: ThemeConfig): DynamicModule {
-    themeRegistry.register(theme.id, theme);
-    return { module: ThemeModule, providers: [], exports: [] };
+    return ThemeModule.forFeature([theme]);
   }
 
   /*
@@ -130,12 +146,11 @@ export class ThemeModule {
   | registerCustomizer
   |--------------------------------------------------------------------------
   |
-  | Register a single customizer panel.
+  | Register a single customizer panel via a factory provider.
   |
   */
   static registerCustomizer(panel: CustomizerPanel): DynamicModule {
-    customizerRegistry.register(panel.id, panel);
-    return { module: ThemeModule, providers: [], exports: [] };
+    return ThemeModule.registerCustomizers([panel]);
   }
 
   /*
@@ -143,13 +158,26 @@ export class ThemeModule {
   | registerCustomizers
   |--------------------------------------------------------------------------
   |
-  | Register multiple customizer panels at once.
+  | Register multiple customizer panels via a factory provider.
   |
   */
   static registerCustomizers(panels: CustomizerPanel[]): DynamicModule {
-    for (const panel of panels) {
-      customizerRegistry.register(panel.id, panel);
-    }
-    return { module: ThemeModule, providers: [], exports: [] };
+    return {
+      module: ThemeModule,
+      providers: [
+        { provide: CUSTOMIZER_FEATURE_PANELS, useValue: panels },
+        {
+          provide: `CUSTOMIZER_FEATURE_INIT_${Date.now()}`,
+          useFactory: (registry: CustomizerRegistry, items: CustomizerPanel[]) => {
+            for (const panel of items) {
+              registry.register(panel.id, panel);
+            }
+            return true;
+          },
+          inject: [CustomizerRegistry, CUSTOMIZER_FEATURE_PANELS],
+        },
+      ],
+      exports: [],
+    };
   }
 }

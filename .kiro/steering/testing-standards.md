@@ -25,9 +25,9 @@ Every package MUST have a `vitest.config.ts` with:
 ## Test Structure
 
 ```typescript
-describe('ServiceName', () => {
-  describe('methodName', () => {
-    it('should do X when Y', () => {
+describe("ServiceName", () => {
+  describe("methodName", () => {
+    it("should do X when Y", () => {
       // Arrange
       // Act
       // Assert
@@ -41,8 +41,8 @@ describe('ServiceName', () => {
 The setup file MUST mock `@stackra/ts-container` decorators:
 
 ```typescript
-vi.mock('@stackra/ts-container', async () => {
-  const actual = await vi.importActual('@stackra/ts-container');
+vi.mock("@stackra/ts-container", async () => {
+  const actual = await vi.importActual("@stackra/ts-container");
   return {
     ...actual,
     Injectable: () => (target: any) => target,

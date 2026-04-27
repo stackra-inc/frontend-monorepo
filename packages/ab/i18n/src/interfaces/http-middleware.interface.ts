@@ -8,8 +8,8 @@
  * @module interfaces/http-middleware
  */
 
-import type { HttpContext } from './http-context.interface';
-import type { HttpResponse } from './http-response.interface';
+import type { HttpContext } from "./http-context.interface";
+import type { HttpResponse } from "./http-response.interface";
 
 /**
  * Interface for HTTP middleware classes.

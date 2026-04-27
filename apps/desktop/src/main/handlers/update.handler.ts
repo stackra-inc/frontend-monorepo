@@ -17,7 +17,7 @@
  * @module desktop/main/handlers
  */
 
-import { ipcMain, type BrowserWindow } from 'electron';
+import { ipcMain, type BrowserWindow } from "electron";
 
 /**
  * Attempts to load electron-updater. Returns null if not installed.
@@ -25,9 +25,9 @@ import { ipcMain, type BrowserWindow } from 'electron';
  */
 function loadAutoUpdater(): any {
   try {
-    return require('electron-updater').autoUpdater;
+    return require("electron-updater").autoUpdater;
   } catch {
-    console.warn('[UpdateHandler] electron-updater not installed — auto-update disabled.');
+    console.warn("[UpdateHandler] electron-updater not installed — auto-update disabled.");
     return null;
   }
 }
@@ -37,10 +37,10 @@ export function registerUpdateHandlers(mainWindow: BrowserWindow): void {
 
   if (!autoUpdater) {
     /* Register no-op handlers so IPC calls don't throw. */
-    ipcMain.handle('update:check', async () => null);
-    ipcMain.handle('update:download', async () => {});
-    ipcMain.handle('update:install', async () => {});
-    ipcMain.handle('update:rollback', async () => {});
+    ipcMain.handle("update:check", async () => null);
+    ipcMain.handle("update:download", async () => {});
+    ipcMain.handle("update:install", async () => {});
+    ipcMain.handle("update:rollback", async () => {});
     return;
   }
 
@@ -49,31 +49,31 @@ export function registerUpdateHandlers(mainWindow: BrowserWindow): void {
   | Wire up electron-updater events → renderer via IPC.
   |--------------------------------------------------------------------------
   */
-  autoUpdater.on('checking-for-update', () => {
-    mainWindow.webContents.send('update:event', { type: 'checking' });
+  autoUpdater.on("checking-for-update", () => {
+    mainWindow.webContents.send("update:event", { type: "checking" });
   });
 
-  autoUpdater.on('update-available', (info: any) => {
-    mainWindow.webContents.send('update:event', { type: 'available', version: info.version });
+  autoUpdater.on("update-available", (info: any) => {
+    mainWindow.webContents.send("update:event", { type: "available", version: info.version });
   });
 
-  autoUpdater.on('update-not-available', () => {
-    mainWindow.webContents.send('update:event', { type: 'not-available' });
+  autoUpdater.on("update-not-available", () => {
+    mainWindow.webContents.send("update:event", { type: "not-available" });
   });
 
-  autoUpdater.on('download-progress', (progress: any) => {
-    mainWindow.webContents.send('update:event', {
-      type: 'downloading',
+  autoUpdater.on("download-progress", (progress: any) => {
+    mainWindow.webContents.send("update:event", {
+      type: "downloading",
       progress: progress.percent,
     });
   });
 
-  autoUpdater.on('update-downloaded', (info: any) => {
-    mainWindow.webContents.send('update:event', { type: 'downloaded', version: info.version });
+  autoUpdater.on("update-downloaded", (info: any) => {
+    mainWindow.webContents.send("update:event", { type: "downloaded", version: info.version });
   });
 
-  autoUpdater.on('error', (err: Error) => {
-    mainWindow.webContents.send('update:event', { type: 'error', error: err.message });
+  autoUpdater.on("error", (err: Error) => {
+    mainWindow.webContents.send("update:event", { type: "error", error: err.message });
   });
 
   /*
@@ -81,7 +81,7 @@ export function registerUpdateHandlers(mainWindow: BrowserWindow): void {
   | IPC Handlers
   |--------------------------------------------------------------------------
   */
-  ipcMain.handle('update:check', async () => {
+  ipcMain.handle("update:check", async () => {
     try {
       const result = await autoUpdater.checkForUpdates();
       if (result?.updateInfo) {
@@ -93,20 +93,20 @@ export function registerUpdateHandlers(mainWindow: BrowserWindow): void {
       }
       return null;
     } catch (err: any) {
-      console.error('[UpdateHandler] Check failed:', err.message);
+      console.error("[UpdateHandler] Check failed:", err.message);
       return null;
     }
   });
 
-  ipcMain.handle('update:download', async () => {
+  ipcMain.handle("update:download", async () => {
     await autoUpdater.downloadUpdate();
   });
 
-  ipcMain.handle('update:install', async () => {
+  ipcMain.handle("update:install", async () => {
     autoUpdater.quitAndInstall(false, true);
   });
 
-  ipcMain.handle('update:rollback', async () => {
-    console.warn('[UpdateHandler] Rollback not natively supported by electron-updater.');
+  ipcMain.handle("update:rollback", async () => {
+    console.warn("[UpdateHandler] Rollback not natively supported by electron-updater.");
   });
 }

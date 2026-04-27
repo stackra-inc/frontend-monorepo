@@ -20,11 +20,11 @@ fallback logging for pre-initialization use.
     - Refactor constructor to accept `LoggerConfig | string | undefined`
     - _Requirements: 1.1, 1.2, 1.3, 1.4, 2.1, 2.3, 2.4_
 
-  - [ ]\* 1.2 Write property test for constructor mode selection
+  - [ ] 1.2 Write property test for constructor mode selection
     - **Property 1: Constructor mode selection**
     - **Validates: Requirements 1.1, 1.2, 1.3**
 
-  - [ ]\* 1.3 Write property test for overrideLogger
+  - [ ] 1.3 Write property test for overrideLogger
     - **Property 2: overrideLogger sets static reference**
     - **Validates: Requirements 2.3, 2.4**
 
@@ -37,11 +37,11 @@ fallback logging for pre-initialization use.
     - In config mode: keep existing `dispatch()` behavior unchanged
     - _Requirements: 3.1, 3.2, 3.3, 3.4, 4.1, 4.2_
 
-  - [ ]\* 2.2 Write property test for facade delegation with context merging
+  - [ ] 2.2 Write property test for facade delegation with context merging
     - **Property 3: Facade delegation with context merging**
     - **Validates: Requirements 3.1, 3.2**
 
-  - [ ]\* 2.3 Write property test for config-mode isolation
+  - [ ] 2.3 Write property test for config-mode isolation
     - **Property 6: Config-mode isolation**
     - **Validates: Requirements 6.1, 6.2**
 
@@ -58,15 +58,15 @@ fallback logging for pre-initialization use.
     - Config-mode behavior for all methods remains unchanged
     - _Requirements: 5.1, 5.2, 5.3, 6.3, 8.1, 8.2, 8.3_
 
-  - [ ]\* 3.2 Write property test for withContext accumulation
+  - [ ] 3.2 Write property test for withContext accumulation
     - **Property 4: Facade withContext accumulation**
     - **Validates: Requirements 5.1**
 
-  - [ ]\* 3.3 Write property test for withoutContext removal
+  - [ ] 3.3 Write property test for withoutContext removal
     - **Property 5: Facade withoutContext removal**
     - **Validates: Requirements 5.2, 5.3**
 
-  - [ ]\* 3.4 Write property test for facade accessor delegation
+  - [ ] 3.4 Write property test for facade accessor delegation
     - **Property 7: Facade accessor delegation**
     - **Validates: Requirements 8.1, 8.3**
 
@@ -80,7 +80,7 @@ fallback logging for pre-initialization use.
     - Ensure the factory runs during DI resolution (before `onModuleInit`)
     - _Requirements: 2.2, 7.1, 7.2_
 
-  - [ ]\* 5.2 Write unit tests for module bootstrap integration
+  - [ ] 5.2 Write unit tests for module bootstrap integration
     - Test that `forRoot()` returns a provider that sets `staticManagerRef`
     - _Requirements: 2.2, 7.1, 7.2_
 

@@ -7,18 +7,18 @@
  * @module @stackra/react-auth
  */
 
-import 'reflect-metadata';
+import "reflect-metadata";
 
-export { AuthModule } from './auth.module';
-export type { AuthModuleOptions } from './auth.module';
+export { AuthModule } from "./auth.module";
+export type { AuthModuleOptions } from "./auth.module";
 
-export * from './hooks';
-export * from './services';
-export * from './interfaces';
-export * from './enums';
-export * from './constants';
+export * from "./hooks";
+export * from "./services";
+export * from "./interfaces";
+export * from "./enums";
+export * from "./constants";
 
 // ============================================================================
 // Facades
 // ============================================================================
-export { AuthFacade } from './facades';
+export { AuthFacade } from "./facades";

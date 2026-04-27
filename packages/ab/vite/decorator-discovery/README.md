@@ -42,14 +42,14 @@ pnpm add -D @stackra/vite-decorator-discovery
 
 ```typescript
 // vite.config.ts
-import { defineConfig } from 'vite';
-import { decoratorDiscoveryPlugin } from '@stackra/vite-decorator-discovery';
+import { defineConfig } from "vite";
+import { decoratorDiscoveryPlugin } from "@stackra/vite-decorator-discovery";
 
 export default defineConfig({
   plugins: [
     decoratorDiscoveryPlugin({
       debug: true,
-      customDecorators: ['MyCustomDecorator'],
+      customDecorators: ["MyCustomDecorator"],
     }),
   ],
 });
@@ -81,45 +81,45 @@ Or add to your `tsconfig.json`:
 import {
   MODULE_REGISTRY,
   getAllModules,
-} from 'virtual:decorator-registry/modules';
+} from "virtual:decorator-registry/modules";
 import {
   PROVIDER_REGISTRY,
   getAllProviders,
-} from 'virtual:decorator-registry/providers';
+} from "virtual:decorator-registry/providers";
 import {
   SUBSCRIBER_REGISTRY,
   getAllSubscribers,
-} from 'virtual:decorator-registry/subscribers';
+} from "virtual:decorator-registry/subscribers";
 
 // Or import the combined registry
 import {
   DECORATOR_REGISTRY,
   getAllDecorators,
-} from 'virtual:decorator-registry/all';
+} from "virtual:decorator-registry/all";
 
 // Use the registries
-console.log('All modules:', getAllModules());
-console.log('All providers:', getAllProviders());
-console.log('All subscribers:', getAllSubscribers());
+console.log("All modules:", getAllModules());
+console.log("All providers:", getAllProviders());
+console.log("All subscribers:", getAllSubscribers());
 ```
 
 ### 4. Update container to use registry
 
 ```typescript
 // packages/abcd/container/src/injector/scanner.ts
-import { MODULE_REGISTRY } from 'virtual:decorator-registry/modules';
+import { MODULE_REGISTRY } from "virtual:decorator-registry/modules";
 
 export class DependenciesScanner {
   public async scan(rootModule: Type<any>): Promise<void> {
     // Read from compiled registry instead of reflect-metadata
     const moduleMetadata = MODULE_REGISTRY.find(
-      (m) => m.className === rootModule.name
+      (m) => m.className === rootModule.name,
     );
 
     if (!moduleMetadata) {
       throw new Error(
         `Module ${rootModule.name} not found in registry. ` +
-          `Make sure the decorator discovery plugin is enabled.`
+          `Make sure the decorator discovery plugin is enabled.`,
       );
     }
 
@@ -147,7 +147,7 @@ export interface ModuleMetadata {
 
 export const MODULE_REGISTRY: ModuleMetadata[];
 export function getModuleByClassName(
-  className: string
+  className: string,
 ): ModuleMetadata | undefined;
 export function getAllModules(): ModuleMetadata[];
 ```
@@ -166,7 +166,7 @@ export interface ProviderMetadata {
 
 export const PROVIDER_REGISTRY: ProviderMetadata[];
 export function getProviderByClassName(
-  className: string
+  className: string,
 ): ProviderMetadata | undefined;
 export function getAllProviders(): ProviderMetadata[];
 ```
@@ -186,7 +186,7 @@ export interface SubscriberMetadata {
 
 export const SUBSCRIBER_REGISTRY: SubscriberMetadata[];
 export function getSubscribersByClassName(
-  className: string
+  className: string,
 ): SubscriberMetadata[];
 export function getSubscribersByTopic(topic: string): SubscriberMetadata[];
 export function getAllSubscribers(): SubscriberMetadata[];
@@ -249,16 +249,16 @@ option:
 
 ```typescript
 decoratorDiscoveryPlugin({
-  customDecorators: ['MyDecorator', 'AnotherDecorator'],
+  customDecorators: ["MyDecorator", "AnotherDecorator"],
 });
 ```
 
 Custom decorators will be added to the `custom` map in the registry:
 
 ```typescript
-import { DECORATOR_REGISTRY } from 'virtual:decorator-registry/all';
+import { DECORATOR_REGISTRY } from "virtual:decorator-registry/all";
 
-const myDecorators = DECORATOR_REGISTRY.custom.get('MyDecorator');
+const myDecorators = DECORATOR_REGISTRY.custom.get("MyDecorator");
 ```
 
 ## How It Works

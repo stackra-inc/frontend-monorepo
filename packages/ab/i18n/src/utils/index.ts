@@ -38,18 +38,18 @@ export {
   isGlobalI18nSetup,
   setupGlobalI18n,
   teardownGlobalI18n,
-} from './global-setup.util';
+} from "./global-setup.util";
 
 // ── Build-time utilities (Vite plugin) ─────────────────────────────────────
 
-export { validateConfig } from './validate-config.util';
-export { mergeDeep, deepClone } from './merge-deep.util';
-export { scanTranslationFiles } from './file-scanner.util';
-export { buildI18nextConfig } from './config-builder.util';
-export { generateTypeDefinitions } from './type-generator.util';
-export { resolvePath, normalizePaths } from './resolve-paths.util';
-export { generateVirtualModule } from './virtual-module-generator.util';
+export { validateConfig } from "./validate-config.util";
+export { mergeDeep, deepClone } from "./merge-deep.util";
+export { scanTranslationFiles } from "./file-scanner.util";
+export { buildI18nextConfig } from "./config-builder.util";
+export { generateTypeDefinitions } from "./type-generator.util";
+export { resolvePath, normalizePaths } from "./resolve-paths.util";
+export { generateVirtualModule } from "./virtual-module-generator.util";
 
 // ── Locale resolver chain ──────────────────────────────────────────────────
 
-export { createLocaleResolverChain } from './create-locale-resolver-chain.util';
+export { createLocaleResolverChain } from "./create-locale-resolver-chain.util";

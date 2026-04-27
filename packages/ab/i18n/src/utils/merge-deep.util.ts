@@ -36,10 +36,10 @@ export function mergeDeep<T extends Record<string, any>>(target: T, source: Part
 
       if (
         sourceValue !== null &&
-        typeof sourceValue === 'object' &&
+        typeof sourceValue === "object" &&
         !Array.isArray(sourceValue) &&
         targetValue !== null &&
-        typeof targetValue === 'object' &&
+        typeof targetValue === "object" &&
         !Array.isArray(targetValue)
       ) {
         mergeDeep(targetValue, sourceValue);

@@ -58,11 +58,11 @@
     "release": "pnpm publish --access public --no-git-checks"
   },
   "peerDependencies": {
-    "@heroui/react": "^3.0.0",
-    "@refinedev/core": "^5.0.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "@stackra/ts-container": "^2.0.4",
+    "@heroui/react": "^3.0.3",
+    "@refinedev/core": "^5.0.12",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
+    "@stackra/ts-container": "^2.0.10",
     "@stackra/ts-cache": "^1.0.0"
   },
   "peerDependenciesMeta": {
@@ -77,25 +77,25 @@
     }
   },
   "devDependencies": {
-    "@heroui/react": "^3.0.1",
-    "@nesvel/eslint-config": "^1.0.5",
-    "@nesvel/prettier-config": "^1.0.3",
-    "@nesvel/tsup-config": "^1.0.3",
-    "@nesvel/typescript-config": "^1.0.4",
+    "@heroui/react": "^3.0.3",
+    "@stackra/eslint-config": "^1.0.6",
+    "@stackra/prettier-config": "^1.0.4",
+    "@stackra/tsup-config": "^1.0.4",
+    "@stackra/typescript-config": "^1.0.5",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
-    "@vitest/ui": "^4.1.2",
-    "jsdom": "^29.0.1",
-    "prettier": "^3.8.1",
-    "react": "^19.2.4",
-    "react-dom": "^19.2.4",
+    "@vitest/ui": "^4.1.5",
+    "jsdom": "^29.1.0",
+    "prettier": "^3.8.3",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
     "tsup": "^8.5.1",
-    "typescript": "^6.0.2",
-    "vitest": "^4.1.2",
-    "eslint": "10.2.0",
-    "typescript-eslint": "^8.58.0"
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.5",
+    "eslint": "10.2.1",
+    "typescript-eslint": "^8.59.0"
   },
   "publishConfig": {
     "access": "public"
@@ -107,6 +107,6 @@
   },
   "packageManager": "pnpm@10.33.0",
   "dependencies": {
-    "@stackra/ts-support": "workspace:*"
+    "@stackra/ts-support": "^2.5.7"
   }
 }

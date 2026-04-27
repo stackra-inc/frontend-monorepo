@@ -397,7 +397,7 @@ existing toolchain and CI/CD pipeline.
 3. THE package SHALL list `@stackra/ts-container-react` as a peer dependency for
    the React hook bindings.
 4. THE package SHALL use tsup for building with the standard `basePreset` from
-   `@nesvel/tsup-config`.
+   `@stackra/tsup-config`.
 5. THE package SHALL use vitest for testing.
 6. THE package SHALL follow the standard folder structure: `src/services/`,
    `src/hooks/`, `src/facades/`, `src/interfaces/`, `src/constants/`,

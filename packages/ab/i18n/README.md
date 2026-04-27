@@ -70,17 +70,17 @@ I18nModule.forRoot(config)
 ## Module Setup
 
 ```typescript
-import { Module } from '@stackra/ts-container';
-import { I18nModule } from '@stackra/react-i18n';
+import { Module } from "@stackra/ts-container";
+import { I18nModule } from "@stackra/react-i18n";
 
 @Module({
   imports: [
     I18nModule.forRoot({
-      defaultLanguage: 'en',
-      languages: ['en', 'ar', 'es'],
-      resolvers: ['url-path', 'storage', 'navigator'],
-      storageKey: 'i18nextLng',
-      queryParam: 'lang',
+      defaultLanguage: "en",
+      languages: ["en", "ar", "es"],
+      resolvers: ["url-path", "storage", "navigator"],
+      storageKey: "i18nextLng",
+      queryParam: "lang",
     }),
   ],
 })
@@ -92,8 +92,8 @@ export class AppModule {}
 ## React Provider Setup
 
 ```tsx
-import { ContainerProvider } from '@stackra/ts-container';
-import { I18nProvider } from '@stackra/react-i18n';
+import { ContainerProvider } from "@stackra/ts-container";
+import { I18nProvider } from "@stackra/react-i18n";
 
 // I18nProvider uses useInject(I18N_SERVICE) internally —
 // just nest it inside ContainerProvider, no manual wiring needed.
@@ -114,29 +114,29 @@ const App = () => (
 ### useTranslation
 
 ```tsx
-import { useTranslation } from '@stackra/react-i18n';
+import { useTranslation } from "@stackra/react-i18n";
 
 const Greeting = () => {
   const { t } = useTranslation();
-  return <h1>{t('greeting', { name: 'John' })}</h1>;
+  return <h1>{t("greeting", { name: "John" })}</h1>;
 };
 ```
 
 ### useLocale
 
 ```tsx
-import { useLocale } from '@stackra/react-i18n';
+import { useLocale } from "@stackra/react-i18n";
 
 const LanguageInfo = () => {
   const { locale, languages, isRTL } = useLocale();
-  return <div dir={isRTL ? 'rtl' : 'ltr'}>Current: {locale}</div>;
+  return <div dir={isRTL ? "rtl" : "ltr"}>Current: {locale}</div>;
 };
 ```
 
 ### useChangeLocale
 
 ```tsx
-import { useLocale, useChangeLocale } from '@stackra/react-i18n';
+import { useLocale, useChangeLocale } from "@stackra/react-i18n";
 
 const LanguageSwitcher = () => {
   const { locale, languages } = useLocale();
@@ -163,9 +163,9 @@ const LanguageSwitcher = () => {
 ## Injecting the Service
 
 ```typescript
-import { Injectable, Inject } from '@stackra/ts-container';
-import { I18N_SERVICE } from '@stackra/react-i18n';
-import type { II18nService } from '@stackra/react-i18n';
+import { Injectable, Inject } from "@stackra/ts-container";
+import { I18N_SERVICE } from "@stackra/react-i18n";
+import type { II18nService } from "@stackra/react-i18n";
 
 @Injectable()
 class NotificationService {
@@ -195,11 +195,11 @@ priority order (lower = higher priority). The first to return a value wins.
 ### Custom Resolvers
 
 ```typescript
-import type { ILocaleResolver } from '@stackra/react-i18n';
-import { LocaleResolverPriority } from '@stackra/react-i18n';
+import type { ILocaleResolver } from "@stackra/react-i18n";
+import { LocaleResolverPriority } from "@stackra/react-i18n";
 
 class JwtLocaleResolver implements ILocaleResolver {
-  name = 'jwt';
+  name = "jwt";
   priority = LocaleResolverPriority.HIGHEST;
 
   resolve(): string | undefined {
@@ -210,7 +210,7 @@ class JwtLocaleResolver implements ILocaleResolver {
 
 // Register in module config
 I18nModule.forRoot({
-  resolvers: ['jwt', 'url-path', 'storage', 'navigator'],
+  resolvers: ["jwt", "url-path", "storage", "navigator"],
   customResolvers: { jwt: new JwtLocaleResolver() },
 });
 ```
@@ -235,14 +235,14 @@ Registered automatically by `I18nModule.forRoot()`. Uses
 For build-time translation scanning (separate from the DI system):
 
 ```typescript
-import { defineConfig } from 'vite';
-import { i18nPlugin } from '@stackra/react-i18n';
+import { defineConfig } from "vite";
+import { i18nPlugin } from "@stackra/react-i18n";
 
 export default defineConfig({
   plugins: [
     i18nPlugin({
-      defaultLanguage: 'en',
-      languages: ['en', 'ar', 'es'],
+      defaultLanguage: "en",
+      languages: ["en", "ar", "es"],
       typeGeneration: true,
     }),
   ],

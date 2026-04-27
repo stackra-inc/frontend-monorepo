@@ -41,8 +41,7 @@ implementations.
     - Clean up `requestAnimationFrame` on unmount
     - _Requirements: 1.1, 1.2, 1.3, 1.4_
 
-  - [ ]\* 2.2 Write property test for SubViewNavigator inline transition
-    direction
+  - [ ] 2.2 Write property test for SubViewNavigator inline transition direction
     - **Property 1: SubViewNavigator inline transition direction**
     - Use fast-check to generate arbitrary sequences of goTo/goBack operations
     - Assert forward transitions use positive translateX offset, back
@@ -60,7 +59,7 @@ implementations.
     - Cancel any pending `requestAnimationFrame` in cleanup
     - _Requirements: 2.1, 2.2, 2.3_
 
-  - [ ]\* 3.2 Write property test for focus trap round-trip restoration
+  - [ ] 3.2 Write property test for focus trap round-trip restoration
     - **Property 2: Focus trap round-trip restoration**
     - Use fast-check to generate arbitrary focusable elements and
       activation/deactivation sequences
@@ -109,7 +108,7 @@ implementations.
     - Pass `handleDismiss` as the `onDismiss` prop to DesktopPanel
     - _Requirements: 3.1, 3.2_
 
-  - [ ]\* 5.5 Write property test for drag dismiss respects onBeforeClose guard
+  - [ ] 5.5 Write property test for drag dismiss respects onBeforeClose guard
     - **Property 3: Drag dismiss respects onBeforeClose guard**
     - Use fast-check to generate arbitrary guard return values (true/false)
     - Assert panel snaps back when guard returns false, never reaches
@@ -129,7 +128,7 @@ implementations.
       original styles
     - _Requirements: 4.1, 4.2, 4.3, 4.4_
 
-  - [ ]\* 6.2 Write property test for scroll lock round-trip
+  - [ ] 6.2 Write property test for scroll lock round-trip
     - **Property 4: Scroll lock round-trip**
     - Use fast-check to generate arbitrary sequences of lock/unlock operations
       across multiple instances
@@ -159,7 +158,7 @@ implementations.
       `defaultPrevented` is true
     - _Requirements: 7.1, 7.2, 7.3_
 
-  - [ ]\* 7.3 Write property test for Escape key respects defaultPrevented
+  - [ ] 7.3 Write property test for Escape key respects defaultPrevented
     - **Property 5: Escape key respects defaultPrevented**
     - Use fast-check to generate arbitrary `defaultPrevented` states
       (true/false)
@@ -169,7 +168,7 @@ implementations.
       false
     - **Validates: Requirements 7.1, 7.2**
 
-  - [ ]\* 7.4 Write unit tests for defensive wrapper access
+  - [ ] 7.4 Write unit tests for defensive wrapper access
     - Test MobilePanel does not throw when `data-drawer-wrapper` is missing
     - Test DrawerContainer does not throw when `data-drawer-wrapper` is missing
       on mobile

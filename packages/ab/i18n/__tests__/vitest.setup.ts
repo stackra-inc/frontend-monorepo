@@ -17,7 +17,7 @@
  * @category Configuration
  */
 
-import { vi } from 'vitest';
+import { vi } from "vitest";
 
 /**
  * Mock @stackra/ts-container decorators.
@@ -31,9 +31,9 @@ import { vi } from 'vitest';
  * This ensures decorator metadata doesn't interfere with tests
  * and allows testing module behavior in isolation.
  */
-vi.mock('@stackra/ts-container', async () => {
+vi.mock("@stackra/ts-container", async () => {
   // Import the actual module to preserve non-decorator exports
-  const actual = await vi.importActual('@stackra/ts-container');
+  const actual = await vi.importActual("@stackra/ts-container");
 
   return {
     ...actual,

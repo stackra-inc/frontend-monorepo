@@ -151,7 +151,7 @@ export type I18nextOptions = {
   /**
    * Language detection order
    */
-  load?: 'all' | 'currentOnly' | 'languageOnly';
+  load?: "all" | "currentOnly" | "languageOnly";
 
   /**
    * Key separator for nested keys

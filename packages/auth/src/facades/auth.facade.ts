@@ -54,10 +54,10 @@
  * @see {@link Facade} — the base class providing `make()`
  */
 
-import { Facade } from '@stackra/ts-support';
+import { Facade } from "@stackra/ts-support";
 
-import { AUTH_SERVICE } from '@/constants/tokens.constant';
-import type { IAuthService } from '@/interfaces/auth-service.interface';
+import { AUTH_SERVICE } from "@/constants/tokens.constant";
+import type { IAuthService } from "@/interfaces/auth-service.interface";
 
 /**
  * AuthFacade — typed proxy for {@link AuthService}.

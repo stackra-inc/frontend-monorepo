@@ -26,11 +26,11 @@
     "@stackra/ts-desktop": "workspace:*"
   },
   "devDependencies": {
-    "electron": "^35.0.0",
-    "electron-builder": "^26.0.0",
-    "concurrently": "^9.1.0",
-    "wait-on": "^8.0.0",
-    "typescript": "^5.6.0"
+    "electron": "^41.3.0",
+    "electron-builder": "^26.8.1",
+    "concurrently": "^9.2.1",
+    "wait-on": "^9.0.5",
+    "typescript": "^6.0.3"
   },
-  "packageManager": "pnpm@10.33.0"
+  "packageManager": "pnpm@10.33.2"
 }

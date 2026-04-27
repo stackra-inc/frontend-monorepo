@@ -46,7 +46,7 @@ export const DEFAULT_PLUGIN_OPTIONS: Required<ViteConfigPluginOptions> = {
   globalName: '__APP_CONFIG__',
 
   /** Enabled in non-production environments. */
-  enableHMR: import.meta.env.NODE_ENV !== 'production',
+  enableHMR: process.env.NODE_ENV !== 'production',
 
   /** @default false */
   debug: false,

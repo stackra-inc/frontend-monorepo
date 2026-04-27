@@ -7,5 +7,5 @@
  * @module services
  */
 
-export { I18nextService } from './i18next.service';
-export { I18nService } from './i18n.service';
+export { I18nextService } from "./i18next.service";
+export { I18nService } from "./i18n.service";

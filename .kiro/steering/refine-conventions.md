@@ -249,8 +249,8 @@ Each directory should have an `index.ts` that re-exports its contents:
 
 ```typescript
 // hooks/use-tenant/index.ts
-export { useTenant } from './use-tenant';
-export type { UseTenantReturn } from './use-tenant';
+export { useTenant } from "./use-tenant";
+export type { UseTenantReturn } from "./use-tenant";
 ```
 
 ### Barrel Exports
@@ -259,9 +259,9 @@ Top-level directories should have barrel exports:
 
 ```typescript
 // interfaces/index.ts
-export type { MultiTenancyProvider } from './multi-tenancy-provider.interface';
-export type { TenantResolver } from './tenant-resolver.interface';
-export type { TenantConfig } from './tenant-config.interface';
+export type { MultiTenancyProvider } from "./multi-tenancy-provider.interface";
+export type { TenantResolver } from "./tenant-resolver.interface";
+export type { TenantConfig } from "./tenant-config.interface";
 ```
 
 ## Naming Conventions
@@ -409,7 +409,7 @@ export {
   NotificationProvider,
   notificationProvider,
   useNotificationProvider,
-} from './notification-provider.provider';
+} from "./notification-provider.provider";
 ```
 
 ## Multi-Tenancy Specific Patterns
@@ -457,15 +457,15 @@ Use JSON configs for tenant configuration:
 ### Test Structure
 
 ```typescript
-describe('useTenant', () => {
-  describe('when tenant is loaded', () => {
-    it('should return current tenant', () => {
+describe("useTenant", () => {
+  describe("when tenant is loaded", () => {
+    it("should return current tenant", () => {
       // test
     });
   });
 
-  describe('when tenant is not loaded', () => {
-    it('should return undefined', () => {
+  describe("when tenant is not loaded", () => {
+    it("should return undefined", () => {
       // test
     });
   });

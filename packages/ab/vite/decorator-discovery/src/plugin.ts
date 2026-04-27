@@ -22,11 +22,11 @@
  * @module vite/decorator-discovery
  */
 
-import type { Plugin } from 'vite';
-import { glob } from 'glob';
-import * as ts from 'typescript';
-import * as fs from 'fs';
-import * as path from 'path';
+import type { Plugin } from "vite";
+import { glob } from "glob";
+import * as ts from "typescript";
+import * as fs from "fs";
+import * as path from "path";
 
 // ============================================================================
 // Types
@@ -80,7 +80,7 @@ export interface DecoratorDiscoveryOptions {
 // Virtual Module IDs
 // ============================================================================
 
-const VIRTUAL_MODULE_PREFIX = 'virtual:decorator-registry';
+const VIRTUAL_MODULE_PREFIX = "virtual:decorator-registry";
 const VIRTUAL_MODULES = {
   modules: `${VIRTUAL_MODULE_PREFIX}/modules`,
   providers: `${VIRTUAL_MODULE_PREFIX}/providers`,
@@ -163,10 +163,10 @@ export class DecoratorScanner {
    * Scan a single TypeScript file for decorators.
    */
   private async scanFile(filePath: string): Promise<void> {
-    const content = fs.readFileSync(filePath, 'utf-8');
+    const content = fs.readFileSync(filePath, "utf-8");
 
     // Quick check: skip files without decorators
-    if (!content.includes('@')) {
+    if (!content.includes("@")) {
       return;
     }
 
@@ -197,7 +197,7 @@ export class DecoratorScanner {
       return;
     }
 
-    const className = node.name?.text ?? 'AnonymousClass';
+    const className = node.name?.text ?? "AnonymousClass";
 
     for (const decorator of decorators) {
       const metadata = this.extractDecoratorMetadata(decorator, className, filePath);
@@ -212,7 +212,7 @@ export class DecoratorScanner {
    * Scan method-level decorators.
    */
   private scanMethodDecorators(classNode: ts.ClassDeclaration, filePath: string): void {
-    const className = classNode.name?.text ?? 'AnonymousClass';
+    const className = classNode.name?.text ?? "AnonymousClass";
 
     for (const member of classNode.members) {
       if (!ts.isMethodDeclaration(member)) {
@@ -225,7 +225,7 @@ export class DecoratorScanner {
         continue;
       }
 
-      const methodName = member.name?.getText() ?? 'anonymousMethod';
+      const methodName = member.name?.getText() ?? "anonymousMethod";
 
       for (const decorator of decorators) {
         const metadata = this.extractDecoratorMetadata(decorator, className, filePath, methodName);
@@ -244,7 +244,7 @@ export class DecoratorScanner {
     decorator: ts.Decorator,
     className: string,
     filePath: string,
-    methodName?: string
+    methodName?: string,
   ): DecoratorMetadata | null {
     const expression = decorator.expression;
 
@@ -264,13 +264,13 @@ export class DecoratorScanner {
 
     // Filter: only track known decorators
     const knownDecorators = [
-      'Module',
-      'Injectable',
-      'Subscribe',
-      'AsSubscriber',
-      'Global',
-      'Inject',
-      'Optional',
+      "Module",
+      "Injectable",
+      "Subscribe",
+      "AsSubscriber",
+      "Global",
+      "Inject",
+      "Optional",
       ...this.options.customDecorators,
     ];
 
@@ -370,14 +370,14 @@ export class DecoratorScanner {
    */
   private addToRegistry(metadata: DecoratorMetadata): void {
     switch (metadata.name) {
-      case 'Module':
+      case "Module":
         this.registry.modules.push(metadata);
         break;
-      case 'Injectable':
+      case "Injectable":
         this.registry.providers.push(metadata);
         break;
-      case 'Subscribe':
-      case 'AsSubscriber':
+      case "Subscribe":
+      case "AsSubscriber":
         this.registry.subscribers.push(metadata);
         break;
       default:
@@ -573,19 +573,19 @@ export function decoratorDiscoveryPlugin(options: DecoratorDiscoveryOptions = {}
   const resolvedOptions: Required<DecoratorDiscoveryOptions> = {
     root: options.root ?? process.cwd(),
     include: options.include ?? [
-      'packages/*src/**/*.ts',
-      'packages/*src/**/*.tsx',
-      'apps/*src/**/*.ts',
-      'apps/*src/**/*.tsx',
+      "packages/*src/**/*.ts",
+      "packages/*src/**/*.tsx",
+      "apps/*src/**/*.ts",
+      "apps/*src/**/*.tsx",
     ],
     exclude: options.exclude ?? [
-      '**/*.spec.ts',
-      '**/*.spec.tsx',
-      '**/*.test.ts',
-      '**/*.test.tsx',
-      '**/node_modules/**',
-      '**/dist/**',
-      '**/.next/**',
+      "**/*.spec.ts",
+      "**/*.spec.tsx",
+      "**/*.test.ts",
+      "**/*.test.tsx",
+      "**/node_modules/**",
+      "**/dist/**",
+      "**/.next/**",
     ],
     debug: options.debug ?? false,
     customDecorators: options.customDecorators ?? [],
@@ -603,17 +603,17 @@ export function decoratorDiscoveryPlugin(options: DecoratorDiscoveryOptions = {}
   }
 
   return {
-    name: 'vite-plugin-decorator-discovery',
+    name: "vite-plugin-decorator-discovery",
 
     async buildStart() {
-      console.log('🔍 [DecoratorDiscovery] Scanning decorators...');
+      console.log("🔍 [DecoratorDiscovery] Scanning decorators...");
       await scanDecorators();
-      console.log('✓ [DecoratorDiscovery] Registry generated');
+      console.log("✓ [DecoratorDiscovery] Registry generated");
     },
 
     resolveId(id) {
       if (id.startsWith(VIRTUAL_MODULE_PREFIX)) {
-        return '\0' + id; // Vite convention: prefix with \0 for virtual modules
+        return "\0" + id; // Vite convention: prefix with \0 for virtual modules
       }
       return null;
     },
@@ -624,7 +624,7 @@ export function decoratorDiscoveryPlugin(options: DecoratorDiscoveryOptions = {}
       }
 
       // Remove \0 prefix
-      const cleanId = id.startsWith('\0') ? id.slice(1) : id;
+      const cleanId = id.startsWith("\0") ? id.slice(1) : id;
 
       switch (cleanId) {
         case VIRTUAL_MODULES.modules:
@@ -646,12 +646,12 @@ export function decoratorDiscoveryPlugin(options: DecoratorDiscoveryOptions = {}
 
     async handleHotUpdate({ file, server }) {
       // Only regenerate if a TypeScript file with decorators changed
-      if (!file.endsWith('.ts') && !file.endsWith('.tsx')) {
+      if (!file.endsWith(".ts") && !file.endsWith(".tsx")) {
         return;
       }
 
-      const content = fs.readFileSync(file, 'utf-8');
-      if (!content.includes('@')) {
+      const content = fs.readFileSync(file, "utf-8");
+      if (!content.includes("@")) {
         return;
       }
 
@@ -663,7 +663,7 @@ export function decoratorDiscoveryPlugin(options: DecoratorDiscoveryOptions = {}
       await scanDecorators();
 
       // Invalidate all virtual modules
-      const virtualModules = Object.values(VIRTUAL_MODULES).map((id) => '\0' + id);
+      const virtualModules = Object.values(VIRTUAL_MODULES).map((id) => "\0" + id);
 
       for (const moduleId of virtualModules) {
         const module = server.moduleGraph.getModuleById(moduleId);
@@ -674,8 +674,8 @@ export function decoratorDiscoveryPlugin(options: DecoratorDiscoveryOptions = {}
 
       // Trigger HMR
       server.ws.send({
-        type: 'full-reload',
-        path: '*',
+        type: "full-reload",
+        path: "*",
       });
     },
   };

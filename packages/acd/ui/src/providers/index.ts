@@ -13,3 +13,7 @@ export type { CommandDockProviderProps } from './command-dock';
 
 // ─── Progress ──────────────────────────────────────────────────────
 export { ProgressProvider } from './progress';
+
+// ─── Web Theme ─────────────────────────────────────────────────────
+export { WebThemeProvider } from './web-theme';
+export type { WebThemeProviderProps } from './web-theme';

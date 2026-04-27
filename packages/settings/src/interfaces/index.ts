@@ -27,3 +27,7 @@ export type { SettingFieldSchema } from './setting-field-schema.interface';
 export type { SettingSubGroupSchema } from './setting-sub-group-schema.interface';
 export type { SettingGroupSchema } from './setting-group-schema.interface';
 export type { SettingsApiResponse } from './settings-api-response.interface';
+
+export type { SettingsSyncConfig } from './settings-sync-config.interface';
+export type { SettingsChangePayload } from './settings-change-payload.interface';
+export type { RealtimeStoreConfig } from './realtime-store-config.interface';

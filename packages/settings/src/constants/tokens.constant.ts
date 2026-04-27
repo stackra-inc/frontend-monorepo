@@ -71,3 +71,42 @@ export const SETTINGS_SERVICE = Symbol.for('SETTINGS_SERVICE');
  * ```
  */
 export const SETTINGS_MANAGER = Symbol.for('SETTINGS_MANAGER');
+
+/**
+ * Token for the `SettingsSyncConfig` configuration object.
+ *
+ * Registered as a value provider by `SettingsModule.forRoot()` when a
+ * `sync` configuration is provided. Injected into `SettingsSyncService`
+ * to determine which groups to fetch and which storage adapter to use.
+ *
+ * @example
+ * ```ts
+ * @Injectable()
+ * class SettingsSyncService {
+ *   constructor(@Inject(SETTINGS_SYNC_CONFIG) private config: SettingsSyncConfig) {}
+ * }
+ * ```
+ */
+export const SETTINGS_SYNC_CONFIG = Symbol.for('SETTINGS_SYNC_CONFIG');
+
+/**
+ * Token for the `SettingsSyncService`.
+ *
+ * Registered as a `useExisting` alias by `SettingsModule.forRoot()` when
+ * a `sync` configuration is provided. Used by consumers and facades to
+ * resolve the sync service from the container.
+ *
+ * @example
+ * ```ts
+ * const syncService = useInject<SettingsSyncService>(SETTINGS_SYNC_SERVICE);
+ * syncService.subscribe('theme');
+ * ```
+ */
+export const SETTINGS_SYNC_SERVICE = Symbol.for('SETTINGS_SYNC_SERVICE');
+
+/**
+ * Internal token used to pass DTO classes from `forFeature()` into
+ * a factory provider that registers them on the DI-managed registry.
+ * @internal
+ */
+export const SETTINGS_FEATURE_CLASSES = Symbol.for('SETTINGS_FEATURE_CLASSES');

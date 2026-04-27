@@ -46,6 +46,3 @@ export class ThemeRegistry extends BaseRegistry<ThemeConfig> {
     return this.getKeys();
   }
 }
-
-/** Global singleton ThemeRegistry — shared across forRoot and forFeature. */
-export const themeRegistry = new ThemeRegistry();

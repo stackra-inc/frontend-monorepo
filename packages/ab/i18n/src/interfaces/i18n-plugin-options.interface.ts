@@ -8,7 +8,7 @@
  * @module interfaces/i18n-plugin-options
  */
 
-import type { I18nextOptions } from '@/types';
+import type { I18nextOptions } from "@/types";
 
 /**
  * Configuration options for the @stackra/react-i18n Vite plugin

@@ -51,7 +51,7 @@ direct ES dependency.
         case, `isTerminal()` and `isActive()` helper methods
     - _Requirements: 18.1, 18.2, 18.3_
 
-  - [ ]\* 2.2 Write property test for ReportStatus categorization
+  - [ ] 2.2 Write property test for ReportStatus categorization
     - **Property 7: ReportStatus categorization is mutually exclusive and
       exhaustive**
     - **Validates: Requirements 18.1, 18.2**
@@ -77,7 +77,7 @@ direct ES dependency.
         `dateRange`, `executionTimeMs`, `generatedAt`, `tenantId`
     - _Requirements: 17.2, 17.4, 17.5_
 
-  - [ ]\* 2.7 Write property test for value object construction round-trip
+  - [ ] 2.7 Write property test for value object construction round-trip
     - **Property 1: Value object construction round-trip**
     - **Validates: Requirements 2.1, 16.1, 16.2, 16.3, 17.1, 17.2, 17.3**
 
@@ -131,7 +131,7 @@ direct ES dependency.
     - `scheduled()` filters for non-null schedule
     - _Requirements: 6.1, 6.5, 6.6, 6.7_
 
-  - [ ]\* 6.2 Write property test for ReportRegistry CRUD consistency
+  - [ ] 6.2 Write property test for ReportRegistry CRUD consistency
     - **Property 4: ReportRegistry CRUD consistency**
     - **Validates: Requirements 4.2, 6.5**
 
@@ -157,7 +157,7 @@ direct ES dependency.
     - _Requirements: 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7, 5.8, 5.9, 5.10, 5.11,
       5.12, 5.13_
 
-  - [ ]\* 7.2 Write property test for AggregationBuilder ES DSL output
+  - [ ] 7.2 Write property test for AggregationBuilder ES DSL output
     - **Property 3: AggregationBuilder produces structurally valid ES DSL**
     - **Validates: Requirements 5.2, 5.3, 5.4, 5.5, 5.6, 5.7, 5.8, 5.9, 5.10,
       5.11, 5.12**
@@ -180,7 +180,7 @@ direct ES dependency.
         `latest()` — auto-scope to tenant when tenant context is active
     - _Requirements: 9.3, 9.4_
 
-  - [ ]\* 8.4 Write property test for ReportResult store/retrieve round-trip
+  - [ ] 8.4 Write property test for ReportResult store/retrieve round-trip
     - **Property 5: ReportResult store/retrieve round-trip**
     - **Validates: Requirements 9.1, 9.3**
 
@@ -205,12 +205,11 @@ direct ES dependency.
     - _Requirements: 4.1, 4.2, 4.3, 4.4, 4.5, 4.6, 4.7, 4.8, 4.9, 19.1, 19.4,
       19.5, 23.3_
 
-  - [ ]\* 10.2 Write property test for aggregation field validation
+  - [ ] 10.2 Write property test for aggregation field validation
     - **Property 2: Aggregation field validation**
     - **Validates: Requirements 4.5, 4.6, 4.7, 14.3**
 
-  - [ ]\* 10.3 Write property test for entity resolution by class-string or
-    label
+  - [ ] 10.3 Write property test for entity resolution by class-string or label
     - **Property 9: Entity resolution by class-string or label**
     - **Validates: Requirements 23.3**
 
@@ -224,7 +223,7 @@ direct ES dependency.
       leaf bucket
     - _Requirements: 10.1, 10.2, 10.3, 10.4, 10.5, 10.6, 10.7_
 
-  - [ ]\* 11.2 Write property test for aggregation data flattening
+  - [ ] 11.2 Write property test for aggregation data flattening
     - **Property 6: Aggregation data flattening preserves leaf values**
     - **Validates: Requirements 10.3**
 
@@ -346,7 +345,7 @@ direct ES dependency.
     - Filters: gate, venue, date_range; default date range: last 7 days
     - _Requirements: 22.7, 22.8, 22.9_
 
-  - [ ]\* 17.8 Write property test for MNGO report definitions
+  - [ ] 17.8 Write property test for MNGO report definitions
     - **Property 8: MNGO report definitions return valid structures**
     - **Validates: Requirements 22.1, 22.2, 22.3, 22.4, 22.5, 22.6, 22.7, 22.9**
 

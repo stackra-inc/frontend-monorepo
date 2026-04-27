@@ -29,14 +29,14 @@
  * ```
  */
 
-import { Injectable, Inject, Optional } from '@stackra/ts-container';
-import { HTTP_CLIENT } from '@stackra/ts-http';
-import { EVENT_MANAGER } from '@stackra/ts-events';
-import type { HttpClient, HttpResponse } from '@stackra/ts-http';
-import type { EventManager } from '@stackra/ts-events';
-import { AuthEvent } from '@/enums/auth-event.enum';
-import type { SecurityCheckResult } from '@/interfaces/security-check-result.interface';
-import type { ActiveDevice } from '@/interfaces/active-device.interface';
+import { Injectable, Inject, Optional } from "@stackra/ts-container";
+import { HTTP_CLIENT } from "@stackra/ts-http";
+import { EVENT_MANAGER } from "@stackra/ts-events";
+import type { HttpClient, HttpResponse } from "@stackra/ts-http";
+import type { EventManager } from "@stackra/ts-events";
+import { AuthEvent } from "@/enums/auth-event.enum";
+import type { SecurityCheckResult } from "@/interfaces/security-check-result.interface";
+import type { ActiveDevice } from "@/interfaces/active-device.interface";
 
 /**
  * Security Service.
@@ -59,7 +59,7 @@ export class SecurityService {
    */
   constructor(
     @Inject(HTTP_CLIENT) private readonly http: HttpClient,
-    @Optional() @Inject(EVENT_MANAGER) private readonly eventManager?: EventManager
+    @Optional() @Inject(EVENT_MANAGER) private readonly eventManager?: EventManager,
   ) {}
 
   // ─── Private Helpers ─────────────────────────────────────────────
@@ -92,12 +92,12 @@ export class SecurityService {
   async check(): Promise<SecurityCheckResult> {
     try {
       const response: HttpResponse<SecurityCheckResult> = await this.http.get(
-        '/api/auth/security/check'
+        "/api/auth/security/check",
       );
 
       const result = response.data;
 
-      if (result.status === 'locked') {
+      if (result.status === "locked") {
         this.dispatch(AuthEvent.AccountLocked, {
           reason: result.message,
           retryAfter: result.retryAfter,
@@ -107,7 +107,7 @@ export class SecurityService {
       return result;
     } catch {
       /* Network error — assume OK to avoid blocking the user */
-      return { status: 'ok' };
+      return { status: "ok" };
     }
   }
 
@@ -120,7 +120,7 @@ export class SecurityService {
   async getActiveDevices(): Promise<ActiveDevice[]> {
     try {
       const response: HttpResponse<{ devices: ActiveDevice[] }> =
-        await this.http.get('/api/auth/devices');
+        await this.http.get("/api/auth/devices");
 
       return response.data.devices ?? [];
     } catch {

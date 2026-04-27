@@ -1,9 +1,9 @@
 /** @fileoverview useIdentity hook. @module @stackra/react-auth @category Hooks */
-import { useQuery } from '@tanstack/react-query';
-import { useInject } from '@stackra/ts-container';
-import { AUTH_SERVICE } from '@/constants';
-import type { IAuthService } from '@/interfaces/auth-service.interface';
-import type { UseQueryHookResult } from '@/interfaces/use-query-hook-result.interface';
+import { useQuery } from "@tanstack/react-query";
+import { useInject } from "@stackra/ts-container";
+import { AUTH_SERVICE } from "@/constants";
+import type { IAuthService } from "@/interfaces/auth-service.interface";
+import type { UseQueryHookResult } from "@/interfaces/use-query-hook-result.interface";
 
 /**
  * Hook for fetching the current user's identity and linked providers.
@@ -16,7 +16,7 @@ import type { UseQueryHookResult } from '@/interfaces/use-query-hook-result.inte
 export function useIdentity<TData = any>(): UseQueryHookResult<TData, Error> {
   const authService = useInject<IAuthService>(AUTH_SERVICE);
   const query = useQuery({
-    queryKey: ['auth', 'identity'],
+    queryKey: ["auth", "identity"],
     queryFn: () => authService.getIdentity(),
   });
   return {

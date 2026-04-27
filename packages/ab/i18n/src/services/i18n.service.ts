@@ -37,13 +37,13 @@
  * ```
  */
 
-import { Injectable, Inject } from '@stackra/ts-container';
-import { Str } from '@stackra/ts-support';
+import { Injectable, Inject } from "@stackra/ts-container";
+import { Str } from "@stackra/ts-support";
 
-import { I18N_CONFIG, I18NEXT_SERVICE, LOCALE_RESOLVER_CHAIN } from '@/constants';
-import type { II18nextService } from '@/interfaces/i18next-service.interface';
-import type { I18nModuleOptions } from '@/interfaces/i18n-module-options.interface';
-import type { II18nService } from '@/interfaces/i18n-service.interface';
+import { I18N_CONFIG, I18NEXT_SERVICE, LOCALE_RESOLVER_CHAIN } from "@/constants";
+import type { II18nextService } from "@/interfaces/i18next-service.interface";
+import type { I18nModuleOptions } from "@/interfaces/i18n-module-options.interface";
+import type { II18nService } from "@/interfaces/i18n-service.interface";
 
 /**
  * Well-known RTL language codes.
@@ -52,7 +52,7 @@ import type { II18nService } from '@/interfaces/i18n-service.interface';
  *
  * @internal
  */
-const RTL_LANGUAGES = new Set(['ar', 'he', 'fa', 'ur', 'ps', 'sd', 'yi', 'ku', 'ug']);
+const RTL_LANGUAGES = new Set(["ar", "he", "fa", "ur", "ps", "sd", "yi", "ku", "ug"]);
 
 /**
  * i18n Service
@@ -80,7 +80,7 @@ export class I18nService implements II18nService {
     @Inject(I18NEXT_SERVICE) private readonly i18nextService: II18nextService,
     @Inject(I18N_CONFIG) private readonly config: I18nModuleOptions,
     @Inject(LOCALE_RESOLVER_CHAIN)
-    private readonly resolveLocaleChain: () => Promise<string | undefined>
+    private readonly resolveLocaleChain: () => Promise<string | undefined>,
   ) {}
 
   /*
@@ -192,7 +192,7 @@ export class I18nService implements II18nService {
    * ```
    */
   getLanguages(): string[] {
-    return this.config.languages ?? [this.config.defaultLanguage ?? 'en'];
+    return this.config.languages ?? [this.config.defaultLanguage ?? "en"];
   }
 
   /**
@@ -212,7 +212,7 @@ export class I18nService implements II18nService {
    */
   isRTL(): boolean {
     // Extract the base language code (e.g. 'ar' from 'ar-EG')
-    const baseLang = Str.lower(this.getLocale().split('-')[0] ?? '');
+    const baseLang = Str.lower(this.getLocale().split("-")[0] ?? "");
     return RTL_LANGUAGES.has(baseLang);
   }
 
@@ -238,7 +238,7 @@ export class I18nService implements II18nService {
    */
   async resolveLocale(): Promise<string> {
     const resolved = await this.resolveLocaleChain();
-    return resolved ?? this.config.defaultLanguage ?? 'en';
+    return resolved ?? this.config.defaultLanguage ?? "en";
   }
 
   /*

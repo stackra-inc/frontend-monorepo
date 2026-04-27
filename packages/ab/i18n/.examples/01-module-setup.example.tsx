@@ -28,9 +28,9 @@
 // Step 1: Configure the DI Module (app.module.ts)
 // ============================================================================
 
-import { Module } from '@stackra/ts-container';
-import { HttpModule } from '@stackra/ts-http';
-import { I18nModule } from '@stackra/react-i18n';
+import { Module } from "@stackra/ts-container";
+import { HttpModule } from "@stackra/ts-http";
+import { I18nModule } from "@stackra/react-i18n";
 
 /**
  * Root application module.
@@ -47,35 +47,35 @@ import { I18nModule } from '@stackra/react-i18n';
   imports: [
     // HTTP module (required for LocaleMiddleware auto-discovery)
     HttpModule.forRoot({
-      baseURL: 'https://api.example.com/v1',
+      baseURL: "https://api.example.com/v1",
     }),
 
     // i18n module with full configuration
     I18nModule.forRoot({
       // Default language when no resolver returns a value
-      defaultLanguage: 'en',
+      defaultLanguage: "en",
 
       // All supported languages — used by resolvers for validation
-      languages: ['en', 'ar', 'es'],
+      languages: ["en", "ar", "es"],
 
       // Resolver chain: tried in this order until one returns a locale
-      resolvers: ['url-path', 'storage', 'navigator'],
+      resolvers: ["url-path", "storage", "navigator"],
 
       // Query parameter name for the query-param resolver
-      queryParam: 'lang',
+      queryParam: "lang",
 
       // localStorage key for persisting the selected locale
-      storageKey: 'app_locale',
+      storageKey: "app_locale",
 
       // HTTP headers for the LocaleMiddleware
-      requestHeader: 'Accept-Language',
-      responseHeader: 'content-language',
+      requestHeader: "Accept-Language",
+      responseHeader: "content-language",
 
       // Sync locale from API response headers back to the provider
       syncFromResponse: true,
 
       // Enable debug logging during development
-      debug: (import.meta as any).env?.NODE_ENV === 'development',
+      debug: (import.meta as any).env?.NODE_ENV === "development",
     }),
   ],
 })
@@ -85,10 +85,10 @@ export class AppModule {}
 // Step 2: React Entry Point (main.tsx)
 // ============================================================================
 
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { ContainerProvider, Application } from '@stackra/ts-container';
-import { I18nProvider } from '@stackra/react-i18n';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { ContainerProvider, Application } from "@stackra/ts-container";
+import { I18nProvider } from "@stackra/react-i18n";
 
 // Bootstrap the DI container from the root module
 const app = await Application.create(AppModule);
@@ -104,21 +104,21 @@ const app = await Application.create(AppModule);
  * 3. Switches i18next to the detected locale
  * 4. Provides context to all child components
  */
-ReactDOM.createRoot(document.getElementById('root')!).render(
+ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <ContainerProvider context={app}>
       <I18nProvider>
         <App />
       </I18nProvider>
     </ContainerProvider>
-  </React.StrictMode>
+  </React.StrictMode>,
 );
 
 // ============================================================================
 // Step 3: Using Hooks in Components (App.tsx)
 // ============================================================================
 
-import { useTranslation, useLocale, useChangeLocale } from '@stackra/react-i18n';
+import { useTranslation, useLocale, useChangeLocale } from "@stackra/react-i18n";
 
 /**
  * Root application component demonstrating all three hooks.
@@ -141,9 +141,9 @@ function App() {
   }
 
   return (
-    <div dir={isRTL ? 'rtl' : 'ltr'}>
-      <h1>{t('greeting')}</h1>
-      <p>{t('welcome_message', { name: 'John' })}</p>
+    <div dir={isRTL ? "rtl" : "ltr"}>
+      <h1>{t("greeting")}</h1>
+      <p>{t("welcome_message", { name: "John" })}</p>
 
       {/* Language switcher */}
       <select value={locale} onChange={(e) => changeLocale(e.target.value)} disabled={isChanging}>

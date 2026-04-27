@@ -36,9 +36,9 @@
  * - Performs prefix matching (e.g. `'ar-EG'` matches `'ar'`)
  */
 
-import { LocaleResolverPriority } from '@/enums';
-import { Str } from '@stackra/ts-support';
-import type { ILocaleResolver } from './locale-resolver.interface';
+import { LocaleResolverPriority } from "@/enums";
+import { Str } from "@stackra/ts-support";
+import type { ILocaleResolver } from "./locale-resolver.interface";
 
 /**
  * Configuration options for {@link NavigatorLocaleResolver}.
@@ -72,7 +72,7 @@ export interface NavigatorLocaleResolverOptions {
  */
 export class NavigatorLocaleResolver implements ILocaleResolver {
   /** @inheritdoc */
-  public readonly name = 'navigator';
+  public readonly name = "navigator";
 
   /** @inheritdoc */
   public readonly priority = LocaleResolverPriority.LOWEST;
@@ -104,7 +104,7 @@ export class NavigatorLocaleResolver implements ILocaleResolver {
    */
   public resolve(): string | undefined {
     // SSR guard
-    if (typeof navigator === 'undefined') {
+    if (typeof navigator === "undefined") {
       return undefined;
     }
 
@@ -123,7 +123,7 @@ export class NavigatorLocaleResolver implements ILocaleResolver {
 
       for (const supported of this.supportedLanguages) {
         // Exact match (e.g. 'ar' === 'ar') or prefix match (e.g. 'ar-eg' starts with 'ar')
-        if (normalized === supported || Str.startsWith(normalized, supported + '-')) {
+        if (normalized === supported || Str.startsWith(normalized, supported + "-")) {
           return supported;
         }
       }

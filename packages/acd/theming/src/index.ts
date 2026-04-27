@@ -44,7 +44,7 @@ export type {
 // ============================================================================
 // Registries
 // ============================================================================
-export { customizerRegistry, CustomizerRegistry, themeRegistry, ThemeRegistry } from './registries';
+export { CustomizerRegistry, ThemeRegistry } from './registries';
 
 // ============================================================================
 // Contexts
@@ -59,6 +59,8 @@ export {
   THEME_CONFIG,
   THEME_REGISTRY,
   CUSTOMIZER_REGISTRY,
+  THEME_FEATURE_CONFIGS,
+  CUSTOMIZER_FEATURE_PANELS,
   BUILT_IN_THEMES,
   THEME_DEFAULT,
   THEME_NETFLIX,
@@ -74,6 +76,7 @@ export {
 // Utils
 // ============================================================================
 export { renderSlot } from './utils';
+export { tokenToCssVar, separateTokensByMode, mapTokensToVars } from './utils';
 
 // ============================================================================
 // Interfaces
@@ -82,6 +85,8 @@ export type { CustomizerPanel } from './interfaces';
 export type { ThemeVars } from './interfaces';
 export type { ThemeConfig } from './interfaces';
 export type { ThemeModuleOptions } from './interfaces';
+export type { DesignTokens } from './interfaces';
+export type { ServerTokenState } from './interfaces';
 
 // ============================================================================
 // Types

@@ -39,15 +39,15 @@
  * ```
  */
 
-import { Injectable, Inject } from '@stackra/ts-container';
-import { HttpMiddleware } from '@stackra/ts-http';
+import { Injectable, Inject } from "@stackra/ts-container";
+import { HttpMiddleware } from "@stackra/ts-http";
 
-import { I18N_CONFIG, I18NEXT_SERVICE } from '@/constants';
-import type { II18nextService } from '@/interfaces/i18next-service.interface';
-import type { I18nModuleOptions } from '@/interfaces/i18n-module-options.interface';
-import type { HttpContext } from '@/interfaces/http-context.interface';
-import type { HttpResponse } from '@/interfaces/http-response.interface';
-import type { IHttpMiddleware, HttpNextFunction } from '@/interfaces/http-middleware.interface';
+import { I18N_CONFIG, I18NEXT_SERVICE } from "@/constants";
+import type { II18nextService } from "@/interfaces/i18next-service.interface";
+import type { I18nModuleOptions } from "@/interfaces/i18n-module-options.interface";
+import type { HttpContext } from "@/interfaces/http-context.interface";
+import type { HttpResponse } from "@/interfaces/http-response.interface";
+import type { IHttpMiddleware, HttpNextFunction } from "@/interfaces/http-middleware.interface";
 
 /**
  * Locale Middleware
@@ -58,7 +58,7 @@ import type { IHttpMiddleware, HttpNextFunction } from '@/interfaces/http-middle
  * Automatically discovered by the `HttpModule` via the `@HttpMiddleware()`
  * decorator and registered in the {@link MiddlewareRegistry}.
  */
-@HttpMiddleware({ priority: 15, name: 'locale' })
+@HttpMiddleware({ priority: 15, name: "locale" })
 @Injectable()
 export class LocaleMiddleware implements IHttpMiddleware {
   /*
@@ -107,10 +107,10 @@ export class LocaleMiddleware implements IHttpMiddleware {
    */
   constructor(
     @Inject(I18NEXT_SERVICE) private readonly i18nextService: II18nextService,
-    @Inject(I18N_CONFIG) config: I18nModuleOptions
+    @Inject(I18N_CONFIG) config: I18nModuleOptions,
   ) {
-    this.requestHeader = config.requestHeader ?? 'Accept-Language';
-    this.responseHeader = config.responseHeader ?? 'content-language';
+    this.requestHeader = config.requestHeader ?? "Accept-Language";
+    this.responseHeader = config.responseHeader ?? "content-language";
     this.syncFromResponse = config.syncFromResponse ?? true;
     this.persistResponseLocale = config.persistResponseLocale ?? true;
   }
@@ -150,7 +150,7 @@ export class LocaleMiddleware implements IHttpMiddleware {
     };
 
     // Store locale in metadata for other middleware to read
-    context.metadata.set('locale', currentLocale);
+    context.metadata.set("locale", currentLocale);
 
     // ── Execute downstream middleware and get response ────────────────
 
@@ -192,7 +192,7 @@ export class LocaleMiddleware implements IHttpMiddleware {
    * @internal
    */
   private persistLocaleHeader(locale: string): void {
-    if (typeof localStorage === 'undefined') {
+    if (typeof localStorage === "undefined") {
       return;
     }
 
@@ -201,7 +201,7 @@ export class LocaleMiddleware implements IHttpMiddleware {
       localStorage.setItem(key, locale);
     } catch (error) {
       // Storage access can fail in private browsing mode
-      console.warn('[i18n] Failed to persist response locale to storage:', error);
+      console.warn("[i18n] Failed to persist response locale to storage:", error);
     }
   }
 }

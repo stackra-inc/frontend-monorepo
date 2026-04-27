@@ -8,13 +8,13 @@
  * @module @types/virtual-module
  */
 
-import type i18next from 'i18next';
+import type i18next from "i18next";
 
 /**
  * Augment Vite's module resolution
  * Define the virtual:@stackra/react-i18n module
  */
-declare module 'virtual:@stackra/react-i18n' {
+declare module "virtual:@stackra/react-i18n" {
   /**
    * Simple translation function - alias for t
    * Translates a key without parameters
@@ -135,6 +135,6 @@ declare module 'virtual:@stackra/react-i18n' {
   export function addResources(
     language: string,
     namespace: string,
-    resources: Record<string, any>
+    resources: Record<string, any>,
   ): void;
 }

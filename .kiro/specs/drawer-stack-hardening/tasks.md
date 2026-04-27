@@ -22,13 +22,13 @@ modifications.
         as `maxDots ?? DRAWER_DEFAULTS.MAX_DOTS`
     - Use resolved threshold for the dots-vs-counter rendering decision
     - _Requirements: 1.1, 1.2, 1.4, 1.5_
-  - [ ]\* 1.3 Write property test for StackDots threshold rendering mode
+  - [ ] 1.3 Write property test for StackDots threshold rendering mode
     - **Property 1: StackDots threshold determines rendering mode**
     - Use fast-check to generate arbitrary `maxDots` (positive int) and
       `stackSize` (positive int), assert dots when `stackSize <= maxDots` and
       counter badge when `stackSize > maxDots`
     - **Validates: Requirements 1.1, 1.4, 1.5**
-  - [ ]\* 1.4 Write unit tests for StackDots default and custom threshold
+  - [ ] 1.4 Write unit tests for StackDots default and custom threshold
     - Test that default threshold uses `DRAWER_DEFAULTS.MAX_DOTS` (value 5)
     - Test that custom `maxDots` prop overrides the default
     - _Requirements: 1.2, 1.3_
@@ -45,14 +45,14 @@ modifications.
     - In the mobile panel's `onPointerDown` ancestor walk loop, add the same
       `scrollWidth > clientWidth && scrollLeft > 0` check
     - _Requirements: 2.1, 2.2, 2.3, 2.4_
-  - [ ]\* 2.3 Write property test for horizontal scroll detection
+  - [ ] 2.3 Write property test for horizontal scroll detection
     - **Property 2: Horizontal scroll detection blocks drag initiation**
     - Use fast-check to generate arbitrary `scrollWidth`, `clientWidth`, and
       `scrollLeft` values; assert drag is cancelled iff
       `scrollWidth > clientWidth && scrollLeft > 0`
     - **Validates: Requirements 2.1, 2.2, 2.3**
-  - [ ]\* 2.4 Write unit tests for horizontal scroll detection in both desktop
-    and mobile handlers
+  - [ ] 2.4 Write unit tests for horizontal scroll detection in both desktop and
+        mobile handlers
     - Test that drag is cancelled when ancestor has `scrollWidth > clientWidth`
       and `scrollLeft > 0`
     - Test that drag proceeds when `scrollLeft === 0`
@@ -76,12 +76,12 @@ modifications.
     - When stack size >= `MAX_STACK_DEPTH` in non-production, log a warning;
       still allow the push
     - _Requirements: 3.3, 3.4_
-  - [ ]\* 3.4 Write property test for z-index clamping
+  - [ ] 3.4 Write property test for z-index clamping
     - **Property 3: Z-index clamping**
     - Use fast-check to generate arbitrary stack indices; assert computed
       z-index equals `min(BASE_Z_INDEX + index * Z_INDEX_STEP, 2147483647)`
     - **Validates: Requirements 3.2, 3.4**
-  - [ ]\* 3.5 Write unit tests for MAX_STACK_DEPTH warning and z-index bounds
+  - [ ] 3.5 Write unit tests for MAX_STACK_DEPTH warning and z-index bounds
     - Test that `DRAWER_DEFAULTS.MAX_STACK_DEPTH` exists and is a number
     - Test that push beyond MAX_STACK_DEPTH logs `console.warn` in dev mode
     - _Requirements: 3.1, 3.3_
@@ -98,12 +98,12 @@ modifications.
     - Ensure mobile subtitle span remains gated only by `subtitle` (no pills
       check)
     - _Requirements: 4.1, 4.2, 4.3_
-  - [ ]\* 5.2 Write property test for mobile compact subtitle visibility
+  - [ ] 5.2 Write property test for mobile compact subtitle visibility
     - **Property 4: Mobile compact subtitle visibility**
     - Use fast-check to generate arbitrary subtitle strings and pills arrays;
       assert subtitle is always visible on mobile when subtitle is non-empty
     - **Validates: Requirements 4.1**
-  - [ ]\* 5.3 Write unit tests for compact header subtitle visibility
+  - [ ] 5.3 Write unit tests for compact header subtitle visibility
     - Test desktop hides subtitle when pills are present (non-empty array)
     - Test desktop shows subtitle when pills is empty array or undefined
     - Test mobile always shows subtitle regardless of pills
@@ -128,13 +128,13 @@ modifications.
       `portalContainers`
     - Use combined containment check for focus cycling logic
     - _Requirements: 5.4_
-  - [ ]\* 6.4 Write property test for focus trap portal containers
+  - [ ] 6.4 Write property test for focus trap portal containers
     - **Property 5: Focus trap includes portal containers**
     - Use fast-check to generate arbitrary sets of focusable elements across
       main and portal containers; assert combined set includes all elements and
       Tab cycles through entire set
     - **Validates: Requirements 5.3, 5.4**
-  - [ ]\* 6.5 Write unit tests for focus trap portal support
+  - [ ] 6.5 Write unit tests for focus trap portal support
     - Test that `useFocusTrap` accepts `portalContainers` without error
     - Test that focusable elements from portal containers are included in focus
       cycling
@@ -157,13 +157,13 @@ modifications.
     - Confirm the existing async implementation correctly awaits the guard
       before dispatching POP
     - _Requirements: 6.2_
-  - [ ]\* 7.4 Write property test for async pop guard sequencing
+  - [ ] 7.4 Write property test for async pop guard sequencing
     - **Property 6: Async pop guard sequencing**
     - Use fast-check to generate arbitrary `onBeforeClose` guard results
       (true/false, sync/async); assert POP is dispatched only when guard returns
       true, and guard is always awaited
     - **Validates: Requirements 6.2**
-  - [ ]\* 7.5 Write unit tests for pop() promise handling
+  - [ ] 7.5 Write unit tests for pop() promise handling
     - Test pop() return type is Promise<void> (TypeScript compilation)
     - Test backdrop click, Escape key, drag-to-dismiss, and mobile swipe
       handlers don't produce unhandled rejections

@@ -85,7 +85,7 @@ previous, ensuring no orphaned code.
         `removeLink()`, `resetLinks()`, `getResponseLinks()`, `hasLink()`,
         `getLink()`
     - _Requirements: 8.1, 8.2, 14.6, 14.7_
-  - [ ]\* 4.2 Write property test for HasLinks add/get round-trip
+  - [ ] 4.2 Write property test for HasLinks add/get round-trip
     - **Property 9: HasLinks Add/Get Round-Trip**
     - **Validates: Requirements 8.1**
   - [x] 4.3 Create `HasMeta` trait in `Stackra\Response\Concerns` with methods:
@@ -93,7 +93,7 @@ previous, ensuring no orphaned code.
         `addExecutionTime()`, `resetMeta()`, `getResponseMeta()`,
         `hasMetaKey()`, `getMetaValue()`
     - _Requirements: 8.3, 8.4, 14.6, 14.7_
-  - [ ]\* 4.4 Write property test for HasMeta add/get round-trip
+  - [ ] 4.4 Write property test for HasMeta add/get round-trip
     - **Property 10: HasMeta Add/Get Round-Trip**
     - **Validates: Requirements 8.3**
   - [x] 4.5 Create `HasPagination` trait in `Stackra\Response\Concerns` with
@@ -102,10 +102,10 @@ previous, ensuring no orphaned code.
         `getPaginationLinks()`. Handle both `LengthAwarePaginator` and
         `CursorPaginator`
     - _Requirements: 8.5, 8.6, 8.7, 14.6, 14.7_
-  - [ ]\* 4.6 Write property test for pagination meta extraction
+  - [ ] 4.6 Write property test for pagination meta extraction
     - **Property 11: Pagination Meta Extraction**
     - **Validates: Requirements 8.5, 8.6**
-  - [ ]\* 4.7 Write property test for pagination links matching paginator state
+  - [ ] 4.7 Write property test for pagination links matching paginator state
     - **Property 12: Pagination Links Match Paginator State**
     - **Validates: Requirements 8.7**
   - [x] 4.8 Create `ResolvesLazyData` trait in `Stackra\Response\Concerns` with
@@ -113,10 +113,10 @@ previous, ensuring no orphaned code.
         `lazy()`, `resolveNestedData()`, `resolveDataIf()`. Handle Closure,
         Model, Collection, JsonResource, ResourceCollection, Arrayable
     - _Requirements: 8.8, 8.9, 8.10, 14.6, 14.7_
-  - [ ]\* 4.9 Write property test for closure resolution round-trip
+  - [ ] 4.9 Write property test for closure resolution round-trip
     - **Property 13: Closure Resolution Round-Trip**
     - **Validates: Requirements 8.8**
-  - [ ]\* 4.10 Write property test for recursive nested lazy data resolution
+  - [ ] 4.10 Write property test for recursive nested lazy data resolution
     - **Property 14: Recursive Nested Lazy Data Resolution**
     - **Validates: Requirements 8.10**
 
@@ -128,14 +128,14 @@ previous, ensuring no orphaned code.
         `#[AsRenderer(priority: 50)]`, supporting MIME types `application/json`,
         `text/json`, `*/*`, with configurable JSON encoding flags via options
     - _Requirements: 3.2, 14.6, 14.7_
-  - [ ]\* 6.2 Write property test for JSON render round-trip
+  - [ ] 6.2 Write property test for JSON render round-trip
     - **Property 2: JSON Render Round-Trip**
     - **Validates: Requirements 3.2**
   - [x] 6.3 Create `XmlRenderer` in `Stackra\Response\Renderers` with
         `#[AsRenderer(priority: 0)]`, supporting MIME types `application/xml`,
         `text/xml`, with proper UTF-8 encoding
     - _Requirements: 3.3, 14.6, 14.7_
-  - [ ]\* 6.4 Write property test for XML render well-formedness
+  - [ ] 6.4 Write property test for XML render well-formedness
     - **Property 3: XML Render Well-Formedness**
     - **Validates: Requirements 3.3**
   - [x] 6.5 Create `ViewRenderer` in `Stackra\Response\Renderers` with
@@ -146,7 +146,7 @@ previous, ensuring no orphaned code.
         `#[AsRenderer(priority: -20)]`, setting streaming headers
         (X-Accel-Buffering, Cache-Control), supporting stream-related MIME types
     - _Requirements: 3.5, 14.6, 14.7_
-  - [ ]\* 6.7 Write unit tests for all renderers
+  - [ ] 6.7 Write unit tests for all renderers
     - Test JsonRenderer encoding flags, XmlRenderer UTF-8, StreamRenderer
       headers, RendererResult construction
     - _Requirements: 3.2, 3.3, 3.5, 3.7_
@@ -159,13 +159,13 @@ previous, ensuring no orphaned code.
         maintaining priority-sorted order. Implement Accept header parsing with
         quality factor support
     - _Requirements: 4.1, 4.2, 4.3, 4.4, 4.5, 14.6, 14.7_
-  - [ ]\* 7.2 Write property test for renderer resolution priority
+  - [ ] 7.2 Write property test for renderer resolution priority
     - **Property 4: Renderer Resolution Priority**
     - **Validates: Requirements 4.1**
-  - [ ]\* 7.3 Write property test for Accept header quality factor ordering
+  - [ ] 7.3 Write property test for Accept header quality factor ordering
     - **Property 5: Accept Header Quality Factor Ordering**
     - **Validates: Requirements 4.2**
-  - [ ]\* 7.4 Write property test for renderer registry sorted by priority
+  - [ ] 7.4 Write property test for renderer registry sorted by priority
     - **Property 6: Renderer Registry Sorted by Priority**
     - **Validates: Requirements 4.3**
 
@@ -177,10 +177,10 @@ previous, ensuring no orphaned code.
         X-Correlation-ID → UUID), trace ID capture, API version capture, ISO
         8601 timestamp, and get/set/merge methods
     - _Requirements: 6.1, 6.2, 6.3, 6.4, 6.5, 6.6, 6.7, 14.6, 14.7_
-  - [ ]\* 8.2 Write property test for request ID resolution priority
+  - [ ] 8.2 Write property test for request ID resolution priority
     - **Property 7: Request ID Resolution Priority**
     - **Validates: Requirements 6.1**
-  - [ ]\* 8.3 Write property test for context set/get round-trip
+  - [ ] 8.3 Write property test for context set/get round-trip
     - **Property 8: ResponseContext Set/Get Round-Trip**
     - **Validates: Requirements 6.4**
 
@@ -203,7 +203,7 @@ previous, ensuring no orphaned code.
         `#[Singleton]` and `#[AsPreset(name: 'mobile')]`. Configure compact
         JSON, minimal headers, 5-minute client cache, debug disabled
     - _Requirements: 5.4, 15.6, 14.6, 14.7_
-  - [ ]\* 10.4 Write unit tests for preset configurations
+  - [ ] 10.4 Write unit tests for preset configurations
     - Test each preset returns expected headers, JSON flags, debug settings,
       renderer class, and API version
     - _Requirements: 5.2, 5.3, 5.4_
@@ -217,16 +217,16 @@ previous, ensuring no orphaned code.
         headers and ETag
     - _Requirements: 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 9.1, 9.2, 9.3,
       15.1, 14.6, 14.7_
-  - [ ]\* 11.2 Write property test for payload required fields invariant
+  - [ ] 11.2 Write property test for payload required fields invariant
     - **Property 16: Payload Required Fields Invariant**
     - **Validates: Requirements 2.3**
-  - [ ]\* 11.3 Write property test for debug section presence
+  - [ ] 11.3 Write property test for debug section presence
     - **Property 17: Debug Section Presence**
     - **Validates: Requirements 2.4**
-  - [ ]\* 11.4 Write property test for context data merged into payload
+  - [ ] 11.4 Write property test for context data merged into payload
     - **Property 18: Context Data Merged Into Payload**
     - **Validates: Requirements 2.5, 2.6**
-  - [ ]\* 11.5 Write property test for ETag correctness
+  - [ ] 11.5 Write property test for ETag correctness
     - **Property 19: ETag Correctness**
     - **Validates: Requirements 16.1, 16.2, 16.3**
   - [x] 11.6 Create `Response` fluent builder in `Stackra\Response\Builders`
@@ -236,10 +236,10 @@ previous, ensuring no orphaned code.
         status methods, `paginate()` with auto-extraction, and `toResponse()`
         delegating to `ApiResponse`
     - _Requirements: 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 15.4, 14.6, 14.7_
-  - [ ]\* 11.7 Write property test for fluent builder returns self
+  - [ ] 11.7 Write property test for fluent builder returns self
     - **Property 1: Fluent Builder Returns Self**
     - **Validates: Requirements 1.1**
-  - [ ]\* 11.8 Write unit tests for builder shorthand methods
+  - [ ] 11.8 Write unit tests for builder shorthand methods
     - Test each shorthand method sets correct HTTP status code and success/error
       flag
     - _Requirements: 1.2, 1.3_
@@ -257,7 +257,7 @@ previous, ensuring no orphaned code.
         `@method static` annotations for all factory methods for IDE
         autocompletion
     - _Requirements: 7.4, 7.5, 14.6, 14.7_
-  - [ ]\* 12.3 Write unit tests for ResponseFactory and Facade
+  - [ ] 12.3 Write unit tests for ResponseFactory and Facade
     - Test `make()` returns builder, `api()`/`admin()`/`mobile()` apply correct
       presets, facade accessor resolves factory
     - _Requirements: 7.1, 7.2, 7.4_
@@ -268,7 +268,7 @@ previous, ensuring no orphaned code.
         config, discover `#[AsRenderer]` classes and register with resolver,
         discover `#[AsPreset]` classes and make available for resolution
     - _Requirements: 14.5, 13.3, 13.4, 3.6, 5.5, 14.6, 14.7_
-  - [ ]\* 13.2 Write integration tests for service provider
+  - [ ] 13.2 Write integration tests for service provider
     - Test bindings resolve correctly, renderer discovery registers renderers,
       preset discovery makes presets available
     - _Requirements: 13.3, 13.4, 14.5_
@@ -288,7 +288,7 @@ previous, ensuring no orphaned code.
   - [x] 15.2 Update the abstract base `Controller` class to compose the
         `InteractsWithResponse` trait alongside existing interaction traits
     - _Requirements: 10.4_
-  - [ ]\* 15.3 Write unit tests for InteractsWithResponse trait
+  - [ ] 15.3 Write unit tests for InteractsWithResponse trait
     - Test `response()` returns builder with API preset, shorthand methods
       delegate correctly, message parameter is set
     - _Requirements: 10.1, 10.2, 10.3_
@@ -304,10 +304,10 @@ previous, ensuring no orphaned code.
         paginated results for `paginatedMethods`. Support customizable method
         lists with sensible defaults
     - _Requirements: 12.1, 12.2, 12.3, 12.4, 12.5_
-  - [ ]\* 16.3 Write property test for UseResource method list membership
+  - [ ] 16.3 Write property test for UseResource method list membership
     - **Property 15: UseResource Method List Membership**
     - **Validates: Requirements 12.5**
-  - [ ]\* 16.4 Write unit tests for UseData and UseResource integration
+  - [ ] 16.4 Write unit tests for UseData and UseResource integration
     - Test DTO resolution, input transformation, output wrapping for
       single/collection/paginated methods
     - _Requirements: 11.1, 11.2, 11.3, 12.1, 12.2, 12.3, 12.4_
@@ -317,7 +317,7 @@ previous, ensuring no orphaned code.
         `declare(strict_types=1)` and comprehensive PHPDoc blocks on every
         class, method, and property
     - _Requirements: 14.6, 14.7_
-  - [ ]\* 17.2 Write property test for strict_types declaration
+  - [ ] 17.2 Write property test for strict_types declaration
     - **Property 20: strict_types Declaration**
     - **Validates: Requirements 14.6**
 

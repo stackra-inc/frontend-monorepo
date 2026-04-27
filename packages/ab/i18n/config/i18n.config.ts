@@ -25,7 +25,7 @@
  * ```
  */
 
-import type { I18nModuleOptions } from '@stackra/react-i81n';
+import type { I18nModuleOptions } from "@stackra/react-i81n";
 
 /**
  * Default i18n configuration.
@@ -50,7 +50,7 @@ const i18nConfig: I18nModuleOptions = {
   | This is also the fallback language for i18next.
   |
   */
-  defaultLanguage: 'en',
+  defaultLanguage: "en",
 
   /*
   |--------------------------------------------------------------------------
@@ -61,7 +61,7 @@ const i18nConfig: I18nModuleOptions = {
   | Used by resolvers to validate detected locales.
   |
   */
-  languages: ['en'],
+  languages: ["en"],
 
   /*
   |--------------------------------------------------------------------------
@@ -74,7 +74,7 @@ const i18nConfig: I18nModuleOptions = {
   | Default: storage (localStorage) → navigator (browser language)
   |
   */
-  resolvers: ['storage', 'navigator'],
+  resolvers: ["storage", "navigator"],
 
   /*
   |--------------------------------------------------------------------------
@@ -83,10 +83,10 @@ const i18nConfig: I18nModuleOptions = {
   */
 
   /** Query parameter name for the `query-param` resolver. */
-  queryParam: 'lang',
+  queryParam: "lang",
 
   /** localStorage key for persisting the selected locale. */
-  storageKey: 'i18nextLng',
+  storageKey: "i18nextLng",
 
   /*
   |--------------------------------------------------------------------------
@@ -99,10 +99,10 @@ const i18nConfig: I18nModuleOptions = {
   */
 
   /** Header injected on outgoing requests. */
-  requestHeader: 'Accept-Language',
+  requestHeader: "Accept-Language",
 
   /** Header read from API responses. */
-  responseHeader: 'content-language',
+  responseHeader: "content-language",
 
   /** Sync locale from API response headers back to the provider. */
   syncFromResponse: true,

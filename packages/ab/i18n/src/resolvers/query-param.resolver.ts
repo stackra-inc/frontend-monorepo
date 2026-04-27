@@ -33,8 +33,8 @@
  * - SSR-safe: returns `undefined` when `window` is not available
  */
 
-import { LocaleResolverPriority } from '@/enums';
-import type { ILocaleResolver } from './locale-resolver.interface';
+import { LocaleResolverPriority } from "@/enums";
+import type { ILocaleResolver } from "./locale-resolver.interface";
 
 /**
  * Configuration options for {@link QueryParamLocaleResolver}.
@@ -62,7 +62,7 @@ export interface QueryParamLocaleResolverOptions {
  */
 export class QueryParamLocaleResolver implements ILocaleResolver {
   /** @inheritdoc */
-  public readonly name = 'query-param';
+  public readonly name = "query-param";
 
   /** @inheritdoc */
   public readonly priority = LocaleResolverPriority.HIGH;
@@ -80,7 +80,7 @@ export class QueryParamLocaleResolver implements ILocaleResolver {
    * @param options - Optional configuration for the parameter name
    */
   constructor(options?: QueryParamLocaleResolverOptions) {
-    this.paramName = options?.paramName ?? 'lang';
+    this.paramName = options?.paramName ?? "lang";
   }
 
   /**
@@ -90,7 +90,7 @@ export class QueryParamLocaleResolver implements ILocaleResolver {
    */
   public resolve(): string | undefined {
     // SSR guard
-    if (typeof window === 'undefined') {
+    if (typeof window === "undefined") {
       return undefined;
     }
 

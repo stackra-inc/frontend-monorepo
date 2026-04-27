@@ -71,15 +71,15 @@ sub-package must be implemented first.
         `reason`) — all `final readonly` with `#[AsEvent]`, scalar properties
         only
     - _Requirements: 19.1, 19.2, 19.3, 19.4, 19.5, 19.6_
-  - [ ]\* 2.6 Write property test for DTO construction round-trip
+  - [ ] 2.6 Write property test for DTO construction round-trip
     - **Property 1: DTO construction round-trip**
     - **Validates: Requirements 8.3, 8.4, 9.6, 10.3**
-  - [ ]\* 2.7 Write property test for package events are final readonly DTOs
-    with scalar properties
+  - [ ] 2.7 Write property test for package events are final readonly DTOs with
+        scalar properties
     - **Property 18: Package events are final readonly DTOs with scalar
       properties**
     - **Validates: Requirements 19.4**
-  - [ ]\* 2.8 Write unit tests for contracts, DTOs, enums, and events structure
+  - [ ] 2.8 Write unit tests for contracts, DTOs, enums, and events structure
     - Test `SearchScope` enum cases, backing values, Label/Description
       attributes
     - Test all events have `#[AsEvent]`, are `final readonly`
@@ -115,30 +115,30 @@ sub-package must be implemented first.
         EmbedOne/EmbedMany with limit/orderBy, transform geo field to
         geo_point), `dryRun()` (build without ES write).
     - _Requirements: 4.1, 4.2, 4.3, 4.4, 4.5, 4.6, 4.7, 4.8, 4.9, 13.2_
-  - [ ]\* 4.4 Write property test for index name resolution follows
-    tenant/global pattern
+  - [ ] 4.4 Write property test for index name resolution follows tenant/global
+        pattern
     - **Property 3: Index name resolution follows tenant/global pattern**
     - **Validates: Requirements 2.7, 14.7**
-  - [ ]\* 4.5 Write property test for document building includes all searchable
-    fields and embed field names
+  - [ ] 4.5 Write property test for document building includes all searchable
+        fields and embed field names
     - **Property 4: Document building includes all searchable fields and embed
       field names**
     - **Validates: Requirements 4.3, 4.4**
-  - [ ]\* 4.6 Write property test for EmbedMany respects limit constraint
+  - [ ] 4.6 Write property test for EmbedMany respects limit constraint
     - **Property 5: EmbedMany respects limit constraint**
     - **Validates: Requirements 4.5**
-  - [ ]\* 4.7 Write property test for excludeIndex returns null from map
+  - [ ] 4.7 Write property test for excludeIndex returns null from map
     - **Property 6: excludeIndex returns null from map**
     - **Validates: Requirements 4.6**
-  - [ ]\* 4.8 Write property test for rebuild chunking covers all record IDs
+  - [ ] 4.8 Write property test for rebuild chunking covers all record IDs
     - **Property 2: Rebuild chunking covers all record IDs**
     - **Validates: Requirements 2.6**
-  - [ ]\* 4.9 Write property test for geo field transformation produces valid ES
-    geo_point
+  - [ ] 4.9 Write property test for geo field transformation produces valid ES
+        geo_point
     - **Property 14: Geo field transformation produces valid ES geo_point**
     - **Validates: Requirements 13.2**
-  - [ ]\* 4.10 Write unit tests for SearchIndexer, SearchIndexManager,
-    SearchRecordBuilder
+  - [ ] 4.10 Write unit tests for SearchIndexer, SearchIndexManager,
+        SearchRecordBuilder
     - Mock ES Connection, Schema Builder, IndexerRegistry
     - Verify `index()` calls build + persist, `remove()` calls delete, `flush()`
       calls delete-by-query
@@ -181,7 +181,7 @@ sub-package must be implemented first.
         `ShouldQueue` with `entityClass`, `ids` array. Iterates IDs and
         delegates each to `RecordBuilderInterface::build()`.
     - _Requirements: 14.3, 14.7, 14.8_
-  - [ ]\* 6.7 Write unit tests for observer chain and jobs
+  - [ ] 6.7 Write unit tests for observer chain and jobs
     - Verify `ObserverRegistry::register()` attaches observers to base and
       embedded models
     - Verify `BaseModelObserver::saved()` dispatches `IndexBuildJob`,
@@ -211,11 +211,11 @@ sub-package must be implemented first.
         `src/Listeners/DeleteTenantIndexes.php` that listens to `TenantDeleted`
         and deletes all tenant-scoped indexes via `IndexManager::deleteIndex()`
     - _Requirements: 16.2, 16.3, 16.4_
-  - [ ]\* 8.4 Write property test for bootstrapper prefix round-trip
+  - [ ] 8.4 Write property test for bootstrapper prefix round-trip
     - **Property 7: Bootstrapper prefix round-trip**
     - **Validates: Requirements 6.2, 6.3, 6.4**
-  - [ ]\* 8.5 Write unit tests for SearchBootstrapper and tenant lifecycle
-    listeners
+  - [ ] 8.5 Write unit tests for SearchBootstrapper and tenant lifecycle
+        listeners
     - Verify bootstrap sets correct prefix, revert restores original
     - Verify `CreateTenantIndexes` calls `IndexManager::createIndex()` for each
       tenant-scoped entity
@@ -266,38 +266,37 @@ sub-package must be implemented first.
     - _Requirements: 17.1, 17.2, 17.3, 17.4, 17.5, 17.6_
   - [x] 9.8 Implement `isAvailable()` method for ES health check
     - _Requirements: 7.1_
-  - [ ]\* 9.9 Write property test for search query DSL includes searchable
-    fields with conditional fuzziness
+  - [ ] 9.9 Write property test for search query DSL includes searchable fields
+        with conditional fuzziness
     - **Property 8: Search query DSL includes searchable fields with conditional
       fuzziness**
     - **Validates: Requirements 7.3, 7.4**
-  - [ ]\* 9.10 Write property test for filter and sort validation rejects
-    undeclared fields
+  - [ ] 9.10 Write property test for filter and sort validation rejects
+        undeclared fields
     - **Property 9: Filter and sort validation rejects undeclared fields**
     - **Validates: Requirements 9.4, 9.5**
-  - [ ]\* 9.11 Write property test for filter clauses generated from filterable
-    fields
+  - [ ] 9.11 Write property test for filter clauses generated from filterable
+        fields
     - **Property 10: Filter clauses generated from filterable fields**
     - **Validates: Requirements 9.2**
-  - [ ]\* 9.12 Write property test for sort clauses generated from sortable
-    fields
+  - [ ] 9.12 Write property test for sort clauses generated from sortable fields
     - **Property 11: Sort clauses generated from sortable fields**
     - **Validates: Requirements 9.3**
-  - [ ]\* 9.13 Write property test for aggregation query contains terms for
-    filterable fields
+  - [ ] 9.13 Write property test for aggregation query contains terms for
+        filterable fields
     - **Property 12: Aggregation query contains terms for filterable fields**
     - **Validates: Requirements 11.2**
-  - [ ]\* 9.14 Write property test for highlight configuration uses configured
-    tags
+  - [ ] 9.14 Write property test for highlight configuration uses configured
+        tags
     - **Property 13: Highlight configuration uses configured tags**
     - **Validates: Requirements 12.1**
-  - [ ]\* 9.15 Write property test for geo distance filter generation
+  - [ ] 9.15 Write property test for geo distance filter generation
     - **Property 15: Geo distance filter generation**
     - **Validates: Requirements 13.4**
-  - [ ]\* 9.16 Write property test for unrecognized entity validation
+  - [ ] 9.16 Write property test for unrecognized entity validation
     - **Property 16: Unrecognized entity validation**
     - **Validates: Requirements 8.6**
-  - [ ]\* 9.17 Write unit tests for SearchManager
+  - [ ] 9.17 Write unit tests for SearchManager
     - Test unified search builds correct ES query DSL
     - Test entity search applies filters, sorts, pagination
     - Test suggest returns SearchSuggestion DTOs
@@ -340,10 +339,10 @@ sub-package must be implemented first.
         event), `getSummary()` (aggregated analytics with date/tenant filters),
         `getTopQueries()`, `getZeroResultQueries()`.
     - _Requirements: 20.1, 20.2, 20.3, 20.4, 20.5, 20.6_
-  - [ ]\* 11.6 Write property test for zero-result analytics flag
+  - [ ] 11.6 Write property test for zero-result analytics flag
     - **Property 17: Zero-result analytics flag**
     - **Validates: Requirements 20.2**
-  - [ ]\* 11.7 Write unit tests for search analytics
+  - [ ] 11.7 Write unit tests for search analytics
     - Verify `recordSearch()` persists correct data
     - Verify zero-result flag set when totalResults is 0
     - Verify `recordClick()` persists click event
@@ -364,7 +363,7 @@ sub-package must be implemented first.
   - [x] 12.2 Create `src/routes/api.php` with route definitions for all
         controller endpoints
     - _Requirements: 8.1, 9.1, 10.1, 11.1_
-  - [ ]\* 12.3 Write unit/integration tests for SearchController
+  - [ ] 12.3 Write unit/integration tests for SearchController
     - HTTP tests for all endpoints with mocked SearchManager
     - Verify request validation (required `q` param, entity validation,
       filter/sort validation)
@@ -390,7 +389,7 @@ sub-package must be implemented first.
         (`search:status`). Displays index status table (doc count, size, health
         via `IndexStatus` enum) using Laravel Prompts.
     - _Requirements: 15.4, 15.5, 15.8_
-  - [ ]\* 13.5 Write unit tests for Artisan commands
+  - [ ] 13.5 Write unit tests for Artisan commands
     - Mock `IndexManager`, verify correct methods called with correct arguments
     - Verify `--tenant=all` iterates all tenants
     - Verify output uses Laravel Prompts (no `$this->info()`)
@@ -405,7 +404,7 @@ sub-package must be implemented first.
         report sync status (ES doc count vs DB record count per entity). Report
         failure on unreachable cluster, warning on missing indexes.
     - _Requirements: 18.1, 18.2, 18.3, 18.4, 18.5, 18.6, 18.7_
-  - [ ]\* 14.2 Write unit tests for SearchHealthCheck
+  - [ ] 14.2 Write unit tests for SearchHealthCheck
     - Mock ES connection and registry
     - Verify cluster check, index existence, sync status reporting
     - _Requirements: 18.2, 18.3, 18.4, 18.5, 18.6_

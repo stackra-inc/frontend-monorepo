@@ -196,16 +196,16 @@ The frontend listens like:
 
 ```ts
 Echo.private(`user.${userId}.import-export`)
-  .listen('ExportCompleted', (e) => {
+  .listen("ExportCompleted", (e) => {
     /* e.jobId, e.filePath, e.totalRows */
   })
-  .listen('ImportCompleted', (e) => {
+  .listen("ImportCompleted", (e) => {
     /* e.jobId, e.totalRows, e.created, ... */
   })
-  .listen('ExportFailed', (e) => {
+  .listen("ExportFailed", (e) => {
     /* e.jobId, e.errorMessage */
   })
-  .listen('ImportFailed', (e) => {
+  .listen("ImportFailed", (e) => {
     /* e.jobId, e.errorMessage */
   });
 ```

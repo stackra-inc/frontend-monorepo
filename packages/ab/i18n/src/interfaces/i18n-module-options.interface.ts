@@ -27,8 +27,8 @@
  * ```
  */
 
-import type { ILocaleResolver } from '@/resolvers/locale-resolver.interface';
-import type { I18nextOptions } from '@/types';
+import type { ILocaleResolver } from "@/resolvers/locale-resolver.interface";
+import type { I18nextOptions } from "@/types";
 
 /**
  * Configuration options for `I18nModule.forRoot()`.

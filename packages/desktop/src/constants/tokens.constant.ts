@@ -30,6 +30,16 @@ export const DESKTOP_CONFIG = Symbol.for('DESKTOP_CONFIG');
 /** Injection token for the DesktopManager. */
 export const DESKTOP_MANAGER = Symbol.for('DESKTOP_MANAGER');
 
+/** Injection token for the MenuRegistry. */
+export const MENU_REGISTRY = Symbol.for('MENU_REGISTRY');
+
+/**
+ * Internal token used to pass menu classes from `forFeature()` into
+ * a factory provider that registers them on the DI-managed registry.
+ * @internal
+ */
+export const MENU_FEATURE_CLASSES = Symbol.for('MENU_FEATURE_CLASSES');
+
 /*
 |--------------------------------------------------------------------------
 | Metadata Keys

@@ -12,9 +12,9 @@
  * - Adding resources at runtime
  */
 
-import { Injectable, Inject } from '@stackra/ts-container';
-import { I18N_SERVICE } from '@stackra/react-i18n';
-import type { II18nService } from '@stackra/react-i18n';
+import { Injectable, Inject } from "@stackra/ts-container";
+import { I18N_SERVICE } from "@stackra/react-i18n";
+import type { II18nService } from "@stackra/react-i18n";
 
 // ============================================================================
 // Example: Notification Service
@@ -45,7 +45,7 @@ export class NotificationService {
   success(key: string, params?: Record<string, any>): void {
     const message = this.i18n.t(key, params);
     // showToast is your UI toast library (e.g. react-hot-toast, sonner)
-    showToast({ type: 'success', message });
+    showToast({ type: "success", message });
   }
 
   /**
@@ -56,7 +56,7 @@ export class NotificationService {
    */
   error(key: string, params?: Record<string, any>): void {
     const message = this.i18n.t(key, params);
-    showToast({ type: 'error', message });
+    showToast({ type: "error", message });
   }
 }
 
@@ -89,7 +89,7 @@ export class DocumentDirectionService {
    */
   private updateDirection(locale: string): void {
     const isRTL = this.i18n.isRTL();
-    document.documentElement.dir = isRTL ? 'rtl' : 'ltr';
+    document.documentElement.dir = isRTL ? "rtl" : "ltr";
     document.documentElement.lang = locale;
   }
 }

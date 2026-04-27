@@ -20,7 +20,7 @@
  * const ns: TranslationNamespace = 'dashboard';
  * ```
  */
-export type TranslationNamespace = string & { readonly __brand: 'TranslationNamespace' };
+export type TranslationNamespace = string & { readonly __brand: "TranslationNamespace" };
 
 /**
  * Helper function to create a branded TranslationNamespace type

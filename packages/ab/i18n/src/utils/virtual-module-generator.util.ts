@@ -9,7 +9,7 @@
  * @module utils/virtual-module-generator
  */
 
-import type { I18nextConfig } from '@/interfaces';
+import type { I18nextConfig } from "@/interfaces";
 
 /**
  * Generate the virtual module source code.

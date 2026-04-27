@@ -10,11 +10,11 @@
  * @module hooks
  */
 
-export { useLocale } from './use-locale';
-export type { UseLocaleReturn } from './use-locale';
+export { useLocale } from "./use-locale";
+export type { UseLocaleReturn } from "./use-locale";
 
-export { useTranslation } from './use-translation';
-export type { UseTranslationReturn } from './use-translation';
+export { useTranslation } from "./use-translation";
+export type { UseTranslationReturn } from "./use-translation";
 
-export { useChangeLocale } from './use-change-locale';
-export type { UseChangeLocaleOptions, UseChangeLocaleReturn } from './use-change-locale';
+export { useChangeLocale } from "./use-change-locale";
+export type { UseChangeLocaleOptions, UseChangeLocaleReturn } from "./use-change-locale";

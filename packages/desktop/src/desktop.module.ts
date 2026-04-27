@@ -28,7 +28,7 @@
 import { Module, type DynamicModule } from '@stackra/ts-container';
 
 import type { DesktopModuleOptions } from './interfaces';
-import { DESKTOP_CONFIG, DESKTOP_MANAGER } from './constants';
+import { DESKTOP_CONFIG, DESKTOP_MANAGER, MENU_REGISTRY, MENU_FEATURE_CLASSES } from './constants';
 
 /*
 |--------------------------------------------------------------------------
@@ -109,12 +109,6 @@ import { NotificationService } from './services/notification.service';
 import { CrashReporterService } from './services/crash-reporter.service';
 import { DiagnosticsService } from './services/diagnostics.service';
 
-/** Token for the global MenuRegistry. */
-export const MENU_REGISTRY = Symbol.for('MENU_REGISTRY');
-
-/** Global singleton MenuRegistry — shared across forRoot and forFeature. */
-const globalMenuRegistry = new MenuRegistry();
-
 @Module({})
 // biome-ignore lint/complexity/noStaticOnlyClass: Module pattern
 export class DesktopModule {
@@ -157,8 +151,8 @@ export class DesktopModule {
         */
         { provide: DesktopManager, useClass: DesktopManager },
         { provide: DESKTOP_MANAGER, useExisting: DesktopManager },
-        { provide: MenuRegistry, useValue: globalMenuRegistry },
-        { provide: MENU_REGISTRY, useValue: globalMenuRegistry },
+        { provide: MenuRegistry, useClass: MenuRegistry },
+        { provide: MENU_REGISTRY, useExisting: MenuRegistry },
 
         /*
         |--------------------------------------------------------------------------
@@ -285,11 +279,24 @@ export class DesktopModule {
   |
   */
   static forFeature(menuClasses: Array<new (...args: any[]) => any>): DynamicModule {
-    for (const MenuClass of menuClasses) {
-      const instance = new MenuClass();
-      globalMenuRegistry.register(instance);
-    }
-    return { module: DesktopModule, providers: [], exports: [] };
+    return {
+      module: DesktopModule,
+      providers: [
+        { provide: MENU_FEATURE_CLASSES, useValue: menuClasses },
+        {
+          provide: `MENU_FEATURE_INIT_${Date.now()}`,
+          useFactory: (registry: MenuRegistry, classes: Array<new (...args: any[]) => any>) => {
+            for (const MenuClass of classes) {
+              const instance = new MenuClass();
+              registry.register(instance);
+            }
+            return true;
+          },
+          inject: [MenuRegistry, MENU_FEATURE_CLASSES],
+        },
+      ],
+      exports: [],
+    };
   }
 
   /*
@@ -298,10 +305,15 @@ export class DesktopModule {
   |--------------------------------------------------------------------------
   |
   | Register a single @Menu class. Convenience method for inline use.
+  | NOTE: This requires the DI container to be bootstrapped. Use
+  | forFeature() in module imports for proper DI integration.
   |
   */
-  static registerMenu(menuClass: new (...args: any[]) => any): void {
-    const instance = new menuClass();
-    globalMenuRegistry.register(instance);
+  static registerMenu(_menuClass: new (...args: any[]) => any): void {
+    // Deprecated: use forFeature([menuClass]) instead.
+    // Direct registration without DI is no longer supported.
+    throw new Error(
+      'DesktopModule.registerMenu() is deprecated. Use DesktopModule.forFeature([menuClass]) instead.'
+    );
   }
 }

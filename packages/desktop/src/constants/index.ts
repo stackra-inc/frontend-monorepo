@@ -2,6 +2,9 @@ export {
   // Core
   DESKTOP_CONFIG,
   DESKTOP_MANAGER,
+  // Menu
+  MENU_REGISTRY,
+  MENU_FEATURE_CLASSES,
   // Metadata
   MENU_METADATA,
   MENU_ITEM_METADATA,

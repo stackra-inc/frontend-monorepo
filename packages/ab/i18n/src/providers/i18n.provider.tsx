@@ -29,13 +29,13 @@
  * ```
  */
 
-import React, { useEffect, useState, useMemo, useCallback } from 'react';
-import { useInject } from '@stackra/ts-container';
+import React, { useEffect, useState, useMemo, useCallback } from "react";
+import { useInject } from "@stackra/ts-container";
 
-import { I18N_SERVICE } from '@/constants';
-import { I18nContext } from '@/contexts/i18n.context';
-import type { II18nService } from '@/interfaces/i18n-service.interface';
-import type { II18nContext } from '@/interfaces/i18n-context.interface';
+import { I18N_SERVICE } from "@/constants";
+import { I18nContext } from "@/contexts/i18n.context";
+import type { II18nService } from "@/interfaces/i18n-service.interface";
+import type { II18nContext } from "@/interfaces/i18n-context.interface";
 
 // ── Provider Props ─────────────────────────────────────────────────────────
 
@@ -73,9 +73,9 @@ export interface I18nProviderProps {
  * @internal
  */
 function updateDocumentDirection(locale: string, isRTL: boolean): void {
-  if (typeof document === 'undefined') return;
+  if (typeof document === "undefined") return;
 
-  document.documentElement.dir = isRTL ? 'rtl' : 'ltr';
+  document.documentElement.dir = isRTL ? "rtl" : "ltr";
   document.documentElement.lang = locale;
 }
 
@@ -150,7 +150,7 @@ export const I18nProvider: React.FC<I18nProviderProps> = ({ service: serviceProp
       } catch (err) {
         const initError = err instanceof Error ? err : new Error(String(err));
         setError(initError);
-        console.error('[I18nProvider] Initialization error:', initError);
+        console.error("[I18nProvider] Initialization error:", initError);
       } finally {
         setIsLoading(false);
       }
@@ -194,11 +194,11 @@ export const I18nProvider: React.FC<I18nProviderProps> = ({ service: serviceProp
       } catch (err) {
         const changeError = err instanceof Error ? err : new Error(String(err));
         setError(changeError);
-        console.error('[I18nProvider] Change locale error:', changeError);
+        console.error("[I18nProvider] Change locale error:", changeError);
         throw changeError;
       }
     },
-    [service]
+    [service],
   );
 
   /*
@@ -219,7 +219,7 @@ export const I18nProvider: React.FC<I18nProviderProps> = ({ service: serviceProp
       isLoading,
       error,
     }),
-    [service, locale, changeLocale, isLoading, error]
+    [service, locale, changeLocale, isLoading, error],
   );
 
   return <I18nContext.Provider value={value}>{children}</I18nContext.Provider>;

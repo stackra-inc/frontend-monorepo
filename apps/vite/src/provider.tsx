@@ -17,24 +17,24 @@
  * @module provider
  */
 
-import * as React from 'react';
+import * as React from "react";
 
-import { Navbar } from '@/components/navbar';
-import { GlobalShortcuts } from '@/components/global-shortcuts';
+import { Navbar } from "@/components/navbar";
+import { GlobalShortcuts } from "@/components/global-shortcuts";
 
 /*
 |--------------------------------------------------------------------------
 | PWA Providers — auto-read config from DI (PWA_CONFIG)
 |--------------------------------------------------------------------------
 */
-import { PwaProvider } from '@stackra/ts-pwa';
+import { PwaProvider } from "@stackra/ts-pwa";
 
 /*
 |--------------------------------------------------------------------------
 | Slot Provider — enables <Slot> / slotRegistry across the app
 |--------------------------------------------------------------------------
 */
-import { SlotProvider } from '@stackra/ts-ui';
+import { SlotProvider } from "@stackra/ts-ui";
 
 export interface ProviderProps {
   children: React.ReactNode;

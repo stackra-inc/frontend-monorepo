@@ -12,7 +12,7 @@
  * @module utils/create-locale-resolver-chain
  */
 
-import type { ILocaleResolver } from '@/resolvers/locale-resolver.interface';
+import type { ILocaleResolver } from "@/resolvers/locale-resolver.interface";
 
 /**
  * Create a locale resolver chain from an array of resolvers.
@@ -57,7 +57,7 @@ import type { ILocaleResolver } from '@/resolvers/locale-resolver.interface';
  * ```
  */
 export function createLocaleResolverChain(
-  resolvers: ILocaleResolver[]
+  resolvers: ILocaleResolver[],
 ): () => Promise<string | undefined> {
   // Sort resolvers by priority ascending (1, 2, 3, ...)
   const sortedResolvers = [...resolvers].sort((a, b) => a.priority - b.priority);

@@ -3,5 +3,5 @@
  * @module @stackra/react-sdui
  * @category Configuration
  */
-const config = '@nesvel/prettier-config';
+const config = '@stackra/prettier-config';
 export default config;

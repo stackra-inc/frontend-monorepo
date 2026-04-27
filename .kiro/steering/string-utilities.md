@@ -26,7 +26,7 @@ value.charAt(0).toUpperCase() + value.slice(1);
 **Always do this:**
 
 ```typescript
-import { Str } from '@stackra/ts-support';
+import { Str } from "@stackra/ts-support";
 
 Str.lower(value);
 Str.upper(value);
@@ -74,14 +74,14 @@ These patterns are NOT replaceable with `Str` and should stay as native:
 ## Import Pattern
 
 ```typescript
-import { Str } from '@stackra/ts-support';
+import { Str } from "@stackra/ts-support";
 ```
 
 If the package already imports from `@stackra/ts-support` (e.g.,
 `BaseRegistry`), combine the imports:
 
 ```typescript
-import { BaseRegistry, Str } from '@stackra/ts-support';
+import { BaseRegistry, Str } from "@stackra/ts-support";
 ```
 
 ## Dependency Requirement
@@ -92,7 +92,7 @@ Every package that uses `Str` must have `@stackra/ts-support` in its
 ```json
 {
   "dependencies": {
-    "@stackra/ts-support": "workspace:*"
+    "@stackra/ts-support": "^2.5.7"
   }
 }
 ```

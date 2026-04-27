@@ -7,7 +7,7 @@
  * @category Interfaces
  */
 
-import type { CanResponse } from './can-response.interface';
+import type { CanResponse } from "./can-response.interface";
 
 /**
  * Access control service interface.

@@ -52,26 +52,26 @@
     "release": "pnpm publish --access public --no-git-checks"
   },
   "dependencies": {
-    "glob": "^11.0.0",
+    "glob": "^13.0.6",
     "typescript": "^6.0.3",
-    "@stackra/ts-support": "workspace:*"
+    "@stackra/ts-support": "^2.5.7"
   },
   "peerDependencies": {
-    "vite": "^5.0.0 || ^6.0.0"
+    "vite": "^8.0.10"
   },
   "devDependencies": {
-    "@nesvel/eslint-config": "^1.0.5",
-    "@nesvel/prettier-config": "^1.0.3",
-    "@nesvel/tsup-config": "^1.0.3",
-    "@nesvel/typescript-config": "^1.0.4",
+    "@stackra/eslint-config": "^1.0.6",
+    "@stackra/prettier-config": "^1.0.4",
+    "@stackra/tsup-config": "^1.0.4",
+    "@stackra/typescript-config": "^1.0.5",
     "@types/node": "^25.6.0",
-    "@vitest/ui": "^4.1.4",
-    "eslint": "10.2.0",
+    "@vitest/ui": "^4.1.5",
+    "eslint": "10.2.1",
     "prettier": "^3.8.3",
     "tsup": "^8.5.1",
-    "typescript-eslint": "^8.58.2",
-    "vite": "^6.0.11",
-    "vitest": "^4.1.4"
+    "typescript-eslint": "^8.59.0",
+    "vite": "^8.0.10",
+    "vitest": "^4.1.5"
   },
   "engines": {
     "node": ">=18"

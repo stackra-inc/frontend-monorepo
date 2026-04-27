@@ -24,17 +24,17 @@
  * ```
  */
 
-import { Injectable, Inject, Optional } from '@stackra/ts-container';
-import { HTTP_CLIENT } from '@stackra/ts-http';
-import { EVENT_MANAGER } from '@stackra/ts-events';
-import type { HttpClient, HttpResponse } from '@stackra/ts-http';
-import type { EventManager } from '@stackra/ts-events';
-import { AUTH_TOKEN_KEY, AUTH_USER_KEY } from '@/constants';
-import type { IAuthService } from '@/interfaces/auth-service.interface';
-import type { AuthActionResponse } from '@/interfaces/auth-action-response.interface';
-import type { CheckResponse } from '@/interfaces/check-response.interface';
-import type { OnErrorResponse } from '@/interfaces/on-error-response.interface';
-import { AuthEvent } from '@/enums/auth-event.enum';
+import { Injectable, Inject, Optional } from "@stackra/ts-container";
+import { HTTP_CLIENT } from "@stackra/ts-http";
+import { EVENT_MANAGER } from "@stackra/ts-events";
+import type { HttpClient, HttpResponse } from "@stackra/ts-http";
+import type { EventManager } from "@stackra/ts-events";
+import { AUTH_TOKEN_KEY, AUTH_USER_KEY } from "@/constants";
+import type { IAuthService } from "@/interfaces/auth-service.interface";
+import type { AuthActionResponse } from "@/interfaces/auth-action-response.interface";
+import type { CheckResponse } from "@/interfaces/check-response.interface";
+import type { OnErrorResponse } from "@/interfaces/on-error-response.interface";
+import { AuthEvent } from "@/enums/auth-event.enum";
 
 /**
  * Default authentication service.
@@ -71,7 +71,7 @@ export class AuthService implements IAuthService {
    */
   constructor(
     @Inject(HTTP_CLIENT) private readonly http: HttpClient,
-    @Optional() @Inject(EVENT_MANAGER) private readonly eventManager?: EventManager
+    @Optional() @Inject(EVENT_MANAGER) private readonly eventManager?: EventManager,
   ) {}
 
   // ─── Private Helpers ─────────────────────────────────────────────
@@ -81,7 +81,7 @@ export class AuthService implements IAuthService {
    * @returns The token string, or `null` if not authenticated.
    */
   private getToken(): string | null {
-    if (typeof localStorage === 'undefined') return null;
+    if (typeof localStorage === "undefined") return null;
     return localStorage.getItem(AUTH_TOKEN_KEY);
   }
 
@@ -91,7 +91,7 @@ export class AuthService implements IAuthService {
    * @param user - The user identity object.
    */
   private persistAuth(token: string, user: any): void {
-    if (typeof localStorage === 'undefined') return;
+    if (typeof localStorage === "undefined") return;
     localStorage.setItem(AUTH_TOKEN_KEY, token);
     localStorage.setItem(AUTH_USER_KEY, JSON.stringify(user));
   }
@@ -100,7 +100,7 @@ export class AuthService implements IAuthService {
    * Clear all persisted authentication data from local storage.
    */
   private clearAuth(): void {
-    if (typeof localStorage === 'undefined') return;
+    if (typeof localStorage === "undefined") return;
     localStorage.removeItem(AUTH_TOKEN_KEY);
     localStorage.removeItem(AUTH_USER_KEY);
   }
@@ -127,8 +127,8 @@ export class AuthService implements IAuthService {
 
     try {
       const response: HttpResponse<{ token: string; user: any }> = await this.http.post(
-        '/api/auth/login',
-        params
+        "/api/auth/login",
+        params,
       );
 
       this.persistAuth(response.data.token, response.data.user);
@@ -137,9 +137,9 @@ export class AuthService implements IAuthService {
         token: response.data.token,
       });
 
-      return { success: true, redirectTo: '/' };
+      return { success: true, redirectTo: "/" };
     } catch (error: any) {
-      const err = new Error(error?.response?.data?.message ?? error?.message ?? 'Login failed');
+      const err = new Error(error?.response?.data?.message ?? error?.message ?? "Login failed");
       this.dispatch(AuthEvent.LoginFailed, { error: err, params });
 
       return { success: false, error: err };
@@ -151,7 +151,7 @@ export class AuthService implements IAuthService {
     this.dispatch(AuthEvent.LogoutAttempt, {});
 
     try {
-      await this.http.post('/api/auth/logout');
+      await this.http.post("/api/auth/logout");
     } catch {
       /* Swallow — we clear local state regardless */
     }
@@ -159,24 +159,24 @@ export class AuthService implements IAuthService {
     this.clearAuth();
     this.dispatch(AuthEvent.LogoutCompleted, {});
 
-    return { success: true, redirectTo: '/login' };
+    return { success: true, redirectTo: "/login" };
   }
 
   /** {@inheritDoc IAuthService.register} */
   async register(params: any): Promise<AuthActionResponse> {
     try {
       const response: HttpResponse<{ token: string; user: any }> = await this.http.post(
-        '/api/auth/register',
-        params
+        "/api/auth/register",
+        params,
       );
 
       this.persistAuth(response.data.token, response.data.user);
       this.dispatch(AuthEvent.RegistrationCompleted, { user: response.data.user });
 
-      return { success: true, redirectTo: '/' };
+      return { success: true, redirectTo: "/" };
     } catch (error: any) {
       const err = new Error(
-        error?.response?.data?.message ?? error?.message ?? 'Registration failed'
+        error?.response?.data?.message ?? error?.message ?? "Registration failed",
       );
       return { success: false, error: err };
     }
@@ -184,14 +184,14 @@ export class AuthService implements IAuthService {
 
   /** {@inheritDoc IAuthService.challenge} */
   async challenge(provider: string, input?: Record<string, any>): Promise<any> {
-    const response = await this.http.post('/api/auth/challenge', { provider, ...input });
+    const response = await this.http.post("/api/auth/challenge", { provider, ...input });
     return response.data;
   }
 
   /** {@inheritDoc IAuthService.verify} */
   async verify(provider: string, input?: Record<string, any>): Promise<AuthActionResponse> {
     try {
-      const response: HttpResponse<any> = await this.http.post('/api/auth/verify', {
+      const response: HttpResponse<any> = await this.http.post("/api/auth/verify", {
         provider,
         ...input,
       });
@@ -203,10 +203,10 @@ export class AuthService implements IAuthService {
         this.persistAuth(response.data.token, response.data.user);
       }
 
-      return { success: true, redirectTo: '/' };
+      return { success: true, redirectTo: "/" };
     } catch (error: any) {
       const err = new Error(
-        error?.response?.data?.message ?? error?.message ?? 'Verification failed'
+        error?.response?.data?.message ?? error?.message ?? "Verification failed",
       );
       this.dispatch(AuthEvent.VerificationFailed, { provider, error: err });
 
@@ -217,11 +217,11 @@ export class AuthService implements IAuthService {
   /** {@inheritDoc IAuthService.forgotPassword} */
   async forgotPassword(email: string): Promise<AuthActionResponse> {
     try {
-      await this.http.post('/api/auth/forgot-password', { email });
+      await this.http.post("/api/auth/forgot-password", { email });
       return { success: true };
     } catch (error: any) {
       const err = new Error(
-        error?.response?.data?.message ?? error?.message ?? 'Forgot password request failed'
+        error?.response?.data?.message ?? error?.message ?? "Forgot password request failed",
       );
       return { success: false, error: err };
     }
@@ -230,12 +230,12 @@ export class AuthService implements IAuthService {
   /** {@inheritDoc IAuthService.resetPassword} */
   async resetPassword(email: string, token: string, password: string): Promise<AuthActionResponse> {
     try {
-      await this.http.post('/api/auth/reset-password', { email, token, password });
+      await this.http.post("/api/auth/reset-password", { email, token, password });
       this.dispatch(AuthEvent.PasswordChanged, {});
-      return { success: true, redirectTo: '/login' };
+      return { success: true, redirectTo: "/login" };
     } catch (error: any) {
       const err = new Error(
-        error?.response?.data?.message ?? error?.message ?? 'Password reset failed'
+        error?.response?.data?.message ?? error?.message ?? "Password reset failed",
       );
       return { success: false, error: err };
     }
@@ -244,7 +244,7 @@ export class AuthService implements IAuthService {
   /** {@inheritDoc IAuthService.updatePassword} */
   async updatePassword(currentPassword: string, password: string): Promise<AuthActionResponse> {
     try {
-      await this.http.post('/api/auth/update-password', {
+      await this.http.post("/api/auth/update-password", {
         current_password: currentPassword,
         password,
       });
@@ -252,7 +252,7 @@ export class AuthService implements IAuthService {
       return { success: true };
     } catch (error: any) {
       const err = new Error(
-        error?.response?.data?.message ?? error?.message ?? 'Password update failed'
+        error?.response?.data?.message ?? error?.message ?? "Password update failed",
       );
       return { success: false, error: err };
     }
@@ -261,12 +261,12 @@ export class AuthService implements IAuthService {
   /** {@inheritDoc IAuthService.link} */
   async link(provider: string, input?: Record<string, any>): Promise<AuthActionResponse> {
     try {
-      await this.http.post('/api/auth/link', { provider, ...input });
+      await this.http.post("/api/auth/link", { provider, ...input });
       this.dispatch(AuthEvent.IdentityLinked, { provider });
       return { success: true };
     } catch (error: any) {
       const err = new Error(
-        error?.response?.data?.message ?? error?.message ?? 'Provider linking failed'
+        error?.response?.data?.message ?? error?.message ?? "Provider linking failed",
       );
       this.dispatch(AuthEvent.IdentityLinkingFailed, { provider, error: err });
       return { success: false, error: err };
@@ -281,7 +281,7 @@ export class AuthService implements IAuthService {
       return { success: true };
     } catch (error: any) {
       const err = new Error(
-        error?.response?.data?.message ?? error?.message ?? 'Provider unlinking failed'
+        error?.response?.data?.message ?? error?.message ?? "Provider unlinking failed",
       );
       return { success: false, error: err };
     }
@@ -292,24 +292,24 @@ export class AuthService implements IAuthService {
     const token = this.getToken();
 
     if (!token) {
-      return { authenticated: false, redirectTo: '/login' };
+      return { authenticated: false, redirectTo: "/login" };
     }
 
     try {
       const response: HttpResponse<{ authenticated: boolean }> =
-        await this.http.get('/api/auth/check');
+        await this.http.get("/api/auth/check");
       return { authenticated: response.data.authenticated };
     } catch {
       this.clearAuth();
       this.dispatch(AuthEvent.TokenExpired, {});
-      return { authenticated: false, redirectTo: '/login' };
+      return { authenticated: false, redirectTo: "/login" };
     }
   }
 
   /** {@inheritDoc IAuthService.getIdentity} */
   async getIdentity(): Promise<any> {
     /* Try local cache first */
-    if (typeof localStorage !== 'undefined') {
+    if (typeof localStorage !== "undefined") {
       const cached = localStorage.getItem(AUTH_USER_KEY);
       if (cached) {
         try {
@@ -322,11 +322,11 @@ export class AuthService implements IAuthService {
 
     try {
       const response: HttpResponse<{ identity: any; linked_providers: string[] }> =
-        await this.http.get('/api/auth/identity');
+        await this.http.get("/api/auth/identity");
 
       const identity = response.data;
 
-      if (typeof localStorage !== 'undefined' && identity?.identity) {
+      if (typeof localStorage !== "undefined" && identity?.identity) {
         localStorage.setItem(AUTH_USER_KEY, JSON.stringify(identity.identity));
       }
 
@@ -342,7 +342,7 @@ export class AuthService implements IAuthService {
   async getSession(): Promise<any> {
     try {
       const response: HttpResponse<{ user: any; token: string; permissions: any; roles: any }> =
-        await this.http.get('/api/auth/me');
+        await this.http.get("/api/auth/me");
       return response.data;
     } catch {
       return null;
@@ -353,7 +353,7 @@ export class AuthService implements IAuthService {
   async getPermissions(): Promise<any> {
     try {
       const response: HttpResponse<{ permissions: string[] }> =
-        await this.http.get('/api/auth/permissions');
+        await this.http.get("/api/auth/permissions");
 
       const permissions = response.data.permissions ?? [];
       this.dispatch(AuthEvent.PermissionsLoaded, { permissions });
@@ -370,11 +370,11 @@ export class AuthService implements IAuthService {
 
     if (statusCode === 401) {
       this.clearAuth();
-      return { logout: true, redirectTo: '/login' };
+      return { logout: true, redirectTo: "/login" };
     }
 
     if (statusCode === 403) {
-      return { redirectTo: '/forbidden' };
+      return { redirectTo: "/forbidden" };
     }
 
     return {};

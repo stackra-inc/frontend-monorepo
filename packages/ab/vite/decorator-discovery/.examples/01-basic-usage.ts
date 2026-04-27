@@ -9,16 +9,16 @@
 // 1. Import virtual modules
 // ============================================================================
 
-import { MODULE_REGISTRY, getAllModules } from 'virtual:decorator-registry/modules';
-import { PROVIDER_REGISTRY, getAllProviders } from 'virtual:decorator-registry/providers';
-import { SUBSCRIBER_REGISTRY, getAllSubscribers } from 'virtual:decorator-registry/subscribers';
-import { DECORATOR_REGISTRY, getAllDecorators } from 'virtual:decorator-registry/all';
+import { MODULE_REGISTRY, getAllModules } from "virtual:decorator-registry/modules";
+import { PROVIDER_REGISTRY, getAllProviders } from "virtual:decorator-registry/providers";
+import { SUBSCRIBER_REGISTRY, getAllSubscribers } from "virtual:decorator-registry/subscribers";
+import { DECORATOR_REGISTRY, getAllDecorators } from "virtual:decorator-registry/all";
 
 // ============================================================================
 // 2. Query modules
 // ============================================================================
 
-console.log('=== All Modules ===');
+console.log("=== All Modules ===");
 const modules = getAllModules();
 modules.forEach((module) => {
   console.log(`- ${module.className} (${module.filePath})`);
@@ -26,26 +26,26 @@ modules.forEach((module) => {
 });
 
 // Find a specific module
-const appModule = MODULE_REGISTRY.find((m) => m.className === 'AppModule');
+const appModule = MODULE_REGISTRY.find((m) => m.className === "AppModule");
 if (appModule) {
-  console.log('\n=== AppModule ===');
-  console.log('File:', appModule.filePath);
-  console.log('Args:', appModule.args);
+  console.log("\n=== AppModule ===");
+  console.log("File:", appModule.filePath);
+  console.log("Args:", appModule.args);
 }
 
 // ============================================================================
 // 3. Query providers
 // ============================================================================
 
-console.log('\n=== All Providers ===');
+console.log("\n=== All Providers ===");
 const providers = getAllProviders();
 providers.forEach((provider) => {
   console.log(`- ${provider.className} (${provider.filePath})`);
 });
 
 // Find providers in a specific package
-const authProviders = PROVIDER_REGISTRY.filter((p) => p.filePath.includes('packages/auth/'));
-console.log('\n=== Auth Providers ===');
+const authProviders = PROVIDER_REGISTRY.filter((p) => p.filePath.includes("packages/auth/"));
+console.log("\n=== Auth Providers ===");
 authProviders.forEach((provider) => {
   console.log(`- ${provider.className}`);
 });
@@ -54,19 +54,19 @@ authProviders.forEach((provider) => {
 // 4. Query subscribers
 // ============================================================================
 
-console.log('\n=== All Subscribers ===');
+console.log("\n=== All Subscribers ===");
 const subscribers = getAllSubscribers();
 subscribers.forEach((subscriber) => {
-  console.log(`- ${subscriber.className}.${subscriber.methodName ?? 'class'}`);
+  console.log(`- ${subscriber.className}.${subscriber.methodName ?? "class"}`);
   console.log(`  Topic:`, subscriber.args[0]);
 });
 
 // Find subscribers for a specific topic
 const loginSubscribers = SUBSCRIBER_REGISTRY.filter((s) => {
   const topic = s.args[0];
-  return typeof topic === 'string' && topic.includes('login');
+  return typeof topic === "string" && topic.includes("login");
 });
-console.log('\n=== Login Subscribers ===');
+console.log("\n=== Login Subscribers ===");
 loginSubscribers.forEach((subscriber) => {
   console.log(`- ${subscriber.className}.${subscriber.methodName}`);
   console.log(`  Topic:`, subscriber.args[0]);
@@ -76,7 +76,7 @@ loginSubscribers.forEach((subscriber) => {
 // 5. Query all decorators
 // ============================================================================
 
-console.log('\n=== All Decorators ===');
+console.log("\n=== All Decorators ===");
 const allDecorators = getAllDecorators();
 console.log(`Total decorators: ${allDecorators.length}`);
 console.log(`- Modules: ${DECORATOR_REGISTRY.modules.length}`);
@@ -85,7 +85,7 @@ console.log(`- Subscribers: ${DECORATOR_REGISTRY.subscribers.length}`);
 
 // Query by decorator name
 const injectableDecorators = DECORATOR_REGISTRY.providers;
-console.log('\n=== @Injectable Decorators ===');
+console.log("\n=== @Injectable Decorators ===");
 injectableDecorators.forEach((decorator) => {
   console.log(`- ${decorator.className} (${decorator.filePath})`);
 });
@@ -97,9 +97,9 @@ injectableDecorators.forEach((decorator) => {
 // If you configured custom decorators in the plugin:
 // decoratorDiscoveryPlugin({ customDecorators: ['MyDecorator'] })
 
-const customDecorators = DECORATOR_REGISTRY.custom.get('MyDecorator');
+const customDecorators = DECORATOR_REGISTRY.custom.get("MyDecorator");
 if (customDecorators) {
-  console.log('\n=== @MyDecorator ===');
+  console.log("\n=== @MyDecorator ===");
   customDecorators.forEach((decorator) => {
     console.log(`- ${decorator.className} (${decorator.filePath})`);
   });
@@ -122,19 +122,19 @@ function buildModuleGraph(): Map<string, ModuleNode> {
   for (const module of MODULE_REGISTRY) {
     const metadata = module.args[0]; // First arg is the module metadata object
 
-    if (typeof metadata === 'object' && metadata !== null) {
+    if (typeof metadata === "object" && metadata !== null) {
       graph.set(module.className, {
         name: module.className,
         imports: Array.isArray(metadata.imports)
-          ? metadata.imports.map((imp: any) => (typeof imp === 'string' ? imp : imp.toString()))
+          ? metadata.imports.map((imp: any) => (typeof imp === "string" ? imp : imp.toString()))
           : [],
         providers: Array.isArray(metadata.providers)
           ? metadata.providers.map((prov: any) =>
-              typeof prov === 'string' ? prov : prov.toString()
+              typeof prov === "string" ? prov : prov.toString(),
             )
           : [],
         exports: Array.isArray(metadata.exports)
-          ? metadata.exports.map((exp: any) => (typeof exp === 'string' ? exp : exp.toString()))
+          ? metadata.exports.map((exp: any) => (typeof exp === "string" ? exp : exp.toString()))
           : [],
       });
     }
@@ -144,12 +144,12 @@ function buildModuleGraph(): Map<string, ModuleNode> {
 }
 
 const moduleGraph = buildModuleGraph();
-console.log('\n=== Module Graph ===');
+console.log("\n=== Module Graph ===");
 moduleGraph.forEach((node, name) => {
   console.log(`\n${name}:`);
-  console.log(`  Imports: ${node.imports.join(', ') || 'none'}`);
-  console.log(`  Providers: ${node.providers.join(', ') || 'none'}`);
-  console.log(`  Exports: ${node.exports.join(', ') || 'none'}`);
+  console.log(`  Imports: ${node.imports.join(", ") || "none"}`);
+  console.log(`  Providers: ${node.providers.join(", ") || "none"}`);
+  console.log(`  Exports: ${node.exports.join(", ") || "none"}`);
 });
 
 // ============================================================================
@@ -162,16 +162,16 @@ function validateModuleGraph(): string[] {
   for (const module of MODULE_REGISTRY) {
     const metadata = module.args[0];
 
-    if (typeof metadata === 'object' && metadata !== null) {
+    if (typeof metadata === "object" && metadata !== null) {
       // Check if all imported modules exist
       if (Array.isArray(metadata.imports)) {
         for (const imp of metadata.imports) {
-          const importName = typeof imp === 'string' ? imp : imp.toString();
+          const importName = typeof imp === "string" ? imp : imp.toString();
           const exists = MODULE_REGISTRY.some((m) => m.className === importName);
 
           if (!exists) {
             errors.push(
-              `Module "${module.className}" imports "${importName}" which does not exist`
+              `Module "${module.className}" imports "${importName}" which does not exist`,
             );
           }
         }
@@ -180,12 +180,12 @@ function validateModuleGraph(): string[] {
       // Check if all providers are registered
       if (Array.isArray(metadata.providers)) {
         for (const prov of metadata.providers) {
-          const providerName = typeof prov === 'string' ? prov : prov.toString();
+          const providerName = typeof prov === "string" ? prov : prov.toString();
           const exists = PROVIDER_REGISTRY.some((p) => p.className === providerName);
 
           if (!exists) {
             errors.push(
-              `Module "${module.className}" declares provider "${providerName}" which is not @Injectable`
+              `Module "${module.className}" declares provider "${providerName}" which is not @Injectable`,
             );
           }
         }
@@ -198,8 +198,8 @@ function validateModuleGraph(): string[] {
 
 const validationErrors = validateModuleGraph();
 if (validationErrors.length > 0) {
-  console.log('\n=== Validation Errors ===');
+  console.log("\n=== Validation Errors ===");
   validationErrors.forEach((error) => console.error(`❌ ${error}`));
 } else {
-  console.log('\n✅ Module graph is valid');
+  console.log("\n✅ Module graph is valid");
 }

@@ -61,10 +61,10 @@
     "release": "pnpm publish --access public --no-git-checks"
   },
   "peerDependencies": {
-    "@stackra/ts-container": "^2.0.4",
-    "@stackra/ts-support": "workspace:*",
-    "@stackra/ts-redis": "workspace:*",
-    "react": "^18.0.0 || ^19.0.0"
+    "@stackra/ts-container": "^2.0.10",
+    "@stackra/ts-support": "^2.5.7",
+    "@stackra/ts-redis": "^1.1.7",
+    "react": "^19.2.5"
   },
   "peerDependenciesMeta": {
     "@stackra/ts-container": {
@@ -82,19 +82,19 @@
   },
   "devDependencies": {
     "@eslint/js": "10.0.1",
-    "eslint": "10.2.0",
-    "@nesvel/eslint-config": "^1.0.5",
-    "@nesvel/prettier-config": "^1.0.3",
-    "@nesvel/tsup-config": "^1.0.3",
-    "@nesvel/typescript-config": "^1.0.4",
+    "eslint": "10.2.1",
+    "@stackra/eslint-config": "^1.0.6",
+    "@stackra/prettier-config": "^1.0.4",
+    "@stackra/tsup-config": "^1.0.4",
+    "@stackra/typescript-config": "^1.0.5",
     "@types/react": "^19.2.14",
-    "@vitest/ui": "^4.1.2",
-    "jsdom": "^29.0.1",
-    "prettier": "^3.8.1",
+    "@vitest/ui": "^4.1.5",
+    "jsdom": "^29.1.0",
+    "prettier": "^3.8.3",
     "tsup": "^8.5.1",
-    "typescript": "^6.0.2",
-    "typescript-eslint": "^8.58.0",
-    "vitest": "^4.1.2"
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.59.0",
+    "vitest": "^4.1.5"
   },
   "publishConfig": {
     "access": "public",

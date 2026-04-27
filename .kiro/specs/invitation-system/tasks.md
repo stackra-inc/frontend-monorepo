@@ -164,7 +164,7 @@ have comprehensive multiline docblocks, detailed comments,
         docblocks on every method.
     - _Requirements: 1.5, 8.1–8.8_
 
-  - [ ]\* 10.3 Write property tests for repository query methods
+  - [ ] 10.3 Write property tests for repository query methods
     - **Property 15: Repository findByToken round-trip**
     - **Property 16: Repository filter queries return correct subsets**
     - **Property 17: Repository count queries return correct counts**
@@ -223,18 +223,18 @@ have comprehensive multiline docblocks, detailed comments,
     - Full multiline docblocks on every method (public and private).
     - _Requirements: 3.1–3.7, 4.3, 4.4, 5.1–5.7, 6.2–6.5, 9.1–9.3, 10.2_
 
-  - [ ]\* 12.3 Write property test for invitation creation invariants
+  - [ ] 12.3 Write property test for invitation creation invariants
     - **Property 3: Invitation creation invariants**
     - **Validates: Requirements 3.1, 4.2, 4.3**
 
-  - [ ]\* 12.4 Write property tests for state transitions
+  - [ ] 12.4 Write property tests for state transitions
     - **Property 4: State transitions produce correct status and timestamps**
     - **Property 5: Resend regenerates token and resets TTL**
     - **Property 6: Non-actionable invitations reject operations**
     - **Validates: Requirements 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 4.4, 9.1, 9.2,
       9.3**
 
-  - [ ]\* 12.5 Write property tests for validation guards
+  - [ ] 12.5 Write property tests for validation guards
     - **Property 7: Duplicate invitation guard**
     - **Property 8: Self-invite guard**
     - **Property 9: Max pending guard**
@@ -243,7 +243,7 @@ have comprehensive multiline docblocks, detailed comments,
     - **Property 12: Already-member guard**
     - **Validates: Requirements 5.1–5.5, 5.7**
 
-  - [ ]\* 12.6 Write property tests for channel and bulk operations
+  - [ ] 12.6 Write property tests for channel and bulk operations
     - **Property 13: Link channel skips notification**
     - **Property 14: Bulk invite partitions successes and failures**
     - **Validates: Requirements 6.4, 6.5, 6.6**
@@ -293,7 +293,7 @@ have comprehensive multiline docblocks, detailed comments,
         queries. Full docblocks.
     - _Requirements: 4.5, 4.6_
 
-  - [ ]\* 15.2 Write property test for batch expiration command
+  - [ ] 15.2 Write property test for batch expiration command
     - **Property 18: Batch expiration command expires all overdue invitations**
     - **Validates: Requirements 4.5, 4.6**
 
@@ -391,7 +391,7 @@ have comprehensive multiline docblocks, detailed comments,
     files are removed, and the `FamilyAccountService` facade methods work as
     before.
 
-  - [ ]\* 21.1 Write property tests for enum correctness and JSON round-trip
+  - [ ] 21.1 Write property tests for enum correctness and JSON round-trip
     - **Property 1: InvitationStatus enum correctness**
     - **Property 2: JSON field round-trip**
     - **Validates: Requirements 2.3, 2.4, 2.7**

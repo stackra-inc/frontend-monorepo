@@ -35,12 +35,12 @@
  * ```
  */
 
-import i18next from 'i18next';
-import HttpBackend from 'i18next-http-backend';
-import LanguageDetector from 'i18next-browser-languagedetector';
+import i18next from "i18next";
+import HttpBackend from "i18next-http-backend";
+import LanguageDetector from "i18next-browser-languagedetector";
 
-import type { II18nextService } from '@/interfaces/i18next-service.interface';
-import type { I18nextConfig } from '@/interfaces/i18next-config.interface';
+import type { II18nextService } from "@/interfaces/i18next-service.interface";
+import type { I18nextConfig } from "@/interfaces/i18next-config.interface";
 
 /**
  * Low-level i18next wrapper service.
@@ -205,8 +205,8 @@ export class I18nextService implements II18nextService {
       await this.i18n.changeLanguage(language);
 
       // Persist to localStorage unless explicitly disabled
-      if (options?.persist !== false && typeof localStorage !== 'undefined') {
-        localStorage.setItem('i18nextLng', language);
+      if (options?.persist !== false && typeof localStorage !== "undefined") {
+        localStorage.setItem("i18nextLng", language);
       }
     } catch (error: Error | any) {
       console.error(`[i18n] Error changing language to "${language}":`, error);
@@ -225,7 +225,7 @@ export class I18nextService implements II18nextService {
    * ```
    */
   getLocale(): string {
-    return this.i18n.language || 'en';
+    return this.i18n.language || "en";
   }
 
   /**
@@ -239,7 +239,7 @@ export class I18nextService implements II18nextService {
    * ```
    */
   getLanguages(): string[] {
-    return (this.config.preload as string[]) || [this.config.lng || 'en'];
+    return (this.config.preload as string[]) || [this.config.lng || "en"];
   }
 
   /*
@@ -288,7 +288,7 @@ export class I18nextService implements II18nextService {
    * ```
    */
   onLanguageChanged(callback: (language: string) => void, language?: string): void {
-    this.i18n.on('languageChanged', (lng: string) => {
+    this.i18n.on("languageChanged", (lng: string) => {
       if (!language || lng === language) {
         callback(lng);
       }
@@ -328,7 +328,7 @@ export class I18nextService implements II18nextService {
 
     i18next.init(config, (err: Error | null) => {
       if (err) {
-        console.error('[i18n] Initialization error:', err);
+        console.error("[i18n] Initialization error:", err);
       }
     });
 

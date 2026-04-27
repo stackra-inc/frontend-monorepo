@@ -9,11 +9,11 @@
  *   - Live log feed rendered in the UI
  */
 
-import React, { useState, useCallback } from 'react';
-import { useLogger, LogLevel } from '@stackra/ts-logger';
-import { Card, Chip, Separator, Button } from '@heroui/react';
+import React, { useState, useCallback } from "react";
+import { useLogger, LogLevel } from "@stackra/ts-logger";
+import { Card, Chip, Separator, Button } from "@heroui/react";
 
-import { title, subtitle } from '@/components/primitives';
+import { title, subtitle } from "@/components/primitives";
 
 /** A captured log entry for display in the UI. */
 interface LogEntry {
@@ -24,12 +24,12 @@ interface LogEntry {
   timestamp: string;
 }
 
-const LEVEL_COLORS: Record<string, 'default' | 'accent' | 'warning' | 'danger' | 'success'> = {
-  debug: 'default',
-  info: 'accent',
-  warn: 'warning',
-  error: 'danger',
-  fatal: 'danger',
+const LEVEL_COLORS: Record<string, "default" | "accent" | "warning" | "danger" | "success"> = {
+  debug: "default",
+  info: "accent",
+  warn: "warning",
+  error: "danger",
+  fatal: "danger",
 };
 
 export default function LoggerPage() {
@@ -50,64 +50,64 @@ export default function LoggerPage() {
         ...prev.slice(0, 49),
       ]);
     },
-    []
+    [],
   );
 
   function logAllLevels() {
-    logger.debug('Debug: detailed diagnostic information');
-    logger.info('Info: application started successfully');
-    logger.warn('Warn: deprecated API endpoint called');
-    logger.error('Error: failed to fetch user data');
-    logger.fatal('Fatal: database connection lost');
+    logger.debug("Debug: detailed diagnostic information");
+    logger.info("Info: application started successfully");
+    logger.warn("Warn: deprecated API endpoint called");
+    logger.error("Error: failed to fetch user data");
+    logger.fatal("Fatal: database connection lost");
 
-    capture('debug', 'Debug: detailed diagnostic information');
-    capture('info', 'Info: application started successfully');
-    capture('warn', 'Warn: deprecated API endpoint called');
-    capture('error', 'Error: failed to fetch user data');
-    capture('fatal', 'Fatal: database connection lost');
+    capture("debug", "Debug: detailed diagnostic information");
+    capture("info", "Info: application started successfully");
+    capture("warn", "Warn: deprecated API endpoint called");
+    capture("error", "Error: failed to fetch user data");
+    capture("fatal", "Fatal: database connection lost");
   }
 
   function logWithContext() {
-    const ctx = { userId: 42, requestId: 'req-abc123', ip: '192.168.1.1' };
+    const ctx = { userId: 42, requestId: "req-abc123", ip: "192.168.1.1" };
 
-    logger.withContext(ctx).info('User authenticated', ctx);
-    capture('info', 'User authenticated', ctx);
+    logger.withContext(ctx).info("User authenticated", ctx);
+    capture("info", "User authenticated", ctx);
 
-    const orderCtx = { orderId: 789, amount: 99.99, currency: 'USD' };
+    const orderCtx = { orderId: 789, amount: 99.99, currency: "USD" };
 
-    logger.withContext(orderCtx).info('Order placed', orderCtx);
-    capture('info', 'Order placed', orderCtx);
+    logger.withContext(orderCtx).info("Order placed", orderCtx);
+    capture("info", "Order placed", orderCtx);
   }
 
   function logPerformance() {
     const start = performance.now();
     const arr = Array.from({ length: 10_000 }, (_, i) => i * 2);
     const duration = Math.round(performance.now() - start);
-    const ctx = { task: 'array-generation', items: arr.length, durationMs: duration };
+    const ctx = { task: "array-generation", items: arr.length, durationMs: duration };
 
-    logger.info('Task completed', ctx);
-    capture('info', 'Task completed', ctx);
+    logger.info("Task completed", ctx);
+    capture("info", "Task completed", ctx);
   }
 
   function logError() {
     try {
-      throw new Error('Simulated runtime error');
+      throw new Error("Simulated runtime error");
     } catch (err) {
       const ctx = {
         error: (err as Error).message,
-        stack: (err as Error).stack?.split('\n')[1]?.trim(),
+        stack: (err as Error).stack?.split("\n")[1]?.trim(),
       };
 
-      logger.error('Caught exception', ctx);
-      capture('error', 'Caught exception', ctx);
+      logger.error("Caught exception", ctx);
+      capture("error", "Caught exception", ctx);
     }
   }
 
   function logFeatureFlag() {
     const flags = { darkMode: true, beta: false, analytics: true };
 
-    logger.info('Feature flags evaluated', flags);
-    capture('info', 'Feature flags evaluated', flags);
+    logger.info("Feature flags evaluated", flags);
+    capture("info", "Feature flags evaluated", flags);
   }
 
   return (
@@ -115,7 +115,7 @@ export default function LoggerPage() {
       {/* Header */}
       <div>
         <h1 className={title()}>Logger Package</h1>
-        <p className={subtitle({ class: 'mt-2' })}>
+        <p className={subtitle({ class: "mt-2" })}>
           @stackra/ts-logger — structured logging with channels and context
         </p>
       </div>
@@ -131,7 +131,7 @@ export default function LoggerPage() {
         <Separator />
         <Card.Content>
           <div className="flex flex-wrap gap-3">
-            {(['debug', 'info', 'warn', 'error', 'fatal'] as const).map((level) => (
+            {(["debug", "info", "warn", "error", "fatal"] as const).map((level) => (
               <div
                 key={level}
                 className="border-divider flex items-center gap-2 rounded-lg border px-3 py-2"
@@ -188,8 +188,8 @@ export default function LoggerPage() {
             <h2 className="text-lg font-semibold">Live Log Feed</h2>
             <p className="text-default-500 text-sm">{logs.length} entries (last 50 kept)</p>
           </div>
-          <Chip color={logs.length > 0 ? 'success' : 'default'} size="sm" variant="primary">
-            {logs.length > 0 ? 'active' : 'idle'}
+          <Chip color={logs.length > 0 ? "success" : "default"} size="sm" variant="primary">
+            {logs.length > 0 ? "active" : "idle"}
           </Chip>
         </Card.Header>
         <Separator />
@@ -206,7 +206,7 @@ export default function LoggerPage() {
                   className="bg-default-50 border-divider rounded-lg border p-3 font-mono text-xs"
                 >
                   <div className="mb-1 flex items-center gap-2">
-                    <Chip color={LEVEL_COLORS[log.level] ?? 'default'} size="sm" variant="soft">
+                    <Chip color={LEVEL_COLORS[log.level] ?? "default"} size="sm" variant="soft">
                       {log.level}
                     </Chip>
                     <span className="text-default-400">{log.timestamp}</span>

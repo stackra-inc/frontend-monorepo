@@ -24,17 +24,17 @@
  */
 export const TRANSLATION_FILE_PATTERNS = {
   /** Include patterns targeting `*i18n/**` directories. */
-  include: ['**/i18n/**/*.{json,js,ts}'] as const,
+  include: ["**/i18n/**/*.{json,js,ts}"] as const,
 
   /** Exclude patterns for common build artifacts and dependency directories. */
   exclude: [
-    '**/node_modules/**',
-    '**/dist/**',
-    '**/.next/**',
-    '**/build/**',
-    '**/.turbo/**',
-    '**/coverage/**',
-    '**/out/**',
+    "**/node_modules/**",
+    "**/dist/**",
+    "**/.next/**",
+    "**/build/**",
+    "**/.turbo/**",
+    "**/coverage/**",
+    "**/out/**",
   ] as const,
 };
 
@@ -45,19 +45,19 @@ export const TRANSLATION_FILE_PATTERNS = {
  */
 export const TRANSLATION_FILE_EXTENSIONS = {
   /** `.json` — most common format for translation files. */
-  JSON: '.json',
+  JSON: ".json",
 
   /** `.js` — JavaScript modules exporting translation objects. */
-  JAVASCRIPT: '.js',
+  JAVASCRIPT: ".js",
 
   /** `.ts` — TypeScript modules exporting typed translation objects. */
-  TYPESCRIPT: '.ts',
+  TYPESCRIPT: ".ts",
 
   /** `.tsx` — TypeScript JSX files (rarely used for translations). */
-  TSX: '.tsx',
+  TSX: ".tsx",
 
   /** `.jsx` — JavaScript JSX files (rarely used for translations). */
-  JSX: '.jsx',
+  JSX: ".jsx",
 } as const;
 
 /**

@@ -8,10 +8,10 @@
  * @module utils/type-generator
  */
 
-import { dirname } from 'path';
-import { writeFileSync, mkdirSync } from 'fs';
+import { dirname } from "path";
+import { writeFileSync, mkdirSync } from "fs";
 
-import type { TranslationResources } from '@/interfaces';
+import type { TranslationResources } from "@/interfaces";
 
 /**
  * Generate and write a TypeScript definition file for translation keys.
@@ -41,7 +41,7 @@ import type { TranslationResources } from '@/interfaces';
 export async function generateTypeDefinitions(
   resources: TranslationResources,
   outputPath: string,
-  debug: boolean = false
+  debug: boolean = false,
 ): Promise<void> {
   const allKeys = new Set<string>();
 
@@ -66,7 +66,7 @@ export async function generateTypeDefinitions(
   const dir = dirname(outputPath);
   mkdirSync(dir, { recursive: true });
 
-  writeFileSync(outputPath, typeDefinition, 'utf-8');
+  writeFileSync(outputPath, typeDefinition, "utf-8");
 
   if (debug) {
     console.log(`[i18n] Generated type definitions with ${allKeys.size} keys at ${outputPath}`);
@@ -91,7 +91,7 @@ export async function generateTypeDefinitions(
  *
  * @internal
  */
-function extractKeys(obj: Record<string, any>, prefix: string = ''): string[] {
+function extractKeys(obj: Record<string, any>, prefix: string = ""): string[] {
   const keys: string[] = [];
 
   for (const key in obj) {
@@ -99,7 +99,7 @@ function extractKeys(obj: Record<string, any>, prefix: string = ''): string[] {
       const fullKey = prefix ? `${prefix}.${key}` : key;
       const value = obj[key];
 
-      if (value !== null && typeof value === 'object' && !Array.isArray(value)) {
+      if (value !== null && typeof value === "object" && !Array.isArray(value)) {
         keys.push(...extractKeys(value, fullKey));
       } else {
         keys.push(fullKey);
@@ -138,14 +138,14 @@ function generateTypeDefinitionCode(keys: string[]): string {
  * Use this for type-safe translation key selection
  */
 export type TranslationKey =
-${unionMembers.join('\n')};
+${unionMembers.join("\n")};
 
 /**
  * Map of all available translation keys
  * Useful for programmatic access to translation keys
  */
 export declare const translationKeys: {
-${mapEntries.join('\n')}
+${mapEntries.join("\n")}
 };
 `;
 }

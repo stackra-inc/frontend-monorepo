@@ -67,8 +67,8 @@ builds on them, and the demo page comes last.
       `packages/nav/ui/src/index.ts`
     - _Requirements: 9.1, 9.2, 9.3, 9.4, 9.5_
 
-  - [ ]\* 2.2 Write property test: slot registration round-trip via
-    NavigationModule
+  - [ ] 2.2 Write property test: slot registration round-trip via
+        NavigationModule
     - **Property 2: Slot registration round-trip via NavigationModule**
     - Generate random slot name strings and `SlotEntryOptions` objects with
       `fast-check`
@@ -104,7 +104,7 @@ builds on them, and the demo page comes last.
     - Handle duplicate category IDs gracefully (skip + log warning)
     - _Requirements: 3.1, 3.2, 3.3, 3.4_
 
-  - [ ]\* 4.2 Write property test: NavTree building preserves category data
+  - [ ] 4.2 Write property test: NavTree building preserves category data
     - **Property 1: NavTree building preserves category data**
     - Generate random arrays of `EventCategory` objects (random id, label,
       color) with `fast-check`
@@ -217,8 +217,8 @@ builds on them, and the demo page comes last.
       `createSpotlightPlugin` from `@nav/plugins`
     - _Requirements: 2.2, 2.3, 2.4, 2.5, 2.6, 2.7_
 
-  - [ ]\* 8.7 Write property test: slot injection renders registered entries in
-    nav components
+  - [ ] 8.7 Write property test: slot injection renders registered entries in
+        nav components
     - **Property 3: Slot injection renders registered entries in nav
       components**
     - Register random slot entries to known nav slot names via `slotRegistry`
@@ -228,8 +228,7 @@ builds on them, and the demo page comes last.
     - **Validates: Requirements 8.1, 8.2, 8.3, 8.4, 8.5, 8.6, 8.7, 8.8, 8.9,
       9.6**
 
-  - [ ]\* 8.8 Write property test: role-based filtering only returns visible
-    nodes
+  - [ ] 8.8 Write property test: role-based filtering only returns visible nodes
     - **Property 4: Role-based filtering only returns visible nodes**
     - Generate random NavTrees with nodes having various visibility rules
       (roles, public, custom) using `fast-check`

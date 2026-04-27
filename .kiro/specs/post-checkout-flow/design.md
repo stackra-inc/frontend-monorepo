@@ -79,11 +79,11 @@ The core orchestrator. Returns current state and dispatch function.
 // apps/vite-template/src/hooks/use-post-checkout-flow.ts
 
 type FlowStep =
-  | 'idle'
-  | 'order_confirm'
-  | 'receipt_print'
-  | 'rfid_link'
-  | 'experience_builder';
+  | "idle"
+  | "order_confirm"
+  | "receipt_print"
+  | "rfid_link"
+  | "experience_builder";
 
 interface OrderData {
   orderId: string;
@@ -99,11 +99,11 @@ interface OrderData {
 }
 
 type FlowAction =
-  | { type: 'START'; payload: OrderData }
-  | { type: 'ADVANCE' }
-  | { type: 'SKIP' }
-  | { type: 'SKIP_ALL' }
-  | { type: 'RESET' };
+  | { type: "START"; payload: OrderData }
+  | { type: "ADVANCE" }
+  | { type: "SKIP" }
+  | { type: "SKIP_ALL" }
+  | { type: "RESET" };
 
 interface FlowState {
   step: FlowStep;
@@ -141,15 +141,15 @@ checkout button is disabled (Requirement 1.5).
 
 ```typescript
 const STEP_SEQUENCE: FlowStep[] = [
-  'order_confirm',
-  'receipt_print',
-  'rfid_link',
-  'experience_builder',
+  "order_confirm",
+  "receipt_print",
+  "rfid_link",
+  "experience_builder",
 ];
 
 function getNextStep(current: FlowStep): FlowStep {
   const idx = STEP_SEQUENCE.indexOf(current);
-  if (idx === -1 || idx === STEP_SEQUENCE.length - 1) return 'idle';
+  if (idx === -1 || idx === STEP_SEQUENCE.length - 1) return "idle";
   return STEP_SEQUENCE[idx + 1];
 }
 ```
@@ -184,18 +184,18 @@ triggers:
 
 ```typescript
 useEffect(() => {
-  if (flow.state.step !== 'receipt_print' || !flow.state.orderData) return;
+  if (flow.state.step !== "receipt_print" || !flow.state.orderData) return;
 
-  setPrintStatus('printing');
+  setPrintStatus("printing");
   const receiptHtml = buildReceiptContent(flow.state.orderData);
 
   PrintService.printReceipt(flow.state.orderData.orderId, receiptHtml)
-    .then(() => setPrintStatus('done'))
-    .catch(() => setPrintStatus('done')) // fallback already handled inside PrintService
+    .then(() => setPrintStatus("done"))
+    .catch(() => setPrintStatus("done")) // fallback already handled inside PrintService
     .finally(() => {
       setTimeout(() => {
-        setPrintStatus('idle');
-        flow.dispatch({ type: 'ADVANCE' });
+        setPrintStatus("idle");
+        flow.dispatch({ type: "ADVANCE" });
       }, 800); // brief delay so cashier sees "Printed ✓"
     });
 }, [flow.state.step]);
@@ -249,8 +249,8 @@ Internal state tracks per-ticket linking status:
 interface TicketLinkState {
   ticketId: string;
   name: string;
-  status: 'pending' | 'linked';
-  mediaType: 'card' | 'bracelet' | 'hotel_card' | null;
+  status: "pending" | "linked";
+  mediaType: "card" | "bracelet" | "hotel_card" | null;
   rfidTag: string | null;
 }
 ```
@@ -294,7 +294,7 @@ const handleCompleteOrder = useCallback(() => {
   clearRef.current(); // clear drawer stack
 
   flow.dispatch({
-    type: 'START',
+    type: "START",
     payload: {
       orderId,
       total: formattedTotal,
@@ -305,7 +305,7 @@ const handleCompleteOrder = useCallback(() => {
         quantity: i.quantity,
         unitPrice: i.unitPrice,
       })),
-      cashierId: 'CASHIER-001', // from auth context in production
+      cashierId: "CASHIER-001", // from auth context in production
     },
   });
 }, []);
@@ -406,7 +406,7 @@ interface OrderData {
 interface RFIDLink {
   ticketId: string;
   rfidTag: string;
-  mediaType: 'card' | 'bracelet' | 'hotel_card';
+  mediaType: "card" | "bracelet" | "hotel_card";
   linkedAt: string; // ISO timestamp
   linkedBy: string; // cashier ID
 }

@@ -7,11 +7,16 @@
         "mcp-remote",
         "https://gitmcp.io/tailwindlabs/tailwindcss"
       ],
-      "autoApprove": ["search_tailwindcss_documentation"]
+      "autoApprove": [
+        "search_tailwindcss_documentation"
+      ]
     },
     "next-devtools": {
       "command": "npx",
-      "args": ["-y", "next-devtools-mcp@latest"],
+      "args": [
+        "-y",
+        "next-devtools-mcp@latest"
+      ],
       "disabled": false,
       "autoApprove": [
         "get_build_errors",
@@ -23,14 +28,18 @@
     },
     "heroui-react": {
       "command": "npx",
-      "args": ["-y", "@heroui/react-mcp@latest"],
+      "args": [
+        "-y",
+        "@heroui/react-mcp@latest"
+      ],
       "disabled": false,
       "autoApprove": [
         "get_component",
         "list_components",
         "get_component_props",
         "get_component_examples",
-        "get_theme_config"
+        "get_theme_config",
+        "get_component_docs"
       ]
     },
     "tailwindcss": {
@@ -49,7 +58,10 @@
     },
     "github": {
       "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-github"
+      ],
       "env": {
         "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_TOKEN}"
       },
@@ -66,14 +78,18 @@
     },
     "playwright": {
       "command": "npx",
-      "args": ["-y", "@playwright/mcp@latest"],
+      "args": [
+        "-y",
+        "@playwright/mcp@latest"
+      ],
       "disabled": false,
       "autoApprove": [
         "browser_navigate",
         "browser_snapshot",
         "browser_take_screenshot",
         "browser_click",
-        "browser_type"
+        "browser_type",
+        "browser_wait_for"
       ]
     }
   }

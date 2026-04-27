@@ -1,7 +1,7 @@
 ---
 title: Electron Desktop Architecture
 inclusion: fileMatch
-fileMatchPattern: '**/desktop/**,**/packages/desktop/**'
+fileMatchPattern: "**/desktop/**,**/packages/desktop/**"
 ---
 
 # Electron Desktop Architecture
@@ -57,9 +57,9 @@ class PrinterService {
     }
     const commands = this.formatter.formatReceipt(data);
     await this.desktop.bridge.invoke(
-      'printer:print-escpos',
+      "printer:print-escpos",
       commands,
-      this.config
+      this.config,
     );
   }
 }

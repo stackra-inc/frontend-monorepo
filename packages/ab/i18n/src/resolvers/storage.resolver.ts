@@ -36,8 +36,8 @@
  * - Default storage key: `'i18nextLng'` (matches i18next convention)
  */
 
-import { LocaleResolverPriority } from '@/enums';
-import type { ILocaleResolver } from './locale-resolver.interface';
+import { LocaleResolverPriority } from "@/enums";
+import type { ILocaleResolver } from "./locale-resolver.interface";
 
 /**
  * Configuration options for {@link StorageLocaleResolver}.
@@ -74,7 +74,7 @@ export interface StorageLocaleResolverOptions {
  */
 export class StorageLocaleResolver implements ILocaleResolver {
   /** @inheritdoc */
-  public readonly name = 'storage';
+  public readonly name = "storage";
 
   /** @inheritdoc */
   public readonly priority = LocaleResolverPriority.NORMAL;
@@ -99,9 +99,9 @@ export class StorageLocaleResolver implements ILocaleResolver {
    * @param options - Optional configuration for storage key and implementation
    */
   constructor(options?: StorageLocaleResolverOptions) {
-    this.storageKey = options?.storageKey ?? 'i18nextLng';
+    this.storageKey = options?.storageKey ?? "i18nextLng";
     this.storage =
-      options?.storage ?? (typeof window !== 'undefined' ? window.localStorage : undefined);
+      options?.storage ?? (typeof window !== "undefined" ? window.localStorage : undefined);
   }
 
   /**
@@ -119,7 +119,7 @@ export class StorageLocaleResolver implements ILocaleResolver {
       return value || undefined;
     } catch (error) {
       // Storage access can fail in private browsing mode or restrictive environments
-      console.warn('[i18n] Failed to read locale from storage:', error);
+      console.warn("[i18n] Failed to read locale from storage:", error);
       return undefined;
     }
   }

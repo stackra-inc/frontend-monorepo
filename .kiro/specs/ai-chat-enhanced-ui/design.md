@@ -164,13 +164,13 @@ interface ChatMessageBase {
 
 /** User text message */
 interface UserMessage extends ChatMessageBase {
-  type: 'user';
+  type: "user";
   content: string;
 }
 
 /** Assistant text message (may contain markdown) */
 interface AssistantMessage extends ChatMessageBase {
-  type: 'assistant';
+  type: "assistant";
   content: string;
   /** True if this response came from the answer cache */
   cached?: boolean;
@@ -178,29 +178,29 @@ interface AssistantMessage extends ChatMessageBase {
 
 /** Tool invocation by the LLM */
 interface ToolCallMessage extends ChatMessageBase {
-  type: 'tool-call';
+  type: "tool-call";
   toolCallId: string;
   toolName: string;
   args: Record<string, unknown>;
-  trustLevel: 'low' | 'medium' | 'high';
+  trustLevel: "low" | "medium" | "high";
   requiresApproval: boolean;
   /** Whether this tool runs on the frontend */
   frontendExecutable: boolean;
   status:
-    | 'pending'
-    | 'approved'
-    | 'rejected'
-    | 'executing'
-    | 'success'
-    | 'failed'
-    | 'timed-out';
+    | "pending"
+    | "approved"
+    | "rejected"
+    | "executing"
+    | "success"
+    | "failed"
+    | "timed-out";
   result?: unknown;
   error?: string;
 }
 
 /** Tool execution result */
 interface ToolResultMessage extends ChatMessageBase {
-  type: 'tool-result';
+  type: "tool-result";
   toolCallId: string;
   success: boolean;
   data?: unknown;
@@ -209,7 +209,7 @@ interface ToolResultMessage extends ChatMessageBase {
 
 /** Navigation action performed by navigateUI tool */
 interface NavigationMessage extends ChatMessageBase {
-  type: 'navigation';
+  type: "navigation";
   target: string;
   section?: string;
   element?: string;
@@ -218,8 +218,8 @@ interface NavigationMessage extends ChatMessageBase {
 
 /** System notification (connection status changes, errors) */
 interface SystemMessage extends ChatMessageBase {
-  type: 'system';
-  variant: 'info' | 'warning' | 'error' | 'success';
+  type: "system";
+  variant: "info" | "warning" | "error" | "success";
   content: string;
 }
 
@@ -287,7 +287,7 @@ interface ToolCallCardProps {
   toolCallId: string;
   toolName: string;
   args: Record<string, unknown>;
-  status: 'pending' | 'executing' | 'success' | 'failed';
+  status: "pending" | "executing" | "success" | "failed";
   result?: unknown;
   error?: string;
 }
@@ -308,8 +308,8 @@ interface ApprovalCardProps {
   toolCallId: string;
   toolName: string;
   args: Record<string, unknown>;
-  trustLevel: 'high';
-  status: 'pending' | 'approved' | 'rejected' | 'timed-out';
+  trustLevel: "high";
+  status: "pending" | "approved" | "rejected" | "timed-out";
   onApprove: (toolCallId: string) => void;
   onReject: (toolCallId: string) => void;
 }
@@ -347,7 +347,7 @@ interface WalkthroughStep {
   targetSelector: string;
   title: string;
   description: string;
-  position: 'top' | 'bottom' | 'left' | 'right';
+  position: "top" | "bottom" | "left" | "right";
   actionHint?: string;
 }
 
@@ -472,21 +472,21 @@ class AnswerCacheService {
   /** Search for a cached answer. Returns null if no match above threshold. */
   async findSimilar(
     tenantId: string,
-    question: string
+    question: string,
   ): Promise<CachedAnswer | null>;
 
   /** Store a new Q&A pair in the cache. */
   async store(
     tenantId: string,
     question: string,
-    answer: string
+    answer: string,
   ): Promise<void>;
 
   /** List cached Q&A pairs for admin review. */
   async list(
     tenantId: string,
     offset: number,
-    limit: number
+    limit: number,
   ): Promise<CachedAnswer[]>;
 
   /** Update a cached answer (admin edit). */
@@ -654,27 +654,27 @@ Two new frontend-executable tool definitions added to the registry:
 
 const uiTools: ToolDefinition[] = [
   {
-    name: 'navigateUI',
+    name: "navigateUI",
     description:
-      'Navigate the cashier to a specific screen, drawer, or UI element.',
+      "Navigate the cashier to a specific screen, drawer, or UI element.",
     parameters: z.object({
       drawer: z
         .string()
-        .describe('Drawer to open: profile, notifications, shift, membership'),
-      section: z.string().optional().describe('Section within the drawer'),
+        .describe("Drawer to open: profile, notifications, shift, membership"),
+      section: z.string().optional().describe("Section within the drawer"),
       element: z
         .string()
         .optional()
-        .describe('CSS selector of element to highlight'),
+        .describe("CSS selector of element to highlight"),
     }),
-    trustLevel: 'low',
-    roles: ['cashier'],
-    handler: async () => ({ success: true, message: 'Frontend-executed tool' }),
+    trustLevel: "low",
+    roles: ["cashier"],
+    handler: async () => ({ success: true, message: "Frontend-executed tool" }),
   },
   {
-    name: 'startWalkthrough',
+    name: "startWalkthrough",
     description:
-      'Start an interactive walkthrough with highlights and popovers on UI elements.',
+      "Start an interactive walkthrough with highlights and popovers on UI elements.",
     parameters: z.object({
       steps: z
         .array(
@@ -682,24 +682,24 @@ const uiTools: ToolDefinition[] = [
             targetSelector: z
               .string()
               .describe(
-                'CSS selector or data attribute for the target element'
+                "CSS selector or data attribute for the target element",
               ),
-            title: z.string().describe('Popover title'),
-            description: z.string().describe('Popover description'),
+            title: z.string().describe("Popover title"),
+            description: z.string().describe("Popover description"),
             position: z
-              .enum(['top', 'bottom', 'left', 'right'])
-              .describe('Popover position relative to target'),
+              .enum(["top", "bottom", "left", "right"])
+              .describe("Popover position relative to target"),
             actionHint: z
               .string()
               .optional()
               .describe("Action hint text, e.g. 'tap here'"),
-          })
+          }),
         )
-        .describe('Ordered array of walkthrough steps'),
+        .describe("Ordered array of walkthrough steps"),
     }),
-    trustLevel: 'low',
-    roles: ['cashier'],
-    handler: async () => ({ success: true, message: 'Frontend-executed tool' }),
+    trustLevel: "low",
+    roles: ["cashier"],
+    handler: async () => ({ success: true, message: "Frontend-executed tool" }),
   },
 ];
 ```

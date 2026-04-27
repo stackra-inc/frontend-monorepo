@@ -10,12 +10,12 @@
  *   - Service-to-service dependencies
  */
 
-import { useState, useEffect } from 'react';
-import { Injectable, Module, Inject } from '@stackra/ts-container';
-import { useInject, ContainerProvider } from '@stackra/ts-container';
-import { ApplicationContext } from '@stackra/ts-container';
+import { useState, useEffect } from "react";
+import { Injectable, Module, Inject } from "@stackra/ts-container";
+import { useInject, ContainerProvider } from "@stackra/ts-container";
+import { ApplicationContext } from "@stackra/ts-container";
 
-import { title, subtitle } from '@/components/primitives';
+import { title, subtitle } from "@/components/primitives";
 
 // ---------------------------------------------------------------------------
 // Demo services
@@ -42,7 +42,7 @@ class GreeterService {
   greet(name: string): string {
     const count = this.counter.getCount();
 
-    return `Hello, ${name}! You have clicked ${count} time${count !== 1 ? 's' : ''}.`;
+    return `Hello, ${name}! You have clicked ${count} time${count !== 1 ? "s" : ""}.`;
   }
 }
 
@@ -90,8 +90,8 @@ function CounterWidget() {
 
 function GreeterWidget() {
   const greeter = useInject(GreeterService);
-  const [name, setName] = useState('World');
-  const [greeting, setGreeting] = useState(greeter.greet('World'));
+  const [name, setName] = useState("World");
+  const [greeting, setGreeting] = useState(greeter.greet("World"));
 
   return (
     <div className="border-divider flex flex-col gap-3 rounded-xl border p-6">
@@ -102,7 +102,7 @@ function GreeterWidget() {
           placeholder="Your name"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          onKeyDown={(e) => e.key === 'Enter' && setGreeting(greeter.greet(name))}
+          onKeyDown={(e) => e.key === "Enter" && setGreeting(greeter.greet(name))}
         />
         <button
           className="bg-default-200 rounded-lg px-4 py-2 text-sm"
@@ -131,7 +131,7 @@ export default function ContainerPage() {
     <section className="flex flex-col gap-8 py-8 md:py-10">
       <div>
         <h1 className={title()}>Container Package</h1>
-        <p className={subtitle({ class: 'mt-2' })}>
+        <p className={subtitle({ class: "mt-2" })}>
           @stackra/ts-container — NestJS-style dependency injection
         </p>
       </div>
@@ -140,19 +140,19 @@ export default function ContainerPage() {
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
         {[
           {
-            icon: '💉',
-            label: '@Injectable()',
-            desc: 'Mark a class as a DI-managed service.',
+            icon: "💉",
+            label: "@Injectable()",
+            desc: "Mark a class as a DI-managed service.",
           },
           {
-            icon: '📦',
-            label: '@Module()',
-            desc: 'Group providers and imports into modules.',
+            icon: "📦",
+            label: "@Module()",
+            desc: "Group providers and imports into modules.",
           },
           {
-            icon: '🪝',
-            label: 'useInject()',
-            desc: 'React hook to resolve a service from DI.',
+            icon: "🪝",
+            label: "useInject()",
+            desc: "React hook to resolve a service from DI.",
           },
         ].map((item) => (
           <div key={item.label} className="border-divider rounded-xl border p-4">

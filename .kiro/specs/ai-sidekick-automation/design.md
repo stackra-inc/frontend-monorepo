@@ -119,7 +119,7 @@ interface ActionTypeDefinition {
   defaultAutomation: boolean; // Default preference for new cashiers
 }
 
-type TrustLevel = 'low' | 'medium' | 'high';
+type TrustLevel = "low" | "medium" | "high";
 
 interface TenantActionRegistry {
   tenantId: string;
@@ -202,7 +202,7 @@ interface AutomationEvent {
   actionTypeId: string;
   summary: string;
   timestamp: number;
-  status: 'success' | 'failed' | 'undone';
+  status: "success" | "failed" | "undone";
   payload?: Record<string, unknown>;
   reasoning?: string;
 }

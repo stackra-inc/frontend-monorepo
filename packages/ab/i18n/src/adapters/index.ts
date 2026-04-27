@@ -8,4 +8,4 @@
  * @module adapters
  */
 
-export { i18nPlugin } from './vite.adapter';
+export { i18nPlugin } from "./vite.adapter";

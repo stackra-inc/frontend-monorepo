@@ -60,31 +60,30 @@
     "registry": "https://registry.npmjs.org/"
   },
   "peerDependencies": {
-    "vite": "^7.2.4",
-    "@stackra/ts-container": "^2.0.4",
-    "@stackra/ts-http": "workspace:*"
+    "vite": "^8.0.10",
+    "@stackra/ts-container": "^2.0.10",
+    "@stackra/ts-http": "^1.0.0"
   },
   "dependencies": {
     "fast-glob": "^3.3.3",
-    "i18next": "^26.0.5",
+    "i18next": "^26.0.8",
     "i18next-browser-languagedetector": "^8.2.1",
-    "i18next-http-backend": "^3.0.4",
+    "i18next-http-backend": "^3.0.6",
     "react-i18next": "^17.0.4",
-    "@stackra/ts-support": "workspace:*"
+    "@stackra/ts-support": "^2.5.7"
   },
   "devDependencies": {
-    "@nesvel/eslint-config": "^1.0.5",
-    "@nesvel/jest-config": "^1.0.3",
-    "@nesvel/tsup-config": "^1.0.3",
-    "@nesvel/typescript-config": "^1.0.4",
+    "@stackra/eslint-config": "^1.0.6",
+    "@stackra/tsup-config": "^1.0.4",
+    "@stackra/typescript-config": "^1.0.5",
     "@refinedev/core": "^5.0.12",
     "@types/node": "^25.6.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
-    "eslint": "^10.2.0",
+    "eslint": "^10.2.1",
     "tsup": "^8.5.1",
     "typescript": "^6.0.3",
-    "vite": "^8.0.8"
+    "vite": "^8.0.10"
   },
   "peerDependenciesMeta": {
     "@stackra/ts-container": {

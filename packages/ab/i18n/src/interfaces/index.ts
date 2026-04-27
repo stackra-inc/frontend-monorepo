@@ -18,16 +18,16 @@
  * @module interfaces
  */
 
-export type { II18nextService } from './i18next-service.interface';
-export type { II18nService } from './i18n-service.interface';
-export type { II18nContext } from './i18n-context.interface';
-export type { FileMap } from './file-map.interface';
-export type { LanguageFiles } from './language-files.interface';
-export type { I18nextConfig } from './i18next-config.interface';
-export type { I18nPluginOptions } from './i18n-plugin-options.interface';
-export type { I18nModuleOptions } from './i18n-module-options.interface';
-export type { NamespaceResources } from './namespace-resources.interface';
-export type { TranslationResources } from './translation-resources.interface';
-export type { HttpContext } from './http-context.interface';
-export type { HttpResponse } from './http-response.interface';
-export type { IHttpMiddleware, HttpNextFunction } from './http-middleware.interface';
+export type { II18nextService } from "./i18next-service.interface";
+export type { II18nService } from "./i18n-service.interface";
+export type { II18nContext } from "./i18n-context.interface";
+export type { FileMap } from "./file-map.interface";
+export type { LanguageFiles } from "./language-files.interface";
+export type { I18nextConfig } from "./i18next-config.interface";
+export type { I18nPluginOptions } from "./i18n-plugin-options.interface";
+export type { I18nModuleOptions } from "./i18n-module-options.interface";
+export type { NamespaceResources } from "./namespace-resources.interface";
+export type { TranslationResources } from "./translation-resources.interface";
+export type { HttpContext } from "./http-context.interface";
+export type { HttpResponse } from "./http-response.interface";
+export type { IHttpMiddleware, HttpNextFunction } from "./http-middleware.interface";

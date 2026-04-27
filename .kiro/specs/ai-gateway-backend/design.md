@@ -168,12 +168,12 @@ authenticated and bound to a session.
 // WebSocket message types (client → server)
 interface WSClientMessage {
   type:
-    | 'chat'
-    | 'pos-state-update'
-    | 'approve'
-    | 'reject'
-    | 'dismiss'
-    | 'delegation-change';
+    | "chat"
+    | "pos-state-update"
+    | "approve"
+    | "reject"
+    | "dismiss"
+    | "delegation-change";
   payload: Record<string, unknown>;
   requestId?: string; // correlates approval responses to pending requests
 }
@@ -181,12 +181,12 @@ interface WSClientMessage {
 // WebSocket message types (server → client)
 interface WSServerMessage {
   type:
-    | 'token'
-    | 'suggestion'
-    | 'approval-request'
-    | 'automation-event'
-    | 'error'
-    | 'stream-end';
+    | "token"
+    | "suggestion"
+    | "approval-request"
+    | "automation-event"
+    | "error"
+    | "stream-end";
   payload: Record<string, unknown>;
   requestId?: string;
 }
@@ -217,7 +217,7 @@ Shared authentication logic for both WebSocket and HTTP.
 interface AuthContext {
   tenantId: string;
   userId: string;
-  role: 'cashier' | 'admin';
+  role: "cashier" | "admin";
 }
 
 interface AuthMiddleware {
@@ -235,7 +235,7 @@ interface Session {
   id: string;
   tenantId: string;
   userId: string;
-  role: 'cashier' | 'admin';
+  role: "cashier" | "admin";
   messages: CoreMessage[]; // Vercel AI SDK message format
   createdAt: number;
   lastActivityAt: number;
@@ -270,8 +270,8 @@ interface SessionManager {
 Wraps the Vercel AI SDK for streaming and tool-calling interactions.
 
 ```typescript
-import { streamText, generateText, tool } from 'ai';
-import { openai } from '@ai-sdk/openai';
+import { streamText, generateText, tool } from "ai";
+import { openai } from "@ai-sdk/openai";
 
 interface LLMService {
   /** Stream a response with tool calling support */
@@ -308,14 +308,14 @@ interface ToolDefinition {
   description: string;
   parameters: z.ZodSchema; // Zod schema for input validation
   trustLevel: TrustLevel; // "low" | "medium" | "high"
-  roles: ('cashier' | 'admin')[]; // Which roles can use this tool
+  roles: ("cashier" | "admin")[]; // Which roles can use this tool
   handler: (args: unknown, ctx: ToolContext) => Promise<unknown>;
 }
 
 interface ToolContext {
   tenantId: string;
   userId: string;
-  role: 'cashier' | 'admin';
+  role: "cashier" | "admin";
   sessionId: string;
 }
 
@@ -323,9 +323,9 @@ interface ToolRegistry {
   register(definition: ToolDefinition): void;
   get(name: string): ToolDefinition | undefined;
   /** Get tools available for a specific role */
-  getForRole(role: 'cashier' | 'admin'): ToolDefinition[];
+  getForRole(role: "cashier" | "admin"): ToolDefinition[];
   /** Convert to Vercel AI SDK tool format */
-  toAITools(role: 'cashier' | 'admin'): Record<string, CoreTool>;
+  toAITools(role: "cashier" | "admin"): Record<string, CoreTool>;
   /** Validate args against schema, returns parsed args or throws */
   validateArgs(name: string, args: unknown): unknown;
 }
@@ -374,7 +374,7 @@ interface TrustGate {
     toolName: string,
     args: unknown,
     session: Session,
-    sendToClient: (msg: WSServerMessage) => void
+    sendToClient: (msg: WSServerMessage) => void,
   ): Promise<unknown>;
 }
 ```
@@ -386,7 +386,7 @@ Constructs role-specific, tenant-aware system prompts.
 ```typescript
 interface PromptBuilder {
   build(params: {
-    role: 'cashier' | 'admin';
+    role: "cashier" | "admin";
     tenantId: string;
     availableTools: ToolDefinition[];
     tenantContext?: string; // RAG-retrieved venue info
@@ -418,13 +418,13 @@ interface RAGService {
   ingest(
     tenantId: string,
     content: string,
-    metadata: { sourceDocument: string; category: string }
+    metadata: { sourceDocument: string; category: string },
   ): Promise<void>;
   /** Semantic search within a tenant's knowledge base */
   search(
     tenantId: string,
     query: string,
-    topK?: number
+    topK?: number,
   ): Promise<DocumentChunk[]>;
 }
 ```
@@ -442,9 +442,9 @@ interface RateLimiterConfig {
 
 interface RateLimiter {
   /** Returns true if the request is allowed, false if rate limited */
-  check(tenantId: string, category: 'llm' | 'tool' | 'ws'): boolean;
+  check(tenantId: string, category: "llm" | "tool" | "ws"): boolean;
   /** Get remaining quota for a tenant */
-  remaining(tenantId: string, category: 'llm' | 'tool' | 'ws'): number;
+  remaining(tenantId: string, category: "llm" | "tool" | "ws"): number;
 }
 ```
 
@@ -459,16 +459,16 @@ interface AuditEntry {
   userId: string;
   toolName: string;
   inputParams: Record<string, unknown>; // PII redacted
-  result: 'success' | 'failed' | 'rejected';
+  result: "success" | "failed" | "rejected";
   errorMessage?: string;
   timestamp: Date;
 }
 
 interface AuditLogger {
-  log(entry: Omit<AuditEntry, 'id' | 'timestamp'>): Promise<void>;
+  log(entry: Omit<AuditEntry, "id" | "timestamp">): Promise<void>;
   query(
     tenantId: string,
-    filters?: { toolName?: string; userId?: string; from?: Date; to?: Date }
+    filters?: { toolName?: string; userId?: string; from?: Date; to?: Date },
   ): Promise<AuditEntry[]>;
 }
 ```
@@ -545,28 +545,28 @@ CREATE TABLE rate_limits (
 ```typescript
 // Client → Server
 type ClientMessage =
-  | { type: 'chat'; payload: { message: string } }
+  | { type: "chat"; payload: { message: string } }
   | {
-      type: 'pos-state-update';
+      type: "pos-state-update";
       payload: { cart?: unknown; customer?: unknown; alerts?: unknown[] };
     }
-  | { type: 'approve'; payload: { requestId: string } }
-  | { type: 'reject'; payload: { requestId: string } }
-  | { type: 'dismiss'; payload: { suggestionId: string } }
+  | { type: "approve"; payload: { requestId: string } }
+  | { type: "reject"; payload: { requestId: string } }
+  | { type: "dismiss"; payload: { suggestionId: string } }
   | {
-      type: 'delegation-change';
+      type: "delegation-change";
       payload: { actionTypeId: string; enabled: boolean };
     };
 
 // Server → Client
 type ServerMessage =
-  | { type: 'token'; payload: { content: string; done: boolean } }
-  | { type: 'suggestion'; payload: Suggestion } // matches frontend Suggestion type
-  | { type: 'approval-request'; payload: Suggestion & { requestId: string } }
-  | { type: 'automation-event'; payload: AutomationEvent } // matches frontend AutomationEvent type
-  | { type: 'error'; payload: { code: string; message: string } }
-  | { type: 'stream-end'; payload: { messageId: string } }
-  | { type: 'rate-limited'; payload: { retryAfterMs: number } };
+  | { type: "token"; payload: { content: string; done: boolean } }
+  | { type: "suggestion"; payload: Suggestion } // matches frontend Suggestion type
+  | { type: "approval-request"; payload: Suggestion & { requestId: string } }
+  | { type: "automation-event"; payload: AutomationEvent } // matches frontend AutomationEvent type
+  | { type: "error"; payload: { code: string; message: string } }
+  | { type: "stream-end"; payload: { messageId: string } }
+  | { type: "rate-limited"; payload: { retryAfterMs: number } };
 ```
 
 ### Environment Variables

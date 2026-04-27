@@ -16,9 +16,9 @@
  * @module utils/global-setup
  */
 
-import i18next, { TFunction } from 'i18next';
+import i18next, { TFunction } from "i18next";
 
-import type { I18nextConfig } from '@/interfaces';
+import type { I18nextConfig } from "@/interfaces";
 
 // ── Safe Translation Wrapper ───────────────────────────────────────────────
 
@@ -38,7 +38,7 @@ import type { I18nextConfig } from '@/interfaces';
  */
 const safeTranslate = (fn: TFunction, key: string, options?: Record<string, any>): string => {
   const result = options ? fn(key, options) : fn(key);
-  return typeof result === 'string' ? result : String(result);
+  return typeof result === "string" ? result : String(result);
 };
 
 // ── Translation Functions ──────────────────────────────────────────────────
@@ -166,7 +166,7 @@ export const getLanguages = (): readonly string[] => i18next.languages ?? [];
 export const addResources = (
   language: string,
   namespace: string,
-  resources: Record<string, any>
+  resources: Record<string, any>,
 ): void => {
   i18next.addResources(language, namespace, resources);
 };
@@ -187,7 +187,7 @@ export const addResources = (
  */
 export function isGlobalI18nSetup(): boolean {
   return (
-    typeof (globalThis as any).__ === 'function' && typeof (globalThis as any).t === 'function'
+    typeof (globalThis as any).__ === "function" && typeof (globalThis as any).t === "function"
   );
 }
 
@@ -214,10 +214,10 @@ export function isGlobalI18nSetup(): boolean {
  */
 export async function setupGlobalI18n(
   config: I18nextConfig,
-  options?: { verbose?: boolean }
+  options?: { verbose?: boolean },
 ): Promise<void> {
   if (isGlobalI18nSetup()) {
-    console.warn('[i18n] Global i18n functions already set up. Skipping.');
+    console.warn("[i18n] Global i18n functions already set up. Skipping.");
     return;
   }
 
@@ -240,10 +240,10 @@ export async function setupGlobalI18n(
   g.changeLanguage = changeLanguage;
 
   if (verbose) {
-    console.debug('[i18n] Registered global translation helpers:');
-    console.debug('  - __(), t(), trans()');
-    console.debug('  - getLanguage(), getLanguages()');
-    console.debug('  - addResources(), changeLanguage()');
+    console.debug("[i18n] Registered global translation helpers:");
+    console.debug("  - __(), t(), trans()");
+    console.debug("  - getLanguage(), getLanguages()");
+    console.debug("  - addResources(), changeLanguage()");
   }
 }
 

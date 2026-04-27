@@ -7,7 +7,7 @@
  * @module interfaces/translation-resources
  */
 
-import { NamespaceResources } from './namespace-resources.interface';
+import { NamespaceResources } from "./namespace-resources.interface";
 
 /**
  * Represents the structure of translation resources in i18next format

@@ -15,7 +15,7 @@ comments):
 
 ```jsonc
 {
-  "extends": "@nesvel/typescript-config/base.json",
+  "extends": "@stackra/typescript-config/base.json",
   "compilerOptions": {
     "outDir": "./dist",
     "rootDir": ".",
@@ -86,10 +86,10 @@ comments):
   "devDependencies": {
     "@eslint/js": "10.0.1",
     "eslint": "10.2.0",
-    "@nesvel/eslint-config": "^1.0.5",
-    "@nesvel/prettier-config": "^1.0.3",
-    "@nesvel/tsup-config": "^1.0.3",
-    "@nesvel/typescript-config": "^1.0.4",
+    "@stackra/eslint-config": "^1.0.5",
+    "@stackra/prettier-config": "^1.0.3",
+    "@stackra/tsup-config": "^1.0.3",
+    "@stackra/typescript-config": "^1.0.4",
     "@vitest/ui": "^4.1.2",
     "jsdom": "^29.0.1",
     "prettier": "^3.8.1",

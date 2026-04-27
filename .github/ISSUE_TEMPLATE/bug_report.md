@@ -1,9 +1,9 @@
 ---
 name: Bug report
 about: Report a reproducible bug
-title: '[bug] '
+title: "[bug] "
 labels: bug
-assignees: ''
+assignees: ""
 ---
 
 ## Describe the bug

@@ -19,7 +19,7 @@
  * ```
  */
 
-import { useI18nContext } from '@/contexts';
+import { useI18nContext } from "@/contexts";
 
 /**
  * Return type for the {@link useTranslation} hook.
@@ -116,7 +116,7 @@ export const useTranslation = (): UseTranslationReturn => {
     };
   } catch (error) {
     // Return safe defaults when used outside I18nProvider
-    console.warn('[useTranslation] Used outside I18nProvider, returning safe defaults');
+    console.warn("[useTranslation] Used outside I18nProvider, returning safe defaults");
 
     // Identity function — returns the key as-is
     const identity = (key: string) => key;

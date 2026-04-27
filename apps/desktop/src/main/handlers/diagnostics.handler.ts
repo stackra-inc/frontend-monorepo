@@ -13,8 +13,8 @@
  * @module desktop/main/handlers
  */
 
-import { ipcMain, app } from 'electron';
-import * as os from 'os';
+import { ipcMain, app } from "electron";
+import * as os from "os";
 
 export function registerDiagnosticsHandlers(): void {
   /*
@@ -22,14 +22,14 @@ export function registerDiagnosticsHandlers(): void {
   | diagnostics:system-info
   |--------------------------------------------------------------------------
   */
-  ipcMain.handle('diagnostics:system-info', async () => {
+  ipcMain.handle("diagnostics:system-info", async () => {
     return {
       os: `${os.platform()} ${os.release()}`,
-      cpu: os.cpus()[0]?.model ?? 'unknown',
+      cpu: os.cpus()[0]?.model ?? "unknown",
       totalMemory: os.totalmem(),
-      electronVersion: process.versions.electron ?? 'unknown',
-      nodeVersion: process.versions.node ?? 'unknown',
-      chromeVersion: process.versions.chrome ?? 'unknown',
+      electronVersion: process.versions.electron ?? "unknown",
+      nodeVersion: process.versions.node ?? "unknown",
+      chromeVersion: process.versions.chrome ?? "unknown",
     };
   });
 
@@ -38,16 +38,16 @@ export function registerDiagnosticsHandlers(): void {
   | diagnostics:gpu-info
   |--------------------------------------------------------------------------
   */
-  ipcMain.handle('diagnostics:gpu-info', async () => {
+  ipcMain.handle("diagnostics:gpu-info", async () => {
     try {
-      const gpuInfo = await app.getGPUInfo('complete');
+      const gpuInfo = await app.getGPUInfo("complete");
       return {
-        vendor: (gpuInfo as any)?.gpuDevice?.[0]?.vendorString ?? 'unknown',
-        renderer: (gpuInfo as any)?.gpuDevice?.[0]?.deviceString ?? 'unknown',
+        vendor: (gpuInfo as any)?.gpuDevice?.[0]?.vendorString ?? "unknown",
+        renderer: (gpuInfo as any)?.gpuDevice?.[0]?.deviceString ?? "unknown",
         raw: gpuInfo,
       };
     } catch {
-      return { vendor: 'unavailable', renderer: 'unavailable', raw: null };
+      return { vendor: "unavailable", renderer: "unavailable", raw: null };
     }
   });
 
@@ -56,7 +56,7 @@ export function registerDiagnosticsHandlers(): void {
   | diagnostics:memory
   |--------------------------------------------------------------------------
   */
-  ipcMain.handle('diagnostics:memory', async () => {
+  ipcMain.handle("diagnostics:memory", async () => {
     const mem = process.memoryUsage();
     return {
       heapUsed: mem.heapUsed,

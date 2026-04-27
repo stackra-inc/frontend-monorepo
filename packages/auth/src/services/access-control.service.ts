@@ -24,13 +24,13 @@
  * ```
  */
 
-import { Injectable, Inject } from '@stackra/ts-container';
-import { HTTP_CLIENT } from '@stackra/ts-http';
-import { CACHE_SERVICE } from '@stackra/ts-cache';
-import type { HttpClient, HttpResponse } from '@stackra/ts-http';
-import type { CacheService } from '@stackra/ts-cache';
-import type { IAccessControlService } from '@/interfaces/access-control-service.interface';
-import type { CanResponse } from '@/interfaces/can-response.interface';
+import { Injectable, Inject } from "@stackra/ts-container";
+import { HTTP_CLIENT } from "@stackra/ts-http";
+import { CACHE_SERVICE } from "@stackra/ts-cache";
+import type { HttpClient, HttpResponse } from "@stackra/ts-http";
+import type { CacheService } from "@stackra/ts-cache";
+import type { IAccessControlService } from "@/interfaces/access-control-service.interface";
+import type { CanResponse } from "@/interfaces/can-response.interface";
 
 /**
  * Cache TTL for permission check results (in seconds).
@@ -67,7 +67,7 @@ export class AccessControlService implements IAccessControlService {
    */
   constructor(
     @Inject(HTTP_CLIENT) private readonly http: HttpClient,
-    @Inject(CACHE_SERVICE) private readonly cache?: CacheService
+    @Inject(CACHE_SERVICE) private readonly cache?: CacheService,
   ) {}
 
   // ─── Private Helpers ─────────────────────────────────────────────
@@ -81,7 +81,7 @@ export class AccessControlService implements IAccessControlService {
    * @returns A namespaced string key for the cache.
    */
   private buildCacheKey(resource: string, action: string, params?: any): string {
-    const paramStr = params ? JSON.stringify(params) : '';
+    const paramStr = params ? JSON.stringify(params) : "";
     return `acl:${resource}:${action}:${paramStr}`;
   }
 
@@ -115,8 +115,8 @@ export class AccessControlService implements IAccessControlService {
 
     try {
       const response: HttpResponse<{ can: boolean; reason?: string }> = await this.http.post(
-        '/api/acl/can',
-        { resource, action, params }
+        "/api/acl/can",
+        { resource, action, params },
       );
 
       const result: CanResponse = {

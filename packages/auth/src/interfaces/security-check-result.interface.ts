@@ -7,8 +7,8 @@
  * @category Interfaces
  */
 
-import type { SecurityStatus } from './security-status.interface';
-import type { ActiveDevice } from './active-device.interface';
+import type { SecurityStatus } from "./security-status.interface";
+import type { ActiveDevice } from "./active-device.interface";
 
 /**
  * Result of a security check.

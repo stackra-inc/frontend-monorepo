@@ -41,7 +41,7 @@ compiler → dynamic Laravel Excel classes → services → jobs & events → co
         `CSV`, `XLSX`, `JSON`, `use Enum` trait, `#[Label]`/`#[Description]` on
         each case, `laravelExcelType()` method
     - _Requirements: 16.2_
-  - [ ]\* 2.3 Write property test for ExportFormat enum methods
+  - [ ] 2.3 Write property test for ExportFormat enum methods
     - **Property 8: ExportFormat enum methods return valid values**
     - **Validates: Requirements 16.3, 16.4**
   - [x] 2.4 Create `src/Data/CsvSettings.php` — final readonly value object with
@@ -64,7 +64,7 @@ compiler → dynamic Laravel Excel classes → services → jobs & events → co
         `#[Attribute(Attribute::TARGET_CLASS)]`, `final readonly`, with
         `factory`, `count`, `label` parameters and `ATTR_*` constants
     - _Requirements: 4.1, 4.2_
-  - [ ]\* 3.4 Write property test for attribute construction round-trip
+  - [ ] 3.4 Write property test for attribute construction round-trip
     - **Property 1: Attribute construction round-trip**
     - **Validates: Requirements 2.1, 2.5, 3.1, 3.4, 3.5, 4.1**
 
@@ -116,10 +116,10 @@ compiler → dynamic Laravel Excel classes → services → jobs & events → co
         `getModelClass()`, `register()` methods, detects `BelongsToTenant` trait
         via `class_uses_recursive()`
     - _Requirements: 5.1, 5.2, 5.3, 5.4, 5.5, 11.5_
-  - [ ]\* 7.2 Write property test for EntityRegistry listing correctness
+  - [ ] 7.2 Write property test for EntityRegistry listing correctness
     - **Property 2: EntityRegistry listing correctness**
     - **Validates: Requirements 5.4**
-  - [ ]\* 7.3 Write property test for BelongsToTenant detection
+  - [ ] 7.3 Write property test for BelongsToTenant detection
     - **Property 5: BelongsToTenant detection**
     - **Validates: Requirements 11.5**
   - [x] 7.4 Create `src/Compiler/ImportExportCompiler.php` with
@@ -145,13 +145,13 @@ compiler → dynamic Laravel Excel classes → services → jobs & events → co
         `chunkSize`, `tenantId`, `CsvSettings`; implements `model()`, `rules()`,
         `uniqueBy()`, `batchSize()`, `chunkSize()`, `getCsvSettings()`
     - _Requirements: 7.1, 7.2, 7.3, 7.4, 7.5, 7.8, 13.5, 13.6_
-  - [ ]\* 8.3 Write property test for import validation error collection
+  - [ ] 8.3 Write property test for import validation error collection
     - **Property 3: Import validation collects all errors without aborting**
     - **Validates: Requirements 7.1, 7.2, 7.7**
-  - [ ]\* 8.4 Write property test for transformer application
+  - [ ] 8.4 Write property test for transformer application
     - **Property 4: Transformer application preserves mapping**
     - **Validates: Requirements 7.8**
-  - [ ]\* 8.5 Write property test for template headers matching field map
+  - [ ] 8.5 Write property test for template headers matching field map
     - **Property 7: Template headers match field map**
     - **Validates: Requirements 15.2, 15.3**
 
@@ -165,7 +165,7 @@ compiler → dynamic Laravel Excel classes → services → jobs & events → co
         `PrivateChannel("user.{userId}.import-export")` and `broadcastAs()`
         returning the event name
     - _Requirements: 9.1, 9.2, 9.3, 9.4, 9.5, 9.6, 14.1, 14.2, 14.3, 14.4, 14.5_
-  - [ ]\* 9.2 Write property test for events being readonly DTOs with scalar IDs
+  - [ ] 9.2 Write property test for events being readonly DTOs with scalar IDs
     - **Property 6: Events are readonly DTOs with scalar IDs**
     - **Validates: Requirements 14.4**
 
@@ -245,17 +245,17 @@ compiler → dynamic Laravel Excel classes → services → jobs & events → co
         `#[LoadsResources]`; verify no manual bindings exist (all use
         `#[Bind]` + `#[Scoped]` on interfaces)
     - _Requirements: 1.1, 1.2_
-  - [ ]\* 14.2 Write unit tests for DynamicEntityExport (`headings()`, `map()`
-    with formatters, `chunkSize()`, `getCsvSettings()`)
+  - [ ] 14.2 Write unit tests for DynamicEntityExport (`headings()`, `map()`
+        with formatters, `chunkSize()`, `getCsvSettings()`)
     - _Requirements: 6.1, 6.2, 6.3, 13.5_
-  - [ ]\* 14.3 Write unit tests for DynamicEntityImport (`rules()`,
-    `uniqueBy()`, `model()` with transformers and tenant_id, `getCsvSettings()`)
+  - [ ] 14.3 Write unit tests for DynamicEntityImport (`rules()`, `uniqueBy()`,
+        `model()` with transformers and tenant_id, `getCsvSettings()`)
     - _Requirements: 7.1, 7.3, 7.5, 7.8, 13.5_
-  - [ ]\* 14.4 Write unit tests for ImportResultData DTO construction and
-    interface method implementations
+  - [ ] 14.4 Write unit tests for ImportResultData DTO construction and
+        interface method implementations
     - _Requirements: 7.7_
-  - [ ]\* 14.5 Write unit tests for CsvSettings value object (`fromConfig()`,
-    `fromRequest()` with overrides and defaults)
+  - [ ] 14.5 Write unit tests for CsvSettings value object (`fromConfig()`,
+        `fromRequest()` with overrides and defaults)
     - _Requirements: 13.1, 13.2, 13.3, 13.5, 13.6_
 
 - [x] 15. Final checkpoint — Ensure all tests pass

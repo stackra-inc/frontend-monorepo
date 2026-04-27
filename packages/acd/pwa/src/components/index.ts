@@ -7,6 +7,10 @@
 export { AppShell } from './app-shell';
 export type { AppShellProps } from './app-shell';
 
+// ─── App Update Banner ─────────────────────────────────────────────
+export { AppUpdateBanner } from './app-update-banner';
+export type { AppUpdateBannerProps } from './app-update-banner';
+
 // ─── Install Prompt ────────────────────────────────────────────────
 export { InstallPrompt } from './install-prompt';
 export { InstallPromptBanner } from './install-prompt-banner';

@@ -16,14 +16,14 @@
 // Module
 // ============================================================================
 
-export { I18nModule } from './i18n.module';
+export { I18nModule } from "./i18n.module";
 
 // ============================================================================
 // Services
 // ============================================================================
 
-export { I18nextService } from './services/i18next.service';
-export { I18nService } from './services/i18n.service';
+export { I18nextService } from "./services/i18next.service";
+export { I18nService } from "./services/i18n.service";
 
 // ============================================================================
 // Contexts
@@ -31,27 +31,27 @@ export { I18nService } from './services/i18n.service';
 // Contexts
 // ============================================================================
 
-export { I18nContext, useI18nContext } from './contexts';
+export { I18nContext, useI18nContext } from "./contexts";
 
 // ============================================================================
 // Providers (React)
 // ============================================================================
 
-export { I18nProvider } from './providers';
-export type { I18nProviderProps } from './providers';
+export { I18nProvider } from "./providers";
+export type { I18nProviderProps } from "./providers";
 
 // ============================================================================
 // Hooks
 // ============================================================================
 
-export { useLocale, useTranslation, useChangeLocale } from './hooks';
+export { useLocale, useTranslation, useChangeLocale } from "./hooks";
 
 export type {
   UseLocaleReturn,
   UseTranslationReturn,
   UseChangeLocaleOptions,
   UseChangeLocaleReturn,
-} from './hooks';
+} from "./hooks";
 
 // ============================================================================
 // Interfaces
@@ -72,9 +72,9 @@ export type {
   HttpResponse,
   IHttpMiddleware,
   HttpNextFunction,
-} from './interfaces';
+} from "./interfaces";
 
-export type { ILocaleResolver } from './resolvers/locale-resolver.interface';
+export type { ILocaleResolver } from "./resolvers/locale-resolver.interface";
 
 // ============================================================================
 // Types
@@ -87,15 +87,15 @@ export type {
   TranslationKey,
   ResourceObject,
   TranslationNamespace,
-} from './types';
+} from "./types";
 
-export { createLanguageCode, createNamespace, createTranslationKey } from './types';
+export { createLanguageCode, createNamespace, createTranslationKey } from "./types";
 
 // ============================================================================
 // Enums
 // ============================================================================
 
-export { LocaleResolverPriority } from './enums';
+export { LocaleResolverPriority } from "./enums";
 
 // ============================================================================
 // Constants & DI Tokens
@@ -116,7 +116,7 @@ export {
   STORAGE_LOCALE_RESOLVER,
   NAVIGATOR_LOCALE_RESOLVER,
   ACCEPT_LANGUAGE_LOCALE_RESOLVER,
-} from './constants';
+} from "./constants";
 
 // ============================================================================
 // Standalone Utilities (non-DI)
@@ -142,7 +142,7 @@ export {
   generateVirtualModule,
   generateTypeDefinitions,
   createLocaleResolverChain,
-} from './utils';
+} from "./utils";
 
 // ============================================================================
 // Resolvers
@@ -154,7 +154,7 @@ export {
   StorageLocaleResolver,
   NavigatorLocaleResolver,
   AcceptLanguageLocaleResolver,
-} from './resolvers/index';
+} from "./resolvers/index";
 
 export type {
   UrlPathLocaleResolverOptions,
@@ -162,16 +162,16 @@ export type {
   StorageLocaleResolverOptions,
   NavigatorLocaleResolverOptions,
   AcceptLanguageLocaleResolverOptions,
-} from './resolvers/index';
+} from "./resolvers/index";
 
 // ============================================================================
 // Middleware
 // ============================================================================
 
-export { LocaleMiddleware } from './middleware';
+export { LocaleMiddleware } from "./middleware";
 
 // ============================================================================
 // Adapters
 // ============================================================================
 
-export { i18nPlugin } from './adapters';
+export { i18nPlugin } from "./adapters";

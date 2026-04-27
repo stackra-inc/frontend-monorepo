@@ -278,7 +278,7 @@ interface AIContextInterceptor {
     id: string,
     label: string,
     data: Record<string, unknown>,
-    insight?: string
+    insight?: string,
   ): {
     id: string;
     label: string;
@@ -298,7 +298,7 @@ function useAIComponent(
   id: string,
   label: string,
   data: Record<string, unknown>,
-  options?: { insight?: string; disabled?: boolean }
+  options?: { insight?: string; disabled?: boolean },
 ): void;
 ```
 
@@ -350,11 +350,11 @@ Example usage:
   imports: [
     AIContextModule.forFeature({
       components: [
-        { id: 'cart', label: 'CartSummary', defaultData: {} },
-        { id: 'cart-items', label: 'CartItemList', defaultData: {} },
+        { id: "cart", label: "CartSummary", defaultData: {} },
+        { id: "cart-items", label: "CartItemList", defaultData: {} },
       ],
       globals: {
-        'cart-feature-enabled': true,
+        "cart-feature-enabled": true,
       },
     }),
   ],
@@ -595,10 +595,10 @@ type SnapshotSubscriber = (snapshot: AISnapshot) => void;
 
 ```typescript
 /** Injection token for AIContextRegistry */
-const AI_CONTEXT_REGISTRY = Symbol.for('AI_CONTEXT_REGISTRY');
+const AI_CONTEXT_REGISTRY = Symbol.for("AI_CONTEXT_REGISTRY");
 
 /** Injection token for AIContextConfig */
-const AI_CONTEXT_CONFIG = Symbol.for('AI_CONTEXT_CONFIG');
+const AI_CONTEXT_CONFIG = Symbol.for("AI_CONTEXT_CONFIG");
 ```
 
 ### File / Folder Structure
@@ -961,7 +961,7 @@ const arbLabel = fc.string({ minLength: 1, maxLength: 100 });
 // Serializable data payload: JSON-serializable record
 const arbData = fc.dictionary(
   fc.string({ minLength: 1, maxLength: 20 }),
-  fc.oneof(fc.string(), fc.integer(), fc.boolean(), fc.constant(null))
+  fc.oneof(fc.string(), fc.integer(), fc.boolean(), fc.constant(null)),
 );
 
 // Insight: optional short classifier string
@@ -970,7 +970,7 @@ const arbInsight = fc.option(fc.string({ minLength: 1, maxLength: 30 }));
 // Global key: non-empty string, excluding reserved keys
 const arbGlobalKey = fc
   .string({ minLength: 1, maxLength: 30 })
-  .filter((k) => !['components', '_truncated', '_truncatedCount'].includes(k));
+  .filter((k) => !["components", "_truncated", "_truncatedCount"].includes(k));
 
 // Global value: any JSON-serializable value
 const arbGlobalValue = fc.oneof(
@@ -978,7 +978,7 @@ const arbGlobalValue = fc.oneof(
   fc.integer(),
   fc.boolean(),
   fc.constant(null),
-  fc.dictionary(fc.string(), fc.string())
+  fc.dictionary(fc.string(), fc.string()),
 );
 
 // AISnapshot: valid snapshot object
@@ -989,7 +989,7 @@ const arbSnapshot = fc.record({
       label: arbLabel,
       data: arbData,
       insight: arbInsight,
-    })
+    }),
   ),
 });
 
@@ -1003,7 +1003,7 @@ const arbFeatureComponent = fc.record({
 // Feature config
 const arbFeatureConfig = fc.record({
   components: fc.option(
-    fc.array(arbFeatureComponent, { minLength: 0, maxLength: 10 })
+    fc.array(arbFeatureComponent, { minLength: 0, maxLength: 10 }),
   ),
   globals: fc.option(fc.dictionary(arbGlobalKey, arbGlobalValue)),
 });
@@ -1016,7 +1016,7 @@ const arbInterceptor = fc
       id: string,
       label: string,
       data: Record<string, unknown>,
-      insight?: string
+      insight?: string,
     ) => ({
       id,
       label,

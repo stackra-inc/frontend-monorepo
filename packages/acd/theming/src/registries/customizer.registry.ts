@@ -45,6 +45,3 @@ export class CustomizerRegistry extends BaseRegistry<CustomizerPanel> {
     return this.getAll().sort((a, b) => (a.order ?? 99) - (b.order ?? 99));
   }
 }
-
-/** Global singleton CustomizerRegistry. */
-export const customizerRegistry = new CustomizerRegistry();

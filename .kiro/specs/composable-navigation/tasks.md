@@ -89,7 +89,7 @@ the previous.
       with the specified defaults
     - _Requirements: 8.1, 8.2, 8.3, 8.4, 8.5, 8.6, 8.7_
 
-  - [ ]\* 3.4 Write property test for context config preset application
+  - [ ] 3.4 Write property test for context config preset application
     - **Property 21: Context config preset application**
     - **Validates: Requirements 8.3, 8.4**
 
@@ -100,7 +100,7 @@ the previous.
       the context with correct version
     - _Requirements: 2.1_
 
-  - [ ]\* 4.2 Write property test for createNavTree
+  - [ ] 4.2 Write property test for createNavTree
     - **Property 27: createNavTree returns empty tree for context**
     - **Validates: Requirements 2.1**
 
@@ -111,7 +111,7 @@ the previous.
     - All mutations return new NavTree instances (immutability)
     - _Requirements: 2.2, 2.3, 2.4, 2.7, 2.9_
 
-  - [ ]\* 4.4 Write property tests for addSection and addNode
+  - [ ] 4.4 Write property tests for addSection and addNode
     - **Property 3: addNode placement**
     - **Property 4: addSection inclusion**
     - **Validates: Requirements 2.2, 2.3, 2.4**
@@ -123,12 +123,12 @@ the previous.
       subtree
     - _Requirements: 2.5, 2.6, 2.8_
 
-  - [ ]\* 4.6 Write property tests for removeNode and moveNode
+  - [ ] 4.6 Write property tests for removeNode and moveNode
     - **Property 5: removeNode cascading deletion**
     - **Property 6: moveNode relocation**
     - **Validates: Requirements 2.5, 2.6**
 
-  - [ ]\* 4.7 Write property tests for immutability and node id uniqueness
+  - [ ] 4.7 Write property tests for immutability and node id uniqueness
     - **Property 1: NavTree node id uniqueness**
     - **Property 2: NavSection ordering**
     - **Property 7: Immutability of all operations**
@@ -143,7 +143,7 @@ the previous.
       full ancestor chain in result
     - _Requirements: 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7_
 
-  - [ ]\* 5.2 Write property tests for active resolution
+  - [ ] 5.2 Write property tests for active resolution
     - **Property 8: Active resolution uniqueness and longest match**
     - **Property 9: Strategy-aware resolution**
     - **Property 10: Ancestor chain completeness**
@@ -158,7 +158,7 @@ the previous.
       nodes (D+1 entries)
     - _Requirements: 4.1, 4.2, 4.3, 4.4, 4.5_
 
-  - [ ]\* 6.2 Write property test for breadcrumb depth invariant
+  - [ ] 6.2 Write property test for breadcrumb depth invariant
     - **Property 11: Breadcrumb depth invariant**
     - **Validates: Requirements 4.1, 4.4, 4.5**
 
@@ -173,7 +173,7 @@ the previous.
     - Returns new NavTree (immutability)
     - _Requirements: 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7_
 
-  - [ ]\* 7.2 Write property tests for role-based filtering
+  - [ ] 7.2 Write property tests for role-based filtering
     - **Property 12: Role-based filtering correctness**
     - **Property 13: Visible parent with no visible children**
     - **Property 14: Empty roles yields only public nodes**
@@ -186,7 +186,7 @@ the previous.
     - Default collapsed state from NavConfig when node not in record
     - _Requirements: 6.1, 6.2, 6.3, 6.4, 6.5, 6.6, 6.7_
 
-  - [ ]\* 8.2 Write property tests for collapse state
+  - [ ] 8.2 Write property tests for collapse state
     - **Property 15: Toggle collapse round-trip**
     - **Property 16: collapseAll sets all to collapsed**
     - **Property 17: expandToNode expands ancestor chain**
@@ -201,7 +201,7 @@ the previous.
     - Implement typeahead search logic
     - _Requirements: 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 7.10_
 
-  - [ ]\* 9.2 Write property tests for keyboard navigation
+  - [ ] 9.2 Write property tests for keyboard navigation
     - **Property 18: Keyboard shortcut registration round-trip**
     - **Property 19: List navigation focus ordering**
     - **Property 20: Typeahead search**
@@ -216,7 +216,7 @@ the previous.
       binding
     - _Requirements: 9.1, 9.2, 9.3, 9.4, 9.5, 9.6, 9.7, 9.8_
 
-  - [ ]\* 10.2 Write property tests for plugin system
+  - [ ] 10.2 Write property tests for plugin system
     - **Property 22: Plugin node extension**
     - **Property 23: Plugin badge application**
     - **Property 24: Plugin shortcut merging (existing wins)**
@@ -232,7 +232,7 @@ the previous.
       `NavSchemaValidationError`
     - _Requirements: 10.1, 10.2, 10.3, 10.4, 10.5, 10.6_
 
-  - [ ]\* 11.2 Write property tests for serialization
+  - [ ] 11.2 Write property tests for serialization
     - **Property 25: Serialization round-trip**
     - **Property 26: Custom visibility rules excluded from serialization**
     - **Validates: Requirements 10.3, 10.6**
@@ -265,7 +265,7 @@ the previous.
       factories
     - _Requirements: 16.4_
 
-  - [ ]\* 14.3 Write unit tests for plugin factories
+  - [ ] 14.3 Write unit tests for plugin factories
     - Test each factory produces a valid NavPlugin with correct name, hooks, and
       behavior
     - Test error isolation (plugin hook throws → caught and logged)
@@ -300,7 +300,7 @@ the previous.
       hooks, and relevant types from `@nav/core`
     - _Requirements: 16.2_
 
-  - [ ]\* 15.4 Write unit tests for hooks and provider
+  - [ ] 15.4 Write unit tests for hooks and provider
     - Test hook behavior (useNav returns tree/activeNode, useNavActions returns
       functions, etc.)
     - Test error throwing when hooks used outside NavProvider
@@ -342,7 +342,7 @@ the previous.
       input that filters NavNodes by label
     - _Requirements: 12.6, 12.7, 12.8, 12.9_
 
-  - [ ]\* 17.4 Write unit tests for generic Nav components
+  - [ ] 17.4 Write unit tests for generic Nav components
     - Test rendering of Sidebar, Header, Menu, Item, Breadcrumbs, Footer,
       UserMenu, Search
     - Test ARIA attributes are correctly applied
@@ -364,7 +364,7 @@ the previous.
       (animated stack navigation for sub-views)
     - _Requirements: 13.1, 13.2, 13.3, 13.4, 13.5, 13.6, 13.7_
 
-  - [ ]\* 18.2 Write unit tests for POS components
+  - [ ] 18.2 Write unit tests for POS components
     - Test POS header renders all slot areas
     - Test POS sidebar collapsed/expanded modes
     - Test spotlight populates commands from NavTree
@@ -384,7 +384,7 @@ the previous.
       settings navigation list with active state highlighting
     - _Requirements: 14.1, 14.2, 14.3, 14.4, 14.5_
 
-  - [ ]\* 19.2 Write unit tests for Dashboard components
+  - [ ] 19.2 Write unit tests for Dashboard components
     - Test dashboard layout renders sidebar, header, content areas
     - Test sidebar collapse shows icons with tooltips
     - _Requirements: 14.1, 14.2, 14.3_
@@ -401,7 +401,7 @@ the previous.
       (heading + links per column) and bottom bar (legal links, copyright)
     - _Requirements: 15.1, 15.2, 15.3, 15.4, 15.5_
 
-  - [ ]\* 20.2 Write unit tests for Landing components
+  - [ ] 20.2 Write unit tests for Landing components
     - Test sticky header renders menu items and CTA
     - Test mobile drawer opens/closes
     - Test footer renders link columns and legal bar
@@ -453,7 +453,7 @@ the previous.
       components, hooks, and types
     - _Requirements: 16.5_
 
-  - [ ]\* 23.5 Write unit tests for Refine adapter
+  - [ ] 23.5 Write unit tests for Refine adapter
     - Test `buildNavTreeFromResources` maps resources correctly (path, label,
       icon, nesting, hidden)
     - Test `syncWithRefineMenu` merges menu items into existing tree

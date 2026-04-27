@@ -1,6 +1,6 @@
 ---
 inclusion: fileMatch
-fileMatchPattern: '**/landing/**,**/pages/landing/**'
+fileMatchPattern: "**/landing/**,**/pages/landing/**"
 ---
 
 # MNGO Landing Page Design System

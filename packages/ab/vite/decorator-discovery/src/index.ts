@@ -26,4 +26,4 @@ export {
   type DecoratorMetadata,
   type DecoratorRegistry,
   type DecoratorDiscoveryOptions,
-} from './plugin';
+} from "./plugin";

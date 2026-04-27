@@ -20,14 +20,14 @@
  * Supported authentication providers / strategies.
  */
 export enum AuthProvider {
-  Email = 'email',
-  StaffPin = 'staff_pin',
-  ApiKey = 'api_key',
-  Totp = 'totp',
-  Google = 'google',
-  Github = 'github',
-  Phone = 'phone',
-  EmailOtp = 'email_otp',
-  MagicLink = 'magic_link',
-  WebAuthn = 'webauthn',
+  Email = "email",
+  StaffPin = "staff_pin",
+  ApiKey = "api_key",
+  Totp = "totp",
+  Google = "google",
+  Github = "github",
+  Phone = "phone",
+  EmailOtp = "email_otp",
+  MagicLink = "magic_link",
+  WebAuthn = "webauthn",
 }

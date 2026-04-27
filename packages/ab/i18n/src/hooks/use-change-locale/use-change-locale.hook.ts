@@ -26,8 +26,8 @@
  * ```
  */
 
-import { useState, useCallback } from 'react';
-import { useI18nContext } from '@/contexts';
+import { useState, useCallback } from "react";
+import { useI18nContext } from "@/contexts";
 
 /**
  * Options for the {@link useChangeLocale} hook.
@@ -154,7 +154,7 @@ export const useChangeLocale = (options: UseChangeLocaleOptions = {}): UseChange
     contextChangeLocale = ctx.changeLocale;
   } catch {
     // Used outside I18nProvider — changeLocale will throw
-    console.warn('[useChangeLocale] Used outside I18nProvider');
+    console.warn("[useChangeLocale] Used outside I18nProvider");
   }
 
   /**
@@ -163,7 +163,7 @@ export const useChangeLocale = (options: UseChangeLocaleOptions = {}): UseChange
   const changeLocale = useCallback(
     async (language: string): Promise<void> => {
       if (!contextChangeLocale) {
-        throw new Error('[i18n] useChangeLocale must be used within <I18nProvider>');
+        throw new Error("[i18n] useChangeLocale must be used within <I18nProvider>");
       }
 
       try {
@@ -176,7 +176,7 @@ export const useChangeLocale = (options: UseChangeLocaleOptions = {}): UseChange
       } catch (err) {
         const changeError = err instanceof Error ? err : new Error(String(err));
         setError(changeError);
-        console.error('[useChangeLocale] Error:', changeError);
+        console.error("[useChangeLocale] Error:", changeError);
 
         onError?.(changeError);
         throw changeError;
@@ -184,7 +184,7 @@ export const useChangeLocale = (options: UseChangeLocaleOptions = {}): UseChange
         setIsChanging(false);
       }
     },
-    [contextChangeLocale, onSuccess, onError]
+    [contextChangeLocale, onSuccess, onError],
   );
 
   return {

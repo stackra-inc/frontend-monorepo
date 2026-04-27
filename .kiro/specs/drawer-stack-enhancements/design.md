@@ -103,7 +103,7 @@ const push = useCallback(async (config: DrawerConfig, component: ReactNode) => {
     component,
     triggerElement: document.activeElement,
   };
-  dispatch({ type: 'PUSH', entry });
+  dispatch({ type: "PUSH", entry });
 }, []);
 ```
 
@@ -186,7 +186,7 @@ if (!stillInStack && !ve.isLeaving) {
         exitTimers.current.delete(id);
         closeCb?.(); // Invoke after exit animation duration
         setVisual((v) => v.filter((x) => x.entry.instanceId !== id));
-      }, 550)
+      }, 550),
     );
   }
 }
@@ -243,8 +243,8 @@ useEffect(() => {
     }));
     localStorage.setItem(persistKey, JSON.stringify(serializable));
   } catch (err) {
-    if (process.env.NODE_ENV !== 'production') {
-      console.warn('[DrawerStack] Failed to persist stack state:', err);
+    if (process.env.NODE_ENV !== "production") {
+      console.warn("[DrawerStack] Failed to persist stack state:", err);
     }
   }
 }, [stack, persistKey]);
@@ -264,8 +264,8 @@ useEffect(() => {
       onRestore(ids);
     }
   } catch (err) {
-    if (process.env.NODE_ENV !== 'production') {
-      console.warn('[DrawerStack] Failed to restore persisted state:', err);
+    if (process.env.NODE_ENV !== "production") {
+      console.warn("[DrawerStack] Failed to restore persisted state:", err);
     }
   }
   // Only run on mount
@@ -321,7 +321,7 @@ const value = useMemo<DrawerStackContextValue>(
     forcePop,
     bringToTop,
     enableKeyboardNavigation,
-  ]
+  ],
 );
 ```
 
@@ -333,7 +333,7 @@ useEffect(() => {
 
   const handler = (e: KeyboardEvent) => {
     // Ctrl+Tab / Ctrl+Shift+Tab — cycle drawers
-    if (e.ctrlKey && e.key === 'Tab') {
+    if (e.ctrlKey && e.key === "Tab") {
       e.preventDefault();
       e.stopPropagation();
       const currentTopId = stack[stack.length - 1].config.id;
@@ -353,7 +353,7 @@ useEffect(() => {
     }
 
     // Ctrl+1..9 — direct access
-    if (e.ctrlKey && e.key >= '1' && e.key <= '9') {
+    if (e.ctrlKey && e.key >= "1" && e.key <= "9") {
       e.preventDefault();
       const pos = parseInt(e.key, 10); // 1-based
       if (pos <= stack.length) {
@@ -363,8 +363,8 @@ useEffect(() => {
     }
   };
 
-  window.addEventListener('keydown', handler, true);
-  return () => window.removeEventListener('keydown', handler, true);
+  window.addEventListener("keydown", handler, true);
+  return () => window.removeEventListener("keydown", handler, true);
 }, [enableKeyboardNavigation, isOpen, stack, operations]);
 ```
 
@@ -405,7 +405,7 @@ useEffect(() => {
     for (const obs of entries) {
       const contentHeight = obs.target.scrollHeight;
       const availableHeight = el.clientHeight;
-      el.style.overflowY = contentHeight > availableHeight ? 'auto' : 'hidden';
+      el.style.overflowY = contentHeight > availableHeight ? "auto" : "hidden";
     }
   });
 

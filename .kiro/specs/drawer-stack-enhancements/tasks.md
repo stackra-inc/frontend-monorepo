@@ -22,7 +22,7 @@ existing interfaces and components without breaking current consumers.
     - All fields optional, no breaking changes
     - _Requirements: 1.1, 2.1, 3.1, 6.1_
 
-  - [ ]\* 1.2 Write unit tests for DrawerConfig type acceptance
+  - [ ] 1.2 Write unit tests for DrawerConfig type acceptance
     - Verify that DrawerConfig accepts all new optional fields
     - Verify existing configs without new fields still compile
     - _Requirements: 1.1, 2.1, 3.1, 6.1_
@@ -37,13 +37,13 @@ existing interfaces and components without breaking current consumers.
     - If callback returns `true` or is not provided, proceed with push
     - _Requirements: 1.2, 1.3, 1.4, 1.5, 1.6, 1.7_
 
-  - [ ]\* 2.2 Write property test: onBeforeOpen guard controls push outcome
+  - [ ] 2.2 Write property test: onBeforeOpen guard controls push outcome
     - **Property 1: onBeforeOpen guard controls push outcome**
     - Generate random boolean/throwing callbacks via fast-check
     - Assert stack contains the drawer iff callback returned true
     - **Validates: Requirements 1.2, 1.3, 1.4, 1.5, 1.6**
 
-  - [ ]\* 2.3 Write unit tests for onBeforeOpen edge cases
+  - [ ] 2.3 Write unit tests for onBeforeOpen edge cases
     - Test push without onBeforeOpen adds drawer immediately (Req 1.7)
     - Test push with async onBeforeOpen returning true adds drawer (Req 1.5)
     - Test push with onBeforeOpen throwing cancels push (Req 1.6)
@@ -60,15 +60,15 @@ existing interfaces and components without breaking current consumers.
     - Ensure singleton re-activation does not re-invoke the callback
     - _Requirements: 2.2, 2.4, 2.5_
 
-  - [ ]\* 3.2 Write property test: onAfterOpen fires exactly once after enter
-    animation
+  - [ ] 3.2 Write property test: onAfterOpen fires exactly once after enter
+        animation
     - **Property 2: onAfterOpen fires exactly once after enter animation**
     - Push drawers with onAfterOpen callbacks, simulate enter animation
       completion
     - Assert callback count equals exactly 1 per push
     - **Validates: Requirements 2.2, 2.4, 2.5**
 
-  - [ ]\* 3.3 Write unit tests for onAfterOpen
+  - [ ] 3.3 Write unit tests for onAfterOpen
     - Test no callback provided — animation completes without error (Req 2.3)
     - Test singleton re-activation does not invoke onAfterOpen again (Req 2.5)
     - _Requirements: 2.3, 2.5_
@@ -84,13 +84,13 @@ existing interfaces and components without breaking current consumers.
       its own `onAfterClose`
     - _Requirements: 3.2, 3.4, 3.5_
 
-  - [ ]\* 4.2 Write property test: onAfterClose fires exactly once per removal
+  - [ ] 4.2 Write property test: onAfterClose fires exactly once per removal
     - **Property 3: onAfterClose fires exactly once per removal**
     - Push N drawers with onAfterClose, remove K drawers, assert exactly K
       invocations
     - **Validates: Requirements 3.2, 3.4, 3.5**
 
-  - [ ]\* 4.3 Write unit tests for onAfterClose
+  - [ ] 4.3 Write unit tests for onAfterClose
     - Test no callback provided — exit completes without error (Req 3.3)
     - Test clear with multiple drawers fires onAfterClose for each (Req 3.5)
     - _Requirements: 3.3, 3.5_
@@ -124,14 +124,14 @@ existing interfaces and components without breaking current consumers.
     - Wrap in try/catch for malformed JSON or storage errors
     - _Requirements: 4.3, 4.5, 4.6, 4.8_
 
-  - [ ]\* 6.4 Write property test: persistence round-trip preserves drawer IDs
+  - [ ] 6.4 Write property test: persistence round-trip preserves drawer IDs
     - **Property 4: Persistence round-trip preserves drawer IDs**
     - Generate random push/pop sequences, verify localStorage contains current
       stack IDs
     - Simulate remount, verify onRestore receives the same IDs
     - **Validates: Requirements 4.2, 4.5**
 
-  - [ ]\* 6.5 Write unit tests for persistence
+  - [ ] 6.5 Write unit tests for persistence
     - Test mount without persistKey does not touch localStorage (Req 4.7)
     - Test mount without onRestore discards persisted state (Req 4.6)
     - Test localStorage error logs warning and starts empty (Req 4.8)
@@ -163,20 +163,20 @@ existing interfaces and components without breaking current consumers.
     - Clean up listener on unmount or when conditions change
     - _Requirements: 5.2, 5.3, 5.4, 5.5, 5.6, 5.8_
 
-  - [ ]\* 7.4 Write property test: keyboard cycling is bidirectional and wraps
+  - [ ] 7.4 Write property test: keyboard cycling is bidirectional and wraps
     - **Property 5: Keyboard cycling is bidirectional and wraps**
     - Generate stacks of N drawers, simulate K Ctrl+Tab presses then K
       Ctrl+Shift+Tab presses
     - Assert original top drawer is restored
     - **Validates: Requirements 5.3, 5.4**
 
-  - [ ]\* 7.5 Write property test: Ctrl+number direct access
+  - [ ] 7.5 Write property test: Ctrl+number direct access
     - **Property 6: Ctrl+number direct access**
     - Generate stacks of N drawers, press Ctrl+K for random K in 1..9
     - Assert drawer at position K is on top if K ≤ N, no-op if K > N
     - **Validates: Requirements 5.5**
 
-  - [ ]\* 7.6 Write unit tests for keyboard navigation
+  - [ ] 7.6 Write unit tests for keyboard navigation
     - Test enableKeyboardNavigation defaults to false, no listeners registered
       (Req 5.7)
     - Test Ctrl+Tab with fewer than 2 drawers is no-op (Req 5.8)
@@ -199,12 +199,12 @@ existing interfaces and components without breaking current consumers.
     - Do NOT attach ResizeObserver in DesktopPanel regardless of config
     - _Requirements: 6.2, 6.3, 6.4, 6.5, 6.6, 6.7_
 
-  - [ ]\* 9.2 Write property test: mobile overflow-y reflects content height
+  - [ ] 9.2 Write property test: mobile overflow-y reflects content height
     - **Property 7: Mobile overflow-y reflects content height**
     - Generate random content heights, assert overflow-y matches expected value
     - **Validates: Requirements 6.3, 6.4**
 
-  - [ ]\* 9.3 Write unit tests for ResizeObserver
+  - [ ] 9.3 Write unit tests for ResizeObserver
     - Test observeResize on desktop does not attach ResizeObserver (Req 6.5)
     - Test ResizeObserver disconnected on drawer removal (Req 6.6)
     - Test no observeResize — no ResizeObserver attached (Req 6.7)
@@ -218,7 +218,7 @@ existing interfaces and components without breaking current consumers.
     - Verify all new props and config fields are accessible to consumers
     - _Requirements: 1.1, 2.1, 3.1, 4.1, 5.1, 6.1_
 
-  - [ ]\* 10.2 Write integration tests for combined features
+  - [ ] 10.2 Write integration tests for combined features
     - Test lifecycle hooks fire correctly during persistence restore flow
     - Test keyboard navigation works alongside lifecycle hooks
     - Test ResizeObserver works with onAfterOpen/onAfterClose

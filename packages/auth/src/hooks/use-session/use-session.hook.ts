@@ -1,11 +1,11 @@
 /** @fileoverview useSession hook. @module @stackra/react-auth @category Hooks */
-import { useQuery, useMutation } from '@tanstack/react-query';
-import { useInject } from '@stackra/ts-container';
-import { SESSION_SERVICE } from '@/constants';
-import type { SessionService } from '@/services/session.service';
-import type { Session } from '@/interfaces/session.interface';
-import type { UseQueryHookResult } from '@/interfaces/use-query-hook-result.interface';
-import type { UseMutationHookResult } from '@/interfaces/use-mutation-hook-result.interface';
+import { useQuery, useMutation } from "@tanstack/react-query";
+import { useInject } from "@stackra/ts-container";
+import { SESSION_SERVICE } from "@/constants";
+import type { SessionService } from "@/services/session.service";
+import type { Session } from "@/interfaces/session.interface";
+import type { UseQueryHookResult } from "@/interfaces/use-query-hook-result.interface";
+import type { UseMutationHookResult } from "@/interfaces/use-mutation-hook-result.interface";
 
 /** Return shape for the useSession hook. */
 export interface UseSessionResult {
@@ -31,12 +31,12 @@ export function useSession(): UseSessionResult {
   const sessionService = useInject<SessionService>(SESSION_SERVICE);
 
   const sessionsQuery = useQuery({
-    queryKey: ['auth', 'sessions'],
+    queryKey: ["auth", "sessions"],
     queryFn: () => sessionService.list(),
   });
 
   const currentQuery = useQuery({
-    queryKey: ['auth', 'sessions', 'current'],
+    queryKey: ["auth", "sessions", "current"],
     queryFn: () => sessionService.getCurrent(),
   });
 

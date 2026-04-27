@@ -13,7 +13,7 @@
  * @module desktop/main/handlers
  */
 
-import { ipcMain } from 'electron';
+import { ipcMain } from "electron";
 
 /** Stored printer configuration. */
 let printerConfig: any = null;
@@ -33,14 +33,14 @@ export function registerPrinterHandlers(): void {
   |   port.write(Buffer.from(commands));
   |
   */
-  ipcMain.handle('printer:print-escpos', async (_event, commands: Uint8Array, config: any) => {
+  ipcMain.handle("printer:print-escpos", async (_event, commands: Uint8Array, config: any) => {
     const cfg = config ?? printerConfig;
     if (!cfg) {
-      throw new Error('[PrinterHandler] No printer configured.');
+      throw new Error("[PrinterHandler] No printer configured.");
     }
 
     console.log(
-      `[PrinterHandler] Printing ${commands.length} bytes to ${cfg.type}:${cfg.path ?? 'default'}`
+      `[PrinterHandler] Printing ${commands.length} bytes to ${cfg.type}:${cfg.path ?? "default"}`,
     );
 
     /*
@@ -73,8 +73,8 @@ export function registerPrinterHandlers(): void {
   |   return ports.map(p => ({ name: p.path, path: p.path, type: 'serial' }));
   |
   */
-  ipcMain.handle('printer:list', async () => {
-    console.log('[PrinterHandler] Listing available printers');
+  ipcMain.handle("printer:list", async () => {
+    console.log("[PrinterHandler] Listing available printers");
     return [];
   });
 
@@ -83,8 +83,8 @@ export function registerPrinterHandlers(): void {
   | printer:configure
   |--------------------------------------------------------------------------
   */
-  ipcMain.handle('printer:configure', async (_event, config: any) => {
+  ipcMain.handle("printer:configure", async (_event, config: any) => {
     printerConfig = config;
-    console.log('[PrinterHandler] Printer configured:', config);
+    console.log("[PrinterHandler] Printer configured:", config);
   });
 }

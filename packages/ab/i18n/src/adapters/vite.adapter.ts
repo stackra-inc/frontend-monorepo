@@ -11,8 +11,8 @@
  * @module adapters/vite
  */
 
-import { resolve } from 'path';
-import type { Plugin } from 'vite';
+import { resolve } from "path";
+import type { Plugin } from "vite";
 
 import {
   validateConfig,
@@ -20,8 +20,8 @@ import {
   scanTranslationFiles,
   generateVirtualModule,
   generateTypeDefinitions,
-} from '@/utils';
-import type { I18nPluginOptions } from '@/interfaces';
+} from "@/utils";
+import type { I18nPluginOptions } from "@/interfaces";
 
 /**
  * Virtual module ID that consumers import from.
@@ -31,7 +31,7 @@ import type { I18nPluginOptions } from '@/interfaces';
  * import { t } from 'virtual:@stackra/react-i18n';
  * ```
  */
-const VIRTUAL_MODULE_ID = 'virtual:@stackra/react-i18n';
+const VIRTUAL_MODULE_ID = "virtual:@stackra/react-i18n";
 
 /**
  * Vite-internal resolved ID (prefixed with `\0` to mark as virtual).
@@ -77,16 +77,16 @@ export function i18nPlugin(options?: Partial<I18nPluginOptions>): Plugin {
   let i18nextConfig: Awaited<ReturnType<typeof buildI18nextConfig>> | null = null;
 
   return {
-    name: '@stackra/react-i18n',
-    apply: 'serve',
-    enforce: 'pre',
+    name: "@stackra/react-i18n",
+    apply: "serve",
+    enforce: "pre",
 
     /**
      * Log resolved configuration when debug mode is active.
      */
     async configResolved() {
       if (config.debug) {
-        logger.info('Plugin configured with options:', config);
+        logger.info("Plugin configured with options:", config);
       }
     },
 
@@ -104,17 +104,17 @@ export function i18nPlugin(options?: Partial<I18nPluginOptions>): Plugin {
 
         if (config.typeGeneration && i18nextConfig.resources) {
           const typeOutputPath = resolve(
-            config.typeOutputDir || '.stackra-inc/react-i18n/types',
-            'index.d.ts'
+            config.typeOutputDir || ".stackra-inc/react-i18n/types",
+            "index.d.ts",
           );
           await generateTypeDefinitions(i18nextConfig.resources, typeOutputPath, config.debug);
         }
 
         if (config.debug) {
-          logger.info('Build started successfully');
+          logger.info("Build started successfully");
         }
       } catch (error: Error | any) {
-        logger.error('Error during buildStart:', error);
+        logger.error("Error during buildStart:", error);
         throw error;
       }
     },
@@ -143,7 +143,7 @@ export function i18nPlugin(options?: Partial<I18nPluginOptions>): Plugin {
       if (id === RESOLVED_VIRTUAL_MODULE_ID) {
         if (!virtualModuleCode) {
           throw new Error(
-            '[i18n] Virtual module not initialized. Make sure buildStart was called.'
+            "[i18n] Virtual module not initialized. Make sure buildStart was called.",
           );
         }
         return virtualModuleCode;
@@ -170,8 +170,8 @@ export function i18nPlugin(options?: Partial<I18nPluginOptions>): Plugin {
 
           if (config.typeGeneration && i18nextConfig.resources) {
             const typeOutputPath = resolve(
-              config.typeOutputDir || '.stackra-inc/react-i18n/types',
-              'index.d.ts'
+              config.typeOutputDir || ".stackra-inc/react-i18n/types",
+              "index.d.ts",
             );
             await generateTypeDefinitions(i18nextConfig.resources, typeOutputPath, config.debug);
           }
@@ -185,7 +185,7 @@ export function i18nPlugin(options?: Partial<I18nPluginOptions>): Plugin {
             server.moduleGraph.invalidateModule(module);
           }
         } catch (error: Error | any) {
-          logger.error('Error during HMR:', error);
+          logger.error("Error during HMR:", error);
         }
       }
     },

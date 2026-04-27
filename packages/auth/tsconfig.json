@@ -1,5 +1,5 @@
 {
-  "extends": "@nesvel/typescript-config/base.json",
+  "extends": "@stackra/typescript-config/base.json",
   "compilerOptions": {
     "outDir": "./dist",
     "rootDir": ".",

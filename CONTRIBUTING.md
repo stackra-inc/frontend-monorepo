@@ -134,20 +134,20 @@ frontend-template/
 
 ```tsx
 // External
-import { useState } from 'react';
-import { Button } from '@heroui/react';
+import { useState } from "react";
+import { Button } from "@heroui/react";
 
 // Internal packages
-import { cn } from '@repo/ui';
+import { cn } from "@repo/ui";
 
 // Relative
-import { MyComponent } from './my-component';
+import { MyComponent } from "./my-component";
 
 // Types
-import type { MyType } from './types';
+import type { MyType } from "./types";
 
 // Styles
-import './styles.css';
+import "./styles.css";
 ```
 
 ## Commit Guidelines

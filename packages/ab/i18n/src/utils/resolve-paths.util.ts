@@ -7,7 +7,7 @@
  * @module utils/resolve-paths
  */
 
-import { resolve, isAbsolute } from 'path';
+import { resolve, isAbsolute } from "path";
 
 /**
  * Resolve a path to an absolute path.

@@ -1,14 +1,14 @@
 ---
 name: heroui-react
 description:
-  'HeroUI v3 React component library (Tailwind CSS v4 + React Aria). Use when
+  "HeroUI v3 React component library (Tailwind CSS v4 + React Aria). Use when
   building UIs with HeroUI — creating Buttons, Modals, Forms, Cards; installing
   @heroui/react; configuring dark/light themes with oklch variables; or fetching
   component docs. Keywords: HeroUI, Hero UI, heroui, @heroui/react,
-  @heroui/styles.'
+  @heroui/styles."
 metadata:
   author: heroui
-  version: '3.0.1'
+  version: "3.0.1"
 ---
 
 # HeroUI v3 React Development Guide
@@ -42,8 +42,8 @@ styling, and component API all changed:
 
 ```tsx
 // DO NOT DO THIS - v2 pattern
-import { HeroUIProvider } from '@/heroui/react';
-import { motion } from 'framer-motion';
+import { HeroUIProvider } from "@/heroui/react";
+import { motion } from "framer-motion";
 
 <HeroUIProvider>
   <Card title="Product" description="A great product" />
@@ -54,7 +54,7 @@ import { motion } from 'framer-motion';
 
 ```tsx
 // DO THIS - v3 pattern (no provider, compound components)
-import { Card } from '@/heroui/react';
+import { Card } from "@/heroui/react";
 
 <Card>
   <Card.Header>
@@ -144,16 +144,16 @@ npm i @heroui/styles @heroui/react tailwind-variants tailwindcss @tailwindcss/po
 
 ```css
 /* Tailwind CSS v4 - Must be first */
-@import 'tailwindcss';
+@import "tailwindcss";
 
 /* HeroUI v3 styles - Must be after Tailwind */
-@import '@heroui/styles';
+@import "@heroui/styles";
 ```
 
 3. **Import in `app/layout.tsx`:**
 
 ```tsx
-import './globals.css';
+import "./globals.css";
 
 export default function RootLayout({
   children,
@@ -176,7 +176,7 @@ export default function RootLayout({
 ```js
 export default {
   plugins: {
-    '@tailwindcss/postcss': {},
+    "@tailwindcss/postcss": {},
   },
 };
 ```

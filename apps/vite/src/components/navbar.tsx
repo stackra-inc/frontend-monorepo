@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { Button, Kbd, Link, TextField, InputGroup } from '@heroui/react';
-import clsx from 'clsx';
+import { useState } from "react";
+import { Button, Kbd, Link, TextField, InputGroup } from "@heroui/react";
+import clsx from "clsx";
 
-import { siteConfig } from '@/config/site';
-import { ThemeSwitch } from '@/components/theme-switch';
+import { siteConfig } from "@/config/site";
+import { ThemeSwitch } from "@/components/theme-switch";
 import {
   TwitterIcon,
   GithubIcon,
@@ -13,7 +13,7 @@ import {
   HeartFilledIcon,
   SearchIcon,
   Logo,
-} from '@/components/icons';
+} from "@/components/icons";
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -41,15 +41,15 @@ export const Navbar = () => {
         <div className="flex items-center gap-4">
           <a className="flex items-center gap-1" href="/">
             <Logo />
-            <p className="font-bold text-inherit">{siteConfig.name.split('—')[0].trim()}</p>
+            <p className="font-bold text-inherit">{siteConfig.name.split("—")[0].trim()}</p>
           </a>
           <ul className="ml-2 hidden gap-4 lg:flex">
             {siteConfig.navItems.map((item) => (
               <li key={item.href}>
                 <a
                   className={clsx(
-                    'text-foreground hover:text-accent transition-colors',
-                    'data-[active=true]:text-accent data-[active=true]:font-medium'
+                    "text-foreground hover:text-accent transition-colors",
+                    "data-[active=true]:text-accent data-[active=true]:font-medium",
                   )}
                   href={item.href}
                 >
@@ -91,7 +91,7 @@ export const Navbar = () => {
             <Button
               className="text-sm font-normal"
               variant="tertiary"
-              onPress={() => window.open(siteConfig.links.sponsor, '_blank')}
+              onPress={() => window.open(siteConfig.links.sponsor, "_blank")}
             >
               <HeartFilledIcon className="text-danger" />
               Sponsor
@@ -144,12 +144,12 @@ export const Navbar = () => {
               <li key={`${item.label}-${index}`}>
                 <Link
                   className={clsx(
-                    'block py-2 text-lg no-underline',
+                    "block py-2 text-lg no-underline",
                     index === 2
-                      ? 'text-accent'
+                      ? "text-accent"
                       : index === siteConfig.navMenuItems.length - 1
-                        ? 'text-danger'
-                        : 'text-foreground'
+                        ? "text-danger"
+                        : "text-foreground",
                   )}
                   href="#"
                 >

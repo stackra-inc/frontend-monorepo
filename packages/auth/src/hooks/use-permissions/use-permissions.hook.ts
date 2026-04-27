@@ -1,14 +1,14 @@
 /** @fileoverview usePermissions hook. @module @stackra/react-auth @category Hooks */
-import { useQuery } from '@tanstack/react-query';
-import { useInject } from '@stackra/ts-container';
-import { AUTH_SERVICE } from '@/constants';
-import type { IAuthService } from '@/interfaces/auth-service.interface';
-import type { UseQueryHookResult } from '@/interfaces/use-query-hook-result.interface';
+import { useQuery } from "@tanstack/react-query";
+import { useInject } from "@stackra/ts-container";
+import { AUTH_SERVICE } from "@/constants";
+import type { IAuthService } from "@/interfaces/auth-service.interface";
+import type { UseQueryHookResult } from "@/interfaces/use-query-hook-result.interface";
 
 export function usePermissions<TData = any>(): UseQueryHookResult<TData, Error> {
   const authService = useInject<IAuthService>(AUTH_SERVICE);
   const query = useQuery({
-    queryKey: ['auth', 'permissions'],
+    queryKey: ["auth", "permissions"],
     queryFn: () => authService.getPermissions(),
   });
   return {

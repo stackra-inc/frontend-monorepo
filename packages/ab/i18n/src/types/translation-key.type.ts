@@ -21,7 +21,7 @@
  * const key: TranslationKey = 'errors.validation.email';
  * ```
  */
-export type TranslationKey = string & { readonly __brand: 'TranslationKey' };
+export type TranslationKey = string & { readonly __brand: "TranslationKey" };
 
 /**
  * Helper function to create a branded TranslationKey type

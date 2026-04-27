@@ -17,27 +17,27 @@
  * @module @stackra/vite
  */
 
-import { useEffect, useCallback } from 'react';
-import { shortcutRegistry } from '@stackra/kbd';
+import { useEffect, useCallback } from "react";
+import { shortcutRegistry } from "@stackra/kbd";
 
 /** Whether we're running inside Electron. */
-const isElectron = typeof window !== 'undefined' && !!(window as any).electronAPI;
+const isElectron = typeof window !== "undefined" && !!(window as any).electronAPI;
 
 /**
  * Normalizes a key string to match event.key values.
  */
 const MODIFIER_MAP: Record<
   string,
-  keyof Pick<KeyboardEvent, 'metaKey' | 'ctrlKey' | 'shiftKey' | 'altKey'>
+  keyof Pick<KeyboardEvent, "metaKey" | "ctrlKey" | "shiftKey" | "altKey">
 > = {
-  command: 'metaKey',
-  cmd: 'metaKey',
-  meta: 'metaKey',
-  ctrl: 'ctrlKey',
-  control: 'ctrlKey',
-  shift: 'shiftKey',
-  alt: 'altKey',
-  option: 'altKey',
+  command: "metaKey",
+  cmd: "metaKey",
+  meta: "metaKey",
+  ctrl: "ctrlKey",
+  control: "ctrlKey",
+  shift: "shiftKey",
+  alt: "altKey",
+  option: "altKey",
 };
 
 export function GlobalShortcuts() {
@@ -49,7 +49,7 @@ export function GlobalShortcuts() {
     */
     const target = event.target as HTMLElement;
     const isInput =
-      target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable;
+      target.tagName === "INPUT" || target.tagName === "TEXTAREA" || target.isContentEditable;
 
     const shortcuts = shortcutRegistry.getAll();
 
@@ -64,7 +64,7 @@ export function GlobalShortcuts() {
       | Menu shortcuts have IDs like "menu:file:newOrder".
       |--------------------------------------------------------------------------
       */
-      if (isElectron && shortcut.id.startsWith('menu:')) continue;
+      if (isElectron && shortcut.id.startsWith("menu:")) continue;
 
       const keys = shortcutRegistry.resolveKeys(shortcut.keys);
       if (!keys || keys.length === 0) continue;
@@ -119,8 +119,8 @@ export function GlobalShortcuts() {
   }, []);
 
   useEffect(() => {
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
   }, [handleKeyDown]);
 
   return null;

@@ -2,28 +2,28 @@
  * Edit Menu
  */
 
-import { Menu, MenuItem } from '@stackra/ts-desktop';
+import { Menu, MenuItem } from "@stackra/ts-desktop";
 
-@Menu('edit', { label: 'Edit', order: 1 })
+@Menu("edit", { label: "Edit", order: 1 })
 export class EditMenu {
-  @MenuItem({ role: 'undo' })
+  @MenuItem({ role: "undo" })
   undo() {}
 
-  @MenuItem({ role: 'redo' })
+  @MenuItem({ role: "redo" })
   redo() {}
 
-  @MenuItem({ type: 'separator' })
+  @MenuItem({ type: "separator" })
   sep() {}
 
-  @MenuItem({ role: 'cut' })
+  @MenuItem({ role: "cut" })
   cut() {}
 
-  @MenuItem({ role: 'copy' })
+  @MenuItem({ role: "copy" })
   copy() {}
 
-  @MenuItem({ role: 'paste' })
+  @MenuItem({ role: "paste" })
   paste() {}
 
-  @MenuItem({ role: 'selectAll' })
+  @MenuItem({ role: "selectAll" })
   selectAll() {}
 }

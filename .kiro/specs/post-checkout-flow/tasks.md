@@ -26,15 +26,15 @@ content utility, and an RFID link prompt drawer. Modified files:
     - SKIP_ALL and RESET return to `idle` with `orderData: null`
     - _Requirements: 1.1, 1.2, 1.3, 1.4, 1.5, 6.3, 6.4_
 
-  - [ ]\* 1.3 Write property tests for the flow reducer (fast-check)
+  - [ ] 1.3 Write property tests for the flow reducer (fast-check)
     - **Property 1: State machine transitions follow the defined step sequence**
     - **Validates: Requirements 1.1, 1.2, 1.3, 3.5, 4.4, 5.5, 6.3**
 
-  - [ ]\* 1.4 Write property test for isActive derivation (fast-check)
+  - [ ] 1.4 Write property test for isActive derivation (fast-check)
     - **Property 2: isActive reflects non-idle state**
     - **Validates: Requirements 1.4, 1.5**
 
-  - [ ]\* 1.5 Write property test for SKIP_ALL behavior (fast-check)
+  - [ ] 1.5 Write property test for SKIP_ALL behavior (fast-check)
     - **Property 3: SKIP_ALL from any active step returns to idle**
     - **Validates: Requirements 6.4**
 
@@ -47,7 +47,7 @@ content utility, and an RFID link prompt drawer. Modified files:
       `PrintService.buildReceiptDocument`
     - _Requirements: 3.1, 7.1, 7.2, 7.3_
 
-  - [ ]\* 2.2 Write property test for receipt content (fast-check)
+  - [ ] 2.2 Write property test for receipt content (fast-check)
     - **Property 4: Receipt content contains all required order fields**
     - **Validates: Requirements 3.1, 7.1, 7.3**
 
@@ -77,11 +77,11 @@ content utility, and an RFID link prompt drawer. Modified files:
       linked
     - _Requirements: 4.1, 4.2, 4.3, 4.5, 4.6, 4.7, 6.1_
 
-  - [ ]\* 5.2 Write property test for RFID link creation (fast-check)
+  - [ ] 5.2 Write property test for RFID link creation (fast-check)
     - **Property 5: RFID link creation preserves all input fields**
     - **Validates: Requirements 4.3**
 
-  - [ ]\* 5.3 Write property test for duplicate RFID tag rejection (fast-check)
+  - [ ] 5.3 Write property test for duplicate RFID tag rejection (fast-check)
     - **Property 6: No duplicate RFID tags within a linking batch**
     - **Validates: Requirements 4.7**
 

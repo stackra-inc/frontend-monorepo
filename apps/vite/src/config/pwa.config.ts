@@ -21,7 +21,7 @@
  * @module config/pwa
  */
 
-import { defineConfig } from '@stackra/ts-pwa';
+import { defineConfig } from "@stackra/ts-pwa";
 
 const pwaConfig = defineConfig({
   /*
@@ -41,7 +41,7 @@ const pwaConfig = defineConfig({
      * "autoUpdate" — updates silently in the background (recommended for POS)
      * "prompt"     — shows a prompt to the user when an update is available
      */
-    registerType: 'autoUpdate',
+    registerType: "autoUpdate",
 
     /**
      * Strategy for generating the service worker.
@@ -49,30 +49,30 @@ const pwaConfig = defineConfig({
      * "generateSW"     — Workbox generates the SW automatically (recommended)
      * "injectManifest" — inject precache manifest into a custom SW file
      */
-    strategies: 'generateSW',
+    strategies: "generateSW",
 
     /**
      * Static assets to include in the precache manifest.
      */
-    includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'robots.txt'],
+    includeAssets: ["favicon.ico", "apple-touch-icon.png", "robots.txt"],
 
     /**
      * Web App Manifest — controls how the app appears when installed.
      */
     manifest: {
-      name: 'Stackra POS',
-      short_name: 'POS',
-      description: 'Modern point-of-sale system built with React and Electron',
-      theme_color: '#000000',
-      background_color: '#000000',
-      display: 'standalone',
-      orientation: 'any',
-      start_url: '/',
-      scope: '/',
+      name: "Stackra POS",
+      short_name: "POS",
+      description: "Modern point-of-sale system built with React and Electron",
+      theme_color: "#000000",
+      background_color: "#000000",
+      display: "standalone",
+      orientation: "any",
+      start_url: "/",
+      scope: "/",
       icons: [
-        { src: '/pwa-192x192.png', sizes: '192x192', type: 'image/png' },
-        { src: '/pwa-512x512.png', sizes: '512x512', type: 'image/png' },
-        { src: '/pwa-512x512.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' },
+        { src: "/pwa-192x192.png", sizes: "192x192", type: "image/png" },
+        { src: "/pwa-512x512.png", sizes: "512x512", type: "image/png" },
+        { src: "/pwa-512x512.png", sizes: "512x512", type: "image/png", purpose: "maskable" },
       ],
     },
 
@@ -81,48 +81,48 @@ const pwaConfig = defineConfig({
      */
     workbox: {
       /** Files to precache (downloaded on install). */
-      globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2}'],
+      globPatterns: ["**/*.{js,css,html,ico,png,svg,woff2}"],
 
       /** Clean up old caches when a new SW activates. */
       cleanupOutdatedCaches: true,
 
       /** SPA fallback — serve index.html for all navigation requests. */
-      navigateFallback: 'index.html',
+      navigateFallback: "index.html",
 
       /** Runtime caching strategies for dynamic content. */
       runtimeCaching: [
         {
           urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
-          handler: 'CacheFirst',
+          handler: "CacheFirst",
           options: {
-            cacheName: 'google-fonts-cache',
+            cacheName: "google-fonts-cache",
             expiration: { maxEntries: 10, maxAgeSeconds: 60 * 60 * 24 * 365 },
             cacheableResponse: { statuses: [0, 200] },
           },
         },
         {
           urlPattern: /^https:\/\/fonts\.gstatic\.com\/.*/i,
-          handler: 'CacheFirst',
+          handler: "CacheFirst",
           options: {
-            cacheName: 'gstatic-fonts-cache',
+            cacheName: "gstatic-fonts-cache",
             expiration: { maxEntries: 10, maxAgeSeconds: 60 * 60 * 24 * 365 },
             cacheableResponse: { statuses: [0, 200] },
           },
         },
         {
           urlPattern: /\.(?:png|jpg|jpeg|svg|gif|webp|avif)$/i,
-          handler: 'CacheFirst',
+          handler: "CacheFirst",
           options: {
-            cacheName: 'images-cache',
+            cacheName: "images-cache",
             expiration: { maxEntries: 100, maxAgeSeconds: 60 * 60 * 24 * 30 },
             cacheableResponse: { statuses: [0, 200] },
           },
         },
         {
           urlPattern: /^https:\/\/api\..*/i,
-          handler: 'NetworkFirst',
+          handler: "NetworkFirst",
           options: {
-            cacheName: 'api-cache',
+            cacheName: "api-cache",
             expiration: { maxEntries: 50, maxAgeSeconds: 60 * 5 },
             networkTimeoutSeconds: 10,
             cacheableResponse: { statuses: [0, 200] },
@@ -136,7 +136,7 @@ const pwaConfig = defineConfig({
      */
     devOptions: {
       enabled: false,
-      type: 'module',
+      type: "module",
     },
   },
 
@@ -154,22 +154,22 @@ const pwaConfig = defineConfig({
     delay: 30000,
 
     /** localStorage key for tracking dismissals. */
-    dismissKey: 'pwa-install-dismissed',
+    dismissKey: "pwa-install-dismissed",
 
     /** Max dismissals before the prompt stops appearing. */
     maxDismissals: 3,
 
     /** Banner title. */
-    title: 'Install Stackra',
+    title: "Install Stackra",
 
     /** Banner description. */
-    description: 'Add to your home screen for offline access and a native experience.',
+    description: "Add to your home screen for offline access and a native experience.",
 
     /** Install button label. */
-    installLabel: 'Install',
+    installLabel: "Install",
 
     /** Dismiss button label. */
-    dismissLabel: 'Not now',
+    dismissLabel: "Not now",
   },
 
   /*
@@ -186,16 +186,16 @@ const pwaConfig = defineConfig({
     pollingInterval: 60000,
 
     /** Banner title. */
-    title: 'Update Available',
+    title: "Update Available",
 
     /** Banner description. */
-    description: 'A new version is available. Refresh to update.',
+    description: "A new version is available. Refresh to update.",
 
     /** Update button label. */
-    updateLabel: 'Refresh',
+    updateLabel: "Refresh",
 
     /** Dismiss button label. */
-    dismissLabel: 'Later',
+    dismissLabel: "Later",
   },
 
   /*
@@ -212,10 +212,10 @@ const pwaConfig = defineConfig({
     minDuration: 1500,
 
     /** App name displayed below the logo. */
-    appName: 'Stackra',
+    appName: "Stackra",
 
     /** Tagline or loading message. */
-    tagline: 'Loading...',
+    tagline: "Loading...",
 
     /** Whether to show a spinner. */
     showSpinner: true,
@@ -224,7 +224,7 @@ const pwaConfig = defineConfig({
     showProgress: false,
 
     /** Background CSS class. */
-    background: 'bg-black',
+    background: "bg-black",
   },
 
   /*
@@ -238,10 +238,10 @@ const pwaConfig = defineConfig({
   */
   appShell: {
     /** Status bar style for mobile browsers. */
-    statusBarStyle: 'black-translucent',
+    statusBarStyle: "black-translucent",
 
     /** Theme color for the browser chrome. */
-    themeColor: '#000000',
+    themeColor: "#000000",
 
     /** Whether to apply safe-area padding (notch, home indicator). */
     safeAreaPadding: true,
@@ -264,13 +264,13 @@ const pwaConfig = defineConfig({
     enabled: true,
 
     /** Position of the indicator. */
-    position: 'bottom',
+    position: "bottom",
 
     /** Message when offline. */
-    message: 'You are offline',
+    message: "You are offline",
 
     /** Message when back online. */
-    onlineMessage: 'Back online',
+    onlineMessage: "Back online",
 
     /** Duration in ms to show the "back online" message. */
     onlineDuration: 3000,
@@ -307,22 +307,22 @@ const pwaConfig = defineConfig({
   */
   onboarding: {
     /** localStorage key for persisting completion state. */
-    persistKey: 'pos-onboarding-v1',
+    persistKey: "pos-onboarding-v1",
 
     /** Accent color for progress bar and CTA buttons. */
-    accentColor: '#6366f1',
+    accentColor: "#6366f1",
 
     /** Final step CTA button label. */
-    completeLabel: 'Get Started',
+    completeLabel: "Get Started",
 
     /** Skip button label. */
-    skipLabel: 'Skip',
+    skipLabel: "Skip",
 
     /** Next button label. */
-    nextLabel: 'Next',
+    nextLabel: "Next",
 
     /** Back button label. */
-    backLabel: 'Back',
+    backLabel: "Back",
 
     /** Whether the onboarding can be skipped. */
     dismissible: true,

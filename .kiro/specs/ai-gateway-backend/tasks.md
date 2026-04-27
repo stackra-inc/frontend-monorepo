@@ -39,7 +39,7 @@ previous ones so there is no orphaned code.
     - Throw descriptive error naming missing required variables
     - _Requirements: 1.2, 1.3_
 
-  - [ ]\* 1.4 Write property test for config loader
+  - [ ] 1.4 Write property test for config loader
     - **Property 1: Configuration loading validates required environment
       variables**
     - **Validates: Requirements 1.2, 1.3**
@@ -50,11 +50,11 @@ previous ones so there is no orphaned code.
     - Token validation logic (decode, verify tenant/user, extract role)
     - _Requirements: 5.2, 5.3, 6.3, 6.4, 10.1_
 
-  - [ ]\* 2.2 Write property test for WebSocket authentication
+  - [ ] 2.2 Write property test for WebSocket authentication
     - **Property 8: WebSocket authentication**
     - **Validates: Requirements 5.2, 5.3**
 
-  - [ ]\* 2.3 Write property test for REST API authentication enforcement
+  - [ ] 2.3 Write property test for REST API authentication enforcement
     - **Property 22: REST API authentication enforcement**
     - **Validates: Requirements 6.3, 6.4**
 
@@ -68,7 +68,7 @@ previous ones so there is no orphaned code.
     - Configurable thresholds from `RateLimiterConfig`
     - _Requirements: 10.4, 10.5_
 
-  - [ ]\* 3.2 Write property test for rate limiter
+  - [ ] 3.2 Write property test for rate limiter
     - **Property 17: Rate limiter enforces per-tenant thresholds**
     - **Validates: Requirements 10.4, 10.5**
 
@@ -83,7 +83,7 @@ previous ones so there is no orphaned code.
     - Store `pendingApprovals` and `delegationPreferences` per session
     - _Requirements: 8.1, 8.2, 8.3, 8.4, 8.5, 5.6_
 
-  - [ ]\* 4.2 Write property tests for session manager
+  - [ ] 4.2 Write property tests for session manager
     - **Property 9: Session reconnection within window**
     - **Property 11: Conversation history respects token limit**
     - **Property 12: Session cleared on logout**
@@ -132,7 +132,7 @@ previous ones so there is no orphaned code.
     - These will call into the RAG service (wired in a later task)
     - _Requirements: 3.7_
 
-  - [ ]\* 5.8 Write property tests for tool registry
+  - [ ] 5.8 Write property tests for tool registry
     - **Property 2: Tool registry schema invariant**
     - **Property 3: Tool input validation gates execution**
     - **Property 4: LLM tool call dispatch**
@@ -150,7 +150,7 @@ previous ones so there is no orphaned code.
     - In-memory buffer for writes during DB outage, flush on reconnect
     - _Requirements: 10.6, 10.7_
 
-  - [ ]\* 7.2 Write property test for audit logger
+  - [ ] 7.2 Write property test for audit logger
     - **Property 18: Audit log records every tool execution with tenant scope**
     - **Validates: Requirements 10.6, 10.7**
 
@@ -165,11 +165,11 @@ previous ones so there is no orphaned code.
     - Log all executions via audit logger
     - _Requirements: 4.1, 4.2, 4.3, 4.4, 4.5_
 
-  - [ ]\* 8.2 Write property test for trust gate
+  - [ ] 8.2 Write property test for trust gate
     - **Property 7: Trust level gate enforcement**
     - **Validates: Requirements 4.1, 4.3, 4.4, 4.5**
 
-  - [ ]\* 8.3 Write property test for tool error handling
+  - [ ] 8.3 Write property test for tool error handling
     - **Property 21: Tool error handling and audit logging**
     - **Validates: Requirements 12.2, 12.3**
 
@@ -183,7 +183,7 @@ previous ones so there is no orphaned code.
     - Wire `onToolCall` callback through trust gate for tool execution
     - _Requirements: 2.1, 2.2, 2.3, 2.4, 2.5, 2.6_
 
-  - [ ]\* 9.2 Write property tests for LLM service
+  - [ ] 9.2 Write property tests for LLM service
     - **Property 5: LLM fallback on primary provider failure**
     - **Property 6: Streaming delivers incremental tokens**
     - **Validates: Requirements 2.3, 2.4**
@@ -208,7 +208,7 @@ previous ones so there is no orphaned code.
       `tenant_id`
     - _Requirements: 9.1, 9.2, 9.3, 9.4, 9.5, 9.6, 9.7_
 
-  - [ ]\* 10.4 Write property tests for RAG service
+  - [ ] 10.4 Write property tests for RAG service
     - **Property 14: Knowledge base document ingestion round-trip**
     - **Property 15: Knowledge base tenant isolation**
     - **Property 16: Document ingestion produces chunks with embeddings**
@@ -226,7 +226,7 @@ previous ones so there is no orphaned code.
     - Instruct LLM to provide reasoning and respect trust levels
     - _Requirements: 7.1, 7.2, 7.3, 7.4, 7.5_
 
-  - [ ]\* 11.2 Write property test for prompt builder
+  - [ ] 11.2 Write property test for prompt builder
     - **Property 10: System prompt role-based scoping**
     - **Property 23: Admin chat uses admin-scoped prompt and tools**
     - **Validates: Requirements 7.1, 7.2, 7.3, 6.2**
@@ -254,11 +254,11 @@ previous ones so there is no orphaned code.
     - Support concurrent connections per tenant
     - _Requirements: 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7, 11.1_
 
-  - [ ]\* 13.2 Write property test for suggestion format
+  - [ ] 13.2 Write property test for suggestion format
     - **Property 19: Suggestion format compatibility with frontend types**
     - **Validates: Requirements 11.2, 11.3**
 
-  - [ ]\* 13.3 Write property test for suggestion routing
+  - [ ] 13.3 Write property test for suggestion routing
     - **Property 20: Suggestion routing respects delegation and trust level**
     - **Validates: Requirements 11.4, 11.5**
 

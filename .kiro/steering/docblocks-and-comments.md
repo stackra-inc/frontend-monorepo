@@ -158,7 +158,7 @@ applicable.
 
 ```typescript
 export interface MemoryStoreConfig {
-  driver: 'memory';
+  driver: "memory";
 
   /**
    * Maximum number of items to store.
@@ -205,8 +205,8 @@ Every barrel `index.ts` gets:
  * @module services
  */
 
-export { CacheManager } from './cache-manager.service';
-export { CacheService } from './cache.service';
+export { CacheManager } from "./cache-manager.service";
+export { CacheService } from "./cache.service";
 ```
 
 For the root `src/index.ts`, use section headers:
@@ -215,8 +215,8 @@ For the root `src/index.ts`, use section headers:
 // ============================================================================
 // Core Services
 // ============================================================================
-export { CacheManager } from './services/cache-manager.service';
-export { CacheService } from './services/cache.service';
+export { CacheManager } from "./services/cache-manager.service";
+export { CacheService } from "./services/cache.service";
 ```
 
 ---
@@ -235,7 +235,7 @@ Use inline comments for:
 return value === null ? undefined : this.deserialize(value);
 
 // Store.increment can return `false` on failure — normalize to 0
-return typeof result === 'number' ? result : 0;
+return typeof result === "number" ? result : 0;
 
 // 10 years in seconds — effectively forever, but still has an expiration
 const result = await c.set(key, value, { ex: 315360000 });
@@ -271,7 +271,7 @@ Symbol-based tokens get full docblocks with injection examples:
  * }
  * ```
  */
-export const CACHE_CONFIG = Symbol.for('CACHE_CONFIG');
+export const CACHE_CONFIG = Symbol.for("CACHE_CONFIG");
 ````
 
 ---

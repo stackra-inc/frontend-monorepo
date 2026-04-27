@@ -13,9 +13,9 @@
  * - Mixing custom and built-in resolvers in the chain
  */
 
-import { Module } from '@stackra/ts-container';
-import { I18nModule, LocaleResolverPriority } from '@stackra/react-i18n';
-import type { ILocaleResolver } from '@stackra/react-i18n';
+import { Module } from "@stackra/ts-container";
+import { I18nModule, LocaleResolverPriority } from "@stackra/react-i18n";
+import type { ILocaleResolver } from "@stackra/react-i18n";
 
 // ============================================================================
 // Custom Resolver 1: JWT Token
@@ -33,7 +33,7 @@ import type { ILocaleResolver } from '@stackra/react-i18n';
  */
 class JwtLocaleResolver implements ILocaleResolver {
   /** Unique identifier for logging and debugging. */
-  name = 'jwt';
+  name = "jwt";
 
   /** Highest priority — checked before all other resolvers. */
   priority = LocaleResolverPriority.HIGHEST;
@@ -45,11 +45,11 @@ class JwtLocaleResolver implements ILocaleResolver {
    */
   resolve(): string | undefined {
     try {
-      const token = localStorage.getItem('access_token');
+      const token = localStorage.getItem("access_token");
       if (!token) return undefined;
 
       // Decode the JWT payload (base64url → JSON)
-      const parts = token.split('.');
+      const parts = token.split(".");
       if (!parts[1]) return undefined;
 
       const payload = JSON.parse(atob(parts[1]));
@@ -76,7 +76,7 @@ class JwtLocaleResolver implements ILocaleResolver {
  * so they're more authoritative than localStorage.
  */
 class CookieLocaleResolver implements ILocaleResolver {
-  name = 'cookie';
+  name = "cookie";
   priority = LocaleResolverPriority.HIGH;
 
   /** Cookie name to read the locale from. */
@@ -85,7 +85,7 @@ class CookieLocaleResolver implements ILocaleResolver {
   /**
    * @param cookieName - Name of the cookie containing the locale
    */
-  constructor(cookieName: string = 'lang') {
+  constructor(cookieName: string = "lang") {
     this.cookieName = cookieName;
   }
 
@@ -95,7 +95,7 @@ class CookieLocaleResolver implements ILocaleResolver {
    * @returns Locale code from the cookie, or `undefined` if not found
    */
   resolve(): string | undefined {
-    if (typeof document === 'undefined') return undefined;
+    if (typeof document === "undefined") return undefined;
 
     // Parse cookies and find the one matching our cookie name
     const match = document.cookie.match(new RegExp(`(?:^|;\\s*)${this.cookieName}=([^;]+)`));
@@ -118,7 +118,7 @@ class CookieLocaleResolver implements ILocaleResolver {
  * authoritative since they come from the backend.
  */
 class MetaTagLocaleResolver implements ILocaleResolver {
-  name = 'meta-tag';
+  name = "meta-tag";
   priority = LocaleResolverPriority.HIGHEST;
 
   /**
@@ -127,10 +127,10 @@ class MetaTagLocaleResolver implements ILocaleResolver {
    * @returns Locale code from the meta tag, or `undefined` if not found
    */
   resolve(): string | undefined {
-    if (typeof document === 'undefined') return undefined;
+    if (typeof document === "undefined") return undefined;
 
     const meta = document.querySelector('meta[name="locale"]');
-    return meta?.getAttribute('content') || undefined;
+    return meta?.getAttribute("content") || undefined;
   }
 }
 
@@ -148,7 +148,7 @@ class MetaTagLocaleResolver implements ILocaleResolver {
  * but slower than local sources.
  */
 class ApiLocaleResolver implements ILocaleResolver {
-  name = 'api';
+  name = "api";
   priority = LocaleResolverPriority.HIGH;
 
   /**
@@ -158,7 +158,7 @@ class ApiLocaleResolver implements ILocaleResolver {
    */
   async resolve(): Promise<string | undefined> {
     try {
-      const response = await fetch('/api/user/preferences');
+      const response = await fetch("/api/user/preferences");
 
       if (!response.ok) return undefined;
 
@@ -194,17 +194,17 @@ class ApiLocaleResolver implements ILocaleResolver {
 @Module({
   imports: [
     I18nModule.forRoot({
-      defaultLanguage: 'en',
-      languages: ['en', 'ar', 'es', 'fr'],
+      defaultLanguage: "en",
+      languages: ["en", "ar", "es", "fr"],
 
       // Resolver names in the order they should be tried
-      resolvers: ['jwt', 'cookie', 'meta-tag', 'api', 'url-path', 'storage', 'navigator'],
+      resolvers: ["jwt", "cookie", "meta-tag", "api", "url-path", "storage", "navigator"],
 
       // Custom resolver instances mapped by name
       customResolvers: {
         jwt: new JwtLocaleResolver(),
-        cookie: new CookieLocaleResolver('app_lang'),
-        'meta-tag': new MetaTagLocaleResolver(),
+        cookie: new CookieLocaleResolver("app_lang"),
+        "meta-tag": new MetaTagLocaleResolver(),
         api: new ApiLocaleResolver(),
       },
     }),

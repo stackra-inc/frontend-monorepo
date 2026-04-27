@@ -15,12 +15,12 @@
  * @module constants
  */
 
-export { DEFAULT_PLUGIN_OPTIONS, DEFAULT_I18NEXT_CONFIG } from './default-config.constant';
+export { DEFAULT_PLUGIN_OPTIONS, DEFAULT_I18NEXT_CONFIG } from "./default-config.constant";
 export {
   TRANSLATION_FILE_PATTERNS,
   TRANSLATION_FILE_EXTENSIONS,
   FILE_NAME_PATTERNS,
-} from './file-patterns.constant';
+} from "./file-patterns.constant";
 export {
   I18N_CONFIG,
   I18N_SERVICE,
@@ -31,4 +31,4 @@ export {
   STORAGE_LOCALE_RESOLVER,
   NAVIGATOR_LOCALE_RESOLVER,
   ACCEPT_LANGUAGE_LOCALE_RESOLVER,
-} from './tokens.constant';
+} from "./tokens.constant";

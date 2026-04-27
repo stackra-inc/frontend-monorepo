@@ -13,11 +13,11 @@
  * @module types
  */
 
-export type { LanguageCode } from './language-code.type';
-export { createLanguageCode } from './language-code.type';
-export type { I18nextOptions } from './i18next-options.type';
-export type { TranslationKey } from './translation-key.type';
-export { createTranslationKey } from './translation-key.type';
-export { createNamespace } from './translation-namespace.type';
-export type { TranslationNamespace } from './translation-namespace.type';
-export type { ResourceType, ResourceObject } from './resource-type.type';
+export type { LanguageCode } from "./language-code.type";
+export { createLanguageCode } from "./language-code.type";
+export type { I18nextOptions } from "./i18next-options.type";
+export type { TranslationKey } from "./translation-key.type";
+export { createTranslationKey } from "./translation-key.type";
+export { createNamespace } from "./translation-namespace.type";
+export type { TranslationNamespace } from "./translation-namespace.type";
+export type { ResourceType, ResourceObject } from "./resource-type.type";

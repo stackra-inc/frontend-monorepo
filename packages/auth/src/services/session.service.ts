@@ -30,14 +30,14 @@
  * ```
  */
 
-import { Injectable, Inject, Optional } from '@stackra/ts-container';
-import { HTTP_CLIENT } from '@stackra/ts-http';
-import { EVENT_MANAGER } from '@stackra/ts-events';
-import type { HttpClient, HttpResponse } from '@stackra/ts-http';
-import type { EventManager } from '@stackra/ts-events';
-import { AuthEvent } from '@/enums/auth-event.enum';
-import { SESSION_STORAGE_KEY } from '@/constants';
-import type { Session } from '@/interfaces/session.interface';
+import { Injectable, Inject, Optional } from "@stackra/ts-container";
+import { HTTP_CLIENT } from "@stackra/ts-http";
+import { EVENT_MANAGER } from "@stackra/ts-events";
+import type { HttpClient, HttpResponse } from "@stackra/ts-http";
+import type { EventManager } from "@stackra/ts-events";
+import { AuthEvent } from "@/enums/auth-event.enum";
+import { SESSION_STORAGE_KEY } from "@/constants";
+import type { Session } from "@/interfaces/session.interface";
 
 /**
  * Session Service.
@@ -63,7 +63,7 @@ export class SessionService {
    */
   constructor(
     @Inject(HTTP_CLIENT) private readonly http: HttpClient,
-    @Optional() @Inject(EVENT_MANAGER) private readonly eventManager?: EventManager
+    @Optional() @Inject(EVENT_MANAGER) private readonly eventManager?: EventManager,
   ) {}
 
   // ─── Private Helpers ─────────────────────────────────────────────
@@ -89,7 +89,7 @@ export class SessionService {
    * @returns The persisted {@link Session}, or `null` if none exists.
    */
   get(): Session | null {
-    if (typeof localStorage === 'undefined') return null;
+    if (typeof localStorage === "undefined") return null;
     try {
       const raw = localStorage.getItem(SESSION_STORAGE_KEY);
       return raw ? (JSON.parse(raw) as Session) : null;
@@ -103,7 +103,7 @@ export class SessionService {
    * @param session - The session to persist.
    */
   save(session: Session): void {
-    if (typeof localStorage === 'undefined') return;
+    if (typeof localStorage === "undefined") return;
     localStorage.setItem(SESSION_STORAGE_KEY, JSON.stringify(session));
   }
 
@@ -111,7 +111,7 @@ export class SessionService {
    * Clear the persisted session from local storage.
    */
   clear(): void {
-    if (typeof localStorage === 'undefined') return;
+    if (typeof localStorage === "undefined") return;
     localStorage.removeItem(SESSION_STORAGE_KEY);
   }
 
@@ -124,7 +124,7 @@ export class SessionService {
   async list(): Promise<Session[]> {
     try {
       const response: HttpResponse<{ sessions: Session[] }> =
-        await this.http.get('/api/auth/sessions');
+        await this.http.get("/api/auth/sessions");
 
       return response.data.sessions ?? [];
     } catch {
@@ -140,7 +140,7 @@ export class SessionService {
   async getCurrent(): Promise<Session | null> {
     try {
       const response: HttpResponse<{ session: Session }> = await this.http.get(
-        '/api/auth/sessions/current'
+        "/api/auth/sessions/current",
       );
 
       const session = response.data.session;
@@ -173,7 +173,7 @@ export class SessionService {
    * Clears local storage after the request.
    */
   async destroyAll(): Promise<void> {
-    await this.http.delete('/api/auth/sessions');
+    await this.http.delete("/api/auth/sessions");
     this.clear();
     this.dispatch(AuthEvent.SessionDestroyed, { all: true });
   }

@@ -7,4 +7,4 @@
  * @module contexts
  */
 
-export { I18nContext, useI18nContext } from './i18n.context';
+export { I18nContext, useI18nContext } from "./i18n.context";

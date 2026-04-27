@@ -8,7 +8,7 @@
  * @module interfaces/file-map
  */
 
-import { LanguageFiles } from './language-files.interface';
+import { LanguageFiles } from "./language-files.interface";
 
 /**
  * Represents the mapping of discovered translation files

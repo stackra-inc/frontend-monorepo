@@ -24,10 +24,10 @@ updates:
       - "dependencies"
       - "automated"
     groups:
-      # Group all @nesvel/* config packages together
-      nesvel-configs:
+      # Group all @stackra/* config packages together
+      stackra-configs:
         patterns:
-          - "@nesvel/*"
+          - "@stackra/*"
       # Group all testing dependencies together
       testing:
         patterns:

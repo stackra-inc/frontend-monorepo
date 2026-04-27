@@ -18,7 +18,7 @@
  * @module desktop/preload
  */
 
-import { contextBridge, ipcRenderer } from 'electron';
+import { contextBridge, ipcRenderer } from "electron";
 
 /*
 |--------------------------------------------------------------------------
@@ -30,34 +30,34 @@ import { contextBridge, ipcRenderer } from 'electron';
 |
 */
 const ALLOWED_INVOKE_PREFIXES = [
-  'get-app-version',
-  'print-receipt',
-  'export-file',
-  'notify',
-  'menu:',
-  'printer:',
-  'cash-drawer:',
-  'scale:',
-  'display:',
-  'window:',
-  'tray:',
-  'dock:',
-  'auth:',
-  'keychain:',
-  'power:',
-  'protocol:',
-  'permission:',
-  'update:',
-  'diagnostics:',
-  'crash-reporter:',
-  'clipboard:',
-  'fs:',
-  'notify:',
+  "get-app-version",
+  "print-receipt",
+  "export-file",
+  "notify",
+  "menu:",
+  "printer:",
+  "cash-drawer:",
+  "scale:",
+  "display:",
+  "window:",
+  "tray:",
+  "dock:",
+  "auth:",
+  "keychain:",
+  "power:",
+  "protocol:",
+  "permission:",
+  "update:",
+  "diagnostics:",
+  "crash-reporter:",
+  "clipboard:",
+  "fs:",
+  "notify:",
 ];
 
-const ALLOWED_SEND_PREFIXES = ['window:config', 'menu:set'];
+const ALLOWED_SEND_PREFIXES = ["window:config", "menu:set"];
 
-const ALLOWED_ON_PREFIXES = ['menu:', 'protocol:', 'update:', 'notify:', 'scale:'];
+const ALLOWED_ON_PREFIXES = ["menu:", "protocol:", "update:", "notify:", "scale:"];
 
 function isAllowed(channel: string, prefixes: string[]): boolean {
   return prefixes.some((prefix) => channel === prefix || channel.startsWith(prefix));
@@ -68,24 +68,24 @@ function isAllowed(channel: string, prefixes: string[]): boolean {
 | Expose safe API to the renderer process.
 |--------------------------------------------------------------------------
 */
-contextBridge.exposeInMainWorld('electronAPI', {
+contextBridge.exposeInMainWorld("electronAPI", {
   /*
   |--------------------------------------------------------------------------
   | App Info
   |--------------------------------------------------------------------------
   */
-  getAppVersion: () => ipcRenderer.invoke('get-app-version'),
+  getAppVersion: () => ipcRenderer.invoke("get-app-version"),
 
   /*
   |--------------------------------------------------------------------------
   | Legacy convenience methods (used by existing DesktopBridge interface)
   |--------------------------------------------------------------------------
   */
-  print: (html: string) => ipcRenderer.invoke('print-receipt', html),
-  openCashDrawer: () => ipcRenderer.invoke('cash-drawer:open', {}),
-  exportFile: (data: string, filename: string) => ipcRenderer.invoke('export-file', data, filename),
-  notify: (title: string, body: string) => ipcRenderer.invoke('notify', title, body),
-  checkForUpdates: () => ipcRenderer.invoke('update:check'),
+  print: (html: string) => ipcRenderer.invoke("print-receipt", html),
+  openCashDrawer: () => ipcRenderer.invoke("cash-drawer:open", {}),
+  exportFile: (data: string, filename: string) => ipcRenderer.invoke("export-file", data, filename),
+  notify: (title: string, body: string) => ipcRenderer.invoke("notify", title, body),
+  checkForUpdates: () => ipcRenderer.invoke("update:check"),
 
   /*
   |--------------------------------------------------------------------------

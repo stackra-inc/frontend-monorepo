@@ -2,34 +2,34 @@
  * View Menu
  */
 
-import { Menu, MenuItem } from '@stackra/ts-desktop';
+import { Menu, MenuItem } from "@stackra/ts-desktop";
 
-@Menu('view', { label: 'View', order: 2 })
+@Menu("view", { label: "View", order: 2 })
 export class ViewMenu {
-  @MenuItem({ role: 'reload' })
+  @MenuItem({ role: "reload" })
   reload() {}
 
-  @MenuItem({ role: 'forceReload' })
+  @MenuItem({ role: "forceReload" })
   forceReload() {}
 
-  @MenuItem({ role: 'toggleDevTools' })
+  @MenuItem({ role: "toggleDevTools" })
   toggleDevTools() {}
 
-  @MenuItem({ type: 'separator' })
+  @MenuItem({ type: "separator" })
   sep() {}
 
-  @MenuItem({ role: 'resetZoom' })
+  @MenuItem({ role: "resetZoom" })
   resetZoom() {}
 
-  @MenuItem({ role: 'zoomIn' })
+  @MenuItem({ role: "zoomIn" })
   zoomIn() {}
 
-  @MenuItem({ role: 'zoomOut' })
+  @MenuItem({ role: "zoomOut" })
   zoomOut() {}
 
-  @MenuItem({ type: 'separator' })
+  @MenuItem({ type: "separator" })
   sep2() {}
 
-  @MenuItem({ role: 'togglefullscreen' })
+  @MenuItem({ role: "togglefullscreen" })
   toggleFullscreen() {}
 }

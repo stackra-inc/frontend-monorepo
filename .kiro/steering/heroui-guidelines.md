@@ -19,11 +19,11 @@ apps.**
 
 ```tsx
 // ✅ CORRECT - Import from @repo/ui
-import { Button, Card, UIProvider } from '@repo/ui';
-import '@repo/ui/styles';
+import { Button, Card, UIProvider } from "@repo/ui";
+import "@repo/ui/styles";
 
 // ❌ WRONG - Don't import directly from HeroUI
-import { Button } from '@heroui/react';
+import { Button } from "@heroui/react";
 ```
 
 ### Package Structure
@@ -71,8 +71,8 @@ components/
  * @module components/ComponentName
  */
 
-import { ComponentName as HeroComponentName } from '@heroui/react';
-import type { ComponentNameProps as HeroComponentNameProps } from '@heroui/react';
+import { ComponentName as HeroComponentName } from "@heroui/react";
+import type { ComponentNameProps as HeroComponentNameProps } from "@heroui/react";
 
 /**
  * Props for ComponentName
@@ -127,7 +127,7 @@ This project uses Tailwind CSS v4 with HeroUI's theme system.
 Customize the theme in `packages/ui/tailwind.config.ts`:
 
 ```ts
-import { heroui } from '@heroui/theme';
+import { heroui } from "@heroui/theme";
 
 export default {
   plugins: [
@@ -136,8 +136,8 @@ export default {
         light: {
           colors: {
             primary: {
-              DEFAULT: '#0070F3',
-              foreground: '#FFFFFF',
+              DEFAULT: "#0070F3",
+              foreground: "#FFFFFF",
             },
           },
         },
@@ -155,8 +155,8 @@ Wrap your app with `UIProvider` in the root layout:
 
 ```tsx
 // app/layout.tsx
-import { UIProvider } from '@repo/ui';
-import '@repo/ui/styles';
+import { UIProvider } from "@repo/ui";
+import "@repo/ui/styles";
 
 export default function RootLayout({ children }) {
   return (
@@ -207,7 +207,7 @@ HeroUI v3 uses compound components for flexibility:
 Leverage the custom hooks from `@repo/ui`:
 
 ```tsx
-import { useDisclosure, useIsMobile } from '@repo/ui';
+import { useDisclosure, useIsMobile } from "@repo/ui";
 
 function MyComponent() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -264,10 +264,10 @@ Components are tree-shakeable. Only import what you need:
 
 ```tsx
 // ✅ Tree-shakeable - only Button is bundled
-import { Button } from '@repo/ui';
+import { Button } from "@repo/ui";
 
 // ❌ Avoid if you only need specific components
-import * as UI from '@repo/ui';
+import * as UI from "@repo/ui";
 ```
 
 ### Lazy Loading
@@ -275,9 +275,9 @@ import * as UI from '@repo/ui';
 Use React's lazy loading for heavy components:
 
 ```tsx
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense } from "react";
 
-const HeavyComponent = lazy(() => import('./HeavyComponent'));
+const HeavyComponent = lazy(() => import("./HeavyComponent"));
 
 function App() {
   return (

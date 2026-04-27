@@ -1,10 +1,10 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes } from "react-router-dom";
 
-import IndexPage from '@/pages/index';
-import DocsPage from '@/pages/docs';
-import ConfigPage from '@/pages/config';
-import LoggerPage from '@/pages/logger';
-import ContainerPage from '@/pages/container';
+import IndexPage from "@/pages/index";
+import DocsPage from "@/pages/docs";
+import ConfigPage from "@/pages/config";
+import LoggerPage from "@/pages/logger";
+import ContainerPage from "@/pages/container";
 
 function App() {
   return (

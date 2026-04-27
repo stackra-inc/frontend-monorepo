@@ -10,4 +10,4 @@
 /**
  * Possible security statuses returned by the security check endpoint.
  */
-export type SecurityStatus = 'ok' | 'locked' | 'device_limit' | 'force_password';
+export type SecurityStatus = "ok" | "locked" | "device_limit" | "force_password";

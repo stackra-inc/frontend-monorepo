@@ -12,9 +12,9 @@ an injectable service MUST have a corresponding facade.
 Facades are typed constants created via `Facade.make<T>(token)`:
 
 ```typescript
-import { Facade } from '@stackra/ts-support';
-import { CacheManager } from '../services/cache-manager.service';
-import { CACHE_MANAGER } from '../constants/tokens.constant';
+import { Facade } from "@stackra/ts-support";
+import { CacheManager } from "../services/cache-manager.service";
+import { CACHE_MANAGER } from "../constants/tokens.constant";
 
 export const CacheFacade: CacheManager =
   Facade.make<CacheManager>(CACHE_MANAGER);
@@ -39,8 +39,8 @@ Call `Facade.setApplication(app)` once in `main.tsx` after
 `Application.create()`:
 
 ```typescript
-import { Application } from '@stackra/ts-container';
-import { Facade } from '@stackra/ts-support';
+import { Application } from "@stackra/ts-container";
+import { Facade } from "@stackra/ts-support";
 
 const app = await Application.create(AppModule);
 Facade.setApplication(app); // wires all facades
@@ -49,16 +49,16 @@ Facade.setApplication(app); // wires all facades
 ## Usage
 
 ```typescript
-import { CacheFacade } from '@stackra/ts-cache';
+import { CacheFacade } from "@stackra/ts-cache";
 
 // Full autocomplete — no .proxy() call, no .instance getter
-CacheFacade.store().remember('key', 3600, () => fetch());
+CacheFacade.store().remember("key", 3600, () => fetch());
 ```
 
 ## Testing — Swap in a Mock
 
 ```typescript
-import { Facade } from '@stackra/ts-support';
+import { Facade } from "@stackra/ts-support";
 
 // Before test
 Facade.swap(CACHE_MANAGER, mockInstance);

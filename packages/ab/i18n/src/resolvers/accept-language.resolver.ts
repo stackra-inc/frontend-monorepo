@@ -34,8 +34,8 @@
  * - Designed to work with {@link LocaleMiddleware}
  */
 
-import { LocaleResolverPriority } from '@/enums';
-import type { ILocaleResolver } from './locale-resolver.interface';
+import { LocaleResolverPriority } from "@/enums";
+import type { ILocaleResolver } from "./locale-resolver.interface";
 
 /**
  * Configuration options for {@link AcceptLanguageLocaleResolver}.
@@ -73,7 +73,7 @@ export interface AcceptLanguageLocaleResolverOptions {
  */
 export class AcceptLanguageLocaleResolver implements ILocaleResolver {
   /** @inheritdoc */
-  public readonly name = 'accept-language';
+  public readonly name = "accept-language";
 
   /** @inheritdoc */
   public readonly priority = LocaleResolverPriority.LOW;
@@ -98,10 +98,10 @@ export class AcceptLanguageLocaleResolver implements ILocaleResolver {
    * @param options - Optional configuration for header name and storage
    */
   constructor(options?: AcceptLanguageLocaleResolverOptions) {
-    const headerName = options?.headerName ?? 'Content-Language';
+    const headerName = options?.headerName ?? "Content-Language";
     this.storageKey = `i18n-header-${headerName}`;
     this.storage =
-      options?.storage ?? (typeof window !== 'undefined' ? window.localStorage : undefined);
+      options?.storage ?? (typeof window !== "undefined" ? window.localStorage : undefined);
   }
 
   /**
@@ -118,7 +118,7 @@ export class AcceptLanguageLocaleResolver implements ILocaleResolver {
       const value = this.storage.getItem(this.storageKey);
       return value || undefined;
     } catch (error) {
-      console.warn('[i18n] Failed to read locale header from storage:', error);
+      console.warn("[i18n] Failed to read locale header from storage:", error);
       return undefined;
     }
   }

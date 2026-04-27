@@ -9,9 +9,9 @@
  * @category Interfaces
  */
 
-import type { AuthActionResponse } from './auth-action-response.interface';
-import type { CheckResponse } from './check-response.interface';
-import type { OnErrorResponse } from './on-error-response.interface';
+import type { AuthActionResponse } from "./auth-action-response.interface";
+import type { CheckResponse } from "./check-response.interface";
+import type { OnErrorResponse } from "./on-error-response.interface";
 
 /**
  * Authentication service interface.

@@ -9,13 +9,13 @@
  * @module utils/config-builder
  */
 
-import { extname } from 'path';
-import { readFileSync } from 'fs';
-import { Str } from '@stackra/ts-support';
+import { extname } from "path";
+import { readFileSync } from "fs";
+import { Str } from "@stackra/ts-support";
 
-import { mergeDeep } from './merge-deep.util';
-import { DEFAULT_I18NEXT_CONFIG } from '@/constants/default-config.constant';
-import type { FileMap, I18nextConfig, I18nPluginOptions, TranslationResources } from '@/interfaces';
+import { mergeDeep } from "./merge-deep.util";
+import { DEFAULT_I18NEXT_CONFIG } from "@/constants/default-config.constant";
+import type { FileMap, I18nextConfig, I18nPluginOptions, TranslationResources } from "@/interfaces";
 
 /**
  * Build a complete i18next configuration from a file map.
@@ -39,7 +39,7 @@ import type { FileMap, I18nextConfig, I18nPluginOptions, TranslationResources } 
  */
 export async function buildI18nextConfig(
   fileMap: FileMap,
-  options: I18nPluginOptions
+  options: I18nPluginOptions,
 ): Promise<I18nextConfig> {
   const config: I18nextConfig = JSON.parse(JSON.stringify(DEFAULT_I18NEXT_CONFIG));
   const resources: TranslationResources = {};
@@ -76,7 +76,7 @@ export async function buildI18nextConfig(
           const filePath = namespaceFiles[namespace];
 
           try {
-            const translations = await loadTranslationFile(filePath || '');
+            const translations = await loadTranslationFile(filePath || "");
             resources[languageCode][namespace] = translations;
 
             if (options.debug) {
@@ -117,7 +117,7 @@ export async function buildI18nextConfig(
 
   if (options.useHttpBackend && options.backendUrl) {
     config.backend = {
-      loadPath: options.backendUrl + '/locales/{{lng}}/{{ns}}.json',
+      loadPath: options.backendUrl + "/locales/{{lng}}/{{ns}}.json",
     };
   }
 
@@ -125,13 +125,13 @@ export async function buildI18nextConfig(
 
   if (options.useBrowserLanguageDetector) {
     config.detection = {
-      order: ['localStorage', 'navigator'],
-      caches: ['localStorage'],
+      order: ["localStorage", "navigator"],
+      caches: ["localStorage"],
     };
   }
 
   if (options.debug) {
-    console.log('[i18n] Final config:', JSON.stringify(config, null, 2));
+    console.log("[i18n] Final config:", JSON.stringify(config, null, 2));
   }
 
   return config;
@@ -154,18 +154,18 @@ async function loadTranslationFile(filePath: string): Promise<Record<string, any
   const ext = Str.lower(extname(filePath));
 
   try {
-    if (ext === '.json') {
-      const content = readFileSync(filePath, 'utf-8');
+    if (ext === ".json") {
+      const content = readFileSync(filePath, "utf-8");
       return JSON.parse(content);
     }
 
-    if (ext === '.js' || ext === '.ts') {
+    if (ext === ".js" || ext === ".ts") {
       try {
         const module = await import(`file://${filePath}`);
         return module.default || module;
       } catch (importError) {
         // Fallback: some JS/TS files may contain JSON-compatible content
-        const content = readFileSync(filePath, 'utf-8');
+        const content = readFileSync(filePath, "utf-8");
         return JSON.parse(content);
       }
     }
@@ -173,7 +173,7 @@ async function loadTranslationFile(filePath: string): Promise<Record<string, any
     throw new Error(`Unsupported translation file format: ${ext}`);
   } catch (error: Error | any) {
     throw new Error(
-      `Failed to load translation file ${filePath}: ${error instanceof Error ? error.message : String(error)}`
+      `Failed to load translation file ${filePath}: ${error instanceof Error ? error.message : String(error)}`,
     );
   }
 }

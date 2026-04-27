@@ -18,21 +18,21 @@
 
 // ── Interface ──────────────────────────────────────────────────────────────
 
-export type { ILocaleResolver } from './locale-resolver.interface';
+export type { ILocaleResolver } from "./locale-resolver.interface";
 
 // ── Built-in Resolvers ─────────────────────────────────────────────────────
 
-export { UrlPathLocaleResolver } from './url-path.resolver';
-export type { UrlPathLocaleResolverOptions } from './url-path.resolver';
+export { UrlPathLocaleResolver } from "./url-path.resolver";
+export type { UrlPathLocaleResolverOptions } from "./url-path.resolver";
 
-export { QueryParamLocaleResolver } from './query-param.resolver';
-export type { QueryParamLocaleResolverOptions } from './query-param.resolver';
+export { QueryParamLocaleResolver } from "./query-param.resolver";
+export type { QueryParamLocaleResolverOptions } from "./query-param.resolver";
 
-export { StorageLocaleResolver } from './storage.resolver';
-export type { StorageLocaleResolverOptions } from './storage.resolver';
+export { StorageLocaleResolver } from "./storage.resolver";
+export type { StorageLocaleResolverOptions } from "./storage.resolver";
 
-export { NavigatorLocaleResolver } from './navigator.resolver';
-export type { NavigatorLocaleResolverOptions } from './navigator.resolver';
+export { NavigatorLocaleResolver } from "./navigator.resolver";
+export type { NavigatorLocaleResolverOptions } from "./navigator.resolver";
 
-export { AcceptLanguageLocaleResolver } from './accept-language.resolver';
-export type { AcceptLanguageLocaleResolverOptions } from './accept-language.resolver';
+export { AcceptLanguageLocaleResolver } from "./accept-language.resolver";
+export type { AcceptLanguageLocaleResolverOptions } from "./accept-language.resolver";

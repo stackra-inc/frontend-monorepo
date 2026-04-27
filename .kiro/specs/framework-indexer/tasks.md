@@ -46,7 +46,7 @@ at the end.
         `isActive()` helper methods
     - _Requirements: 7.1, 7.2, 7.3, 7.4, 7.5_
 
-  - [ ]\* 2.4 Write property tests for enum metadata and classification
+  - [ ] 2.4 Write property tests for enum metadata and classification
     - **Property 3: All Indexer enum cases have Label and Description metadata**
     - **Property 4: AggregationType.isNumeric() correctly classifies cases**
     - **Property 5: IndexStatus health categorization is mutually exclusive and
@@ -87,11 +87,11 @@ at the end.
         `ATTR_FALLBACK` constant
     - _Requirements: 4.1, 4.2, 4.3, 4.4_
 
-  - [ ]\* 3.6 Write property test for attribute construction round-trip
+  - [ ] 3.6 Write property test for attribute construction round-trip
     - **Property 1: Attribute construction round-trip**
     - **Validates: Requirements 1.1, 2.1, 2.2, 3.1, 3.4, 3.5, 4.1**
 
-  - [ ]\* 3.7 Write unit tests for attribute structural constraints
+  - [ ] 3.7 Write unit tests for attribute structural constraints
     - Verify `Attribute::TARGET_CLASS` targets, `final readonly` modifiers,
       `IS_REPEATABLE` flags, `ATTR_*` constants presence
     - _Requirements: 1.2, 1.3, 1.4, 2.3, 2.4, 3.2, 3.3, 4.2, 4.3_
@@ -136,15 +136,15 @@ at the end.
         (int|string), `buildState` (BuildState), `indexName` (string)
     - _Requirements: 11.1, 11.2, 11.3, 11.4_
 
-  - [ ]\* 5.7 Write property test for DTO and Event construction round-trip
+  - [ ] 5.7 Write property test for DTO and Event construction round-trip
     - **Property 2: DTO and Event construction round-trip**
     - **Validates: Requirements 11.2, 16.1**
 
-  - [ ]\* 5.8 Write property test for IndexUnavailableException message
+  - [ ] 5.8 Write property test for IndexUnavailableException message
     - **Property 9: IndexUnavailableException message contains entity class**
     - **Validates: Requirements 13.5, 17.2**
 
-  - [ ]\* 5.9 Write unit tests for interface structure and contract signatures
+  - [ ] 5.9 Write unit tests for interface structure and contract signatures
     - Verify `#[Bind]` annotations point to correct search package classes
       (string references, not imports)
     - Verify method signatures match requirements
@@ -160,7 +160,7 @@ at the end.
         `loadFromCache()`, full docblocks
     - _Requirements: 14.6, 14.7, 14.8_
 
-  - [ ]\* 7.2 Write property test for IndexerRegistry CRUD consistency
+  - [ ] 7.2 Write property test for IndexerRegistry CRUD consistency
     - **Property 10: IndexerRegistry CRUD consistency**
     - **Validates: Requirements 14.6**
 
@@ -178,7 +178,7 @@ at the end.
     - _Requirements: 14.1, 14.2, 14.3, 14.4, 14.5, 15.1, 15.2, 15.3, 15.4, 15.5,
       15.6_
 
-  - [ ]\* 8.2 Write unit test for compiler skip behavior
+  - [ ] 8.2 Write unit test for compiler skip behavior
     - Verify `CompilerResult::skipped('No indexed models found')` when no
       `#[Indexed]` models discovered
     - _Requirements: 15.5_
@@ -192,7 +192,7 @@ at the end.
         `IndexerInterface`), `excludeIndex()` (returns `false` by default)
     - _Requirements: 12.1, 12.2, 12.3, 12.4, 12.5, 12.6, 12.7_
 
-  - [ ]\* 9.2 Write property tests for Indexable trait
+  - [ ] 9.2 Write property tests for Indexable trait
     - **Property 7: toIndexableArray() includes all searchable fields and
       resolved embeds**
     - **Property 8: EmbedMany respects limit constraint**
@@ -206,7 +206,7 @@ at the end.
         `#[UseIndex(fallback)]` setting
     - _Requirements: 13.1, 13.2, 13.3, 13.4, 13.5, 13.6_
 
-  - [ ]\* 10.2 Write integration tests for RoutesToIndex routing logic
+  - [ ] 10.2 Write integration tests for RoutesToIndex routing logic
     - Mock `IndexerRegistry` and `IndexerInterface`, verify ES builder returned
       when available, PG fallback, exception when fallback disabled
     - _Requirements: 13.1, 13.2, 13.3, 13.4, 13.5_

@@ -66,10 +66,10 @@
     "release": "pnpm publish --access public --no-git-checks"
   },
   "peerDependencies": {
-    "@stackra/ts-support": "workspace:*",
-    "@stackra/ts-container": "^2.0.4",
+    "@stackra/ts-support": "^2.5.7",
+    "@stackra/ts-container": "^2.0.10",
     "@stackra/ts-logger": "workspace:*",
-    "@supabase/supabase-js": "^2.0.0",
+    "@supabase/supabase-js": "^2.104.1",
     "rxdb": "^17.1.0",
     "rxjs": "^7.8.2"
   },
@@ -95,21 +95,21 @@
   },
   "devDependencies": {
     "@eslint/js": "10.0.1",
-    "@nesvel/eslint-config": "^1.0.5",
-    "@nesvel/prettier-config": "^1.0.3",
-    "@nesvel/tsup-config": "^1.0.3",
-    "@nesvel/typescript-config": "^1.0.4",
-    "@supabase/supabase-js": "^2.102.0",
+    "@stackra/eslint-config": "^1.0.6",
+    "@stackra/prettier-config": "^1.0.4",
+    "@stackra/tsup-config": "^1.0.4",
+    "@stackra/typescript-config": "^1.0.5",
+    "@supabase/supabase-js": "^2.104.1",
     "@types/react": "^19.2.14",
-    "@vitest/ui": "^4.1.2",
-    "eslint": "10.2.0",
-    "fast-check": "^4.6.0",
-    "jsdom": "^29.0.1",
-    "prettier": "^3.8.1",
+    "@vitest/ui": "^4.1.5",
+    "eslint": "10.2.1",
+    "fast-check": "^4.7.0",
+    "jsdom": "^29.1.0",
+    "prettier": "^3.8.3",
     "tsup": "^8.5.1",
-    "typescript": "^6.0.2",
-    "typescript-eslint": "^8.58.0",
-    "vitest": "^4.1.2"
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.59.0",
+    "vitest": "^4.1.5"
   },
   "publishConfig": {
     "access": "public",
@@ -120,5 +120,5 @@
     "pnpm": ">=9.0.0"
   },
   "sideEffects": false,
-  "packageManager": "pnpm@10.33.0"
+  "packageManager": "pnpm@10.33.2"
 }

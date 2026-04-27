@@ -1,7 +1,7 @@
 /**
  * @fileoverview tsup build configuration for @stackra/react-i18n
  *
- * Uses the @nesvel/tsup-config React library preset which extends the
+ * Uses the @stackra/tsup-config React library preset which extends the
  * base preset with JSX automatic transform and React externalization.
  *
  * This package has multiple entry points:
@@ -24,7 +24,7 @@
  */
 
 import { defineConfig } from "tsup";
-import { reactLibPreset } from "@nesvel/tsup-config";
+import { reactLibPreset } from "@stackra/tsup-config";
 
 export default defineConfig({
   ...reactLibPreset,

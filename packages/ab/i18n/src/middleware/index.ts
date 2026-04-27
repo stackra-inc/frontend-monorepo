@@ -8,4 +8,4 @@
  * @module middleware
  */
 
-export { LocaleMiddleware } from './locale.middleware';
+export { LocaleMiddleware } from "./locale.middleware";

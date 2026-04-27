@@ -1,5 +1,5 @@
-@import 'tailwindcss';
-@import '@heroui/styles';
+@import "tailwindcss";
+@import "@heroui/styles";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -47,7 +47,7 @@ body.is-electron nav button,
 body.is-electron nav input,
 body.is-electron nav select,
 body.is-electron nav label,
-body.is-electron nav [role='button'] {
+body.is-electron nav [role="button"] {
   -webkit-app-region: no-drag;
 }
 

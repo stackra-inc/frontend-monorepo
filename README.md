@@ -105,7 +105,7 @@ npm run dev   -- --filter=@stackra/docs
 Shared React component library consumed by all apps.
 
 ```tsx
-import { Button } from '@stackra/react-ui/button';
+import { Button } from "@stackra/react-ui/button";
 ```
 
 ### `@stackra/eslint-config`
@@ -114,7 +114,7 @@ Three ESLint 9 flat configs:
 
 ```js
 // eslint.config.js in an app
-import { nextJs } from '@stackra/eslint-config/next-js';
+import { nextJs } from "@stackra/eslint-config/next-js";
 export default [...nextJs];
 ```
 

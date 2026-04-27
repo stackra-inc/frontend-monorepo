@@ -23,7 +23,7 @@ Reflect.getOwnMetadata(KEY, target);
 **Always do this:**
 
 ```typescript
-import { defineMetadata, getMetadata, hasOwnMetadata } from '@vivtel/metadata';
+import { defineMetadata, getMetadata, hasOwnMetadata } from "@vivtel/metadata";
 
 defineMetadata(KEY, value, target);
 getMetadata(KEY, target);
@@ -65,7 +65,7 @@ Reflect.defineMetadata(KEY, [...existing, newItem], target);
 **After (required):**
 
 ```typescript
-import { updateMetadata } from '@vivtel/metadata';
+import { updateMetadata } from "@vivtel/metadata";
 
 updateMetadata(KEY, [] as ItemType[], (items) => [...items, newItem], target);
 ```
@@ -159,7 +159,7 @@ raw string literals as metadata keys** — always reference the constant.
 defineMetadata(INJECTABLE_WATERMARK, true, target);
 
 // ❌ Never use raw strings
-defineMetadata('__injectable__', true, target);
+defineMetadata("__injectable__", true, target);
 ```
 
 ### Key Ownership Table
@@ -200,7 +200,7 @@ When adding a new metadata key:
  * Written by: @MyDecorator()
  * Read by: MyConsumer
  */
-export const MY_NEW_KEY = 'my:new:key';
+export const MY_NEW_KEY = "my:new:key";
 ```
 
 ---
@@ -221,7 +221,7 @@ updateMetadata(
     ...props,
     { key: key as string | symbol, type: resolvedToken as InjectionToken },
   ],
-  target.constructor as object
+  target.constructor as object,
 );
 
 // ❌ Don't cast the variable itself — it loses the narrowing context
@@ -235,8 +235,8 @@ const safeKey = key as string | symbol; // avoid
 Use `clearMetadata` in test teardown to prevent metadata leaking between tests.
 
 ```typescript
-import { clearMetadata } from '@vivtel/metadata';
-import { INJECTABLE_WATERMARK, SCOPE_OPTIONS_METADATA } from '@/constants';
+import { clearMetadata } from "@vivtel/metadata";
+import { INJECTABLE_WATERMARK, SCOPE_OPTIONS_METADATA } from "@/constants";
 
 afterEach(() => {
   // Clear all metadata from test classes

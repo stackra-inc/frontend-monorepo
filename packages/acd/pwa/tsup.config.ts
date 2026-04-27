@@ -1,7 +1,7 @@
 /**
  * @fileoverview tsup build configuration for @stackra/ts-pwa
  *
- * Uses the @nesvel/tsup-config base preset which automatically handles:
+ * Uses the @stackra/tsup-config base preset which automatically handles:
  * - Dual format output (ESM + CJS)
  * - TypeScript declaration generation
  * - Auto-externalization from package.json (deps, peerDeps, devDeps)
@@ -18,7 +18,7 @@
  * @see https://tsup.egoist.dev/
  */
 
-import { basePreset as preset } from '@nesvel/tsup-config';
+import { basePreset as preset } from '@stackra/tsup-config';
 
 export default {
   ...preset,

@@ -42,20 +42,20 @@ module.
     - Implement filtering of action types by trust level for grouping
     - _Requirements: 1.1, 1.2, 1.3, 1.4, 1.5, 10.3_
 
-  - [ ]\* 2.2 Write property test: Registry schema invariant (Property 1)
+  - [ ] 2.2 Write property test: Registry schema invariant (Property 1)
     - **Property 1: Registry schema invariant**
     - **Validates: Requirements 1.1, 1.4**
     - Create
       `apps/vite-template/src/contexts/ai-sidekick/__tests__/registry.property.test.ts`
 
-  - [ ]\* 2.3 Write property test: Tenant action types grouped by trust level
-    (Property 12)
+  - [ ] 2.3 Write property test: Tenant action types grouped by trust level
+        (Property 12)
     - **Property 12: AI Capabilities Panel displays tenant action types grouped
       by trust level**
     - **Validates: Requirements 1.5, 5.2**
 
-  - [ ]\* 2.4 Write property test: Tenant switch reloads registry and
-    preferences (Property 16)
+  - [ ] 2.4 Write property test: Tenant switch reloads registry and preferences
+        (Property 16)
     - **Property 16: Tenant switch reloads registry and preferences**
     - **Validates: Requirements 1.2, 10.2**
 
@@ -73,24 +73,24 @@ module.
     - Filter out stale preferences for action types not in the current registry
     - _Requirements: 6.1, 6.2, 6.3, 6.4, 6.5, 10.1, 10.4_
 
-  - [ ]\* 3.2 Write property test: Preference toggle persistence round-trip
-    (Property 7)
+  - [ ] 3.2 Write property test: Preference toggle persistence round-trip
+        (Property 7)
     - **Property 7: Preference toggle persistence round-trip**
     - **Validates: Requirements 3.2, 5.4, 6.2, 6.3**
     - Create
       `apps/vite-template/src/contexts/ai-sidekick/__tests__/preference-store.property.test.ts`
 
-  - [ ]\* 3.3 Write property test: Disable all sets every preference to disabled
-    (Property 14)
+  - [ ] 3.3 Write property test: Disable all sets every preference to disabled
+        (Property 14)
     - **Property 14: Disable all sets every preference to disabled**
     - **Validates: Requirements 5.7**
 
-  - [ ]\* 3.4 Write property test: Preference storage tenant isolation
-    (Property 15)
+  - [ ] 3.4 Write property test: Preference storage tenant isolation
+        (Property 15)
     - **Property 15: Preference storage tenant isolation**
     - **Validates: Requirements 6.1, 6.5, 10.1**
 
-  - [ ]\* 3.5 Write property test: Stale preferences are ignored (Property 17)
+  - [ ] 3.5 Write property test: Stale preferences are ignored (Property 17)
     - **Property 17: Stale preferences are ignored**
     - **Validates: Requirements 10.4**
 
@@ -108,19 +108,19 @@ module.
       to decide popup vs auto-execute path
     - _Requirements: 2.1, 2.2, 2.6, 4.1_
 
-  - [ ]\* 5.2 Write property test: Suggestion schema invariant (Property 2)
+  - [ ] 5.2 Write property test: Suggestion schema invariant (Property 2)
     - **Property 2: Suggestion schema invariant**
     - **Validates: Requirements 2.1**
     - Create
       `apps/vite-template/src/contexts/ai-sidekick/__tests__/suggestion-engine.property.test.ts`
 
-  - [ ]\* 5.3 Write property test: Suggestion routing by automation preference
-    (Property 3)
+  - [ ] 5.3 Write property test: Suggestion routing by automation preference
+        (Property 3)
     - **Property 3: Suggestion routing by automation preference**
     - **Validates: Requirements 2.2, 4.1**
 
-  - [ ]\* 5.4 Write property test: Queue presents one suggestion at a time
-    (Property 6)
+  - [ ] 5.4 Write property test: Queue presents one suggestion at a time
+        (Property 6)
     - **Property 6: Queue presents one suggestion at a time**
     - **Validates: Requirements 2.6**
 
@@ -136,15 +136,15 @@ module.
       queue for manual popup
     - _Requirements: 4.1, 4.4, 4.5_
 
-  - [ ]\* 6.2 Write property test: Undo reverses auto-executed action
-    (Property 11)
+  - [ ] 6.2 Write property test: Undo reverses auto-executed action
+        (Property 11)
     - **Property 11: Undo reverses auto-executed action**
     - **Validates: Requirements 4.4**
     - Create
       `apps/vite-template/src/contexts/ai-sidekick/__tests__/automation-executor.property.test.ts`
 
-  - [ ]\* 6.3 Write property test: Event log records all auto-executed actions
-    (Property 18)
+  - [ ] 6.3 Write property test: Event log records all auto-executed actions
+        (Property 18)
     - **Property 18: Event log records all auto-executed actions**
     - **Validates: Requirements 7.1**
 
@@ -157,14 +157,14 @@ module.
     - Entries are in-memory only, cleared on logout
     - _Requirements: 7.1, 7.2, 7.5_
 
-  - [ ]\* 7.2 Write property test: Recent activity displays at most 20 entries
-    (Property 19)
+  - [ ] 7.2 Write property test: Recent activity displays at most 20 entries
+        (Property 19)
     - **Property 19: Recent activity displays at most 20 entries**
     - **Validates: Requirements 7.2**
     - Create
       `apps/vite-template/src/contexts/ai-sidekick/__tests__/event-log.property.test.ts`
 
-  - [ ]\* 7.3 Write property test: Event log cleared on logout (Property 20)
+  - [ ] 7.3 Write property test: Event log cleared on logout (Property 20)
     - **Property 20: Event log cleared on logout**
     - **Validates: Requirements 7.5**
 
@@ -187,7 +187,7 @@ module.
       export
     - _Requirements: 9.1, 9.2, 9.3, 9.4, 9.5, 10.2_
 
-  - [ ]\* 9.2 Write unit tests for AISidekickProvider integration
+  - [ ] 9.2 Write unit tests for AISidekickProvider integration
     - Create
       `apps/vite-template/src/contexts/ai-sidekick/__tests__/integration.test.tsx`
     - Test: `useAISidekick` throws outside provider
@@ -216,7 +216,7 @@ module.
     - _Requirements: 2.3, 2.4, 2.5, 3.1, 3.2, 3.3, 3.4, 3.5, 8.1, 8.2, 8.3, 8.4,
       8.5_
 
-  - [ ]\* 10.2 Write property tests for SuggestionPopup
+  - [ ] 10.2 Write property tests for SuggestionPopup
     - Create
       `apps/vite-template/src/components/ai-sidekick/__tests__/suggestion-popup.property.test.tsx`
     - **Property 4: Approve executes and removes suggestion** — Validates:
@@ -232,8 +232,8 @@ module.
     - **Property 23: Suggestion popup ARIA attributes** — Validates:
       Requirements 8.4, 8.5
 
-  - [ ]\* 10.3 Write property test: High trust-level toggle requires
-    confirmation (Property 8)
+  - [ ] 10.3 Write property test: High trust-level toggle requires confirmation
+        (Property 8)
     - **Property 8: High trust-level toggle requires confirmation**
     - **Validates: Requirements 3.4**
     - Create
@@ -249,8 +249,8 @@ module.
     - Undo button calls `undoAutomation` from context within the 5-second window
     - _Requirements: 4.2, 4.3, 4.4_
 
-  - [ ]\* 11.2 Write property test: Auto-execution toast contains required
-    information (Property 10)
+  - [ ] 11.2 Write property test: Auto-execution toast contains required
+        information (Property 10)
     - **Property 10: Auto-execution toast contains required information**
     - **Validates: Requirements 4.2, 4.3**
     - Create
@@ -272,8 +272,8 @@ module.
     - Tapping an entry expands to show full details (payload summary, reasoning)
     - _Requirements: 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7, 7.2, 7.3, 7.4_
 
-  - [ ]\* 12.2 Write property test: Automation summary count accuracy
-    (Property 13)
+  - [ ] 12.2 Write property test: Automation summary count accuracy
+        (Property 13)
     - **Property 13: Automation summary count accuracy**
     - **Validates: Requirements 5.5**
 

@@ -14,6 +14,7 @@ export { SettingsModule } from './settings.module';
 // Services
 export { SettingsService } from './services/settings.service';
 export { SettingsStoreManager } from './services/settings-manager.service';
+export { SettingsSyncService } from './services/settings-sync.service';
 
 // Registry
 export { SettingsRegistry } from './registries/settings-registry.service';
@@ -22,6 +23,7 @@ export { SettingsRegistry } from './registries/settings-registry.service';
 export { LocalStorageStore } from './stores/local-storage.store';
 export { MemoryStore } from './stores/memory.store';
 export { ApiStore } from './stores/api.store';
+export { RealtimeStore } from './stores/realtime.store';
 
 // Decorators
 export {
@@ -60,6 +62,8 @@ export {
   SETTINGS_REGISTRY,
   SETTINGS_SERVICE,
   SETTINGS_MANAGER,
+  SETTINGS_SYNC_CONFIG,
+  SETTINGS_SYNC_SERVICE,
 } from './constants/tokens.constant';
 
 // Interfaces
@@ -86,6 +90,10 @@ export type { SettingsGroupOverride } from './interfaces/settings-group-override
 export type { SettingsModuleOptions } from './interfaces/settings-module-options.interface';
 
 export type { SettingsStore } from './interfaces/settings-store.interface';
+export type { SettingsSyncConfig } from './interfaces/settings-sync-config.interface';
+export type { UpdateStrategy } from './interfaces/settings-sync-config.interface';
+export type { SettingsChangePayload } from './interfaces/settings-change-payload.interface';
+export type { RealtimeStoreConfig } from './interfaces/realtime-store-config.interface';
 
 export type { SettingFieldSchema } from './interfaces/setting-field-schema.interface';
 export type { SettingSubGroupSchema } from './interfaces/setting-sub-group-schema.interface';

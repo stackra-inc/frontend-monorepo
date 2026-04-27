@@ -38,7 +38,7 @@ finally wiring everything together in the namespace and barrel exports.
     - Create barrel export and update `utils/index.ts`
     - _Requirements: 8.2_
 
-  - [ ]\* 2.2 Write property test for buildScopedSlotName
+  - [ ] 2.2 Write property test for buildScopedSlotName
     - **Property 9: Scoped slot name builder**
     - **Validates: Requirements 8.2**
 
@@ -50,7 +50,7 @@ finally wiring everything together in the namespace and barrel exports.
     - Create barrel export and update `components/index.ts`
     - _Requirements: 8.1, 8.3, 8.4, 8.5_
 
-  - [ ]\* 2.4 Write property test for ScopedSlot rendering
+  - [ ] 2.4 Write property test for ScopedSlot rendering
     - **Property 10: Slot scoping correctness**
     - **Validates: Requirements 8.1, 8.3, 8.4, 8.5**
 
@@ -79,7 +79,7 @@ finally wiring everything together in the namespace and barrel exports.
     - `DIVIDER` has `BEFORE`/`AFTER`
     - _Requirements: 1.5, 1.6, 6.6, 7.1, 7.2_
 
-  - [ ]\* 3.4 Write property test for DrawerContent padding mapping
+  - [ ] 3.4 Write property test for DrawerContent padding mapping
     - **Property 1: DrawerContent padding mapping**
     - **Validates: Requirements 1.4**
 
@@ -102,7 +102,7 @@ finally wiring everything together in the namespace and barrel exports.
     - Create barrel export
     - _Requirements: 2.1, 2.2, 2.3, 2.4, 2.5, 2.6_
 
-  - [ ]\* 5.3 Write property tests for DrawerLoading
+  - [ ] 5.3 Write property tests for DrawerLoading
     - **Property 2: DrawerLoading spinner label rendering**
     - **Property 3: DrawerLoading skeleton line count**
     - **Property 4: DrawerLoading off-state renders nothing**
@@ -125,7 +125,7 @@ finally wiring everything together in the namespace and barrel exports.
     - Create barrel export
     - _Requirements: 6.1, 6.2, 6.3, 6.4, 6.5, 6.7, 6.8_
 
-  - [ ]\* 6.3 Write property tests for DrawerAlert
+  - [ ] 6.3 Write property tests for DrawerAlert
     - **Property 7: DrawerAlert variant color and icon mapping**
     - **Property 8: DrawerAlert title rendering**
     - **Validates: Requirements 6.1, 6.2, 6.3**
@@ -145,7 +145,7 @@ finally wiring everything together in the namespace and barrel exports.
     - Replace `Slot` calls with `ScopedSlot` for scoped slot support
     - _Requirements: 3.1, 3.2, 3.3, 3.4, 5.1, 5.2, 5.3, 5.4_
 
-  - [ ]\* 7.3 Write property test for DrawerFooter aria-busy
+  - [ ] 7.3 Write property test for DrawerFooter aria-busy
     - **Property 5: DrawerFooter aria-busy reflects loading state**
     - **Validates: Requirements 3.3, 3.4**
 
@@ -160,7 +160,7 @@ finally wiring everything together in the namespace and barrel exports.
     - Replace `Slot` calls with `ScopedSlot` for scoped slot support
     - _Requirements: 4.1, 4.2, 4.3_
 
-  - [ ]\* 8.3 Write property test for DrawerHeader loading spinner
+  - [ ] 8.3 Write property test for DrawerHeader loading spinner
     - **Property 6: DrawerHeader loading spinner adjacent to title**
     - **Validates: Requirements 4.1, 4.3**
 
@@ -192,7 +192,7 @@ finally wiring everything together in the namespace and barrel exports.
         hooks, interfaces, and the `useDrawerId` hook
     - _Requirements: 1.3, 2.7, 6.9, 8.6_
 
-  - [ ]\* 11.4 Write unit tests for namespace structure and barrel exports
+  - [ ] 11.4 Write unit tests for namespace structure and barrel exports
     - Verify `Drawer.Content`, `Drawer.Body`, `Drawer.Loading`, `Drawer.Alert`
       exist and reference correct components
     - Verify `DRAWER_SLOTS.CONTENT`, `DRAWER_SLOTS.BODY` alias,

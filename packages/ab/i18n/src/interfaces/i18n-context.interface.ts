@@ -25,7 +25,7 @@
  * ```
  */
 
-import type { II18nService } from './i18n-service.interface';
+import type { II18nService } from "./i18n-service.interface";
 
 /**
  * Context value provided by the `<I18nProvider>` component.

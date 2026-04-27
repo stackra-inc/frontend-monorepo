@@ -53,9 +53,9 @@
  * ```
  */
 
-import { Module, type DynamicModule } from '@stackra/ts-container';
+import { Module, type DynamicModule } from "@stackra/ts-container";
 
-import type { I18nModuleOptions } from '@/interfaces/i18n-module-options.interface';
+import type { I18nModuleOptions } from "@/interfaces/i18n-module-options.interface";
 import {
   I18N_CONFIG,
   I18N_SERVICE,
@@ -66,18 +66,18 @@ import {
   STORAGE_LOCALE_RESOLVER,
   NAVIGATOR_LOCALE_RESOLVER,
   ACCEPT_LANGUAGE_LOCALE_RESOLVER,
-} from '@/constants';
+} from "@/constants";
 import {
   UrlPathLocaleResolver,
   QueryParamLocaleResolver,
   StorageLocaleResolver,
   NavigatorLocaleResolver,
   AcceptLanguageLocaleResolver,
-} from '@/resolvers';
-import { createLocaleResolverChain } from '@/utils/create-locale-resolver-chain.util';
-import { I18nextService } from '@/services/i18next.service';
-import { I18nService } from '@/services/i18n.service';
-import { LocaleMiddleware } from '@/middleware/locale.middleware';
+} from "@/resolvers";
+import { createLocaleResolverChain } from "@/utils/create-locale-resolver-chain.util";
+import { I18nextService } from "@/services/i18next.service";
+import { I18nService } from "@/services/i18n.service";
+import { LocaleMiddleware } from "@/middleware/locale.middleware";
 
 @Module({})
 // biome-ignore lint/complexity/noStaticOnlyClass: Module pattern requires static methods
@@ -118,13 +118,13 @@ export class I18nModule {
     |--------------------------------------------------------------------------
     */
     const mergedConfig: I18nModuleOptions = {
-      defaultLanguage: 'en',
-      languages: ['en'],
-      resolvers: ['storage', 'navigator'],
-      queryParam: 'lang',
-      storageKey: 'i18nextLng',
-      requestHeader: 'Accept-Language',
-      responseHeader: 'content-language',
+      defaultLanguage: "en",
+      languages: ["en"],
+      resolvers: ["storage", "navigator"],
+      queryParam: "lang",
+      storageKey: "i18nextLng",
+      requestHeader: "Accept-Language",
+      responseHeader: "content-language",
       syncFromResponse: true,
       persistResponseLocale: true,
       debug: false,
@@ -204,25 +204,25 @@ export class I18nModule {
         queryParam: QueryParamLocaleResolver,
         storage: StorageLocaleResolver,
         navigator: NavigatorLocaleResolver,
-        acceptLanguage: AcceptLanguageLocaleResolver
+        acceptLanguage: AcceptLanguageLocaleResolver,
       ) => {
         // Map resolver names to instances
         const resolverMap: Record<string, any> = {
-          'url-path': urlPath,
-          'query-param': queryParam,
+          "url-path": urlPath,
+          "query-param": queryParam,
           storage: storage,
           navigator: navigator,
-          'accept-language': acceptLanguage,
+          "accept-language": acceptLanguage,
           // Merge custom resolvers from config
           ...(config.customResolvers ?? {}),
         };
 
         // Build active resolver array from configured names
-        const resolverNames = config.resolvers ?? ['storage', 'navigator'];
+        const resolverNames = config.resolvers ?? ["storage", "navigator"];
         const activeResolvers = resolverNames.map((name) => resolverMap[name]).filter(Boolean);
 
         if (activeResolvers.length === 0) {
-          console.warn('[i18n] No valid resolvers configured, falling back to navigator');
+          console.warn("[i18n] No valid resolvers configured, falling back to navigator");
           activeResolvers.push(navigator);
         }
 
@@ -249,15 +249,15 @@ export class I18nModule {
     const i18nProviderFactory = {
       provide: I18NEXT_SERVICE,
       useFactory: (config: I18nModuleOptions) => {
-        const defaultLang = config.defaultLanguage ?? 'en';
+        const defaultLang = config.defaultLanguage ?? "en";
         const languages = config.languages ?? [defaultLang];
 
         const i18nextConfig = {
           lng: defaultLang,
           fallbackLng: defaultLang,
           preload: languages,
-          ns: ['translation'],
-          defaultNS: 'translation',
+          ns: ["translation"],
+          defaultNS: "translation",
           debug: config.debug ?? false,
           interpolation: { escapeValue: false },
           ...config.i18nextOptions,

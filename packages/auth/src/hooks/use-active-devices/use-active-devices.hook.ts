@@ -1,11 +1,11 @@
 /** @fileoverview useActiveDevices hook. @module @stackra/react-auth @category Hooks */
-import { useQuery, useMutation } from '@tanstack/react-query';
-import { useInject } from '@stackra/ts-container';
-import { SECURITY_SERVICE } from '@/constants';
-import type { SecurityService } from '@/services/security.service';
-import type { ActiveDevice } from '@/interfaces/active-device.interface';
-import type { UseQueryHookResult } from '@/interfaces/use-query-hook-result.interface';
-import type { UseMutationHookResult } from '@/interfaces/use-mutation-hook-result.interface';
+import { useQuery, useMutation } from "@tanstack/react-query";
+import { useInject } from "@stackra/ts-container";
+import { SECURITY_SERVICE } from "@/constants";
+import type { SecurityService } from "@/services/security.service";
+import type { ActiveDevice } from "@/interfaces/active-device.interface";
+import type { UseQueryHookResult } from "@/interfaces/use-query-hook-result.interface";
+import type { UseMutationHookResult } from "@/interfaces/use-mutation-hook-result.interface";
 
 /** Return shape for the useActiveDevices hook. */
 export interface UseActiveDevicesResult {
@@ -26,7 +26,7 @@ export function useActiveDevices(): UseActiveDevicesResult {
   const securityService = useInject<SecurityService>(SECURITY_SERVICE);
 
   const devicesQuery = useQuery({
-    queryKey: ['auth', 'devices'],
+    queryKey: ["auth", "devices"],
     queryFn: () => securityService.getActiveDevices(),
   });
 

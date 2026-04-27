@@ -49,7 +49,7 @@ integrated alongside implementation using vitest and fast-check.
     - Implement `resolveConfig(channel, overrides?)` that merges overrides on
       top of channel preset
     - _Requirements: 5.1, 5.2, 5.3, 5.4_
-  - [ ]\* 2.3 Write property test for channel config resolution
+  - [ ] 2.3 Write property test for channel config resolution
     - **Property 14: Channel config resolution**
     - **Validates: Requirements 5.3, 5.4**
 
@@ -62,19 +62,19 @@ integrated alongside implementation using vitest and fast-check.
     - Steps execute sequentially, each receiving the Cart output of the previous
       step
     - _Requirements: 3.1, 3.2, 3.6, 3.7, 3.8, 3.9_
-  - [ ]\* 3.2 Write property test for pricing total invariant
+  - [ ] 3.2 Write property test for pricing total invariant
     - **Property 1: Pricing total invariant**
     - **Validates: Requirements 1.5**
-  - [ ]\* 3.3 Write property test for subtotal formula correctness
+  - [ ] 3.3 Write property test for subtotal formula correctness
     - **Property 9: Subtotal formula correctness**
     - **Validates: Requirements 3.6**
-  - [ ]\* 3.4 Write property test for tax mode correctness
+  - [ ] 3.4 Write property test for tax mode correctness
     - **Property 10: Tax mode correctness**
     - **Validates: Requirements 3.7, 3.8**
-  - [ ]\* 3.5 Write property test for rounding strategy application
+  - [ ] 3.5 Write property test for rounding strategy application
     - **Property 11: Rounding strategy application**
     - **Validates: Requirements 3.9**
-  - [ ]\* 3.6 Write property test for pricing pipeline idempotence
+  - [ ] 3.6 Write property test for pricing pipeline idempotence
     - **Property 8: Pricing pipeline idempotence**
     - **Validates: Requirements 3.5**
 
@@ -91,25 +91,25 @@ integrated alongside implementation using vitest and fast-check.
       every mutation
     - Enforce `allowNegativeQty` and `features.modifiers` config flags
     - _Requirements: 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 5.5, 5.6_
-  - [ ]\* 5.2 Write property test for adding an item
+  - [ ] 5.2 Write property test for adding an item
     - **Property 2: Adding an item grows the cart**
     - **Validates: Requirements 2.1**
-  - [ ]\* 5.3 Write property test for duplicate productId merge
+  - [ ] 5.3 Write property test for duplicate productId merge
     - **Property 3: Duplicate productId merges quantity**
     - **Validates: Requirements 2.2**
-  - [ ]\* 5.4 Write property test for removing an item
+  - [ ] 5.4 Write property test for removing an item
     - **Property 4: Remove item shrinks the cart**
     - **Validates: Requirements 2.4**
-  - [ ]\* 5.5 Write property test for updating an item
+  - [ ] 5.5 Write property test for updating an item
     - **Property 5: Update item applies changes**
     - **Validates: Requirements 2.3**
-  - [ ]\* 5.6 Write property test for discount application
+  - [ ] 5.6 Write property test for discount application
     - **Property 6: Discount application recalculates pricing**
     - **Validates: Requirements 2.6, 2.7**
-  - [ ]\* 5.7 Write property test for negative quantity rejection
+  - [ ] 5.7 Write property test for negative quantity rejection
     - **Property 15: Negative quantity rejection**
     - **Validates: Requirements 5.5**
-  - [ ]\* 5.8 Write property test for modifiers ignored when feature disabled
+  - [ ] 5.8 Write property test for modifiers ignored when feature disabled
     - **Property 16: Modifiers ignored when feature disabled**
     - **Validates: Requirements 5.6**
 
@@ -120,7 +120,7 @@ integrated alongside implementation using vitest and fast-check.
     - Handle error cases: invalid JSON → `DeserializationError`, invalid schema
       → `SchemaValidationError`
     - _Requirements: 2.10, 2.11, 12.1, 12.2, 12.4, 12.5_
-  - [ ]\* 6.2 Write property test for serialization round-trip
+  - [ ] 6.2 Write property test for serialization round-trip
     - **Property 7: Serialization round-trip**
     - **Validates: Requirements 2.10, 2.11, 12.1, 12.2, 12.3**
 
@@ -133,10 +133,10 @@ integrated alongside implementation using vitest and fast-check.
     - Plugin pricing steps are inserted into the pipeline; hooks are stored for
       lifecycle invocation
     - _Requirements: 4.1, 4.2, 4.3, 4.4, 4.5, 4.6, 4.7, 4.8_
-  - [ ]\* 7.2 Write property test for plugin pricing steps inclusion
+  - [ ] 7.2 Write property test for plugin pricing steps inclusion
     - **Property 12: Plugin pricing steps are included in pipeline**
     - **Validates: Requirements 3.3, 4.4**
-  - [ ]\* 7.3 Write property test for plugin hooks invocation
+  - [ ] 7.3 Write property test for plugin hooks invocation
     - **Property 13: Plugin hooks are invoked on corresponding operations**
     - **Validates: Requirements 4.5, 4.6, 4.7**
 
@@ -151,10 +151,10 @@ integrated alongside implementation using vitest and fast-check.
     - Enforce: deleteCart on last cart creates a new empty cart first;
       activeCartId always references an existing cart
     - _Requirements: 6.1, 6.2, 6.3, 6.4, 6.5, 6.6, 6.7_
-  - [ ]\* 9.2 Write property test for CartManager state consistency
+  - [ ] 9.2 Write property test for CartManager state consistency
     - **Property 17: CartManager state consistency**
     - **Validates: Requirements 6.2, 6.3, 6.4**
-  - [ ]\* 9.3 Write property test for hold and resume round-trip
+  - [ ] 9.3 Write property test for hold and resume round-trip
     - **Property 18: Hold and resume round-trip**
     - **Validates: Requirements 6.6, 6.7**
 
@@ -164,10 +164,10 @@ integrated alongside implementation using vitest and fast-check.
     - Implement `createHistory`, `pushHistory`, `undo`, `redo`
     - Enforce configurable max depth, redo stack cleared on new mutation
     - _Requirements: 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7_
-  - [ ]\* 10.2 Write property test for undo/redo round-trip
+  - [ ] 10.2 Write property test for undo/redo round-trip
     - **Property 19: Undo/redo round-trip**
     - **Validates: Requirements 7.8**
-  - [ ]\* 10.3 Write property test for mutation after undo clears redo stack
+  - [ ] 10.3 Write property test for mutation after undo clears redo stack
     - **Property 20: Mutation after undo clears redo stack**
     - **Validates: Requirements 7.5**
 
@@ -178,10 +178,10 @@ integrated alongside implementation using vitest and fast-check.
     - FIFO ordering, retry up to 3 times with exponential backoff, persist to
       JSON
     - _Requirements: 8.1, 8.2, 8.3, 8.4, 8.5_
-  - [ ]\* 11.2 Write property test for offline queue order preservation
+  - [ ] 11.2 Write property test for offline queue order preservation
     - **Property 21: Offline queue preserves operation order**
     - **Validates: Requirements 8.1, 8.2**
-  - [ ]\* 11.3 Write property test for action queue persistence round-trip
+  - [ ] 11.3 Write property test for action queue persistence round-trip
     - **Property 22: Action queue persistence round-trip**
     - **Validates: Requirements 8.5**
 
@@ -192,13 +192,13 @@ integrated alongside implementation using vitest and fast-check.
     - Enforce: split payment disabled check, allocation sum validation, partial
       checkout item partitioning with pricing recalculation
     - _Requirements: 9.1, 9.2, 9.3, 9.4, 10.1, 10.2, 10.3, 10.4_
-  - [ ]\* 12.2 Write property test for split payment validation
+  - [ ] 12.2 Write property test for split payment validation
     - **Property 23: Split payment validation**
     - **Validates: Requirements 9.2, 9.3**
-  - [ ]\* 12.3 Write property test for partial checkout total invariant
+  - [ ] 12.3 Write property test for partial checkout total invariant
     - **Property 24: Partial checkout total invariant**
     - **Validates: Requirements 10.4**
-  - [ ]\* 12.4 Write property test for partial checkout item partitioning
+  - [ ] 12.4 Write property test for partial checkout item partitioning
     - **Property 25: Partial checkout partitions items correctly**
     - **Validates: Requirements 10.1, 10.2**
 
@@ -208,7 +208,7 @@ integrated alongside implementation using vitest and fast-check.
     - Implement `SyncEvent`, `SyncAdapter` interface, `applySyncDelta`,
       `resolveConflict` (last-writer-wins)
     - _Requirements: 11.1, 11.2, 11.3, 11.4_
-  - [ ]\* 13.2 Write property test for sync conflict resolution
+  - [ ] 13.2 Write property test for sync conflict resolution
     - **Property 26: Sync conflict resolution is last-writer-wins**
     - **Validates: Requirements 11.3**
 
@@ -243,8 +243,8 @@ integrated alongside implementation using vitest and fast-check.
     - Re-export CartProvider, all hooks, and re-export core types from
       `@cart/core`
     - _Requirements: 15.2_
-  - [ ]\* 16.4 Write unit tests for hooks within CartProvider and error when
-    outside
+  - [ ] 16.4 Write unit tests for hooks within CartProvider and error when
+        outside
     - Test each hook returns correct data within provider
     - Test each hook throws descriptive error outside provider
     - _Requirements: 13.3, 13.4, 13.5, 13.6, 13.7_
@@ -265,10 +265,10 @@ integrated alongside implementation using vitest and fast-check.
     - Re-export Cart compound component and re-export hooks/types from
       `@cart/react`
     - _Requirements: 15.3_
-  - [ ]\* 17.3 Write property test for Cart.Summary rendering all pricing fields
+  - [ ] 17.3 Write property test for Cart.Summary rendering all pricing fields
     - **Property 27: Cart Summary renders all pricing fields**
     - **Validates: Requirements 14.5**
-  - [ ]\* 17.4 Write unit tests for compound component rendering
+  - [ ] 17.4 Write unit tests for compound component rendering
     - Test Cart.Root with different layout/density combinations
     - Test Cart.Item sub-component composition
     - _Requirements: 14.1, 14.4_
@@ -282,7 +282,7 @@ integrated alongside implementation using vitest and fast-check.
   - [x] 18.2 Wire up `packages/cart/plugins/src/index.ts` exports
     - Re-export all plugin factory functions
     - _Requirements: 15.4_
-  - [ ]\* 18.3 Write unit tests for each pre-built plugin
+  - [ ] 18.3 Write unit tests for each pre-built plugin
     - Test plugin registration and hook invocation
     - Test plugin pricing steps modify cart correctly
     - _Requirements: 4.4, 4.5, 4.6, 4.7_

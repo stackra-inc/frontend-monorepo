@@ -6,11 +6,11 @@
  * @module @stackra/ts-settings
  */
 
-import type { SettingsModuleOptions } from '@stackra/ts-settings';
+import type { SettingsModuleOptions } from "@stackra/ts-settings";
 
 export const defaultSettingsConfig: SettingsModuleOptions = {
-  default: 'memory',
+  default: "memory",
   stores: {
-    memory: { driver: 'memory' },
+    memory: { driver: "memory" },
   },
 };

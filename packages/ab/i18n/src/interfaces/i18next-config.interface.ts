@@ -7,8 +7,8 @@
  * @module interfaces/i18next-config
  */
 
-import type { I18nextOptions } from '@/types';
-import type { TranslationResources } from './translation-resources.interface';
+import type { I18nextOptions } from "@/types";
+import type { TranslationResources } from "./translation-resources.interface";
 
 /**
  * Complete i18next configuration interface

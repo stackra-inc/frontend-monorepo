@@ -16,18 +16,18 @@
  * @module main
  */
 
-import 'reflect-metadata';
-import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
-import { Application } from '@stackra/ts-container';
-import { ContainerProvider } from '@stackra/ts-container/react';
-import { Facade } from '@stackra/ts-support';
+import "reflect-metadata";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
+import { Application } from "@stackra/ts-container";
+import { ContainerProvider } from "@stackra/ts-container";
+import { Facade } from "@stackra/ts-support";
 
-import { Provider } from './provider';
-import App from './App';
+import { Provider } from "./provider";
+import App from "./App";
 
-import { AppModule } from '@/lib/app.module';
-import '@/styles/globals.css';
+import { AppModule } from "@/lib/app.module";
+import "@/styles/globals.css";
 
 /*
 |--------------------------------------------------------------------------
@@ -38,7 +38,7 @@ import '@/styles/globals.css';
 | React mounts. Stash it on window so PwaProvider can pick it up.
 |
 */
-window.addEventListener('beforeinstallprompt', (e) => {
+window.addEventListener("beforeinstallprompt", (e) => {
   e.preventDefault();
   (window as any).__PWA_DEFERRED_PROMPT__ = e;
 });
@@ -62,17 +62,17 @@ async function bootstrap() {
   |--------------------------------------------------------------------------
   */
   if ((window as any).electronAPI) {
-    document.body.classList.add('is-electron');
+    document.body.classList.add("is-electron");
   }
 
-  ReactDOM.createRoot(document.getElementById('root')!).render(
+  ReactDOM.createRoot(document.getElementById("root")!).render(
     <BrowserRouter>
       <ContainerProvider>
         <Provider>
           <App />
         </Provider>
       </ContainerProvider>
-    </BrowserRouter>
+    </BrowserRouter>,
   );
 
   /*
@@ -88,7 +88,7 @@ async function bootstrap() {
   | analytics), use navigator.sendBeacon() instead.
   |
   */
-  window.addEventListener('beforeunload', () => {
+  window.addEventListener("beforeunload", () => {
     app.close();
   });
 }

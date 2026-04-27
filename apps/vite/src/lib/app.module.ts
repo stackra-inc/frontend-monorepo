@@ -20,28 +20,28 @@
  * |
  */
 
-import 'reflect-metadata';
+import "reflect-metadata";
 
-import { Module } from '@stackra/ts-container';
-import { ConfigModule } from '@stackra/ts-config';
-import { LoggerModule } from '@stackra/ts-logger';
-import { RedisModule } from '@stackra/ts-redis';
-import { CacheModule } from '@stackra/ts-cache';
-import { EventsModule } from '@stackra/ts-events';
-import { SettingsModule } from '@stackra/ts-settings';
-import { DesktopModule } from '@stackra/ts-desktop';
-import { KbdModule } from '@stackra/kbd';
-import { PwaModule } from '@stackra/ts-pwa';
+import { Module } from "@stackra/ts-container";
+import { ConfigModule } from "@stackra/ts-config";
+import { LoggerModule } from "@stackra/ts-logger";
+import { RedisModule } from "@stackra/ts-redis";
+import { CacheModule } from "@stackra/ts-cache";
+import { EventsModule } from "@stackra/ts-events";
+import { SettingsModule } from "@stackra/ts-settings";
+import { DesktopModule } from "@stackra/ts-desktop";
+import { KbdModule } from "@stackra/kbd";
+import { PwaModule } from "@stackra/ts-pwa";
 
-import { configConfig } from '@/config/config.config';
-import loggerConfig from '@/config/logger.config';
-import redisConfig from '@/config/redis.config';
-import cacheConfig from '@/config/cache.config';
-import { defaultEventsConfig } from '@/config/events.config';
-import { defaultSettingsConfig } from '@/config/settings.config';
-import { desktopConfig } from '@/config/desktop.config';
-import pwaConfig from '@/config/pwa.config';
-import { FileMenu, EditMenu, ViewMenu } from '@/menus';
+import { configConfig } from "@/config/config.config";
+import loggerConfig from "@/config/logger.config";
+import redisConfig from "@/config/redis.config";
+import cacheConfig from "@/config/cache.config";
+import { defaultEventsConfig } from "@/config/events.config";
+import { defaultSettingsConfig } from "@/config/settings.config";
+import { desktopConfig } from "@/config/desktop.config";
+import pwaConfig from "@/config/pwa.config";
+import { FileMenu, EditMenu, ViewMenu } from "@/menus";
 
 /**
  * AppModule — root module of the Vite application.

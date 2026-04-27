@@ -5,13 +5,13 @@
  * using the virtual modules from the decorator discovery plugin.
  */
 
-import { MODULE_REGISTRY, type ModuleMetadata } from 'virtual:decorator-registry/modules';
-import { PROVIDER_REGISTRY, type ProviderMetadata } from 'virtual:decorator-registry/providers';
+import { MODULE_REGISTRY, type ModuleMetadata } from "virtual:decorator-registry/modules";
+import { PROVIDER_REGISTRY, type ProviderMetadata } from "virtual:decorator-registry/providers";
 import {
   SUBSCRIBER_REGISTRY,
   type SubscriberMetadata,
-} from 'virtual:decorator-registry/subscribers';
-import { DECORATOR_REGISTRY } from 'virtual:decorator-registry/all';
+} from "virtual:decorator-registry/subscribers";
+import { DECORATOR_REGISTRY } from "virtual:decorator-registry/all";
 
 // ============================================================================
 // DiscoveryService (NestJS-style)
@@ -52,7 +52,7 @@ export class DiscoveryService {
     // Filter by include paths
     if (options?.include && options.include.length > 0) {
       providers = providers.filter((p) =>
-        options.include!.some((pattern) => p.filePath.includes(pattern))
+        options.include!.some((pattern) => p.filePath.includes(pattern)),
       );
     }
 
@@ -74,7 +74,7 @@ export class DiscoveryService {
     // Filter by include paths
     if (options?.include && options.include.length > 0) {
       modules = modules.filter((m) =>
-        options.include!.some((pattern) => m.filePath.includes(pattern))
+        options.include!.some((pattern) => m.filePath.includes(pattern)),
       );
     }
 
@@ -97,15 +97,15 @@ export class DiscoveryService {
 
     // Filter by topic
     if (options?.topic) {
-      if (typeof options.topic === 'string') {
+      if (typeof options.topic === "string") {
         subscribers = subscribers.filter((s) => {
           const topic = s.args[0];
-          return typeof topic === 'string' && topic === options.topic;
+          return typeof topic === "string" && topic === options.topic;
         });
       } else {
         subscribers = subscribers.filter((s) => {
           const topic = s.args[0];
-          return typeof topic === 'string' && options.topic!.test(topic);
+          return typeof topic === "string" && options.topic!.test(topic);
         });
       }
     }
@@ -113,7 +113,7 @@ export class DiscoveryService {
     // Filter by include paths
     if (options?.include && options.include.length > 0) {
       subscribers = subscribers.filter((s) =>
-        options.include!.some((pattern) => s.filePath.includes(pattern))
+        options.include!.some((pattern) => s.filePath.includes(pattern)),
       );
     }
 
@@ -128,12 +128,12 @@ export class DiscoveryService {
    */
   getMetadataByDecorator(decoratorName: string) {
     switch (decoratorName) {
-      case 'Module':
+      case "Module":
         return DECORATOR_REGISTRY.modules;
-      case 'Injectable':
+      case "Injectable":
         return DECORATOR_REGISTRY.providers;
-      case 'Subscribe':
-      case 'AsSubscriber':
+      case "Subscribe":
+      case "AsSubscriber":
         return DECORATOR_REGISTRY.subscribers;
       default:
         return DECORATOR_REGISTRY.custom.get(decoratorName) ?? [];
@@ -168,7 +168,7 @@ export class DiscoveryService {
    */
   getMethodHandlers(className: string): SubscriberMetadata[] {
     return SUBSCRIBER_REGISTRY.filter(
-      (s) => s.className === className && s.methodName !== undefined
+      (s) => s.className === className && s.methodName !== undefined,
     );
   }
 }
@@ -180,24 +180,24 @@ export class DiscoveryService {
 const discovery = new DiscoveryService();
 
 // Example 1: Get all providers
-console.log('=== All Providers ===');
+console.log("=== All Providers ===");
 const allProviders = discovery.getProviders();
 console.log(`Found ${allProviders.length} providers`);
 
 // Example 2: Get providers from auth package
-console.log('\n=== Auth Providers ===');
+console.log("\n=== Auth Providers ===");
 const authProviders = discovery.getProviders({
-  include: ['packages/auth/'],
+  include: ["packages/auth/"],
 });
 authProviders.forEach((p) => console.log(`- ${p.className}`));
 
 // Example 3: Get all modules
-console.log('\n=== All Modules ===');
+console.log("\n=== All Modules ===");
 const allModules = discovery.getModules();
 allModules.forEach((m) => console.log(`- ${m.className}`));
 
 // Example 4: Get subscribers for a specific topic
-console.log('\n=== Login Subscribers ===');
+console.log("\n=== Login Subscribers ===");
 const loginSubscribers = discovery.getSubscribers({
   topic: /login/,
 });
@@ -206,22 +206,22 @@ loginSubscribers.forEach((s) => {
 });
 
 // Example 5: Find a specific provider
-console.log('\n=== Find AuthService ===');
-const authService = discovery.findProviderByClassName('AuthService');
+console.log("\n=== Find AuthService ===");
+const authService = discovery.findProviderByClassName("AuthService");
 if (authService) {
   console.log(`Found: ${authService.className} in ${authService.filePath}`);
 }
 
 // Example 6: Get method handlers for a class
-console.log('\n=== WebhooksExplorer Handlers ===');
-const webhookHandlers = discovery.getMethodHandlers('WebhooksExplorer');
+console.log("\n=== WebhooksExplorer Handlers ===");
+const webhookHandlers = discovery.getMethodHandlers("WebhooksExplorer");
 webhookHandlers.forEach((h) => {
   console.log(`- ${h.methodName} → ${h.args[0]}`);
 });
 
 // Example 7: Get custom decorator metadata
-console.log('\n=== Custom Decorators ===');
-const customMeta = discovery.getMetadataByDecorator('MyCustomDecorator');
+console.log("\n=== Custom Decorators ===");
+const customMeta = discovery.getMetadataByDecorator("MyCustomDecorator");
 console.log(`Found ${customMeta.length} @MyCustomDecorator usages`);
 
 // ============================================================================
@@ -243,7 +243,7 @@ export class MetadataScanner {
    */
   getAllMethodNames(className: string, decoratorName?: string): string[] {
     let methods = SUBSCRIBER_REGISTRY.filter(
-      (s) => s.className === className && s.methodName !== undefined
+      (s) => s.className === className && s.methodName !== undefined,
     );
 
     if (decoratorName) {
@@ -264,10 +264,10 @@ export class MetadataScanner {
   scanFromClass<T>(
     className: string,
     decoratorName: string,
-    callback: (methodName: string, metadata: SubscriberMetadata) => T
+    callback: (methodName: string, metadata: SubscriberMetadata) => T,
   ): T[] {
     const methods = SUBSCRIBER_REGISTRY.filter(
-      (s) => s.className === className && s.methodName !== undefined && s.name === decoratorName
+      (s) => s.className === className && s.methodName !== undefined && s.name === decoratorName,
     );
 
     return methods.map((m) => callback(m.methodName!, m));
@@ -285,19 +285,19 @@ export class MetadataScanner {
 export class WebhooksExplorer {
   constructor(
     private readonly discoveryService: DiscoveryService,
-    private readonly metadataScanner: MetadataScanner
+    private readonly metadataScanner: MetadataScanner,
   ) {}
 
   getWebhooks() {
     // Get all providers with @Webhook decorator
     const webhooks = this.discoveryService.getProviders({
-      metadataKey: 'Webhook',
+      metadataKey: "Webhook",
     });
 
     return webhooks.map((wrapper) => {
       // Get the @Webhook metadata
       const webhookMeta = DECORATOR_REGISTRY.custom
-        .get('Webhook')
+        .get("Webhook")
         ?.find((d) => d.className === wrapper.className);
 
       const name = webhookMeta?.args[0] ?? wrapper.className;
@@ -305,11 +305,11 @@ export class WebhooksExplorer {
       // Get all methods with @WebhookHandler
       const handlers = this.metadataScanner.scanFromClass(
         wrapper.className,
-        'WebhookHandler',
+        "WebhookHandler",
         (methodName, metadata) => ({
           methodName,
           event: metadata.args[0],
-        })
+        }),
       );
 
       return {
@@ -323,7 +323,7 @@ export class WebhooksExplorer {
 // Usage
 const webhooksExplorer = new WebhooksExplorer(new DiscoveryService(), new MetadataScanner());
 
-console.log('\n=== Webhooks ===');
+console.log("\n=== Webhooks ===");
 const webhooks = webhooksExplorer.getWebhooks();
 webhooks.forEach((webhook) => {
   console.log(`\n${webhook.name}:`);

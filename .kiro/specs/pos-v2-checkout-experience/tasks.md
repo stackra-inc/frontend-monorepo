@@ -82,7 +82,7 @@ Tailwind CSS, using Vite.
     - Ensure toggle animation completes within 200ms
     - _Requirements: 6.1, 6.2, 6.3_
 
-  - [ ]\* 2.7 Write unit tests for pre-checkout flow fixes
+  - [ ] 2.7 Write unit tests for pre-checkout flow fixes
     - Test EventDetailDrawer renders Date/Time CTA above Seat Map CTA for timed
       seated events
     - Test seat button is disabled when no timeslot selected
@@ -131,7 +131,7 @@ Tailwind CSS, using Vite.
     - Auto-apply `Math.min(voucherValue, remaining)` as a payment split
     - _Requirements: 10.1, 10.2, 10.3, 10.4, 10.5_
 
-  - [ ]\* 4.5 Write unit tests for payment enhancements
+  - [ ] 4.5 Write unit tests for payment enhancements
     - Test foreign currency conversion and split record display
     - Test wallet payment visibility toggle based on customer linkage
     - Test wallet amount validation
@@ -159,7 +159,7 @@ Tailwind CSS, using Vite.
     - Push `SplitCartDrawer` onto drawer stack from `pos-home.tsx`
     - _Requirements: 11.1, 11.3, 11.4_
 
-  - [ ]\* 6.3 Write unit tests for split cart
+  - [ ] 6.3 Write unit tests for split cart
     - Test SplitCartDrawer disables confirm with zero selection
     - Test SplitCartDrawer prevents splitting all items
     - Test split creates new cart with selected items
@@ -203,7 +203,7 @@ Tailwind CSS, using Vite.
     - Connect print service to "Print Receipt" action
     - _Requirements: 12, 13, 14_
 
-  - [ ]\* 7.5 Write unit tests for post-payment UX
+  - [ ] 7.5 Write unit tests for post-payment UX
     - Test OrderConfirmOverlay displays payment splits and timestamp
     - Test auto-dismiss at 30s
     - Test RFID linking flow (scan, timeout, skip)
@@ -234,7 +234,7 @@ Tailwind CSS, using Vite.
     - Pass `categories`, `events`, `onAddToCart`, `onCheckout`, `formatPrice`
     - _Requirements: 15.1_
 
-  - [ ]\* 9.3 Write unit tests for Experience Builder
+  - [ ] 9.3 Write unit tests for Experience Builder
     - Test 3-step navigation flow
     - Test back navigation preserves selections
     - Test items added to cart on Step 3 confirm
@@ -266,7 +266,7 @@ Tailwind CSS, using Vite.
     - Track dismissed messages in a `Set<string>` scoped to the cart session
     - _Requirements: 17.1, 17.2, 17.3, 17.4, 17.5_
 
-  - [ ]\* 10.4 Write unit tests for promotions and cart messages
+  - [ ] 10.4 Write unit tests for promotions and cart messages
     - Test promotion engine evaluates cart rules correctly
     - Test "nearly qualified" suggestion generation
     - Test CartMessageList renders and dismisses messages
@@ -298,7 +298,7 @@ Tailwind CSS, using Vite.
       items are in cart
     - _Requirements: 18.5, 18.6_
 
-  - [ ]\* 12.4 Write unit tests for B2B account loading
+  - [ ] 12.4 Write unit tests for B2B account loading
     - Test B2B search and order loading
     - Test contract limit enforcement on quantity changes
     - _Requirements: 18_
@@ -316,7 +316,7 @@ Tailwind CSS, using Vite.
     - Persist tag associations with the ticket record on purchase
     - _Requirements: 19.3, 19.4_
 
-  - [ ]\* 13.3 Write unit tests for ticket tags
+  - [ ] 13.3 Write unit tests for ticket tags
     - Test tag selection in EventDetailDrawer
     - Test tag badges render in cart panel
     - _Requirements: 19_
@@ -364,7 +364,7 @@ Tailwind CSS, using Vite.
     - From PoolPerformanceDrawer, push `PoolTransferDrawer` for transfer action
     - _Requirements: 21.1, 22.1_
 
-  - [ ]\* 14.6 Write unit tests for pool management
+  - [ ] 14.6 Write unit tests for pool management
     - Test PoolMeter renders correct fill and "Full" state
     - Test PoolTransferDrawer validates quantity against source pool
     - Test supervisor permission check on transfer
