@@ -7,9 +7,7 @@
  * @see https://github.com/stackra-inc/mono-cli
  */
 
-
-
-export default ({
+export default {
   name: "frontend",
   description: "Frontend monorepo — React/Vite apps and shared TS packages",
   commands: [
@@ -62,4 +60,4 @@ export default ({
       action: "npm audit",
     },
   ],
-});
+};
