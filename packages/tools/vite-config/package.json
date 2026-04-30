@@ -1,0 +1,115 @@
+{
+  "name": "@stackra/vite-config",
+  "version": "1.0.1",
+  "description": "Unified Vite configuration with sensible defaults and integrated plugin management for the Stackra ecosystem",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint . --max-warnings 0",
+    "lint:fix": "eslint . --fix",
+    "clean": "rm -rf dist node_modules/.cache",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest run --passWithNoTests",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "prepare": "husky",
+    "prepublishOnly": "pnpm run build",
+    "release": "pnpm publish --access public --no-git-checks"
+  },
+  "keywords": [
+    "vite",
+    "vite-config",
+    "stackra",
+    "plugin",
+    "decorator-discovery",
+    "ngrok",
+    "qrcode",
+    "configuration"
+  ],
+  "license": "MIT",
+  "author": "Stackra L.L.C <dev@stackra.com>",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "peerDependencies": {
+    "vite": ">=8.0.10"
+  },
+  "dependencies": {
+    "@ngrok/ngrok": "^1.7.0",
+    "@stackra/ts-support": "^2.6.0",
+    "glob": "^13.0.6",
+    "qrcode-terminal": "^0.12.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^20.5.2",
+    "@commitlint/config-conventional": "^20.5.0",
+    "@commitlint/types": "^20.5.0",
+    "@stackra/eslint-config": "^1.0.9",
+    "@stackra/prettier-config": "^1.0.7",
+    "@stackra/tsup-config": "^1.0.9",
+    "@stackra/typescript-config": "^1.0.10",
+    "@types/node": "^25.6.0",
+    "@types/qrcode-terminal": "^0.12.2",
+    "eslint": "^9.28.0",
+    "eslint-plugin-turbo": "^2.9.6",
+    "husky": "^9.1.7",
+    "jiti": "^2.6.1",
+    "jsdom": "^29.1.0",
+    "lint-staged": "^16.4.0",
+    "prettier": "^3.8.3",
+    "tsup": "^8.5.1",
+    "typescript": "^6.0.3",
+    "vite": "^7.2.6",
+    "vitest": "^4.1.5"
+  },
+  "engines": {
+    "node": ">=22",
+    "pnpm": ">=9.0.0"
+  },
+  "packageManager": "pnpm@10.33.2",
+  "pnpm": {
+    "overrides": {
+      "eslint": "^10.2.1",
+      "@eslint/js": "^9.28.0",
+      "vite": "^8.0.10"
+    }
+  },
+  "stackra": {
+    "publish": {
+      "config": {
+        "source": "config/",
+        "destination": "src/config/",
+        "description": "Vite configuration with plugin defaults"
+      },
+      "steering": {
+        "source": ".kiro/steering/",
+        "destination": ".kiro/steering/{module}/",
+        "description": "Kiro AI steering files for Vite configuration"
+      },
+      "hooks": {
+        "source": ".kiro/hooks/",
+        "destination": ".kiro/hooks/",
+        "description": "Kiro hooks"
+      }
+    }
+  }
+}
