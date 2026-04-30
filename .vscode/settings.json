@@ -14,7 +14,7 @@
   "tailwindCSS.experimental.classRegex": [["cn\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]],
   "files.exclude": {
     "**/.turbo": true,
-    "**/node_modules": true,
+    "**/node_modules": false,
     "**/dist": true,
     "**/.next": true
   },

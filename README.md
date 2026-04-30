@@ -62,7 +62,7 @@ cd frontend-monorepo
 npm install
 
 # 3. Start all apps in dev mode
-npm run dev
+pnpm dev
 # web  → http://localhost:3000
 # docs → http://localhost:3001
 ```
@@ -73,27 +73,27 @@ npm run dev
 
 ### Root
 
-| Command                | Description                                 |
-| ---------------------- | ------------------------------------------- |
-| `npm run build`        | Build all workspaces in dependency order    |
-| `npm run dev`          | Start all apps in watch/dev mode            |
-| `npm run start`        | Start all apps in production mode           |
-| `npm run lint`         | ESLint across all workspaces                |
-| `npm run lint:fix`     | ESLint auto-fix across all workspaces       |
-| `npm run check-types`  | TypeScript type-check across all workspaces |
-| `npm run test`         | Run all test suites                         |
-| `npm run format`       | Prettier format all files                   |
-| `npm run format:check` | Prettier check (no write)                   |
-| `npm run clean`        | Remove build artefacts                      |
-| `npm run clean:all`    | Remove build artefacts + node_modules       |
-| `npm run upgrade`      | `ncu -u && npm install`                     |
+| Command             | Description                                 |
+| ------------------- | ------------------------------------------- |
+| `pnpm build`        | Build all workspaces in dependency order    |
+| `pnpm dev`          | Start all apps in watch/dev mode            |
+| `pnpm start`        | Start all apps in production mode           |
+| `pnpm lint`         | ESLint across all workspaces                |
+| `pnpm lint:fix`     | ESLint auto-fix across all workspaces       |
+| `pnpm check-types`  | TypeScript type-check across all workspaces |
+| `pnpm test`         | Run all test suites                         |
+| `pnpm format`       | Prettier format all files                   |
+| `pnpm format:check` | Prettier check (no write)                   |
+| `pnpm clean`        | Remove build artefacts                      |
+| `pnpm clean:all`    | Remove build artefacts + node_modules       |
+| `pnpm upgrade`      | `ncu -u && npm install`                     |
 
 Filter to a single workspace:
 
 ```bash
-npm run build -- --filter=@stackra/web
-npm run test  -- --filter=@stackra/react-ui
-npm run dev   -- --filter=@stackra/docs
+pnpm build -- --filter=@stackra/web
+pnpm test  -- --filter=@stackra/react-ui
+pnpm dev   -- --filter=@stackra/docs
 ```
 
 ---

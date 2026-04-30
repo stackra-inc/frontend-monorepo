@@ -42,13 +42,13 @@
     "clean:all": "./scripts/cleanup.sh all",
     "clean:deps": "./scripts/cleanup.sh deps",
     "clean:cache": "./scripts/cleanup.sh cache",
-    "reset": "npm run clean:all && npm install",
+    "reset": "pnpm clean:all && npm install",
     "prepare": "husky",
     "changeset": "changeset",
     "changeset:version": "changeset version",
     "changeset:publish": "changeset publish",
     "release": "turbo run build --filter='./packages/*' && changeset publish",
-    "validate": "npm run lint && npm run check-types && npm run build",
+    "validate": "pnpm lint && pnpm check-types && pnpm build",
     "graph": "turbo run build --graph=dependency-graph.html",
     "audit": "npm audit",
     "make:package": "./scripts/cli/create-package.sh",
@@ -61,7 +61,7 @@
     "@commitlint/cli": "^20.5.2",
     "@commitlint/config-conventional": "^20.5.0",
     "@eslint/js": "^10.0.1",
-    "@stackra/tsup-config": "^1.0.4",
+    "@stackra/tsup-config": "^1.0.8",
     "@types/jest": "^30.0.0",
     "@types/node": "^25.6.0",
     "eslint": "^10.2.1",
@@ -75,7 +75,7 @@
     "tsup": "^8.5.1",
     "turbo": "^2.9.6",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.59.0"
+    "typescript-eslint": "^8.59.1"
   },
   "pnpm": {
     "overrides": {
@@ -85,7 +85,7 @@
       "eslint": "^10.1.0",
       "prettier": "^3.8.3",
       "@stackra/typescript-config": "^1.0.4",
-      "@stackra/tsup-config": "^1.0.4",
+      "@stackra/tsup-config": "^1.0.8",
       "@stackra/eslint-config": "^1.0.6",
       "@stackra/prettier-config": "^1.0.3"
     },

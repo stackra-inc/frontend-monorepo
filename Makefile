@@ -222,36 +222,6 @@ release:
 	pnpm release
 
 # =============================================================================
-# Docker
-# =============================================================================
-
-## docker-build: Build the production Docker image
-docker-build:
-	@echo "$(BLUE)Building Docker image...$(NC)"
-	docker compose build
-
-## docker-up: Start production containers in background
-docker-up:
-	@echo "$(BLUE)Starting Docker containers...$(NC)"
-	docker compose up -d
-
-## docker-down: Stop all containers
-docker-down:
-	@echo "$(BLUE)Stopping Docker containers...$(NC)"
-	docker compose down
-
-## docker-logs: Tail container logs
-docker-logs:
-	@echo "$(BLUE)Viewing Docker logs...$(NC)"
-	docker compose logs -f
-
-## docker-dev: Start with wildcard domain proxy for multi-tenancy
-docker-dev:
-	@echo "$(BLUE)Starting with wildcard domain proxy...$(NC)"
-	docker compose up -d proxy
-	@echo "$(GREEN)Open http://stackra-inc.test$(NC)"
-
-# =============================================================================
 # Utilities
 # =============================================================================
 

@@ -9,7 +9,7 @@
 #   3. TypeScript      — type-check affected workspaces
 #
 # Tests are intentionally skipped here (too slow for a commit hook).
-# Run `npm run test` manually before pushing, or rely on pre-push hook.
+# Run `pnpm test` manually before pushing, or rely on pre-push hook.
 #
 # Install:
 #   git config core.hooksPath .githooks
@@ -45,7 +45,7 @@ FILES=$(echo "$STAGED_JS" | tr '\n' ' ')
 
 # --check exits non-zero if any file would be reformatted.
 npx prettier --check $FILES 2>&1 || \
-  fail "Formatting issues found.\nRun: pnpm run format\nThen re-stage the files."
+  fail "Formatting issues found.\nRun: ppnpm format\nThen re-stage the files."
 
 ok "Format check passed."
 
