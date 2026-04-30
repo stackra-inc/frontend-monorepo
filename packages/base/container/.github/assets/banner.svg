@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f0f13;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1a2e;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3178c6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#60a5fa;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="iconGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3178c6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#818cf8;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="softglow">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="300" fill="url(#bg)" rx="12"/>
+
+  <!-- Subtle grid pattern -->
+  <g opacity="0.04" stroke="#ffffff" stroke-width="1">
+    <line x1="0" y1="60" x2="1200" y2="60"/>
+    <line x1="0" y1="120" x2="1200" y2="120"/>
+    <line x1="0" y1="180" x2="1200" y2="180"/>
+    <line x1="0" y1="240" x2="1200" y2="240"/>
+    <line x1="200" y1="0" x2="200" y2="300"/>
+    <line x1="400" y1="0" x2="400" y2="300"/>
+    <line x1="600" y1="0" x2="600" y2="300"/>
+    <line x1="800" y1="0" x2="800" y2="300"/>
+    <line x1="1000" y1="0" x2="1000" y2="300"/>
+  </g>
+
+  <!-- Glow orb left -->
+  <circle cx="120" cy="150" r="120" fill="#3178c6" opacity="0.06" filter="url(#softglow)"/>
+  <!-- Glow orb right -->
+  <circle cx="1080" cy="150" r="100" fill="#818cf8" opacity="0.05" filter="url(#softglow)"/>
+
+  <!-- Icon: DI container symbol (nested boxes) -->
+  <g transform="translate(80, 90)" filter="url(#glow)">
+    <!-- Outer box -->
+    <rect x="0" y="0" width="120" height="120" rx="14" fill="none" stroke="url(#iconGrad)" stroke-width="2.5" opacity="0.9"/>
+    <!-- Middle box -->
+    <rect x="18" y="18" width="84" height="84" rx="10" fill="none" stroke="url(#iconGrad)" stroke-width="2" opacity="0.65"/>
+    <!-- Inner box -->
+    <rect x="36" y="36" width="48" height="48" rx="6" fill="url(#iconGrad)" opacity="0.18"/>
+    <!-- Center dot -->
+    <circle cx="60" cy="60" r="10" fill="url(#iconGrad)" opacity="0.95"/>
+    <!-- Connector lines -->
+    <line x1="60" y1="0" x2="60" y2="36" stroke="url(#iconGrad)" stroke-width="1.5" opacity="0.4"/>
+    <line x1="60" y1="84" x2="60" y2="120" stroke="url(#iconGrad)" stroke-width="1.5" opacity="0.4"/>
+    <line x1="0" y1="60" x2="36" y2="60" stroke="url(#iconGrad)" stroke-width="1.5" opacity="0.4"/>
+    <line x1="84" y1="60" x2="120" y2="60" stroke="url(#iconGrad)" stroke-width="1.5" opacity="0.4"/>
+  </g>
+
+  <!-- Divider line -->
+  <line x1="230" y1="80" x2="230" y2="220" stroke="#3178c6" stroke-width="1" opacity="0.3"/>
+
+  <!-- Package name -->
+  <text x="260" y="130" font-family="'SF Mono', 'Fira Code', 'Cascadia Code', monospace" font-size="15" fill="#60a5fa" opacity="0.8" letter-spacing="2">@stackra</text>
+  <text x="258" y="185" font-family="'SF Pro Display', 'Inter', 'Segoe UI', system-ui, sans-serif" font-size="52" font-weight="700" fill="#ffffff" letter-spacing="-1">ts-container</text>
+
+  <!-- Accent underline -->
+  <rect x="258" y="198" width="340" height="3" rx="2" fill="url(#accent)" opacity="0.8"/>
+
+  <!-- Tagline -->
+  <text x="260" y="235" font-family="'SF Pro Text', 'Inter', 'Segoe UI', system-ui, sans-serif" font-size="17" fill="#94a3b8" letter-spacing="0.3">NestJS-style IoC container &amp; dependency injection for TypeScript + React</text>
+
+  <!-- Right side feature pills -->
+  <g transform="translate(680, 95)">
+    <!-- Pill 1 -->
+    <rect x="0" y="0" width="130" height="30" rx="15" fill="#1e293b" stroke="#3178c6" stroke-width="1" opacity="0.9"/>
+    <text x="65" y="20" font-family="'SF Mono', 'Fira Code', monospace" font-size="12" fill="#60a5fa" text-anchor="middle">@Injectable()</text>
+
+    <!-- Pill 2 -->
+    <rect x="145" y="0" width="110" height="30" rx="15" fill="#1e293b" stroke="#818cf8" stroke-width="1" opacity="0.9"/>
+    <text x="200" y="20" font-family="'SF Mono', 'Fira Code', monospace" font-size="12" fill="#a78bfa" text-anchor="middle">@Module()</text>
+
+    <!-- Pill 3 -->
+    <rect x="0" y="45" width="110" height="30" rx="15" fill="#1e293b" stroke="#34d399" stroke-width="1" opacity="0.9"/>
+    <text x="55" y="65" font-family="'SF Mono', 'Fira Code', monospace" font-size="12" fill="#6ee7b7" text-anchor="middle">@Inject()</text>
+
+    <!-- Pill 4 -->
+    <rect x="125" y="45" width="130" height="30" rx="15" fill="#1e293b" stroke="#f59e0b" stroke-width="1" opacity="0.9"/>
+    <text x="190" y="65" font-family="'SF Mono', 'Fira Code', monospace" font-size="12" fill="#fcd34d" text-anchor="middle">useInject()</text>
+
+    <!-- Pill 5 -->
+    <rect x="0" y="90" width="120" height="30" rx="15" fill="#1e293b" stroke="#f472b6" stroke-width="1" opacity="0.9"/>
+    <text x="60" y="110" font-family="'SF Mono', 'Fira Code', monospace" font-size="12" fill="#f9a8d4" text-anchor="middle">forwardRef()</text>
+
+    <!-- Pill 6 -->
+    <rect x="135" y="90" width="120" height="30" rx="15" fill="#1e293b" stroke="#38bdf8" stroke-width="1" opacity="0.9"/>
+    <text x="195" y="110" font-family="'SF Mono', 'Fira Code', monospace" font-size="12" fill="#7dd3fc" text-anchor="middle">DynamicModule</text>
+  </g>
+
+  <!-- Bottom bar -->
+  <rect x="0" y="288" width="1200" height="12" rx="0" fill="url(#accent)" opacity="0.6"/>
+  <rect x="0" y="288" width="1200" height="12" rx="0" fill="url(#accent)" opacity="0.3"/>
+
+  <!-- Bottom right: Built from scratch label -->
+  <text x="1170" y="275" font-family="'SF Pro Text', 'Inter', system-ui, sans-serif" font-size="12" fill="#475569" text-anchor="end" letter-spacing="0.5">No Inversify · No heavy runtime · Built from scratch</text>
+</svg>

@@ -1,0 +1,136 @@
+{
+  "name": "@stackra/ts-container",
+  "version": "2.0.12",
+  "description": "NestJS-style dependency injection for React and client-side applications. Decorators, container, injector, scanner, module system, application bootstrap, and React bindings — built from scratch, no Inversify.",
+  "keywords": [
+    "dependency-injection",
+    "di",
+    "container",
+    "nestjs",
+    "decorators",
+    "injectable",
+    "inject",
+    "module",
+    "ioc",
+    "typescript",
+    "react",
+    "hooks",
+    "application",
+    "bootstrap"
+  ],
+  "packageManager": "pnpm@10.33.2",
+  "license": "MIT",
+  "author": {
+    "name": "Stackra",
+    "url": "https://github.com/stackra-inc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stackra-inc/ts-container.git"
+  },
+  "homepage": "https://github.com/stackra-inc/ts-container#readme",
+  "bugs": {
+    "url": "https://github.com/stackra-inc/ts-container/issues"
+  },
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist node_modules/.cache",
+    "test": "vitest run --passWithNoTests",
+    "lint": "eslint . --max-warnings 0",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "prepublishOnly": "pnpm run build",
+    "release": "pnpm publish --access public --no-git-checks",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "@vivtel/metadata": "^1.0.5",
+    "reflect-metadata": "^0.2.2"
+  },
+  "peerDependencies": {
+    "react": "^19.2.5"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^20.5.2",
+    "@commitlint/config-conventional": "^20.5.0",
+    "@commitlint/types": "^20.5.0",
+    "@stackra/eslint-config": "^1.0.9",
+    "@stackra/prettier-config": "^1.0.7",
+    "@stackra/tsup-config": "^1.0.9",
+    "@stackra/typescript-config": "^1.0.10",
+    "@types/node": "^25.6.0",
+    "@types/react": "^19.2.14",
+    "@vitest/ui": "^4.1.5",
+    "eslint": "^9.28.0",
+    "husky": "^9.1.7",
+    "jiti": "^2.6.1",
+    "jsdom": "^29.1.0",
+    "lint-staged": "^16.4.0",
+    "prettier": "^3.8.3",
+    "react": "^19.2.5",
+    "tsup": "^8.5.1",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.59.1",
+    "vitest": "^4.1.5"
+  },
+  "engines": {
+    "node": ">=22",
+    "pnpm": ">=9.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "pnpm": {
+    "overrides": {
+      "eslint": "^10.2.1",
+      "vite": "^7.2.6",
+      "@eslint/js": "^9.28.0"
+    }
+  },
+  "stackra": {
+    "publish": {
+      "config": {
+        "source": "config/container.config.ts",
+        "destination": "src/config/container.config.ts",
+        "description": "Container bootstrap configuration with DI, debug mode, and app config"
+      },
+      "steering": {
+        "source": ".kiro/steering/",
+        "destination": ".kiro/steering/{module}/",
+        "description": "Kiro AI steering files for DI container patterns"
+      },
+      "hooks": {
+        "source": ".kiro/hooks/",
+        "destination": ".kiro/hooks/",
+        "description": "Kiro hooks"
+      }
+    }
+  }
+}

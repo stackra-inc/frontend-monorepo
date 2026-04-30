@@ -1,0 +1,14 @@
+{
+  // Extends base: strict, ES2022, decorators, JSX, Node types, etc.
+  "extends": "@stackra/typescript-config/base.json",
+
+  "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": ".",
+
+    "paths": { "@/*": ["./src/*"] }
+  },
+
+  "include": ["src/**/*", "__tests__/**/*"],
+  "exclude": ["node_modules", "dist", "config"]
+}

@@ -1,0 +1,106 @@
+{
+  "name": "@stackra/typescript-config",
+  "version": "1.0.10",
+  "description": "Shared TypeScript configuration presets for Stackra packages",
+  "private": false,
+  "license": "MIT",
+  "author": {
+    "name": "Stackra L.L.C",
+    "email": "dev@stackra.com",
+    "url": "https://github.com/stackra-inc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stackra-inc/typescript-config.git"
+  },
+  "bugs": {
+    "url": "https://github.com/stackra-inc/typescript-config/issues"
+  },
+  "homepage": "https://github.com/stackra-inc/typescript-config#readme",
+  "files": [
+    "src/presets",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "exports": {
+    "./base": "./src/presets/base.json",
+    "./base.json": "./src/presets/base.json",
+    "./bundler": "./src/presets/bundler.json",
+    "./bundler.json": "./src/presets/bundler.json",
+    "./next": "./src/presets/next.json",
+    "./next.json": "./src/presets/next.json",
+    "./react-lib": "./src/presets/react-lib.json",
+    "./react-lib.json": "./src/presets/react-lib.json",
+    "./nest-lib": "./src/presets/nest-lib.json",
+    "./nest-lib.json": "./src/presets/nest-lib.json",
+    "./nest-app": "./src/presets/nest-app.json",
+    "./nest-app.json": "./src/presets/nest-app.json",
+    "./react-native-app": "./src/presets/react-native-app.json",
+    "./react-native-app.json": "./src/presets/react-native-app.json",
+    "./react-native-lib": "./src/presets/react-native-lib.json",
+    "./react-native-lib.json": "./src/presets/react-native-lib.json"
+  },
+  "scripts": {
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "release": "pnpm publish --access public --no-git-checks",
+    "prepare": "husky"
+  },
+  "keywords": [
+    "typescript",
+    "tsconfig",
+    "config",
+    "preset",
+    "stackra"
+  ],
+  "devDependencies": {
+    "@commitlint/cli": "^20.5.2",
+    "@commitlint/config-conventional": "^20.5.0",
+    "@commitlint/types": "^20.5.0",
+    "@stackra/prettier-config": "^1.0.7",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.4.0",
+    "prettier": "^3.8.3",
+    "typescript": "^6.0.3"
+  },
+  "peerDependencies": {
+    "typescript": ">=6.0.3"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "engines": {
+    "node": ">=22",
+    "pnpm": ">=9.0.0"
+  },
+  "sideEffects": false,
+  "packageManager": "pnpm@10.33.2",
+  "pnpm": {
+    "overrides": {
+      "eslint": "^9.28.0",
+      "vite": "^7.2.6",
+      "@eslint/js": "^9.28.0"
+    }
+  },
+  "stackra": {
+    "publish": {
+      "config": {
+        "source": "config/",
+        "destination": "src/config/",
+        "description": "TypeScript configuration presets"
+      },
+      "steering": {
+        "source": ".kiro/steering/",
+        "destination": ".kiro/steering/{module}/",
+        "description": "Kiro AI steering files for TypeScript configuration"
+      },
+      "hooks": {
+        "source": ".kiro/hooks/",
+        "destination": ".kiro/hooks/",
+        "description": "Kiro hooks"
+      }
+    }
+  }
+}

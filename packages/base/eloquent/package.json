@@ -1,0 +1,158 @@
+{
+  "name": "@stackra/ts-eloquent",
+  "version": "1.2.1",
+  "description": "Laravel Eloquent-style TypeScript ORM built on RxDB — reactive, offline-first, with Supabase replication",
+  "license": "MIT",
+  "author": {
+    "name": "Stackra L.L.C",
+    "email": "dev@stackra.com",
+    "url": "https://github.com/stackra-inc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stackra-inc/ts-eloquent.git"
+  },
+  "bugs": {
+    "url": "https://github.com/stackra-inc/ts-eloquent/issues"
+  },
+  "homepage": "https://github.com/stackra-inc/ts-eloquent#readme",
+  "keywords": [
+    "rxdb",
+    "eloquent",
+    "orm",
+    "typescript",
+    "reactive",
+    "offline-first",
+    "indexeddb",
+    "supabase",
+    "replication",
+    "laravel",
+    "model",
+    "query-builder",
+    "decorator",
+    "dependency-injection"
+  ],
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "config",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "clean": "rm -rf dist node_modules/.cache",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint . --max-warnings 0",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest run --passWithNoTests",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "prepublishOnly": "pnpm run build",
+    "release": "pnpm publish --access public --no-git-checks",
+    "prepare": "husky"
+  },
+  "peerDependencies": {
+    "@stackra/ts-container": "^2.0.12",
+    "@stackra/ts-logger": "^1.1.3",
+    "@stackra/ts-support": "^2.6.0",
+    "@supabase/supabase-js": "^2.105.1",
+    "rxdb": "^17.1.0",
+    "rxjs": "^7.8.2"
+  },
+  "peerDependenciesMeta": {
+    "@stackra/ts-container": {
+      "optional": false
+    },
+    "@stackra/ts-support": {
+      "optional": false
+    },
+    "@supabase/supabase-js": {
+      "optional": true
+    },
+    "@stackra/ts-logger": {
+      "optional": true
+    },
+    "rxdb": {
+      "optional": false
+    },
+    "rxjs": {
+      "optional": false
+    }
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^20.5.2",
+    "@commitlint/config-conventional": "^20.5.0",
+    "@commitlint/types": "^20.5.0",
+    "@eslint/js": "^9.28.0",
+    "@stackra/eslint-config": "^1.0.9",
+    "@stackra/prettier-config": "^1.0.7",
+    "@stackra/tsup-config": "^1.0.9",
+    "@stackra/typescript-config": "^1.0.10",
+    "@supabase/supabase-js": "^2.105.1",
+    "@types/node": "^25.6.0",
+    "@types/react": "^19.2.14",
+    "@vitest/ui": "^4.1.5",
+    "eslint": "^9.28.0",
+    "eslint-plugin-turbo": "^2.9.6",
+    "fast-check": "^4.7.0",
+    "husky": "^9.1.7",
+    "jiti": "^2.6.1",
+    "jsdom": "^29.1.0",
+    "lint-staged": "^16.4.0",
+    "prettier": "^3.8.3",
+    "tsup": "^8.5.1",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.59.1",
+    "vitest": "^4.1.5"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "engines": {
+    "node": ">=22",
+    "pnpm": ">=9.0.0"
+  },
+  "sideEffects": false,
+  "packageManager": "pnpm@10.33.2",
+  "pnpm": {
+    "overrides": {
+      "eslint": "^9.28.0",
+      "@eslint/js": "^9.28.0",
+      "vite": "^7.2.6"
+    }
+  },
+  "stackra": {
+    "publish": {
+      "config": {
+        "source": "config/",
+        "destination": "src/config/",
+        "description": "Eloquent ORM database and model configuration"
+      },
+      "steering": {
+        "source": ".kiro/steering/",
+        "destination": ".kiro/steering/{module}/",
+        "description": "Kiro AI steering files for Eloquent ORM"
+      },
+      "hooks": {
+        "source": ".kiro/hooks/",
+        "destination": ".kiro/hooks/",
+        "description": "Kiro hooks"
+      }
+    }
+  }
+}

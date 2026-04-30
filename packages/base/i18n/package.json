@@ -1,0 +1,151 @@
+{
+  "name": "@stackra/react-i18n",
+  "version": "1.0.2",
+  "description": "Comprehensive i18n Vite plugin with i18next integration, auto-file-globbing, type generation, and Refine provider support",
+  "main": "./dist/index.cjs",
+  "type": "module",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./vite": {
+      "types": "./dist/vite.d.ts",
+      "import": "./dist/vite.js",
+      "require": "./dist/vite.cjs"
+    }
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint . --max-warnings 0",
+    "lint:fix": "eslint . --fix",
+    "clean": "rm -rf dist node_modules/.cache",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest run --passWithNoTests",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "prepare": "husky",
+    "prepublishOnly": "pnpm run build",
+    "release": "pnpm publish --access public --no-git-checks"
+  },
+  "keywords": [
+    "i18n",
+    "i18next",
+    "vite",
+    "plugin",
+    "vite-plugin",
+    "translation",
+    "internationalization",
+    "refine",
+    "react-i18next",
+    "auto-globbing",
+    "type-safe",
+    "zero-import"
+  ],
+  "license": "MIT",
+  "files": [
+    "dist",
+    "@types",
+    "README.md",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "peerDependencies": {
+    "@stackra/ts-container": "^2.0.12",
+    "@stackra/ts-http": "^1.0.2",
+    "react": "^19.2.5",
+    "vite": "^8.0.10"
+  },
+  "dependencies": {
+    "@stackra/ts-support": "^2.6.0",
+    "fast-glob": "^3.3.3",
+    "i18next": "^26.0.8",
+    "i18next-browser-languagedetector": "^8.2.1",
+    "i18next-http-backend": "^3.0.6",
+    "react-i18next": "^17.0.6"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^20.5.2",
+    "@commitlint/config-conventional": "^20.5.0",
+    "@commitlint/types": "^20.5.0",
+    "@eslint/js": "^9.28.0",
+    "@refinedev/core": "^5.0.12",
+    "@stackra/eslint-config": "^1.0.9",
+    "@stackra/prettier-config": "^1.0.7",
+    "@stackra/tsup-config": "^1.0.9",
+    "@stackra/typescript-config": "^1.0.10",
+    "@types/node": "^25.6.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "eslint": "^9.28.0",
+    "eslint-plugin-turbo": "^2.9.6",
+    "husky": "^9.1.7",
+    "jsdom": "^29.1.0",
+    "lint-staged": "^16.4.0",
+    "react": "^19.2.5",
+    "tsup": "^8.5.1",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.59.1",
+    "vite": "^7.2.6",
+    "vitest": "^4.1.5"
+  },
+  "peerDependenciesMeta": {
+    "@stackra/ts-container": {
+      "optional": false
+    },
+    "@stackra/ts-http": {
+      "optional": true
+    },
+    "vite": {
+      "optional": false
+    }
+  },
+  "packageManager": "pnpm@10.33.2",
+  "engines": {
+    "node": ">=22",
+    "pnpm": ">=9.0.0"
+  },
+  "pnpm": {
+    "overrides": {
+      "eslint": "^9.28.0",
+      "@eslint/js": "^9.28.0",
+      "vite": "^7.2.6"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stackra-inc/react-i18n.git"
+  },
+  "bugs": {
+    "url": "https://github.com/stackra-inc/react-i18n/issues"
+  },
+  "homepage": "https://github.com/stackra-inc/react-i18n#readme",
+  "stackra": {
+    "publish": {
+      "config": {
+        "source": "config/",
+        "destination": "src/config/",
+        "description": "i18n locale, resolver, and middleware configuration"
+      },
+      "steering": {
+        "source": ".kiro/steering/",
+        "destination": ".kiro/steering/{module}/",
+        "description": "Kiro AI steering files for internationalization"
+      },
+      "hooks": {
+        "source": ".kiro/hooks/",
+        "destination": ".kiro/hooks/",
+        "description": "Kiro hooks"
+      }
+    }
+  }
+}

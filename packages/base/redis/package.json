@@ -1,0 +1,140 @@
+{
+  "name": "@stackra/ts-redis",
+  "version": "1.1.9",
+  "description": "Client-side Redis connection management using Upstash HTTP API for React",
+  "license": "MIT",
+  "author": {
+    "name": "Stackra L.L.C",
+    "email": "dev@stackra.com",
+    "url": "https://github.com/stackra-inc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stackra-inc/ts-redis.git"
+  },
+  "bugs": {
+    "url": "https://github.com/stackra-inc/ts-redis/issues"
+  },
+  "homepage": "https://github.com/stackra-inc/ts-redis#readme",
+  "keywords": [
+    "react",
+    "redis",
+    "upstash",
+    "cache",
+    "client-side",
+    "browser",
+    "dependency-injection",
+    "di"
+  ],
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "config",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "clean": "rm -rf dist node_modules/.cache",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint . --max-warnings 0",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest run --passWithNoTests",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "prepublishOnly": "pnpm run build",
+    "release": "pnpm publish --access public --no-git-checks",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "@upstash/redis": "^1.37.0"
+  },
+  "peerDependencies": {
+    "@stackra/ts-container": "^2.0.12",
+    "@stackra/ts-support": "^2.6.0",
+    "react": "^19.2.5"
+  },
+  "peerDependenciesMeta": {
+    "@stackra/ts-container": {
+      "optional": false
+    },
+    "@stackra/ts-support": {
+      "optional": false
+    },
+    "react": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^20.5.2",
+    "@commitlint/config-conventional": "^20.5.0",
+    "@commitlint/types": "^20.5.0",
+    "@stackra/eslint-config": "^1.0.9",
+    "@stackra/prettier-config": "^1.0.7",
+    "@stackra/tsup-config": "^1.0.9",
+    "@stackra/typescript-config": "^1.0.10",
+    "@types/node": "^25.6.0",
+    "@vitest/ui": "^4.1.5",
+    "eslint": "^9.28.0",
+    "eslint-plugin-turbo": "^2.9.6",
+    "husky": "^9.1.7",
+    "jiti": "^2.6.1",
+    "jsdom": "^29.1.0",
+    "lint-staged": "^16.4.0",
+    "prettier": "^3.8.3",
+    "tsup": "^8.5.1",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.59.1",
+    "vite": "^7.2.6",
+    "vitest": "^4.1.5"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "engines": {
+    "node": ">=22",
+    "pnpm": ">=9.0.0"
+  },
+  "sideEffects": false,
+  "packageManager": "pnpm@10.33.2",
+  "pnpm": {
+    "overrides": {
+      "eslint": "^10.2.1",
+      "vite": "^8.0.10",
+      "@eslint/js": "^9.28.0"
+    }
+  },
+  "stackra": {
+    "publish": {
+      "config": {
+        "source": "config/redis.config.ts",
+        "destination": "src/config/redis.config.ts",
+        "description": "Redis connection configuration with Upstash support"
+      },
+      "steering": {
+        "source": ".kiro/steering/",
+        "destination": ".kiro/steering/{module}/",
+        "description": "Kiro AI steering files for Redis patterns and caching"
+      },
+      "hooks": {
+        "source": ".kiro/hooks/",
+        "destination": ".kiro/hooks/",
+        "description": "Kiro hooks"
+      }
+    }
+  }
+}

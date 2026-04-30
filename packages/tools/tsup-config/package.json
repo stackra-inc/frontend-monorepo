@@ -1,0 +1,119 @@
+{
+  "name": "@stackra/tsup-config",
+  "version": "1.0.9",
+  "description": "Shared tsup configuration presets for Stackra packages",
+  "private": false,
+  "license": "MIT",
+  "author": {
+    "name": "Stackra L.L.C",
+    "email": "dev@stackra.com",
+    "url": "https://github.com/stackra-inc"
+  },
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./vite": {
+      "types": "./dist/vite.d.ts",
+      "import": "./dist/vite.js",
+      "require": "./dist/vite.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "clean": "rm -rf dist node_modules/.cache",
+    "typecheck": "tsc --noEmit",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest run --passWithNoTests",
+    "prepublishOnly": "pnpm run build",
+    "release": "pnpm publish --access public --no-git-checks",
+    "prepare": "husky"
+  },
+  "keywords": [
+    "tsup",
+    "config",
+    "build",
+    "typescript",
+    "stackra"
+  ],
+  "dependencies": {
+    "tsup": "^8.5.1"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^20.5.2",
+    "@commitlint/config-conventional": "^20.5.0",
+    "@commitlint/types": "^20.5.0",
+    "@stackra/prettier-config": "^1.0.7",
+    "@stackra/typescript-config": "^1.0.10",
+    "@types/node": "^25.6.0",
+    "eslint": "^9.28.0",
+    "husky": "^9.1.7",
+    "jsdom": "^29.1.0",
+    "lint-staged": "^16.4.0",
+    "prettier": "^3.8.3",
+    "typescript": "^6.0.3",
+    "vite": "^7.2.6",
+    "vitest": "^4.1.5"
+  },
+  "peerDependencies": {
+    "tsup": ">=8.5.1"
+  },
+  "engines": {
+    "node": ">=22",
+    "pnpm": ">=9.0.0"
+  },
+  "packageManager": "pnpm@10.33.2",
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "homepage": "https://github.com/stackra-inc/tsup-config#readme",
+  "bugs": {
+    "url": "https://github.com/stackra-inc/tsup-config/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stackra-inc/tsup-config.git"
+  },
+  "pnpm": {
+    "overrides": {
+      "eslint": "^9.28.0",
+      "vite": "^8.0.10",
+      "@eslint/js": "^9.28.0"
+    }
+  },
+  "stackra": {
+    "publish": {
+      "config": {
+        "source": "config/",
+        "destination": "src/config/",
+        "description": "tsup build configuration presets"
+      },
+      "steering": {
+        "source": ".kiro/steering/",
+        "destination": ".kiro/steering/{module}/",
+        "description": "Kiro AI steering files for build configuration"
+      },
+      "hooks": {
+        "source": ".kiro/hooks/",
+        "destination": ".kiro/hooks/",
+        "description": "Kiro hooks"
+      }
+    }
+  }
+}
