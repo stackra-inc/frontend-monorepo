@@ -1,1 +1,0 @@
-export { useFocusTrap } from './use-focus-trap.hook';
