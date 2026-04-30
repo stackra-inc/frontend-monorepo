@@ -123,7 +123,7 @@
     "registry": "https://registry.npmjs.org/"
   },
   "engines": {
-    "node": ">=22.22.2",
+    "node": ">=22",
     "pnpm": ">=10"
   },
   "sideEffects": false,
@@ -145,6 +145,12 @@
         "destination": ".kiro/hooks/",
         "description": "Kiro hooks"
       }
+    }
+  },
+  "pnpm": {
+    "overrides": {
+      "eslint": "^9.28.0",
+      "@eslint/js": "^9.28.0"
     }
   }
 }

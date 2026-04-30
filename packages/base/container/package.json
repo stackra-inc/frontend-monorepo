@@ -130,5 +130,11 @@
         "description": "Kiro hooks"
       }
     }
+  },
+  "pnpm": {
+    "overrides": {
+      "eslint": "^9.28.0",
+      "@eslint/js": "^9.28.0"
+    }
   }
 }

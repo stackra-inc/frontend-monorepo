@@ -104,7 +104,7 @@
   },
   "sideEffects": false,
   "engines": {
-    "node": ">=22.22.2",
+    "node": ">=22",
     "pnpm": ">=10"
   },
   "publishConfig": {
@@ -142,5 +142,11 @@
   "dependencies": {
     "@stackra/ts-container": "workspace:*",
     "@stackra/ts-support": "workspace:*"
+  },
+  "pnpm": {
+    "overrides": {
+      "eslint": "^9.28.0",
+      "@eslint/js": "^9.28.0"
+    }
   }
 }

@@ -71,7 +71,7 @@
     "registry": "https://registry.npmjs.org/"
   },
   "engines": {
-    "node": ">=22.22.2",
+    "node": ">=22",
     "pnpm": ">=10"
   },
   "sideEffects": false,

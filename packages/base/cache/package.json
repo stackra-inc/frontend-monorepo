@@ -108,7 +108,7 @@
     "registry": "https://registry.npmjs.org/"
   },
   "engines": {
-    "node": ">=22.22.2",
+    "node": ">=22",
     "pnpm": ">=10"
   },
   "sideEffects": false,
@@ -136,5 +136,11 @@
     "@stackra/ts-container": "workspace:*",
     "@stackra/ts-redis": "workspace:*",
     "@stackra/ts-support": "workspace:*"
+  },
+  "pnpm": {
+    "overrides": {
+      "eslint": "^9.28.0",
+      "@eslint/js": "^9.28.0"
+    }
   }
 }

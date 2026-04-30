@@ -76,7 +76,7 @@
     "typescript": ">=6.0.3"
   },
   "engines": {
-    "node": ">=22.22.2",
+    "node": ">=22",
     "pnpm": ">=10"
   },
   "packageManager": "pnpm@10.33.2",
@@ -114,6 +114,12 @@
         "destination": ".kiro/hooks/",
         "description": "Kiro hooks"
       }
+    }
+  },
+  "pnpm": {
+    "overrides": {
+      "eslint": "^9.28.0",
+      "@eslint/js": "^9.28.0"
     }
   }
 }
