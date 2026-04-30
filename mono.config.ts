@@ -2,7 +2,7 @@
  * @fileoverview Mono CLI configuration for the frontend monorepo.
  *
  * Registers custom commands available as `mono frontend-monorepo:<command>`.
- * These commands are discovered automatically by the CLI at bootstrap.
+ * These extend the built-in CLI commands with repo-specific operations.
  *
  * @see https://github.com/stackra-inc/mono-cli
  */
@@ -38,10 +38,28 @@ export default CliModule.register({
       action: "pnpm changeset",
     },
     {
+      name: "changeset:version",
+      description: "Apply changeset versions",
+      emoji: "🏷️",
+      action: "pnpm changeset version",
+    },
+    {
       name: "release",
       description: "Build packages and publish via changesets",
       emoji: "🚀",
       action: "pnpm turbo run build --filter='./packages/**' && pnpm changeset publish",
+    },
+    {
+      name: "validate",
+      description: "Run lint, typecheck, and build",
+      emoji: "✅",
+      action: "pnpm lint && pnpm check-types && pnpm build",
+    },
+    {
+      name: "audit",
+      description: "Run npm security audit",
+      emoji: "🔒",
+      action: "npm audit",
     },
   ],
 });
