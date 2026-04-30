@@ -7,9 +7,9 @@
  * @see https://github.com/stackra-inc/mono-cli
  */
 
-import { CliModule } from "@stackra/mono-cli";
 
-export default CliModule.register({
+
+export default ({
   name: "frontend",
   description: "Frontend monorepo — React/Vite apps and shared TS packages",
   commands: [
