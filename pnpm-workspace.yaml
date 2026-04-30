@@ -16,7 +16,4 @@ packages:
   - 'apps/*'
 
   # ── Shared Packages / Libraries ────────────────────────────────────────────
-  - 'packages/*'
-  - 'packages/ab/*'
-  - 'packages/ab/vite/*'
-  - 'packages/acd/*'
+  - 'packages/*/*'
