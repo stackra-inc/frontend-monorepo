@@ -23,8 +23,16 @@
 
 set -e
 
-DOMAIN="mngo"          # Herd appends .test automatically
-FULL_DOMAIN="mngo.test"
+# ── Read DOMAIN from environment ─────────────────────────────────────────────
+if [ -z "$DOMAIN" ]; then
+  echo "[ERR] Environment variable 'DOMAIN' is not set." >&2
+  echo "      Please set it before running this script (e.g. export DOMAIN='mngo.test')." >&2
+  exit 1
+fi
+
+FULL_DOMAIN="$DOMAIN"
+# Strip .test suffix for Herd (it appends .test automatically)
+DOMAIN_SHORT="${DOMAIN%.test}"
 IP="127.0.0.1"
 VITE_PORT=3000
 
@@ -52,8 +60,8 @@ if [ "$OS" = "Darwin" ]; then
   if command -v herd &>/dev/null; then
     success "Laravel Herd detected — using herd proxy"
 
-    # Register proxy: mngo.test → localhost:3000
-    herd proxy "$DOMAIN" "http://localhost:${VITE_PORT}" 2>&1 | grep -v "^$" || true
+    # Register proxy: <domain>.test → localhost:3000
+    herd proxy "$DOMAIN_SHORT" "http://localhost:${VITE_PORT}" 2>&1 | grep -v "^$" || true
     success "herd proxy registered: http://${FULL_DOMAIN} → localhost:${VITE_PORT}"
     success "Wildcard subdomains (*.${FULL_DOMAIN}) work automatically via Herd"
 
@@ -174,7 +182,8 @@ echo ""
 
 set -e
 
-DOMAIN="mngo.test"
+# DOMAIN is already validated and set from the first block above
+FULL_DOMAIN="$DOMAIN"
 IP="127.0.0.1"
 VITE_PORT=3000
 
@@ -186,7 +195,7 @@ error()   { echo -e "${RED}[ERR]${NC}  $1"; exit 1; }
 
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "  Local Subdomain Setup — *.${DOMAIN} → ${IP} (port 80 → ${VITE_PORT})"
+echo "  Local Subdomain Setup — *.${FULL_DOMAIN} → ${IP} (port 80 → ${VITE_PORT})"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 
@@ -213,7 +222,7 @@ if [ "$OS" = "Darwin" ]; then
   fi
 
   DNSMASQ_CONF="$(brew --prefix)/etc/dnsmasq.conf"
-  RULE="address=/.${DOMAIN}/${IP}"
+  RULE="address=/.${FULL_DOMAIN}/${IP}"
   if ! grep -qF "$RULE" "$DNSMASQ_CONF" 2>/dev/null; then
     echo "$RULE" >> "$DNSMASQ_CONF"
     success "dnsmasq rule added: $RULE"
@@ -222,7 +231,7 @@ if [ "$OS" = "Darwin" ]; then
   fi
 
   sudo mkdir -p /etc/resolver
-  RESOLVER="/etc/resolver/${DOMAIN}"
+  RESOLVER="/etc/resolver/${FULL_DOMAIN}"
   if [ ! -f "$RESOLVER" ]; then
     echo "nameserver 127.0.0.1" | sudo tee "$RESOLVER" > /dev/null
     success "Resolver file created: $RESOLVER"
@@ -262,7 +271,7 @@ elif [ "$OS" = "Linux" ]; then
   fi
 
   DNSMASQ_CONF="/etc/dnsmasq.conf"
-  RULE="address=/.${DOMAIN}/${IP}"
+  RULE="address=/.${FULL_DOMAIN}/${IP}"
   if ! grep -qF "$RULE" "$DNSMASQ_CONF" 2>/dev/null; then
     echo "$RULE" | sudo tee -a "$DNSMASQ_CONF" > /dev/null
     success "dnsmasq rule added"
@@ -275,7 +284,7 @@ elif [ "$OS" = "Linux" ]; then
     cat <<EOF | sudo tee /etc/systemd/resolved.conf.d/mngo-test.conf > /dev/null
 [Resolve]
 DNS=127.0.0.1
-Domains=~${DOMAIN}
+Domains=~${FULL_DOMAIN}
 EOF
     sudo systemctl restart systemd-resolved
     success "systemd-resolved configured"
@@ -328,8 +337,8 @@ fi
 echo ""
 info "Verifying DNS..."
 sleep 1
-if ping -c 1 -W 1 "acme.${DOMAIN}" &>/dev/null; then
-  success "acme.${DOMAIN} → ${IP} ✓"
+if ping -c 1 -W 1 "acme.${FULL_DOMAIN}" &>/dev/null; then
+  success "acme.${FULL_DOMAIN} → ${IP} ✓"
 else
   warn "DNS not resolving yet — open a new terminal and try again"
 fi
@@ -345,9 +354,9 @@ echo "  Start dev (Vite + Caddy proxy):"
 echo "    pnpm dev:local"
 echo ""
 echo "  Open in browser (no port needed):"
-echo "    http://${DOMAIN}"
-echo "    http://acme.${DOMAIN}"
-echo "    http://globex.${DOMAIN}"
-echo "    http://initech.${DOMAIN}"
+echo "    http://${FULL_DOMAIN}"
+echo "    http://acme.${FULL_DOMAIN}"
+echo "    http://globex.${FULL_DOMAIN}"
+echo "    http://initech.${FULL_DOMAIN}"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""

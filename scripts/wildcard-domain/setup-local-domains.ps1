@@ -18,7 +18,11 @@
 #   http://acme.mngo.test
 # =============================================================================
 
-$Domain    = "mngo.test"
+# ── Read DOMAIN from environment ──────────────────────────────────────────────
+if (-not $env:DOMAIN) {
+  throw "Environment variable 'DOMAIN' is not set. Please set it before running this script (e.g. `$env:DOMAIN = 'mngo.test'`)."
+}
+$Domain    = $env:DOMAIN
 $IP        = "127.0.0.1"
 $HostsFile = "C:\Windows\System32\drivers\etc\hosts"
 
