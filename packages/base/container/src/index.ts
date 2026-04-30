@@ -106,15 +106,6 @@ export { InstanceWrapper } from './injector/instance-wrapper';
 export { RegistryScanner } from './injector/registry-scanner';
 
 // ============================================================================
-// React Bindings
-// ============================================================================
-export { useInject } from './hooks/use-inject';
-export { useContainer } from './hooks/use-container';
-export { ContainerContext } from './contexts/container.context';
-export { useOptionalInject } from './hooks/use-optional-inject';
-export { ContainerProvider } from './providers/container.provider';
-
-// ============================================================================
 // Constants (for library authors building on top of this)
 // ============================================================================
 export {
