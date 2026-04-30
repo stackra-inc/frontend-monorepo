@@ -1,0 +1,93 @@
+{
+  "name": "@stackra/vite-template",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "start": "vite preview",
+    "lint": "eslint --fix",
+    "lint:fix": "eslint . --fix",
+    "check-types": "tsc --noEmit",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "clean": "rm -rf dist",
+    "clean:all": "rm -rf dist node_modules",
+    "upgrade": "pnpm update --latest"
+  },
+  "dependencies": {
+    "@heroui/react": "3.0.3",
+    "@heroui/styles": "3.0.3",
+    "@stackra/react-i18n": "workspace:*",
+    "@stackra/ts-cache": "workspace:*",
+    "@stackra/ts-config": "workspace:*",
+    "@stackra/ts-container": "workspace:*",
+    "@stackra/ts-eloquent": "workspace:*",
+    "@stackra/ts-events": "workspace:*",
+    "@stackra/ts-http": "workspace:*",
+    "@stackra/ts-logger": "workspace:*",
+    "@stackra/ts-realtime": "workspace:*",
+    "@stackra/ts-redis": "workspace:*",
+    "@stackra/ts-support": "workspace:*",
+    "@vitejs/plugin-react-swc": "^4.3.0",
+    "clsx": "2.1.1",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
+    "react-router-dom": "7.14.2",
+    "reflect-metadata": "^0.2.2"
+  },
+  "devDependencies": {
+    "@eslint/compat": "2.0.5",
+    "@eslint/eslintrc": "3.3.5",
+    "@eslint/js": "10.0.1",
+    "@stackra/standardize": "workspace:*",
+    "@tailwindcss/postcss": "4.2.4",
+    "@tailwindcss/vite": "4.2.4",
+    "@types/node": "25.6.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@typescript-eslint/eslint-plugin": "8.59.1",
+    "@typescript-eslint/parser": "8.59.1",
+    "@vitejs/plugin-react": "6.0.1",
+    "eslint": "10.2.1",
+    "eslint-config-prettier": "10.1.8",
+    "eslint-plugin-import": "2.32.0",
+    "eslint-plugin-jsx-a11y": "6.10.2",
+    "eslint-plugin-node": "11.1.0",
+    "eslint-plugin-prettier": "5.5.5",
+    "eslint-plugin-react": "7.37.5",
+    "eslint-plugin-react-hooks": "7.1.1",
+    "eslint-plugin-unused-imports": "4.4.1",
+    "globals": "17.5.0",
+    "postcss": "8.5.12",
+    "prettier": "3.8.3",
+    "tailwind-variants": "3.2.2",
+    "tailwindcss": "4.2.4",
+    "typescript": "6.0.3",
+    "vite": "8.0.10",
+    "vite-tsconfig-paths": "6.1.1"
+  },
+  "description": "Stackra Vite application — HeroUI starter.",
+  "homepage": "https://github.com/stackra-inc/frontend-monorepo/tree/main/apps/vite",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stackra-inc/frontend-monorepo.git",
+    "directory": "apps/vite"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Stackra Team",
+    "email": "dev@stackra.com",
+    "url": "https://stackra.com"
+  },
+  "bugs": {
+    "url": "https://github.com/stackra-inc/frontend-monorepo/issues"
+  },
+  "engines": {
+    "node": ">=18",
+    "pnpm": ">=10"
+  },
+  "packageManager": "pnpm@10.33.2"
+}
