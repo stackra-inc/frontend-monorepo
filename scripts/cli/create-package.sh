@@ -180,7 +180,7 @@ PACKAGE_JSON=$(cat <<EOF
     "typescript": "^6.0.3"
   },
   "engines": {
-    "node": ">=18",
+    "node": ">=22.22.2",
     "pnpm": ">=10"
   }
 }

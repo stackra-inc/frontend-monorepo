@@ -1,26 +1,22 @@
 /**
- * @fileoverview Prettier configuration for @stackra/ts-http package
+ * Prettier configuration for @stackra/typescript-config
  *
- * Extends the shared @stackra/prettier-config for consistent code formatting
- * across all packages in the monorepo.
- *
- * Shared Config Provides:
- * - Single quotes for strings
- * - Trailing commas (ES5 style)
- * - 100 character print width
- * - 2 space indentation
- * - Semicolons enabled
- * - LF line endings
- *
- * @module @stackra/ts-http
- * @category Configuration
- * @see https://prettier.io/docs/en/configuration
+ * Inlined to avoid circular dependency with @stackra/prettier-config.
+ * Keep in sync with @stackra/prettier-config src/presets/base.ts.
  */
 
-// Extend the shared Stackra Prettier configuration.
-// All formatting rules are defined in the shared config —
-// no package-specific overrides needed.
-/** @type {string} */
-const config = '@stackra/prettier-config';
+/** @type {import("prettier").Config} */
+const config = {
+  semi: true,
+  trailingComma: 'es5',
+  singleQuote: true,
+  printWidth: 100,
+  tabWidth: 2,
+  useTabs: false,
+  arrowParens: 'always',
+  bracketSpacing: true,
+  endOfLine: 'lf',
+  bracketSameLine: false,
+};
 
 export default config;

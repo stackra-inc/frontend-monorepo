@@ -12,10 +12,7 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({ className }) => {
 
   useEffect(() => {
     const root = document.documentElement;
-    const savedTheme = localStorage.getItem("theme") as
-      | "light"
-      | "dark"
-      | null;
+    const savedTheme = localStorage.getItem("theme") as "light" | "dark" | null;
     const initialTheme = savedTheme || "dark";
 
     setTheme(initialTheme);
@@ -35,17 +32,11 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({ className }) => {
 
   return (
     <button
-      aria-label={
-        theme === "light" ? "Switch to dark mode" : "Switch to light mode"
-      }
+      aria-label={theme === "light" ? "Switch to dark mode" : "Switch to light mode"}
       className={`px-px transition-opacity hover:opacity-80 cursor-pointer bg-transparent border-none ${className || ""}`}
       onClick={toggleTheme}
     >
-      {theme === "light" ? (
-        <MoonFilledIcon size={22} />
-      ) : (
-        <SunFilledIcon size={22} />
-      )}
+      {theme === "light" ? <MoonFilledIcon size={22} /> : <SunFilledIcon size={22} />}
     </button>
   );
 };

@@ -2,9 +2,9 @@
 
 All notable changes to `@stackra/vite-config` will be documented in this file.
 
-The format is based on
-[Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project
-adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to
+[Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [1.0.1] - 2026-04-29
 
@@ -13,7 +13,8 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Initial public release to npm
 - `defineConfig` helper with full IntelliSense for Stackra options
 - Sensible mode-aware defaults (sourcemaps, log level, build target)
-- Built-in plugins: env, typeGen, decorator discovery, ngrok tunnel, QR code terminal display
+- Built-in plugins: env, typeGen, decorator discovery, ngrok tunnel, QR code
+  terminal display
 - Plugin toggle map for declarative enable/disable
 - Deep merge of defaults → user overrides
 - ESM + CJS dual output

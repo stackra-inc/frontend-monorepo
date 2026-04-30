@@ -97,7 +97,7 @@
     "@commitlint/cli": "^20.5.2",
     "@commitlint/config-conventional": "^20.5.0",
     "@commitlint/types": "^20.5.0",
-    "@eslint/js": "^9.28.0",
+    "@eslint/js": "^10.0.1",
     "@stackra/eslint-config": "^1.0.9",
     "@stackra/prettier-config": "^1.0.7",
     "@stackra/tsup-config": "^1.0.9",
@@ -106,7 +106,7 @@
     "@types/node": "^25.6.0",
     "@types/react": "^19.2.14",
     "@vitest/ui": "^4.1.5",
-    "eslint": "^9.28.0",
+    "eslint": "^10.2.1",
     "eslint-plugin-turbo": "^2.9.6",
     "fast-check": "^4.7.0",
     "husky": "^9.1.7",
@@ -124,18 +124,11 @@
     "registry": "https://registry.npmjs.org/"
   },
   "engines": {
-    "node": ">=22",
-    "pnpm": ">=9.0.0"
+    "node": ">=22.22.2",
+    "pnpm": ">=10"
   },
   "sideEffects": false,
   "packageManager": "pnpm@10.33.2",
-  "pnpm": {
-    "overrides": {
-      "eslint": "^9.28.0",
-      "@eslint/js": "^9.28.0",
-      "vite": "^7.2.6"
-    }
-  },
   "stackra": {
     "publish": {
       "config": {
@@ -154,5 +147,9 @@
         "description": "Kiro hooks"
       }
     }
+  },
+  "dependencies": {
+    "@stackra/ts-container": "workspace:*",
+    "@stackra/ts-support": "workspace:*"
   }
 }

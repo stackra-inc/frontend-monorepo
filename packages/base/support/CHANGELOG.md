@@ -10,23 +10,25 @@ All notable changes to this project will be documented in this file.
   (`string`, `boolean`, `number`, `array`), `getOrFail`, environment checks
   (`isProduction`, `isLocal`, `isTesting`), configurable repository
   (`process.env`, `import.meta.env`, or custom)
-- **Arr class** — Laravel-style array/object utilities: dot-notation `get`/`set`/
-  `has`/`forget`, `only`, `except`, `pluck`, `groupBy`, `keyBy`, `first`, `last`,
-  `flatten`, `wrap`, `shuffle`, `sortBy`, `unique`, `chunk`, `combine`
+- **Arr class** — Laravel-style array/object utilities: dot-notation
+  `get`/`set`/ `has`/`forget`, `only`, `except`, `pluck`, `groupBy`, `keyBy`,
+  `first`, `last`, `flatten`, `wrap`, `shuffle`, `sortBy`, `unique`, `chunk`,
+  `combine`
 - **Num class** — Number formatting and helpers: `format`, `abbreviate`,
   `forHumans`, `ordinal`, `percentage`, `currency`, `fileSize`, `clamp`,
   `random`, `between`, type checks (`isNumber`, `isInteger`, `isEven`, `isOdd`)
 - **GlobalRegistry** — Extensible registry for global helper functions. Other
   `@stackra/*` packages can register their own globals via
   `GlobalRegistry.register()`
-- **bootGlobals()** — Registers built-in helpers (`env`, `collect`, `collectMap`,
-  `collectSet`, `value`, `tap`, `filled`, `blank`, `retry`, `sleep`) on
-  `globalThis`
+- **bootGlobals()** — Registers built-in helpers (`env`, `collect`,
+  `collectMap`, `collectSet`, `value`, `tap`, `filled`, `blank`, `retry`,
+  `sleep`) on `globalThis`
 - **Global helper functions** — `env()`, `value()`, `tap()`, `filled()`,
   `blank()`, `retry()`, `sleep()` available as importable functions or globals
 - **@types declarations** — TypeScript global type declarations for all helpers.
   Consumers add `"@stackra/ts-support/@types"` to tsconfig `types` array
-- **`./@types` export** — New package.json exports entry for the type declarations
+- **`./@types` export** — New package.json exports entry for the type
+  declarations
 
 ## [2.5.9] - 2026-04-28
 

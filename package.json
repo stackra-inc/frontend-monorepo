@@ -19,15 +19,12 @@
   },
   "workspaces": [
     "apps/*",
-    "packages/*",
-    "packages/ab/*",
-    "packages/ab/vite/*",
-    "packages/acd/*"
+    "packages/*/*"
   ],
   "scripts": {
     "build": "turbo run build",
-    "build:packages": "turbo run build --filter='./packages/*'",
-    "build:apps": "turbo run build --filter='./apps/*'",
+    "build:packages": "turbo run build --filter='./packages/**'",
+    "build:apps": "turbo run build --filter='./apps/**'",
     "dev": "turbo run dev",
     "start": "turbo run start",
     "lint": "turbo run lint",
@@ -49,7 +46,11 @@
     "changeset:publish": "changeset publish",
     "release": "turbo run build --filter='./packages/*' && changeset publish",
     "validate": "pnpm lint && pnpm check-types && pnpm build",
-    "graph": "turbo run build --graph=dependency-graph.html",
+    "graph": "node scripts/cli/generate-graph-html.js",
+    "graph:json": "turbo run build --graph=dependency-graph.json",
+    "graph:dot": "turbo run build --graph=dependency-graph.dot",
+    "graph:mermaid": "node scripts/cli/generate-mermaid-graph.js",
+    "graph:turbo": "turbo run build --graph",
     "audit": "npm audit",
     "make:package": "./scripts/cli/create-package.sh",
     "sync:configs": "./scripts/cli/cli.sh",
@@ -78,17 +79,6 @@
     "typescript-eslint": "^8.59.1"
   },
   "pnpm": {
-    "overrides": {
-      "typescript": "^6.0.3",
-      "tsup": "^8.5.1",
-      "vitest": "^4.1.2",
-      "eslint": "^10.1.0",
-      "prettier": "^3.8.3",
-      "@stackra/typescript-config": "^1.0.4",
-      "@stackra/tsup-config": "^1.0.8",
-      "@stackra/eslint-config": "^1.0.6",
-      "@stackra/prettier-config": "^1.0.3"
-    },
     "onlyBuiltDependencies": [
       "@swc/core",
       "@tailwindcss/oxide",
@@ -100,7 +90,7 @@
     ]
   },
   "engines": {
-    "node": ">=18",
+    "node": ">=22.22.2",
     "pnpm": ">=10"
   },
   "packageManager": "pnpm@10.33.2"

@@ -68,6 +68,8 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@stackra/ts-container": "workspace:*",
+    "@stackra/ts-support": "workspace:*",
     "@vivtel/metadata": "^1.0.5",
     "axios": "^1.15.2",
     "tslib": "^2.8.1"
@@ -104,7 +106,7 @@
     "@types/react": "^19.2.14",
     "@vitest/coverage-v8": "^4.1.5",
     "@vitest/ui": "^4.1.5",
-    "eslint": "^9.28.0",
+    "eslint": "^10.2.1",
     "eslint-plugin-turbo": "^2.9.6",
     "husky": "^9.1.7",
     "jiti": "^2.6.1",
@@ -121,18 +123,11 @@
     "registry": "https://registry.npmjs.org/"
   },
   "engines": {
-    "node": ">=22",
-    "pnpm": ">=9.0.0"
+    "node": ">=22.22.2",
+    "pnpm": ">=10"
   },
   "sideEffects": false,
   "packageManager": "pnpm@10.33.2",
-  "pnpm": {
-    "overrides": {
-      "eslint": "^10.2.1",
-      "vite": "^7.2.6",
-      "@eslint/js": "^9.28.0"
-    }
-  },
   "stackra": {
     "publish": {
       "config": {

@@ -30,7 +30,7 @@
  * @module config/http
  */
 
-import type { HttpClientConfig } from '@stackra/ts-http';
+import type { HttpClientConfig } from "@stackra/ts-http";
 
 /**
  * HTTP client configuration.
@@ -56,7 +56,7 @@ const httpConfig: HttpClientConfig = {
   | @example 'https://api.example.com/v1'
   |
   */
-  baseURL: env('VITE_API_URL', ''),
+  baseURL: env("VITE_API_URL", ""),
 
   /*
   |--------------------------------------------------------------------------
@@ -70,7 +70,7 @@ const httpConfig: HttpClientConfig = {
   | @default 30000 (30 seconds)
   |
   */
-  timeout: env('VITE_API_TIMEOUT', 30000),
+  timeout: env("VITE_API_TIMEOUT", 30000),
 
   /*
   |--------------------------------------------------------------------------
@@ -86,8 +86,8 @@ const httpConfig: HttpClientConfig = {
   |
   */
   headers: {
-    Accept: env('VITE_API_ACCEPT', 'application/json'),
-    'Content-Type': env('VITE_API_CONTENT_TYPE', 'application/json'),
+    Accept: env("VITE_API_ACCEPT", "application/json"),
+    "Content-Type": env("VITE_API_CONTENT_TYPE", "application/json"),
   },
 };
 

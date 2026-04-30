@@ -38,9 +38,9 @@ export default defineConfig({
 });
 ```
 
-| Plugin               | Description                                                 |
-| -------------------- | ----------------------------------------------------------- |
-| `env`                | Bridges import.meta.env into @stackra/ts-support Env class  |
+| Plugin               | Description                                                  |
+| -------------------- | ------------------------------------------------------------ |
+| `env`                | Bridges import.meta.env into @stackra/ts-support Env class   |
 | `typeGen`            | Generates EnvKey union type from .env files for autocomplete |
 | `decoratorDiscovery` | Build-time decorator scanning and virtual module generation  |
 | `ngrok`              | Ngrok tunnel for sharing the dev server                      |
@@ -66,7 +66,13 @@ export default defineConfig({
 import { defineConfig, createDefaults } from '@stackra/vite-config';
 
 // Plugin factories (standalone usage)
-import { decoratorDiscovery, ngrok, qrcode, env, typeGen } from '@stackra/vite-config';
+import {
+  decoratorDiscovery,
+  ngrok,
+  qrcode,
+  env,
+  typeGen,
+} from '@stackra/vite-config';
 ```
 
 ## License

@@ -58,6 +58,7 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@stackra/ts-container": "workspace:*",
     "collect.js": "^4.36.1"
   },
   "peerDependencies": {
@@ -78,7 +79,7 @@
     "@stackra/typescript-config": "^1.0.10",
     "@types/node": "^25.6.0",
     "@vitest/ui": "^4.1.5",
-    "eslint": "^9.28.0",
+    "eslint": "^10.2.1",
     "eslint-plugin-turbo": "^2.9.6",
     "husky": "^9.1.7",
     "jiti": "^2.6.1",
@@ -92,19 +93,12 @@
     "vitest": "^4.1.5"
   },
   "engines": {
-    "node": ">=22",
-    "pnpm": ">=9.0.0"
+    "node": ">=22.22.2",
+    "pnpm": ">=10"
   },
   "packageManager": "pnpm@10.33.2",
   "publishConfig": {
     "access": "public"
-  },
-  "pnpm": {
-    "overrides": {
-      "eslint": "^10.2.1",
-      "vite": "^7.2.6",
-      "@eslint/js": "^9.28.0"
-    }
   },
   "stackra": {
     "publish": {
