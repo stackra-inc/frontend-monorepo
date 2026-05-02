@@ -1,0 +1,29 @@
+{
+  "welcome": "Bienvenue",
+  "greeting": "Bonjour!",
+  "goodbye": "Au revoir!",
+  "app_name": "Application ACME",
+  "language": "Langue",
+  "switch_language": "Changer de langue",
+  "current_locale": "Langue actuelle",
+  "translate_keys": "Traduire les clés",
+  "demo_title": "Démo i18n",
+  "demo_description": "Internationalisation avec détection de la langue, changement de langue et hooks de traduction.",
+  "hello_user": "Bonjour, {{name}}!",
+  "items_count": "Vous avez {{count}} élément(s)",
+  "nav": {
+    "home": "Accueil",
+    "about": "À propos",
+    "docs": "Documentation",
+    "demos": "Démos",
+    "pricing": "Tarifs"
+  },
+  "actions": {
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "submit": "Soumettre",
+    "reset": "Réinitialiser"
+  }
+}

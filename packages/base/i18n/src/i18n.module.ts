@@ -53,7 +53,7 @@
  * ```
  */
 
-import { Module, type DynamicModule } from '@stackra/ts-container';
+import { Module, type DynamicModule, type OnModuleInit } from '@stackra/ts-container';
 
 import type { I18nModuleOptions } from '@/interfaces/i18n-module-options.interface';
 import {
@@ -78,10 +78,26 @@ import { createLocaleResolverChain } from '@/utils/create-locale-resolver-chain.
 import { I18nextService } from '@/services/i18next.service';
 import { I18nService } from '@/services/i18n.service';
 import { LocaleMiddleware } from '@/middleware/locale.middleware';
+import { bootI18nGlobals } from '@/utils/global-setup.util';
 
 @Module({})
-// biome-ignore lint/complexity/noStaticOnlyClass: Module pattern requires static methods
-export class I18nModule {
+export class I18nModule implements OnModuleInit {
+  /*
+  |--------------------------------------------------------------------------
+  | Lifecycle
+  |--------------------------------------------------------------------------
+  */
+
+  /**
+   * Called by the DI container after all providers are instantiated.
+   *
+   * Registers `t()`, `__()`, and `trans()` as global functions on
+   * `globalThis` so they can be used without imports.
+   */
+  onModuleInit(): void {
+    bootI18nGlobals();
+  }
+
   /*
   |--------------------------------------------------------------------------
   | forRoot

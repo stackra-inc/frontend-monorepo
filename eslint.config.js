@@ -29,6 +29,7 @@ export default [
       "**/Pods/",
       "**/.expo/",
       "**/.docs/",
+      "**/.stackra/",
       "pnpm-lock.yaml",
     ],
   },

@@ -36,13 +36,14 @@
  * ```
  */
 
-import type { I18nModuleOptions } from "@stackra/react-i81n";
+import type { I18nModuleOptions } from "@stackra/react-i18n";
 
 /**
  * Default i18n configuration.
  *
- * Provides sensible defaults for most applications. Override individual
- * properties as needed when passing to `I18nModule.forRoot()`.
+ * Translation resources are loaded separately in app.module.ts
+ * via i18nextOptions.resources to avoid Node.js JSON import issues
+ * with the config plugin.
  */
 const i18nConfig: I18nModuleOptions = {
   /*

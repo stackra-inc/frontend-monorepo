@@ -1,0 +1,29 @@
+{
+  "welcome": "مرحباً",
+  "greeting": "أهلاً!",
+  "goodbye": "مع السلامة!",
+  "app_name": "تطبيق ACME",
+  "language": "اللغة",
+  "switch_language": "تغيير اللغة",
+  "current_locale": "اللغة الحالية",
+  "translate_keys": "ترجمة المفاتيح",
+  "demo_title": "عرض الترجمة",
+  "demo_description": "دعم تعدد اللغات مع اكتشاف اللغة وتبديلها وخطافات الترجمة.",
+  "hello_user": "مرحباً، {{name}}!",
+  "items_count": "لديك {{count}} عنصر(عناصر)",
+  "nav": {
+    "home": "الرئيسية",
+    "about": "حول",
+    "docs": "التوثيق",
+    "demos": "العروض",
+    "pricing": "الأسعار"
+  },
+  "actions": {
+    "save": "حفظ",
+    "cancel": "إلغاء",
+    "delete": "حذف",
+    "edit": "تعديل",
+    "submit": "إرسال",
+    "reset": "إعادة تعيين"
+  }
+}

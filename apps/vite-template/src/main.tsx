@@ -18,15 +18,17 @@
 
 import "reflect-metadata";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, ScrollRestoration } from "@stackra/react-router";
 import { Application } from "@stackra/ts-container";
-import { ContainerProvider } from "@stackra/ts-container";
+import { ContainerProvider } from "@stackra/ts-container/react";
 import { Facade } from "@stackra/ts-support";
+import { bootI18nGlobals } from "@stackra/react-i18n";
 
 import { Provider } from "./provider";
 import App from "./App";
 
-import { AppModule } from "@/lib/app.module";
+// NOTE: AppModule is imported dynamically in bootstrap() to ensure
+// env() globals are available when config files are evaluated
 import "@/styles/globals.css";
 
 /*
@@ -47,14 +49,29 @@ window.addEventListener("beforeinstallprompt", (e) => {
  * Bootstrap the DI container, then render the React app.
  */
 async function bootstrap() {
+  console.log("[Bootstrap] Starting application bootstrap...");
+
+  // Dynamically import AppModule to ensure env() globals are available
+  // when config files are evaluated. Static imports at the top of this file
+  // would be evaluated before the virtual:stackra-env-boot module runs.
+  const { AppModule } = await import("@/lib/app.module");
+
   // Application.create() bootstraps the DI container and registers
   // the app globally — ContainerProvider works without a context prop.
   const app: Application = await Application.create(AppModule);
+
+  console.log("[Bootstrap] Application created:", app);
 
   // Wire all facades to the bootstrapped application.
   // After this call, every XxxFacade.proxy() and XxxFacade.instance
   // resolves from the DI container without needing explicit injection.
   Facade.setApplication(app);
+
+  console.log("[Bootstrap] Facades wired to application");
+
+  // Register i18n global functions (t, __, trans) on globalThis.
+  // Must be called after DI bootstrap so i18next is initialized with resources.
+  bootI18nGlobals();
 
   /*
   |--------------------------------------------------------------------------
@@ -65,9 +82,12 @@ async function bootstrap() {
     document.body.classList.add("is-electron");
   }
 
+  console.log("[Bootstrap] Rendering React app...");
+
   ReactDOM.createRoot(document.getElementById("root")!).render(
     <BrowserRouter>
-      <ContainerProvider>
+      <ContainerProvider context={app}>
+        <ScrollRestoration restoreDelay={50} smoothScroll={false} />
         <Provider>
           <App />
         </Provider>
@@ -93,4 +113,6 @@ async function bootstrap() {
   });
 }
 
-bootstrap().catch(console.error);
+bootstrap().catch((error) => {
+  console.error("[Bootstrap] Failed to bootstrap application:", error);
+});

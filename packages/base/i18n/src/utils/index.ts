@@ -7,7 +7,7 @@
  * - {@link __}, {@link t}, {@link trans} — Translation functions
  * - {@link changeLanguage}, {@link getLanguage}, {@link getLanguages} — Language management
  * - {@link addResources} — Runtime resource injection
- * - {@link setupGlobalI18n}, {@link teardownGlobalI18n} — Global registration
+ * - {@link bootI18nGlobals} — Register globals via GlobalRegistry
  *
  * Build-time (Vite plugin):
  * - {@link validateConfig} — Plugin configuration validation
@@ -16,7 +16,6 @@
  * - {@link buildI18nextConfig} — i18next configuration builder
  * - {@link generateTypeDefinitions} — TypeScript definition generator
  * - {@link resolvePath}, {@link normalizePaths} — Path resolution
- * - {@link generateVirtualModule} — Vite virtual module code generator
  *
  * Resolver:
  * - {@link createLocaleResolverChain} — Locale resolver chain factory
@@ -35,9 +34,7 @@ export {
   getLanguage,
   getLanguages,
   addResources,
-  isGlobalI18nSetup,
-  setupGlobalI18n,
-  teardownGlobalI18n,
+  bootI18nGlobals,
 } from './global-setup.util';
 
 // ── Build-time utilities (Vite plugin) ─────────────────────────────────────
@@ -48,7 +45,6 @@ export { scanTranslationFiles } from './file-scanner.util';
 export { buildI18nextConfig } from './config-builder.util';
 export { generateTypeDefinitions } from './type-generator.util';
 export { resolvePath, normalizePaths } from './resolve-paths.util';
-export { generateVirtualModule } from './virtual-module-generator.util';
 
 // ── Locale resolver chain ──────────────────────────────────────────────────
 

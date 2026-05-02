@@ -27,38 +27,8 @@
 
 import type { Plugin } from 'vite';
 
-// ============================================================================
-// Types
-// ============================================================================
-
-/**
- * Configuration options for the support-env plugin.
- */
-export interface ISupportEnvPluginOptions {
-  /**
-   * Whether to call `bootGlobals()` after setting the repository.
-   *
-   * When `true`, all built-in global helpers (`env()`, `collect()`,
-   * `tap()`, `filled()`, etc.) are installed on `globalThis`.
-   *
-   * @default true
-   */
-  bootGlobals?: boolean;
-
-  /**
-   * Additional environment variable prefixes to expose.
-   *
-   * By default, Vite only exposes variables prefixed with `VITE_`.
-   * This option does NOT change Vite's behavior — it's a reminder
-   * that only `VITE_*` variables are available in client code.
-   *
-   * For server-side code (SSR), all `process.env` variables are
-   * available regardless of prefix.
-   *
-   * @default []
-   */
-  envPrefixes?: string[];
-}
+import type { ISupportEnvPluginOptions } from '@/interfaces/support-env-plugin-options.interface';
+export type { ISupportEnvPluginOptions } from '@/interfaces/support-env-plugin-options.interface';
 
 // ============================================================================
 // Virtual Module
@@ -146,10 +116,6 @@ export function env(options: ISupportEnvPluginOptions = {}): Plugin {
   return {
     name: '@stackra/support-env',
 
-    /**
-     * Resolve the virtual module ID.
-     * Returns the resolved ID only for our virtual module.
-     */
     resolveId(id: string) {
       if (id === VIRTUAL_MODULE_ID) {
         return RESOLVED_VIRTUAL_MODULE_ID;
@@ -157,10 +123,6 @@ export function env(options: ISupportEnvPluginOptions = {}): Plugin {
       return null;
     },
 
-    /**
-     * Load the virtual module source code.
-     * Generates the bootstrap code that bridges import.meta.env → Env.
-     */
     load(id: string) {
       if (id === RESOLVED_VIRTUAL_MODULE_ID) {
         return generateBootModule(shouldBoot);
@@ -168,25 +130,13 @@ export function env(options: ISupportEnvPluginOptions = {}): Plugin {
       return null;
     },
 
-    /**
-     * Transform the app's entry HTML to include the virtual module.
-     *
-     * Injects a `<script>` tag that imports the virtual module before
-     * the application code, ensuring Env is configured first.
-     */
-    transformIndexHtml() {
-      return [
-        {
-          tag: 'script',
-          attrs: { type: 'module', src: VIRTUAL_MODULE_ID },
-          injectTo: 'head-prepend' as const,
-        },
-      ];
+    transform(code: string, id: string) {
+      if (/\/src\/main\.tsx?$/.test(id)) {
+        return `import "${VIRTUAL_MODULE_ID}";\n${code}`;
+      }
+      return null;
     },
 
-    /**
-     * For SSR / non-HTML entry points, configure the env prefix.
-     */
     config(_config, { command: _command }) {
       return {
         envPrefix: options.envPrefixes?.length ? [...options.envPrefixes, 'VITE_'] : undefined,

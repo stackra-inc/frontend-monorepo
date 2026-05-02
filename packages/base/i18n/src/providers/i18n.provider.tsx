@@ -10,9 +10,13 @@
  * 2. Switches i18next to the resolved locale
  * 3. Sets `document.dir` and `document.documentElement.lang` automatically
  * 4. Listens for language change events to keep state and document in sync
+ * 5. Wraps children with React Aria's `I18nProvider` for component-level
+ *    direction awareness (HeroUI, React Aria components)
  *
  * RTL languages (Arabic, Hebrew, Farsi, Urdu, etc.) are detected automatically
  * and the document direction is updated without any manual callback.
+ * React Aria components (and HeroUI) automatically receive the correct
+ * locale and direction via the nested `ReactAriaI18nProvider`.
  *
  * @module providers/i18n
  *
@@ -30,7 +34,8 @@
  */
 
 import React, { useEffect, useState, useMemo, useCallback } from 'react';
-import { useInject } from '@stackra/ts-container';
+import { useInject } from '@stackra/ts-container/react';
+import { I18nProvider as ReactAriaI18nProvider } from '@react-aria/i18n';
 
 import { I18N_SERVICE } from '@/constants';
 import { I18nContext } from '@/contexts/i18n.context';
@@ -169,28 +174,33 @@ export const I18nProvider: React.FC<I18nProviderProps> = ({ service: serviceProp
   |
   */
   useEffect(() => {
-    service.onLanguageChanged((newLocale) => {
+    const unsubscribe = service.onLanguageChanged((newLocale) => {
       setLocale(newLocale);
 
       // Auto-update document direction on every language change
       updateDocumentDirection(newLocale, service.isRTL());
     });
+
+    return unsubscribe;
   }, [service]);
 
   /*
   |--------------------------------------------------------------------------
   | changeLocale callback
   |--------------------------------------------------------------------------
+  |
+  | Only calls service.changeLocale() — the onLanguageChanged listener
+  | above handles updating React state and document direction to avoid
+  | double-setting locale and potential render loops.
+  |
   */
   const changeLocale = useCallback(
     async (language: string): Promise<void> => {
       try {
         setError(null);
         await service.changeLocale(language);
-        setLocale(language);
-
-        // Auto-update document direction
-        updateDocumentDirection(language, service.isRTL());
+        // Note: setLocale() and updateDocumentDirection() are handled
+        // by the onLanguageChanged listener — no need to call them here.
       } catch (err) {
         const changeError = err instanceof Error ? err : new Error(String(err));
         setError(changeError);
@@ -222,7 +232,11 @@ export const I18nProvider: React.FC<I18nProviderProps> = ({ service: serviceProp
     [service, locale, changeLocale, isLoading, error]
   );
 
-  return <I18nContext.Provider value={value}>{children}</I18nContext.Provider>;
+  return (
+    <I18nContext.Provider value={value}>
+      <ReactAriaI18nProvider locale={locale}>{children}</ReactAriaI18nProvider>
+    </I18nContext.Provider>
+  );
 };
 
 export default I18nProvider;

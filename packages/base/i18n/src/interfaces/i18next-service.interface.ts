@@ -103,5 +103,5 @@ export interface II18nextService {
    * });
    * ```
    */
-  onLanguageChanged?(callback: (language: string) => void, language?: string): void;
+  onLanguageChanged?(callback: (language: string) => void, language?: string): () => void;
 }

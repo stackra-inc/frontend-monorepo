@@ -273,15 +273,19 @@ export class I18nService implements II18nService {
    * Register a callback for language change events.
    *
    * @param callback - Function invoked with the new language code
+   * @returns Unsubscribe function to remove the listener
    *
    * @example
    * ```typescript
-   * i18n.onLanguageChanged((lang) => {
+   * const unsubscribe = i18n.onLanguageChanged((lang) => {
    *   document.documentElement.lang = lang;
    * });
+   *
+   * // Later: clean up
+   * unsubscribe();
    * ```
    */
-  onLanguageChanged(callback: (language: string) => void): void {
-    this.i18nextService.onLanguageChanged?.(callback);
+  onLanguageChanged(callback: (language: string) => void): () => void {
+    return this.i18nextService.onLanguageChanged?.(callback) ?? (() => {});
   }
 }

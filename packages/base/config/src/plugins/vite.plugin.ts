@@ -2,8 +2,12 @@
  * Vite Plugin for Config Package
  *
  * Serves configuration via a virtual module (`virtual:@stackra/ts-config`)
- * with full HMR support. Merges Vite's `loadEnv()` output with scanned
- * `.config.ts` files and exposes the result as an importable module.
+ * with full HMR support. Scans `.config.ts` files and exposes the result
+ * as an importable module.
+ *
+ * Environment variables are accessed at runtime via the global `env()`
+ * helper or `Env` class from `@stackra/ts-support` — they are not
+ * bundled into the virtual module.
  *
  * This plugin is a thin adapter — it wires Vite lifecycle hooks to
  * utility functions that handle validation, scanning, building, and
@@ -13,7 +17,7 @@
  *
  * ```
  * vite.config.ts
- *   └── viteConfigPlugin({ env: loadEnv(...) })
+ *   └── configPlugin({ scanConfigFiles: true })
  *         ├── configResolved → validatePluginConfig + buildPluginConfig
  *         ├── resolveId/load → serves virtual module
  *         ├── transformIndexHtml → injects window.__APP_CONFIG__ fallback
@@ -30,7 +34,7 @@ import { Str } from '@stackra/ts-support';
 import { validatePluginConfig } from '@/utils/validate-plugin-config.util';
 import { generateVirtualModule } from '@/utils/generate-virtual-module.util';
 import { buildPluginConfig, type BuildResult } from '@/utils/build-plugin-config.util';
-import type { ViteConfigPluginOptions } from '@/interfaces/vite-config-plugin-options.interface';
+import type { ConfigPluginOptions } from '@/interfaces/config-plugin-options.interface';
 
 /**
  * Virtual module ID that consumers import from.
@@ -60,24 +64,19 @@ const RESOLVED_VIRTUAL_MODULE_ID = `\0${VIRTUAL_MODULE_ID}`;
  *
  * @example
  * ```typescript
- * import { defineConfig, loadEnv } from 'vite';
- * import { viteConfigPlugin } from '@stackra/ts-config/vite-plugin';
+ * import { defineConfig } from 'vite';
+ * import { configPlugin } from '@stackra/ts-config/vite';
  *
- * export default defineConfig(({ mode }) => {
- *   const env = loadEnv(mode, 'environments', '');
- *
- *   return {
- *     plugins: [
- *       viteConfigPlugin({
- *         env,
- *         scanConfigFiles: true,
- *       }),
- *     ],
- *   };
+ * export default defineConfig({
+ *   plugins: [
+ *     configPlugin({
+ *       scanConfigFiles: true,
+ *     }),
+ *   ],
  * });
  * ```
  */
-export function viteConfigPlugin(options?: Partial<ViteConfigPluginOptions>): Plugin {
+export function configPlugin(options?: Partial<ConfigPluginOptions>): Plugin {
   const config = validatePluginConfig(options);
 
   /**
@@ -142,7 +141,9 @@ export function viteConfigPlugin(options?: Partial<ViteConfigPluginOptions>): Pl
      * import the virtual module directly.
      */
     transformIndexHtml() {
-      if (!buildResult) return [];
+      if (!buildResult) {
+        return [];
+      }
 
       return [
         {

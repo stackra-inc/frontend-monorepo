@@ -11,27 +11,8 @@
 import type { Plugin, PreviewServer, ViteDevServer } from 'vite';
 import qr from 'qrcode-terminal';
 
-// ============================================================================
-// Types
-// ============================================================================
-
-/**
- * Configuration options for the QR code Vite plugin.
- */
-export interface IQRCodePluginOptions {
-  /** Optional filter to select which network URLs should display QR codes */
-  filter?: (url: string) => boolean;
-  /** Use compact QR code output for smaller terminal display (default: true) */
-  small?: boolean;
-  /** Custom message displayed above QR codes (default: "Visit page on mobile:") */
-  message?: string;
-  /** Whether to generate QR codes for localhost URLs (default: false) */
-  showLocal?: boolean;
-  /** Enable or disable colored terminal output for URLs (default: true) */
-  colored?: boolean;
-  /** Suppress all QR code output (default: false) */
-  quiet?: boolean;
-}
+export type { IQRCodePluginOptions } from '@/interfaces/qrcode-plugin-options.interface';
+import type { IQRCodePluginOptions } from '@/interfaces/qrcode-plugin-options.interface';
 
 // ============================================================================
 // Internal Utilities
@@ -116,9 +97,20 @@ async function displayQRCodes(
     if (options.quiet) return;
 
     const networkUrls = server.resolvedUrls?.network;
-    if (!networkUrls || networkUrls.length === 0) return;
+    const localUrls = server.resolvedUrls?.local;
 
-    const filteredUrls = filterNetworkUrls(networkUrls, {
+    if (!networkUrls || networkUrls.length === 0) {
+      if (!localUrls || localUrls.length === 0) {
+        return;
+      }
+      if (!options.showLocal) {
+        return;
+      }
+    }
+
+    // Combine network + local URLs for filtering
+    const allUrls = [...(networkUrls ?? []), ...(localUrls ?? [])];
+    const filteredUrls = filterNetworkUrls(allUrls, {
       filter: options.filter,
       showLocal: options.showLocal,
     });

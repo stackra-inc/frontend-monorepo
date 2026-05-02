@@ -10,7 +10,7 @@
     "paths": {
       "@/*": ["./src/*"]
     },
-    "types": ["@stackra/ts-support/@types"],
+    "types": ["@stackra/ts-support/@types", "@stackra/react-i18n/@types"],
 
     /* Bundler mode */
     "moduleResolution": "bundler",
@@ -26,6 +26,5 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": ["src", ".stackra", "vite.config.ts"]
 }

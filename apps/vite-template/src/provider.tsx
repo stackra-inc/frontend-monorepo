@@ -20,6 +20,7 @@
 import * as React from "react";
 
 import { Navbar } from "@/components/navbar";
+import { I18nProvider } from "@stackra/react-i18n";
 
 /*
 |--------------------------------------------------------------------------
@@ -48,13 +49,15 @@ export function Provider({ children }: ProviderProps) {
   return (
     // <SlotProvider>
     // <PwaProvider>
-    <div className="relative flex h-screen flex-col">
-      <Navbar />
-      <main className="container mx-auto max-w-7xl grow px-6 pt-16">{children}</main>
-      <footer className="flex w-full items-center justify-center py-3">
-        <span className="text-muted text-sm">Stackra © {new Date().getFullYear()}</span>
-      </footer>
-    </div>
+    <I18nProvider>
+      <div className="relative flex h-screen flex-col">
+        <Navbar />
+        <main className="container mx-auto max-w-7xl grow px-6 pt-16">{children}</main>
+        <footer className="flex w-full items-center justify-center py-3">
+          <span className="text-muted text-sm">Stackra © {new Date().getFullYear()}</span>
+        </footer>
+      </div>
+    </I18nProvider>
     // </PwaProvider>
     // </SlotProvider>
   );

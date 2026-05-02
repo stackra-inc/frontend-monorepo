@@ -103,8 +103,6 @@ export { LocaleResolverPriority } from './enums';
 
 export {
   FILE_NAME_PATTERNS,
-  DEFAULT_PLUGIN_OPTIONS,
-  DEFAULT_I18NEXT_CONFIG,
   TRANSLATION_FILE_PATTERNS,
   TRANSLATION_FILE_EXTENSIONS,
   I18N_CONFIG,
@@ -130,17 +128,7 @@ export {
   getLanguage,
   getLanguages,
   addResources,
-  setupGlobalI18n,
-  teardownGlobalI18n,
-  mergeDeep,
-  deepClone,
-  scanTranslationFiles,
-  buildI18nextConfig,
-  resolvePath,
-  normalizePaths,
-  validateConfig,
-  generateVirtualModule,
-  generateTypeDefinitions,
+  bootI18nGlobals,
   createLocaleResolverChain,
 } from './utils';
 
@@ -154,7 +142,7 @@ export {
   StorageLocaleResolver,
   NavigatorLocaleResolver,
   AcceptLanguageLocaleResolver,
-} from './resolvers/index';
+} from './resolvers';
 
 export type {
   UrlPathLocaleResolverOptions,
@@ -162,14 +150,10 @@ export type {
   StorageLocaleResolverOptions,
   NavigatorLocaleResolverOptions,
   AcceptLanguageLocaleResolverOptions,
-} from './resolvers/index';
+} from './resolvers';
 
 // ============================================================================
 // Middleware
 // ============================================================================
 
 export { LocaleMiddleware } from './middleware';
-
-// ============================================================================
-// Adapters — use '@stackra/react-i18n/vite' for the Vite plugin
-// ============================================================================

@@ -1,0 +1,29 @@
+{
+  "welcome": "Welcome",
+  "greeting": "Hello!",
+  "goodbye": "Goodbye!",
+  "app_name": "ACME Application",
+  "language": "Language",
+  "switch_language": "Switch Language",
+  "current_locale": "Current Locale",
+  "translate_keys": "Translate Keys",
+  "demo_title": "i18n Demo",
+  "demo_description": "Internationalization with locale detection, language switching, and translation hooks.",
+  "hello_user": "Hello, {{name}}!",
+  "items_count": "You have {{count}} item(s)",
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "docs": "Documentation",
+    "demos": "Demos",
+    "pricing": "Pricing"
+  },
+  "actions": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "submit": "Submit",
+    "reset": "Reset"
+  }
+}

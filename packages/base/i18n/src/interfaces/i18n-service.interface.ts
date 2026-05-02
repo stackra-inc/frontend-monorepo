@@ -209,5 +209,5 @@ export interface II18nService {
    * });
    * ```
    */
-  onLanguageChanged(callback: (language: string) => void): void;
+  onLanguageChanged(callback: (language: string) => void): () => void;
 }

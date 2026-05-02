@@ -15,7 +15,7 @@
  *   ├── constructor(config) → calls initializeI18next()
  *   ├── translate(), changeLocale(), getLocale()
  *   ├── getLanguages(), addResources(), onLanguageChanged()
- *   └── static getInstance(), static isInitialized()
+ *   └── static isInitialized()
  * ```
  *
  * @module services/i18next
@@ -54,28 +54,9 @@ import type { I18nextConfig } from '@/interfaces/i18next-config.interface';
 export class I18nextService implements II18nextService {
   /*
   |--------------------------------------------------------------------------
-  | Static — Instance Access
+  | Static — Initialization Check
   |--------------------------------------------------------------------------
   */
-
-  /**
-   * Get the current i18next singleton.
-   *
-   * Returns the module-level i18next instance regardless of whether it
-   * has been initialized. Check {@link isInitialized} first if timing
-   * is uncertain.
-   *
-   * @returns The i18next instance
-   *
-   * @example
-   * ```typescript
-   * const instance = I18nextService.getInstance();
-   * const lang = instance.language;
-   * ```
-   */
-  static getInstance(): typeof i18next {
-    return i18next;
-  }
 
   /**
    * Check whether i18next has been initialized and is ready for use.
@@ -279,20 +260,31 @@ export class I18nextService implements II18nextService {
    *
    * @param callback - Function invoked with the new language code
    * @param language - Optional language filter
+   * @returns Unsubscribe function to remove the listener
    *
    * @example
    * ```typescript
-   * service.onLanguageChanged((lang) => {
+   * const unsubscribe = service.onLanguageChanged((lang) => {
    *   document.documentElement.lang = lang;
    * });
+   *
+   * // Later: clean up
+   * unsubscribe();
    * ```
    */
-  onLanguageChanged(callback: (language: string) => void, language?: string): void {
-    this.i18n.on('languageChanged', (lng: string) => {
+  onLanguageChanged(callback: (language: string) => void, language?: string): () => void {
+    const handler = (lng: string) => {
       if (!language || lng === language) {
         callback(lng);
       }
-    });
+    };
+
+    this.i18n.on('languageChanged', handler);
+
+    // Return unsubscribe function
+    return () => {
+      this.i18n.off('languageChanged', handler);
+    };
   }
 
   /*
